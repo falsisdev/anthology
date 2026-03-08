@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "scrapers": [
        {
-      "id": "netmirror",
-      "name": "NetMirror",
+      "id": "com.mooncrown04.netmirror",
+      "name": "Nuviotr NetMirror",
       "description": "Streaming links from netmirror. Automatically disabled on iOS due to compatibility issues.",
       "version": "1.0.2",
       "author": "Nuvio Team",
@@ -12,7 +12,7 @@
         "movie",
         "tv"
       ],
-      "filename": "providers/netmirror.js",
+      "url": "https://raw.githubusercontent.com/mooncrown04/nuviotr/main/netmirror.js"
       "enabled": true,
       "logo": "https://net2025.cc/favicon.ico",
       "contentLanguage": [
