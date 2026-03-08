@@ -1,12 +1,12 @@
 // NetMirror Scraper for Nuvio Local Scrapers
 // React Native compatible version - No async/await for sandbox compatibility
 // Fetches streaming links from net2025.cc for Netflix, Prime Video, and Disney+ content
-// const NETMIRROR_BASE = 'https://net2025.cc/';
+
 console.log('[NetMirror] Initializing NetMirror provider');
 
 // Constants
 const TMDB_API_KEY = "439c478a771f35c05022f9feabcca01c";
-const NETMIRROR_BASE = 'https://net22.cc/';
+const NETMIRROR_BASE = 'https://net2025.cc/';
 const BASE_HEADERS = {
     'X-Requested-With': 'XMLHttpRequest',
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
