@@ -6,7 +6,7 @@ console.log('[NetMirror] Initializing NetMirror provider');
 
 // Constants
 const TMDB_API_KEY = "439c478a771f35c05022f9feabcca01c";
-const NETMIRROR_BASE = 'https://net2025.cc/';
+const NETMIRROR_BASE = 'https://net22.cc/';
 const BASE_HEADERS = {
     'X-Requested-With': 'XMLHttpRequest',
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
@@ -395,11 +395,11 @@ function getStreamingLinks(contentId, title, platform) {
                             }
                             pathOnly = pathOnly.replace('/tv/', '/');
                             if (!pathOnly.startsWith('/')) pathOnly = '/' + pathOnly;
-                            fullUrl = 'https://net50.cc' + pathOnly;
+                            fullUrl = 'https://net22.cc' + pathOnly;
                         } catch (e) {
                             let pathOnly = fullUrl.replace('/tv/', '/');
                             if (!pathOnly.startsWith('/')) pathOnly = '/' + pathOnly;
-                            fullUrl = 'https://net50.cc' + pathOnly;
+                            fullUrl = 'https://net22.cc' + pathOnly;
                         }
                     } else {
                         // Default: resolve relative or protocol-relative against net2025
@@ -690,8 +690,8 @@ function getStreams(tmdbId, mediaType = 'movie', seasonNum = null, episodeNum = 
                                 const isNfOrPv = lowerPlatform === 'netflix' || lowerPlatform === 'primevideo';
                                 const streamHeaders = {
                                     "Accept": "application/vnd.apple.mpegurl, video/mp4, */*",
-                                    "Origin": isNfOrPv ? "https://net50.cc" : "https://net2025.cc",
-                                    "Referer": isNfOrPv ? "https://net50.cc/" : "https://net2025.cc/tv/home",
+                                    "Origin": isNfOrPv ? "https://net22.cc" : "https://net22.cc",
+                                    "Referer": isNfOrPv ? "https://net22.cc/" : "https://net22.cc/tv/home",
                                     "Cookie": "hd=on",
                                     "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 26_0_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/138.0.7204.156 Mobile/15E148 Safari/604.1"
                                 };
