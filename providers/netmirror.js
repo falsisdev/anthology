@@ -62,7 +62,7 @@ async function loadLinks(data) {
         return [];
     }
 }
-
+console.log("[NetMirror] TEST: Fonksiyon tetiklendi!");
 async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
     try {
         console.log('[NetMirror] İşlem başladı. ID:', tmdbId);
