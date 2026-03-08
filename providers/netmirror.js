@@ -6,7 +6,7 @@ console.log('[NetMirror] Initializing NetMirror provider');
 
 // Constants
 const TMDB_API_KEY = "439c478a771f35c05022f9feabcca01c";
-const NETMIRROR_BASE = 'https://net2025.cc/';
+const NETMIRROR_BASE = 'https://net52.cc/';
 const BASE_HEADERS = {
     'X-Requested-With': 'XMLHttpRequest',
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
@@ -134,7 +134,7 @@ function searchContent(query, platform) {
                 headers: {
                     ...BASE_HEADERS,
                     'Cookie': cookieString,
-                    'Referer': `${NETMIRROR_BASE}/tv/home`
+                    'Referer': `${NETMIRROR_BASE}/home`
                 }
             }
         );
@@ -195,7 +195,7 @@ function getEpisodesFromSeason(seriesId, seasonId, platform, page) {
                     headers: {
                         ...BASE_HEADERS,
                         'Cookie': cookieString,
-                        'Referer': `${NETMIRROR_BASE}/tv/home`
+                        'Referer': `${NETMIRROR_BASE}/home`
                     }
                 }
             ).then(function (response) {
@@ -258,7 +258,7 @@ function loadContent(contentId, platform) {
                 headers: {
                     ...BASE_HEADERS,
                     'Cookie': cookieString,
-                    'Referer': `${NETMIRROR_BASE}/tv/home`
+                    'Referer': `${NETMIRROR_BASE}/home`
                 }
             }
         );
@@ -339,7 +339,7 @@ function getStreamingLinks(contentId, title, platform) {
     
     return bypass().then(function (cookie) {
         const cookies = {
-            't_hash_t': cookie,
+            't_hash_t': 'd753a3a2f2aa85e0abb7e334574ffc31%3A%3A0c69f152f07d0f5e9f7555b314c88029%3A%3A1772982973%3A%3Artd753a3a2f2aa85e0abb7e334574ffc31%3A%3A0c69f152f07d0f5e9f7555b314c88029%3A%3A1772982973%3A%3Art',
             'ott': ott,
             'hd': 'on'
         };
@@ -363,7 +363,7 @@ function getStreamingLinks(contentId, title, platform) {
                 headers: {
                     ...BASE_HEADERS,
                     'Cookie': cookieString,
-                    'Referer': `${NETMIRROR_BASE}/tv/home`
+                    'Referer': `${NETMIRROR_BASE}/home`
                 }
             }
         );
@@ -395,11 +395,11 @@ function getStreamingLinks(contentId, title, platform) {
                             }
                             pathOnly = pathOnly.replace('/tv/', '/');
                             if (!pathOnly.startsWith('/')) pathOnly = '/' + pathOnly;
-                            fullUrl = 'https://net50.cc' + pathOnly;
+                            fullUrl = 'https://net52.cc' + pathOnly;
                         } catch (e) {
                             let pathOnly = fullUrl.replace('/tv/', '/');
                             if (!pathOnly.startsWith('/')) pathOnly = '/' + pathOnly;
-                            fullUrl = 'https://net50.cc' + pathOnly;
+                            fullUrl = 'https://net52.cc' + pathOnly;
                         }
                     } else {
                         // Default: resolve relative or protocol-relative against net2025
@@ -690,8 +690,8 @@ function getStreams(tmdbId, mediaType = 'movie', seasonNum = null, episodeNum = 
                                 const isNfOrPv = lowerPlatform === 'netflix' || lowerPlatform === 'primevideo';
                                 const streamHeaders = {
                                     "Accept": "application/vnd.apple.mpegurl, video/mp4, */*",
-                                    "Origin": isNfOrPv ? "https://net50.cc" : "https://net2025.cc",
-                                    "Referer": isNfOrPv ? "https://net50.cc/" : "https://net2025.cc/tv/home",
+                                    "Origin": isNfOrPv ? "https://net52.cc" : "https://net52.cc",
+                                    "Referer": isNfOrPv ? "https://net52.cc/" : "https://net52.cc/home",
                                     "Cookie": "hd=on",
                                     "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 26_0_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/138.0.7204.156 Mobile/15E148 Safari/604.1"
                                 };
