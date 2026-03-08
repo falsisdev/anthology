@@ -3,7 +3,6 @@
 // Fetches streaming links from net2025.cc for Netflix, Prime Video, and Disney+ content
 
 console.log('[NetMirror] Initializing NetMirror provider');
-
 // Constants
 const TMDB_API_KEY = "439c478a771f35c05022f9feabcca01c";
 const NETMIRROR_BASE = 'https://net22.cc/';
