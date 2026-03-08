@@ -2,6 +2,25 @@
   "name": "Tapframe's Repo",
   "version": "1.0.0",
   "scrapers": [
+       {
+      "id": "netmirror",
+      "name": "NetMirror",
+      "description": "Streaming links from netmirror. Automatically disabled on iOS due to compatibility issues.",
+      "version": "1.0.2",
+      "author": "Nuvio Team",
+      "supportedTypes": [
+        "movie",
+        "tv"
+      ],
+      "filename": "providers/netmirror.js",
+      "enabled": true,
+      "logo": "https://net2025.cc/favicon.ico",
+      "contentLanguage": [
+        "en"
+      ],
+      "disabledPlatforms": ["ios"],
+      "supportsExternalPlayer": false
+    },
     {
       "id": "4khdhub",
       "name": "4KHDHub",
@@ -133,27 +152,6 @@
       "contentLanguage": [
         "en"
       ]
-    },
-    {
-      "id": "netmirror",
-      "name": "NetMirror",
-      "description": "Streaming links from netmirror. Automatically disabled on iOS due to compatibility issues.",
-      "version": "1.0.2",
-      "author": "Nuvio Team",
-      "supportedTypes": [
-        "movie",
-        "tv"
-      ],
-      "filename": "providers/netmirror.js",
-      "enabled": true,
-      "logo": "https://net2025.cc/favicon.ico",
-      "contentLanguage": [
-        "en"
-      ],
-      "disabledPlatforms": [
-        "ios"
-      ],
-      "supportsExternalPlayer": false
     },
     {
       "id": "vidsrc",
