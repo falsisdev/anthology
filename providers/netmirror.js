@@ -109,12 +109,17 @@ function searchContent(query, platform) {
     const ott = ottMap[platform.toLowerCase()] || 'nf';
     
     return bypass().then(function (cookie) {
-        const cookies = {
-            't_hash_t': cookie,
-            'user_token': '233123f803cf02184bf6c67e149cdd50',
-            'hd': 'on',
-            'ott': ott
-        };
+   const cookies = {
+    // 1. Senin bulduğun UZUN kod buraya gelecek:
+    't_hash_t': 'd753a3a2f2aa85e0abb7e334574ffc31%3A%3A0c69f152f07d0f5e9f7555b314c88029%3A%3A1772982973%3A%3Art',
+    
+    // 2. Bu kısa kod eski sistemden kalma, olduğu gibi bırakabilirsin 
+    // veya içini boşaltıp deniyebilirsin (genelde t_hash_t varsa buna bakmaz):
+    'user_token': '233123f803cf02184bf6c67e149cdd50', 
+    
+    'hd': 'on',
+    'ott': ott // Bu değer videonun özel kimliğidir, ona dokunma
+};
 
         const cookieString = Object.entries(cookies)
             .map(([key, value]) => `${key}=${value}`)
@@ -135,7 +140,7 @@ function searchContent(query, platform) {
                 headers: {
                     ...BASE_HEADERS,
                     'Cookie': cookieString,
-                    'Referer': `${NETMIRROR_BASE}/home`
+                    'Referer': `${NETMIRROR_BASE}/tv/home`
                 }
             }
         );
@@ -197,7 +202,7 @@ function getEpisodesFromSeason(seriesId, seasonId, platform, page) {
                     headers: {
                         ...BASE_HEADERS,
                         'Cookie': cookieString,
-                        'Referer': `${NETMIRROR_BASE}/home`
+                        'Referer': `${NETMIRROR_BASE}/tv/home`
                     }
                 }
             ).then(function (response) {
@@ -261,7 +266,7 @@ function loadContent(contentId, platform) {
                 headers: {
                     ...BASE_HEADERS,
                     'Cookie': cookieString,
-                    'Referer': `${NETMIRROR_BASE}/home`
+                    'Referer': `${NETMIRROR_BASE}/tv/home`
                 }
             }
         );
@@ -361,7 +366,7 @@ function getStreamingLinks(contentId, title, platform) {
                 headers: {
                     ...BASE_HEADERS,
                     'Cookie': cookieString,
-                    'Referer': `${NETMIRROR_BASE}/home`
+                    'Referer': `${NETMIRROR_BASE}/tv/home`
                 }
             }
         );
@@ -665,7 +670,7 @@ function getStreams(tmdbId, mediaType = 'movie', seasonNum = null, episodeNum = 
                                 const streamHeaders = {
                                     "Accept": "application/vnd.apple.mpegurl, video/mp4, */*",
                                     "Origin": isNfOrPv ? "https://net52.cc" : "https://net52.cc",
-                                    "Referer": isNfOrPv ? "https://net52.cc/" : "https://net52.cc/home",
+                                    "Referer": isNfOrPv ? "https://net52.cc/" : "https://net52.cc/tv/home",
                                     "Cookie": "hd=on",
                                     "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 26_0_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/138.0.7204.156 Mobile/15E148 Safari/604.1"
                                 };
