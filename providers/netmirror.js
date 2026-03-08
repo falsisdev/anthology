@@ -1,14 +1,14 @@
 /**
- * NetMirror Provider - net22.cc Özel Versiyon
+ * NetMirror - net22.cc & net50.cc Güncel Sürüm
  * TMDB Key: 1b3113663c9004682ed61086cf967c44
  */
 
 var MAIN_URL = 'https://net22.cc';
-var NEW_URL = 'https://net52.cc';
+var NEW_URL = 'https://net50.cc'; // Senin belirttiğin güncel adres
 var TMDB_KEY = '1b3113663c9004682ed61086cf967c44';
 
 var CONFIG = {
-    token: "", // Varsa t_hash_t buraya eklenebilir
+    token: "", 
     timestamp: 0
 };
 
@@ -25,17 +25,17 @@ function getHeaders(mediaType) {
 async function loadLinks(data) {
     try {
         var ts = Math.floor(Date.now() / 1000);
+        // net22 playlist sorgusu
         var url = MAIN_URL + '/playlist.php?id=' + data.id + '&t=' + encodeURIComponent(data.title) + '&tm=' + ts;
 
-        // LOG: Sorgulanan playlist adresi
-        console.log('[NetMirror] Playlist Sorgulanıyor: ' + url);
+        console.log('[NetMirror-Check] Sorgulanıyor: ' + url);
 
         var res = await fetch(url, { headers: getHeaders(data.type), timeout: 8000 });
         var text = await res.text();
 
-        // KRİTİK KONTROL: HTML gelirse ExoPlayer'a göndermiyoruz
+        // HTML kontrolü (Erişim engeli varsa loga düşer)
         if (!text || text.trim().startsWith('<')) {
-            console.error('[NetMirror] HATA: ' + MAIN_URL + ' üzerinden JSON yerine HTML döndü. (Erişim Engeli veya Token Geçersiz)');
+            console.error('[NetMirror-Check] HATA: ' + MAIN_URL + ' JSON yerine HTML döndü.');
             return [];
         }
 
@@ -43,40 +43,41 @@ async function loadLinks(data) {
         var item = Array.isArray(json) ? json[0] : json;
 
         if (!item || !item.sources) {
-            console.log('[NetMirror] Kaynak bulunamadı: ' + data.title);
+            console.log('[NetMirror-Check] Kaynak bulunamadı.');
             return [];
         }
 
         return item.sources.map(function(s) {
             var videoUrl = s.file;
+            // Link tam değilse net50.cc ekliyoruz
             if (!videoUrl.startsWith('http')) {
                 videoUrl = NEW_URL + (videoUrl.startsWith('/') ? '' : '/') + videoUrl;
             }
 
-            // LOG: Bulunan final link
-            console.log('[NetMirror] Video Linki Bulundu: ' + videoUrl);
+            // LOG: Final link net50 olarak basılacak
+            console.log('[NetMirror-Check] Final Video Linki (net50): ' + videoUrl);
 
             return {
-                name: 'NetMirror (net22)',
+                name: 'NetMirror (net50)',
                 url: videoUrl,
                 quality: s.label || 'HD',
                 type: videoUrl.includes('.m3u8') ? 'hls' : 'video',
                 headers: {
                     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) ExoPlayer',
-                    'Referer': NEW_URL + '/',
-                    'Cookie': 'hd=on'
+                    'Referer': MAIN_URL + '/',
+                    'Origin': MAIN_URL
                 }
             };
         });
     } catch (e) {
-        console.error('[NetMirror] Link Yükleme Hatası: ' + e.message);
+        console.error('[NetMirror-Check] Playlist Hatası: ' + e.message);
         return [];
     }
 }
 
 async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
     try {
-        console.log('[NetMirror] İşlem Başlatıldı. TMDB ID: ' + tmdbId);
+        console.log('[NetMirror-Check] Başladı. TMDB ID: ' + tmdbId);
         
         var tmdbType = (mediaType === 'movie') ? 'movie' : 'tv';
         var tmdbUrl = 'https://api.themoviedb.org/3/' + tmdbType + '/' + tmdbId + '?language=tr-TR&api_key=' + TMDB_KEY;
@@ -85,32 +86,24 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
         var tmdbData = await tmdbRes.json();
         var title = tmdbData.title || tmdbData.name;
 
-        if (!title) {
-            console.error('[NetMirror] TMDB başlığı alınamadı.');
-            return [];
-        }
+        if (!title) return [];
 
-        // LOG: Arama başlatılan başlık
+        // Arama net22 üzerinden
         var searchUrl = MAIN_URL + '/search.php?s=' + encodeURIComponent(title) + '&t=' + Math.floor(Date.now()/1000);
-        console.log('[NetMirror] net22 üzerinde aranıyor: ' + title + ' | URL: ' + searchUrl);
+        console.log('[NetMirror-Check] net22 Arama: ' + title);
         
         var searchRes = await fetch(searchUrl, { headers: getHeaders(mediaType), timeout: 8000 });
         var searchText = await searchRes.text();
 
         if (!searchText || searchText.trim().startsWith('<')) {
-            console.error('[NetMirror] Arama başarısız: ' + MAIN_URL + ' HTML döndürdü.');
+            console.error('[NetMirror-Check] Arama sırasında net22 HTML döndü.');
             return [];
         }
 
         var searchData = JSON.parse(searchText);
         var results = searchData.searchResult || [];
 
-        if (results.length === 0) {
-            console.log('[NetMirror] net22 üzerinde sonuç bulunamadı.');
-            return [];
-        }
-
-        console.log('[NetMirror] Sonuç bulundu, playlist çekiliyor...');
+        if (results.length === 0) return [];
 
         return await loadLinks({
             id: results[0].id,
@@ -119,12 +112,11 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
         });
 
     } catch (err) {
-        console.error('[NetMirror] getStreams Hatası: ' + err.message);
+        console.error('[NetMirror-Check] getStreams Hatası: ' + err.message);
         return [];
     }
 }
 
-// Global scope tanımı
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { getStreams: getStreams };
 } else {
