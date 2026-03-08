@@ -110,15 +110,10 @@ function searchContent(query, platform) {
     
     return bypass().then(function (cookie) {
    const cookies = {
-    // 1. Senin bulduğun UZUN kod buraya gelecek:
-    't_hash_t': 'd753a3a2f2aa85e0abb7e334574ffc31%3A%3A0c69f152f07d0f5e9f7555b314c88029%3A%3A1772982973%3A%3Art',
-    
-    // 2. Bu kısa kod eski sistemden kalma, olduğu gibi bırakabilirsin 
-    // veya içini boşaltıp deniyebilirsin (genelde t_hash_t varsa buna bakmaz):
-    'user_token': '233123f803cf02184bf6c67e149cdd50', 
-    
+       't_hash_t': cookie,
+    'user_token': '233123f803cf02184bf6c67e149cdd50',     
     'hd': 'on',
-    'ott': ott // Bu değer videonun özel kimliğidir, ona dokunma
+    'ott': ott 
 };
 
         const cookieString = Object.entries(cookies)
