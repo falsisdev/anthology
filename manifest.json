@@ -12,7 +12,7 @@
         "movie",
         "tv"
       ],
-      "url": "https://raw.githubusercontent.com/mooncrown04/nuviotr/main/netmirror.js",
+      "filename": "providers/netmirror.js",
       "enabled": true,
       "logo": "https://net2025.cc/favicon.ico",
       "contentLanguage": [
