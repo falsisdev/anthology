@@ -58,7 +58,7 @@ function bypass() {
             throw new Error('Max bypass attempts reached');
         }
         
-        return makeRequest(`${NETMIRROR_BASE}/tv/p.php`, {
+        return makeRequest(`${NETMIRROR_BASE}/p.php`, {
             method: 'POST',
             headers: BASE_HEADERS
         }).then(function (response) {
@@ -353,7 +353,7 @@ function getStreamingLinks(contentId, title, platform) {
             .join('; ');
 
         // Use the working URL structure from Kotlin version
-        const playlistUrl = `${NETMIRROR_BASE}/tv/playlist.php`;
+        const playlistUrl = `${NETMIRROR_BASE}/playlist.php`;
 
         return makeRequest(
             `${playlistUrl}?id=${contentId}&t=${encodeURIComponent(title)}&tm=${getUnixTime()}`,
