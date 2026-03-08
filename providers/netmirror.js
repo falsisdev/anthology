@@ -1,15 +1,15 @@
 /**
  * NetMirror Provider
- * Fixed: TMDB Fetch & Global Export
+ * Status: Function Export OK | Logic: Kotlin-based
  */
 
 var MAIN_URL = 'https://net22.cc';
 var NEW_URL = 'https://net52.cc';
-var TMDB_API_KEY = '4ef0d7355d9ffb5151e987764708ce96';
+var TMDB_KEY = '4ef0d7355d9ffb5151e987764708ce96';
 
-// Kotlin Storage Mantığı
+// ÖNEMLİ: t_hash_t değerini güncel tutun
 var CONFIG = {
-    token: "TOKEN_BURAYA_GELECEK", // Tarayıcıdan alınan t_hash_t
+    token: "BURAYA_TARAYICIDAN_ALDIGIN_T_HASH_T_GELECEK", 
     timestamp: Date.now()
 };
 
@@ -24,15 +24,15 @@ function getHeaders(mediaType) {
     };
 }
 
-// Playlist çözücü (Kotlin loadLinks uyarlaması)
 async function loadLinks(data) {
     try {
         var parsed = typeof data === 'string' ? JSON.parse(data) : data;
         var ts = Math.floor(Date.now() / 1000);
+        // Kotlin: Dizini platforma göre ayarla
         var path = (parsed.type === 'movie') ? '/mobile/hs' : '/pv';
         var url = NEW_URL + path + '/playlist.php?id=' + parsed.id + '&t=' + encodeURIComponent(parsed.title) + '&tm=' + ts;
 
-        console.log('[NetMirror] Loading Links:', url);
+        console.log('[NetMirror] Linkler çekiliyor:', url);
 
         var res = await fetch(url, { headers: getHeaders(parsed.type) });
         var json = await res.json();
@@ -48,7 +48,7 @@ async function loadLinks(data) {
             return {
                 name: 'NetMirror',
                 url: videoUrl,
-                quality: s.label,
+                quality: s.label || 'HD',
                 type: 'hls',
                 headers: {
                     'User-Agent': 'Mozilla/5.0 (Android) ExoPlayer',
@@ -58,40 +58,40 @@ async function loadLinks(data) {
             };
         });
     } catch (e) {
-        console.error('[NetMirror] LoadLinks Error:', e.message);
+        console.error('[NetMirror] Link hatası:', e.message);
         return [];
     }
 }
 
-// Ana Giriş Fonksiyonu
 async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
     try {
-        console.log('[NetMirror] Starting for ID:', tmdbId);
+        console.log('[NetMirror] İşlem başladı. ID:', tmdbId);
         
         var tmdbType = (mediaType === 'movie') ? 'movie' : 'tv';
-        var tmdbUrl = 'https://api.themoviedb.org/3/' + tmdbType + '/' + tmdbId + '?language=tr-TR&api_key=' + TMDB_API_KEY;
+        var tmdbUrl = 'https://api.themoviedb.org/3/' + tmdbType + '/' + tmdbId + '?language=tr-TR&api_key=' + TMDB_KEY;
 
-        // TMDB Verisi Çekme
         var tmdbRes = await fetch(tmdbUrl);
         var tmdbData = await tmdbRes.json();
         var title = tmdbData.title || tmdbData.name;
 
-        if (!title) {
-            console.log('[NetMirror] TMDB Title not found');
-            return [];
-        }
+        if (!title) return [];
 
-        console.log('[NetMirror] Search Title:', title);
+        console.log('[NetMirror] Arama terimi:', title);
 
-        // NetMirror Araması
-        var searchUrl = MAIN_URL + '/mobile/hs/search.php?s=' + encodeURIComponent(title) + '&t=' + Math.floor(Date.now()/1000);
+        // NetMirror Search API (Kotlin: /search.php)
+        var searchPath = (mediaType === 'movie') ? '/mobile/hs' : '/pv';
+        var searchUrl = MAIN_URL + searchPath + '/search.php?s=' + encodeURIComponent(title) + '&t=' + Math.floor(Date.now()/1000);
+        
         var searchRes = await fetch(searchUrl, { headers: getHeaders(mediaType) });
         var searchData = await searchRes.json();
         
         var results = searchData.searchResult || [];
-        if (results.length === 0) return [];
+        if (results.length === 0) {
+            console.log('[NetMirror] Sonuç bulunamadı.');
+            return [];
+        }
 
-        // En iyi eşleşmeyi al ve linkleri yükle
+        // İlk sonucu al ve linkleri çöz
         return await loadLinks({
             id: results[0].id,
             title: results[0].t,
@@ -99,12 +99,12 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
         });
 
     } catch (err) {
-        console.error('[NetMirror] Fatal Error:', err.message);
+        console.error('[NetMirror] Kritik Hata:', err.message);
         return [];
     }
 }
 
-// SineWix örneğindeki gibi Export bloğu (Loglardaki hatayı çözen kısım)
+// SineWix örneğindeki çalışan export yapısı
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { getStreams: getStreams };
 } else {
