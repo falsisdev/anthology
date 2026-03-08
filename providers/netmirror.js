@@ -86,3 +86,8 @@ function loadLinks(contentId, title, platformType) {
         return [];
     });
 }
+// Kodun en altına ekle:
+module.exports = {
+    getStreams: getStreams,   // Uygulama bunu arıyor
+    loadLinks: loadLinks      // Linkleri çözmek için bu da lazım
+};
