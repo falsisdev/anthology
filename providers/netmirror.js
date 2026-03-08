@@ -1,93 +1,123 @@
-// NetMirror Scraper - Kotlin Mantığıyla Güncellendi
-const NETMIRROR_BASE = 'https://net22.cc';
-const NEW_URL = 'https://net52.cc'; // Kotlin'deki newUrl
+/**
+ * NetMirror CloudStream/Nuvio Provider
+ * Kotlin & SineWix Mantığıyla Optimize Edilmiştir
+ */
 
-// Kotlin Storage Mantığı: Cookie ve Zaman Damgası
-let nf_cookie = "senin_t_hash_t_degerin"; // Buraya tarayıcıdan aldığın t_hash_t gelmeli
-let nf_cookie_timestamp = Date.now();
-const COOKIE_EXPIRY = 15 * 60 * 60 * 1000; // 15 Saat (Kotlin uyumlu)
+var MAIN_URL = 'https://net22.cc';
+var NEW_URL = 'https://net52.cc';
+var API_KEY = '4ef0d7355d9ffb5151e987764708ce96'; // TMDB API Key
 
-// 1. KOTLİN getCookie() UYARLAMASI
-function getAuthHeaders(platformType) {
-    // Platforma göre OTT parametresi (Kotlin'deki gibi: pv, hs, nf)
-    let ott = "nf"; 
-    if (platformType === "PrimeVideo") ott = "pv";
-    if (platformType === "JioHotstar") ott = "hs";
+// Kotlin Storage ve Cookie Mantığı
+var CONFIG = {
+    token: "senin_t_hash_t_tokenini_buraya_yaz", // Tarayıcıdan alınan t_hash_t
+    timestamp: Date.now(),
+    expiry: 15 * 60 * 60 * 1000 // 15 Saat
+};
 
-    // Zaman aşımı kontrolü (Kotlin clearCookie mantığı)
-    const now = Date.now();
-    if (now - nf_cookie_timestamp > COOKIE_EXPIRY) {
-        console.log("[NetMirror] LOG: Cookie süresi doldu, yenilenmeli!");
-        // Burada gerekirse otomatik temizleme yapılabilir
-    }
-
+/**
+ * Platforma göre header ve çerez ayarlarını yapar
+ */
+function getHeaders(type) {
+    var ott = (type === 'movie') ? 'nf' : 'pv'; // Kotlin mantığı: nf veya pv
     return {
-        'Cookie': `t_hash_t=${nf_cookie}; ott=${ott}; hd=on`,
+        'Cookie': 't_hash_t=' + CONFIG.token + '; ott=' + ott + '; hd=on',
         'User-Agent': 'Mozilla/5.0 (Android) ExoPlayer',
         'X-Requested-With': 'XMLHttpRequest',
-        'Referer': `${NETMIRROR_BASE}/home`,
-        'Accept': '*/*',
-        'Connection': 'keep-alive'
+        'Referer': MAIN_URL + '/home'
     };
 }
 
-// 2. KOTLİN loadLinks() UYARLAMASI
-function loadLinks(contentId, title, platformType) {
-    const ts = Math.floor(Date.now() / 1000);
+/**
+ * Kotlin loadLinks mantığı: Playlist URL'sini çözer
+ */
+function loadLinks(data) {
+    var parsed = JSON.parse(data);
+    var ts = Math.floor(Date.now() / 1000);
     
-    // Kotlin Farkı: Dizin Yapısı (/pv/ veya /hs/)
-    let path = "/mobile/hs"; // Default Hotstar/Jio
-    if (platformType === "PrimeVideo") path = "/pv";
-    
-    const playlistUrl = `${NEW_URL}${path}/playlist.php?id=${contentId}&t=${encodeURIComponent(title)}&tm=${ts}`;
-    
-    console.log(`[NetMirror] LOG: İstek atılıyor -> ${playlistUrl}`);
+    // Kotlin: /pv/ veya /mobile/hs/ dizin yapısı
+    var path = parsed.type === 'movie' ? '/mobile/hs' : '/pv';
+    var url = NEW_URL + path + '/playlist.php?id=' + parsed.id + '&t=' + encodeURIComponent(parsed.title) + '&tm=' + ts;
 
-    return fetch(playlistUrl, {
-        headers: getAuthHeaders(platformType)
-    })
-    .then(res => {
-        if (!res.ok) throw new Error(`HTTP Hata! Durum: ${res.status}`);
-        return res.json();
-    })
-    .then(data => {
-        const item = Array.isArray(data) ? data[0] : data;
-        if (!item || !item.sources) {
-            console.log("[NetMirror] LOG: Kaynak bulunamadı (404 riski)");
-            return [];
-        }
+    console.log('[NetMirror] Loading Links:', url);
 
-        return item.sources.map(s => {
-            // Kotlin: "${newUrl}${it.file}"
-            let videoUrl = s.file;
-            if (!videoUrl.startsWith('http')) {
-                videoUrl = `${NEW_URL}${videoUrl.startsWith('/') ? '' : '/'}${videoUrl}`;
-            }
+    return fetch(url, { headers: getHeaders(parsed.type) })
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+            var item = Array.isArray(data) ? data[0] : data;
+            if (!item || !item.sources) return [];
 
-            console.log(`[NetMirror] LOG: Video Linki Hazır -> ${s.label}`);
-
-            return {
-                name: `NetMirror (${platformType})`,
-                url: videoUrl,
-                quality: s.label,
-                type: 'hls',
-                // Kotlin getVideoInterceptor mantığı: Player'a header enjeksiyonu
-                headers: {
-                    'User-Agent': 'Mozilla/5.0 (Android) ExoPlayer',
-                    'Cookie': 'hd=on', // Kotlin Interceptor'daki zorunlu header
-                    'Referer': `${NEW_URL}/`,
-                    'Connection': 'keep-alive'
+            return item.sources.map(function(s) {
+                var videoUrl = s.file;
+                if (!videoUrl.startsWith('http')) {
+                    videoUrl = NEW_URL + (videoUrl.startsWith('/') ? '' : '/') + videoUrl;
                 }
-            };
+
+                return {
+                    name: 'NetMirror',
+                    url: videoUrl,
+                    quality: s.label,
+                    type: 'hls',
+                    headers: {
+                        'User-Agent': 'Mozilla/5.0 (Android) ExoPlayer',
+                        'Cookie': 'hd=on', // Kotlin Interceptor gereksinimi
+                        'Referer': NEW_URL + '/'
+                    }
+                };
+            });
         });
-    })
-    .catch(err => {
-        console.error(`[NetMirror] LOG: Hata oluştu -> ${err.message}`);
-        return [];
+}
+
+/**
+ * Ana Arama Fonksiyonu (Uygulamanın aradığı giriş kapısı)
+ */
+function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
+    return new Promise(function(resolve) {
+        var tmdbType = (mediaType === 'movie') ? 'movie' : 'tv';
+        var tmdbUrl = 'https://api.themoviedb.org/3/' + tmdbType + '/' + tmdbId + '?language=tr-TR&api_key=' + API_KEY;
+
+        console.log('[NetMirror] Fetching TMDB:', tmdbId);
+
+        fetch(tmdbUrl)
+            .then(function(res) { return res.json(); })
+            .then(function(data) {
+                var title = data.title || data.name || '';
+                if (!title) return resolve([]);
+
+                // Arama motoru isteği
+                var searchUrl = MAIN_URL + '/mobile/hs/search.php?s=' + encodeURIComponent(title) + '&t=' + Math.floor(Date.now()/1000);
+                
+                return fetch(searchUrl, { headers: getHeaders(mediaType) });
+            })
+            .then(function(res) { return res.json(); })
+            .then(function(searchData) {
+                var results = searchData.searchResult || [];
+                if (results.length === 0) return resolve([]);
+
+                var bestMatch = results[0];
+                // loadLinks için gerekli veriyi hazırlayıp gönderiyoruz
+                return loadLinks(JSON.stringify({
+                    id: bestMatch.id,
+                    title: bestMatch.t,
+                    type: mediaType
+                }));
+            })
+            .then(function(streams) {
+                resolve(streams || []);
+            })
+            .catch(function(err) {
+                console.error('[NetMirror] Error:', err.message);
+                resolve([]);
+            });
     });
 }
-// Kodun en altına ekle:
-module.exports = {
-    getStreams: getStreams,   // Uygulama bunu arıyor
-    loadLinks: loadLinks      // Linkleri çözmek için bu da lazım
-};
+
+/**
+ * KRİTİK: Loglardaki "function not found" hatasını çözen kısım
+ */
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { getStreams: getStreams };
+} else {
+    // Android Sandbox ortamı için global tanımlamalar
+    global.getStreams = getStreams;
+    globalThis.getStreams = getStreams;
+}
