@@ -2,25 +2,14 @@
   "name": "MoOnCrOwN",
   "version": "1.0.0",
   "scrapers": [
-       {
-      "id": "com.mooncrown04.netmirror",
-      "name": "Nuviotr NetMirror",
-      "description": "Streaming links from netmirror. Automatically disabled on iOS due to compatibility issues.",
-      "version": "1.0.2",
-      "author": "Nuvio Team",
-      "supportedTypes": [
-        "movie",
-        "tv"
-      ],
-      "url": "https://raw.githubusercontent.com/mooncrown04/nuviotr/main/netmirror.js"
-      "enabled": true,
-      "logo": "https://net2025.cc/favicon.ico",
-      "contentLanguage": [
-        "en"
-      ],
-      "disabledPlatforms": ["ios"],
-      "supportsExternalPlayer": false
-    },
+     {
+  "name": "Nuviotr NetMirror",
+  "id": "com.mooncrown04.netmirror",
+  "version": 1,
+  "author": "mooncrown04",
+  "type": "scraper",
+  "url": "https://raw.githubusercontent.com/mooncrown04/nuviotr/main/netmirror.js" 
+},
     {
       "id": "4khdhub",
       "name": "4KHDHub",
