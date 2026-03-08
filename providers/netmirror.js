@@ -1,12 +1,12 @@
 // NetMirror Scraper for Nuvio Local Scrapers
 // React Native compatible version - No async/await for sandbox compatibility
-// Fetches streaming links from net51.cc for Netflix, Prime Video, and Disney+ content
+// Fetches streaming links from net2025.cc for Netflix, Prime Video, and Disney+ content
 
 console.log('[NetMirror] Initializing NetMirror provider');
 
 // Constants
 const TMDB_API_KEY = "439c478a771f35c05022f9feabcca01c";
-const NETMIRROR_BASE = 'https://net51.cc/';
+const NETMIRROR_BASE = 'https://net2025.cc/';
 const BASE_HEADERS = {
     'X-Requested-With': 'XMLHttpRequest',
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
@@ -111,15 +111,14 @@ function searchContent(query, platform) {
     return bypass().then(function (cookie) {
         const cookies = {
             't_hash_t': cookie,
-            'user_token': '233123f803cf02184bf6c67e149cdd50',
             'hd': 'on',
             'ott': ott
         };
-
+        
         const cookieString = Object.entries(cookies)
             .map(([key, value]) => `${key}=${value}`)
             .join('; ');
-
+        
         // Platform-specific search endpoints
         const searchEndpoints = {
             'netflix': `${NETMIRROR_BASE}/search.php`,
@@ -169,15 +168,14 @@ function getEpisodesFromSeason(seriesId, seasonId, platform, page) {
     return bypass().then(function (cookie) {
         const cookies = {
             't_hash_t': cookie,
-            'user_token': '233123f803cf02184bf6c67e149cdd50',
             'ott': ott,
             'hd': 'on'
         };
-
+        
         const cookieString = Object.entries(cookies)
             .map(([key, value]) => `${key}=${value}`)
             .join('; ');
-
+        
         const episodes = [];
         let currentPage = page || 1;
         
@@ -237,15 +235,14 @@ function loadContent(contentId, platform) {
     return bypass().then(function (cookie) {
         const cookies = {
             't_hash_t': cookie,
-            'user_token': '233123f803cf02184bf6c67e149cdd50',
             'ott': ott,
             'hd': 'on'
         };
-
+        
         const cookieString = Object.entries(cookies)
             .map(([key, value]) => `${key}=${value}`)
             .join('; ');
-
+        
         // Platform-specific post endpoints
         const postEndpoints = {
             'netflix': `${NETMIRROR_BASE}/post.php`,
@@ -343,18 +340,23 @@ function getStreamingLinks(contentId, title, platform) {
     return bypass().then(function (cookie) {
         const cookies = {
             't_hash_t': cookie,
-            'user_token': '233123f803cf02184bf6c67e149cdd50',
             'ott': ott,
             'hd': 'on'
         };
-
+        
         const cookieString = Object.entries(cookies)
             .map(([key, value]) => `${key}=${value}`)
             .join('; ');
-
-        // Use the working URL structure from Kotlin version
-        const playlistUrl = `${NETMIRROR_BASE}/tv/playlist.php`;
-
+        
+        // Platform-specific playlist endpoints
+        const playlistEndpoints = {
+            'netflix': `${NETMIRROR_BASE}/tv/playlist.php`,
+            'primevideo': `${NETMIRROR_BASE}/mobile/pv/playlist.php`,
+            'disney': `${NETMIRROR_BASE}/mobile/hs/playlist.php`
+        };
+        
+        const playlistUrl = playlistEndpoints[platform.toLowerCase()] || playlistEndpoints['netflix'];
+        
         return makeRequest(
             `${playlistUrl}?id=${contentId}&t=${encodeURIComponent(title)}&tm=${getUnixTime()}`,
             {
@@ -379,10 +381,34 @@ function getStreamingLinks(contentId, title, platform) {
         playlist.forEach(item => {
             if (item.sources) {
                 item.sources.forEach(source => {
-                    // Use the working URL construction from Kotlin version
-                    let fullUrl = source.file.replace('/tv/', '/');
-                    if (!fullUrl.startsWith('/')) fullUrl = '/' + fullUrl;
-                    fullUrl = NETMIRROR_BASE + fullUrl;
+                    // Convert URLs similar to Kotlin providers
+                    let fullUrl = source.file;
+                    const lowerPlatform = (platform || '').toLowerCase();
+                    const isNfOrPv = lowerPlatform === 'netflix' || lowerPlatform === 'primevideo';
+                    if (isNfOrPv) {
+                        try {
+                            // Normalize to path-only and replace /tv/ -> /
+                            let pathOnly = fullUrl;
+                            if (pathOnly.startsWith('http')) {
+                                const u = new URL(pathOnly);
+                                pathOnly = u.pathname + u.search + u.hash;
+                            }
+                            pathOnly = pathOnly.replace('/tv/', '/');
+                            if (!pathOnly.startsWith('/')) pathOnly = '/' + pathOnly;
+                            fullUrl = 'https://net50.cc' + pathOnly;
+                        } catch (e) {
+                            let pathOnly = fullUrl.replace('/tv/', '/');
+                            if (!pathOnly.startsWith('/')) pathOnly = '/' + pathOnly;
+                            fullUrl = 'https://net50.cc' + pathOnly;
+                        }
+                    } else {
+                        // Default: resolve relative or protocol-relative against net2025
+                        if (fullUrl.startsWith('/') && !fullUrl.startsWith('//')) {
+                            fullUrl = NETMIRROR_BASE + fullUrl;
+                        } else if (fullUrl.startsWith('//')) {
+                            fullUrl = 'https:' + fullUrl;
+                        }
+                    }
 
                     sources.push({
                         url: fullUrl,
@@ -664,8 +690,8 @@ function getStreams(tmdbId, mediaType = 'movie', seasonNum = null, episodeNum = 
                                 const isNfOrPv = lowerPlatform === 'netflix' || lowerPlatform === 'primevideo';
                                 const streamHeaders = {
                                     "Accept": "application/vnd.apple.mpegurl, video/mp4, */*",
-                                    "Origin": isNfOrPv ? "https://net51.cc" : "https://net51.cc",
-                                    "Referer": isNfOrPv ? "https://net51.cc/" : "https://net51.cc/tv/home",
+                                    "Origin": isNfOrPv ? "https://net50.cc" : "https://net2025.cc",
+                                    "Referer": isNfOrPv ? "https://net50.cc/" : "https://net2025.cc/tv/home",
                                     "Cookie": "hd=on",
                                     "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 26_0_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/138.0.7204.156 Mobile/15E148 Safari/604.1"
                                 };
