@@ -110,7 +110,7 @@ function searchContent(query, platform) {
     
     return bypass().then(function (cookie) {
         const cookies = {
-            't_hash_t': cookie,
+            't_hash_t': 'd753a3a2f2aa85e0abb7e334574ffc31%3A%3A0c69f152f07d0f5e9f7555b314c88029%3A%3A1772982973%3A%3Artd753a3a2f2aa85e0abb7e334574ffc31%3A%3A0c69f152f07d0f5e9f7555b314c88029%3A%3A1772982973%3A%3Art',
             'hd': 'on',
             'ott': ott
         };
@@ -167,7 +167,7 @@ function getEpisodesFromSeason(seriesId, seasonId, platform, page) {
     
     return bypass().then(function (cookie) {
         const cookies = {
-            't_hash_t': cookie,
+            't_hash_t': 'd753a3a2f2aa85e0abb7e334574ffc31%3A%3A0c69f152f07d0f5e9f7555b314c88029%3A%3A1772982973%3A%3Artd753a3a2f2aa85e0abb7e334574ffc31%3A%3A0c69f152f07d0f5e9f7555b314c88029%3A%3A1772982973%3A%3Art',
             'ott': ott,
             'hd': 'on'
         };
@@ -234,7 +234,7 @@ function loadContent(contentId, platform) {
     
     return bypass().then(function (cookie) {
         const cookies = {
-            't_hash_t': cookie,
+            't_hash_t': 'd753a3a2f2aa85e0abb7e334574ffc31%3A%3A0c69f152f07d0f5e9f7555b314c88029%3A%3A1772982973%3A%3Artd753a3a2f2aa85e0abb7e334574ffc31%3A%3A0c69f152f07d0f5e9f7555b314c88029%3A%3A1772982973%3A%3Art',
             'ott': ott,
             'hd': 'on'
         };
