@@ -140,7 +140,7 @@ function searchContent(query, platform) {
                 headers: {
                     ...BASE_HEADERS,
                     'Cookie': cookieString,
-                    'Referer': `${NETMIRROR_BASE}/tv/home`
+                    'Referer': `${NETMIRROR_BASE}/home`
                 }
             }
         );
@@ -202,7 +202,7 @@ function getEpisodesFromSeason(seriesId, seasonId, platform, page) {
                     headers: {
                         ...BASE_HEADERS,
                         'Cookie': cookieString,
-                        'Referer': `${NETMIRROR_BASE}/tv/home`
+                        'Referer': `${NETMIRROR_BASE}/home`
                     }
                 }
             ).then(function (response) {
@@ -266,7 +266,7 @@ function loadContent(contentId, platform) {
                 headers: {
                     ...BASE_HEADERS,
                     'Cookie': cookieString,
-                    'Referer': `${NETMIRROR_BASE}/tv/home`
+                    'Referer': `${NETMIRROR_BASE}/home`
                 }
             }
         );
@@ -366,7 +366,7 @@ function getStreamingLinks(contentId, title, platform) {
                 headers: {
                     ...BASE_HEADERS,
                     'Cookie': cookieString,
-                    'Referer': `${NETMIRROR_BASE}/tv/home`
+                    'Referer': `${NETMIRROR_BASE}/home`
                 }
             }
         );
@@ -670,7 +670,7 @@ function getStreams(tmdbId, mediaType = 'movie', seasonNum = null, episodeNum = 
                                 const streamHeaders = {
                                     "Accept": "application/vnd.apple.mpegurl, video/mp4, */*",
                                     "Origin": isNfOrPv ? "https://net52.cc" : "https://net52.cc",
-                                    "Referer": isNfOrPv ? "https://net52.cc/" : "https://net52.cc/tv/home",
+                                    "Referer": isNfOrPv ? "https://net52.cc/" : "https://net52.cc/home",
                                     "Cookie": "hd=on",
                                     "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 26_0_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/138.0.7204.156 Mobile/15E148 Safari/604.1"
                                 };
