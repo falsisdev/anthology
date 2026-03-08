@@ -690,8 +690,8 @@ function getStreams(tmdbId, mediaType = 'movie', seasonNum = null, episodeNum = 
                                 const isNfOrPv = lowerPlatform === 'netflix' || lowerPlatform === 'primevideo';
                                 const streamHeaders = {
                                     "Accept": "application/vnd.apple.mpegurl, video/mp4, */*",
-                                    "Origin": isNfOrPv ? "https://net52.cc" : "https://net52.cc",
-                                    "Referer": isNfOrPv ? "https://net52.cc/" : "https://net52.cc/tv/home",
+                                  "Origin": "https://net52.cc", 
+                                  "Referer": "https://net52.cc/",
                                     "Cookie": "hd=on",
                                     "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 26_0_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/138.0.7204.156 Mobile/15E148 Safari/604.1"
                                 };
