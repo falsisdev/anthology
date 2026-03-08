@@ -1,159 +1,116 @@
-// NetMirror Scraper - Nuvio & QuickJS Optimized
+// NetMirror Scraper - CloudStream/Kotlin Logic Sync
 console.log('[NetMirror] Script baslatiliyor...');
 
-// 1. QUICKJS UYUMLULUK KORUMASI
+// 1. QUICKJS / PROCESS HATASI KORUMASI
 if (typeof process === 'undefined') {
     globalThis.process = { env: {} };
 }
 
-// 2. SABITLER VE GUNCEL DOMAIN
+// 2. DOMAIN VE AYARLAR (Kotlin'deki newUrl mantigi)
 const TMDB_API_KEY = "439c478a771f35c05022f9feabcca01c";
-const NETMIRROR_BASE = 'https://net22.cc'; // Tarayicidakiyle ayni olmali
+const MAIN_URL = 'https://net22.cc';
+const NEW_URL = 'https://net52.cc'; // Kotlin kodundaki yeni domain
 
 const BASE_HEADERS = {
     'X-Requested-With': 'XMLHttpRequest',
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
-    'Accept': 'application/json, text/plain, */*',
+    'User-Agent': 'Mozilla/5.0 (Android) ExoPlayer', // Kotlin'deki gibi ExoPlayer olarak degistirildi
+    'Accept': '*/*',
     'Connection': 'keep-alive'
 };
 
-// 3. SENIN BULDUGUN CANLI TOKEN (t_hash_t)
-// Buraya az once calistigini teyit ettigin o uzun kodu yapistir:
+// 3. KRITIK TOKEN (t_hash_t)
+// Buraya senin calisan tokenini ekle
 let globalCookie = 'd753a3a2f2aa85e0abb7e334574ffc31::898f573179e928a097f3201c608f8d90::1773008412::rt';
-const COOKIE_EXPIRY = 3153600000000; // 100 yil (Manuel tokeni korumak icin)
-let cookieTimestamp = Date.now();
 
-// 4. ISTEK YARDIMCISI (LOGLU)
 function makeRequest(url, options = {}) {
-    console.log(`[NetMirror] ISTEK -> ${url}`);
+    console.log(`[NetMirror] Istek -> ${url}`);
     return fetch(url, {
         ...options,
         headers: { ...BASE_HEADERS, ...options.headers },
         timeout: 10000
     }).then(res => {
-        if (!res.ok) {
-            console.error(`[NetMirror] HTTP HATASI: ${res.status} | URL: ${url}`);
-            throw new Error(`HTTP ${res.status}`);
-        }
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res;
     });
 }
 
-function getUnixTime() { return Math.floor(Date.now() / 1000); }
+// 4. PLAYLIST COZUCU (Kotlin loadLinks mantigi)
+function getStreamingLinks(contentId, title) {
+    const ts = Math.floor(Date.now() / 1000);
+    
+    // HATA DUZELTME: Kotlin kodunda playlist NEW_URL üzerinden çekiliyor!
+    const playlistUrl = `${NEW_URL}/playlist.php?id=${contentId}&t=${encodeURIComponent(title)}&tm=${ts}`;
+    
+    console.log(`[NetMirror] Playlist Cekiliyor: ${playlistUrl}`);
 
-// 5. AUTH/BYPASS (Sadece manuel token yoksa calisir)
-function bypass() {
-    if (globalCookie) {
-        console.log('[NetMirror] Manuel token aktif, bypass atlaniyor.');
-        return Promise.resolve(globalCookie);
-    }
-    return Promise.resolve('');
-}
-
-// 6. PLAYLIST COZUCU (Senin attigin JSON verisini isleyen kisim)
-function getStreamingLinks(contentId, title, platform) {
-    const ottMap = { 'netflix': 'nf', 'primevideo': 'pv', 'disney': 'hs' };
-    const ott = ottMap[platform.toLowerCase()] || 'nf';
-
-    return bypass().then(cookie => {
-        // Playlist URL yapisi (id=41 gibi)
-        const playlistUrl = `${NETMIRROR_BASE}/${platform === 'netflix' ? 'tv/' : 'mobile/' + platform + '/'}playlist.php?id=${contentId}&t=${encodeURIComponent(title)}&tm=${getUnixTime()}`;
-        
-        console.log(`[NetMirror] Playlist Cekiliyor (ID: ${contentId})`);
-        
-        return makeRequest(playlistUrl, {
-            headers: { 
-                'Cookie': `t_hash_t=${cookie}; ott=${ott}; hd=on`,
-                'Referer': `${NETMIRROR_BASE}/tv/home`
-            }
-        });
-    }).then(res => res.json()).then(playlistData => {
-        if (!playlistData || !playlistData[0] || !playlistData[0].sources) {
-            console.error('[NetMirror] JSON verisi bos veya hatali! Tokeni yenile.');
+    return makeRequest(playlistUrl, {
+        headers: { 
+            'Cookie': `t_hash_t=${globalCookie}; hd=on; ott=nf`,
+            'Referer': `${NEW_URL}/` // Referer NEW_URL olmali
+        }
+    }).then(res => res.json()).then(data => {
+        // Kotlin PlayList tipine gore: data dogrudan liste veya ilk eleman olabilir
+        const playlist = Array.isArray(data) ? data[0] : data;
+        if (!playlist || !playlist.sources) {
+            console.error('[NetMirror] Kaynak bulunamadi!');
             return { sources: [] };
         }
 
-        const sources = [];
-        // Senin attigin JSON yapisina gore dongu:
-        playlistData[0].sources.forEach(source => {
-            let fileUrl = source.file;
-
-            // URL DUZELTME (404 almamak icin en kritik yer)
-            if (fileUrl.startsWith('/')) {
-                // Eger /hls/41.m3u8 ise -> https://net22.cc/hls/41.m3u8 yapar
-                fileUrl = NETMIRROR_BASE.replace(/\/$/, '') + fileUrl;
-            }
-
-            console.log(`[NetMirror] Kaynak Bulundu: [${source.label}] -> ${fileUrl.substring(0, 60)}...`);
-            
-            sources.push({
-                url: fileUrl,
-                quality: source.label,
-                title: `NetMirror - ${source.label}`,
+        return {
+            sources: playlist.sources.map(s => ({
+                // HATA DUZELTME: it.file basina NEW_URL eklenmeli
+                url: s.file.startsWith('http') ? s.file : (NEW_URL + s.file),
+                quality: s.label,
+                title: `NetMirror - ${s.label}`,
                 type: 'hls'
-            });
-        });
-        return { sources };
+            }))
+        };
     });
 }
 
-// 7. ANA GIRIS (TMDB ID'den NetMirror ID'ye)
-function getStreams(tmdbId, mediaType = 'movie', season = null, episode = null) {
-    console.log(`[NetMirror] Baslatiliyor -> TMDB: ${tmdbId} | Tip: ${mediaType}`);
-    
-    // TMDB'den isim al
+// 5. ANA AKIS (Kotlin search + load mantigi)
+function getStreams(tmdbId, mediaType = 'movie') {
+    // TMDB'den isim alma
     const tmdbUrl = `https://api.themoviedb.org/3/${mediaType === 'tv' ? 'tv' : 'movie'}/${tmdbId}?api_key=${TMDB_API_KEY}&language=tr-TR`;
 
     return makeRequest(tmdbUrl).then(res => res.json()).then(tmdbData => {
         const title = mediaType === 'tv' ? tmdbData.name : tmdbData.title;
-        console.log(`[NetMirror] Aranan Baslik: ${title}`);
+        console.log(`[NetMirror] TMDB Basligi: ${title}`);
 
-        const platforms = ['netflix', 'primevideo', 'disney'];
-        
-        function tryPlatform(idx) {
-            if (idx >= platforms.length) return [];
-            const platform = platforms[idx];
+        // HATA DUZELTME: Arama MAIN_URL üzerinden yapilir
+        const searchUrl = `${MAIN_URL}/search.php?s=${encodeURIComponent(title)}&t=${Math.floor(Date.now()/1000)}`;
 
-            // Arama yap
-            const searchUrl = `${NETMIRROR_BASE}/${platform === 'netflix' ? '' : platform + '/'}search.php?s=${encodeURIComponent(title)}&t=${getUnixTime()}`;
-            
-            return bypass().then(cookie => {
-                return makeRequest(searchUrl, {
-                    headers: { 'Cookie': `t_hash_t=${cookie}; ott=nf; hd=on` }
-                });
-            }).then(res => res.json()).then(data => {
-                const results = data.searchResult || [];
-                if (results.length === 0) return tryPlatform(idx + 1);
+        return makeRequest(searchUrl, {
+            headers: { 
+                'Cookie': `t_hash_t=${globalCookie}; ott=nf; hd=on`,
+                'Referer': `${MAIN_URL}/tv/home` 
+            }
+        }).then(res => res.json()).then(data => {
+            const results = data.searchResult || [];
+            if (results.length === 0) {
+                console.log('[NetMirror] Sonuc yok.');
+                return [];
+            }
 
-                // Ilk sonucun playlist'ini cek
-                return getStreamingLinks(results[0].id, title, platform).then(streamData => {
-                    if (streamData.sources.length === 0) return tryPlatform(idx + 1);
-
-                    return streamData.sources.map(s => ({
-                        ...s,
-                        name: `NetMirror (${platform})`,
-                        headers: {
-                            "Referer": `${NETMIRROR_BASE}/`,
-                            "User-Agent": BASE_HEADERS['User-Agent'],
-                            "Cookie": "hd=on"
-                        }
-                    }));
-                });
-            }).catch(err => {
-                console.error(`[NetMirror] ${platform} Hatasi: ${err.message}`);
-                return tryPlatform(idx + 1);
+            // İlk sonucu coz (Kotlin load fonksiyonu gibi)
+            return getStreamingLinks(results[0].id, title).then(streamData => {
+                return streamData.sources.map(s => ({
+                    ...s,
+                    name: "NetMirror",
+                    headers: { 
+                        "Referer": `${NEW_URL}/`,
+                        "User-Agent": "Mozilla/5.0 (Android) ExoPlayer",
+                        "Cookie": "hd=on"
+                    }
+                }));
             });
-        }
-        return tryPlatform(0);
+        });
     }).catch(err => {
-        console.error(`[NetMirror] Genel Hata: ${err.message}`);
+        console.error(`[NetMirror] KRITIK HATA: ${err.message}`);
         return [];
     });
 }
 
-// 8. EXPORT
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { getStreams };
-} else {
-    global.getStreams = getStreams;
-}
+// EXPORT
+if (typeof module !== 'undefined' && module.exports) { module.exports = { getStreams }; }
+else { global.getStreams = getStreams; }
