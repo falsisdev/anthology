@@ -1,84 +1,117 @@
-var NET_NETFLIX = 'https://net22.cc';
-var NET_PRIME = 'http://net52.cc'; // SSL hatası için http
+/**
+ * OMNI-STREAM PROVIDER (NetMirror + SineWix Entegrasyonu)
+ * Net22, Net52 ve SineWix kaynaklarını birleştirir.
+ */
 
-var NET_HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) ExoPlayer',
-    'Referer': 'https://net22.cc/',
-    'X-Requested-With': 'XMLHttpRequest'
+// --- YAPILANDIRMA ---
+const TMDB_API_KEY = '1b3113663c9004682ed61086cf967c44'; // Senin TMDB anahtarın
+const SINEWIX_API_KEY = '9iQNC5HQwPlaFuJDkhncJ5XTJ8feGXOJatAA';
+const SINEWIX_BASE = 'https://ydfvfdizipanel.ru/public/api';
+
+const NET_MIRROR_CONFIG = {
+    net22: "https://net22.cc",
+    net52: "https://net52.cc" // Prime ve diğer içerikler için
 };
 
-function searchNetMirror(title) {
-    var ts = Math.floor(Date.now() / 1000);
-    // Arama ana sunucudan (net22) yapılır
-    var searchUrl = NET_NETFLIX + '/search.php?s=' + encodeURIComponent(title) + '&t=' + ts;
-    
-    return fetch(searchUrl, { headers: NET_HEADERS })
-        .then(function(res) { return res.json(); })
-        .then(function(data) {
-            var results = data.searchResult || [];
-            return results.length > 0 ? results[0] : null;
-        });
+// --- YARDIMCI ARAÇLAR ---
+async function resolveMediaFire(link) {
+    try {
+        const res = await fetch(link);
+        const html = await res.text();
+        const match = html.match(/href="(https:\/\/download\d+\.mediafire\.com[^"]+)"/);
+        return match ? match[1] : link;
+    } catch { return link; }
 }
 
-function fetchNetMirrorStreams(netId, mediaType, itemType) {
-    // Netflix ise net22, değilse net52 kullan
-    var isNetflix = (itemType && itemType.toLowerCase().includes('netflix'));
-    var baseUrl = isNetflix ? NET_NETFLIX : NET_PRIME;
-    
-    var isTv = (mediaType === 'tv' || mediaType === 'live');
-    var endpoint = isTv ? '/tv/playlist.php' : '/playlist.php';
-    var url = baseUrl + endpoint + '?id=' + netId;
+// --- SINEWIX KAYNAĞI ---
+async function fetchSineWix(title, type, s, e, year) {
+    try {
+        const searchRes = await fetch(`${SINEWIX_BASE}/search/${encodeURIComponent(title)}/${SINEWIX_API_KEY}`, {
+            headers: { 'hash256': '711bff4afeb47f07ab08a0b07e85d3835e739295e8a6361db77eebd93d96306b' }
+        });
+        const searchData = await searchRes.json();
+        const best = (searchData.search || []).find(i => type === 'movie' ? i.type.includes('movie') : i.type.includes('serie')) || searchData.search?.[0];
 
-    console.log('[NetMirror] Sunucu:', baseUrl, 'URL:', url);
+        if (!best) return [];
 
-    return fetch(url, { headers: NET_HEADERS })
-        .then(function(res) { return res.json(); })
-        .then(function(json) {
-            var item = Array.isArray(json) ? json[0] : json;
-            if (!item || !item.sources) return [];
+        const endpoint = type === 'movie' ? `media/detail/${best.id}` : `series/show/${best.id}`;
+        const detailRes = await fetch(`${SINEWIX_BASE}/${endpoint}/${SINEWIX_API_KEY}`);
+        const item = await detailRes.json();
 
-            return item.sources.map(function(s) {
-                var finalUrl = baseUrl + (s.file.startsWith('/') ? '' : '/') + s.file;
-                // SSL hatasını önlemek için net52 linklerini http'ye zorla
-                if (baseUrl.includes('net52')) finalUrl = finalUrl.replace('https://', 'http://');
+        let links = [];
+        if (type === 'movie') {
+            links = (item.videos || []).map(v => v.link);
+        } else {
+            const season = (item.seasons || []).find(sn => parseInt(sn.season_number) === parseInt(s));
+            const ep = (season?.episodes || []).find(en => parseInt(en.episode_number) === parseInt(e));
+            links = (ep?.videos || []).map(v => v.link);
+        }
 
-                return {
-                    name: isNetflix ? 'NetMirror (Netflix)' : 'NetMirror (Prime)',
-                    title: 'NetMirror - ' + s.label,
-                    url: finalUrl,
-                    quality: s.label || 'HD',
-                    headers: NET_HEADERS,
+        return Promise.all(links.filter(Boolean).map(async (l) => ({
+            name: l.includes('mediafire') ? 'SineWix (MF)' : 'SineWix',
+            url: l.includes('mediafire') ? await resolveMediaFire(l) : l,
+            title: `${title} (${year})`,
+            quality: 'HD',
+            headers: { 'Referer': 'https://ydfvfdizipanel.ru/' },
+            provider: 'sinewix'
+        })));
+    } catch { return []; }
+}
+
+// --- NETMIRROR (NET22/NET52) KAYNAĞI ---
+async function fetchNetMirror(title, type, s, e, year) {
+    const streams = [];
+    const platforms = ['netflix', 'primevideo', 'disney', 'apple'];
+
+    for (const platform of platforms) {
+        // Net22 ve Net52 arasında platforma göre seçim yap
+        const baseUrl = platform === 'netflix' ? NET_MIRROR_CONFIG.net22 : NET_MIRROR_CONFIG.net52;
+        
+        try {
+            // playlist.php üzerinden veri çekme mantığı
+            const searchUrl = `${baseUrl}/playlist.php?id=41&query=${encodeURIComponent(title)}`;
+            const res = await fetch(searchUrl);
+            const results = await res.json();
+
+            if (results && results.length > 0) {
+                // En uyumlu sonucu bul ve stream linklerini oluştur
+                const best = results[0];
+                streams.push({
+                    name: `NetMirror (${platform})`,
+                    url: best.url, // Mevcut url yapına göre düzenle
+                    title: `${title} S${s}E${e} [${platform.toUpperCase()}]`,
+                    quality: '1080p',
+                    headers: { 'Origin': baseUrl, 'Referer': `${baseUrl}/` },
                     provider: 'netmirror'
-                };
-            });
-        });
-}
-
-function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
-    return new Promise(function(resolve) {
-        var tmdbType = (mediaType === 'movie') ? 'movie' : 'tv';
-        var tmdbUrl = 'https://api.themoviedb.org/3/' + tmdbType + '/' + tmdbId + 
-                     '?language=tr-TR&api_key=4ef0d7355d9ffb5151e987764708ce96';
-
-        fetch(tmdbUrl)
-            .then(function(res) { return res.json(); })
-            .then(function(data) {
-                var title = data.title || data.name || '';
-                if (!title) return resolve([]);
-                
-                return searchNetMirror(title).then(function(bestMatch) {
-                    if (!bestMatch) return resolve([]);
-                    // Gelen sonucun tipine göre (Netflix/Prime) sunucu seç
-                    return fetchNetMirrorStreams(bestMatch.id, mediaType, bestMatch.type);
                 });
-            })
-            .then(function(streams) { resolve(streams || []); })
-            .catch(function() { resolve([]); });
-    });
+            }
+        } catch (err) { continue; }
+    }
+    return streams;
 }
 
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { getStreams: getStreams };
-} else {
-    global.getStreams = getStreams;
+// --- ANA FONKSİYON ---
+async function getStreams(tmdbId, mediaType, seasonNum = 1, episodeNum = 1) {
+    try {
+        const type = mediaType === 'movie' ? 'movie' : 'tv';
+        const tmdbRes = await fetch(`https://api.themoviedb.org/3/${type}/${tmdbId}?language=tr-TR&api_key=${TMDB_API_KEY}`);
+        const data = await tmdbRes.json();
+        const title = data.title || data.name;
+        const year = (data.release_date || data.first_air_date || '').substring(0, 4);
+
+        if (!title) return [];
+
+        // İki kaynağı aynı anda başlat
+        const [sineResults, netResults] = await Promise.all([
+            fetchSineWix(title, mediaType, seasonNum, episodeNum, year),
+            fetchNetMirror(title, mediaType, seasonNum, episodeNum, year)
+        ]);
+
+        return [...netResults, ...sineResults];
+    } catch (e) {
+        console.error("Kritik Hata:", e);
+        return [];
+    }
 }
+
+module.exports = { getStreams };
