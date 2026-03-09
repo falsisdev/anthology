@@ -1,21 +1,24 @@
 /**
  * Nuvio Local Scraper - FullHDFilmizlesene (.live)
- * Hata Giderme: undefined 'text' hatası için kontrol eklendi.
+ * @version 1.2
+ * Değişiklik: scx veri yapısı entegre edildi, async/await Promise'e çevrildi.
  */
 
 var cheerio = require("cheerio-without-node-native");
 
-const BASE_URL = 'https://www.fullhdfilmizlesene.live';
+const MAIN_URL = "https://www.fullhdfilmizlesene.live";
 const PROVIDER_ID = 'fullhdfilm_live';
+const VERSION = 'v1.2';
 
 const HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
-    'Accept-Language': 'tr-TR,tr;q=0.9',
-    'Referer': BASE_URL + '/'
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+    "Accept-Language": "tr-TR,tr;q=0.9",
+    "Cache-Control": "no-cache"
 };
 
-function decodeLink(encoded) {
+// K9L / Rapidvid Şifre Çözücü
+function rapidDecode(encoded) {
     try {
         if (!encoded) return null;
         var step1 = atob(encoded.split("").reverse().join(""));
@@ -26,99 +29,126 @@ function decodeLink(encoded) {
             var n = step1.charCodeAt(i) - (r.charCodeAt(0) % 5 + 1);
             output += String.fromCharCode(n);
         }
-        return atob(output);
-    } catch (e) {
-        return null;
-    }
+        var finalLink = atob(output);
+        return finalLink.includes('.m3u8') ? finalLink : finalLink + "/index.m3u8";
+    } catch (e) { return null; }
+}
+
+// Scx / ROT13 Şifre Çözücü
+function decodeSecret(s) {
+    try {
+        if (!s) return null;
+        var rotated = s.replace(/[a-zA-Z]/g, function(c) {
+            return String.fromCharCode((c <= "Z" ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26);
+        });
+        return atob(rotated);
+    } catch (e) { return null; }
 }
 
 function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
     return new Promise(function(resolve, reject) {
-        console.log('[FullHDLive] Başlatılıyor ID:', tmdbId);
+        console.log(`[FullHDLive][${VERSION}] İşlem Başladı ID:`, tmdbId);
 
         var tmdbType = mediaType === 'movie' ? 'movie' : 'tv';
         var tmdbUrl = 'https://api.themoviedb.org/3/' + tmdbType + '/' + tmdbId + 
             '?language=tr-TR&api_key=4ef0d7355d9ffb5151e987764708ce96';
 
         fetch(tmdbUrl)
-            .then(function(res) { 
-                if (!res) throw new Error('TMDB Response Undefined');
-                return res.json(); 
-            })
-            .then(function(data) {
-                var query = data.title || data.name || '';
-                if (!query) throw new Error('Film ismi bulunamadı.');
+            .then(function(res) { return res.json(); })
+            .then(function(mediaInfo) {
+                var movieTitle = mediaInfo.title || mediaInfo.name || '';
+                if (!movieTitle) throw new Error('Film ismi bulunamadı.');
                 
-                var searchUrl = BASE_URL + '/arama/' + encodeURIComponent(query);
-                console.log('[FullHDLive] Arama yapılıyor:', searchUrl);
+                var searchUrl = MAIN_URL + '/arama/' + encodeURIComponent(movieTitle);
+                console.log(`[FullHDLive][${VERSION}] Arama:`, movieTitle);
                 return fetch(searchUrl, { headers: HEADERS });
             })
-            .then(function(res) { 
-                // LOGDAKİ HATANIN ÇÖZÜMÜ BURASI:
-                if (!res || typeof res.text !== 'function') {
-                    throw new Error('Arama sayfası yanıt vermedi (Response undefined)');
-                }
-                return res.text(); 
-            })
-            .then(function(html) {
-                if (!html) throw new Error('Arama sonucu HTML boş.');
-                var $ = cheerio.load(html);
-                var movieLink = $('li.film a.tt').first();
-                var moviePath = movieLink.attr('href');
+            .then(function(res) { return res.text(); })
+            .then(function(searchHtml) {
+                var $ = cheerio.load(searchHtml);
+                var filmLink = $(".film-list li a, .film-box a, h2 a").first().attr("href");
 
-                if (!moviePath) {
-                    console.log('[FullHDLive] Sitede içerik bulunamadı.');
+                if (!filmLink) {
+                    console.log(`[FullHDLive][${VERSION}] Arama sonucu boş.`);
                     return resolve([]);
                 }
 
-                var finalUrl = moviePath.startsWith('http') ? moviePath : BASE_URL + moviePath;
-                return fetch(finalUrl, { headers: HEADERS });
+                var finalUrl = filmLink.startsWith("http") ? filmLink : MAIN_URL + filmLink;
+                console.log(`[FullHDLive][${VERSION}] Sayfa çekiliyor...`);
+                return fetch(finalUrl, { headers: Object.assign({}, HEADERS, { "Referer": MAIN_URL + '/' }) });
             })
-            .then(function(res) { 
-                if (!res || typeof res.text !== 'function') throw new Error('İçerik sayfası yanıt vermedi');
-                return res.text(); 
-            })
+            .then(function(res) { return res.text(); })
             .then(function(pageHtml) {
+                // 1. Yol: scx verisi üzerinden (Modern yol)
+                var scxMatch = /scx\s*=\s*({[\s\S]*?});/i.exec(pageHtml);
+                if (scxMatch) {
+                    console.log(`[FullHDLive][${VERSION}] scx verisi bulundu, ayrıştırılıyor...`);
+                    // Basit JSON temizliği
+                    var jsonStr = scxMatch[1].replace(/'/g, '"').replace(/(\w+):/g, '"$1":').replace(/,\s*}/g, '}');
+                    try {
+                        var data = JSON.parse(jsonStr);
+                        var token = null;
+                        if (data.proton && data.proton.sx) token = data.proton.sx.t;
+                        else if (data.atom && data.atom.sx) token = data.atom.sx.t;
+
+                        var embedUrl = decodeSecret(Array.isArray(token) ? token[0] : token);
+                        if (embedUrl) {
+                            console.log(`[FullHDLive][${VERSION}] Embed bulundu:`, embedUrl);
+                            return fetch(embedUrl, { headers: Object.assign({}, HEADERS, { "Referer": MAIN_URL + '/' }) });
+                        }
+                    } catch(e) { console.log("JSON Parse Hatası"); }
+                }
+
+                // 2. Yol: Klasik vidid yolu (Eski/Yedek yol)
                 var vidIdMatch = pageHtml.match(/vidid\s*=\s*'(.*?)'/);
-                if (!vidIdMatch) return resolve([]);
-
-                var vidId = vidIdMatch[1];
-                var apiUrl = BASE_URL + '/player/api.php?id=' + vidId + '&type=t&name=atom&get=video&format=json';
-                return fetch(apiUrl, { headers: Object.assign({}, HEADERS, { 'X-Requested-With': 'XMLHttpRequest' }) });
+                if (vidIdMatch) {
+                    var apiUrl = MAIN_URL + '/player/api.php?id=' + vidIdMatch[1] + '&type=t&get=video&format=json';
+                    return fetch(apiUrl, { headers: Object.assign({}, HEADERS, { 'X-Requested-With': 'XMLHttpRequest' }) })
+                        .then(function(r) { return r.json(); })
+                        .then(function(apiData) {
+                            var iframeMatch = (apiData.html || "").match(/src="([^"]+)"/);
+                            if (iframeMatch) return fetch(iframeMatch[1], { headers: HEADERS });
+                            throw new Error('Iframe bulunamadı');
+                        });
+                }
+                
+                throw new Error('Link yapısı tespit edilemedi');
             })
             .then(function(res) { 
-                if (!res || typeof res.json !== 'function') throw new Error('API yanıt vermedi');
-                return res.json(); 
-            })
-            .then(function(apiData) {
-                var iframeUrlMatch = (apiData.html || "").match(/src="([^"]+)"/);
-                if (!iframeUrlMatch) return resolve([]);
-
-                return fetch(iframeUrlMatch[1], { headers: HEADERS });
-            })
-            .then(function(res) { 
-                if (!res || typeof res.text !== 'function') throw new Error('Player sayfası yanıt vermedi');
+                if (!res) throw new Error('Player sayfası yanıtı undefined');
                 return res.text(); 
             })
             .then(function(playerHtml) {
-                var encryptedLink = playerHtml.match(/av\(['"]([^'"]+)['"]\)/);
-                if (!encryptedLink) return resolve([]);
+                // Şifreli linki ara (av('...') fonksiyonu)
+                var avMatch = /av\('([^']+)'\)/.exec(playerHtml);
+                var streamUrl = null;
 
-                var streamUrl = decodeLink(encryptedLink[1]);
-                if (!streamUrl) return resolve([]);
+                if (avMatch) {
+                    streamUrl = rapidDecode(avMatch[1]);
+                } else {
+                    // Şifresiz m3u8 ara
+                    var m3u8Match = /["'](https?:\/\/[^"']+\.m3u8[^"']*)["']/i.exec(playerHtml);
+                    if (m3u8Match) streamUrl = m3u8Match[1].replace(/\\/g, '');
+                }
 
+                if (!streamUrl) throw new Error('Stream URL bulunamadı');
+
+                console.log(`[FullHDLive][${VERSION}] Başarılı!`);
                 resolve([{
                     name: "⌜ FullHD Film ⌟",
                     title: "1080p Kaynak",
                     url: streamUrl,
                     quality: "1080p",
-                    headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': BASE_URL + '/' },
+                    headers: { 
+                        "User-Agent": HEADERS["User-Agent"],
+                        "Referer": MAIN_URL + "/",
+                        "Origin": MAIN_URL
+                    },
                     provider: PROVIDER_ID
                 }]);
             })
             .catch(function(err) {
-                // Loglardaki hatayı burada yakalayıp sessizce boş döndürüyoruz
-                console.error('[FullHDLive] Yakalanan Hata:', err.message);
+                console.error(`[FullHDLive][${VERSION}] Hata:`, err.message);
                 resolve([]);
             });
     });
