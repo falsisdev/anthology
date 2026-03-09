@@ -739,3 +739,9 @@ if (typeof module !== 'undefined' && module.exports) {
     // For React Native environment
     global.getStreams = getStreams;
 }
+// Test için manuel çağırma (Dosyanın en altına ekle)
+getStreams("1396", "tv", 1, 1).then(streams => {
+    console.log("Bulunan Streamler:", JSON.stringify(streams, null, 2));
+}).catch(err => {
+    console.error("Hata oluştu:", err);
+});
