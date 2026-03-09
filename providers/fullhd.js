@@ -1,35 +1,30 @@
 /**
- * Nuvio Local Scraper - FullHDFilmizlesene
- * PHP Decode ve API mantığı entegre edilmiştir.
+ * Nuvio Local Scraper - FullHDFilmizlesene (.live güncel domain)
  */
 
 var cheerio = require("cheerio-without-node-native");
 
-const BASE_URL = 'https://www.fullhdfilmizlesene.tv';
-const API_URL = 'https://www.fullhdfilmizlesene.tv/player/api.php';
+// Domain .tv yerine .live olarak güncellendi
+const BASE_URL = 'https://www.fullhdfilmizlesene.live';
 
 const HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-    'Referer': BASE_URL + '/',
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+    'Accept-Language': 'tr-TR,tr;q=0.9',
+    'Referer': BASE_URL + '/'
 };
 
-// PHP'deki decodeLink fonksiyonunun JavaScript versiyonu
+// PHP'deki decodeLink mantığının JavaScript versiyonu
 function decodeLink(encoded) {
     try {
-        // 1. Ters çevir ve Base64 çöz
         var step1 = atob(encoded.split("").reverse().join(""));
         var key = 'K9L';
         var output = '';
-
-        // 2. Key tabanlı ASCII kaydırma
         for (var i = 0; i < step1.length; i++) {
             var r = key[i % 3];
             var n = step1.charCodeAt(i) - (r.charCodeAt(0) % 5 + 1);
             output += String.fromCharCode(n);
         }
-
-        // 3. Son Base64 çözümü
         return atob(output);
     } catch (e) {
         return null;
@@ -38,69 +33,70 @@ function decodeLink(encoded) {
 
 function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
     return new Promise(function(resolve, reject) {
-        // 1. TMDB'den isim al
+        
+        // 1. TMDB'den isim alarak arama başlatma
         var tmdbUrl = 'https://api.themoviedb.org/3/' + (mediaType === 'movie' ? 'movie' : 'tv') + '/' + tmdbId + '?language=tr-TR&api_key=4ef0d7355d9ffb5151e987764708ce96';
 
         fetch(tmdbUrl)
             .then(function(res) { return res.json(); })
             .then(function(data) {
-                var query = data.name || data.title;
-                // 2. Sitede arama yap
-                return fetch(BASE_URL + '/filmizle/' + encodeURIComponent(query), { headers: HEADERS });
+                var query = data.title || data.name;
+                // .live domaini üzerinden arama yapılıyor
+                var searchUrl = BASE_URL + '/arama/' + encodeURIComponent(query);
+                return fetch(searchUrl, { headers: HEADERS });
             })
             .then(function(res) { return res.text(); })
             .then(function(html) {
                 var $ = cheerio.load(html);
-                // İlk bulduğu film linkini al
-                var firstMatch = $('li.film a.tt').first().attr('href');
-                if (!firstMatch) return resolve([]);
+                // PHP kodundaki li.film yapısına göre ilk sonucu seçme
+                var moviePath = $('li.film a.tt').first().attr('href');
+                
+                if (!moviePath) return resolve([]);
 
-                // 3. Film sayfasını çek
-                return fetch(firstMatch, { headers: HEADERS });
+                var finalMovieUrl = moviePath.startsWith('http') ? moviePath : BASE_URL + moviePath;
+                return fetch(finalMovieUrl, { headers: HEADERS });
             })
             .then(function(res) { return res.text(); })
             .then(function(pageHtml) {
-                // PHP'deki vidid ayıklama
+                // Video ID (vidid) ayıklama
                 var vidIdMatch = pageHtml.match(/vidid = '(.*?)'/);
                 if (!vidIdMatch) return resolve([]);
                 var vidId = vidIdMatch[1];
 
-                // 4. API'den video bilgilerini al (Atom ve Turbo servisleri)
-                var atomApi = API_URL + '?id=' + vidId + '&type=t&name=atom&get=video&format=json';
-                
-                return fetch(atomApi, { headers: HEADERS });
+                // API üzerinden video kaynağına erişim
+                var apiUrl = BASE_URL + '/player/api.php?id=' + vidId + '&type=t&name=atom&get=video&format=json';
+                return fetch(apiUrl, { headers: HEADERS });
             })
             .then(function(res) { return res.json(); })
-            .then(function(atomJson) {
-                // JSON içindeki HTML'den iframe/link ayıkla
-                var htmlContent = atomJson.html || "";
-                var watchUrlMatch = htmlContent.match(/src="([^"]+)"/);
-                if (!watchUrlMatch) return resolve([]);
+            .then(function(apiData) {
+                var iframeUrlMatch = (apiData.html || "").match(/src="([^"]+)"/);
+                if (!iframeUrlMatch) return resolve([]);
                 
-                var watchUrl = watchUrlMatch[1];
-                return fetch(watchUrl, { headers: HEADERS });
+                return fetch(iframeUrlMatch[1], { headers: HEADERS });
             })
             .then(function(res) { return res.text(); })
-            .then(function(watchHtml) {
-                // Şifreli linki bul: av('...')
-                var encryptedMatch = watchHtml.match(/av\(['"]([^'"]+)['"]\)/);
-                if (!encryptedMatch) return resolve([]);
+            .then(function(playerHtml) {
+                // Şifreli linki decode etme süreci
+                var encryptedLink = playerHtml.match(/av\(['"]([^'"]+)['"]\)/);
+                if (!encryptedLink) return resolve([]);
 
-                var finalUrl = decodeLink(encryptedMatch[1]);
-                if (!finalUrl) return resolve([]);
+                var streamUrl = decodeLink(encryptedLink[1]);
 
-                // Nuvio formatında döndür
-                resolve([{
-                    name: "FullHDFilm - Sunucu 1",
-                    title: "Film / Dizi",
-                    url: finalUrl,
-                    quality: "HD",
-                    headers: { 'Referer': BASE_URL + '/', 'User-Agent': HEADERS['User-Agent'] },
-                    provider: "fullhdfilm"
-                }]);
+                if (streamUrl) {
+                    resolve([{
+                        name: "FullHD Film (.live) - HD",
+                        title: "Film Kaynağı",
+                        url: streamUrl,
+                        quality: "1080p",
+                        headers: HEADERS,
+                        provider: "fullhdfilm"
+                    }]);
+                } else {
+                    resolve([]);
+                }
             })
             .catch(function(err) {
-                console.error('FullHDFilm Hata:', err);
+                console.error('[FullHDLive] Hata:', err);
                 resolve([]);
             });
     });
