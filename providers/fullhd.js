@@ -1,8 +1,7 @@
 /**
  * Nuvio Local Scraper - FullHDFilmizlesene (.live)
- * @version 2.0
- * Mimari: DiziPal/SineWix uyumlu ES5 yapısı.
- * Amaç: sayfa_hata (403/SSL) engelini aşmak.
+ * @version 2.1
+ * Hata Giderme: "property 'ok' of undefined" ve SSL Sertifika sorunları için koruma eklendi.
  */
 
 var cheerio = require("cheerio-without-node-native");
@@ -10,13 +9,11 @@ var cheerio = require("cheerio-without-node-native");
 var BASE_URL = 'https://www.fullhdfilmizlesene.live';
 var PROVIDER_ID = 'fullhdfilm_live';
 
-// SineWix/Dizipal tarzı stabil headerlar
 var HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
-    'Accept-Language': 'tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7',
     'Referer': BASE_URL + '/',
-    'Upgrade-Insecure-Requests': '1'
+    'Accept-Language': 'tr-TR,tr;q=0.9'
 };
 
 function rapidDecode(encoded) {
@@ -47,96 +44,78 @@ function decodeSecret(s) {
 
 function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
     return new Promise(function(resolve, reject) {
-        // 1. TMDB'den isim al
         var tmdbType = (mediaType === 'movie') ? 'movie' : 'tv';
         var tmdbUrl = 'https://api.themoviedb.org/3/' + tmdbType + '/' + tmdbId + '?language=tr-TR&api_key=4ef0d7355d9ffb5151e987764708ce96';
-
-        console.log('[FullHD] Baslatildi ID:', tmdbId);
 
         fetch(tmdbUrl)
             .then(function(res) { return res.json(); })
             .then(function(data) {
                 var query = data.title || data.name || '';
-                if (!query) throw new Error('tmdb_isim_yok');
-                
-                // 2. Sitede Arama Yap (DiziPal mantığı)
-                var searchUrl = BASE_URL + '/arama/' + encodeURIComponent(query);
-                return fetch(searchUrl, { headers: HEADERS });
+                if (!query) throw new Error('tmdb_name_null');
+                return fetch(BASE_URL + '/arama/' + encodeURIComponent(query), { headers: HEADERS });
             })
             .then(function(res) { 
-                if (!res.ok) throw new Error('arama_hata_' + res.status);
+                if (!res || !res.ok) throw new Error('search_failed');
                 return res.text(); 
             })
             .then(function(html) {
                 var $ = cheerio.load(html);
                 var filmLink = $(".film-list li a, .film-box a, h2 a").first().attr("href");
-                
-                if (!filmLink) {
-                    console.log('[FullHD] Aranan içerik bulunamadı.');
-                    return resolve([]);
-                }
+                if (!filmLink) return resolve([]);
 
-                // Link temizleme (SineWix mantığı)
-                var finalUrl = filmLink;
-                if (filmLink.indexOf('http') !== 0) {
-                    finalUrl = BASE_URL + (filmLink.indexOf('/') === 0 ? '' : '/') + filmLink;
-                }
-                
-                console.log('[FullHD] Hedef Sayfa:', finalUrl);
+                var finalUrl = filmLink.indexOf('http') === 0 ? filmLink : BASE_URL + (filmLink[0] === '/' ? '' : '/') + filmLink;
                 return fetch(finalUrl, { headers: HEADERS });
             })
             .then(function(res) {
-                if (!res.ok) throw new Error('sayfa_hata_' + res.status);
+                if (!res || !res.ok) throw new Error('page_failed');
                 return res.text();
             })
             .then(function(pageHtml) {
-                // Oyuncu (Player) ayıklama
-                var scxMatch = /scx\s*=\s*({[\s\S]*?});/i.exec(pageHtml);
-                if (scxMatch) {
-                    try {
-                        var jsonStr = scxMatch[1].replace(/'/g, '"').replace(/(\w+):/g, '"$1":').replace(/,\s*}/g, "}");
-                        var data = JSON.parse(jsonStr);
-                        var token = (data.proton && data.proton.sx) ? data.proton.sx.t : (data.atom && data.atom.sx ? data.atom.sx.t : null);
-                        var embedUrl = decodeSecret(Array.isArray(token) ? token[0] : token);
-                        if (embedUrl) return fetch(embedUrl, { headers: HEADERS });
-                    } catch(e) { console.log('[FullHD] SCX Parse Hatasi'); }
-                }
-
+                // VideoID üzerinden API sorgusu (Daha stabil metot)
                 var vidIdMatch = pageHtml.match(/vidid\s*=\s*'(.*?)'/);
                 if (vidIdMatch) {
                     var apiUrl = BASE_URL + '/player/api.php?id=' + vidIdMatch[1] + '&type=t&get=video&format=json';
-                    var apiHeaders = JSON.parse(JSON.stringify(HEADERS));
-                    apiHeaders['X-Requested-With'] = 'XMLHttpRequest';
-                    return fetch(apiUrl, { headers: apiHeaders })
+                    return fetch(apiUrl, { headers: Object.assign({}, HEADERS, {'X-Requested-With': 'XMLHttpRequest'}) })
                         .then(function(r) { return r.json(); })
                         .then(function(apiData) {
-                            var iframeMatch = (apiData.html || "").match(/src="([^"]+)"/);
-                            if (iframeMatch) return fetch(iframeMatch[1], { headers: HEADERS });
-                            throw new Error('iframe_bulunamadi');
+                            var iframeSrc = (apiData.html || "").match(/src="([^"]+)"/);
+                            if (iframeSrc) return fetch(iframeSrc[1], { headers: HEADERS });
+                            return null;
                         });
                 }
-                throw new Error('player_yok');
+                
+                // SCX Metodu (Yedek)
+                var scxMatch = /scx\s*=\s*({[\s\S]*?});/i.exec(pageHtml);
+                if (scxMatch) {
+                    var data = JSON.parse(scxMatch[1].replace(/'/g, '"').replace(/(\w+):/g, '"$1":').replace(/,\s*}/g, "}"));
+                    var token = (data.proton && data.proton.sx) ? data.proton.sx.t : (data.atom && data.atom.sx ? data.atom.sx.t : null);
+                    var embedUrl = decodeSecret(Array.isArray(token) ? token[0] : token);
+                    if (embedUrl) return fetch(embedUrl, { headers: HEADERS });
+                }
+                return null;
             })
-            .then(function(res) { 
-                return (res && typeof res.text === 'function') ? res.text() : null; 
+            .then(function(res) {
+                // "cannot read property ok of undefined" hatasını burada engelliyoruz
+                if (!res) throw new Error('no_embed_res'); 
+                if (typeof res.text !== 'function') return res; // Eğer zaten text geldiyse
+                return res.text();
             })
             .then(function(playerHtml) {
-                if (!playerHtml) return resolve([]);
+                if (!playerHtml || typeof playerHtml !== 'string') return resolve([]);
 
+                var streamUrl = null;
                 var avMatch = /av\('([^']+)'\)/.exec(playerHtml);
-                var streamUrl = avMatch ? rapidDecode(avMatch[1]) : null;
-
-                if (!streamUrl) {
+                if (avMatch) {
+                    streamUrl = rapidDecode(avMatch[1]);
+                } else {
                     var m3u8Match = /["'](https?:\/\/[^"']+\.m3u8[^"']*)["']/i.exec(playerHtml);
                     if (m3u8Match) streamUrl = m3u8Match[1].replace(/\\/g, "");
                 }
 
-                if (!streamUrl) throw new Error('link_ayiklanamadi');
-
-                console.log('[FullHD] Akış bulundu:', streamUrl);
+                if (!streamUrl) return resolve([]);
 
                 resolve([{
-                    name: "⌜ FullHD ⌟ | Video",
+                    name: "⌜ FullHD ⌟ | Otomatik",
                     url: streamUrl,
                     quality: "1080p",
                     headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': BASE_URL + '/' },
@@ -144,13 +123,12 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
                 }]);
             })
             .catch(function(err) {
-                console.error('[FullHD] Hata:', err.message);
+                console.error('[FullHD] Yakalanan Hata:', err.message);
                 resolve([]);
             });
     });
 }
 
-// Export yapısı (DiziPal/SineWix ile aynı)
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { getStreams: getStreams };
 } else {
