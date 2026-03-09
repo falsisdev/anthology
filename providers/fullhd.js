@@ -1,7 +1,6 @@
 /**
  * Nuvio Local Scraper - FullHDFilmizlesene (.live)
- * @version 2.3
- * Güncelleme: Kotlin kodundaki ROT13 (rtt) ve Base64 (atob) çözücüleri JS'ye uyarlandı.
+ * @version 3.0 (NetMirror Logic Integrated)
  */
 
 var cheerio = require("cheerio-without-node-native");
@@ -10,25 +9,40 @@ var BASE_URL = 'https://www.fullhdfilmizlesene.live';
 var PROVIDER_ID = 'fullhdfilm_live';
 
 var HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+    'User-Agent': 'Mozilla/5.0 (Linux; Android 11; Fire TV) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Mobile Safari/537.36',
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
-    'Referer': BASE_URL + '/',
-    'Accept-Language': 'tr-TR,tr;q=0.9'
+    'Referer': BASE_URL + '/'
 };
 
-// Kotlin'deki rtt (ROT13) fonksiyonunun JS karşılığı
-function rot13(str) {
-    return str.replace(/[a-zA-Z]/g, function(c) {
-        return String.fromCharCode((c <= "Z" ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26);
+// --- NETMIRROR BENZERLİK ALGORİTMASI ---
+function calculateSimilarity(str1, str2) {
+    if (!str1 || !str2) return 0;
+    var s1 = str1.toLowerCase().trim();
+    var s2 = str2.toLowerCase().trim();
+    if (s1 === s2) return 1;
+    
+    var words1 = s1.split(/\s+/).filter(function(w) { return w.length > 0; });
+    var words2 = s2.split(/\s+/).filter(function(w) { return w.length > 0; });
+    
+    var matches = 0;
+    words2.forEach(function(word) {
+        if (words1.indexOf(word) !== -1) matches++;
     });
+    
+    return matches / Math.max(words1.length, words2.length);
 }
 
-// Kotlin'deki atob(rtt(v)) mantığını uygulayan ana çözücü
-function decodeKotlinStyle(encoded) {
+function rot13(str) {
+    return str ? str.replace(/[a-zA-Z]/g, function(c) {
+        return String.fromCharCode((c <= "Z" ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26);
+    }) : "";
+}
+
+function decodeLink(v) {
     try {
-        if (!encoded) return null;
-        var rotated = rot13(encoded);
-        return atob(rotated).trim();
+        var r = rot13(v);
+        var decoded = atob(r).trim();
+        return (decoded.indexOf('http') === 0) ? decoded : null;
     } catch (e) { return null; }
 }
 
@@ -38,52 +52,66 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
         var tmdbUrl = 'https://api.themoviedb.org/3/' + tmdbType + '/' + tmdbId + '?language=tr-TR&api_key=4ef0d7355d9ffb5151e987764708ce96';
 
         fetch(tmdbUrl)
-            .then(function(res) { return res && res.ok ? res.json() : null; })
+            .then(function(res) { return res.json(); })
             .then(function(data) {
-                if (!data) throw new Error('tmdb_yok');
                 var query = data.title || data.name || '';
-                return fetch(BASE_URL + '/arama/' + encodeURIComponent(query), { headers: HEADERS });
+                if (!query) throw new Error('isim_yok');
+                
+                console.log('[FullHD] Aranıyor:', query);
+                return fetch(BASE_URL + '/arama/' + encodeURIComponent(query), { headers: HEADERS })
+                    .then(function(res) { return res.text(); })
+                    .then(function(html) { return { html: html, query: query }; });
             })
-            .then(function(res) { return res && res.ok ? res.text() : null; })
-            .then(function(html) {
-                if (!html) return resolve([]);
-                var $ = cheerio.load(html);
-                var filmLink = $(".film-list li a, .film-box a, h2 a").first().attr("href");
-                if (!filmLink) return resolve([]);
+            .then(function(obj) {
+                var $ = cheerio.load(obj.html);
+                var results = [];
 
-                var finalUrl = filmLink.indexOf('http') === 0 ? filmLink : BASE_URL + (filmLink[0] === '/' ? '' : '/') + filmLink;
+                // Tüm arama sonuçlarını topla
+                $(".film-list li").each(function() {
+                    var title = $(this).find(".film-name, h2").text().trim();
+                    var href = $(this).find("a").attr("href");
+                    if (title && href) {
+                        results.push({ 
+                            title: title, 
+                            href: href, 
+                            score: calculateSimilarity(title, obj.query) 
+                        });
+                    }
+                });
+
+                // Skoruna göre sırala ve en iyi eşleşmeyi al (NetMirror mantığı)
+                results.sort(function(a, b) { return b.score - a.score; });
+                var bestMatch = results[0];
+
+                if (!bestMatch || bestMatch.score < 0.4) { // %40 benzerlik barajı
+                    console.log('[FullHD] Uygun sonuç bulunamadı.');
+                    return resolve([]);
+                }
+
+                console.log('[FullHD] En iyi eşleşme:', bestMatch.title, '(Skor:', bestMatch.score + ')');
+                var finalUrl = bestMatch.href.indexOf('http') === 0 ? bestMatch.href : BASE_URL + bestMatch.href;
                 return fetch(finalUrl, { headers: HEADERS });
             })
-            .then(function(res) { return res && res.ok ? res.text() : null; })
+            .then(function(res) { return res ? res.text() : null; })
             .then(function(pageHtml) {
                 if (!pageHtml) return resolve([]);
 
                 var streams = [];
-                // Kotlin'deki scxData Regex'i
                 var scxMatch = /scx\s*=\s*({[\s\S]*?});/i.exec(pageHtml);
                 
                 if (scxMatch) {
                     try {
-                        // JSON'ı temizleyip parse edelim
-                        var rawJson = scxMatch[1].replace(/'/g, '"').replace(/(\w+):/g, '"$1":').replace(/,\s*}/g, "}");
-                        var scxData = JSON.parse(rawJson);
+                        var cleanJson = scxMatch[1].replace(/(\w+):/g, '"$1"').replace(/'/g, '"').replace(/,\s*}/g, "}");
+                        var scxData = JSON.parse(cleanJson);
+                        var keys = ["atom", "proton", "fast", "tr", "en"];
                         
-                        // Kotlin'deki anahtarları (atom, proton, vb.) sırayla kontrol et
-                        var keys = ["atom", "proton", "fast", "tr", "en", "advid"];
-                        keys.forEach(function(key) {
-                            if (scxData[key] && scxData[key].sx && scxData[key].sx.t) {
-                                var tValue = scxData[key].sx.t;
-                                var link = "";
-
-                                if (Array.isArray(tValue)) {
-                                    link = decodeKotlinStyle(tValue[0]);
-                                } else if (typeof tValue === 'string') {
-                                    link = decodeKotlinStyle(tValue);
-                                }
-
-                                if (link && link.indexOf('http') === 0) {
+                        keys.forEach(function(k) {
+                            if (scxData[k] && scxData[k].sx && scxData[k].sx.t) {
+                                var raw = scxData[k].sx.t;
+                                var link = decodeLink(Array.isArray(raw) ? raw[0] : raw);
+                                if (link) {
                                     streams.push({
-                                        name: "⌜ FullHD ⌟ | " + key.toUpperCase(),
+                                        name: "⌜ FullHD ⌟ | " + k.toUpperCase(),
                                         url: link,
                                         quality: "1080p",
                                         headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': BASE_URL + '/' },
@@ -92,9 +120,8 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
                                 }
                             }
                         });
-                    } catch (e) { console.error('[FullHD] JSON Parse Error'); }
+                    } catch (e) { }
                 }
-
                 resolve(streams);
             })
             .catch(function(err) {
