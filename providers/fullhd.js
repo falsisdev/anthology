@@ -1,7 +1,7 @@
 /**
  * Nuvio Local Scraper - FullHDFilmizlesene (.live)
- * @version 2.1
- * Hata Giderme: "property 'ok' of undefined" ve SSL Sertifika sorunları için koruma eklendi.
+ * @version 2.3
+ * Güncelleme: Kotlin kodundaki ROT13 (rtt) ve Base64 (atob) çözücüleri JS'ye uyarlandı.
  */
 
 var cheerio = require("cheerio-without-node-native");
@@ -10,35 +10,25 @@ var BASE_URL = 'https://www.fullhdfilmizlesene.live';
 var PROVIDER_ID = 'fullhdfilm_live';
 
 var HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
     'Referer': BASE_URL + '/',
     'Accept-Language': 'tr-TR,tr;q=0.9'
 };
 
-function rapidDecode(encoded) {
-    try {
-        if (!encoded) return null;
-        var step1 = atob(encoded.split("").reverse().join(""));
-        var key = "K9L";
-        var output = "";
-        for (var i = 0; i < step1.length; i++) {
-            var r = key[i % 3];
-            var n = step1.charCodeAt(i) - (r.charCodeAt(0) % 5 + 1);
-            output += String.fromCharCode(n);
-        }
-        var finalLink = atob(output);
-        return (finalLink.indexOf(".m3u8") !== -1) ? finalLink : finalLink + "/index.m3u8";
-    } catch (e) { return null; }
+// Kotlin'deki rtt (ROT13) fonksiyonunun JS karşılığı
+function rot13(str) {
+    return str.replace(/[a-zA-Z]/g, function(c) {
+        return String.fromCharCode((c <= "Z" ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26);
+    });
 }
 
-function decodeSecret(s) {
+// Kotlin'deki atob(rtt(v)) mantığını uygulayan ana çözücü
+function decodeKotlinStyle(encoded) {
     try {
-        if (!s) return null;
-        var rotated = s.replace(/[a-zA-Z]/g, function(c) {
-            return String.fromCharCode((c <= "Z" ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26);
-        });
-        return atob(rotated);
+        if (!encoded) return null;
+        var rotated = rot13(encoded);
+        return atob(rotated).trim();
     } catch (e) { return null; }
 }
 
@@ -48,17 +38,15 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
         var tmdbUrl = 'https://api.themoviedb.org/3/' + tmdbType + '/' + tmdbId + '?language=tr-TR&api_key=4ef0d7355d9ffb5151e987764708ce96';
 
         fetch(tmdbUrl)
-            .then(function(res) { return res.json(); })
+            .then(function(res) { return res && res.ok ? res.json() : null; })
             .then(function(data) {
+                if (!data) throw new Error('tmdb_yok');
                 var query = data.title || data.name || '';
-                if (!query) throw new Error('tmdb_name_null');
                 return fetch(BASE_URL + '/arama/' + encodeURIComponent(query), { headers: HEADERS });
             })
-            .then(function(res) { 
-                if (!res || !res.ok) throw new Error('search_failed');
-                return res.text(); 
-            })
+            .then(function(res) { return res && res.ok ? res.text() : null; })
             .then(function(html) {
+                if (!html) return resolve([]);
                 var $ = cheerio.load(html);
                 var filmLink = $(".film-list li a, .film-box a, h2 a").first().attr("href");
                 if (!filmLink) return resolve([]);
@@ -66,64 +54,51 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
                 var finalUrl = filmLink.indexOf('http') === 0 ? filmLink : BASE_URL + (filmLink[0] === '/' ? '' : '/') + filmLink;
                 return fetch(finalUrl, { headers: HEADERS });
             })
-            .then(function(res) {
-                if (!res || !res.ok) throw new Error('page_failed');
-                return res.text();
-            })
+            .then(function(res) { return res && res.ok ? res.text() : null; })
             .then(function(pageHtml) {
-                // VideoID üzerinden API sorgusu (Daha stabil metot)
-                var vidIdMatch = pageHtml.match(/vidid\s*=\s*'(.*?)'/);
-                if (vidIdMatch) {
-                    var apiUrl = BASE_URL + '/player/api.php?id=' + vidIdMatch[1] + '&type=t&get=video&format=json';
-                    return fetch(apiUrl, { headers: Object.assign({}, HEADERS, {'X-Requested-With': 'XMLHttpRequest'}) })
-                        .then(function(r) { return r.json(); })
-                        .then(function(apiData) {
-                            var iframeSrc = (apiData.html || "").match(/src="([^"]+)"/);
-                            if (iframeSrc) return fetch(iframeSrc[1], { headers: HEADERS });
-                            return null;
-                        });
-                }
-                
-                // SCX Metodu (Yedek)
+                if (!pageHtml) return resolve([]);
+
+                var streams = [];
+                // Kotlin'deki scxData Regex'i
                 var scxMatch = /scx\s*=\s*({[\s\S]*?});/i.exec(pageHtml);
+                
                 if (scxMatch) {
-                    var data = JSON.parse(scxMatch[1].replace(/'/g, '"').replace(/(\w+):/g, '"$1":').replace(/,\s*}/g, "}"));
-                    var token = (data.proton && data.proton.sx) ? data.proton.sx.t : (data.atom && data.atom.sx ? data.atom.sx.t : null);
-                    var embedUrl = decodeSecret(Array.isArray(token) ? token[0] : token);
-                    if (embedUrl) return fetch(embedUrl, { headers: HEADERS });
+                    try {
+                        // JSON'ı temizleyip parse edelim
+                        var rawJson = scxMatch[1].replace(/'/g, '"').replace(/(\w+):/g, '"$1":').replace(/,\s*}/g, "}");
+                        var scxData = JSON.parse(rawJson);
+                        
+                        // Kotlin'deki anahtarları (atom, proton, vb.) sırayla kontrol et
+                        var keys = ["atom", "proton", "fast", "tr", "en", "advid"];
+                        keys.forEach(function(key) {
+                            if (scxData[key] && scxData[key].sx && scxData[key].sx.t) {
+                                var tValue = scxData[key].sx.t;
+                                var link = "";
+
+                                if (Array.isArray(tValue)) {
+                                    link = decodeKotlinStyle(tValue[0]);
+                                } else if (typeof tValue === 'string') {
+                                    link = decodeKotlinStyle(tValue);
+                                }
+
+                                if (link && link.indexOf('http') === 0) {
+                                    streams.push({
+                                        name: "⌜ FullHD ⌟ | " + key.toUpperCase(),
+                                        url: link,
+                                        quality: "1080p",
+                                        headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': BASE_URL + '/' },
+                                        provider: PROVIDER_ID
+                                    });
+                                }
+                            }
+                        });
+                    } catch (e) { console.error('[FullHD] JSON Parse Error'); }
                 }
-                return null;
-            })
-            .then(function(res) {
-                // "cannot read property ok of undefined" hatasını burada engelliyoruz
-                if (!res) throw new Error('no_embed_res'); 
-                if (typeof res.text !== 'function') return res; // Eğer zaten text geldiyse
-                return res.text();
-            })
-            .then(function(playerHtml) {
-                if (!playerHtml || typeof playerHtml !== 'string') return resolve([]);
 
-                var streamUrl = null;
-                var avMatch = /av\('([^']+)'\)/.exec(playerHtml);
-                if (avMatch) {
-                    streamUrl = rapidDecode(avMatch[1]);
-                } else {
-                    var m3u8Match = /["'](https?:\/\/[^"']+\.m3u8[^"']*)["']/i.exec(playerHtml);
-                    if (m3u8Match) streamUrl = m3u8Match[1].replace(/\\/g, "");
-                }
-
-                if (!streamUrl) return resolve([]);
-
-                resolve([{
-                    name: "⌜ FullHD ⌟ | Otomatik",
-                    url: streamUrl,
-                    quality: "1080p",
-                    headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': BASE_URL + '/' },
-                    provider: PROVIDER_ID
-                }]);
+                resolve(streams);
             })
             .catch(function(err) {
-                console.error('[FullHD] Yakalanan Hata:', err.message);
+                console.error('[FullHD] Hata:', err.message);
                 resolve([]);
             });
     });
