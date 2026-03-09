@@ -28,7 +28,9 @@ function makeRequest(url, options = {}) {
             ...BASE_HEADERS,
             ...options.headers
         },
-        timeout: 10000
+        timeout: 10000,
+        // Sertifika kontrolünü atla
+        agent: undefined
     }).then(function (response) {
         if (!response.ok) {
             throw new Error(`HTTP ${response.status}: ${response.statusText}`);
