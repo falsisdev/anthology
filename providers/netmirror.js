@@ -2,7 +2,9 @@
 // React Native compatible version - No async/await for sandbox compatibility
 // Fetches streaming links from net22.cc for Netflix, Prime Video, and Disney+ content
 
-console.log('[NetMirror] Initializing NetMirror provider');
+console.log('[NetMirror] ========================================');
+console.log('[NetMirror] Version 2.0 - net22.cc / net52.cc');
+console.log('[NetMirror] ========================================');
 
 // Constants
 const TMDB_API_KEY = "439c478a771f35c05022f9feabcca01c";
@@ -28,9 +30,7 @@ function makeRequest(url, options = {}) {
             ...BASE_HEADERS,
             ...options.headers
         },
-        timeout: 10000,
-        // Sertifika kontrolünü atla
-        agent: undefined
+        timeout: 10000
     }).then(function (response) {
         if (!response.ok) {
             throw new Error(`HTTP ${response.status}: ${response.statusText}`);
