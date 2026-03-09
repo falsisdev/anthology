@@ -375,5 +375,48 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
             });
     });
 }
+// ==================== TEST KODU ====================
+// Bu kısmı dosyanın en altına, export'ların altına ekle
 
-//
+function testScraper() {
+    console.log('[TEST] Scraper test başlatılıyor...');
+    
+    // Test 1: Film
+    console.log('[TEST] Film testi: Kung Fu Panda 4');
+    getStreams('1011985', 'movie', null, null)
+        .then(function(results) {
+            console.log('[TEST] Film sonucu:', results.length, 'stream bulundu');
+            if (results.length > 0) {
+                console.log('[TEST] İlk stream:', results[0].name, results[0].url.substring(0, 50) + '...');
+            } else {
+                console.log('[TEST] HATA: Film için stream bulunamadı!');
+            }
+        })
+        .catch(function(err) {
+            console.error('[TEST] Film hatası:', err.message);
+        });
+
+    // Test 2: Dizi (örnek: The Last of Us)
+    setTimeout(function() {
+        console.log('[TEST] Dizi testi: The Last of Us S1E1');
+        getStreams('100088', 'tv', 1, 1)
+            .then(function(results) {
+                console.log('[TEST] Dizi sonucu:', results.length, 'stream bulundu');
+                if (results.length > 0) {
+                    console.log('[TEST] İlk stream:', results[0].name);
+                } else {
+                    console.log('[TEST] HATA: Dizi için stream bulunamadı!');
+                }
+            })
+            .catch(function(err) {
+                console.error('[TEST] Dizi hatası:', err.message);
+            });
+    }, 3000);
+}
+
+// Testi otomatik çalıştır (istersen bunu yorum satırı yap)
+// testScraper();
+
+// Veya manuel çalıştırmak için global'e ata
+global.testFullHD = testScraper;
+
