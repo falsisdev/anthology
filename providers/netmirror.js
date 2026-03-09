@@ -486,11 +486,16 @@ function findEpisodeId(episodes, season, episode) {
 }
 
 // Main function to get streams for TMDB content
-function getStreams(tmdbId, mediaType = 'movie', seasonNum = null, episodeNum = null) {
-    console.log(`[NetMirror] Fetching streams for TMDB ID: ${tmdbId}, Type: ${mediaType}${seasonNum ? `, S${seasonNum}E${episodeNum}` : ''}`);
+function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
+    mediaType = mediaType || 'movie';
+    seasonNum = seasonNum || null;
+    episodeNum = episodeNum || null;
 
-    const tmdbUrl = `https://api.themoviedb.org/3/${mediaType === 'tv' ? 'tv' : 'movie'}/${tmdbId}?api_key=${TMDB_API_KEY}`;
-    return makeRequest(tmdbUrl).then(function (tmdbResponse) {
+    return new Promise(function(resolve, reject) {
+    console.log('[NetMirror] Fetching streams for TMDB ID: ' + tmdbId + ', Type: ' + mediaType + (seasonNum ? ', S' + seasonNum + 'E' + episodeNum : ''));
+
+    var tmdbUrl = 'https://api.themoviedb.org/3/' + (mediaType === 'tv' ? 'tv' : 'movie') + '/' + tmdbId + '?api_key=' + TMDB_API_KEY;
+    makeRequest(tmdbUrl).then(function (tmdbResponse) {
         return tmdbResponse.json();
     }).then(function (tmdbData) {
         const title = mediaType === 'tv' ? tmdbData.name : tmdbData.title;
@@ -718,12 +723,15 @@ function getStreams(tmdbId, mediaType = 'movie', seasonNum = null, episodeNum = 
         }
         
         return tryPlatform(0);
+    }).then(function(streams) {
+        resolve(streams || []);
     }).catch(function (error) {
-        console.error(`[NetMirror] Error in getStreams: ${error.message}`);
-        return [];
+        console.error('[NetMirror] Error in getStreams: ' + error.message);
+        resolve([]);
     });
-}
+    }); // end new Promise
 
+}
 // Export the main function
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { getStreams };
