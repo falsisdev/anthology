@@ -8,7 +8,7 @@ console.log('[NetMirror] ========================================');
 
 // Constants
 const TMDB_API_KEY = "439c478a771f35c05022f9feabcca01c";
-const NETMIRROR_BASE = 'https://net22.cc/';
+const NETMIRROR_BASE = 'http://net22.cc/';
 const BASE_HEADERS = {
     'X-Requested-With': 'XMLHttpRequest',
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
@@ -395,11 +395,11 @@ function getStreamingLinks(contentId, title, platform) {
                             }
                             pathOnly = pathOnly.replace('/tv/', '/');
                             if (!pathOnly.startsWith('/')) pathOnly = '/' + pathOnly;
-                            fullUrl = 'https://net52.cc' + pathOnly;
+                            fullUrl = 'http://net52.cc' + pathOnly;
                         } catch (e) {
                             let pathOnly = fullUrl.replace('/tv/', '/');
                             if (!pathOnly.startsWith('/')) pathOnly = '/' + pathOnly;
-                            fullUrl = 'https://net52.cc' + pathOnly;
+                            fullUrl = 'http://net52.cc' + pathOnly;
                         }
                     } else {
                         if (fullUrl.startsWith('/') && !fullUrl.startsWith('//')) {
@@ -674,8 +674,8 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
                                 const isNfOrPv = lowerPlatform === 'netflix' || lowerPlatform === 'primevideo';
                                 const streamHeaders = {
                                     "Accept": "application/vnd.apple.mpegurl, video/mp4, */*",
-                                    "Origin": isNfOrPv ? "https://net52.cc" : "https://net22.cc",
-                                    "Referer": isNfOrPv ? "https://net52.cc/" : "https://net22.cc/tv/home",
+                                    "Origin": isNfOrPv ? "http://net52.cc" : "http://net22.cc",
+                                    "Referer": isNfOrPv ? "http://net52.cc/" : "http://net22.cc/tv/home",
                                     "Cookie": "hd=on",
                                     "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 26_0_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/138.0.7204.156 Mobile/15E148 Safari/604.1"
                                 };
