@@ -1,49 +1,29 @@
 /**
- * Nuvio Local Scraper - FullHDFilmizlesene (.live)
- * @version 3.0 (NetMirror Logic Integrated)
+ * SineWix Local Scraper - Updated with New API Key
  */
 
-var cheerio = require("cheerio-without-node-native");
+var API_BASE = 'https://ydfvfdizipanel.ru/public/api';
+var API_KEY = '9iQNC5HQwPlaFuJDkhncJ5XTJ8feGXOJatAA'; // Yeni API Key entegre edildi
 
-var BASE_URL = 'https://www.fullhdfilmizlesene.live';
-var PROVIDER_ID = 'fullhdfilm_live';
-
-var HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Linux; Android 11; Fire TV) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Mobile Safari/537.36',
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
-    'Referer': BASE_URL + '/'
+var API_HEADERS = {
+    'hash256': '711bff4afeb47f07ab08a0b07e85d3835e739295e8a6361db77eebd93d96306b',
+    'User-Agent': 'EasyPlex (Android 14; SM-A546B; Samsung Galaxy A54 5G; tr)',
+    'Accept': 'application/json'
 };
 
-// --- NETMIRROR BENZERLİK ALGORİTMASI ---
+// Benzerlik algoritması (NetMirror mantığı)
 function calculateSimilarity(str1, str2) {
     if (!str1 || !str2) return 0;
     var s1 = str1.toLowerCase().trim();
     var s2 = str2.toLowerCase().trim();
     if (s1 === s2) return 1;
-    
-    var words1 = s1.split(/\s+/).filter(function(w) { return w.length > 0; });
-    var words2 = s2.split(/\s+/).filter(function(w) { return w.length > 0; });
-    
+    var words1 = s1.split(/\s+/);
+    var words2 = s2.split(/\s+/);
     var matches = 0;
     words2.forEach(function(word) {
         if (words1.indexOf(word) !== -1) matches++;
     });
-    
     return matches / Math.max(words1.length, words2.length);
-}
-
-function rot13(str) {
-    return str ? str.replace(/[a-zA-Z]/g, function(c) {
-        return String.fromCharCode((c <= "Z" ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26);
-    }) : "";
-}
-
-function decodeLink(v) {
-    try {
-        var r = rot13(v);
-        var decoded = atob(r).trim();
-        return (decoded.indexOf('http') === 0) ? decoded : null;
-    } catch (e) { return null; }
 }
 
 function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
@@ -55,77 +35,55 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
             .then(function(res) { return res.json(); })
             .then(function(data) {
                 var query = data.title || data.name || '';
-                if (!query) throw new Error('isim_yok');
-                
-                console.log('[FullHD] Aranıyor:', query);
-                return fetch(BASE_URL + '/arama/' + encodeURIComponent(query), { headers: HEADERS })
-                    .then(function(res) { return res.text(); })
-                    .then(function(html) { return { html: html, query: query }; });
+                if (!query) throw new Error('İsim bulunamadı');
+
+                // SineWix API Arama
+                var searchUrl = API_BASE + '/search/' + API_KEY + '/' + encodeURIComponent(query);
+                return fetch(searchUrl, { headers: API_HEADERS })
+                    .then(function(res) { return res.json(); })
+                    .then(function(json) { return { results: json.search || [], query: query }; });
             })
             .then(function(obj) {
-                var $ = cheerio.load(obj.html);
-                var results = [];
-
-                // Tüm arama sonuçlarını topla
-                $(".film-list li").each(function() {
-                    var title = $(this).find(".film-name, h2").text().trim();
-                    var href = $(this).find("a").attr("href");
-                    if (title && href) {
-                        results.push({ 
-                            title: title, 
-                            href: href, 
-                            score: calculateSimilarity(title, obj.query) 
-                        });
-                    }
+                // Sonuçları benzerlik skoruna göre filtrele ve sırala
+                var filtered = obj.results.map(function(item) {
+                    item.score = calculateSimilarity(item.title || item.name, obj.query);
+                    return item;
+                }).filter(function(item) {
+                    return item.score > 0.4; // %40 benzerlik barajı
+                }).sort(function(a, b) {
+                    return b.score - a.score;
                 });
 
-                // Skoruna göre sırala ve en iyi eşleşmeyi al (NetMirror mantığı)
-                results.sort(function(a, b) { return b.score - a.score; });
-                var bestMatch = results[0];
+                if (filtered.length === 0) return resolve([]);
 
-                if (!bestMatch || bestMatch.score < 0.4) { // %40 benzerlik barajı
-                    console.log('[FullHD] Uygun sonuç bulunamadı.');
-                    return resolve([]);
-                }
-
-                console.log('[FullHD] En iyi eşleşme:', bestMatch.title, '(Skor:', bestMatch.score + ')');
-                var finalUrl = bestMatch.href.indexOf('http') === 0 ? bestMatch.href : BASE_URL + bestMatch.href;
-                return fetch(finalUrl, { headers: HEADERS });
-            })
-            .then(function(res) { return res ? res.text() : null; })
-            .then(function(pageHtml) {
-                if (!pageHtml) return resolve([]);
-
-                var streams = [];
-                var scxMatch = /scx\s*=\s*({[\s\S]*?});/i.exec(pageHtml);
+                var bestMatch = filtered[0];
+                var detailUrl = API_BASE + '/' + (mediaType === 'movie' ? 'movies' : 'shows') + '/show/' + API_KEY + '/' + bestMatch.id;
                 
-                if (scxMatch) {
-                    try {
-                        var cleanJson = scxMatch[1].replace(/(\w+):/g, '"$1"').replace(/'/g, '"').replace(/,\s*}/g, "}");
-                        var scxData = JSON.parse(cleanJson);
-                        var keys = ["atom", "proton", "fast", "tr", "en"];
-                        
-                        keys.forEach(function(k) {
-                            if (scxData[k] && scxData[k].sx && scxData[k].sx.t) {
-                                var raw = scxData[k].sx.t;
-                                var link = decodeLink(Array.isArray(raw) ? raw[0] : raw);
-                                if (link) {
-                                    streams.push({
-                                        name: "⌜ FullHD ⌟ | " + k.toUpperCase(),
-                                        url: link,
-                                        quality: "1080p",
-                                        headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': BASE_URL + '/' },
-                                        provider: PROVIDER_ID
-                                    });
-                                }
-                            }
+                return fetch(detailUrl, { headers: API_HEADERS });
+            })
+            .then(function(res) { return res ? res.json() : null; })
+            .then(function(detail) {
+                if (!detail) return resolve([]);
+                
+                var streams = [];
+                // Video linklerini ayıklama mantığı (SineWix API yapısına göre)
+                if (mediaType === 'movie' && detail.videos) {
+                    detail.videos.forEach(function(v) {
+                        streams.push({
+                            name: "⌜ SineWix ⌟ | " + (v.server || "HLS"),
+                            url: v.link,
+                            quality: "1080p",
+                            headers: { 'User-Agent': 'Mozilla/5.0' },
+                            provider: "sinewix"
                         });
-                    } catch (e) { }
-                }
+                    });
+                } 
+                // TV dizi mantığı buraya eklenebilir (Seasons/Episodes döngüsü)
+                
                 resolve(streams);
             })
             .catch(function(err) {
-                console.error('[FullHD] Hata:', err.message);
+                console.error('[SineWix] Hata:', err.message);
                 resolve([]);
             });
     });
@@ -133,6 +91,4 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
 
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { getStreams: getStreams };
-} else {
-    global.getStreams = getStreams;
 }
