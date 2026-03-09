@@ -4,7 +4,7 @@
 
 var cheerio = require("cheerio-without-node-native");
 
-var BASE_URL = 'https://www.fullhdfilmizlesene.live';
+var BASE_URL = 'https://www.fullhdfilmizlesene.live';  // ← Boşluk kaldırıldı
 var TMDB_API_KEY = '4ef0d7355d9ffb5151e987764708ce96';
 
 var HEADERS = {
@@ -50,7 +50,7 @@ function atob(s) {
     }
 }
 
-// ========== ASYNC/AWAIT VERSIYONU ==========
+// Ana fonksiyon - async/await
 async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
     console.log('[FHD] Baslatildi:', tmdbId, mediaType);
     
@@ -58,7 +58,6 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
         var tmdbType = mediaType === 'movie' ? 'movie' : 'tv';
         var tmdbUrl = 'https://api.themoviedb.org/3/' + tmdbType + '/' + tmdbId + '?language=tr-TR&api_key=' + TMDB_API_KEY;
         
-        // TMDB'den bilgi al
         var tmdbRes = await fetch(tmdbUrl);
         var tmdbData = await tmdbRes.json();
         var query = tmdbData.title || tmdbData.name;
@@ -70,7 +69,6 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
         
         console.log('[FHD] Aranan:', query);
         
-        // Sitede ara
         var searchUrl = BASE_URL + '/arama/' + encodeURIComponent(query);
         var searchRes = await fetch(searchUrl, { headers: HEADERS });
         var html = await searchRes.text();
@@ -86,11 +84,9 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
         var filmUrl = firstLink.startsWith('http') ? firstLink : BASE_URL + firstLink;
         console.log('[FHD] Film URL:', filmUrl);
         
-        // Film sayfasini al
         var filmRes = await fetch(filmUrl, { headers: HEADERS });
         var filmHtml = await filmRes.text();
         
-        // scx cikar
         var scxMatch = filmHtml.match(/scx\s*=\s*(\{[\s\S]*?\});/);
         if (!scxMatch) {
             console.log('[FHD] scx bulunamadi');
@@ -100,7 +96,6 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
         var scxData = JSON.parse(scxMatch[1].replace(/'/g, '"').replace(/(\w+):/g, '"$1":'));
         var streams = [];
         
-        // Kaynaklari coz
         ['atom', 'advid', 'fast', 'proton'].forEach(function(key) {
             if (scxData[key] && scxData[key].sx && scxData[key].sx.t) {
                 var t = scxData[key].sx.t;
@@ -129,18 +124,12 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
     }
 }
 
-// ========== NUVIOTR ICIN KRITIK EXPORT ==========
-
-// 1. Ana export - NUVIOTR bunu okuyor
+// EXPORT
 module.exports = {
     getStreams: getStreams,
-    // NUVIOTR bazen default export bekler
-    default: {
-        getStreams: getStreams
-    }
+    default: { getStreams: getStreams }
 };
 
-// 2. Global exports - tum ortamlar icin
 if (typeof globalThis !== 'undefined') {
     globalThis.getStreams = getStreams;
     globalThis.fullhdProvider = { getStreams: getStreams };
@@ -151,9 +140,4 @@ if (typeof global !== 'undefined') {
     global.fullhdProvider = { getStreams: getStreams };
 }
 
-if (typeof window !== 'undefined') {
-    window.getStreams = getStreams;
-    window.fullhdProvider = { getStreams: getStreams };
-}
-
-console.log('[FHD] Scraper yuklendi - getStreams:', typeof getStreams);
+console.log('[FHD] Scraper yuklendi');
