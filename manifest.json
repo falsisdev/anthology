@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "scrapers": [
 {
-      "id": "netmirror",
-      "name": "NetMirror",
+      "id": "fullhd",
+      "name": "FullHd",
       "description": "Streaming links from netmirror. Automatically disabled on iOS due to compatibility issues.",
       "version": "1.0.2",
       "author": "Nuvio Team",
@@ -12,7 +12,7 @@
         "movie",
         "tv"
       ],
-      "filename": "providers/netmirror.js",
+      "filename": "providers/fullhd.js",
       "enabled": true,
       "logo": "https://net2025.cc/favicon.ico",
       "contentLanguage": ["en"],
