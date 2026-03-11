@@ -1,24 +1,97 @@
 {
-  "name": "MoOnCrOwN",
-  "version": "1.0.0",
+  "name": "MoOnCrOwN-NUVİO",
+  "version": "0.4",
   "scrapers": [
-{
-      "id": "fullhd",
-      "name": "FullHd",
+      {
+      "id": "ddizi",
+      "name": "DDizi",
+      "description": "DDizi Scraper",
+      "version": "1.0.1",
+      "author": "mooncrown",
+      "supportedTypes": ["tv"],
+      "filename": "providers/ddizi.js",
+      "enabled": true,
+      "formats": ["mp4", "mkv", "hls", "m3u8"],
+      "contentLanguage": ["tr"]},
+  
+	  {
+      "id": "netmirror",
+      "name": "NetMirror",
       "description": "Streaming links from netmirror. Automatically disabled on iOS due to compatibility issues.",
       "version": "1.0.2",
       "author": "Nuvio Team",
-      "supportedTypes": [
-        "movie",
-        "tv"
-      ],
-      "filename": "providers/fullhd.js",
+      "supportedTypes": ["movie","tv"],
+      "filename": "providers/netmirror.js",
       "enabled": true,
       "logo": "https://net2025.cc/favicon.ico",
       "contentLanguage": ["en"],
       "disabledPlatforms": ["ios"],
       "supportsExternalPlayer": false
-    }
-    
-  ]
-}
+      },
+	  {
+      "id": "sinemacx",
+      "name": "SinemaCx",
+      "description": "Film, Dizi  İzleme Uygulaması",
+      "version": "1.0.0",
+      "author": "MoOnCrOwN",
+      "supportedTypes": ["movie", "tv"],
+      "filename": "providers/sinemacx.js",
+      "enabled": true,
+      "formats": ["mp4", "mkv", "hls", "m3u8"],
+      "logo": "https://play-lh.googleusercontent.com/brwGNmr7IjA_MKk_TTPs0va10hdKE_bD_a1lnKoiMuCayW98EHpRv55edA6aEoJlmwfX=w240-h480",
+      "contentLanguage": ["tr"]
+      },	  
+	  {
+      "id": "diziyou",
+      "name": "DiziYou",
+      "description": "Diziyou en kaliteli Türkçe dublaj ve altyazılı yabancı dizi izleme sitesidir.",
+      "version": "1.0.4",
+      "author": "MoOnCrOwN",
+      "supportedTypes": ["tv"],
+      "filename": "providers/diziyou.js",
+      "enabled": true,
+      "formats": ["m3u8"],
+      "logo": "https://www.google.com/s2/favicons?domain=www.diziyou.co&sz=%size%",
+      "contentLanguage": ["tr"]
+      }, 
+	  {
+      "id": "fullhdfilmizlesene",
+      "name": "FullHdFilmizlesene",
+      "description": "Türkçe film, dizi ve anime - 5000+ HD içerik, Türkçe altyazılı, anime arşivi",
+      "version": "1.0.0",
+      "author": "MoOnCrOwN",
+      "supportedTypes": ["movie"],
+      "filename": "providers/fullhdfilmizlesene.js",
+      "enabled": true,
+      "formats": ["mp4", "mkv", "hls", "m3u8"],
+      "logo": "https://play-lh.googleusercontent.com/brwGNmr7IjA_MKk_TTPs0va10hdKE_bD_a1lnKoiMuCayW98EHpRv55edA6aEoJlmwfX=w240-h480",
+      "contentLanguage": ["tr"]
+      },   
+	  {
+      "id": "sinewix",
+      "name": "SineWix",
+      "description": "Türkçe film, dizi ve anime - 5000+ HD içerik, Türkçe altyazılı, anime arşivi",
+      "version": "1.0.0",
+      "author": "kerimmkirac",
+      "supportedTypes": ["movie", "tv"],
+      "filename": "providers/sinewix.js",
+      "enabled": true,
+      "formats": ["mp4", "mkv"],
+      "logo": "https://play-lh.googleusercontent.com/brwGNmr7IjA_MKk_TTPs0va10hdKE_bD_a1lnKoiMuCayW98EHpRv55edA6aEoJlmwfX=w240-h480",
+      "contentLanguage": ["tr"]
+      },
+      {
+      "id": "dizipal",
+      "name": "DiziPal",
+      "description": "En yeni dizileri güvenli ve hızlı şekilde sunar.",
+      "version": "1.0.4",
+      "author": "kerimmkirac",
+      "supportedTypes": ["movie", "tv"],
+      "filename": "providers/dizipal.js",
+      "enabled": true,
+      "formats": ["m3u8"],
+      "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://dizipal1206.com&size=128",
+      "contentLanguage": ["tr"]
+      }
+      ]
+      }
