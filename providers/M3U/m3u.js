@@ -6,8 +6,8 @@
  */
 
 const SOURCES = {
-    movie: "https://raw.githubusercontent.com/mooncrown04/nuvio/refs/heads/master/liste/film.m3u",
-    tv: "https://raw.githubusercontent.com/mooncrown04/nuvio/refs/heads/master/liste/dizi.m3u"
+    movie: "https://raw.githubusercontent.com/mooncrown04/nuviotr/refs/heads/main/providers/M3U/Liste/film.m3u",
+    tv: "https://raw.githubusercontent.com/mooncrown04/nuviotr/refs/heads/main/providers/M3U/Liste/dizi.m3u"
 };
 
 const getStreams = function(tmdbId, mediaType, seasonNum, episodeNum) {
