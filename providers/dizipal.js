@@ -1,8 +1,8 @@
 
 
 //var BASE_URL = 'https://dizipal.bar';
-var BASE_URL = 'https://dizipal1542.com';
-
+var BASE_URL = 'https://dizipal1543.com';
+//var BASE_URL = 'https://dizipal2034.com';
 
 var HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
@@ -56,7 +56,7 @@ function searchDiziPal(title, mediaType) {
             var items = findAll(html, '<div[^>]*class="[^"]*post-item[^"]*"[^>]*>[\\s\\S]*?<\\/div>\\s*<\\/div>');
 
             
-            var linkPattern = /<a[^>]+href="(https:\/\/dizipal1542\.com\/(?:dizi|film|anime)\/[^"]+)"[^>]*title="([^"]+)"/gi;
+            var linkPattern = /<a[^>]+href="(https:\/\/dizipal1543\.com\/(?:dizi|film|anime)\/[^"]+)"[^>]*title="([^"]+)"/gi;
             var match;
             while ((match = linkPattern.exec(html)) !== null) {
                 var url = match[1];
