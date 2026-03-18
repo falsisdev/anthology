@@ -1,8 +1,8 @@
 
 
 //var BASE_URL = 'https://dizipal.bar';
-//var BASE_URL = 'https://dizipal1542.com';
-var BASE_URL = 'https://dizipal2034.com';
+var BASE_URL = 'https://dizipal1542.com';
+//var BASE_URL = 'https://dizipal2034.com';
 
 var HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
