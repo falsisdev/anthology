@@ -1,56 +1,64 @@
 /**
- * DiziPal Fire Stick Provider - v2.0.0
- * Fix: "function not found" error
+ * DiziPal 1543 - Kotlin Kaynak Kodlu Tam Entegrasyon
+ * Sürüm: v2.6.0 (Final Debug)
  */
 
 var BASE_URL = 'https://dizipal1543.com';
 const PASSPHRASE = "3hPn4uCjTVtfYWcjIcoJQ4cL1WWk1qxXI39egLYOmNv6IblA7eKJz68uU3eLzux1biZLCms0quEjTYniGv5z1JcKbNIsDQFSeIZOBZJz4is6pD7UyWDggWWzTLBQbHcQFpBQdClnuQaMNUHtLHTpzCvZy33p6I7wFBvL4fnXBYH84aUIyWGTRvM2G5cfoNf4705tO2kv";
 
-// AES Çözücü
-function decryptDizipalData(jsonStr) {
+// 1. KOTLIN'deki PBKDF2WithHmacSHA512 Şifre Çözücü
+function decryptDizipalData(rawJsonText) {
     try {
-        const data = JSON.parse(jsonStr);
-        const salt = CryptoJS.enc.Hex.parse(data.salt);
-        const iv = CryptoJS.enc.Hex.parse(data.iv);
-        const key = CryptoJS.PBKDF2(PASSPHRASE, salt, { keySize: 256 / 32, iterations: 999, hasher: CryptoJS.algo.SHA512 });
-        const decrypted = CryptoJS.AES.decrypt(data.ciphertext, key, { iv: iv, padding: CryptoJS.pad.Pkcs7, mode: CryptoJS.mode.CBC });
-        return decrypted.toString(CryptoJS.enc.Utf8).replace(/\\/g, '');
-    } catch (e) { return null; }
+        const ct = rawJsonText.match(/"ciphertext"\s*:\s*"([^"]+)"/)?.[1];
+        const ivHex = rawJsonText.match(/"iv"\s*:\s*"([^"]+)"/)?.[1];
+        const saltHex = rawJsonText.match(/"salt"\s*:\s*"([^"]+)"/)?.[1];
+
+        if (!ct || !ivHex || !saltHex) return null;
+
+        const salt = CryptoJS.enc.Hex.parse(saltHex);
+        const iv = CryptoJS.enc.Hex.parse(ivHex);
+
+        const key = CryptoJS.PBKDF2(PASSPHRASE, salt, {
+            keySize: 256 / 32,
+            iterations: 999,
+            hasher: CryptoJS.algo.SHA512
+        });
+
+        const decrypted = CryptoJS.AES.decrypt(ct, key, {
+            iv: iv,
+            padding: CryptoJS.pad.Pkcs7,
+            mode: CryptoJS.mode.CBC
+        });
+
+        let finalUrl = decrypted.toString(CryptoJS.enc.Utf8).replace(/\\/g, "");
+        if (finalUrl.startsWith("//")) finalUrl = "https:" + finalUrl;
+        return finalUrl;
+    } catch (e) {
+        return null;
+    }
 }
 
-// ANA FONKSİYON
+// 2. ANA AKIŞ (getStreams)
 async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
-    // Nuvio Logcat'e düşmesi için doğrudan console.log kullanıyoruz
-    console.log(`[DiziPal] Sorgu Başladı: TMDB-${tmdbId}`);
-
+    console.log(`[DiziPal] Sorgu: ID ${tmdbId} - ${mediaType}`);
     try {
+        // TMDB Verisi Al (Arama terimi için)
         const type = mediaType === 'movie' ? 'movie' : 'tv';
         const tmdbRes = await fetch(`https://api.themoviedb.org/3/${type}/${tmdbId}?language=tr-TR&api_key=4ef0d7355d9ffb5151e987764708ce96`);
         const tmdbData = await tmdbRes.json();
-
+        
         const clean = (s) => s ? s.replace(/[^a-zA-Z0-9çğıöşüÇĞİÖŞÜ ]/g, '').trim() : "";
-        let searchQueries = [
-            clean(tmdbData.original_name || tmdbData.original_title),
-            clean(tmdbData.name || tmdbData.title)
-        ].filter(q => q.length > 0);
+        let searchQueries = [clean(tmdbData.original_name || tmdbData.original_title), clean(tmdbData.name || tmdbData.title)].filter(q => q);
 
         let searchResult = null;
         for (const query of searchQueries) {
-            console.log(`[DiziPal] Arama: ${query}`);
             const searchRes = await fetch(`${BASE_URL}/bg/searchcontent`, {
                 method: 'POST',
-                headers: { 
-                    'Content-Type': 'application/x-www-form-urlencoded', 
-                    'X-Requested-With': 'XMLHttpRequest', 
-                    'Referer': `${BASE_URL}/`,
-                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-                },
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'X-Requested-With': 'XMLHttpRequest' },
                 body: `searchterm=${encodeURIComponent(query)}`
             });
-
             const searchData = await searchRes.json();
             const results = Object.values(searchData);
-            
             if (results.length > 0 && results[0].url) {
                 searchResult = results[0];
                 break;
@@ -59,73 +67,63 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
 
         if (!searchResult) return [];
 
-        let finalPageHtml = "";
-        let finalTargetUrl = "";
-
+        // 3. Bölüm/Film Sayfasına Git
+        let targetUrl = BASE_URL + searchResult.url;
         if (mediaType === 'tv') {
             const slug = searchResult.url.replace('/series/', '').replace('/dizi/', '').replace(/\//g, '');
-            const formats = [
-                `${BASE_URL}/bolum/${slug}-${seasonNum}x${episodeNum}`,
-                `${BASE_URL}/bolum/${slug}-${seasonNum}-sezon-${episodeNum}-bolum-izle/`
-            ];
-
-            for (const url of formats) {
-                const res = await fetch(url);
-                if (res.status === 200) {
-                    finalPageHtml = await res.text();
-                    finalTargetUrl = url;
-                    break;
-                }
-            }
-        } else {
-            finalTargetUrl = BASE_URL + searchResult.url;
-            const res = await fetch(finalTargetUrl);
-            finalPageHtml = await res.text();
+            // Hibrit Format: 1x2 veya klasik format
+            const f1 = `${BASE_URL}/bolum/${slug}-${seasonNum}x${episodeNum}`;
+            const f2 = `${BASE_URL}/bolum/${slug}-${seasonNum}-sezon-${episodeNum}-bolum-izle/`;
+            
+            const check = await fetch(f1);
+            targetUrl = check.status === 200 ? f1 : f2;
         }
 
-        const encryptedMatch = finalPageHtml.match(/<div[^>]*data-rm-k="true"[^>]*>(.*?)<\/div>/);
+        const pageRes = await fetch(targetUrl);
+        const pageHtml = await pageRes.text();
+        const encryptedMatch = pageHtml.match(/<div[^>]*data-rm-k="true"[^>]*>(.*?)<\/div>/);
+        
         if (!encryptedMatch) return [];
 
-        let iframeUrl = decryptDizipalData(encryptedMatch[1]);
+        // 4. PLAYER AYIKLAMA (DizipalPlayer logic)
+        const iframeUrl = decryptDizipalData(encryptedMatch[1]);
         if (!iframeUrl) return [];
-        if (iframeUrl.startsWith('//')) iframeUrl = 'https:' + iframeUrl;
 
-        const playerRes = await fetch(iframeUrl, { headers: { 'Referer': finalTargetUrl } });
+        const playerRes = await fetch(iframeUrl, { headers: { 'Referer': targetUrl } });
         const playerHtml = await playerRes.text();
+        
+        // Kotlin: window.openPlayer regex'i
         const playlistId = playerHtml.match(/window\.openPlayer\s*\(\s*['"]([^'"]+)['"]/)?.[1];
         if (!playlistId) return [];
 
-        const playerOrigin = new URL(iframeUrl).origin;
-        const apiRes = await fetch(`${playerOrigin}/source2.php?v=${playlistId}`, { headers: { 'Referer': iframeUrl } });
-        const apiData = await apiRes.json();
+        const playerDomain = new URL(iframeUrl).origin;
+        const apiRes = await fetch(`${playerDomain}/source2.php?v=${playlistId}`, { headers: { 'Referer': iframeUrl } });
+        const apiText = await apiRes.text();
 
-        return apiData.map(item => ({
-            name: `DiziPal | ${item.name || 'HLS'}`,
-            url: item.file.replace('m.php', 'master.m3u8'),
+        // Kotlin: "file" regex'i ve m.php -> master.m3u8 dönüşümü
+        const fileMatch = apiText.match(/"file"\s*:\s*"([^"]+)"/);
+        if (!fileMatch) return [];
+
+        let streamUrl = fileMatch[1].replace(/\\/g, "");
+        if (streamUrl.includes("m.php")) {
+            streamUrl = streamUrl.replace("m.php", "master.m3u8");
+        }
+
+        return [{
+            name: "DiziPal (DPlayer)",
+            url: streamUrl,
             quality: 720,
             type: 'm3u8',
-            headers: { 'Referer': iframeUrl, 'Origin': playerOrigin }
-        }));
+            headers: { 'Referer': iframeUrl, 'Origin': playerDomain }
+        }];
 
     } catch (err) {
-        console.log(`[DiziPal] Kritik Hata: ${err.message}`);
+        console.log(`[DiziPal] Error: ${err.message}`);
         return [];
     }
 }
 
-// --- ZIRHLI EXPORT BÖLÜMÜ ---
-// Fonksiyonu her yere kaydediyoruz ki sistem asla "not found" demesin
-if (typeof exports !== 'undefined') {
-    exports.getStreams = getStreams;
-}
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { getStreams };
-}
-if (typeof globalThis !== 'undefined') {
-    globalThis.getStreams = getStreams;
-}
-if (typeof window !== 'undefined') {
-    window.getStreams = getStreams;
-}
-// Son çare olarak doğrudan tanımlama
+// Global Exportlar
+if (typeof module !== 'undefined') module.exports = { getStreams };
+globalThis.getStreams = getStreams;
 this.getStreams = getStreams;
