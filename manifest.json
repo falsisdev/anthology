@@ -124,6 +124,19 @@
       "logo": "https://play-lh.googleusercontent.com/brwGNmr7IjA_MKk_TTPs0va10hdKE_bD_a1lnKoiMuCayW98EHpRv55edA6aEoJlmwfX=w240-h480",
       "contentLanguage": ["tr"]
       },
+	        {
+      "id": "rec",
+      "name": "Rec",
+      "description": "En yeni dizileri güvenli ve hızlı şekilde sunar.",
+      "version": "1.0.4",
+      "author": "kerimmkirac",
+      "supportedTypes": ["movie", "tv"],
+      "filename": "providers/rec.js",
+      "enabled": true,
+      "formats": ["m3u8"],
+      "logo": "https://rectvapp.com.tr/wp-content/uploads/2024/08/cropped-cropped-Screenshot_2023-08-31_at_11.02.55_PM-removebg-preview-32x32.webp",
+      "contentLanguage": ["tr"]
+      },
 	  {
       "id": "jetfilmizle",
       "name": "JetFilmizle",
