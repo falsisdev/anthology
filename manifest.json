@@ -49,7 +49,7 @@
 	  {
       "id": "ddizi",
       "name": "DDizi",
-      "description": "DDizi Scraper",
+      "description": "DDizi Scrape  çalışmıyorr",
       "version": "1.0.1",
       "author": "mooncrown",
       "supportedTypes": ["tv"],
@@ -129,7 +129,7 @@
       "name": "Rec",
       "description": "En yeni dizileri güvenli ve hızlı şekilde sunar.",
       "version": "1.0.4",
-      "author": "kerimmkirac",
+      "author": "MoOnCrOwN",
       "supportedTypes": ["movie", "tv"],
       "filename": "providers/rec.js",
       "enabled": true,
@@ -203,7 +203,20 @@
       "contentLanguage": ["tr"],
       "limited": false,
       "disabledPlatforms": []
-      },	  
+      },
+	  {
+      "id": "altiyuzaltmisaltifilm",
+      "name": "AltiYuzAltmisAltiFilm",
+      "description": "Türkçe Dublaj ve Altyazılı Film izle",
+      "version": "1",
+      "author": "MoOnCrOwN",
+      "supportedTypes": ["movie"],
+      "filename": "providers/altiyuzaltmisaltifilm.js",
+      "enabled": true,
+      "formats": ["m3u8"],
+      "logo": "https://www.google.com/s2/favicons?domain=666filmizle.site&sz=%size%",
+      "contentLanguage": ["tr"]
+      }	  
       {
       "id": "dizipal",
       "name": "DiziPal",
