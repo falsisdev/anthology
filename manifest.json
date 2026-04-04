@@ -2,6 +2,19 @@
   "name": "MoOnCrOwN-NUVİO",
   "version": "0.4",
   "scrapers": [
+ {
+      "id": "moonvidmodyfilm",
+      "name": "MoonVidmodyFilm",
+      "description": "En yeni filmlleri güvenli ve hızlı şekilde sunar.",
+      "version": "1.0.0",
+      "author": "MoOnCrOwN",
+      "supportedTypes": ["movie"],
+      "filename": "providers/moonvidmodyfilm.js",
+      "enabled": true,
+      "formats": ["m3u8"],
+      "logo": "https://play-lh.googleusercontent.com/brwGNmr7IjA_MKk_TTPs0va10hdKE_bD_a1lnKoiMuCayW98EHpRv55edA6aEoJlmwfX=w240-h480",
+      "contentLanguage": ["tr"]
+      },	  
         {
       "id": "m3u",
       "name": "M3u",
@@ -20,7 +33,7 @@
   "id": "m3u.mooncrown.addon",
   "name": "MoOnCrOwN M3U",
   "description": "Otomatik M3U Katalog ve Yayın Eklentisi",
-  "logo": "https://st5.depositphotos.com/1041725/67731/v/380/depositphotos_677319750-stock-illustration-ararat-mountain-illustration-vector-white.jpg",
+  "logo": "https://play-lh.googleusercontent.com/brwGNmr7IjA_MKk_TTPs0va10hdKE_bD_a1lnKoiMuCayW98EHpRv55edA6aEoJlmwfX=w240-h480",
   "version": "1.0.1",
   "author": "MoOnCrOwN",
   "types": ["tv", "movie"],
@@ -54,7 +67,7 @@
       "author": "mooncrown",
       "supportedTypes": ["tv"],
       "filename": "providers/ddizi.js",
-      "enabled": true,
+      "enabled": false,
       "formats": ["mp4", "mkv", "hls", "m3u8"],
       "contentLanguage": ["tr"]},
   
@@ -149,7 +162,7 @@
       "logo": "https://jetfilmizle.net/public/icons/apple-touch-icon.png",
       "contentLanguage": ["tr"],
       "formats": ["mp4", "mkv"],
-      "limited": false,
+      "limited": true,
       "disabledPlatforms": []
       },
       {
@@ -187,7 +200,7 @@
       "enabled": true,
       "logo": "https://webteizle3.xyz/images/logo.png",
       "contentLanguage": ["tr"],
-      "limited": false,
+      "limited": true,
       "disabledPlatforms": []
       },
       {
@@ -225,7 +238,7 @@
       "author": "kerimmkirac",
       "supportedTypes": ["movie", "tv"],
       "filename": "providers/dizipal.js",
-      "enabled": true,
+      "enabled": false,
       "formats": ["m3u8"],
       "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://dizipal1206.com&size=128",
       "contentLanguage": ["tr"]
