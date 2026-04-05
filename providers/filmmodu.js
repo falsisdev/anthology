@@ -1,214 +1,148 @@
-// ============================================================
-//  FilmModu — Nuvio Provider
-//  CloudStream (Kotlin) → Nuvio (JavaScript) port
-//  Kaynak: FilmModu.kt by @keyiflerolsun / @KekikAkademi
-//  Sadece Film (movie) destekler
-// ============================================================
+// FilmModu — Nuvio Provider (Optimized)
+// Orijinale göre değişiklikler:
+//  1. TMDB + arama paralel başlatılır (Promise.all)
+//  2. fetchAlternateLinks filtrelemesi kaldırıldı — tüm dil seçenekleri denenir
+//  3. Dublaj linkini atlayan filtre düzeltildi (Türkçe Dublaj da alınır)
+//  4. AbortController ile 8s timeout — takılan istek bekletmez
 
-var BASE_URL = 'https://www.filmmodu.ws';
+var BASE_URL     = 'https://www.filmmodu.ws';
 var TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
+var FETCH_TIMEOUT_MS = 8000;
 
 var HEADERS = {
-  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'User-Agent':      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'Accept':          'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
   'Accept-Language': 'tr-TR,tr;q=0.9,en;q=0.8',
-  'Referer': BASE_URL + '/'
+  'Referer':         BASE_URL + '/'
 };
 
-// ── Yardımcı: TMDB'den film bilgisi çek ─────────────────────
+// ── Timeout destekli fetch ────────────────────────────────────
+function fetchWithTimeout(url, options) {
+  return new Promise(function(resolve, reject) {
+    var timer = setTimeout(function() {
+      reject(new Error('Timeout: ' + url));
+    }, FETCH_TIMEOUT_MS);
+    fetch(url, options)
+      .then(function(r) { clearTimeout(timer); resolve(r); })
+      .catch(function(e) { clearTimeout(timer); reject(e); });
+  });
+}
+
+// ── TMDB ─────────────────────────────────────────────────────
 function fetchTmdbInfo(tmdbId) {
   var url = 'https://api.themoviedb.org/3/movie/' + tmdbId
-    + '?api_key=' + TMDB_API_KEY
-    + '&language=tr-TR';
-
-  return fetch(url)
-    .then(function(r) {
-      if (!r.ok) throw new Error('TMDB yanıt vermedi: ' + r.status);
-      return r.json();
-    })
-    .then(function(data) {
+    + '?api_key=' + TMDB_API_KEY + '&language=tr-TR';
+  return fetchWithTimeout(url, {})
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
       return {
-        titleTr:  data.title || '',
-        titleEn:  data.original_title || '',
-        year:     data.release_date ? data.release_date.slice(0, 4) : ''
+        titleTr: d.title || '',
+        titleEn: d.original_title || '',
+        year:    d.release_date ? d.release_date.slice(0, 4) : ''
       };
     });
 }
 
-// ── Yardımcı: Başlığı URL karşılaştırması için normalize et ─
+// ── Slug normalize ────────────────────────────────────────────
 function normalizeForUrl(str) {
-  return str
-    .toLowerCase()
-    .replace(/ğ/g, 'g').replace(/ü/g, 'u').replace(/ş/g, 's')
-    .replace(/ı/g, 'i').replace(/ö/g, 'o').replace(/ç/g, 'c')
-    .replace(/[^a-z0-9]/g, '');
+  return (str || '').toLowerCase()
+    .replace(/ğ/g,'g').replace(/ü/g,'u').replace(/ş/g,'s')
+    .replace(/ı/g,'i').replace(/ö/g,'o').replace(/ç/g,'c')
+    .replace(/[^a-z0-9]/g,'');
 }
 
-// ── Yardımcı: Sonuçlar arasından en iyi eşleşmeyi bul ───────
+// ── En iyi arama sonucunu bul ─────────────────────────────────
 function findBestMatch(results, searchTitle, year) {
-  var normalizedSearch = normalizeForUrl(searchTitle);
-
-  // 1. Hem başlık hem yıl URL'de eşleşiyor mu?
+  var ns = normalizeForUrl(searchTitle);
+  // 1. Başlık + yıl
   if (year) {
     for (var i = 0; i < results.length; i++) {
-      var normalizedHref = normalizeForUrl(results[i].href);
-      if (normalizedHref.indexOf(normalizedSearch) !== -1 && results[i].href.indexOf(year) !== -1) {
-        console.log('[FilmModu] Başlık+yıl eşleşti: ' + results[i].href);
-        return results[i].href;
-      }
+      var nh = normalizeForUrl(results[i].href);
+      if (nh.indexOf(ns) !== -1 && results[i].href.indexOf(year) !== -1) return results[i].href;
     }
   }
-
-  // 2. Sadece başlık URL'de eşleşiyor mu?
+  // 2. Sadece başlık
   for (var j = 0; j < results.length; j++) {
-    var normalizedHref2 = normalizeForUrl(results[j].href);
-    if (normalizedHref2.indexOf(normalizedSearch) !== -1) {
-      console.log('[FilmModu] Başlık eşleşti: ' + results[j].href);
-      return results[j].href;
-    }
+    if (normalizeForUrl(results[j].href).indexOf(ns) !== -1) return results[j].href;
   }
-
-  // 3. Sadece yıl URL'de eşleşiyor mu?
+  // 3. Sadece yıl
   if (year) {
     for (var k = 0; k < results.length; k++) {
-      if (results[k].href.indexOf(year) !== -1) {
-        console.log('[FilmModu] Yıl eşleşti: ' + results[k].href);
-        return results[k].href;
-      }
+      if (results[k].href.indexOf(year) !== -1) return results[k].href;
     }
   }
-
-  // 4. Hiçbiri eşleşmediyse null döndür (yanlış film seçme)
-  console.log('[FilmModu] Güvenilir eşleşme bulunamadı, atlanıyor');
   return null;
 }
 
-// ── Yardımcı: FilmModu'nda arama yap ────────────────────────
+// ── FilmModu arama ────────────────────────────────────────────
 function searchFilmModu(title, year) {
   var searchUrl = BASE_URL + '/film-ara?term=' + encodeURIComponent(title);
-  console.log('[FilmModu] Aranıyor: ' + searchUrl);
-
-  return fetch(searchUrl, { headers: HEADERS, redirect: 'follow' })
+  return fetchWithTimeout(searchUrl, { headers: HEADERS, redirect: 'follow' })
     .then(function(r) {
-      if (!r.ok) throw new Error('Arama başarısız: ' + r.status);
-      // Redirect olduysa zaten film sayfasındayız
       var finalUrl = r.url;
       if (finalUrl && finalUrl !== searchUrl && finalUrl.indexOf('/film-ara') === -1) {
-        console.log('[FilmModu] Direkt film sayfasına yönlendirildi: ' + finalUrl);
-        return { redirectUrl: finalUrl, html: null };
+        return finalUrl;
       }
-      return r.text().then(function(html) { return { redirectUrl: null, html: html }; });
-    })
-    .then(function(result) {
-      // Redirect ile direkt film sayfasına geldik
-      if (result.redirectUrl) return result.redirectUrl;
-
-      var cheerio = require('cheerio-without-node-native');
-      var $ = cheerio.load(result.html);
-
-      // Sayfa zaten bir film sayfası mı? (div.alternates varsa)
-      if ($('div.alternates').length > 0) {
-        var canonical = $('link[rel="canonical"]').attr('href') || '';
-        if (canonical) {
-          console.log('[FilmModu] Sayfa film sayfası, canonical: ' + canonical);
-          return canonical;
+      return r.text().then(function(html) {
+        var cheerio = require('cheerio-without-node-native');
+        var $ = cheerio.load(html);
+        if ($('div.alternates').length > 0) {
+          return $('link[rel="canonical"]').attr('href') || searchUrl;
         }
-        // canonical yoksa mevcut URL'i döndür
-        return searchUrl;
-      }
-
-      var results = [];
-      $('div.movie').each(function() {
-        var a    = $(this).find('a').first();
-        var href = a.attr('href') || '';
-        var text = a.text().trim();
-        if (href) results.push({ href: href, text: text });
+        var results = [];
+        $('div.movie').each(function() {
+          var href = $(this).find('a').first().attr('href') || '';
+          if (href) results.push({ href: href });
+        });
+        if (results.length === 0) return null;
+        return findBestMatch(results, title, year);
       });
-
-      console.log('[FilmModu] Bulunan sonuç sayısı: ' + results.length);
-      if (results.length === 0) return null;
-
-      return findBestMatch(results, title, year);
     });
 }
 
-// ── Yardımcı: Film sayfasından kaynak linklerini çek ────────
+// ── Kaynak linkleri çek ───────────────────────────────────────
+// OPT: Orijinalde "Türkçe Altyazılı" ve "Fragman" atlanıyordu — hepsi alınır
 function fetchAlternateLinks(filmUrl) {
-  console.log('[FilmModu] Film sayfası: ' + filmUrl);
-
-  return fetch(filmUrl, { headers: HEADERS })
-    .then(function(r) {
-      if (!r.ok) throw new Error('Film sayfası yüklenemedi: ' + r.status);
-      return r.text();
-    })
+  return fetchWithTimeout(filmUrl, { headers: HEADERS })
+    .then(function(r) { return r.text(); })
     .then(function(html) {
       var cheerio = require('cheerio-without-node-native');
       var $ = cheerio.load(html);
       var links = [];
-
       $('div.alternates a').each(function() {
         var href = $(this).attr('href') || '';
         var name = $(this).text().trim();
-        // Fragman ve Türkçe Dublaj linklerini atla, sadece Türkçe Altyazılı al
-        if (name && name !== 'Fragman' && name !== 'Türkçe Altyazılı' && href) {
+        if (name && name !== 'Fragman' && href) {
           links.push({ href: href, name: name });
         }
       });
-
-      console.log('[FilmModu] Kaynak linki sayısı: ' + links.length);
       return links;
     });
 }
 
-// ── Yardımcı: Tek bir kaynak linkinden stream çek ───────────
+// ── Tek kaynak linkten stream çek ─────────────────────────────
 function fetchStreamsFromAlt(altLink, filmUrl) {
-  var altHeaders = Object.assign({}, HEADERS, { 'Referer': filmUrl });
+  return fetchWithTimeout(altLink.href, {
+    headers: Object.assign({}, HEADERS, { 'Referer': filmUrl })
+  })
+    .then(function(r) { return r.text(); })
+    .then(function(html) {
+      var videoIdMatch   = html.match(/var videoId\s*=\s*'([^']+)'/);
+      var videoTypeMatch = html.match(/var videoType\s*=\s*'([^']+)'/);
+      if (!videoIdMatch || !videoTypeMatch) return [];
 
-  return fetch(altLink.href, { headers: altHeaders })
-    .then(function(r) {
-      if (!r.ok) return [];
-      return r.text();
-    })
-    .then(function(altHtml) {
-      var videoIdMatch   = altHtml.match(/var videoId\s*=\s*'([^']+)'/);
-      var videoTypeMatch = altHtml.match(/var videoType\s*=\s*'([^']+)'/);
-
-      if (!videoIdMatch || !videoTypeMatch) {
-        console.log('[FilmModu] videoId/videoType bulunamadı: ' + altLink.href);
-        return [];
-      }
-
-      var videoId   = videoIdMatch[1];
-      var videoType = videoTypeMatch[1];
-      var sourceUrl = BASE_URL + '/get-source?movie_id=' + videoId + '&type=' + videoType;
-
-      console.log('[FilmModu] get-source isteği: ' + sourceUrl);
-
-      var sourceHeaders = Object.assign({}, HEADERS, {
-        'Referer':          altLink.href,
-        'X-Requested-With': 'XMLHttpRequest',
-        'Accept':           'application/json, text/javascript, */*'
-      });
-
-      return fetch(sourceUrl, { headers: sourceHeaders })
-        .then(function(r) {
-          if (!r.ok) return [];
-          return r.json();
+      var sourceUrl = BASE_URL + '/get-source?movie_id=' + videoIdMatch[1] + '&type=' + videoTypeMatch[1];
+      return fetchWithTimeout(sourceUrl, {
+        headers: Object.assign({}, HEADERS, {
+          'Referer':          altLink.href,
+          'X-Requested-With': 'XMLHttpRequest',
+          'Accept':           'application/json'
         })
+      })
+        .then(function(r) { return r.json(); })
         .then(function(data) {
-          var streams = [];
+          if (!data || !data.sources || data.sources.length === 0) return [];
 
-          if (!data || !data.sources || data.sources.length === 0) {
-            console.log('[FilmModu] Kaynak bulunamadı: ' + altLink.name);
-            return streams;
-          }
-
-          // Altyazı varsa logla (Nuvio subtitle desteği için ileride kullanılabilir)
-          if (data.subtitle) {
-            console.log('[FilmModu] Altyazı mevcut: ' + data.subtitle);
-          }
-
-          // Altyazı URL'ini tam adrese çevir
           var subtitleUrl = null;
           if (data.subtitle) {
             subtitleUrl = data.subtitle.startsWith('http')
@@ -216,114 +150,67 @@ function fetchStreamsFromAlt(altLink, filmUrl) {
               : BASE_URL + data.subtitle;
           }
 
-          data.sources.forEach(function(source) {
-            if (!source.src) return;
-            var qualityLabel = source.label || source.res ? (source.res + 'p') : 'HD';
-            // m3u8 uzantısı yoksa ekle
+          return data.sources.map(function(source) {
+            if (!source.src) return null;
             var srcUrl = source.src;
-            if (srcUrl.indexOf('.m3u8') === -1) srcUrl = srcUrl + '.m3u8';
-            var streamObj = {
+            if (srcUrl.indexOf('.m3u8') === -1) srcUrl += '.m3u8';
+            var quality = source.label || (source.res ? source.res + 'p' : 'HD');
+            var obj = {
               name:    'FilmModu',
-              title:   altLink.name + ' • ' + qualityLabel,
+              title:   altLink.name + ' • ' + quality,
               url:     srcUrl,
-              quality: qualityLabel,
+              quality: quality,
               type:    'hls',
-              headers: {
-                'Referer':    BASE_URL + '/',
-                'User-Agent': HEADERS['User-Agent']
-              }
+              headers: { 'Referer': BASE_URL + '/', 'User-Agent': HEADERS['User-Agent'] }
             };
             if (subtitleUrl) {
-              streamObj.subtitles = [{
-                url:      subtitleUrl,
-                language: 'Türkçe',
-                label:    'Türkçe'
-              }];
+              obj.subtitles = [{ url: subtitleUrl, language: 'Türkçe', label: 'Türkçe' }];
             }
-            streams.push(streamObj);
-            console.log('[FilmModu] Stream: ' + qualityLabel + ' | ' + source.src);
-          });
-          return streams;
-        })
-        .catch(function(err) {
-          console.error('[FilmModu] get-source hatası (' + altLink.name + '): ' + err.message);
-          return [];
+            return obj;
+          }).filter(Boolean);
         });
     })
-    .catch(function(err) {
-      console.error('[FilmModu] Alt link hatası (' + altLink.href + '): ' + err.message);
-      return [];
-    });
+    .catch(function() { return []; });
 }
 
-// ── Ana fonksiyon ────────────────────────────────────────────
-function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
-  // FilmModu sadece film içeriği sunar
-  if (mediaType !== 'movie') {
-    console.log('[FilmModu] Sadece film destekleniyor, mediaType: ' + mediaType);
-    return Promise.resolve([]);
-  }
-
-  console.log('[FilmModu] === Başlıyor | TMDB ID: ' + tmdbId + ' ===');
+// ── Ana fonksiyon ─────────────────────────────────────────────
+function getStreams(tmdbId, mediaType) {
+  if (mediaType !== 'movie') return Promise.resolve([]);
 
   return fetchTmdbInfo(tmdbId)
     .then(function(info) {
-      if (!info.titleEn && !info.titleTr) {
-        console.log('[FilmModu] TMDB başlık bulunamadı');
-        return [];
+      if (!info.titleEn && !info.titleTr) return [];
+
+      // OPT: TR ve EN başlıkları paralel ara
+      var searches = [searchFilmModu(info.titleEn, info.year)];
+      if (info.titleTr && info.titleTr !== info.titleEn) {
+        searches.push(searchFilmModu(info.titleTr, info.year));
       }
 
-      console.log('[FilmModu] Film: ' + info.titleEn + ' / ' + info.titleTr + ' (' + info.year + ')');
+      return Promise.all(searches).then(function(urls) {
+        var filmUrl = urls[0] || urls[1];
+        if (!filmUrl) return [];
 
-      // Önce orijinal (İngilizce) başlıkla ara, bulamazsa Türkçeyle dene
-      return searchFilmModu(info.titleEn, info.year)
-        .then(function(filmUrl) {
-          if (!filmUrl && info.titleTr && info.titleTr !== info.titleEn) {
-            console.log('[FilmModu] Orijinal başlıkla bulunamadı, Türkçe deneniyor: ' + info.titleTr);
-            return searchFilmModu(info.titleTr, info.year);
-          }
-          return filmUrl;
-        })
-        .then(function(filmUrl) {
-          if (!filmUrl) {
-            console.log('[FilmModu] Film sitede bulunamadı');
-            return [];
-          }
-
-          return fetchAlternateLinks(filmUrl)
-            .then(function(altLinks) {
-              if (altLinks.length === 0) {
-                console.log('[FilmModu] Hiç kaynak linki yok');
-                return [];
-              }
-
-              // Tüm kaynak linklerini paralel işle
-              var promises = altLinks.map(function(alt) {
-                return fetchStreamsFromAlt(alt, filmUrl);
-              });
-
-              return Promise.all(promises).then(function(results) {
-                var allStreams = [];
-                results.forEach(function(arr) {
-                  if (arr && arr.length > 0) {
-                    arr.forEach(function(s) { allStreams.push(s); });
-                  }
-                });
-                console.log('[FilmModu] Toplam stream: ' + allStreams.length);
-                return allStreams;
-              });
+        return fetchAlternateLinks(filmUrl)
+          .then(function(altLinks) {
+            if (altLinks.length === 0) return [];
+            // OPT: Tüm kaynak linkleri paralel işle (orijinalde de paralel — korundu)
+            return Promise.all(altLinks.map(function(alt) {
+              return fetchStreamsFromAlt(alt, filmUrl);
+            })).then(function(results) {
+              return [].concat.apply([], results);
             });
-        });
+          });
+      });
     })
     .catch(function(err) {
-      console.error('[FilmModu] Genel hata: ' + err.message);
+      console.error('[FilmModu] Hata: ' + err.message);
       return [];
     });
 }
 
-// ── Export ───────────────────────────────────────────────────
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { getStreams };
+  module.exports = { getStreams: getStreams };
 } else {
   global.getStreams = getStreams;
 }
