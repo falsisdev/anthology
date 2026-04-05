@@ -261,10 +261,10 @@
       "name": "DiziPal",
       "description": "En yeni dizileri güvenli ve hızlı şekilde sunar.",
       "version": "1.0.4",
-      "author": "kerimmkirac",
+      "author": "kerimmkirac,Wekmed",
       "supportedTypes": ["movie", "tv"],
       "filename": "providers/dizipal.js",
-      "enabled": false,
+      "enabled": true,
       "formats": ["m3u8"],
       "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://dizipal1206.com&size=128",
       "contentLanguage": ["tr"]
