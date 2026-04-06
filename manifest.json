@@ -203,19 +203,7 @@
       "formats": ["mp4", "mkv"],
       "limited": true,
       "disabledPlatforms": []
-      },
-      {
-      "id": "sezonlukdizi",
-      "name": "SezonlukDizi",
-      "description": "Türkçe dublaj ve altyazılı diziler.",
-      "version": "1.0.0",
-      "author": "port: @keyiflerolsun / nuvio: Wekmed",
-      "supportedTypes": ["tv"],
-      "filename": "providers/sezonlukdizi.js",
-      "enabled": true,
-      "contentLanguage": ["tr"],
-      "formats": ["mp4", "mkv"]
-      },
+      },   
       {
       "id": "sezonlukdizi",
       "name": "SezonlukDizi",
@@ -268,19 +256,7 @@
       "formats": ["m3u8"],
       "logo": "https://www.google.com/s2/favicons?domain=666filmizle.site&sz=%size%",
       "contentLanguage": ["tr"]
-      },  
-      {
-      "id": "dizipal",
-      "name": "DiziPal",
-      "description": "En yeni dizileri güvenli ve hızlı şekilde sunar.",
-      "version": "1.0.4",
-      "author": "kerimmkirac,Wekmed",
-      "supportedTypes": ["movie", "tv"],
-      "filename": "providers/dizipal.js",
-      "enabled": true,
-      "formats": ["m3u8"],
-      "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://dizipal1206.com&size=128",
-      "contentLanguage": ["tr"]
-      }
+      }  
+  
       ]
       }
