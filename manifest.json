@@ -3,31 +3,19 @@
   "version": "0.4",
   "scrapers": [	  
  {
-      "id": "moonvidmodyfilm",
-      "name": "MoonVidmodyFilm",
+      "id": "moonvidmodyfilmdizi",
+      "name": "MoonVidmodyFilmDizi",
       "description": "En yeni filmlleri güvenli ve hızlı şekilde sunar.",
       "version": "1.0.0",
       "author": "MoOnCrOwN",
-      "supportedTypes": ["movie"],
-      "filename": "providers/moonvidmodyfilm.js",
+      "supportedTypes": ["movie","tv"],
+      "filename": "providers/moonvidmodyfilmdizi.js",
       "enabled": true,
       "formats": ["mp4", "mkv", "hls", "m3u8"],
       "logo": "https://play-lh.googleusercontent.com/brwGNmr7IjA_MKk_TTPs0va10hdKE_bD_a1lnKoiMuCayW98EHpRv55edA6aEoJlmwfX=w240-h480",
-      "contentLanguage": ["tr"]
+      "contentLanguage": ["tr","en"]
       },
-	  {
-      "id": "moonvidmodydizi",
-      "name": "MoonVidmodyDizi",
-      "description": "En yeni dizi güvenli ve hızlı şekilde sunar.",
-      "version": "1.0.0",
-      "author": "MoOnCrOwN",
-      "supportedTypes": ["tv"],
-      "filename": "providers/moonvidmodydizi.js",
-      "enabled": true,
-      "formats": ["mp4", "mkv", "hls", "m3u8"],
-      "logo": "https://play-lh.googleusercontent.com/brwGNmr7IjA_MKk_TTPs0va10hdKE_bD_a1lnKoiMuCayW98EHpRv55edA6aEoJlmwfX=w240-h480",
-      "contentLanguage": ["tr"]
-      },
+	
 	   {
       "id": "MoOnCrOwNFilmM3U",
       "name": "MoOnCrOwNFilmM3U",
