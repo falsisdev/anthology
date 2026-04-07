@@ -1,34 +1,60 @@
 var TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
-var VERSION      = "6.0.0-PURE-GEN";
+var VERSION      = "8.0.0-UNIFIED-VERIFIED";
 
-async function getStreams(tmdbId, mediaType) {
-    // TV şovlarını (dizileri) engellemek istersen bu satır kalabilir
-    if (mediaType === 'tv') return [];
-
+async function getStreams(tmdbId, mediaType, season, episode) {
     try {
-        // 1. TMDB'den IMDb ID'sini ve film adını alıyoruz
-        const tmdbRes = await fetch(`https://api.themoviedb.org/3/movie/${tmdbId}?api_key=${TMDB_API_KEY}&language=tr-TR&append_to_response=external_ids`);
+        // 1. TMDB Verisini Çek (Film veya Dizi fark etmeksizin dış ID'leri al)
+        const typePath = (mediaType === 'movie') ? 'movie' : 'tv';
+        const tmdbUrl = `https://api.themoviedb.org/3/${typePath}/${tmdbId}?api_key=${TMDB_API_KEY}&language=tr-TR&append_to_response=external_ids`;
+        
+        const tmdbRes = await fetch(tmdbUrl);
         const d = await tmdbRes.json();
         
         const imdbId = d.external_ids ? d.external_ids.imdb_id : null;
-        const movieTitle = d.title || "Bilinmeyen Film";
-        const releaseYear = (d.release_date || '').slice(0, 4);
+        const title = d.title || d.name || "İçerik";
+        
+        if (!imdbId || !imdbId.startsWith('tt')) return [];
 
-        const results = [];
+        // 2. URL Formatını Belirle
+        let targetUrl = "";
+        let displayTitle = title;
 
-        // 2. Eğer IMDb ID mevcutsa, senin istediğin linki oluştur
-        if (imdbId && imdbId.startsWith('tt')) {
-            results.push({
-                url: `https://vidmody.com/vs/${imdbId}`, // İSTEDİĞİN ÇIKTI FORMATI
-                name: movieTitle,
-                title: `[Vidmody] ${movieTitle} (${releaseYear})`,
-                quality: "1080p",
-                score: 100
-            });
+        if (mediaType === 'movie') {
+            // Film Formatı: https://vidmody.com/vs/tt123456
+            targetUrl = `https://vidmody.com/vs/${imdbId}`;
+            const releaseYear = (d.release_date || '').slice(0, 4);
+            displayTitle += releaseYear ? ` (${releaseYear})` : "";
+        } else {
+            // Dizi Formatı: https://vidmody.com/vs/tt123456/s1/e01
+            let sStr = "s" + season;
+            let eStr = "e" + (episode < 10 ? "0" + episode : episode);
+            targetUrl = `https://vidmody.com/vs/${imdbId}/${sStr}/${eStr}`;
+            displayTitle += ` - ${sStr.toUpperCase()}${eStr.toUpperCase()}`;
         }
 
-        // Sadece oluşturulan bu linki döndürür, M3U ile uğraşmaz
-        return results;
+        // 3. Link Doğrulama (Gerçekten var mı kontrolü)
+        // HEAD isteği ile sadece linkin aktif olup olmadığına bakıyoruz (Hızlıdır)
+        try {
+            const checkRes = await fetch(targetUrl, { method: 'HEAD' });
+            
+            if (checkRes.status === 200) {
+                return [{
+                    url: targetUrl,
+                    name: `Vidmody`,
+                    title: displayTitle,
+                    quality: "Auto",
+                    headers: {
+                        'Referer': 'https://vidmody.com/',
+                        'User-Agent': 'Mozilla/5.0'
+                    }
+                }];
+            }
+        } catch (linkErr) {
+            // Bağlantı hatası veya CORS varsa linki riske atmayıp göstermiyoruz
+            return [];
+        }
+
+        return [];
 
     } catch (e) {
         console.error(`[V${VERSION}] HATA: ${e.message}`);
