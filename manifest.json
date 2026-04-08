@@ -12,7 +12,7 @@
       "filename": "providers/moonvidmodyfilmdizi.js",
       "enabled": true,
       "formats": ["mp4", "mkv", "hls", "m3u8"],
-      "logo": "https://play-lh.googleusercontent.com/brwGNmr7IjA_MKk_TTPs0va10hdKE_bD_a1lnKoiMuCayW98EHpRv55edA6aEoJlmwfX=w240-h480",
+      "logo": "",
       "contentLanguage": ["tr","en"]
       },
 	
@@ -26,7 +26,7 @@
       "filename": "providers/MoOnCrOwNFilmM3U.js",
       "enabled": true,
       "formats": ["mp4", "mkv", "hls", "m3u8"],
-      "logo": "https://play-lh.googleusercontent.com/brwGNmr7IjA_MKk_TTPs0va10hdKE_bD_a1lnKoiMuCayW98EHpRv55edA6aEoJlmwfX=w240-h480",
+      "logo": "",
       "contentLanguage": ["tr"]
       },
 	     {
@@ -39,7 +39,7 @@
       "filename": "providers/MoOnCrOwNDiziM3U.js",
       "enabled": true,
       "formats": ["mp4", "mkv", "hls", "m3u8"],
-      "logo": "https://play-lh.googleusercontent.com/brwGNmr7IjA_MKk_TTPs0va10hdKE_bD_a1lnKoiMuCayW98EHpRv55edA6aEoJlmwfX=w240-h480",
+      "logo": "",
       "contentLanguage": ["tr"]
       },
         {
@@ -52,7 +52,7 @@
       "filename": "providers/M3U/m3u.js",
       "enabled": true,
       "formats": ["mp4", "mkv", "hls", "m3u8"],
-      "logo": "https://play-lh.googleusercontent.com/brwGNmr7IjA_MKk_TTPs0va10hdKE_bD_a1lnKoiMuCayW98EHpRv55edA6aEoJlmwfX=w240-h480",
+      "logo": "",
       "contentLanguage": ["tr"]
       },
 	  
@@ -94,7 +94,7 @@
       "supportedTypes": ["movie","tv"],
       "filename": "providers/netmirror.js",
       "enabled": true,
-      "logo": "https://net2025.cc/favicon.ico",
+      "logo": "https://net22.cc/favicon.ico",
       "contentLanguage": ["en"],
       "disabledPlatforms": ["ios"],
       "supportsExternalPlayer": false
@@ -255,7 +255,7 @@
       "filename": "providers/vidlink.js",
       "enabled": true,
       "formats": ["mp4", "m3u8"],
-      "logo": "https://i.postimg.cc/wMHSw2Vb/vidlink.png",
+      "logo": "https://vidlink.pro/favicon.ico",
       "contentLanguage": ["en"]
       }
       ]
