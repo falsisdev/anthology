@@ -1,126 +1,136 @@
-
 /**
- * Nuvio Local Scraper - SinemaCX (Gelişmiş Versiyon)
- * Altyazı ve Çoklu Domain Desteği
+ * Nuvio Local Scraper - SinemaCX (V42 - Hatalı Bilgi Fix)
  */
 
 var cheerio = require("cheerio-without-node-native");
 
+const PROVIDER_NAME = "SinemaCX";
+const BASE_URL = "https://www.sinema.la";
+const EMPTY_RESULT = [];
+
 const WORKING_HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-    'Accept': '*/*',
-    'Accept-Language': 'tr-TR,tr;q=0.9',
-    'Referer': 'https://www.sinema.news/',
-    'Origin': 'https://www.sinema.news'
+    'Referer': 'https://www.sinema.la/'
 };
 
 function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
-    return new Promise(function(resolve, reject) {
+    return new Promise(function(resolve) {
+        var isMovie = mediaType === 'movie';
+        var tmdbUrl = 'https://api.themoviedb.org/3/' + (isMovie ? 'movie' : 'tv') + '/' + tmdbId + '?language=tr-TR&api_key=4ef0d7355d9ffb5151e987764708ce96';
         
-        // 1. TMDB Bilgilerini Al
-        var tmdbUrl = 'https://api.themoviedb.org/3/' + (mediaType === 'movie' ? 'movie' : 'tv') + '/' + tmdbId + '?language=tr-TR&api_key=4ef0d7355d9ffb5151e987764708ce96';
+        var displayTitle = ""; 
+        var releaseYear = "";
 
         fetch(tmdbUrl)
-            .then(function(res) { return res.json(); })
-            .then(function(data) {
-                var query = data.title || data.name;
-                // Python örneğindeki gibi arama yap (sinema.news veya sinemax.cc kullanılabilir)
-                return fetch('https://www.sinema.news/?s=' + encodeURIComponent(query), { headers: WORKING_HEADERS });
-            })
-            .then(function(res) { return res.text(); })
-            .then(function(html) {
-                var $ = cheerio.load(html);
-                var targetUrl = $("div.icerik div.frag-k div.yanac a").first().attr("href");
-                
-                if (!targetUrl) return resolve([]);
+            .then(res => res.json())
+            .then(data => {
+                var trTitle = (data.title || data.name || "").toLowerCase();
+                var orgTitle = (data.original_title || data.original_name || "").toLowerCase();
+                displayTitle = (data.title || data.name || "Film");
+                releaseYear = (data.release_date || data.first_air_date || "").split("-")[0];
 
-                // 2. Film Sayfasına Git
-                return fetch(targetUrl, { headers: WORKING_HEADERS });
-            })
-            .then(function(res) { return res ? res.text() : null; })
-            .then(function(html) {
-                if (!html) return resolve([]);
-                
-                var $ = cheerio.load(html);
-                var iframeRaw = $("iframe").first().attr("data-vsrc") || $("iframe").first().attr("src");
+                var query1 = trTitle.replace(/[:.,\-]/g, ' ').split(" ").slice(0, 3).join(" ");
+                var query2 = orgTitle.replace(/[:.,\-]/g, ' ').split(" ").slice(0, 3).join(" ");
 
-                if (!iframeRaw) return resolve([]);
-
-                // URL Temizleme (split("?img=")[0])
-                var iframeLink = iframeRaw.split("?img=")[0];
-
-                // 3. Iframe İçeriğini Çek (Altyazı ve Video için)
-                // Python: oturum.get(iframe_link)
-                return fetch(iframeLink, { 
-                    headers: { 'Referer': 'https://www.sinema.news/' } 
-                }).then(function(res) { 
-                    return res.text().then(function(content) { 
-                        return { content: content, link: iframeLink }; 
+                return searchOnSite(query1, releaseYear).then(res1 => {
+                    if (res1 && res1.score >= 5) return res1;
+                    return searchOnSite(query2, releaseYear).then(res2 => {
+                        if (res2) return res2;
+                        return searchOnSite(orgTitle.split(" ")[0], releaseYear);
                     });
                 });
             })
-            .then(function(obj) {
-                if (!obj) return resolve([]);
+            .then(result => {
+                if (!result) return resolve(EMPTY_RESULT);
 
-                var streams = [];
-                var iframeSource = obj.content;
-                var currentIframe = obj.link;
+                return fetch(result.url, { headers: WORKING_HEADERS }).then(res => res.text()).then(html => {
+                    var $page = cheerio.load(html);
+                    
+                    // --- DİL ANALİZİ (GÜNCELLENDİ) ---
+                    var pageText = $page("body").text().toLowerCase();
+                    var siteTitleLower = result.siteTitle.toLowerCase();
+                    
+                    var langInfo = "HD"; // Varsayılan artık sadece HD
+                    
+                    if (pageText.includes("dublaj") || siteTitleLower.includes("dublaj")) {
+                        langInfo = "Türkçe Dublaj";
+                    } else if (pageText.includes("altyazı") || siteTitleLower.includes("altyazı")) {
+                        langInfo = "Türkçe Altyazı";
+                    }
+                    // "Else" durumunda yani bir şey bulamazsa HD olarak kalacak.
 
-                // 4. Altyazı Ayıklama (Regex)
-                // Python: playerjsSubtitle = "\[(.*?)\](https?://[^\s]+)"
-                var subMatch = iframeSource.match(/playerjsSubtitle\s*=\s*"\[(.*?)\](https?:\/\/[^"\s]+)"/);
-                var subtitleInfo = subMatch ? (subMatch[1] + ": " + subMatch[2]) : "Yok";
+                    var iframeUrl = "";
+                    $page("iframe").each(function() {
+                        var src = $page(this).attr("data-vsrc") || $page(this).attr("src") || "";
+                        if (src.includes("player.filmizle.in")) {
+                            iframeUrl = src.split("?img=")[0];
+                            return false;
+                        }
+                    });
 
-                // 5. Video URL'sini Al (POST isteği)
-                if (currentIframe.includes("player.filmizle.in")) {
-                    var videoId = currentIframe.split("/").pop();
-                    var apiUrl = "https://player.filmizle.in/player/index.php?data=" + videoId + "&do=getVideo";
+                    if (!iframeUrl) return resolve(EMPTY_RESULT);
 
-                    fetch(apiUrl, {
+                    var videoId = iframeUrl.split("/").pop();
+                    return fetch("https://player.filmizle.in/player/index.php?data=" + videoId + "&do=getVideo", {
                         method: 'POST',
                         headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
                             'X-Requested-With': 'XMLHttpRequest',
-                            'Referer': currentIframe,
-                            'User-Agent': WORKING_HEADERS['User-Agent']
-                        }
-                    })
-                    .then(function(res) { return res.json(); })
-                    .then(function(json) {
-                        if (json.securedLink) {
-                            streams.push({
-                                name: "SinemaCX - " + (subMatch ? "Altyazılı" : "Türkçe"),
-                                title: "Altyazı: " + subtitleInfo,
+                            'Referer': iframeUrl
+                        },
+                        body: "data=" + videoId + "&do=getVideo"
+                    }).then(r => r.json()).then(json => {
+                        if (json && json.securedLink) {
+                            resolve([{
+                                name: displayTitle,  // Üstte Film İsmi
+                                title: langInfo,     // Altta Dil veya sadece "HD"
                                 url: json.securedLink,
                                 quality: "1080p",
-                                headers: { 'Referer': 'https://player.filmizle.in/' },
-                                provider: "sinemacx"
-                            });
-                        }
-                        resolve(streams);
-                    })
-                    .catch(function() { resolve([]); });
-                } else {
-                    // Alternatif player ise direkt linki ekle
-                    streams.push({
-                        name: "SinemaCX - Embed",
-                        title: "Video",
-                        url: currentIframe,
-                        quality: "720p",
-                        headers: WORKING_HEADERS,
-                        provider: "sinemacx"
+                                headers: { 'Referer': 'https://player.filmizle.in/' }
+                            }]);
+                        } else { resolve(EMPTY_RESULT); }
                     });
-                    resolve(streams);
-                }
+                });
             })
-            .catch(function(err) {
-                console.error('Sistem Hatası:', err);
-                resolve([]);
+            .catch(err => {
+                resolve(EMPTY_RESULT);
             });
+    });
+}
+
+function searchOnSite(query, year) {
+    if (!query || query.length < 2) return Promise.resolve(null);
+    var cleanQuery = query.toLowerCase().trim();
+    var searchUrl = `${BASE_URL}/?s=` + encodeURIComponent(cleanQuery);
+    
+    return fetch(searchUrl, { headers: WORKING_HEADERS }).then(res => res.text()).then(html => {
+        var $ = cheerio.load(html);
+        var results = [];
+
+        $("a").each(function() {
+            var url = $(this).attr("href") || "";
+            var title = $(this).text().toLowerCase().trim();
+            if (!url.startsWith(BASE_URL) || url.includes("/category/") || title.length < 5) return;
+
+            var score = 0;
+            var words = cleanQuery.split(" ");
+            words.forEach(w => { if (title.includes(w)) score += 2; });
+            if (year && title.includes(year)) score += 10;
+            if (url.includes(cleanQuery.replace(/\s+/g, '-'))) score += 5;
+
+            if (score > 3) {
+                results.push({ url: url, siteTitle: $(this).text().trim(), score: score });
+            }
+        });
+
+        if (results.length > 0) {
+            results.sort((a, b) => b.score - a.score);
+            return results[0];
+        }
+        return null;
     });
 }
 
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { getStreams: getStreams };
-} else {
-    global.getStreams = getStreams;
 }
