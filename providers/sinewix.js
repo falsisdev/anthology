@@ -1,6 +1,6 @@
 
-var API_BASE = 'https://ydfvfdizipanel.ru';
-//var API_BASE = 'https://ydfvfdizipanel.ru/public/api';
+
+var API_BASE = 'https://ydfvfdizipanel.ru/public/api';
 var API_KEY = '9iQNC5HQwPlaFuJDkhncJ5XTJ8feGXOJatAA';
 
 var API_HEADERS = {
@@ -74,7 +74,7 @@ function buildStreams(videoLinks, title, year) {
 function fetchDetailAndStreams(sinewixId, sinewixItemType, mediaType, seasonNum, episodeNum) {
     var paths = getApiPaths(mediaType);
     var apiUrl = API_BASE + '/' + paths.genre + '/' + paths.endpoint + '/' + sinewixId + '/' + API_KEY;
-    console.log('[SineWix] Detail URL:', apiUrl);
+    console.error('[SineWix] Detail URL:', apiUrl);
 
     return fetch(apiUrl, { headers: API_HEADERS })
         .then(function(res) { return res.json(); })
@@ -109,7 +109,7 @@ function fetchDetailAndStreams(sinewixId, sinewixItemType, mediaType, seasonNum,
                 }
             }
 
-            console.log('[SineWix] Video links found:', videoLinks.length);
+            console.error('[SineWix] Video links found:', videoLinks.length);
             return buildStreams(videoLinks, title, year);
         });
 }
@@ -135,7 +135,7 @@ function searchAndFetch(title, mediaType, seasonNum, episodeNum) {
             }
 
             var best = filtered[0];
-            console.log('[SineWix] Best match:', best.id, best.type);
+            console.error('[SineWix] Best match:', best.id, best.type);
             return fetchDetailAndStreams(best.id, best.type, mediaType, seasonNum, episodeNum);
         });
 }
@@ -146,7 +146,7 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
         var tmdbUrl = 'https://api.themoviedb.org/3/' + tmdbType + '/' + tmdbId +
             '?language=tr-TR&api_key=4ef0d7355d9ffb5151e987764708ce96';
 
-        console.log('[SineWix] Starting for tmdbId:', tmdbId, 'type:', mediaType);
+        console.error('[SineWix] Starting for tmdbId:', tmdbId, 'type:', mediaType);
 
         fetch(tmdbUrl)
             .then(function(res) { return res.json(); })
