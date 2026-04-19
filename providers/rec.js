@@ -1,7 +1,7 @@
 // RecTV_v12_Dizi_Film_Link_Birlestirme_Sistemi (Film Desteği Onarılmış)
 var cheerio = require("cheerio-without-node-native");
 
-var BASE_URL = "https://a.prectv67.lol";
+var BASE_URL = "https://a.prectv70.lol";
 var SW_KEY = "4F5A9C3D9A86FA54EACEDDD635185/c3c5bd17-e37b-4b94-a944-8a3688a30452";
 
 var HEADERS = {
