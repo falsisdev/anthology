@@ -181,7 +181,7 @@ function processEmbed(embedData, dilAd, movieTitle) {
     else if (src.indexOf('filemoon') !== -1) pName = "FileMoon";
 
     // Kalite Bilgisi: Uydurma değil, sadece varsa yaz
-    var q = embedData.kalite || ''; 
+    var q = embedData.kalite || 'Auto'; 
 
     var streamPromise;
     if (src.indexOf('vidmoly') !== -1) {
