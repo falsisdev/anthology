@@ -1,6 +1,6 @@
 
-
-var API_BASE = 'https://ydfvfdizipanel.ru/public/api';
+var API_BASE = 'https://ydfvfdizipanel.ru';
+//var API_BASE = 'https://ydfvfdizipanel.ru/public/api';
 var API_KEY = '9iQNC5HQwPlaFuJDkhncJ5XTJ8feGXOJatAA';
 
 var API_HEADERS = {
