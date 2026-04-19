@@ -1,5 +1,5 @@
 /**
- * FullHDFilmizlesene Nuvio Scraper - v27.0 (Distinct Link Fix)
+ * FullHDFilmizlesene Nuvio Scraper - v28.0 (Visual & Quality Update)
  */
 
 var cheerio = require("cheerio-without-node-native");
@@ -42,7 +42,7 @@ function decodeRapidVid(encodedData) {
     } catch (e) { return null; }
 }
 
-async function getStreamsFromAPI(vidid) {
+async function getStreamsFromAPI(vidid, movieTitle) {
     const fetchAtom = async () => {
         try {
             let res = await fetch(API_BASE + '?id=' + vidid + '&type=t&name=atom&get=video&format=json', { headers: WORKING_HEADERS });
@@ -53,18 +53,17 @@ async function getStreamsFromAPI(vidid) {
                 let avMatch = playerHtml.match(/av\(['"]([^'"]+)['"]\)/);
                 if (avMatch) {
                     let url = decodeRapidVid(avMatch[1]);
-                    // İsim alanını benzersiz yapıyoruz
                     if (url) return { 
-                        name: "FullHD (Atom-1080p)", 
-                        title: "Atom Kaynağı", 
+                        name: movieTitle, 
+                        title: "⌜ FULLHDFILM ⌟ | Atom | 🇹🇷 Dublaj", 
                         url: url, 
-                        quality: "1080p", 
+                        quality: "Auto", 
                         headers: WORKING_HEADERS, 
                         provider: "fullhd_scraper" 
                     };
                 }
             }
-        } catch (e) { console.error("Atom Hata"); }
+        } catch (e) { }
         return null;
     };
 
@@ -77,22 +76,20 @@ async function getStreamsFromAPI(vidid) {
                 let playRes = await fetch('https://turbo.imgz.me/play/' + watchId + '?autoplay=true', { headers: Object.assign({}, WORKING_HEADERS, { 'Referer': BASE_URL }) });
                 let playHtml = await playRes.text();
                 let m3u8 = playHtml.match(/file:\s*"(.*?\.m3u8.*?)"/i);
-                // İsim alanını benzersiz yapıyoruz
                 if (m3u8) return { 
-                    name: "FullHD (Turbo-HLS)", 
-                    title: "Turbo Kaynağı", 
+                    name: movieTitle, 
+                    title: "⌜ FULLHDFILM ⌟ | Turbo | 🇹🇷 Dublaj", 
                     url: m3u8[1], 
-                    quality: "1080p", 
+                    quality: "Auto", 
                     headers: Object.assign({}, WORKING_HEADERS, { 'Referer': 'https://turbo.imgz.me/' }), 
                     provider: "fullhd_scraper" 
                 };
             }
-        } catch (e) { console.error("Turbo Hata"); }
+        } catch (e) { }
         return null;
     };
 
     let results = await Promise.all([fetchAtom(), fetchTurbo()]);
-    // Sadece null olmayanları döndür
     return results.filter(r => r !== null);
 }
 
@@ -104,11 +101,12 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
             .then(res => res.json())
             .then(data => {
                 const year = data.release_date ? data.release_date.split('-')[0] : "";
+                const movieTitle = data.title || data.original_title;
                 const query = data.title || data.original_title;
                 const searchUrl = BASE_URL + '/arama/' + encodeURIComponent(query);
-                return Promise.all([fetch(searchUrl, { headers: WORKING_HEADERS }), year]);
+                return Promise.all([fetch(searchUrl, { headers: WORKING_HEADERS }), year, movieTitle]);
             })
-            .then(async ([res, year]) => {
+            .then(async ([res, year, movieTitle]) => {
                 let searchHtml = await res.text();
                 let $ = cheerio.load(searchHtml);
                 let filmLink = "";
@@ -127,12 +125,12 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
                 let filmHtml = await filmRes.text();
                 
                 let vidMatch = filmHtml.match(/vidid\s*=\s*['"](\d+)['"]/);
-                if (vidMatch) return getStreamsFromAPI(vidMatch[1]);
+                if (vidMatch) return getStreamsFromAPI(vidMatch[1], movieTitle);
                 
                 return [];
             })
             .then(streams => resolve(streams))
-            .catch(err => { console.error(err.message); resolve([]); });
+            .catch(err => { resolve([]); });
     });
 }
 
