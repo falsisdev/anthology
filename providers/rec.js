@@ -1,7 +1,6 @@
 /**
  * RecTV_v18_Final_Fix
- * FİLM: Karakter sayısı kontrolü eklendi. Aranan isimden uzun olanlar elenir.
- * DİZİ: Senin paylaştığın eski çalışan yapıya dokunulmadı.
+ .
  */
 
 var cheerio = require("cheerio-without-node-native");
