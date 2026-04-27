@@ -1,6 +1,7 @@
 /**
  * RecTV_v18_Final_Fix
- * UI Standartlaştırması ve Auto Kalite Güncellemesi
+ * FİLM: Karakter sayısı kontrolü eklendi. Aranan isimden uzun olanlar elenir.
+ * DİZİ: Senin paylaştığın eski çalışan yapıya dokunulmadı.
  */
 
 var cheerio = require("cheerio-without-node-native");
@@ -34,8 +35,15 @@ function analyzeStream(url, index, itemLabel) {
     const lowLabel = (itemLabel || "").toLowerCase();
     let info = { icon: "🌐", text: "Altyazı" };
 
-    if (lowLabel.includes("dublaj") || lowUrl.includes("dublaj")) {
-        // Eğer etiket hem dublaj hem altyazı içeriyorsa (bazı hatalı etiketler için index kontrolü)
+    const isTurkish = 
+        lowLabel.includes("dublaj") || 
+        lowLabel.includes("yerli") || 
+        lowLabel.includes("tr dub") || 
+        lowLabel.includes("türkçe") ||
+        lowUrl.includes("dublaj") || 
+        lowUrl.includes("/tr/");
+
+    if (isTurkish) {
         if (lowLabel.includes("altyazı") && index === 1) {
             info.icon = "🌐";
             info.text = "Altyazı";
@@ -78,18 +86,29 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
         }
 
         let finalResults = [];
-        const searchTitleLower = trTitle.toLowerCase().trim();
-        const orgTitleLower = orgTitle.toLowerCase().trim();
 
         for (let target of allItems) {
             const targetTitleLower = target.title.toLowerCase().trim();
-            
-            // --- KESİN EŞLEŞME FİLTRESİ ---
+            const searchTitleLower = trTitle.toLowerCase().trim();
+            const orgTitleLower = orgTitle.toLowerCase().trim();
             let isMatch = false;
-            if (searchTitleLower === "from") {
-                isMatch = (targetTitleLower === "from" || targetTitleLower === "from dizi");
+
+            if (isMovie) {
+                // --- FİLM İÇİN NET HARF SAYISI VE TAM EŞLEŞME ---
+                // Hedef başlık, aradığımız başlıktan daha uzunsa direkt elenir.
+                const isLengthOk = targetTitleLower.length <= searchTitleLower.length + 2; // +2 pay (yıl vs. için)
+                const isExact = targetTitleLower === searchTitleLower || targetTitleLower === orgTitleLower;
+                
+                // Eğer tam eşleşmiyorsa bile en azından içermeli ama uzun olmamalı
+                isMatch = isExact || (targetTitleLower.includes(searchTitleLower) && isLengthOk);
+                
             } else {
-                isMatch = targetTitleLower.includes(searchTitleLower) || targetTitleLower.includes(orgTitleLower);
+                // --- DİZİ İÇİN SENİN ÇALIŞAN ESKİ YAPIN ---
+                if (searchTitleLower === "from") {
+                    isMatch = (targetTitleLower === "from" || targetTitleLower === "from dizi");
+                } else {
+                    isMatch = targetTitleLower.includes(searchTitleLower) || targetTitleLower.includes(orgTitleLower);
+                }
             }
 
             if (!isMatch) continue;
@@ -113,7 +132,7 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
                                         name: trTitle, 
                                         title: `⌜ RECTV ⌟ | Kaynak ${idx + 1} | ${streamInfo.icon} ${streamInfo.text}`,
                                         url: src.url,
-                                        quality: "Auto", // Gerçek veri gelmediği için Auto sabitlendi
+                                        quality: "Auto",
                                         headers: { 'User-Agent': 'googleusercontent', 'Referer': 'https://twitter.com/', 'Accept-Encoding': 'identity' }
                                     });
                                 });
@@ -142,9 +161,7 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
             }
         }
 
-        // URL Tekilleştirme
         return finalResults.filter((v, i, a) => a.findIndex(t => (t.url === v.url)) === i);
-
     } catch (err) { 
         return []; 
     }
