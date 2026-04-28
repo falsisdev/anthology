@@ -24,7 +24,7 @@
       "author": "MoOnCrOwN",
       "supportedTypes": ["movie"],
       "filename": "providers/MoOnCrOwNFilmM3U.js",
-      "enabled": true,
+      "enabled": false,
       "formats": ["mp4", "mkv", "hls", "m3u8"],
       "logo": "",
       "contentLanguage": ["tr"]
