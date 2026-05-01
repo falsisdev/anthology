@@ -1,5 +1,6 @@
 /**
- * FullHDFilmizlesene Nuvio Scraper - v28.0 (Visual & Quality Update)
+ * FullHDFilmizlesene Nuvio Scraper - v29.4
+ * Sadece eşleşme mantığı ve görsel etiketler güncellendi.
  */
 
 var cheerio = require("cheerio-without-node-native");
@@ -9,7 +10,6 @@ const API_BASE = "https://www.fullhdfilmizlesene.live/player/api.php";
 
 const WORKING_HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
     'Referer': BASE_URL + '/',
     'Origin': BASE_URL
 };
@@ -43,6 +43,7 @@ function decodeRapidVid(encodedData) {
 }
 
 async function getStreamsFromAPI(vidid, movieTitle) {
+    // v28.6'daki çalışan stabil mantık
     const fetchAtom = async () => {
         try {
             let res = await fetch(API_BASE + '?id=' + vidid + '&type=t&name=atom&get=video&format=json', { headers: WORKING_HEADERS });
@@ -58,8 +59,7 @@ async function getStreamsFromAPI(vidid, movieTitle) {
                         title: "⌜ FULLHDFILM ⌟ | Atom | 🇹🇷 Dublaj", 
                         url: url, 
                         quality: "Auto", 
-                        headers: WORKING_HEADERS, 
-                        provider: "fullhd_scraper" 
+                        headers: WORKING_HEADERS 
                     };
                 }
             }
@@ -81,8 +81,7 @@ async function getStreamsFromAPI(vidid, movieTitle) {
                     title: "⌜ FULLHDFILM ⌟ | Turbo | 🇹🇷 Dublaj", 
                     url: m3u8[1], 
                     quality: "Auto", 
-                    headers: Object.assign({}, WORKING_HEADERS, { 'Referer': 'https://turbo.imgz.me/' }), 
-                    provider: "fullhd_scraper" 
+                    headers: Object.assign({}, WORKING_HEADERS, { 'Referer': 'https://turbo.imgz.me/' }) 
                 };
             }
         } catch (e) { }
@@ -97,42 +96,62 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
     return new Promise(function(resolve) {
         if (mediaType !== 'movie') return resolve([]);
 
-        fetch('https://api.themoviedb.org/3/movie/' + tmdbId + '?language=tr-TR&api_key=4ef0d7355d9ffb5151e987764708ce96')
+        fetch(`https://api.themoviedb.org/3/movie/${tmdbId}?language=tr-TR&api_key=4ef0d7355d9ffb5151e987764708ce96&append_to_response=alternative_titles`)
             .then(res => res.json())
             .then(data => {
-                const year = data.release_date ? data.release_date.split('-')[0] : "";
-                const movieTitle = data.title || data.original_title;
-                const query = data.title || data.original_title;
-                const searchUrl = BASE_URL + '/arama/' + encodeURIComponent(query);
-                return Promise.all([fetch(searchUrl, { headers: WORKING_HEADERS }), year, movieTitle]);
+                const targetYear = data.release_date ? data.release_date.split('-')[0] : "";
+                const titles = new Set([data.title.toLowerCase(), data.original_title.toLowerCase()]);
+                if (data.alternative_titles && data.alternative_titles.titles) {
+                    data.alternative_titles.titles.forEach(t => titles.add(t.title.toLowerCase()));
+                }
+
+                console.error(`[NUVIO] Hedef: ${data.title} (${targetYear})`);
+                return Promise.all([fetch(`${BASE_URL}/arama/${encodeURIComponent(data.title)}`, { headers: WORKING_HEADERS }), targetYear, Array.from(titles)]);
             })
-            .then(async ([res, year, movieTitle]) => {
-                let searchHtml = await res.text();
-                let $ = cheerio.load(searchHtml);
-                let filmLink = "";
-                
-                $(".film-listesi li").each((i, el) => {
-                    let link = $(el).find("a").attr("href");
-                    if (link && (year === "" || $(el).text().includes(year))) {
-                        filmLink = link; return false;
-                    }
+            .then(async ([res, targetYear, allTitles]) => {
+                let $ = cheerio.load(await res.text());
+                let candidates = [];
+
+                $("ul.list li.film").each((i, el) => {
+                    let link = $(el).find("a.tt").attr("href");
+                    let siteTitle = $(el).find(".film-title").text().trim().toLowerCase();
+                    let siteYear = $(el).find(".film-yil").text().trim();
+
+                    // 1. YIL KONTROLÜ: Kesin tutmalı
+                    if (!siteYear.includes(targetYear)) return;
+
+                    // 2. PUANLAMA
+                    let score = 0;
+                    allTitles.forEach(t => {
+                        if (siteTitle === t) score += 100;
+                        else if (siteTitle.includes(t) || t.includes(siteTitle)) score += 50;
+                    });
+
+                    if (score > 0) candidates.push({ link, score, title: siteTitle });
                 });
 
-                if (!filmLink) filmLink = $(".film-listesi a").first().attr("href") || $("a[href*='/film/']").first().attr("href");
-                if (!filmLink) throw new Error("Film bulunamadı");
-                
-                let filmRes = await fetch(filmLink.startsWith('http') ? filmLink : BASE_URL + filmLink, { headers: WORKING_HEADERS });
-                let filmHtml = await filmRes.text();
-                
-                let vidMatch = filmHtml.match(/vidid\s*=\s*['"](\d+)['"]/);
-                if (vidMatch) return getStreamsFromAPI(vidMatch[1], movieTitle);
-                
-                return [];
+                candidates.sort((a, b) => b.score - a.score);
+                let bestMatch = candidates[0];
+
+                if (bestMatch && bestMatch.link) {
+                    console.error(`[NUVIO] DOĞRU EŞLEŞME: ${bestMatch.title} (${bestMatch.score} Puan)`);
+                    let fRes = await fetch(bestMatch.link.startsWith('http') ? bestMatch.link : BASE_URL + bestMatch.link, { headers: WORKING_HEADERS });
+                    let filmHtml = await fRes.text();
+                    let vidMatch = filmHtml.match(/vidid\s*=\s*['"](\d+)['"]/);
+                    
+                    if (vidMatch) {
+                        let streams = await getStreamsFromAPI(vidMatch[1], bestMatch.title.toUpperCase());
+                        return resolve(streams);
+                    }
+                }
+                resolve([]);
             })
-            .then(streams => resolve(streams))
-            .catch(err => { resolve([]); });
+            .catch(() => resolve([]));
     });
 }
 
-if (typeof module !== 'undefined' && module.exports) { module.exports = { getStreams: getStreams }; }
-else { globalThis.getStreams = getStreams; }
+if (typeof module !== 'undefined' && module.exports) { 
+    module.exports = { getStreams: getStreams }; 
+} else { 
+    globalThis.getStreams = getStreams; 
+}
