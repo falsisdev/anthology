@@ -1,262 +1,73 @@
 {
+  "id": "nuviotr.falsisdev.addon",
   "name": "FalsisAddons",
-  "version": "0.4",
-  "scrapers": [	  
- {
-      "id": "moonvidmodyfilmdizi",
-      "name": "MoonVidmodyFilmDizi",
-      "description": "En yeni filmlleri güvenli ve hızlı şekilde sunar.",
-      "version": "1.0.0",
-      "author": "MoOnCrOwN",
-      "supportedTypes": ["movie","tv"],
-      "filename": "providers/moonvidmodyfilmdizi.js",
-      "enabled": true,
-      "formats": ["mp4", "mkv", "hls", "m3u8"],
-      "logo": "",
-      "contentLanguage": ["tr","en"]
-      },
-	
-	   {
-      "id": "MoOnCrOwNFilmM3U",
-      "name": "MoOnCrOwNFilmM3U",
-      "description": "PowerBoard,Zerk ve  Lundeor kaynaklarından  en yeni filmlleri güvenli ve hızlı şekilde sunar.",
-      "version": "1.0.0",
-      "author": "MoOnCrOwN",
-      "supportedTypes": ["movie"],
-      "filename": "providers/MoOnCrOwNFilmM3U.js",
-      "enabled": false,
-      "formats": ["mp4", "mkv", "hls", "m3u8"],
-      "logo": "",
-      "contentLanguage": ["tr"]
-      },
-	     {
-      "id": "MoOnCrOwNDiziM3U",
-      "name": "MoOnCrOwNDiziM3U",
-      "description": "PowerBoard,Zerk  kaynaklarından  en yeni dizileri güvenli ve hızlı şekilde sunar.",
-      "version": "1.0.0",
-      "author": "MoOnCrOwN",
-      "supportedTypes": ["tv"],
-      "filename": "providers/MoOnCrOwNDiziM3U.js",
-      "enabled": true,
-      "formats": ["mp4", "mkv", "hls", "m3u8"],
-      "logo": "",
-      "contentLanguage": ["tr"]
-      },
-        {
-      "id": "m3u",
-      "name": "M3u",
-      "description": "M3u Film, Dizi İzleme ",
-      "version": "1.0.0",
-      "author": "MoOnCrOwN",
-      "supportedTypes": ["movie","tv"],
-      "filename": "providers/M3U/m3u.js",
-      "enabled": true,
-      "formats": ["mp4", "mkv", "hls", "m3u8"],
-      "logo": "",
-      "contentLanguage": ["tr"]
-      },
-	  
-	  {
-  "id": "m3u.mooncrown.addon",
-  "name": "MoOnCrOwN M3U",
-  "description": "Otomatik M3U Katalog ve Yayın Eklentisi",
-  "logo": "https://play-lh.googleusercontent.com/brwGNmr7IjA_MKk_TTPs0va10hdKE_bD_a1lnKoiMuCayW98EHpRv55edA6aEoJlmwfX=w240-h480",
-  "version": "1.0.1",
-  "author": "MoOnCrOwN",
-  "types": ["tv", "movie"],
-  "idPrefixes": ["tv_", "tmdb_", "iptv_", "nv_"],
+  "version": "1.0.0",
+  "description": "Golang tabanlı yüksek performanslı Türkçe dizi, film ve Canlı IPTV yayın motoru.",
+  "author": "falsisdev",
+  "repository": "https://github.com/falsisdev/nuviotr",
+  "engine": "golang",
+  "supportedTypes": ["movie", "tv", "live"],
   "catalogs": [
     {
-      "type": "tv",
-      "id": "mooncrown_m3u_list", 
-      "name": "MoOnCrOwN Canlı TV",
-      "extra": [
-        { "name": "search", "isRequired": false },
-        { "name": "genre", "isRequired": false }  
-      ]
+      "type": "live",
+      "id": "falsis_canli_tv",
+      "name": "Canlı TV (Ulusal & Haber & Sinema)"
     }
   ],
-  "resources": [
-    "catalog", 
-    "meta",    
-    "stream"  
-  ],
-  "filename": "eklentiler/M3U/ListM3u.js",
-  "enabled": true,
-  "formats": ["mp4", "mkv", "hls", "m3u8"],
-  "contentLanguage": ["tr"]
-}, {
-      "id": "netmirror",
-      "name": "NetMirror",
-      "description": "Streaming links from netmirror. Automatically disabled on iOS due to compatibility issues.",
-      "version": "1.0.2",
-      "author": "Nuvio Team",
-      "supportedTypes": ["movie","tv"],
-      "filename": "providers/netmirror.js",
-      "enabled": true,
-      "logo": "https://net22.cc/favicon.ico",
-      "contentLanguage": ["en"],
-      "disabledPlatforms": ["ios"],
-      "supportsExternalPlayer": false
-      },
-	  {
-      "id": "sinemacx",
-      "name": "SinemaCx",
-      "description": "Güncel ve en iyi yabancı filmleri yüksek görüntü kalitesinde, Türkçe  dublaj ve altyazı seçenekleriyle filmleri full izleyin.",
-      "version": "1.0.0",
-      "author": "MoOnCrOwN",
-      "supportedTypes": ["movie", "tv"],
-      "filename": "providers/sinemacx.js",
-      "enabled": true,
-      "formats": ["mp4", "mkv", "hls", "m3u8"],
-      "logo": "https://www.google.com/s2/favicons?domain=www.sinema.cx&sz=%size%",
-      "contentLanguage": ["tr"]
-      },	  
-	  {
-      "id": "diziyou",
-      "name": "DiziYou",
-      "description": "Diziyou en kaliteli Türkçe dublaj ve altyazılı yabancı dizi izleme sitesidir.",
-      "version": "1.0.4",
-      "author": "MoOnCrOwN",
-      "supportedTypes": ["tv"],
-      "filename": "providers/diziyou.js",
-      "enabled": true,
-      "formats": ["m3u8"],
-      "logo": "https://www.google.com/s2/favicons?domain=www.diziyou.co&sz=%size%",
-      "contentLanguage": ["tr"]
-      }, 
-	  {
-      "id": "fullhdfilmizlesene",
-      "name": "FullHdFilmizlesene",
-      "description": "Sinema zevkini evinize kadar getirdik. Türkiye'nin lider Film sitesinde, en yeni filmleri Full HD izleyin.",
-      "version": "1.0.0",
-      "author": "MoOnCrOwN",
-      "supportedTypes": ["movie"],
-      "filename": "providers/fullhdfilmizlesene.js",
-      "enabled": true,
-      "formats": ["mp4", "mkv", "hls", "m3u8"],
-      "logo": "https://www.google.com/s2/favicons?domain=www.fullhdfilmizlesene.de&sz=%size%",
-      "contentLanguage": ["tr"]
-      },   
-	  {
+  "providers": [
+    {
       "id": "sinewix",
       "name": "SineWix",
-      "description": "Türkçe film, dizi ve anime - 5000+ HD içerik, Türkçe altyazılı, anime arşivi",
-      "version": "1.0.0",
-      "author": "kerimmkirac",
+      "description": "Türkçe film ve diziler, hızlı indirme ve oynatma sunucuları",
       "supportedTypes": ["movie", "tv"],
-      "filename": "providers/sinewix.js",
       "enabled": true,
       "formats": ["mp4", "mkv"],
-      "logo": "https://play-lh.googleusercontent.com/brwGNmr7IjA_MKk_TTPs0va10hdKE_bD_a1lnKoiMuCayW98EHpRv55edA6aEoJlmwfX=w240-h480",
       "contentLanguage": ["tr"]
-      },
-	        {
-      "id": "rec",
-      "name": "Rec",
-      "description": "En yeni dizileri güvenli ve hızlı şekilde sunar.",
-      "version": "1.0.4",
-      "author": "MoOnCrOwN",
-      "supportedTypes": ["movie", "tv"],
-      "filename": "providers/rec.js",
-      "enabled": true,
-      "formats": ["m3u8"],
-      "logo": "https://rectvapp.com.tr/wp-content/uploads/2024/08/cropped-cropped-Screenshot_2023-08-31_at_11.02.55_PM-removebg-preview-32x32.webp",
-      "contentLanguage": ["tr"]
-      },
-	  {
-      "id": "jetfilmizle",
-      "name": "JetFilmizle",
-      "description": "Türkçe dublaj full HD filmler. jetfilmizle.net üzerinden Pixeldrain mp4 stream sağlar.",
-      "version": "1.0.0",
-      "author": "port: @keyiflerolsun / nuvio: Wekmed",
-      "supportedTypes": ["movie"],
-      "filename": "providers/jetfilmizle.js",
-      "enabled": true,
-      "logo": "https://jetfilmizle.net/public/icons/apple-touch-icon.png",
-      "contentLanguage": ["tr"],
-      "formats": ["mp4", "mkv"],
-      "limited": true,
-      "disabledPlatforms": []
-      },   
-      {
-      "id": "sezonlukdizi",
-      "name": "SezonlukDizi",
-      "description": "Türkçe dublaj ve altyazılı diziler.",
-      "version": "1.0.0",
-      "author": "port: @keyiflerolsun / nuvio: Wekmed",
+    },
+    {
+      "id": "diziyou",
+      "name": "DiziYou",
+      "description": "Türkçe altyazılı ve dublajlı yabancı diziler",
       "supportedTypes": ["tv"],
-      "filename": "providers/sezonlukdizi.js",
-      "enabled": true,
-      "contentLanguage": ["tr"],
-      "formats": ["mp4", "mkv"]
-      },
-      {
-      "id": "webteizle",
-      "name": "WebteIzle",
-      "description": "Türkçe dublaj ve altyazılı filmler. webteizle3.xyz üzerinden VidMoly/Sibnet stream sağlar.",
-      "version": "1.0.0",
-      "author": "port: @kerimmkirac / nuvio: Wekmed",
-      "supportedTypes": ["movie"],
-      "filename": "providers/webteizle.js",
-      "enabled": true,
-      "logo": "https://webteizle3.xyz/images/logo.png",
-      "contentLanguage": ["tr"],
-      "limited": true,
-      "disabledPlatforms": []
-      },
-      {
-      "id": "filmmodu",
-      "name": "FilmModu",
-      "description": "Türkçe dublaj ve altyazılı full HD filmler. filmmodu.ws üzerinden stream sağlar.",
-      "version": "1.0.0",
-      "author": "port: @keyiflerolsun / nuvio: sen",
-      "supportedTypes": ["movie"],
-      "filename": "providers/filmmodu.js",
-      "enabled": true,
-      "logo": "https://filmmodu.rip/wp-content/uploads/2023/07/logo.png",
-      "contentLanguage": ["tr"],
-      "limited": false,
-      "disabledPlatforms": []
-      },
-	  {
-      "id": "altiyuzaltmisaltifilm",
-      "name": "AltiYuzAltmisAltiFilm",
-      "description": "Türkçe Dublaj ve Altyazılı Film izle",
-      "version": "1",
-      "author": "MoOnCrOwN",
-      "supportedTypes": ["movie"],
-      "filename": "providers/altiyuzaltmisaltifilm.js",
       "enabled": true,
       "formats": ["m3u8"],
-      "logo": "https://www.google.com/s2/favicons?domain=666filmizle.site&sz=%size%",
       "contentLanguage": ["tr"]
-      },
-	  {
-      "id": "cinemacity",
-      "name": "CinemaCity",
-      "description": "Multi Language Provider",
-      "version": "1.0.0",
-      "author": "Nuvio Team",
+    },
+    {
+      "id": "vidmody",
+      "name": "Vidmody",
+      "description": "Hızlı video embed ve stream bağlantıları",
       "supportedTypes": ["movie", "tv"],
-      "filename": "providers/cinemacity.js",
       "enabled": true,
       "formats": ["mp4", "m3u8"],
-      "logo": "https://i.postimg.cc/XYjKhS3b/cinemacity.png",
-      "contentLanguage": ["en", "hi", "ar","tr"]
-    }, 
-      {
+      "contentLanguage": ["tr", "en"]
+    },
+    {
+      "id": "m3u",
+      "name": "MoOnCrOwN IPTV & VOD",
+      "description": "Ulusal canlı kanallar, film ve dizi çalma listeleri",
+      "supportedTypes": ["movie", "tv", "live"],
+      "enabled": true,
+      "formats": ["m3u8", "ts"],
+      "contentLanguage": ["tr"]
+    },
+    {
+      "id": "sinemacx",
+      "name": "SinemaCX",
+      "description": "Sinema.gg kaynaklı 1080p filmler",
+      "supportedTypes": ["movie", "tv"],
+      "enabled": true,
+      "formats": ["mp4", "m3u8"],
+      "contentLanguage": ["tr"]
+    },
+    {
       "id": "vidlink",
       "name": "Vidlink",
-      "description": "Vidlink streaming with encrypted TMDB ID support for movies and TV shows",
-      "version": "1.0.0",
-      "author": "Nuvio Team",
+      "description": "Vidlink çoklu kalite ve altyazı akışları",
       "supportedTypes": ["movie", "tv"],
-      "filename": "providers/vidlink.js",
       "enabled": true,
       "formats": ["mp4", "m3u8"],
-      "logo": "https://vidlink.pro/favicon.ico",
       "contentLanguage": ["en"]
-      }
-      ]
-      }
+    }
+  ]
+}
