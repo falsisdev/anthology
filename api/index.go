@@ -265,16 +265,19 @@ func handleDebug(w http.ResponseWriter, r *http.Request) {
 	testURL := "https://sezonlukdizi.cc/"
 	testStatus := 0
 	testErr := ""
+	
+	var headersMap map[string][]string
 
 	ctx := r.Context()
-	body, err := utils.DefaultClient.Get(ctx, testURL, map[string]string{
+	resp, err := utils.DefaultClient.Request(ctx, http.MethodGet, testURL, nil, map[string]string{
 		"Accept": "text/html",
 	})
 	if err != nil {
 		testErr = err.Error()
 	} else {
-		testStatus = 200
-		_ = body
+		testStatus = resp.StatusCode
+		headersMap = resp.Header
+		resp.Body.Close()
 	}
 
 	jsonResponse(w, http.StatusOK, map[string]interface{}{
@@ -283,6 +286,7 @@ func handleDebug(w http.ResponseWriter, r *http.Request) {
 		"env_PROXY_URL":     os.Getenv("PROXY_URL"),
 		"test_url":          testURL,
 		"test_status":       testStatus,
+		"test_headers":      headersMap,
 		"test_error":        testErr,
 		"engine_timeout":    "8s",
 	})
