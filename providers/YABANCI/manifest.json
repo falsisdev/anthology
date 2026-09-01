@@ -1,0 +1,19 @@
+{
+  "name": "MoOnCrOwN",
+  "version": "0.4",
+  "scrapers": [  
+     {
+      "id": "vidlink",
+      "name": "Vidlink",
+      "description": "Statik Katalog Uyumlu M3U Scraper",
+      "logo": "https://picon.pics/TR/Ulusal/Atv.png",
+      "version": "1.0.1",
+      "author": "mooncrown",
+      "supportedTypes": ["movie", "tv"],
+      "filename": "vidlink.js",
+      "enabled": true,
+      "formats": ["mp4", "mkv", "hls", "m3u8"],
+      "contentLanguage": ["tr"]
+    }
+  ]
+}

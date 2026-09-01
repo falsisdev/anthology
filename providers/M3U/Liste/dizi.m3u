@@ -1,0 +1,14 @@
+#EXTM3U
+#EXTINF:-1 tvg-name="The Big Bang Theory Sezon 1 Bölüm 1" tvg-language="Turkish" tvg-country="TR" tvg-id="THE_BIG_BANG_THEORY11" tvg-logo="https://dizifun5.com/images/data/2007_the-big-bang-theory.webp" group-title="The Big Bang Theory",The Big Bang Theory Türkçe Dublaj Sezon 1 Bölüm 1
+https://d2.premiumvideo.click/uploads/encode/9wzn363y4fng9tbt2lw5/master.m3u8
+#EXTINF:0  channelId="-1"  tvg-logo="https://image.tmdb.org/t/p/w500/ykZ7hlShkdRQaL2aiieXdEMmrLb.jpg" tvg-quality="P360" tvg-language="Dublaj- eng"  group-title="3 Body Problem",3 Body Problem S01E01
+https://www.diziyou.one/episodes/91301_tr/play.m3u8
+#EXTINF:0 type="video" channelId="-1"  tvg-logo="https://image.tmdb.org/t/p/w500/ykZ7hlShkdRQaL2aiieXdEMmrLb.jpg" tvg-quality="P360" tvg-language="eng"   group-title="3 Body Problem",3 Body Problem-1. Sezon 2. Bölüm
+https://www.diziyou.one/episodes/91302_tr/play.m3u8
+#EXTINF:0   tvg-logo="https://image.tmdb.org/t/p/w500/ykZ7hlShkdRQaL2aiieXdEMmrLb.jpg" tvg-quality="P360" tvg-language="Dublaj- eng"  group-title="3 Body Problem",3 Body Problem S01E01
+https://www.diziyou.one/episodes/91301_tr/play.m3u8
+
+
+
+
+
