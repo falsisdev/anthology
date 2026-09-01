@@ -20,7 +20,7 @@ func main() {
 	episode := flag.Int("episode", 1, "Episode number for tv series")
 	provFilter := flag.String("provider", "", "Optional provider filter (e.g. sinewix, diziyou, vidmody)")
 	liveQuery := flag.String("live", "", "Search live TV channel by name/ID or 'list' to show all")
-	timeoutSec := flag.Int("timeout", 8, "Timeout in seconds for each provider")
+	timeoutSec := flag.Int("timeout", 4, "Timeout in seconds for each provider")
 	flag.Parse()
 
 	ctx := context.Background()
