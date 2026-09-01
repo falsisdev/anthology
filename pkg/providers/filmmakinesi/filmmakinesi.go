@@ -38,13 +38,10 @@ func (p *Provider) Name() string {
 }
 
 func (p *Provider) SupportedTypes() []models.MediaType {
-	return []models.MediaType{models.MediaTypeMovie}
+	return []models.MediaType{models.MediaTypeMovie, models.MediaTypeTV}
 }
 
 func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]models.Stream, error) {
-	if media.Type != models.MediaTypeMovie {
-		return nil, nil
-	}
 
 	searchQuery := media.Title
 	if searchQuery == "" {

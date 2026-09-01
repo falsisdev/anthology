@@ -28,6 +28,7 @@ import (
 	_ "github.com/falsisdev/nuviotr/pkg/providers/filmifullizle"
 	_ "github.com/falsisdev/nuviotr/pkg/providers/filmmakinesi"
 	_ "github.com/falsisdev/nuviotr/pkg/providers/filmzal"
+	_ "github.com/falsisdev/nuviotr/pkg/providers/hdfilmcehennemi"
 	_ "github.com/falsisdev/nuviotr/pkg/providers/hdfilmdelisi"
 	_ "github.com/falsisdev/nuviotr/pkg/providers/jetfilmizle"
 	_ "github.com/falsisdev/nuviotr/pkg/providers/m3u"
