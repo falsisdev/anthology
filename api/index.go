@@ -12,6 +12,7 @@ import (
 	"github.com/falsisdev/nuviotr/pkg/models"
 	"github.com/falsisdev/nuviotr/pkg/provider"
 	"github.com/falsisdev/nuviotr/pkg/providers/m3u"
+	"github.com/falsisdev/nuviotr/pkg/tmdb"
 	"github.com/falsisdev/nuviotr/pkg/utils"
 )
 
@@ -269,6 +270,11 @@ func handleDebug(w http.ResponseWriter, r *http.Request) {
 	var headersMap map[string][]string
 
 	ctx := r.Context()
+	
+	// Check TMDB response
+	tmdbClient := tmdb.NewClient("")
+	mediaInfo, tmdbErr := tmdbClient.GetMediaInfo(ctx, "123138", models.MediaTypeTV, 1, 1)
+
 	resp, err := utils.DefaultClient.Request(ctx, http.MethodGet, testURL, nil, map[string]string{
 		"Accept": "text/html",
 	})
@@ -288,6 +294,8 @@ func handleDebug(w http.ResponseWriter, r *http.Request) {
 		"test_status":       testStatus,
 		"test_headers":      headersMap,
 		"test_error":        testErr,
+		"tmdb_media":        mediaInfo,
+		"tmdb_error":        fmt.Sprintf("%v", tmdbErr),
 		"engine_timeout":    "8s",
 	})
 }
