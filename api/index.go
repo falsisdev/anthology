@@ -278,7 +278,7 @@ func handleDebug(w http.ResponseWriter, r *http.Request) {
 	tmdbClient := tmdb.NewClient("")
 	mediaInfo, tmdbErr := tmdbClient.GetMediaInfo(ctx, "123138", models.MediaTypeTV, 1, 1)
 
-	// DEBUG: Do the POST request directly to see if Vercel is blocked when not using proxy
+	// DEBUG: Do the POST request via the PROXY
 	testURL = "https://sezonlukdizi.cc/ajax/dataAlternatif22.asp"
 	postData := "bid=44946&dil=1"
 	
@@ -286,14 +286,9 @@ func handleDebug(w http.ResponseWriter, r *http.Request) {
 		"Content-Type":     "application/x-www-form-urlencoded",
 		"Referer":          "https://sezonlukdizi.cc/fatma/1-sezon-1-bolum.html",
 		"X-Requested-With": "XMLHttpRequest",
-		"User-Agent":       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
 	}
 	
-	req, _ := http.NewRequestWithContext(ctx, http.MethodPost, testURL, strings.NewReader(postData))
-	for k, v := range altHeaders {
-		req.Header.Set(k, v)
-	}
-	resp, err := http.DefaultClient.Do(req)
+	resp, err := utils.DefaultClient.Request(ctx, http.MethodPost, testURL, strings.NewReader(postData), altHeaders)
 	if err != nil {
 		testErr = err.Error()
 	} else {
