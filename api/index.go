@@ -1,7 +1,6 @@
 package handler
 
 import (
-	"bytes"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -11,7 +10,6 @@ import (
 	"strings"
 	"time"
 
-	"github.com/PuerkitoBio/goquery"
 	"github.com/falsisdev/nuviotr/pkg/engine"
 	"github.com/falsisdev/nuviotr/pkg/models"
 	"github.com/falsisdev/nuviotr/pkg/provider"
@@ -280,9 +278,17 @@ func handleDebug(w http.ResponseWriter, r *http.Request) {
 	tmdbClient := tmdb.NewClient("")
 	mediaInfo, tmdbErr := tmdbClient.GetMediaInfo(ctx, "123138", models.MediaTypeTV, 1, 1)
 
-	resp, err := utils.DefaultClient.Request(ctx, http.MethodGet, testURL, nil, map[string]string{
-		"Accept": "text/html",
-	})
+	// DEBUG: Do the POST request instead of GET
+	testURL = "https://sezonlukdizi.cc/ajax/dataAlternatif22.asp"
+	postData := "bid=44946&dil=1"
+	
+	altHeaders := map[string]string{
+		"Content-Type":     "application/x-www-form-urlencoded",
+		"Referer":          "https://sezonlukdizi.cc/fatma/1-sezon-1-bolum.html",
+		"X-Requested-With": "XMLHttpRequest",
+	}
+	
+	resp, err := utils.DefaultClient.Request(ctx, http.MethodPost, testURL, strings.NewReader(postData), altHeaders)
 	if err != nil {
 		testErr = err.Error()
 	} else {
@@ -290,25 +296,11 @@ func handleDebug(w http.ResponseWriter, r *http.Request) {
 		headersMap = resp.Header
 		
 		bodyBytes, _ := io.ReadAll(resp.Body)
-		
-		// Debug goquery parsing for bid
-		bid := ""
-		doc, err := goquery.NewDocumentFromReader(bytes.NewReader(bodyBytes))
-		if err == nil {
-			if v, exists := doc.Find("#dilsec").Attr("data-id"); exists && v != "" {
-				bid = v
-			} else if v, exists := doc.Find("#topBarBtn").Attr("bid"); exists && v != "" {
-				bid = v
-			}
-		}
-
 		if len(bodyBytes) > 500 {
 			bodyPreview = string(bodyBytes[:500])
 		} else {
 			bodyPreview = string(bodyBytes)
 		}
-		
-		bodyPreview = fmt.Sprintf("Extracted BID: %s\n\n%s", bid, bodyPreview)
 		
 		resp.Body.Close()
 	}
