@@ -12,11 +12,22 @@ import (
 
 const (
 	DefaultUserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+
+	// defaultProxyURL is the Cloudflare Workers proxy used to bypass datacenter IP blocks
+	// on streaming sites. It routes all HTTP scraping requests through Cloudflare's network.
+	// Set PROXY_URL="" in the environment to disable the proxy (e.g. for local development).
+	defaultProxyURL = "https://nuviotr-proxy.falsis.workers.dev"
 )
 
-// proxyBaseURL is set from the PROXY_URL environment variable.
-// When set, all HTTP requests from DefaultClient are routed through the CF proxy.
-var proxyBaseURL = os.Getenv("PROXY_URL")
+// proxyBaseURL is resolved at startup:
+// 1. If PROXY_URL env var is explicitly set (including to ""), use that value.
+// 2. Otherwise fall back to the built-in defaultProxyURL.
+var proxyBaseURL = func() string {
+	if v, ok := os.LookupEnv("PROXY_URL"); ok {
+		return v // allows disabling proxy by setting PROXY_URL=""
+	}
+	return defaultProxyURL
+}()
 
 // HTTPClient wraps standard http.Client with common options.
 type HTTPClient struct {
