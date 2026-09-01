@@ -264,7 +264,7 @@ func handleHealth(w http.ResponseWriter, r *http.Request) {
 func handleDebug(w http.ResponseWriter, r *http.Request) {
 	// Show proxy config and do a live test fetch through the proxy
 	proxyURL := utils.ProxyBaseURL()
-	testURL := "https://sezonlukdizi.cc/"
+	testURL := "https://sezonlukdizi.cc/fatma/1-sezon-1-bolum.html"
 	testStatus := 0
 	testErr := ""
 	
