@@ -3,6 +3,7 @@ package dizimom
 import (
 	"bytes"
 	"context"
+	"encoding/json"
 	"fmt"
 	"net/url"
 	"path"
@@ -128,12 +129,57 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 			serverName = "Sibnet"
 		}
 
+		iframeURL := src
+
+		if strings.Contains(iframeURL, "hdplayersystem.com") {
+			u, err := url.Parse(iframeURL)
+			if err == nil {
+				dataID := u.Query().Get("data")
+				if dataID != "" {
+					apiURL := fmt.Sprintf("https://hdplayersystem.com/player/index.php?data=%s&do=getVideo", dataID)
+					postData := url.Values{
+						"hash": {dataID},
+						"r":    {"https://www.dizimom.diy/"},
+					}
+					apiHeaders := map[string]string{
+						"Content-Type":     "application/x-www-form-urlencoded",
+						"X-Requested-With": "XMLHttpRequest",
+						"Referer":          iframeURL,
+					}
+
+					apiResp, err := utils.DefaultClient.Request(ctx, "POST", apiURL, strings.NewReader(postData.Encode()), apiHeaders)
+					if err == nil {
+						var res struct {
+							SecuredLink string `json:"securedLink"`
+						}
+						json.NewDecoder(apiResp.Body).Decode(&res)
+						apiResp.Body.Close()
+
+						if res.SecuredLink != "" {
+							streams = append(streams, models.Stream{
+								Name:     media.Title,
+								Title:    "⌜ Dizimom ⌟ | HLS Player",
+								Quality:  "1080p",
+								Provider: ID,
+								URL:      res.SecuredLink,
+								Headers: map[string]string{
+									"Referer": "https://hdplayersystem.com/",
+									"Origin":  "https://hdplayersystem.com",
+								},
+							})
+							return
+						}
+					}
+				}
+			}
+		}
+
 		streams = append(streams, models.Stream{
 			Name:     media.Title,
 			Title:    fmt.Sprintf("⌜ Dizimom ⌟ | %s", serverName),
-			URL:      src,
 			Quality:  "1080p",
 			Provider: ID,
+			URL:      iframeURL,
 			Headers: map[string]string{
 				"Referer": BaseURL + "/",
 			},
