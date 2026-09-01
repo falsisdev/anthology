@@ -1,16 +1,10 @@
-package main
+package handler
 
 import (
-	"context"
 	"encoding/json"
-	"flag"
-	"fmt"
-	"log"
 	"net/http"
-	"os"
-	"os/signal"
 	"strconv"
-	"syscall"
+	"strings"
 	"time"
 
 	"github.com/falsisdev/nuviotr/pkg/engine"
@@ -19,11 +13,23 @@ import (
 	"github.com/falsisdev/nuviotr/pkg/providers/m3u"
 )
 
-type Server struct {
-	engine     *engine.Engine
-	m3uProv    *m3u.Provider
-	port       int
-	tmdbApiKey string
+var (
+	eng         *engine.Engine
+	m3uInstance *m3u.Provider
+	mux         *http.ServeMux
+)
+
+func init() {
+	m3uInstance = m3u.New()
+	eng = engine.New("", 4*time.Second)
+
+	mux = http.NewServeMux()
+	mux.HandleFunc("/health", enableCORS(handleHealth))
+	mux.HandleFunc("/providers", enableCORS(handleProviders))
+	mux.HandleFunc("/streams", enableCORS(handleStreams))
+	mux.HandleFunc("/live", enableCORS(handleLive))
+	mux.HandleFunc("/manifest", enableCORS(handleManifest))
+	mux.HandleFunc("/", enableCORS(handleIndex))
 }
 
 func enableCORS(next http.HandlerFunc) http.HandlerFunc {
@@ -45,16 +51,24 @@ func jsonResponse(w http.ResponseWriter, status int, data interface{}) {
 	_ = json.NewEncoder(w).Encode(data)
 }
 
-func (s *Server) handleHealth(w http.ResponseWriter, r *http.Request) {
+func handleIndex(w http.ResponseWriter, r *http.Request) {
+	if r.URL.Path == "/" {
+		handleManifest(w, r)
+		return
+	}
+	http.NotFound(w, r)
+}
+
+func handleHealth(w http.ResponseWriter, r *http.Request) {
 	jsonResponse(w, http.StatusOK, map[string]interface{}{
 		"status":  "ok",
-		"version": "1.0.0",
-		"engine":  "golang",
+		"version": "1.1.0",
+		"engine":  "golang-vercel-serverless",
 		"time":    time.Now().Format(time.RFC3339),
 	})
 }
 
-func (s *Server) handleProviders(w http.ResponseWriter, r *http.Request) {
+func handleProviders(w http.ResponseWriter, r *http.Request) {
 	providers := provider.All()
 	type pInfo struct {
 		ID    string             `json:"id"`
@@ -75,7 +89,7 @@ func (s *Server) handleProviders(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-func (s *Server) handleStreams(w http.ResponseWriter, r *http.Request) {
+func handleStreams(w http.ResponseWriter, r *http.Request) {
 	q := r.URL.Query()
 	tmdbID := q.Get("id")
 	if tmdbID == "" {
@@ -85,7 +99,7 @@ func (s *Server) handleStreams(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	mediaTypeStr := q.Get("type")
+	mediaTypeStr := strings.ToLower(q.Get("type"))
 	mediaType := models.MediaTypeMovie
 	if mediaTypeStr == "tv" || mediaTypeStr == "series" {
 		mediaType = models.MediaTypeTV
@@ -105,7 +119,7 @@ func (s *Server) handleStreams(w http.ResponseWriter, r *http.Request) {
 
 	providerFilter := q.Get("provider")
 
-	result, err := s.engine.Search(r.Context(), tmdbID, mediaType, season, episode, providerFilter)
+	result, err := eng.Search(r.Context(), tmdbID, mediaType, season, episode, providerFilter)
 	if err != nil {
 		jsonResponse(w, http.StatusInternalServerError, map[string]string{
 			"error": err.Error(),
@@ -116,10 +130,10 @@ func (s *Server) handleStreams(w http.ResponseWriter, r *http.Request) {
 	jsonResponse(w, http.StatusOK, result)
 }
 
-func (s *Server) handleLive(w http.ResponseWriter, r *http.Request) {
+func handleLive(w http.ResponseWriter, r *http.Request) {
 	channelID := r.URL.Query().Get("channel")
 	if channelID != "" {
-		stream, err := s.m3uProv.GetLiveStreamByID(r.Context(), channelID)
+		stream, err := m3uInstance.GetLiveStreamByID(r.Context(), channelID)
 		if err != nil {
 			jsonResponse(w, http.StatusNotFound, map[string]string{
 				"error": err.Error(),
@@ -130,7 +144,7 @@ func (s *Server) handleLive(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	channels, err := s.m3uProv.GetLiveChannels(r.Context())
+	channels, err := m3uInstance.GetLiveChannels(r.Context())
 	if err != nil {
 		jsonResponse(w, http.StatusInternalServerError, map[string]string{
 			"error": err.Error(),
@@ -144,12 +158,12 @@ func (s *Server) handleLive(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-func (s *Server) handleManifest(w http.ResponseWriter, r *http.Request) {
+func handleManifest(w http.ResponseWriter, r *http.Request) {
 	manifest := map[string]interface{}{
 		"id":          "nuviotr.falsisdev.addon",
 		"name":        "FalsisAddons (Go Engine)",
-		"version":     "1.0.0",
-		"description": "Yüksek performanslı Go motoru ile Türkçe dizi, film ve Canlı IPTV yayınları.",
+		"version":     "1.1.0",
+		"description": "Yüksek performanslı Go motoru ile Türkçe dizi, film, anime ve Canlı IPTV yayınları.",
 		"author":      "falsisdev",
 		"types":       []string{"movie", "tv", "live"},
 		"resources":   []string{"stream", "catalog", "meta"},
@@ -158,62 +172,7 @@ func (s *Server) handleManifest(w http.ResponseWriter, r *http.Request) {
 	jsonResponse(w, http.StatusOK, manifest)
 }
 
-func main() {
-	portFlag := flag.Int("port", 0, "HTTP server port")
-	tmdbKey := flag.String("tmdb-key", "", "TMDB API key")
-	flag.Parse()
-
-	serverPort := *portFlag
-	if serverPort == 0 {
-		if envPort := os.Getenv("PORT"); envPort != "" {
-			if p, err := strconv.Atoi(envPort); err == nil {
-				serverPort = p
-			}
-		}
-		if serverPort == 0 {
-			serverPort = 8080
-		}
-	}
-
-	m3uInstance := m3u.New()
-	eng := engine.New(*tmdbKey, 8*time.Second)
-
-	srv := &Server{
-		engine:     eng,
-		m3uProv:    m3uInstance,
-		port:       serverPort,
-		tmdbApiKey: *tmdbKey,
-	}
-
-	mux := http.NewServeMux()
-	mux.HandleFunc("/health", enableCORS(srv.handleHealth))
-	mux.HandleFunc("/providers", enableCORS(srv.handleProviders))
-	mux.HandleFunc("/streams", enableCORS(srv.handleStreams))
-	mux.HandleFunc("/live", enableCORS(srv.handleLive))
-	mux.HandleFunc("/manifest", enableCORS(srv.handleManifest))
-
-	httpServer := &http.Server{
-		Addr:         fmt.Sprintf(":%d", serverPort),
-		Handler:      mux,
-		ReadTimeout:  15 * time.Second,
-		WriteTimeout: 15 * time.Second,
-	}
-
-	go func() {
-		log.Printf("🚀 Nuviotr Go Server started on http://localhost:%d\n", serverPort)
-		log.Printf("📡 API Endpoints: /streams, /live, /providers, /manifest, /health\n")
-		if err := httpServer.ListenAndServe(); err != nil && err != http.ErrServerClosed {
-			log.Fatalf("Server failed: %v", err)
-		}
-	}()
-
-	stop := make(chan os.Signal, 1)
-	signal.Notify(stop, os.Interrupt, syscall.SIGTERM)
-	<-stop
-
-	log.Println("Shutting down server gracefully...")
-	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
-	defer cancel()
-	_ = httpServer.Shutdown(ctx)
-	log.Println("Server stopped.")
+// Handler is the entry point for Vercel Serverless Functions.
+func Handler(w http.ResponseWriter, r *http.Request) {
+	mux.ServeHTTP(w, r)
 }
