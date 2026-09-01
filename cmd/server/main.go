@@ -159,9 +159,21 @@ func (s *Server) handleManifest(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	port := flag.Int("port", 8080, "HTTP server port")
+	portFlag := flag.Int("port", 0, "HTTP server port")
 	tmdbKey := flag.String("tmdb-key", "", "TMDB API key")
 	flag.Parse()
+
+	serverPort := *portFlag
+	if serverPort == 0 {
+		if envPort := os.Getenv("PORT"); envPort != "" {
+			if p, err := strconv.Atoi(envPort); err == nil {
+				serverPort = p
+			}
+		}
+		if serverPort == 0 {
+			serverPort = 8080
+		}
+	}
 
 	m3uInstance := m3u.New()
 	eng := engine.New(*tmdbKey, 8*time.Second)
@@ -169,7 +181,7 @@ func main() {
 	srv := &Server{
 		engine:     eng,
 		m3uProv:    m3uInstance,
-		port:       *port,
+		port:       serverPort,
 		tmdbApiKey: *tmdbKey,
 	}
 
@@ -181,14 +193,14 @@ func main() {
 	mux.HandleFunc("/manifest", enableCORS(srv.handleManifest))
 
 	httpServer := &http.Server{
-		Addr:         fmt.Sprintf(":%d", *port),
+		Addr:         fmt.Sprintf(":%d", serverPort),
 		Handler:      mux,
 		ReadTimeout:  15 * time.Second,
 		WriteTimeout: 15 * time.Second,
 	}
 
 	go func() {
-		log.Printf("🚀 Nuviotr Go Server started on http://localhost:%d\n", *port)
+		log.Printf("🚀 Nuviotr Go Server started on http://localhost:%d\n", serverPort)
 		log.Printf("📡 API Endpoints: /streams, /live, /providers, /manifest, /health\n")
 		if err := httpServer.ListenAndServe(); err != nil && err != http.ErrServerClosed {
 			log.Fatalf("Server failed: %v", err)
