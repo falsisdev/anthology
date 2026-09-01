@@ -284,6 +284,22 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 
 // GetLiveStreamByID finds a live channel stream directly by its channel ID or Name.
 func (p *Provider) GetLiveStreamByID(ctx context.Context, channelID string) (*models.Stream, error) {
+	ch, err := p.GetChannelByID(ctx, channelID)
+	if err != nil {
+		return nil, err
+	}
+	return &models.Stream{
+		Name:     ch.Name,
+		Title:    fmt.Sprintf("⌜ MoOnCrOwN ⌟ | Canlı TV (%s)", ch.Name),
+		URL:      ch.URL,
+		Provider: ID,
+		IsLive:   true,
+		Headers:  ch.Headers,
+	}, nil
+}
+
+// GetChannelByID finds a live channel model by ID or Name.
+func (p *Provider) GetChannelByID(ctx context.Context, channelID string) (*models.Channel, error) {
 	channels, err := p.GetLiveChannels(ctx)
 	if err != nil {
 		return nil, err
@@ -292,14 +308,7 @@ func (p *Provider) GetLiveStreamByID(ctx context.Context, channelID string) (*mo
 	searchNorm := utils.NormalizeTurkish(channelID)
 	for _, ch := range channels {
 		if utils.NormalizeTurkish(ch.ID) == searchNorm || utils.NormalizeTurkish(ch.Name) == searchNorm {
-			return &models.Stream{
-				Name:     ch.Name,
-				Title:    fmt.Sprintf("⌜ MoOnCrOwN ⌟ | Canlı TV (%s)", ch.Name),
-				URL:      ch.URL,
-				Provider: ID,
-				IsLive:   true,
-				Headers:  ch.Headers,
-			}, nil
+			return &ch, nil
 		}
 	}
 	return nil, fmt.Errorf("channel not found: %s", channelID)
