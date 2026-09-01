@@ -52,7 +52,7 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 		searchQuery = media.OriginalTitle
 	}
 
-	searchURL := fmt.Sprintf("%s/?s=%s", BaseURL, url.QueryEscape(searchQuery))
+	searchURL := fmt.Sprintf("%s/ara/%s", BaseURL, url.PathEscape(searchQuery))
 	headers := map[string]string{
 		"User-Agent": utils.DefaultUserAgent,
 		"Referer":    BaseURL + "/",
@@ -74,7 +74,7 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 		if !exists || !strings.HasPrefix(href, BaseURL) {
 			return true
 		}
-		if strings.Contains(href, "/dizi/") {
+		if strings.Contains(href, "/dizi/") || strings.Contains(href, "/diziler/") {
 			showURL = href
 			return false
 		}
@@ -86,7 +86,7 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 		if slug == "" {
 			slug = utils.ToSlug(media.Title)
 		}
-		showURL = fmt.Sprintf("%s/dizi/%s", BaseURL, slug)
+		showURL = fmt.Sprintf("%s/diziler/%s", BaseURL, slug)
 	}
 
 	cleanShow := strings.Trim(showURL, "/")
@@ -96,7 +96,6 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 	epURL := fmt.Sprintf("%s/%s-%d-sezon-%d-bolum-izle/", BaseURL, showSlug, media.Season, media.Episode)
 	epBody, err := utils.DefaultClient.Get(ctx, epURL, headers)
 	if err != nil {
-		// Fallback without "-izle" suffix
 		epURL = fmt.Sprintf("%s/%s-%d-sezon-%d-bolum/", BaseURL, showSlug, media.Season, media.Episode)
 		epBody, err = utils.DefaultClient.Get(ctx, epURL, headers)
 		if err != nil {
@@ -111,12 +110,15 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 
 	var streams []models.Stream
 	epDoc.Find("iframe").Each(func(i int, s *goquery.Selection) {
-		src, exists := s.Attr("src")
-		if !exists || src == "" {
+		src, _ := s.Attr("src")
+		if src == "" || src == "about:blank" {
 			src, _ = s.Attr("data-src")
 		}
 		if src == "" || strings.Contains(src, "facebook") || strings.Contains(src, "disqus") {
 			return
+		}
+		if strings.HasPrefix(src, "//") {
+			src = "https:" + src
 		}
 
 		serverName := "Dizibox Player"
