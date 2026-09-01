@@ -6,10 +6,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"net/http"
 	"net/url"
 	"strings"
-	"time"
 
 	"github.com/PuerkitoBio/goquery"
 	"github.com/falsisdev/nuviotr/pkg/models"
@@ -109,24 +107,19 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 				"dil": {dil},
 			}
 
-			req, err := http.NewRequestWithContext(ctx, "POST", altURL, strings.NewReader(postData.Encode()))
-			if err != nil {
-				continue
+			altHeaders := map[string]string{
+				"Content-Type":     "application/x-www-form-urlencoded",
+				"Referer":          epURL,
+				"X-Requested-With": "XMLHttpRequest",
 			}
-			req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
-			req.Header.Set("User-Agent", utils.DefaultUserAgent)
-			req.Header.Set("Referer", epURL)
-			req.Header.Set("X-Requested-With", "XMLHttpRequest")
-
-			client := &http.Client{Timeout: 3 * time.Second}
-			resp, err := client.Do(req)
+			altResp, err := utils.DefaultClient.Request(ctx, "POST", altURL, strings.NewReader(postData.Encode()), altHeaders)
 			if err != nil {
 				continue
 			}
 
 			var aResp alternatifResponse
-			decErr := json.NewDecoder(resp.Body).Decode(&aResp)
-			resp.Body.Close()
+			decErr := json.NewDecoder(altResp.Body).Decode(&aResp)
+			altResp.Body.Close()
 
 			if decErr == nil && aResp.Status == "success" {
 				for _, alt := range aResp.Data {
@@ -137,16 +130,12 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 					embedReqURL := fmt.Sprintf("%s/ajax/dataEmbed22.asp", BaseURL)
 					ePost := url.Values{"id": {fmt.Sprintf("%d", alt.ID)}}
 
-					eReq, err := http.NewRequestWithContext(ctx, "POST", embedReqURL, strings.NewReader(ePost.Encode()))
-					if err != nil {
-						continue
+					embedHeaders := map[string]string{
+						"Content-Type":     "application/x-www-form-urlencoded",
+						"Referer":          epURL,
+						"X-Requested-With": "XMLHttpRequest",
 					}
-					eReq.Header.Set("Content-Type", "application/x-www-form-urlencoded")
-					eReq.Header.Set("User-Agent", utils.DefaultUserAgent)
-					eReq.Header.Set("Referer", epURL)
-					eReq.Header.Set("X-Requested-With", "XMLHttpRequest")
-
-					eResp, err := client.Do(eReq)
+					eResp, err := utils.DefaultClient.Request(ctx, "POST", embedReqURL, strings.NewReader(ePost.Encode()), embedHeaders)
 					if err != nil {
 						continue
 					}
