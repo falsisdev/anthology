@@ -10,8 +10,15 @@ import (
 	"github.com/falsisdev/nuviotr/pkg/tmdb"
 
 	// Register all providers
+	_ "github.com/falsisdev/nuviotr/pkg/providers/animecix"
+	_ "github.com/falsisdev/nuviotr/pkg/providers/dizibox"
+	_ "github.com/falsisdev/nuviotr/pkg/providers/dizigom"
+	_ "github.com/falsisdev/nuviotr/pkg/providers/diziwatch"
 	_ "github.com/falsisdev/nuviotr/pkg/providers/diziyou"
+	_ "github.com/falsisdev/nuviotr/pkg/providers/filmmakinesi"
 	_ "github.com/falsisdev/nuviotr/pkg/providers/m3u"
+	_ "github.com/falsisdev/nuviotr/pkg/providers/setfilmizle"
+	_ "github.com/falsisdev/nuviotr/pkg/providers/sezonlukdizi"
 	_ "github.com/falsisdev/nuviotr/pkg/providers/sinemacx"
 	_ "github.com/falsisdev/nuviotr/pkg/providers/sinewix"
 	_ "github.com/falsisdev/nuviotr/pkg/providers/vidlink"
@@ -40,7 +47,7 @@ type Engine struct {
 // New creates a new concurrent search engine.
 func New(tmdbKey string, providerTimeout time.Duration) *Engine {
 	if providerTimeout <= 0 {
-		providerTimeout = 8 * time.Second
+		providerTimeout = 4 * time.Second
 	}
 	return &Engine{
 		tmdbClient:      tmdb.NewClient(tmdbKey),

@@ -1,8 +1,8 @@
 {
   "id": "nuviotr.falsisdev.addon",
   "name": "FalsisAddons",
-  "version": "1.0.0",
-  "description": "Golang tabanlı yüksek performanslı Türkçe dizi, film ve Canlı IPTV yayın motoru.",
+  "version": "1.1.0",
+  "description": "Golang tabanlı yüksek performanslı Türkçe dizi, film, anime ve Canlı IPTV yayın motoru.",
   "author": "falsisdev",
   "repository": "https://github.com/falsisdev/nuviotr",
   "engine": "golang",
@@ -27,10 +27,64 @@
     {
       "id": "diziyou",
       "name": "DiziYou",
-      "description": "Türkçe altyazılı ve dublajlı yabancı diziler",
+      "description": "Türkçe altyazılı ve dublajlı yabancı diziler (1080p HLS)",
       "supportedTypes": ["tv"],
       "enabled": true,
       "formats": ["m3u8"],
+      "contentLanguage": ["tr"]
+    },
+    {
+      "id": "dizigom",
+      "name": "Dizigom",
+      "description": "Popüler yabancı dizi akışları ve oynatıcı kaynakları",
+      "supportedTypes": ["tv"],
+      "enabled": true,
+      "formats": ["mp4", "m3u8"],
+      "contentLanguage": ["tr"]
+    },
+    {
+      "id": "animecix",
+      "name": "AnimeciX",
+      "description": "Türkiye'nin en popüler anime platformu, çoklu fansub ve HD akışlar",
+      "supportedTypes": ["movie", "tv"],
+      "enabled": true,
+      "formats": ["mp4", "m3u8"],
+      "contentLanguage": ["tr", "ja"]
+    },
+    {
+      "id": "diziwatch",
+      "name": "Diziwatch",
+      "description": "Anime ve dizi yayınları, yerleşik oynatıcı kaynakları",
+      "supportedTypes": ["tv"],
+      "enabled": true,
+      "formats": ["mp4", "m3u8"],
+      "contentLanguage": ["tr"]
+    },
+    {
+      "id": "filmmakinesi",
+      "name": "Film Makinesi",
+      "description": "1080p Full HD Türkçe dublaj ve altyazılı filmler",
+      "supportedTypes": ["movie"],
+      "enabled": true,
+      "formats": ["mp4", "m3u8"],
+      "contentLanguage": ["tr"]
+    },
+    {
+      "id": "setfilmizle",
+      "name": "SetFilmizle",
+      "description": "Film ve dizi yayınları, alternatif sunucular",
+      "supportedTypes": ["movie", "tv"],
+      "enabled": true,
+      "formats": ["mp4", "m3u8"],
+      "contentLanguage": ["tr"]
+    },
+    {
+      "id": "sezonlukdizi",
+      "name": "SezonlukDizi",
+      "description": "Güncel sezonluk dizi yayınları",
+      "supportedTypes": ["tv"],
+      "enabled": true,
+      "formats": ["mp4", "m3u8"],
       "contentLanguage": ["tr"]
     },
     {
@@ -56,6 +110,15 @@
       "name": "SinemaCX",
       "description": "Sinema.gg kaynaklı 1080p filmler",
       "supportedTypes": ["movie", "tv"],
+      "enabled": true,
+      "formats": ["mp4", "m3u8"],
+      "contentLanguage": ["tr"]
+    },
+    {
+      "id": "dizibox",
+      "name": "Dizibox",
+      "description": "Yabancı dizi akışları",
+      "supportedTypes": ["tv"],
       "enabled": true,
       "formats": ["mp4", "m3u8"],
       "contentLanguage": ["tr"]
