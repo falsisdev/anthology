@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -10,6 +11,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/PuerkitoBio/goquery"
 	"github.com/falsisdev/nuviotr/pkg/engine"
 	"github.com/falsisdev/nuviotr/pkg/models"
 	"github.com/falsisdev/nuviotr/pkg/provider"
@@ -288,11 +290,25 @@ func handleDebug(w http.ResponseWriter, r *http.Request) {
 		headersMap = resp.Header
 		
 		bodyBytes, _ := io.ReadAll(resp.Body)
+		
+		// Debug goquery parsing for bid
+		bid := ""
+		doc, err := goquery.NewDocumentFromReader(bytes.NewReader(bodyBytes))
+		if err == nil {
+			if v, exists := doc.Find("#dilsec").Attr("data-id"); exists && v != "" {
+				bid = v
+			} else if v, exists := doc.Find("#topBarBtn").Attr("bid"); exists && v != "" {
+				bid = v
+			}
+		}
+
 		if len(bodyBytes) > 500 {
 			bodyPreview = string(bodyBytes[:500])
 		} else {
 			bodyPreview = string(bodyBytes)
 		}
+		
+		bodyPreview = fmt.Sprintf("Extracted BID: %s\n\n%s", bid, bodyPreview)
 		
 		resp.Body.Close()
 	}
