@@ -3,6 +3,7 @@ package handler
 import (
 	"encoding/json"
 	"fmt"
+	"io"
 	"net/http"
 	"os"
 	"strconv"
@@ -269,6 +270,7 @@ func handleDebug(w http.ResponseWriter, r *http.Request) {
 	testErr := ""
 	
 	var headersMap map[string][]string
+	var bodyPreview string
 
 	ctx := r.Context()
 	
@@ -284,6 +286,14 @@ func handleDebug(w http.ResponseWriter, r *http.Request) {
 	} else {
 		testStatus = resp.StatusCode
 		headersMap = resp.Header
+		
+		bodyBytes, _ := io.ReadAll(resp.Body)
+		if len(bodyBytes) > 500 {
+			bodyPreview = string(bodyBytes[:500])
+		} else {
+			bodyPreview = string(bodyBytes)
+		}
+		
 		resp.Body.Close()
 	}
 
@@ -294,6 +304,7 @@ func handleDebug(w http.ResponseWriter, r *http.Request) {
 		"test_url":          testURL,
 		"test_status":       testStatus,
 		"test_headers":      headersMap,
+		"test_body":         bodyPreview,
 		"test_error":        testErr,
 		"tmdb_media":        mediaInfo,
 		"tmdb_error":        fmt.Sprintf("%v", tmdbErr),
