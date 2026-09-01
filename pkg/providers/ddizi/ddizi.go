@@ -5,7 +5,6 @@ import (
 	"context"
 	"fmt"
 	"net/url"
-	"path"
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
@@ -52,85 +51,121 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 		searchQuery = media.OriginalTitle
 	}
 
-	searchURL := fmt.Sprintf("%s/?s=%s", BaseURL, url.QueryEscape(searchQuery))
+	searchURL := fmt.Sprintf("%s/arama/", BaseURL)
+	postData := url.Values{
+		"arama": {searchQuery},
+	}
 	headers := map[string]string{
-		"User-Agent": utils.DefaultUserAgent,
-		"Referer":    BaseURL + "/",
+		"User-Agent":   utils.DefaultUserAgent,
+		"Referer":      BaseURL + "/",
+		"Content-Type": "application/x-www-form-urlencoded",
 	}
 
-	body, err := utils.DefaultClient.Get(ctx, searchURL, headers)
+	resp, err := utils.DefaultClient.Request(ctx, "POST", searchURL, strings.NewReader(postData.Encode()), headers)
 	if err != nil {
 		return nil, err
 	}
+	defer resp.Body.Close()
 
-	doc, err := goquery.NewDocumentFromReader(bytes.NewReader(body))
+	doc, err := goquery.NewDocumentFromReader(resp.Body)
 	if err != nil {
 		return nil, err
 	}
 
 	var showURL string
-	doc.Find("article a, .film-card a, .post-title a, a").EachWithBreak(func(i int, s *goquery.Selection) bool {
+	doc.Find(".dizi-boxpost-cat a").EachWithBreak(func(i int, s *goquery.Selection) bool {
 		href, exists := s.Attr("href")
-		if !exists || strings.Contains(href, "/iletisim") || strings.Contains(href, "/kategori") {
-			return true
-		}
-		if strings.Contains(href, "/dizi/") || strings.Contains(href, "/diziler/") {
+		if exists && strings.Contains(href, "/diziler/") {
 			showURL = href
+			if !strings.HasPrefix(showURL, "http") {
+				showURL = BaseURL + showURL
+			}
 			return false
 		}
 		return true
 	})
 
 	if showURL == "" {
-		slug := utils.ToSlug(media.OriginalTitle)
-		if slug == "" {
-			slug = utils.ToSlug(media.Title)
-		}
-		showURL = fmt.Sprintf("%s/dizi/%s", BaseURL, slug)
+		return nil, nil
 	}
 
-	cleanShow := strings.Trim(showURL, "/")
-	showSlug := path.Base(cleanShow)
+	showBody, err := utils.DefaultClient.Get(ctx, showURL, headers)
+	if err != nil {
+		return nil, err
+	}
 
-	// Episode URL: https://www.ddizi.im/{showSlug}-{season}-sezon-{episode}-bolum/
-	epURL := fmt.Sprintf("%s/%s-%d-sezon-%d-bolum/", BaseURL, showSlug, media.Season, media.Episode)
+	showDoc, err := goquery.NewDocumentFromReader(bytes.NewReader(showBody))
+	if err != nil {
+		return nil, err
+	}
+
+	var epURL string
+	expectedHref := fmt.Sprintf("-%d-bolum", media.Episode)
+	expectedTitle := fmt.Sprintf("%d.bölüm", media.Episode)
+
+	showDoc.Find("a").EachWithBreak(func(i int, s *goquery.Selection) bool {
+		href, _ := s.Attr("href")
+		title, _ := s.Attr("title")
+		
+		titleLower := strings.ToLower(title)
+		hrefLower := strings.ToLower(href)
+
+		if strings.Contains(hrefLower, "/izle/") && (strings.Contains(hrefLower, expectedHref) || strings.Contains(titleLower, expectedTitle)) {
+			epURL = href
+			if !strings.HasPrefix(epURL, "http") {
+				epURL = BaseURL + epURL
+			}
+			return false
+		}
+		return true
+	})
+
+	if epURL == "" {
+		return nil, nil
+	}
+
 	epBody, err := utils.DefaultClient.Get(ctx, epURL, headers)
 	if err != nil {
-		epURL = fmt.Sprintf("%s/dizi/%s/%d-sezon-%d-bolum", BaseURL, showSlug, media.Season, media.Episode)
-		epBody, err = utils.DefaultClient.Get(ctx, epURL, headers)
-		if err != nil {
-			return nil, nil
-		}
+		return nil, err
 	}
 
 	epDoc, err := goquery.NewDocumentFromReader(bytes.NewReader(epBody))
 	if err != nil {
-		return nil, nil
+		return nil, err
 	}
 
 	var streams []models.Stream
 	epDoc.Find("iframe").Each(func(i int, s *goquery.Selection) {
-		src, exists := s.Attr("src")
-		if !exists || src == "" {
+		src, _ := s.Attr("src")
+		if src == "" || src == "about:blank" {
 			src, _ = s.Attr("data-src")
 		}
-		if src == "" || strings.Contains(src, "facebook") || strings.Contains(src, "youtube") || strings.Contains(src, "disqus") {
+		if src == "" || strings.Contains(src, "facebook") || strings.Contains(src, "youtube") {
 			return
 		}
+		if strings.HasPrefix(src, "//") {
+			src = "https:" + src
+		} else if strings.HasPrefix(src, "/") {
+			src = BaseURL + src
+		}
 
-		serverName := "Ddizi Player"
+		serverName := "Alternatif Player"
 		if strings.Contains(src, "vidmoly") {
 			serverName = "VidMoly"
-		} else if strings.Contains(src, "sibnet") {
-			serverName = "Sibnet"
+		} else if strings.Contains(src, "ok.ru") || strings.Contains(src, "odnoklassniki") {
+			serverName = "Okru"
+		} else if strings.Contains(src, "vk.com") {
+			serverName = "VK"
+		} else if strings.Contains(src, "mail.ru") {
+			serverName = "MailRu"
 		}
 
 		streams = append(streams, models.Stream{
 			Name:     media.Title,
 			Title:    fmt.Sprintf("⌜ Ddizi ⌟ | %s", serverName),
-			URL:      src,
 			Quality:  "1080p",
 			Provider: ID,
+			URL:      src,
 			Headers: map[string]string{
 				"Referer": BaseURL + "/",
 			},

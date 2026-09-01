@@ -3,7 +3,10 @@ package hdfilmcehennemi
 import (
 	"bytes"
 	"context"
+	"encoding/json"
 	"fmt"
+	"net/url"
+	"regexp"
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
@@ -15,7 +18,7 @@ import (
 const (
 	ID      = "hdfilmcehennemi"
 	Name    = "HDFilmCehennemi"
-	BaseURL = "https://www.hdfilmcehennemi.nl"
+	BaseURL = "https://www.hdfilmcehennemi.now"
 )
 
 func init() {
@@ -37,84 +40,109 @@ func (p *Provider) Name() string {
 }
 
 func (p *Provider) SupportedTypes() []models.MediaType {
-	return []models.MediaType{models.MediaTypeMovie, models.MediaTypeTV}
+	return []models.MediaType{models.MediaTypeMovie}
 }
 
 func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]models.Stream, error) {
-	slug := utils.ToSlug(media.Title)
-	if slug == "" {
-		slug = utils.ToSlug(media.OriginalTitle)
-	}
-
+	searchURL := fmt.Sprintf("%s/?s=%s", BaseURL, url.QueryEscape(media.Title))
 	headers := map[string]string{
 		"User-Agent": utils.DefaultUserAgent,
 		"Referer":    BaseURL + "/",
 	}
 
-	var targetURLs []string
-	if media.Type == models.MediaTypeTV {
-		targetURLs = []string{
-			fmt.Sprintf("%s/dizi/%s-izle/sezon-%d/bolum-%d/", BaseURL, slug, media.Season, media.Episode),
-			fmt.Sprintf("%s/dizi/%s-izle-2/sezon-%d/bolum-%d/", BaseURL, slug, media.Season, media.Episode),
-			fmt.Sprintf("%s/dizi/%s/sezon-%d/bolum-%d/", BaseURL, slug, media.Season, media.Episode),
-			fmt.Sprintf("%s/%s-izle/", BaseURL, slug),
+	body, err := utils.DefaultClient.Get(ctx, searchURL, headers)
+	if err != nil {
+		return nil, err
+	}
+
+	doc, err := goquery.NewDocumentFromReader(bytes.NewReader(body))
+	if err != nil {
+		return nil, err
+	}
+
+	var targetURL string
+	doc.Find("div.title a").EachWithBreak(func(i int, s *goquery.Selection) bool {
+		href, exists := s.Attr("href")
+		if exists && strings.Contains(href, "/film/") {
+			targetURL = href
+			return false // break
 		}
-	} else {
-		targetURLs = []string{
-			fmt.Sprintf("%s/%s-izle/", BaseURL, slug),
-			fmt.Sprintf("%s/%s-film-izle/", BaseURL, slug),
-			fmt.Sprintf("%s/%s-hd-izle/", BaseURL, slug),
-			fmt.Sprintf("%s/%s/", BaseURL, slug),
-		}
+		return true
+	})
+
+	if targetURL == "" {
+		return nil, nil
+	}
+
+	// Fetch movie page
+	body, err = utils.DefaultClient.Get(ctx, targetURL, headers)
+	if err != nil {
+		return nil, err
+	}
+
+	bodyStr := string(body)
+
+	// Extract nonce
+	reNonce := regexp.MustCompile(`nonce:\s*'([^']+)'`)
+	mNonce := reNonce.FindStringSubmatch(bodyStr)
+	if len(mNonce) < 2 {
+		return nil, nil
+	}
+	nonce := mNonce[1]
+
+	// Extract player names and post id
+	doc, err = goquery.NewDocumentFromReader(bytes.NewReader(body))
+	if err != nil {
+		return nil, err
 	}
 
 	var streams []models.Stream
-	for _, targetURL := range targetURLs {
-		body, err := utils.DefaultClient.Get(ctx, targetURL, headers)
-		if err != nil {
-			continue
+	doc.Find("a[data-player-name]").Each(func(i int, s *goquery.Selection) {
+		playerName, _ := s.Attr("data-player-name")
+		postID, _ := s.Attr("data-post-id")
+		
+		if playerName != "" && postID != "" {
+			ajaxURL := BaseURL + "/wp-admin/admin-ajax.php"
+			postData := url.Values{
+				"action":      {"get_video_url"},
+				"nonce":       {nonce},
+				"post_id":     {postID},
+				"player_name": {playerName},
+				"part_key":    {""},
+			}
+			ajaxHeaders := map[string]string{
+				"Content-Type":     "application/x-www-form-urlencoded",
+				"X-Requested-With": "XMLHttpRequest",
+				"Referer":          targetURL,
+				"User-Agent":       utils.DefaultUserAgent,
+			}
+			
+			resp, err := utils.DefaultClient.Request(ctx, "POST", ajaxURL, strings.NewReader(postData.Encode()), ajaxHeaders)
+			if err == nil {
+				defer resp.Body.Close()
+				var res struct {
+					Success bool `json:"success"`
+					Data    struct {
+						URL string `json:"url"`
+					} `json:"data"`
+				}
+				json.NewDecoder(resp.Body).Decode(&res)
+				
+				if res.Success && res.Data.URL != "" {
+					streams = append(streams, models.Stream{
+						Name:     media.Title,
+						Title:    fmt.Sprintf("⌜ HDFilmCehennemi ⌟ | %s", playerName),
+						Quality:  "1080p",
+						Provider: ID,
+						URL:      res.Data.URL,
+						Headers: map[string]string{
+							"Referer": BaseURL + "/",
+						},
+					})
+				}
+			}
 		}
-
-		doc, err := goquery.NewDocumentFromReader(bytes.NewReader(body))
-		if err != nil {
-			continue
-		}
-
-		doc.Find("iframe").Each(func(i int, s *goquery.Selection) {
-			src, _ := s.Attr("src")
-			if src == "" || src == "about:blank" {
-				src, _ = s.Attr("data-src")
-			}
-			if src == "" || strings.Contains(src, "facebook") || strings.Contains(src, "youtube") || strings.Contains(src, "disqus") {
-				return
-			}
-			if strings.HasPrefix(src, "//") {
-				src = "https:" + src
-			}
-
-			serverName := "Rapidrame"
-			if strings.Contains(src, "vidmoly") {
-				serverName = "VidMoly"
-			} else if strings.Contains(src, "sibnet") {
-				serverName = "Sibnet"
-			}
-
-			streams = append(streams, models.Stream{
-				Name:     media.Title,
-				Title:    fmt.Sprintf("⌜ HDFilmCehennemi ⌟ | %s", serverName),
-				URL:      src,
-				Quality:  "1080p",
-				Provider: ID,
-				Headers: map[string]string{
-					"Referer": BaseURL + "/",
-				},
-			})
-		})
-
-		if len(streams) > 0 {
-			break
-		}
-	}
+	})
 
 	return streams, nil
 }
