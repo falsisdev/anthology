@@ -16,47 +16,17 @@ import (
 var (
 	eng         *engine.Engine
 	m3uInstance *m3u.Provider
-	mux         *http.ServeMux
 )
 
 func init() {
 	m3uInstance = m3u.New()
 	eng = engine.New("", 4*time.Second)
-
-	mux = http.NewServeMux()
-	mux.HandleFunc("/health", enableCORS(handleHealth))
-	mux.HandleFunc("/providers", enableCORS(handleProviders))
-	mux.HandleFunc("/streams", enableCORS(handleStreams))
-	mux.HandleFunc("/live", enableCORS(handleLive))
-	mux.HandleFunc("/manifest", enableCORS(handleManifest))
-	mux.HandleFunc("/", enableCORS(handleIndex))
-}
-
-func enableCORS(next http.HandlerFunc) http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Access-Control-Allow-Origin", "*")
-		w.Header().Set("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
-		w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
-		if r.Method == http.MethodOptions {
-			w.WriteHeader(http.StatusOK)
-			return
-		}
-		next(w, r)
-	}
 }
 
 func jsonResponse(w http.ResponseWriter, status int, data interface{}) {
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
 	w.WriteHeader(status)
 	_ = json.NewEncoder(w).Encode(data)
-}
-
-func handleIndex(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path == "/" {
-		handleManifest(w, r)
-		return
-	}
-	http.NotFound(w, r)
 }
 
 func handleHealth(w http.ResponseWriter, r *http.Request) {
@@ -161,18 +131,64 @@ func handleLive(w http.ResponseWriter, r *http.Request) {
 func handleManifest(w http.ResponseWriter, r *http.Request) {
 	manifest := map[string]interface{}{
 		"id":          "nuviotr.falsisdev.addon",
-		"name":        "FalsisAddons (Go Engine)",
+		"name":        "FalsisAddons",
 		"version":     "1.1.0",
-		"description": "Yüksek performanslı Go motoru ile Türkçe dizi, film, anime ve Canlı IPTV yayınları.",
+		"description": "Golang tabanlı yüksek performanslı Türkçe dizi, film, anime ve Canlı IPTV yayın motoru.",
 		"author":      "falsisdev",
 		"types":       []string{"movie", "tv", "live"},
 		"resources":   []string{"stream", "catalog", "meta"},
-		"repository":  "https://github.com/falsisdev/nuviotr",
+		"catalogs": []map[string]interface{}{
+			{
+				"type": "live",
+				"id":   "falsis_canli_tv",
+				"name": "Canlı TV (Ulusal & Haber & Sinema)",
+			},
+		},
+		"repository": "https://github.com/falsisdev/nuviotr",
 	}
 	jsonResponse(w, http.StatusOK, manifest)
 }
 
-// Handler is the entry point for Vercel Serverless Functions.
+// Handler is the universal entry point for Vercel Serverless Functions.
 func Handler(w http.ResponseWriter, r *http.Request) {
-	mux.ServeHTTP(w, r)
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
+	if r.Method == http.MethodOptions {
+		w.WriteHeader(http.StatusOK)
+		return
+	}
+
+	reqPath := r.URL.Path
+	if matchedPath := r.Header.Get("x-matched-path"); matchedPath != "" {
+		reqPath = matchedPath
+	}
+	if pathQuery := r.URL.Query().Get("path"); pathQuery != "" {
+		reqPath = "/" + strings.TrimPrefix(pathQuery, "/")
+	}
+
+	cleanPath := strings.TrimPrefix(reqPath, "/api")
+	cleanPath = strings.TrimSuffix(cleanPath, ".go")
+	cleanPath = strings.TrimSuffix(cleanPath, "/index")
+
+	switch cleanPath {
+	case "/manifest":
+		handleManifest(w, r)
+	case "/health":
+		handleHealth(w, r)
+	case "/providers":
+		handleProviders(w, r)
+	case "/streams":
+		handleStreams(w, r)
+	case "/live":
+		handleLive(w, r)
+	default:
+		if strings.HasPrefix(cleanPath, "/streams") {
+			handleStreams(w, r)
+		} else if strings.HasPrefix(cleanPath, "/live") {
+			handleLive(w, r)
+		} else {
+			handleManifest(w, r)
+		}
+	}
 }
