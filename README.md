@@ -10,31 +10,40 @@
 - **Canlı TV:** M3U desteği ile ulusal kanallar, haber kanalları ve sinema kanalları.
 - **Hızlı:** Eşzamanlı (concurrent) tarama sayesinde saniyeler içinde sonuç üretir.
 
-## 📺 Aktif Kaynaklar (Sağlayıcılar)
+## 📊 Kaynak (Sağlayıcı) Durumları
 
-Şu an itibarıyla sorunsuz çalışan ve aktif olan kaynaklar:
+> **Son Güncelleme:** 2 Eylül 2026
 
-- **Dizimom** (Diziler)
-- **SineWix** (Film & Dizi)
-- **SetFilmizle** (Film)
-- **Diziwatch** (Dizi)
-- **Animexe** (Anime)
-- **Acheriya** (Anime)
-- **Animpow** (Anime)
-- **Ddizi** (Dizi)
-- **Filmhane** (Film)
-- **Dizigom** (Dizi)
-- **DiziYou** (Dizi)
-- **Filmzal** (Film)
-- **Dizimag** (Dizi)
-- **SinemaCX** (Film)
-- **M3U Provider** (Canlı TV & IPTV Kanalları)
+Aşağıdaki tablo, sağlayıcıların en güncel çalışma durumlarını göstermektedir.
+Bulut sunucular (Vercel vb.) veri merkezi (datacenter) IP adresleri kullandığı için bazı sitelerin güvenlik duvarlarına (Cloudflare WAF) takılmaktadır.
 
-> **⚠️ Not (SezonlukDizi, HDFilmCehennemi, Dizibox, vb.):** Bu platformlar çok sıkı Cloudflare WAF (Bot Koruması) kullanmaktadır. Eğer NuvioTR uygulamasını **Vercel** veya **Render** gibi bulut sunucularında (Datacenter IP) barındırıyorsanız, bu siteler `POST` isteklerini otomatik olarak engeller (403 Forbidden). Kendi bilgisayarınızda (Localhost) veya ev ağınızda çalıştırdığınızda sorunsuz çalışırlar.
+| Sağlayıcı (Kaynak) | Kategori | Durum (Vercel / Cloud) | Durum (Local / Ev Ağı) | Açıklama |
+| :--- | :---: | :---: | :---: | :--- |
+| **Dizimom** | Dizi | ✅ Aktif | ✅ Aktif | Şifreli .m3u8 API bypass edildi, sorunsuz. |
+| **SineWix** | Film & Dizi | ✅ Aktif | ✅ Aktif | Sorunsuz çalışıyor. |
+| **Filmifullizle** | Film | ✅ Aktif | ✅ Aktif | Sorunsuz çalışıyor. |
+| **M3U Provider** | IPTV / Canlı | ✅ Aktif | ✅ Aktif | M3U parse sorunsuz. |
+| **SezonlukDizi** | Dizi | ❌ Cloudflare WAF | ✅ Aktif | Vercel'de POST istekleri (alternatifler) Cloudflare tarafından engelleniyor. |
+| **Film Makinesi** | Film | ❌ Cloudflare WAF | ✅ Aktif | Vercel IP'lerine 403 Forbidden atıyor. |
+| **Dizibox** | Dizi | ❌ Cloudflare WAF | ✅ Aktif | Vercel IP'lerine 403 Forbidden atıyor. |
+| **AnimeciX** | Anime | ❌ Cloudflare WAF | ⚠️ Kısmi | Sıkı Cloudflare koruması, ev ağında çalışabilir. |
+| **Tranimeizle** | Anime | ❌ Cloudflare WAF | ⚠️ Kısmi | Sıkı Cloudflare koruması, ev ağında çalışabilir. |
+| **Vidlink** | Yabancı API | ❌ Cloudflare WAF | ⚠️ Kısmi | Sıkı Cloudflare koruması. |
+| **HDFilmCehennemi** | Film | ❌ Bozuk | ❌ Bozuk | Sitedeki tema/altyapı değişikliği nedeniyle HTML parse işlemi güncellenmeli. |
+| **Diziwatch** | Dizi | ❌ Bozuk | ❌ Bozuk | Güncellenmesi gerekiyor. |
+| **Ddizi** | Dizi | ❌ Bozuk | ❌ Bozuk | Güncellenmesi gerekiyor. |
+| **Vidmody** | Film/Dizi | ❌ Bozuk | ❌ Bozuk | Güncellenmesi gerekiyor. |
+| **SetFilmizle** | Film | ❌ Bozuk | ❌ Bozuk | Güncellenmesi gerekiyor. |
+| Diğer Tüm Sağlayıcılar | Karışık | ❌ Bozuk | ❌ Bozuk | (Animexe, Dizigom, Filmhane vb.) Sitelerdeki Cloudflare V2 Captcha veya DOM değişiklikleri sebebiyle kodların güncellenmesi gerekiyor. |
+
+*Emoji Anlamları:*
+* ✅ **Aktif**: Sorunsuz bir şekilde çalışıyor ve akış (stream) getiriyor.
+* ❌ **Cloudflare WAF**: Kod çalışıyor ancak hedef site bulut sunucu IP'sini engellediği için akış alınamıyor (Localhost'ta çalışır).
+* ❌ **Bozuk**: Sitenin kapanması veya HTML yapısının değişmesi sebebiyle sağlayıcının kodlarının güncellenmesi gerekiyor.
 
 ## 🛠️ Kurulum (Vercel)
 
-NuvioTR'yi ücretsiz olarak Vercel üzerinde barındırabilirsiniz.
+NuvioTR'yi ücretsiz olarak Vercel üzerinde barındırabilirsiniz. Ancak tablodaki WAF kısıtlamalarını dikkate alınız.
 
 1. Projeyi kendi GitHub hesabınıza Fork'layın.
 2. Vercel'de yeni bir proje oluşturup bu repoyu seçin.
