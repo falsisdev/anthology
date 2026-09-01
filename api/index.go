@@ -3,6 +3,7 @@ package handler
 import (
 	"encoding/json"
 	"net/http"
+	"os"
 	"strconv"
 	"strings"
 	"time"
@@ -11,6 +12,7 @@ import (
 	"github.com/falsisdev/nuviotr/pkg/models"
 	"github.com/falsisdev/nuviotr/pkg/provider"
 	"github.com/falsisdev/nuviotr/pkg/providers/m3u"
+	"github.com/falsisdev/nuviotr/pkg/utils"
 )
 
 var (
@@ -20,7 +22,7 @@ var (
 
 func init() {
 	m3uInstance = m3u.New()
-	eng = engine.New("", 4*time.Second)
+	eng = engine.New("", 8*time.Second) // increased for proxy latency
 }
 
 func jsonResponse(w http.ResponseWriter, status int, data interface{}) {
@@ -251,9 +253,38 @@ func handleStream(w http.ResponseWriter, r *http.Request, pathParts []string) {
 func handleHealth(w http.ResponseWriter, r *http.Request) {
 	jsonResponse(w, http.StatusOK, map[string]interface{}{
 		"status":  "ok",
-		"version": "1.1.0",
+		"version": "1.1.1",
 		"engine":  "golang-vercel-serverless",
 		"time":    time.Now().Format(time.RFC3339),
+	})
+}
+
+func handleDebug(w http.ResponseWriter, r *http.Request) {
+	// Show proxy config and do a live test fetch through the proxy
+	proxyURL := utils.ProxyBaseURL()
+	testURL := "https://sezonlukdizi.cc/"
+	testStatus := 0
+	testErr := ""
+
+	ctx := r.Context()
+	body, err := utils.DefaultClient.Get(ctx, testURL, map[string]string{
+		"Accept": "text/html",
+	})
+	if err != nil {
+		testErr = err.Error()
+	} else {
+		testStatus = 200
+		_ = body
+	}
+
+	jsonResponse(w, http.StatusOK, map[string]interface{}{
+		"proxy_url":         proxyURL,
+		"proxy_active":      proxyURL != "",
+		"env_PROXY_URL":     os.Getenv("PROXY_URL"),
+		"test_url":          testURL,
+		"test_status":       testStatus,
+		"test_error":        testErr,
+		"engine_timeout":    "8s",
 	})
 }
 
@@ -319,6 +350,8 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		handleStream(w, r, parts)
 	case "health":
 		handleHealth(w, r)
+	case "debug":
+		handleDebug(w, r)
 	case "providers":
 		handleProviders(w, r)
 	default:

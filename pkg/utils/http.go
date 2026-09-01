@@ -29,6 +29,9 @@ var proxyBaseURL = func() string {
 	return defaultProxyURL
 }()
 
+// ProxyBaseURL returns the active proxy URL (empty string = direct mode).
+func ProxyBaseURL() string { return proxyBaseURL }
+
 // HTTPClient wraps standard http.Client with common options.
 type HTTPClient struct {
 	client *http.Client
