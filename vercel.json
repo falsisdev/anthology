@@ -11,5 +11,8 @@
       "src": "/(.*)",
       "dest": "api/index.go"
     }
-  ]
+  ],
+  "env": {
+    "PROXY_URL": "https://nuviotr-proxy.falsis.workers.dev"
+  }
 }
