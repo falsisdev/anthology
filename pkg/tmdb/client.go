@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"strconv"
+	"strings"
 	"sync"
 	"time"
 
@@ -52,9 +54,28 @@ type tmdbResponse struct {
 	} `json:"external_ids"`
 }
 
-// GetMediaInfo fetches complete media information for a given TMDB ID and media type.
-func (c *Client) GetMediaInfo(ctx context.Context, tmdbID string, mediaType models.MediaType, season, episode int) (*models.MediaInfo, error) {
-	cacheKey := fmt.Sprintf("%s:%s:%d:%d", tmdbID, mediaType, season, episode)
+type tmdbFindResponse struct {
+	MovieResults []struct {
+		ID            int    `json:"id"`
+		Title         string `json:"title"`
+		OriginalTitle string `json:"original_title"`
+		ReleaseDate   string `json:"release_date"`
+	} `json:"movie_results"`
+	TVResults []struct {
+		ID           int    `json:"id"`
+		Name         string `json:"name"`
+		OriginalName string `json:"original_name"`
+		FirstAirDate string `json:"first_air_date"`
+	} `json:"tv_results"`
+}
+
+// GetMediaInfo fetches complete media information for a given TMDB ID or IMDb ID.
+func (c *Client) GetMediaInfo(ctx context.Context, idStr string, mediaType models.MediaType, season, episode int) (*models.MediaInfo, error) {
+	idStr = strings.TrimPrefix(idStr, "tmdb:")
+	idStr = strings.TrimPrefix(idStr, "kitsu:")
+	idStr = strings.TrimPrefix(idStr, "animecix:")
+
+	cacheKey := fmt.Sprintf("%s:%s:%d:%d", idStr, mediaType, season, episode)
 
 	c.mu.RLock()
 	if cached, ok := c.cache[cacheKey]; ok {
@@ -63,13 +84,71 @@ func (c *Client) GetMediaInfo(ctx context.Context, tmdbID string, mediaType mode
 	}
 	c.mu.RUnlock()
 
+	// Handle IMDb ID (e.g. tt0137523 or tt0903747)
+	if strings.HasPrefix(idStr, "tt") {
+		findURL := fmt.Sprintf("%s/find/%s?api_key=%s&external_source=imdb_id&language=tr-TR",
+			BaseURL, url.PathEscape(idStr), c.apiKey)
+
+		req, err := http.NewRequestWithContext(ctx, http.MethodGet, findURL, nil)
+		if err == nil {
+			resp, err := c.httpClient.Do(req)
+			if err == nil && resp.StatusCode == http.StatusOK {
+				defer resp.Body.Close()
+				var fData tmdbFindResponse
+				if err := json.NewDecoder(resp.Body).Decode(&fData); err == nil {
+					if mediaType == models.MediaTypeTV && len(fData.TVResults) > 0 {
+						r := fData.TVResults[0]
+						year := ""
+						if len(r.FirstAirDate) >= 4 {
+							year = r.FirstAirDate[:4]
+						}
+						info := &models.MediaInfo{
+							TMDBID:        strconv.Itoa(r.ID),
+							IMDbID:        idStr,
+							Title:         r.Name,
+							OriginalTitle: r.OriginalName,
+							Year:          year,
+							Season:        season,
+							Episode:       episode,
+							Type:          models.MediaTypeTV,
+						}
+						c.mu.Lock()
+						c.cache[cacheKey] = info
+						c.mu.Unlock()
+						return info, nil
+					} else if len(fData.MovieResults) > 0 {
+						r := fData.MovieResults[0]
+						year := ""
+						if len(r.ReleaseDate) >= 4 {
+							year = r.ReleaseDate[:4]
+						}
+						info := &models.MediaInfo{
+							TMDBID:        strconv.Itoa(r.ID),
+							IMDbID:        idStr,
+							Title:         r.Title,
+							OriginalTitle: r.OriginalTitle,
+							Year:          year,
+							Season:        season,
+							Episode:       episode,
+							Type:          models.MediaTypeMovie,
+						}
+						c.mu.Lock()
+						c.cache[cacheKey] = info
+						c.mu.Unlock()
+						return info, nil
+					}
+				}
+			}
+		}
+	}
+
 	typePath := "movie"
 	if mediaType == models.MediaTypeTV {
 		typePath = "tv"
 	}
 
 	reqURL := fmt.Sprintf("%s/%s/%s?api_key=%s&language=tr-TR&append_to_response=external_ids",
-		BaseURL, typePath, url.PathEscape(tmdbID), c.apiKey)
+		BaseURL, typePath, url.PathEscape(idStr), c.apiKey)
 
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, reqURL, nil)
 	if err != nil {
@@ -111,7 +190,7 @@ func (c *Client) GetMediaInfo(ctx context.Context, tmdbID string, mediaType mode
 	}
 
 	info := &models.MediaInfo{
-		TMDBID:        tmdbID,
+		TMDBID:        idStr,
 		IMDbID:        data.ExternalIDs.IMDbID,
 		Title:         title,
 		OriginalTitle: origTitle,
