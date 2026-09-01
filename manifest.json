@@ -1,136 +1,54 @@
 {
   "id": "nuviotr.falsisdev.addon",
   "name": "FalsisAddons",
-  "version": "1.1.0",
-  "description": "Golang tabanlı yüksek performanslı Türkçe dizi, film, anime ve Canlı IPTV yayın motoru.",
+  "version": "1.2.0",
+  "description": "Golang tabanlı 30+ sağlayıcılı yüksek performanslı Türkçe dizi, film, anime ve Canlı IPTV yayın motoru.",
   "author": "falsisdev",
   "repository": "https://github.com/falsisdev/nuviotr",
   "engine": "golang",
-  "supportedTypes": ["movie", "tv", "live"],
+  "supportedTypes": ["movie", "series", "tv", "live", "channel", "anime"],
+  "resources": ["catalog", "stream", "meta"],
+  "idPrefixes": ["tt", "tmdb:", "kitsu:", "animecix:", "canli:"],
   "catalogs": [
     {
-      "type": "live",
+      "type": "tv",
       "id": "falsis_canli_tv",
-      "name": "Canlı TV (Ulusal & Haber & Sinema)"
+      "name": "Canlı TV (Ulusal & Haber & Sinema)",
+      "extra": [
+        { "name": "genre", "isRequired": false }
+      ]
     }
   ],
   "providers": [
-    {
-      "id": "sinewix",
-      "name": "SineWix",
-      "description": "Türkçe film ve diziler, hızlı indirme ve oynatma sunucuları",
-      "supportedTypes": ["movie", "tv"],
-      "enabled": true,
-      "formats": ["mp4", "mkv"],
-      "contentLanguage": ["tr"]
-    },
-    {
-      "id": "diziyou",
-      "name": "DiziYou",
-      "description": "Türkçe altyazılı ve dublajlı yabancı diziler (1080p HLS)",
-      "supportedTypes": ["tv"],
-      "enabled": true,
-      "formats": ["m3u8"],
-      "contentLanguage": ["tr"]
-    },
-    {
-      "id": "dizigom",
-      "name": "Dizigom",
-      "description": "Popüler yabancı dizi akışları ve oynatıcı kaynakları",
-      "supportedTypes": ["tv"],
-      "enabled": true,
-      "formats": ["mp4", "m3u8"],
-      "contentLanguage": ["tr"]
-    },
-    {
-      "id": "animecix",
-      "name": "AnimeciX",
-      "description": "Türkiye'nin en popüler anime platformu, çoklu fansub ve HD akışlar",
-      "supportedTypes": ["movie", "tv"],
-      "enabled": true,
-      "formats": ["mp4", "m3u8"],
-      "contentLanguage": ["tr", "ja"]
-    },
-    {
-      "id": "diziwatch",
-      "name": "Diziwatch",
-      "description": "Anime ve dizi yayınları, yerleşik oynatıcı kaynakları",
-      "supportedTypes": ["tv"],
-      "enabled": true,
-      "formats": ["mp4", "m3u8"],
-      "contentLanguage": ["tr"]
-    },
-    {
-      "id": "filmmakinesi",
-      "name": "Film Makinesi",
-      "description": "1080p Full HD Türkçe dublaj ve altyazılı filmler",
-      "supportedTypes": ["movie"],
-      "enabled": true,
-      "formats": ["mp4", "m3u8"],
-      "contentLanguage": ["tr"]
-    },
-    {
-      "id": "setfilmizle",
-      "name": "SetFilmizle",
-      "description": "Film ve dizi yayınları, alternatif sunucular",
-      "supportedTypes": ["movie", "tv"],
-      "enabled": true,
-      "formats": ["mp4", "m3u8"],
-      "contentLanguage": ["tr"]
-    },
-    {
-      "id": "sezonlukdizi",
-      "name": "SezonlukDizi",
-      "description": "Güncel sezonluk dizi yayınları",
-      "supportedTypes": ["tv"],
-      "enabled": true,
-      "formats": ["mp4", "m3u8"],
-      "contentLanguage": ["tr"]
-    },
-    {
-      "id": "vidmody",
-      "name": "Vidmody",
-      "description": "Hızlı video embed ve stream bağlantıları",
-      "supportedTypes": ["movie", "tv"],
-      "enabled": true,
-      "formats": ["mp4", "m3u8"],
-      "contentLanguage": ["tr", "en"]
-    },
-    {
-      "id": "m3u",
-      "name": "MoOnCrOwN IPTV & VOD",
-      "description": "Ulusal canlı kanallar, film ve dizi çalma listeleri",
-      "supportedTypes": ["movie", "tv", "live"],
-      "enabled": true,
-      "formats": ["m3u8", "ts"],
-      "contentLanguage": ["tr"]
-    },
-    {
-      "id": "sinemacx",
-      "name": "SinemaCX",
-      "description": "Sinema.gg kaynaklı 1080p filmler",
-      "supportedTypes": ["movie", "tv"],
-      "enabled": true,
-      "formats": ["mp4", "m3u8"],
-      "contentLanguage": ["tr"]
-    },
-    {
-      "id": "dizibox",
-      "name": "Dizibox",
-      "description": "Yabancı dizi akışları",
-      "supportedTypes": ["tv"],
-      "enabled": true,
-      "formats": ["mp4", "m3u8"],
-      "contentLanguage": ["tr"]
-    },
-    {
-      "id": "vidlink",
-      "name": "Vidlink",
-      "description": "Vidlink çoklu kalite ve altyazı akışları",
-      "supportedTypes": ["movie", "tv"],
-      "enabled": true,
-      "formats": ["mp4", "m3u8"],
-      "contentLanguage": ["en"]
-    }
+    { "id": "sinewix", "name": "SineWix", "supportedTypes": ["movie", "tv"] },
+    { "id": "diziyou", "name": "DiziYou", "supportedTypes": ["tv"] },
+    { "id": "dizigom", "name": "Dizigom", "supportedTypes": ["tv"] },
+    { "id": "diziyo", "name": "Diziyo", "supportedTypes": ["tv"] },
+    { "id": "dizimom", "name": "Dizimom", "supportedTypes": ["tv"] },
+    { "id": "dizimag", "name": "Dizimag", "supportedTypes": ["tv"] },
+    { "id": "dizibox", "name": "Dizibox", "supportedTypes": ["tv"] },
+    { "id": "ddizi", "name": "Ddizi", "supportedTypes": ["tv"] },
+    { "id": "filmhane", "name": "Filmhane", "supportedTypes": ["movie", "tv"] },
+    { "id": "filmzal", "name": "Filmzal", "supportedTypes": ["movie", "tv"] },
+    { "id": "animecix", "name": "AnimeciX", "supportedTypes": ["movie", "tv"] },
+    { "id": "diziwatch", "name": "Diziwatch", "supportedTypes": ["tv"] },
+    { "id": "tranimeizle", "name": "Tranimeizle", "supportedTypes": ["movie", "tv"] },
+    { "id": "animexe", "name": "Animexe", "supportedTypes": ["movie", "tv"] },
+    { "id": "animpow", "name": "Animpow", "supportedTypes": ["movie", "tv"] },
+    { "id": "asyaanimeleri", "name": "Asyaanimeleri", "supportedTypes": ["movie", "tv"] },
+    { "id": "acheriya", "name": "Acheriya", "supportedTypes": ["movie", "tv"] },
+    { "id": "filmmakinesi", "name": "Film Makinesi", "supportedTypes": ["movie"] },
+    { "id": "jetfilmizle", "name": "Jetfilmizle", "supportedTypes": ["movie"] },
+    { "id": "filmifullizle", "name": "Filmifullizle", "supportedTypes": ["movie"] },
+    { "id": "filmekseni", "name": "Filmekseni", "supportedTypes": ["movie"] },
+    { "id": "tekfullfilmizle", "name": "Tekfullfilmizle", "supportedTypes": ["movie"] },
+    { "id": "hdfilmdelisi", "name": "HDFilmdelisi", "supportedTypes": ["movie"] },
+    { "id": "sinezy", "name": "Sinezy", "supportedTypes": ["movie"] },
+    { "id": "setfilmizle", "name": "SetFilmizle", "supportedTypes": ["movie", "tv"] },
+    { "id": "sezonlukdizi", "name": "SezonlukDizi", "supportedTypes": ["tv"] },
+    { "id": "vidmody", "name": "Vidmody", "supportedTypes": ["movie", "tv"] },
+    { "id": "sinemacx", "name": "SinemaCX", "supportedTypes": ["movie", "tv"] },
+    { "id": "m3u", "name": "MoOnCrOwN IPTV & VOD", "supportedTypes": ["movie", "tv", "live"] },
+    { "id": "vidlink", "name": "Vidlink", "supportedTypes": ["movie", "tv"] }
   ]
 }
