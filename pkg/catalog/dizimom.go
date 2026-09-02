@@ -163,6 +163,7 @@ func getDizimomMeta(ctx context.Context, showID string) (*MetaDetail, error) {
 
 	reEp := regexp.MustCompile(`(\d+)\.\s*bölüm`)
 	reSeasEp := regexp.MustCompile(`(\d+)\.\s*sezon\s*(\d+)\.\s*bölüm`)
+	reHrefEp := regexp.MustCompile(`[-_](\d+)[-_]bolum`)
 
 	var videos []VideoItem
 	seen := make(map[string]bool)
@@ -174,13 +175,17 @@ func getDizimomMeta(ctx context.Context, showID string) (*MetaDetail, error) {
 			epTitle, _ = s.Attr("title")
 		}
 
-		if !strings.Contains(href, "-bolum") || seen[href] {
+		hrefLower := strings.ToLower(href)
+		if strings.Contains(hrefLower, "/diziler/") || strings.Contains(hrefLower, "bolumler") || strings.Contains(hrefLower, "bolumleri") || strings.Contains(hrefLower, "/category/") || strings.Contains(hrefLower, "/tag/") {
 			return
 		}
-		seen[href] = true
+
+		if !strings.Contains(hrefLower, "-bolum") {
+			return
+		}
 
 		season := 1
-		episode := 1
+		episode := 0
 
 		lower := strings.ToLower(epTitle)
 		if m := reSeasEp.FindStringSubmatch(lower); len(m) > 2 {
@@ -188,21 +193,37 @@ func getDizimomMeta(ctx context.Context, showID string) (*MetaDetail, error) {
 			fmt.Sscanf(m[2], "%d", &episode)
 		} else if m := reEp.FindStringSubmatch(lower); len(m) > 1 {
 			fmt.Sscanf(m[1], "%d", &episode)
+		} else if m := reHrefEp.FindStringSubmatch(hrefLower); len(m) > 1 {
+			fmt.Sscanf(m[1], "%d", &episode)
 		}
+
+		if episode == 0 {
+			return // Ignore any links that are not actual episodes!
+		}
+
+		if seen[href] {
+			return
+		}
+		seen[href] = true
 
 		clean := strings.Trim(href, "/")
 		parts := strings.Split(clean, "/")
 		epSlug := parts[len(parts)-1]
 
+		displayTitle := fmt.Sprintf("%d. Bölüm", episode)
+		if season > 1 {
+			displayTitle = fmt.Sprintf("%d. Sezon %d. Bölüm", season, episode)
+		}
+
 		videos = append(videos, VideoItem{
 			ID:      "dizimom:ep:" + epSlug,
-			Title:   epTitle,
+			Title:   displayTitle,
 			Season:  season,
 			Episode: episode,
 		})
 	})
 
-	// Reverse so episodes start at 1
+	// Reverse so episodes are in ascending order
 	for i, j := 0, len(videos)-1; i < j; i, j = i+1, j-1 {
 		videos[i], videos[j] = videos[j], videos[i]
 	}
@@ -290,6 +311,27 @@ func getDizimomStream(ctx context.Context, rawID string) ([]models.Stream, error
 				}
 			}
 		})
+	}
+
+	if len(streams) == 0 {
+		cleanSlug := epSlug
+		reEp := regexp.MustCompile(`[-_](\d+)[-_]bolum`)
+		epNum := 1
+		if m := reEp.FindStringSubmatch(cleanSlug); len(m) > 1 {
+			fmt.Sscanf(m[1], "%d", &epNum)
+		}
+		showName := reEp.ReplaceAllString(cleanSlug, "")
+		showName = regexp.MustCompile(`^[a-]+`).ReplaceAllString(showName, "")
+		showName = regexp.MustCompile(`[-_](?:izle|final|sezon|hd\d*).*$`).ReplaceAllString(showName, "")
+		showName = strings.ReplaceAll(showName, "-", " ")
+		showName = strings.Title(strings.TrimSpace(showName))
+
+		ytQuery := fmt.Sprintf("%s %d. Bölüm", showName, epNum)
+		if ytStream := SearchYouTubeEpisode(ctx, ytQuery); ytStream != nil {
+			ytStream.Title = "⌜ Dizimom ⌟ | YouTube (1080p)"
+			ytStream.Provider = "dizimom"
+			streams = append(streams, *ytStream)
+		}
 	}
 
 	return streams, nil

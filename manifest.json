@@ -6,9 +6,9 @@
   "author": "falsisdev",
   "repository": "https://github.com/falsisdev/anthology",
   "engine": "golang",
-  "supportedTypes": ["movie", "series", "tv", "live", "channel", "anime"],
+  "types": ["movie", "series", "tv", "live", "channel", "anime"],
   "resources": ["catalog", "stream", "meta"],
-  "idPrefixes": ["tt", "tmdb:", "kitsu:", "animecix:", "canli:", "ddizi:", "dizimom:", "diziyou:", "hdfc:"],
+  "idPrefixes": ["tt", "tmdb:", "kitsu:", "animecix:", "canli:", "ddizi:", "dizimom:", "diziyou:", "hdfc:", "sinewix:"],
   "catalogs": [
     {
       "type": "series",
@@ -30,6 +30,22 @@
       "type": "series",
       "id": "anthology_diziyou",
       "name": "Anthology - DiziYou",
+      "extra": [
+        { "name": "search", "isRequired": false }
+      ]
+    },
+    {
+      "type": "series",
+      "id": "anthology_sinewix_series",
+      "name": "Anthology - SineWix Dizi",
+      "extra": [
+        { "name": "search", "isRequired": false }
+      ]
+    },
+    {
+      "type": "movie",
+      "id": "anthology_sinewix_movies",
+      "name": "Anthology - SineWix Film",
       "extra": [
         { "name": "search", "isRequired": false }
       ]

@@ -279,5 +279,31 @@ func getDdiziStream(ctx context.Context, rawID string) ([]models.Stream, error) 
 		}
 	})
 
+	// Fallback to official YouTube search if Ddizi has 0 streams (e.g. DMCA notice)
+	if len(streams) == 0 {
+		epPageTitle := strings.TrimSpace(doc.Find("h1, .title_con h1").First().Text())
+		if epPageTitle == "" {
+			epPageTitle = strings.TrimSpace(doc.Find("title").First().Text())
+		}
+		cleanTitle := strings.TrimSuffix(epPageTitle, " izle")
+		cleanTitle = strings.TrimSuffix(cleanTitle, " Full izle")
+		cleanTitle = strings.TrimSuffix(cleanTitle, " | Ddizi")
+		cleanTitle = strings.TrimSpace(cleanTitle)
+
+		if cleanTitle == "" && len(parts) > 1 {
+			cleanSlug := strings.TrimSuffix(parts[1], ".htm")
+			cleanSlug = strings.ReplaceAll(cleanSlug, "-", " ")
+			cleanTitle = strings.Title(cleanSlug)
+		}
+
+		if cleanTitle != "" {
+			if ytStream := SearchYouTubeEpisode(ctx, cleanTitle); ytStream != nil {
+				ytStream.Title = "⌜ Ddizi ⌟ | YouTube (1080p)"
+				ytStream.Provider = "ddizi"
+				streams = append(streams, *ytStream)
+			}
+		}
+	}
+
 	return streams, nil
 }

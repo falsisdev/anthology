@@ -54,6 +54,10 @@ func Search(ctx context.Context, catalogID, query string) ([]MetaItem, error) {
 		return searchDiziYou(ctx, query)
 	case "anthology_hdfc":
 		return searchHDFC(ctx, query)
+	case "anthology_sinewix_series":
+		return searchSineWix(ctx, "series", query)
+	case "anthology_sinewix_movies":
+		return searchSineWix(ctx, "movie", query)
 	default:
 		return nil, nil
 	}
@@ -86,6 +90,8 @@ func GetMeta(ctx context.Context, mediaType, rawID string) (*MetaDetail, error) 
 		return getDiziYouMeta(ctx, rawID)
 	case strings.HasPrefix(rawID, "hdfc:movie:"):
 		return getHDFCMeta(ctx, rawID)
+	case strings.HasPrefix(rawID, "sinewix:"):
+		return getSineWixMeta(ctx, rawID)
 	default:
 		return nil, nil
 	}
@@ -102,6 +108,8 @@ func GetStream(ctx context.Context, rawID string) ([]models.Stream, error) {
 		return getDiziYouStream(ctx, rawID)
 	case strings.HasPrefix(rawID, "hdfc:movie:"):
 		return getHDFCStream(ctx, rawID)
+	case strings.HasPrefix(rawID, "sinewix:"):
+		return getSineWixStream(ctx, rawID)
 	default:
 		return nil, nil
 	}
