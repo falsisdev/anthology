@@ -5,6 +5,7 @@ import (
 	"context"
 	"fmt"
 	"net/url"
+	"regexp"
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
@@ -100,18 +101,19 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 		return nil, err
 	}
 
-	var epURL string
-	expectedHref := fmt.Sprintf("-%d-bolum", media.Episode)
-	expectedTitle := fmt.Sprintf("%d.bölüm", media.Episode)
+	reHref := regexp.MustCompile(fmt.Sprintf(`[-_]%d[-_]bolum`, media.Episode))
+	reTitle := regexp.MustCompile(fmt.Sprintf(`(^|\s|[^\d])%d\.\s*bölüm`, media.Episode))
 
-	showDoc.Find("a").EachWithBreak(func(i int, s *goquery.Selection) bool {
+	var epURL string
+	// Check first page inside .content_ to avoid sidebar false positives
+	showDoc.Find(".content_ .dizi-boxpost-cat a").EachWithBreak(func(i int, s *goquery.Selection) bool {
 		href, _ := s.Attr("href")
 		title, _ := s.Attr("title")
 
 		titleLower := strings.ToLower(title)
 		hrefLower := strings.ToLower(href)
 
-		if strings.Contains(hrefLower, "/izle/") && (strings.Contains(hrefLower, expectedHref) || strings.Contains(titleLower, expectedTitle)) {
+		if strings.Contains(hrefLower, "/izle/") && (reHref.MatchString(hrefLower) || reTitle.MatchString(titleLower)) {
 			epURL = href
 			if !strings.HasPrefix(epURL, "http") {
 				epURL = BaseURL + epURL
@@ -120,6 +122,54 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 		}
 		return true
 	})
+
+	// If not on first page, check pagination (reverse order from oldest page)
+	if epURL == "" {
+		reSayfaNum := regexp.MustCompile(`/sayfa-(\d+)`)
+		maxPage := 0
+		showDoc.Find(".content_ nav a, nav[aria-label='Page navigation'] a").Each(func(i int, s *goquery.Selection) {
+			href, _ := s.Attr("href")
+			if m := reSayfaNum.FindStringSubmatch(href); len(m) > 1 {
+				var p int
+				fmt.Sscanf(m[1], "%d", &p)
+				if p > maxPage {
+					maxPage = p
+				}
+			}
+		})
+
+		for p := maxPage; p >= 1; p-- {
+			pageURL := fmt.Sprintf("%s/sayfa-%d", strings.TrimSuffix(showURL, "/"), p)
+			pBody, err := utils.DefaultClient.Get(ctx, pageURL, headers)
+			if err != nil {
+				continue
+			}
+			pDoc, err := goquery.NewDocumentFromReader(bytes.NewReader(pBody))
+			if err != nil {
+				continue
+			}
+
+			pDoc.Find(".content_ .dizi-boxpost-cat a").EachWithBreak(func(i int, s *goquery.Selection) bool {
+				href, _ := s.Attr("href")
+				title, _ := s.Attr("title")
+				hrefLower := strings.ToLower(href)
+				titleLower := strings.ToLower(title)
+
+				if strings.Contains(hrefLower, "/izle/") && (reHref.MatchString(hrefLower) || reTitle.MatchString(titleLower)) {
+					epURL = href
+					if !strings.HasPrefix(epURL, "http") {
+						epURL = BaseURL + epURL
+					}
+					return false
+				}
+				return true
+			})
+
+			if epURL != "" {
+				break
+			}
+		}
+	}
 
 	if epURL == "" {
 		return nil, nil
