@@ -10,6 +10,7 @@ import (
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
+	"github.com/falsisdev/anthology/pkg/extractors"
 	"github.com/falsisdev/anthology/pkg/models"
 	"github.com/falsisdev/anthology/pkg/provider"
 	"github.com/falsisdev/anthology/pkg/utils"
@@ -129,16 +130,23 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 				json.NewDecoder(resp.Body).Decode(&res)
 				
 				if res.Success && res.Data.URL != "" {
-					streams = append(streams, models.Stream{
-						Name:     media.Title,
-						Title:    fmt.Sprintf("⌜ HDFilmCehennemi ⌟ | %s", playerName),
-						Quality:  "1080p",
-						Provider: ID,
-						URL:      res.Data.URL,
-						Headers: map[string]string{
-							"Referer": BaseURL + "/",
-						},
-					})
+					playerURL := res.Data.URL
+					if strings.HasPrefix(playerURL, "//") {
+						playerURL = "https:" + playerURL
+					}
+					extracted, err := extractors.Extract(ctx, playerURL, targetURL)
+					if err == nil && len(extracted) > 0 {
+						for _, es := range extracted {
+							streams = append(streams, models.Stream{
+								Name:     media.Title,
+								Title:    fmt.Sprintf("⌜ HDFilmCehennemi ⌟ | %s (%s)", playerName, es.Title),
+								Quality:  es.Quality,
+								Provider: ID,
+								URL:      es.URL,
+								Headers:  es.Headers,
+							})
+						}
+					}
 				}
 			}
 		}

@@ -14,6 +14,7 @@ import (
 	"github.com/falsisdev/anthology/pkg/models"
 	"github.com/falsisdev/anthology/pkg/provider"
 	"github.com/falsisdev/anthology/pkg/providers/m3u"
+	"github.com/falsisdev/anthology/pkg/proxy"
 	"github.com/falsisdev/anthology/pkg/tmdb"
 	"github.com/falsisdev/anthology/pkg/utils"
 )
@@ -218,6 +219,12 @@ func handleStream(w http.ResponseWriter, r *http.Request, pathParts []string) {
 		return
 	}
 
+	scheme := "https"
+	if r.TLS == nil && !strings.HasPrefix(r.Header.Get("X-Forwarded-Proto"), "https") && strings.HasPrefix(r.Host, "localhost") {
+		scheme = "http"
+	}
+	proxyBase := fmt.Sprintf("%s://%s/api/proxy", scheme, r.Host)
+
 	type stremioStream struct {
 		Name          string                 `json:"name"`
 		Title         string                 `json:"title"`
@@ -227,24 +234,23 @@ func handleStream(w http.ResponseWriter, r *http.Request, pathParts []string) {
 
 	var stremioStreams []stremioStream
 	for _, s := range result.Streams {
-		hints := map[string]interface{}{}
-		if len(s.Headers) > 0 {
-			hints["notWebReady"] = false
-			hints["proxyHeaders"] = map[string]interface{}{
-				"request": s.Headers,
-			}
+		finalURL := s.URL
+		if len(s.Headers) > 0 || strings.Contains(s.URL, "videoplay.vip") || strings.Contains(s.URL, "hdplayersystem") || strings.Contains(s.URL, "streambox") || strings.Contains(s.URL, "diziyou.one") || strings.Contains(s.URL, "sibnet.ru") {
+			finalURL = proxy.FormatProxyURL(proxyBase, s.URL, s.Headers)
 		}
 
 		providerName := s.Provider
 		if providerName == "" {
-			providerName = "Falsis"
+			providerName = "Anthology"
 		}
 
 		stremioStreams = append(stremioStreams, stremioStream{
-			Name:          strings.ToUpper(providerName),
-			Title:         s.Title,
-			URL:           s.URL,
-			BehaviorHints: hints,
+			Name:  strings.ToUpper(providerName),
+			Title: s.Title,
+			URL:   finalURL,
+			BehaviorHints: map[string]interface{}{
+				"notWebReady": false,
+			},
 		})
 	}
 
@@ -380,6 +386,8 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		handleMeta(w, r, parts)
 	case "stream":
 		handleStream(w, r, parts)
+	case "proxy":
+		proxy.HandleProxy(w, r)
 	case "health":
 		handleHealth(w, r)
 	case "debug":
