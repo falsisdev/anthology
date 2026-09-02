@@ -39,8 +39,8 @@ type TestResult struct {
 	Detail    string `json:"detail,omitempty"`
 }
 
-// Media fixtures used to probe providers. A popular movie for movie-enabled
-// providers and a widely mirrored series for TV providers.
+// Generic probe fixtures: fallback for providers that have no site-specific
+// fixture in providerFixtures below.
 var (
 	testMovie = models.MediaInfo{
 		TMDBID: "27205",
@@ -59,6 +59,82 @@ var (
 		Episode: 1,
 	}
 )
+
+// providerFixtures maps provider IDs to site-specific probe media. Each entry
+// lists content that is near-certain to exist on that provider's own site, so
+// a failed probe reflects the site's reachability — not an unlucky fixture.
+// Candidates are tried in order until one yields streams.
+var providerFixtures = map[string][]models.MediaInfo{
+	// Türk dizi siteleri — arşivlerinin amiral gemisi içerikleri
+	"ddizi":        {probeTV("Arka Sokaklar")},
+	"dizibox":      {probeTV("Kuruluş Osman")},
+	"dizigom":      {probeTV("Kuruluş Osman")},
+	"dizimag":      {probeTV("Kuruluş Osman")},
+	"diziyo":       {probeTV("Yalı Çapkını")},
+	"sezonlukdizi": {probeTV("Yalı Çapkını")},
+	"dizipal":      {probeTV("Yalı Çapkını"), probeTV("Kuruluş Osman")},
+	"diziyou":      {probeTV("Kızılcık Şerbeti"), probeTV("Kuruluş Osman")},
+	"dizimom": {
+		withIDs(probeTV("Breaking Bad"), "1396", "tt0903747"), // yabancı dizi
+		probeTV("Kuruluş Osman"),
+	},
+	"setfilmizle": {
+		interstellar(),
+		probeTV("Kuruluş Osman"),
+	},
+
+	// Anime siteleri
+	"animecix":    {withIDs(probeTV("One Piece"), "37854", "tt0388629")},
+	"tranimeizle": {probeTV("One Piece"), probeTV("Naruto")},
+	"animexe":     {probeTV("Naruto")},
+	"animpow":     {probeTV("Naruto")},
+	"acheriya":    {probeTV("Naruto")},
+	"seicode":     {probeTV("Naruto")},
+	"diziwatch":   {probeTV("Naruto"), testSeries}, // GoT daha önce doğrulandı
+	// Asya dizileri (Kore)
+	"asyaanimeleri": {probeTV("Goblin")},
+
+	// Film siteleri — Interstellar her birinin kataloğunda bulunur
+	"filmekseni":      {interstellar()},
+	"filmhane":        {interstellar()},
+	"filmifullizle":   {interstellar()},
+	"filmmakinesi":    {interstellar()},
+	"jetfilmizle":     {interstellar()},
+	"hdfilmcehennemi": {interstellar()},
+	"hdfilmdelisi":    {interstellar()},
+	"tekfullfilmizle": {interstellar()},
+	"sinezy":          {interstellar()},
+	"filmzal":         {interstellar(), withIDs(probeTV("Breaking Bad"), "1396", "tt0903747")},
+	"sinemacx":        {interstellar(), testSeries},
+
+	// ID tabanlı motorlar — daha önce canlı doğrulanmış popüler içerikler
+	"sinewix": {testMovie, testSeries},
+	"vidlink": {testMovie, testSeries},
+	"vidmody": {testMovie, testSeries},
+	"m3u":     {testMovie, testSeries},
+}
+
+// probeTV builds a TV probe without external IDs; the provider's own site
+// search resolves the title.
+func probeTV(title string) models.MediaInfo {
+	return models.MediaInfo{Title: title, Type: models.MediaTypeTV, Season: 1, Episode: 1}
+}
+
+// probeMovie builds a movie probe without external IDs.
+func probeMovie(title string) models.MediaInfo {
+	return models.MediaInfo{Title: title, Type: models.MediaTypeMovie}
+}
+
+// interstellar is the shared movie probe for film sites (IDs verified).
+func interstellar() models.MediaInfo {
+	return withIDs(probeMovie("Interstellar"), "157336", "tt0816692")
+}
+
+// withIDs attaches TMDB/IMDb identifiers for ID-based engine providers.
+func withIDs(m models.MediaInfo, tmdb, imdb string) models.MediaInfo {
+	m.TMDBID, m.IMDbID = tmdb, imdb
+	return m
+}
 
 // TestProviders live-tests every registered provider by running a real stream
 // search against a representative title. Results are sorted by provider name.
@@ -81,21 +157,16 @@ func TestProviders(ctx context.Context) []TestResult {
 		}
 
 		start := time.Now()
-		for ci, media := range candidates {
+		var lastErr error
+		for _, media := range candidates {
 			cctx, cancel := context.WithTimeout(ctx, ProviderTestTimeout)
 			streams, err := p.GetStreams(cctx, media)
 			cancel()
-			latency := time.Since(start).Milliseconds()
 
 			if err != nil {
-				return TestResult{
-					ID:        p.ID(),
-					Name:      p.Name(),
-					Kind:      "provider",
-					LatencyMS: latency,
-					Message:   "✗ Kaynak yanıt vermedi",
-					Detail:    truncate(err.Error(), 140),
-				}
+				// Bu fixtür başarısız oldu; sitede kesin olan diğer adayı dene.
+				lastErr = err
+				continue
 			}
 
 			count := 0
@@ -114,30 +185,31 @@ func TestProviders(ctx context.Context) []TestResult {
 					Name:      p.Name(),
 					Kind:      "provider",
 					OK:        true,
-					LatencyMS: latency,
+					LatencyMS: time.Since(start).Milliseconds(),
 					Message:   fmt.Sprintf("✓ %d akış bulundu", count),
 					Detail:    media.Title + " · " + hostOf(sampleURL),
 				}
 			}
+		}
 
-			// No streams for this fixture; try the next candidate (if any).
-			if ci == len(candidates)-1 {
-				return TestResult{
-					ID:        p.ID(),
-					Name:      p.Name(),
-					Kind:      "provider",
-					LatencyMS: latency,
-					Message:   "✗ Akış bulunamadı",
-					Detail:    "Test içeriği: " + candidateList(candidates) + " · kaynak çevrimiçi ama bu içeriklerde akış yok",
-				}
+		latency := time.Since(start).Milliseconds()
+		if lastErr != nil {
+			return TestResult{
+				ID:        p.ID(),
+				Name:      p.Name(),
+				Kind:      "provider",
+				LatencyMS: latency,
+				Message:   "✗ Kaynak yanıt vermedi",
+				Detail:    truncate(lastErr.Error(), 140),
 			}
 		}
 		return TestResult{
 			ID:        p.ID(),
 			Name:      p.Name(),
 			Kind:      "provider",
-			LatencyMS: time.Since(start).Milliseconds(),
+			LatencyMS: latency,
 			Message:   "✗ Akış bulunamadı",
+			Detail:    "Test içeriği: " + candidateList(candidates) + " · kaynak çevrimiçi ama bu içeriklerde akış yok",
 		}
 	}
 
@@ -268,7 +340,13 @@ launchLoop:
 	return out
 }
 
+// candidateMediaFor returns the probe media for p. Providers with a dedicated
+// site-specific fixture are probed with content that is near-certain to exist
+// on their own site; everything else falls back to generic popular titles.
 func candidateMediaFor(p provider.Provider) []models.MediaInfo {
+	if fx, ok := providerFixtures[p.ID()]; ok && len(fx) > 0 {
+		return fx
+	}
 	var hasMovie, hasTV bool
 	for _, t := range p.SupportedTypes() {
 		if t == models.MediaTypeMovie {

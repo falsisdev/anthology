@@ -1,7 +1,7 @@
 <div align="center">
   <img src="assets/logo_1_transparent.png" alt="Anthology Logo" width="180" style="margin-bottom: 12px;" />
   <h1>Anthology - Stremio Addon</h1>
-  <p>Golang tabanlı, yüksek performanslı, dahili video extractor motoruna ve HLS akış proxy'sine sahip Türkçe Dizi, Film, Anime ve Canlı TV eklentisi.</p>
+  <p>Golang tabanlı, yüksek performanslı, dahili video extractor motoruna ve HLS akış proxy'sine sahip Türkçe Dizi, Film, Anime ve Canlı TV eklentisi. htmx destekli <strong>canlı durum paneli</strong> ve <strong>kaynak/yayın canlı test konsolu</strong> ile birlikte gelir.</p>
 </div>
 
 ## 🚀 Özellikler
@@ -19,6 +19,8 @@
 - **Dahili HLS Akış Proxy Motoru (`pkg/proxy`):** Stremio ve Nuvio oynatıcılarının alt segment (`.ts`, `.jpg`, `.js`, `.woff`) isteklerinde `Referer` / `Origin` başlıklarını iletememesinden kaynaklanan HTTP 403 ve 2 saniyede bir donma/takılma sorunlarını çözer. Playlistleri dinamik olarak yeniden yazıp CORS açık şekilde aracı olarak oynatır.
 - **Dahili Video Extractor Motoru (`pkg/extractors`):** Stremio'nun web iframe'lerini oynatamama sorununu ortadan kaldırır. OK.ru, Vidmoly, Sibnet, VideoPlay, JWPlayer, Streambox, HDPlayer, YouTube vb. gömülü oynatıcılardan doğrudan `.m3u8`, `.mp4` ve yerel YouTube (`ytId`) video akışlarını ayıklar. Fragman/tanıtım videoları otomatik olarak filtrelenip tam bölümler getirilir.
 - **Canlı TV ve IPTV:** Her kanala özel yüksek çözünürlüklü logo, kategori ve doğrudan çalışan HLS yayınları.
+- **Web Paneli (`pkg/web`):** Ana sayfa (kök `/`) tarayıcıda artık her zaman şık bir HTML karşılama sayfası döndürür; HTML/JS/CSS `//go:embed` ile ayrı şablon dosyalarında (`landing.html`, `status.html`, `tests.html`) tutulur ve `html/template` ile render edilir. Tek tıkla **Stremio'ya Yükle**, **manifest kopyalama** ve **Stremio Web** butonları içerir.
+- **Canlı Kaynak & Yayın Testi (`pkg/tester`):** Ana sayfadaki htmx bazlı panel ile her sağlayıcıya gerçek bir akış arama isteği (her site için ayrıca seçilmiş, o sitede bulunacağı emin içeriklerle — ör. ddizi→Arka Sokaklar, anime siteleri→One Piece/Naruto, film siteleri→Interstellar) ve 35+ canlı TV kanalının yayın URL'ine HTTP `Range` isteği gönderilir; sonuçlar (çevrimiçi/kapalı, gecikme ms, akış sayısı, hata detayı) anlık kartlar hâlinde listelenir.
 
 ## 📺 Canlı TV Kanalları & Yayın Durumları
 
@@ -98,6 +100,38 @@ Aşağıdaki tablo, sağlayıcıların, video extractor ve HLS proxy motorunun e
 * ❌ **Cloudflare WAF**: Kod çalışıyor ve doğrudan video akışı üretiyor ancak hedef site bulut sunucu IP'sini engellediği için akış alınamıyor (Localhost / ev IP'sinde çalışır).
 * ⚠️ **Kısmi**: Çok sıkı bot/captcha koruması mevcut.
 
+> 💡 Bu tablo statiktir; sağlayıcıların **anlık** çalışma durumunu (gecikme, akış sayısı, hata detayı) ana sayfadaki **🩺 Kaynak & Yayın Canlı Testi** panelinden saniyeler içinde görebilirsiniz.
+
+## 🌐 Web Paneli ve Uç Noktalar
+
+`//go:embed` + `html/template` ile ikili dosyaya (binary) gömülü, htmx destekli panel kök adreste (`/`) yayınlanır. Tarayıcıda açtığınızda:
+
+- **Tek tıkla kurulum:** `Stremio'ya Yükle`, `Manifest Kopyala`, `Stremio Web` butonları,
+- **Canlı eklenti durumu:** sunucu, sağlayıcı, katalog ve canlı TV sayıları (`/fragments/status`),
+- **🩺 Kaynak & Yayın Canlı Test Konsolu:** tüm sağlayıcılara gerçek akış araması ve 35+ kanala yayın erişilebilirlik testi, tek tıkla (`pkg/tester`).
+
+| Yöntem | Uç Nokta | Açıklama |
+| :--- | :--- | :--- |
+| GET | `/` | Web paneli (HTML): kurulum butonları + canlı durum + test konsolu |
+| GET | `/manifest.json` | Stremio manifest (JSON) — depodaki `manifest.json` dosyası (`//go:embed`) birebir servis edilir, `stremioAddonsConfig` imza bloğu dahil |
+| GET | `/fragments/status` | htmx parçası: eklenti durumu kartları |
+| GET | `/fragments/test/providers` | htmx parçası: sağlayıcı canlı akış arama testi (her kaynağa kendi sitesinde kesin olan içeriklerle) |
+| GET | `/fragments/test/channels` | htmx parçası: canlı TV kanallarının HTTP `Range` erişilebilirlik testi |
+| GET | `/health` | Sağlık kontrolü (JSON) |
+| GET | `/providers` | Kayıtlı sağlayıcı listesi (JSON) |
+| GET | `/catalog/{type}/{id}.json` | Stremio katalog API |
+| GET | `/meta/{type}/{id}.json` | Stremio meta API |
+| GET | `/stream/{type}/{id}.json` | Stremio stream API |
+| GET | `/proxy?url=...` | HLS akış proxy'si (Referer/Origin yeniden yazımı) |
+
+### Yerel Çalıştırma
+
+```bash
+go run ./cmd/server -port 8080   # -port verilmezse PORT env değişkeni, o da yoksa 8080 kullanılır
+# Panel:  http://127.0.0.1:8080
+# Test:   http://127.0.0.1:8080/fragments/test/providers
+```
+
 ## 🛠️ Kurulum (Vercel)
 
 Anthology'yi ücretsiz olarak Vercel üzerinde barındırabilirsiniz:
@@ -113,9 +147,12 @@ Anthology'yi ücretsiz olarak Vercel üzerinde barındırabilirsiniz:
 
 Vercel veya kendi sunucunuzda (PC/VPS) yayınladıktan sonra Stremio'ya eklemek için:
 
+**Yol 1 — Web Paneli (Önerilen):** Uygulamanın ana sayfasını tarayıcıda açın ve **Stremio'ya Yükle** butonuna tıklayın. Dilerseniz **Manifest Kopyala** ile URL'i panoya alıp Stremio'ya yapıştırabilir ya da **Stremio Web** ile tarayıcıdan anında kullanabilirsiniz.
+
+**Yol 2 — Manuel:**
 1. Stremio uygulamasını açın.
 2. Arama çubuğuna uygulamanızın adresini sonuna `/manifest.json` ekleyerek yazın.
    - Örnek: `https://senin-anthology-uygulaman.vercel.app/manifest.json` (Veya yerelde çalışıyorsa `http://127.0.0.1:8080/manifest.json`)
 3. "Yükle" (Install) butonuna tıklayın.
 
-Hepsi bu kadar! Artık dizi veya filmlere girdiğinizde Anthology kaynakları listelenecektir.
+Hepsi bu kadar! Artık dizi veya filmlere girdiğinizde Anthology kaynakları listelenecektir. Ekleme sonrası hangi kaynakların o an çalıştığını panelden **Kaynakları Test Et** ile doğrulayabilirsiniz.
