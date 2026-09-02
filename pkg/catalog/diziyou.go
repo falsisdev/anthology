@@ -97,33 +97,57 @@ func defaultDiziYou(ctx context.Context) ([]MetaItem, error) {
 		return nil, err
 	}
 
+	reEp := regexp.MustCompile(`-\d+-sezon-\d+-bolum.*`)
+	reTitle := regexp.MustCompile(`(?i)\s*\d+[\.\s]+sezon.*`)
+	reStripHTML := regexp.MustCompile(`<[^>]*>`)
+
 	var results []MetaItem
 	seen := make(map[string]bool)
 
-	doc.Find("a").Each(func(i int, s *goquery.Selection) {
-		href, _ := s.Attr("href")
-		if !strings.HasPrefix(href, diziyouBase) || strings.Contains(href, "-bolum") || strings.Contains(href, "/category/") || seen[href] {
+	doc.Find("img").Each(func(i int, img *goquery.Selection) {
+		alt, _ := img.Attr("alt")
+		src, _ := img.Attr("src")
+		if src == "" || strings.HasPrefix(src, "data:") {
+			src, _ = img.Attr("data-src")
+		}
+		if !strings.Contains(src, "/episodes/") && !strings.Contains(src, "/posters/") && !strings.Contains(src, "/uploads/") {
 			return
 		}
 
-		clean := strings.Trim(href, "/")
-		parts := strings.Split(clean, "/")
-		if len(parts) != 4 {
+		a := img.Closest("a")
+		if a.Length() == 0 {
+			a = img.Parent()
+		}
+		href, _ := a.Attr("href")
+		if href == "" || strings.Contains(href, "uye-ol") || strings.Contains(href, "wp-login") {
 			return
 		}
-		slug := parts[len(parts)-1]
 
-		title := strings.TrimSpace(s.Text())
-		if title == "" || len(title) < 3 {
+		cleanHref := strings.Trim(href, "/")
+		parts := strings.Split(cleanHref, "/")
+		epSlug := parts[len(parts)-1]
+
+		showSlug := reEp.ReplaceAllString(epSlug, "")
+		if showSlug == "" || seen[showSlug] {
 			return
 		}
-		seen[href] = true
+		seen[showSlug] = true
+
+		title := reTitle.ReplaceAllString(alt, "")
+		title = reStripHTML.ReplaceAllString(title, "")
+		title = strings.TrimSpace(title)
+		if title == "" {
+			title = strings.Title(strings.ReplaceAll(showSlug, "-", " "))
+		}
 
 		results = append(results, MetaItem{
-			ID:     "diziyou:show:" + slug,
-			Type:   "series",
-			Name:   title,
-			Genres: []string{"DiziYou", "Popüler Dizi"},
+			ID:          "diziyou:show:" + showSlug,
+			Type:        "series",
+			Name:        title,
+			Poster:      src,
+			Background:  src,
+			Description: title + " - DiziYou Popüler Dizi",
+			Genres:      []string{"DiziYou", "Popüler Dizi"},
 		})
 	})
 

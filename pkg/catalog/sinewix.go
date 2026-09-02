@@ -325,3 +325,88 @@ func getSineWixStream(ctx context.Context, rawID string) ([]models.Stream, error
 
 	return streams, nil
 }
+
+func defaultSineWixSeries(ctx context.Context) ([]MetaItem, error) {
+	endpoint := fmt.Sprintf("/series/popular/%s", sinewix.APIKey)
+	data, err := sinewixRequest(ctx, endpoint)
+	if err != nil {
+		return nil, err
+	}
+
+	var res struct {
+		PopularSeries []struct {
+			ID          int     `json:"id"`
+			Name        string  `json:"name"`
+			PosterPath  string  `json:"poster_path"`
+			Backdrop    string  `json:"backdrop_path"`
+			Overview    string  `json:"overview"`
+			VoteAverage float64 `json:"vote_average"`
+		} `json:"popularSeries"`
+	}
+	if err := json.Unmarshal(data, &res); err != nil {
+		return nil, err
+	}
+
+	var items []MetaItem
+	for _, s := range res.PopularSeries {
+		poster := strings.Replace(s.PosterPath, "http://", "https://", 1)
+		backdrop := strings.Replace(s.Backdrop, "http://", "https://", 1)
+		items = append(items, MetaItem{
+			ID:          "sinewix:series:" + strconv.Itoa(s.ID),
+			Type:        "series",
+			Name:        s.Name,
+			Poster:      poster,
+			Background:  backdrop,
+			Description: s.Overview,
+			Genres:      []string{"SineWix", "Popüler Dizi"},
+		})
+	}
+	return items, nil
+}
+
+func defaultSineWixMovies(ctx context.Context) ([]MetaItem, error) {
+	endpoint := fmt.Sprintf("/search/film/%s", sinewix.APIKey)
+	data, err := sinewixRequest(ctx, endpoint)
+	if err != nil {
+		return nil, err
+	}
+
+	var res struct {
+		Search []struct {
+			ID         int    `json:"id"`
+			Name       string `json:"name"`
+			Title      string `json:"title"`
+			Type       string `json:"type"`
+			PosterPath string `json:"poster_path"`
+			Backdrop   string `json:"backdrop_path"`
+			Overview   string `json:"overview"`
+		} `json:"search"`
+	}
+	if err := json.Unmarshal(data, &res); err != nil {
+		return nil, err
+	}
+
+	var items []MetaItem
+	for _, m := range res.Search {
+		if m.Type != "movie" && m.Title == "" {
+			continue
+		}
+		title := m.Title
+		if title == "" {
+			title = m.Name
+		}
+		poster := strings.Replace(m.PosterPath, "http://", "https://", 1)
+		backdrop := strings.Replace(m.Backdrop, "http://", "https://", 1)
+		items = append(items, MetaItem{
+			ID:          "sinewix:movie:" + strconv.Itoa(m.ID),
+			Type:        "movie",
+			Name:        title,
+			Poster:      poster,
+			Background:  backdrop,
+			Description: m.Overview,
+			Genres:      []string{"SineWix", "Film"},
+		})
+	}
+	return items, nil
+}
+

@@ -78,6 +78,10 @@ func GetDefaultCatalog(ctx context.Context, catalogID string) ([]MetaItem, error
 		return defaultDiziwatch(ctx)
 	case "anthology_hdfc":
 		return defaultHDFC(ctx)
+	case "anthology_sinewix_series":
+		return defaultSineWixSeries(ctx)
+	case "anthology_sinewix_movies":
+		return defaultSineWixMovies(ctx)
 	default:
 		return nil, nil
 	}
@@ -86,7 +90,7 @@ func GetDefaultCatalog(ctx context.Context, catalogID string) ([]MetaItem, error
 // GetMeta returns full details including seasons & episodes for a custom item
 func GetMeta(ctx context.Context, mediaType, rawID string) (*MetaDetail, error) {
 	switch {
-	case strings.HasPrefix(rawID, "ddizi:show:"):
+	case strings.HasPrefix(rawID, "ddizi:show:") || strings.HasPrefix(rawID, "ddizi:ep:"):
 		return getDdiziMeta(ctx, rawID)
 	case strings.HasPrefix(rawID, "dizimom:show:"):
 		return getDizimomMeta(ctx, rawID)
