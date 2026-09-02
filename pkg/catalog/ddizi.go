@@ -257,7 +257,7 @@ func getDdiziMeta(ctx context.Context, showID string) (*MetaDetail, error) {
 	reHrefEpNum := regexp.MustCompile(`[-_](\d+)[-_]bolum`)
 
 	maxPage := 0
-	doc.Find(".content_ nav a, nav[aria-label='Page navigation'] a").Each(func(i int, s *goquery.Selection) {
+	doc.Find(".pagination a, nav a, a[href*='sayfa-']").Each(func(i int, s *goquery.Selection) {
 		href, _ := s.Attr("href")
 		if m := reSayfaNum.FindStringSubmatch(href); len(m) > 1 {
 			var p int
@@ -271,7 +271,7 @@ func getDdiziMeta(ctx context.Context, showID string) (*MetaDetail, error) {
 	var allDocs []*goquery.Document
 	allDocs = append(allDocs, doc)
 
-	for p := 1; p <= maxPage; p++ {
+	for p := 0; p <= maxPage; p++ {
 		pageURL := fmt.Sprintf("%s/sayfa-%d", showURL, p)
 		pBody, err := utils.DefaultClient.Get(ctx, pageURL, ddiziHeaders())
 		if err == nil {
@@ -286,7 +286,7 @@ func getDdiziMeta(ctx context.Context, showID string) (*MetaDetail, error) {
 	seen := make(map[string]bool)
 
 	for _, d := range allDocs {
-		d.Find(".content_ .dizi-boxpost-cat a").Each(func(i int, s *goquery.Selection) {
+		d.Find(".dizi-boxpost-cat a, .content_ a[href*='/izle/']").Each(func(i int, s *goquery.Selection) {
 			href, _ := s.Attr("href")
 			epTitle := strings.TrimSpace(s.Text())
 			if epTitle == "" {
@@ -370,6 +370,10 @@ func getDdiziStream(ctx context.Context, rawID string) ([]models.Stream, error) 
 		extracted, err := extractors.Extract(ctx, src, epURL)
 		if err == nil && len(extracted) > 0 {
 			for _, es := range extracted {
+				var hdrs map[string]string
+				if !strings.Contains(es.URL, "twimg.com") {
+					hdrs = es.Headers
+				}
 				streams = append(streams, models.Stream{
 					Name:     "Ddizi",
 					Title:    fmt.Sprintf("⌜ Ddizi ⌟ | %s", es.Title),
@@ -377,7 +381,7 @@ func getDdiziStream(ctx context.Context, rawID string) ([]models.Stream, error) 
 					Provider: "ddizi",
 					URL:      es.URL,
 					YTID:     es.YTID,
-					Headers:  es.Headers,
+					Headers:  hdrs,
 				})
 			}
 		}
