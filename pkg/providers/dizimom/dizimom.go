@@ -6,10 +6,11 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/url"
-	"path"
+	"regexp"
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
+	"github.com/falsisdev/anthology/pkg/extractors"
 	"github.com/falsisdev/anthology/pkg/models"
 	"github.com/falsisdev/anthology/pkg/provider"
 	"github.com/falsisdev/anthology/pkg/utils"
@@ -43,6 +44,8 @@ func (p *Provider) SupportedTypes() []models.MediaType {
 	return []models.MediaType{models.MediaTypeTV}
 }
 
+var reEmbedURL = regexp.MustCompile(`"embedUrl"\s*:\s*"(https?://[^"]+)"`)
+
 func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]models.Stream, error) {
 	if media.Type != models.MediaTypeTV {
 		return nil, nil
@@ -53,138 +56,220 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 		searchQuery = media.OriginalTitle
 	}
 
-	searchURL := fmt.Sprintf("%s/?s=%s", BaseURL, url.QueryEscape(searchQuery))
 	headers := map[string]string{
 		"User-Agent": utils.DefaultUserAgent,
 		"Referer":    BaseURL + "/",
 	}
 
-	body, err := utils.DefaultClient.Get(ctx, searchURL, headers)
-	if err != nil {
-		return nil, err
+	season := media.Season
+	if season <= 0 {
+		season = 1
+	}
+	episode := media.Episode
+	if episode <= 0 {
+		episode = 1
 	}
 
-	doc, err := goquery.NewDocumentFromReader(bytes.NewReader(body))
-	if err != nil {
-		return nil, err
-	}
+	epMatchPattern := fmt.Sprintf("%d-sezon-%d-bolum", season, episode)
+	epMatchShort := fmt.Sprintf("%d-bolum", episode)
 
 	var showURL string
-	doc.Find("article a, .film-card a, .post-title a, a").EachWithBreak(func(i int, s *goquery.Selection) bool {
-		href, exists := s.Attr("href")
-		if !exists || (!strings.HasPrefix(href, BaseURL) && !strings.HasPrefix(href, "/")) {
-			return true
-		}
-		if strings.Contains(href, "/dizi/") {
-			showURL = href
-			return false
-		}
-		return true
-	})
+	var directEpURL string
 
-	if showURL == "" {
-		slug := utils.ToSlug(media.OriginalTitle)
-		if slug == "" {
-			slug = utils.ToSlug(media.Title)
-		}
-		showURL = fmt.Sprintf("%s/dizi/%s", BaseURL, slug)
-	}
+	searchURL := fmt.Sprintf("%s/?s=%s", BaseURL, url.QueryEscape(searchQuery))
+	body, err := utils.DefaultClient.Get(ctx, searchURL, headers)
+	if err == nil {
+		doc, err := goquery.NewDocumentFromReader(bytes.NewReader(body))
+		if err == nil {
+			doc.Find("article a, .film-card a, .post-title a, a").Each(func(i int, s *goquery.Selection) {
+				href, exists := s.Attr("href")
+				if !exists || (!strings.HasPrefix(href, BaseURL) && !strings.HasPrefix(href, "/")) {
+					return
+				}
+				if strings.HasPrefix(href, "/") {
+					href = BaseURL + href
+				}
+				
+				// Direct episode match from search results
+				if strings.Contains(href, epMatchPattern) || (season == 1 && strings.Contains(href, epMatchShort) && !strings.Contains(href, "-sezon-")) {
+					if directEpURL == "" {
+						directEpURL = href
+					}
+				}
 
-	cleanShow := strings.Trim(showURL, "/")
-	showSlug := path.Base(cleanShow)
-
-	// Episode URL: https://www.dizimom.diy/dizi/{showSlug}/{season}-sezon-{episode}-bolum/
-	epURL := fmt.Sprintf("%s/dizi/%s/%d-sezon-%d-bolum/", BaseURL, showSlug, media.Season, media.Episode)
-	epBody, err := utils.DefaultClient.Get(ctx, epURL, headers)
-	if err != nil {
-		epURL = fmt.Sprintf("%s/%s-%d-sezon-%d-bolum/", BaseURL, showSlug, media.Season, media.Episode)
-		epBody, err = utils.DefaultClient.Get(ctx, epURL, headers)
-		if err != nil {
-			return nil, nil
+				if strings.Contains(href, "/diziler/") {
+					if showURL == "" {
+						showURL = href
+					}
+				}
+			})
 		}
 	}
 
-	epDoc, err := goquery.NewDocumentFromReader(bytes.NewReader(epBody))
-	if err != nil {
+	var activeEpURL string
+	var epBody []byte
+
+	if directEpURL != "" {
+		b, err := utils.DefaultClient.Get(ctx, directEpURL, headers)
+		if err == nil && len(b) > 0 && !strings.Contains(string(b), "not_found") {
+			epBody = b
+			activeEpURL = directEpURL
+		}
+	}
+
+	if len(epBody) == 0 && showURL != "" {
+		sBody, err := utils.DefaultClient.Get(ctx, showURL, headers)
+		if err == nil {
+			doc, err := goquery.NewDocumentFromReader(bytes.NewReader(sBody))
+			if err == nil {
+				doc.Find("a").EachWithBreak(func(i int, s *goquery.Selection) bool {
+					href, exists := s.Attr("href")
+					if !exists {
+						return true
+					}
+					if strings.HasPrefix(href, "/") {
+						href = BaseURL + href
+					}
+					if strings.Contains(href, epMatchPattern) || (season == 1 && strings.Contains(href, epMatchShort) && !strings.Contains(href, "-sezon-")) {
+						activeEpURL = href
+						return false
+					}
+					return true
+				})
+			}
+		}
+
+		if activeEpURL != "" {
+			b, err := utils.DefaultClient.Get(ctx, activeEpURL, headers)
+			if err == nil && len(b) > 0 && !strings.Contains(string(b), "not_found") {
+				epBody = b
+			}
+		}
+	}
+
+	if len(epBody) == 0 {
 		return nil, nil
 	}
 
 	var streams []models.Stream
-	epDoc.Find("iframe").Each(func(i int, s *goquery.Selection) {
-		src, _ := s.Attr("src")
-		if src == "" || src == "about:blank" {
-			src, _ = s.Attr("data-src")
-		}
-		if src == "" || strings.Contains(src, "facebook") || strings.Contains(src, "youtube") || strings.Contains(src, "disqus") {
-			return
-		}
-		if strings.HasPrefix(src, "//") {
-			src = "https:" + src
-		}
+	bodyStr := string(epBody)
 
-		serverName := "Dizimom Player"
-		if strings.Contains(src, "vidmoly") {
-			serverName = "VidMoly"
-		} else if strings.Contains(src, "sibnet") {
-			serverName = "Sibnet"
-		}
-
-		iframeURL := src
-
-		if strings.Contains(iframeURL, "hdplayersystem.com") {
-			u, err := url.Parse(iframeURL)
-			if err == nil {
-				dataID := u.Query().Get("data")
-				if dataID != "" {
-					apiURL := fmt.Sprintf("https://hdplayersystem.com/player/index.php?data=%s&do=getVideo", dataID)
-					postData := url.Values{
-						"hash": {dataID},
-						"r":    {"https://www.dizimom.diy/"},
-					}
-					apiHeaders := map[string]string{
-						"Content-Type":     "application/x-www-form-urlencoded",
-						"X-Requested-With": "XMLHttpRequest",
-						"Referer":          iframeURL,
-					}
-
-					apiResp, err := utils.DefaultClient.Request(ctx, "POST", apiURL, strings.NewReader(postData.Encode()), apiHeaders)
-					if err == nil {
-						var res struct {
-							SecuredLink string `json:"securedLink"`
-						}
-						json.NewDecoder(apiResp.Body).Decode(&res)
-						apiResp.Body.Close()
-
-						if res.SecuredLink != "" {
-							streams = append(streams, models.Stream{
-								Name:     media.Title,
-								Title:    "⌜ Dizimom ⌟ | HLS Player",
-								Quality:  "1080p",
-								Provider: ID,
-								URL:      res.SecuredLink,
-								Headers: map[string]string{
-									"Referer": "https://hdplayersystem.com/",
-									"Origin":  "https://hdplayersystem.com",
-								},
-							})
-							return
-						}
-					}
+	// Check schema embedUrl
+	if m := reEmbedURL.FindStringSubmatch(bodyStr); len(m) > 1 {
+		embedURL := m[1]
+		if strings.Contains(embedURL, "hdplayersystem.com") {
+			if s := fetchHDPlayerStream(ctx, embedURL, media.Title); s != nil {
+				streams = append(streams, *s)
+			}
+		} else {
+			extracted, err := extractors.Extract(ctx, embedURL, activeEpURL)
+			if err == nil && len(extracted) > 0 {
+				for _, es := range extracted {
+					streams = append(streams, models.Stream{
+						Name:     media.Title,
+						Title:    fmt.Sprintf("⌜ Dizimom ⌟ | %s", es.Title),
+						Quality:  es.Quality,
+						Provider: ID,
+						URL:      es.URL,
+						Headers:  es.Headers,
+					})
 				}
 			}
 		}
+	}
 
-		streams = append(streams, models.Stream{
-			Name:     media.Title,
-			Title:    fmt.Sprintf("⌜ Dizimom ⌟ | %s", serverName),
-			Quality:  "1080p",
-			Provider: ID,
-			URL:      iframeURL,
-			Headers: map[string]string{
-				"Referer": BaseURL + "/",
-			},
+	epDoc, err := goquery.NewDocumentFromReader(bytes.NewReader(epBody))
+	if err == nil {
+		epDoc.Find("iframe").Each(func(i int, s *goquery.Selection) {
+			src, _ := s.Attr("src")
+			if src == "" || src == "about:blank" {
+				src, _ = s.Attr("data-src")
+			}
+			if src == "" || strings.Contains(src, "facebook") || strings.Contains(src, "youtube") || strings.Contains(src, "disqus") {
+				return
+			}
+			if strings.HasPrefix(src, "//") {
+				src = "https:" + src
+			}
+
+			if strings.Contains(src, "hdplayersystem.com") {
+				if stream := fetchHDPlayerStream(ctx, src, media.Title); stream != nil {
+					streams = append(streams, *stream)
+				}
+				return
+			}
+
+			extracted, err := extractors.Extract(ctx, src, activeEpURL)
+			if err == nil && len(extracted) > 0 {
+				for _, es := range extracted {
+					streams = append(streams, models.Stream{
+						Name:     media.Title,
+						Title:    fmt.Sprintf("⌜ Dizimom ⌟ | %s", es.Title),
+						Quality:  es.Quality,
+						Provider: ID,
+						URL:      es.URL,
+						Headers:  es.Headers,
+					})
+				}
+			}
 		})
-	})
+	}
 
 	return streams, nil
+}
+
+func fetchHDPlayerStream(ctx context.Context, embedURL, mediaTitle string) *models.Stream {
+	u, err := url.Parse(embedURL)
+	if err != nil {
+		return nil
+	}
+	dataID := u.Query().Get("data")
+	if dataID == "" {
+		return nil
+	}
+
+	apiURL := fmt.Sprintf("https://hdplayersystem.com/player/index.php?data=%s&do=getVideo", dataID)
+	postData := url.Values{
+		"hash": {dataID},
+		"r":    {"https://www.dizimom.diy/"},
+	}
+	apiHeaders := map[string]string{
+		"Content-Type":     "application/x-www-form-urlencoded",
+		"X-Requested-With": "XMLHttpRequest",
+		"Referer":          embedURL,
+		"User-Agent":       utils.DefaultUserAgent,
+	}
+
+	resp, err := utils.DefaultClient.Request(ctx, "POST", apiURL, strings.NewReader(postData.Encode()), apiHeaders)
+	if err != nil {
+		return nil
+	}
+	defer resp.Body.Close()
+
+	var res struct {
+		SecuredLink string `json:"securedLink"`
+		VideoSource string `json:"videoSource"`
+	}
+	json.NewDecoder(resp.Body).Decode(&res)
+
+	targetLink := res.SecuredLink
+	if targetLink == "" {
+		targetLink = res.VideoSource
+	}
+
+	if targetLink == "" {
+		return nil
+	}
+
+	return &models.Stream{
+		Name:     mediaTitle,
+		Title:    "⌜ Dizimom ⌟ | HLS (1080p)",
+		Quality:  "1080p",
+		Provider: ID,
+		URL:      targetLink,
+		Headers: map[string]string{
+			"Referer": "https://hdplayersystem.com/",
+			"Origin":  "https://hdplayersystem.com",
+		},
+	}
 }

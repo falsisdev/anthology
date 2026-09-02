@@ -18,6 +18,7 @@ import (
 	"github.com/falsisdev/anthology/pkg/models"
 	"github.com/falsisdev/anthology/pkg/provider"
 	"github.com/falsisdev/anthology/pkg/providers/m3u"
+	"github.com/falsisdev/anthology/pkg/proxy"
 )
 
 type Server struct {
@@ -253,6 +254,12 @@ func (s *Server) handleStream(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	scheme := "https"
+	if r.TLS == nil && !strings.HasPrefix(r.Header.Get("X-Forwarded-Proto"), "https") && strings.HasPrefix(r.Host, "localhost") {
+		scheme = "http"
+	}
+	proxyBase := fmt.Sprintf("%s://%s/proxy", scheme, r.Host)
+
 	type stremioStream struct {
 		Name          string                 `json:"name"`
 		Title         string                 `json:"title"`
@@ -262,24 +269,23 @@ func (s *Server) handleStream(w http.ResponseWriter, r *http.Request) {
 
 	var stremioStreams []stremioStream
 	for _, st := range result.Streams {
-		hints := map[string]interface{}{}
-		if len(st.Headers) > 0 {
-			hints["notWebReady"] = false
-			hints["proxyHeaders"] = map[string]interface{}{
-				"request": st.Headers,
-			}
+		finalURL := st.URL
+		if len(st.Headers) > 0 || strings.Contains(st.URL, "videoplay.vip") || strings.Contains(st.URL, "hdplayersystem") || strings.Contains(st.URL, "streambox") || strings.Contains(st.URL, "diziyou.one") || strings.Contains(st.URL, "sibnet.ru") {
+			finalURL = proxy.FormatProxyURL(proxyBase, st.URL, st.Headers)
 		}
 
 		providerName := st.Provider
 		if providerName == "" {
-			providerName = "Falsis"
+			providerName = "Anthology"
 		}
 
 		stremioStreams = append(stremioStreams, stremioStream{
-			Name:          strings.ToUpper(providerName),
-			Title:         st.Title,
-			URL:           st.URL,
-			BehaviorHints: hints,
+			Name:  strings.ToUpper(providerName),
+			Title: st.Title,
+			URL:   finalURL,
+			BehaviorHints: map[string]interface{}{
+				"notWebReady": false,
+			},
 		})
 	}
 
@@ -323,6 +329,7 @@ func main() {
 	mux.HandleFunc("/catalog/", enableCORS(srv.handleCatalog))
 	mux.HandleFunc("/meta/", enableCORS(srv.handleMeta))
 	mux.HandleFunc("/stream/", enableCORS(srv.handleStream))
+	mux.HandleFunc("/proxy", proxy.HandleProxy)
 	mux.HandleFunc("/", enableCORS(srv.handleManifest))
 
 	httpServer := &http.Server{
