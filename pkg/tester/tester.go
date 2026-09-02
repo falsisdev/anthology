@@ -104,23 +104,23 @@ var (
 // providerCategory, sağlayıcıyı bir içerik kategorisine yerleştirir. Spesifik
 // fixtür olmayan sağlayıcılar bu haritadan kategorik aday havuzu seçer.
 var providerCategory = map[string]string{
-	"ddizi":         "turkish",
-	"dizibox":       "turkish",
-	"diziyo":        "turkish",
-	"dizimom":       "turkish",
-	"animecix":      "anime",
-	"tranimeizle":   "anime",
-	"acheriya":      "anime",
-	"filmekseni":    "movie",
+	"ddizi":           "turkish",
+	"dizibox":         "turkish",
+	"diziyo":          "turkish",
+	"dizimom":         "turkish",
+	"animecix":        "anime",
+	"tranimeizle":     "anime",
+	"acheriya":        "anime",
+	"filmekseni":      "movie",
 	"hdfilmcehennemi": "movie",
-	"sinemacx":      "movie",
-	"sinezy":        "movie",
-	"filmzal":       "movie",
+	"sinemacx":        "movie",
+	"sinezy":          "movie",
+	"filmzal":         "movie",
 	"tekfullfilmizle": "movie",
-	"sinewix":       "multi",
-	"vidlink":       "multi",
-	"vidmody":       "multi",
-	"m3u":           "multi",
+	"sinewix":         "multi",
+	"vidlink":         "multi",
+	"vidmody":         "multi",
+	"m3u":             "multi",
 }
 
 const maxCandidatesPerProvider = 4
