@@ -179,20 +179,29 @@ func handleCatalog(w http.ResponseWriter, r *http.Request, pathParts []string) {
 			Genres      []string `json:"genres,omitempty"`
 		}
 
+		defaultLogo := "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png"
 		var metas []metaItem
 		for _, ch := range channels {
 			mediaType := "tv"
 			if len(pathParts) >= 2 && pathParts[1] == "live" {
 				mediaType = "live"
 			}
+			name := ch.Name
+			if name == "" {
+				name = ch.ID
+			}
+			logo := ch.Logo
+			if logo == "" {
+				logo = defaultLogo
+			}
 			metas = append(metas, metaItem{
 				ID:          "canli:" + ch.ID,
 				Type:        mediaType,
-				Name:        ch.Name,
-				Poster:      ch.Logo,
-				Background:  ch.Logo,
-				Logo:        ch.Logo,
-				Description: ch.Name + " Canlı Yayın",
+				Name:        name,
+				Poster:      logo,
+				Background:  logo,
+				Logo:        logo,
+				Description: name + " Canlı Yayın",
 				Genres:      []string{ch.Group, "Canlı TV"},
 			})
 		}
@@ -248,14 +257,23 @@ func handleMeta(w http.ResponseWriter, r *http.Request, pathParts []string) {
 			return
 		}
 
+		logo := ch.Logo
+		if logo == "" {
+			logo = "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png"
+		}
+		name := ch.Name
+		if name == "" {
+			name = ch.ID
+		}
+
 		meta := map[string]interface{}{
 			"id":          "canli:" + ch.ID,
 			"type":        pathParts[1],
-			"name":        ch.Name,
-			"poster":      ch.Logo,
-			"background":  ch.Logo,
-			"logo":        ch.Logo,
-			"description": ch.Name + " Canlı HD Yayın",
+			"name":        name,
+			"poster":      logo,
+			"background":  logo,
+			"logo":        logo,
+			"description": name + " Canlı HD Yayın",
 		}
 
 		jsonResponse(w, http.StatusOK, map[string]interface{}{

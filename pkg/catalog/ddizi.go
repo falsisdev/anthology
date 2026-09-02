@@ -267,7 +267,7 @@ func getDdiziStream(ctx context.Context, rawID string) ([]models.Stream, error) 
 		if err == nil && len(extracted) > 0 {
 			for _, es := range extracted {
 				streams = append(streams, models.Stream{
-					Name:     "Son Yaz",
+					Name:     "Ddizi",
 					Title:    fmt.Sprintf("⌜ Ddizi ⌟ | %s", es.Title),
 					Quality:  es.Quality,
 					Provider: "ddizi",
