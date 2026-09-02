@@ -12,8 +12,5 @@
       "src": "/(.*)",
       "dest": "api/index.go"
     }
-  ],
-  "env": {
-    "PROXY_URL": "https://anthology-proxy.falsis.workers.dev"
-  }
+  ]
 }
