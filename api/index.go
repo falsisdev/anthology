@@ -1,6 +1,7 @@
 package handler
 
 import (
+	_ "embed"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -21,6 +22,12 @@ import (
 	"github.com/falsisdev/anthology/pkg/utils"
 )
 
+//go:embed favicon.ico
+var faviconIco []byte
+
+//go:embed favicon.png
+var faviconPng []byte
+
 var (
 	eng         *engine.Engine
 	m3uInstance *m3u.Provider
@@ -38,11 +45,122 @@ func jsonResponse(w http.ResponseWriter, status int, data interface{}) {
 }
 
 func handleManifest(w http.ResponseWriter, r *http.Request) {
+	// If visited directly in a browser at root URL, render nice install page
+	if strings.Contains(r.Header.Get("Accept"), "text/html") && (r.URL.Path == "/" || r.URL.Path == "" || r.URL.Path == "/manifest") {
+		w.Header().Set("Content-Type", "text/html; charset=utf-8")
+		scheme := "https"
+		if r.TLS == nil && !strings.HasPrefix(r.Header.Get("X-Forwarded-Proto"), "https") {
+			scheme = "http"
+		}
+		host := r.Host
+		manifestURL := fmt.Sprintf("%s://%s/manifest.json", scheme, host)
+		stremioURL := fmt.Sprintf("stremio://%s/manifest.json", host)
+
+		html := fmt.Sprintf(`<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anthology - Stremio & Nuvio Addon</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <style>
+    :root {
+      --bg: #0d0f12;
+      --card: #15181e;
+      --border: #232832;
+      --accent: #00d26a;
+      --accent-hover: #00b85c;
+      --text: #ffffff;
+      --muted: #8b949e;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      max-width: 480px;
+      width: 100%;
+      padding: 40px 32px;
+      text-align: center;
+      box-shadow: 0 12px 36px rgba(0,0,0,0.5);
+    }
+    .logo {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 20px;
+      border-radius: 24px;
+      object-fit: contain;
+    }
+    h1 { font-size: 26px; font-weight: 700; margin-bottom: 8px; }
+    p { color: var(--muted); font-size: 14px; line-height: 1.5; margin-bottom: 24px; }
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #000;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.1s ease;
+      width: 100%;
+      margin-bottom: 12px;
+    }
+    .btn:hover { background: var(--accent-hover); transform: translateY(-1px); }
+    .btn-secondary {
+      background: var(--border);
+      color: var(--text);
+    }
+    .btn-secondary:hover { background: #2f3642; }
+    .features {
+      margin-top: 24px;
+      text-align: left;
+      font-size: 13px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+    }
+    .features li { margin-bottom: 8px; list-style: none; display: flex; align-items: center; gap: 8px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="/assets/logo_2_transparent.png" alt="Anthology Logo" class="logo" onerror="this.src='https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_2_transparent.png'">
+    <h1>Anthology</h1>
+    <p>Golang tabanlı yüksek performanslı Türkçe dizi, film, anime ve Canlı IPTV yayın motoru.</p>
+    <a href="%s" class="btn">🚀 Stremio'ya Yükle</a>
+    <button onclick="navigator.clipboard.writeText('%s'); alert('Manifest linki kopyalandı! Nuvio veya Stremio addon alanına yapıştırabilirsiniz.');" class="btn btn-secondary">📋 Manifest Linkini Kopyala</button>
+    <div class="features">
+      <li>⚡ 30+ Yerli & Yabancı Dizi/Film/Anime Kaynağı</li>
+      <li>📺 35+ Canlı TV Kanalı (Ulusal, Haber, Spor)</li>
+      <li>🛡️ Kesintisiz HLS Akış ve CORS Çözücü</li>
+    </div>
+  </div>
+</body>
+</html>`, stremioURL, manifestURL)
+		w.Write([]byte(html))
+		return
+	}
+
 	manifest := map[string]interface{}{
 		"id":          "anthology.falsisdev.addon",
 		"name":        "Anthology",
 		"version":     "1.1.0",
 		"description": "Golang tabanlı yüksek performanslı Türkçe dizi, film, anime ve Canlı IPTV yayın motoru.",
+		"logo":        "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_2_transparent.png",
+		"icon":        "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_2_transparent.png",
+		"background":  "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_2_transparent.png",
 		"author":      "falsisdev",
 		"resources":   []string{"catalog", "stream", "meta"},
 		"types":       []string{"movie", "series", "tv", "live", "channel", "anime"},
@@ -179,7 +297,7 @@ func handleCatalog(w http.ResponseWriter, r *http.Request, pathParts []string) {
 			Genres      []string `json:"genres,omitempty"`
 		}
 
-		defaultLogo := "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png"
+		defaultLogo := "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_3_transparent.png"
 		var metas []metaItem
 		for _, ch := range channels {
 			mediaType := "tv"
@@ -259,7 +377,7 @@ func handleMeta(w http.ResponseWriter, r *http.Request, pathParts []string) {
 
 		logo := ch.Logo
 		if logo == "" {
-			logo = "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png"
+			logo = "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_3_transparent.png"
 		}
 		name := ch.Name
 		if name == "" {
@@ -573,6 +691,22 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	switch parts[0] {
+	case "favicon.ico":
+		w.Header().Set("Content-Type", "image/x-icon")
+		w.Header().Set("Cache-Control", "public, max-age=86400")
+		w.Write(faviconIco)
+		return
+	case "favicon.png", "logo.png":
+		w.Header().Set("Content-Type", "image/png")
+		w.Header().Set("Cache-Control", "public, max-age=86400")
+		w.Write(faviconPng)
+		return
+	case "assets":
+		if len(parts) > 1 {
+			target := "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/" + strings.Join(parts[1:], "/")
+			http.Redirect(w, r, target, http.StatusMovedPermanently)
+			return
+		}
 	case "manifest", "manifest.json":
 		handleManifest(w, r)
 	case "catalog":
