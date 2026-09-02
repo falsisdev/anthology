@@ -1,24 +1,73 @@
 {{if .Results}}
 {{if .Summary}}
-<div class="test-summary {{.SummaryClass}}">
-  <span class="ts-dot"></span>
-  <strong>{{.OKCount}}/{{.Total}} çevrimiçi</strong>
-  <span class="ts-sub">· {{.ElapsedMS}} ms'de tamamlandı</span>
+<div class="test-summary-card {{.SummaryClass}}">
+  <div class="ts-header">
+    <div class="ts-title-group">
+      <span class="ts-status-indicator pulse"></span>
+      <div>
+        <h3 class="ts-heading">Canlı Test Raporu</h3>
+        <span class="ts-subinfo">{{.OKCount}} / {{.Total}} kaynak anlık yanıt verdi · {{.ElapsedMS}} ms</span>
+      </div>
+    </div>
+    <div class="ts-badge-wrap">
+      <span class="ts-rate-pill">{{.OKCount}}/{{.Total}} Çevrimiçi</span>
+    </div>
+  </div>
+  
+  <div class="ts-controls">
+    <div class="ts-search-box">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <input type="text" id="test-filter-input" placeholder="Kaynak veya kanal adı ile filtrele..." oninput="filterTestResults(this.value)">
+    </div>
+    <div class="ts-filters">
+      <button type="button" class="ts-filter-btn active" onclick="setTestFilter('all', this)">Tümü ({{.Total}})</button>
+      <button type="button" class="ts-filter-btn ok" onclick="setTestFilter('ok', this)">✓ Çevrimiçi ({{.OKCount}})</button>
+      <button type="button" class="ts-filter-btn other" onclick="setTestFilter('fail', this)">Diğerleri</button>
+    </div>
+  </div>
 </div>
 {{end}}
-<div class="result-grid">
+
+<div class="result-grid" id="test-result-container">
 {{range .Results}}
-  <div class="result-card {{if .OK}}ok{{else}}fail{{end}}">
-    <span class="rc-dot"></span>
-    <div class="rc-main">
-      <strong class="rc-name">{{.Name}}</strong>
-      <span class="rc-msg">{{.Message}}</span>
-      {{if .Detail}}<span class="rc-detail">{{.Detail}}</span>{{end}}
+  <div class="result-card {{if .OK}}ok{{else}}fail{{end}}" data-name="{{.Name}}" data-status="{{if .OK}}ok{{else}}fail{{end}}">
+    <div class="rc-header">
+      <div class="rc-title-row">
+        <span class="rc-dot"></span>
+        <strong class="rc-name">{{.Name}}</strong>
+      </div>
+      <span class="rc-latency {{if .OK}}fast{{end}}">{{.LatencyMS}} ms</span>
     </div>
-    <span class="rc-latency">{{.LatencyMS}} ms</span>
+    <div class="rc-main">
+      <span class="rc-msg">{{.Message}}</span>
+      {{if .Detail}}<span class="rc-detail" title="{{.Detail}}">{{.Detail}}</span>{{end}}
+    </div>
   </div>
 {{end}}
 </div>
+
+<script>
+function filterTestResults(q) {
+  q = (q || '').toLowerCase().trim();
+  const cards = document.querySelectorAll('#test-result-container .result-card');
+  cards.forEach(c => {
+    const name = (c.getAttribute('data-name') || '').toLowerCase();
+    const text = c.innerText.toLowerCase();
+    const matches = !q || name.includes(q) || text.includes(q);
+    const activeFilter = window.currentTestFilter || 'all';
+    const statusMatches = (activeFilter === 'all') || (c.getAttribute('data-status') === activeFilter);
+    c.style.display = (matches && statusMatches) ? 'flex' : 'none';
+  });
+}
+
+function setTestFilter(filter, btn) {
+  window.currentTestFilter = filter;
+  document.querySelectorAll('.ts-filter-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  const input = document.getElementById('test-filter-input');
+  filterTestResults(input ? input.value : '');
+}
+</script>
 {{else}}
 <p class="result-empty">Sonuç yok — lütfen tekrar deneyin.</p>
 {{end}}

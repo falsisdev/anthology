@@ -9,103 +9,141 @@
   <script src="https://unpkg.com/htmx.org@2.0.4/dist/htmx.min.js" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
   <style>
     :root {
-      --bg: #090a0d;
-      --card-bg: rgba(22, 26, 34, 0.85);
+      --bg: #07090e;
+      --card-bg: rgba(18, 22, 32, 0.88);
+      --card-inner: rgba(255, 255, 255, 0.035);
       --border: rgba(255, 255, 255, 0.08);
-      --border-hover: rgba(255, 255, 255, 0.15);
+      --border-hover: rgba(255, 255, 255, 0.16);
       --accent: #00e676;
-      --accent-glow: rgba(0, 230, 118, 0.25);
-      --text: #f0f3f6;
-      --text-muted: #8b949e;
-      --logo-bg: rgba(255, 255, 255, 0.06);
-      --logo-border: rgba(255, 255, 255, 0.12);
+      --accent-glow: rgba(0, 230, 118, 0.3);
+      --accent-blue: #3b82f6;
+      --accent-blue-glow: rgba(59, 130, 246, 0.25);
+      --text: #f3f4f6;
+      --text-muted: #9ca3af;
+      --text-dim: #6b7280;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: radial-gradient(circle at 50% 20%, #171d29 0%, #090a0d 80%);
+      background: radial-gradient(circle at 50% 0%, #172033 0%, #0a0c13 50%, #050608 100%);
       color: var(--text);
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       min-height: 100vh;
-      padding: 32px 20px;
+      padding: 40px 20px;
     }
     .card {
       background: var(--card-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
       border: 1px solid var(--border);
-      border-radius: 28px;
-      max-width: 520px;
+      border-radius: 32px;
+      max-width: 860px;
       width: 100%;
-      padding: 56px 44px;
-      text-align: center;
-      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.03);
+      padding: 48px 40px;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.04);
       position: relative;
       overflow: hidden;
     }
+    .header-section {
+      text-align: center;
+      margin-bottom: 36px;
+      position: relative;
+    }
     .logo-container {
       position: relative;
-      width: 136px;
-      height: 136px;
-      margin: 0 auto 28px auto;
-      border-radius: 30px;
-      background: var(--logo-bg);
-      border: 1px solid var(--logo-border);
+      width: 130px;
+      height: 130px;
+      margin: 0 auto 24px auto;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
     }
     .logo-glow {
       position: absolute;
       width: 100px;
       height: 100px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(90, 120, 255, 0.35) 0%, rgba(0, 230, 118, 0.15) 60%, transparent 100%);
-      filter: blur(16px);
+      background: radial-gradient(circle, rgba(90, 140, 255, 0.4) 0%, rgba(0, 230, 118, 0.2) 60%, transparent 100%);
+      filter: blur(20px);
       z-index: 1;
     }
     .logo {
-      width: 108px;
-      height: 108px;
+      width: 100px;
+      height: 100px;
       object-fit: contain;
       position: relative;
       z-index: 2;
-      filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 20px rgba(90, 140, 255, 0.4));
+      filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 24px rgba(90, 140, 255, 0.35));
+    }
+    .badge-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 230, 118, 0.1);
+      border: 1px solid rgba(0, 230, 118, 0.3);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+      letter-spacing: 0.3px;
+    }
+    .badge-status .pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+      animation: livePulse 2s infinite ease-in-out;
+    }
+    @keyframes livePulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
     }
     h1 {
-      font-size: 30px;
+      font-size: 34px;
       font-weight: 800;
-      letter-spacing: -0.5px;
-      margin-bottom: 12px;
+      letter-spacing: -0.6px;
+      margin-bottom: 10px;
       background: linear-gradient(135deg, #ffffff 30%, #a5b4fc 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     .tagline {
       color: var(--text-muted);
-      font-size: 15px;
+      font-size: 15.5px;
       line-height: 1.6;
-      margin-bottom: 36px;
-      padding: 0 8px;
+      max-width: 620px;
+      margin: 0 auto;
     }
-    .actions {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin-bottom: 36px;
+    
+    /* CTA Action Buttons */
+    .actions-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    @media (max-width: 680px) {
+      .actions-grid { grid-template-columns: 1fr; }
+      .card { padding: 32px 20px; }
     }
     .btn {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      font-weight: 600;
-      font-size: 15px;
-      padding: 16px 24px;
-      border-radius: 14px;
+      font-weight: 650;
+      font-size: 14.5px;
+      padding: 15px 22px;
+      border-radius: 16px;
       text-decoration: none;
       border: none;
       cursor: pointer;
@@ -114,17 +152,15 @@
     }
     .btn-primary {
       background: var(--accent);
-      color: #05140b;
-      box-shadow: 0 4px 18px var(--accent-glow);
+      color: #04130a;
+      box-shadow: 0 6px 22px var(--accent-glow);
     }
     .btn-primary:hover {
       background: #00ff84;
       transform: translateY(-2px);
-      box-shadow: 0 8px 26px var(--accent-glow);
+      box-shadow: 0 10px 30px var(--accent-glow);
     }
-    .btn-primary:active {
-      transform: translateY(0);
-    }
+    .btn-primary:active { transform: translateY(0); }
     .btn-secondary {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border);
@@ -135,72 +171,73 @@
       border-color: var(--border-hover);
       transform: translateY(-2px);
     }
-    .btn-secondary:active {
-      transform: translateY(0);
-    }
-    .features {
-      text-align: left;
-      font-size: 13.5px;
-      color: var(--text-muted);
-      border-top: 1px solid var(--border);
-      padding-top: 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .features li {
-      list-style: none;
+    .btn-secondary:active { transform: translateY(0); }
+    
+    .manifest-bar {
       display: flex;
       align-items: center;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 8px 12px 8px 16px;
       gap: 10px;
+      margin-bottom: 32px;
     }
-    .toast {
-      position: fixed;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%) translateY(100px);
-      background: #1e293b;
-      color: #f8fafc;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 12px 24px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 500;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
-      opacity: 0;
-      pointer-events: none;
-      z-index: 100;
+    .manifest-code {
+      flex: 1;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 13px;
+      color: #93c5fd;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: left;
     }
-    .toast.show {
-      transform: translateX(-50%) translateY(0);
-      opacity: 1;
+    .manifest-copy-btn {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 7px 13px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s;
+      flex-shrink: 0;
     }
+    .manifest-copy-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--border-hover);
+    }
+
+    /* Status Grid */
     .status-section {
-      margin-top: 28px;
       border-top: 1px solid var(--border);
-      padding-top: 22px;
-      width: 100%;
+      padding-top: 26px;
+      margin-bottom: 32px;
     }
     .status-head {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 10px;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
     .status-head h2 {
-      font-size: 12px;
-      font-weight: 700;
+      font-size: 12.5px;
+      font-weight: 750;
       text-transform: uppercase;
-      letter-spacing: 1.3px;
+      letter-spacing: 1.2px;
       color: var(--text-muted);
     }
     .btn-refresh {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border);
       color: var(--text-muted);
       font-size: 12px;
@@ -213,58 +250,78 @@
     .btn-refresh:hover {
       color: var(--text);
       border-color: var(--border-hover);
-      background: rgba(255, 255, 255, 0.09);
+      background: rgba(255, 255, 255, 0.08);
     }
     .frag-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
       text-align: left;
     }
+    @media (max-width: 768px) {
+      .frag-grid { grid-template-columns: repeat(2, 1fr); }
+    }
     .frag-card {
-      background: rgba(255, 255, 255, 0.04);
+      background: var(--card-inner);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 12px 14px;
+      border-radius: 16px;
+      padding: 14px 16px;
       display: flex;
       align-items: center;
-      gap: 11px;
+      gap: 12px;
+      transition: all 0.2s;
     }
-    .frag-dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 10px var(--accent-glow);
+    .frag-card:hover {
+      border-color: var(--border-hover);
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .frag-icon {
+      font-size: 20px;
+      line-height: 1;
       flex-shrink: 0;
+    }
+    .frag-info {
+      flex: 1;
+      min-width: 0;
     }
     .frag-card strong {
       display: block;
-      font-size: 11.5px;
-      font-weight: 600;
+      font-size: 11px;
+      font-weight: 650;
       text-transform: uppercase;
-      letter-spacing: 0.6px;
+      letter-spacing: 0.5px;
       color: var(--text-muted);
       margin-bottom: 2px;
     }
     .frag-card span.val {
       display: block;
-      font-size: 13px;
-      font-weight: 700;
+      font-size: 13.5px;
+      font-weight: 750;
       color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .frag-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent-glow);
+      flex-shrink: 0;
     }
     .status-time {
       font-size: 11px;
-      color: var(--text-muted);
-      opacity: 0.75;
-      margin-top: 12px;
-      text-align: center;
+      color: var(--text-dim);
+      margin-top: 10px;
+      text-align: right;
     }
+
+    /* Test Dashboard Section */
     .test-section {
-      margin-top: 28px;
       border-top: 1px solid var(--border);
-      padding-top: 22px;
-      width: 100%;
+      padding-top: 26px;
+      margin-bottom: 32px;
     }
     .test-head {
       display: flex;
@@ -274,30 +331,33 @@
       margin-bottom: 16px;
     }
     .test-head h2 {
-      font-size: 12px;
-      font-weight: 700;
+      font-size: 12.5px;
+      font-weight: 750;
       text-transform: uppercase;
-      letter-spacing: 1.3px;
+      letter-spacing: 1.2px;
       color: var(--text-muted);
     }
     .test-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 16px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    @media (max-width: 600px) {
+      .test-actions { grid-template-columns: 1fr; }
     }
     .test-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 10px;
       background: rgba(0, 230, 118, 0.08);
       border: 1px solid rgba(0, 230, 118, 0.28);
       color: var(--text);
-      font-size: 13px;
+      font-size: 13.5px;
       font-weight: 700;
-      padding: 12px 16px;
-      border-radius: 12px;
+      padding: 13px 18px;
+      border-radius: 14px;
       cursor: pointer;
       transition: all 0.2s ease;
       width: 100%;
@@ -305,91 +365,181 @@
     .test-btn:hover {
       background: rgba(0, 230, 118, 0.16);
       border-color: rgba(0, 230, 118, 0.5);
-      box-shadow: 0 4px 16px var(--accent-glow);
+      box-shadow: 0 4px 18px var(--accent-glow);
+      transform: translateY(-1px);
     }
     .test-btn.secondary {
-      background: rgba(90, 140, 255, 0.08);
-      border-color: rgba(90, 140, 255, 0.28);
+      background: rgba(59, 130, 246, 0.08);
+      border-color: rgba(59, 130, 246, 0.28);
     }
     .test-btn.secondary:hover {
-      background: rgba(90, 140, 255, 0.16);
-      border-color: rgba(90, 140, 255, 0.5);
-      box-shadow: 0 4px 16px rgba(90, 140, 255, 0.25);
+      background: rgba(59, 130, 246, 0.16);
+      border-color: rgba(59, 130, 246, 0.5);
+      box-shadow: 0 4px 18px var(--accent-blue-glow);
     }
     .test-results {
-      margin-bottom: 4px;
+      margin-bottom: 12px;
     }
     .result-empty {
       color: var(--text-muted);
-      font-size: 12.5px;
+      font-size: 13px;
       line-height: 1.6;
-      padding: 14px;
+      padding: 18px;
       text-align: center;
-      background: rgba(255, 255, 255, 0.03);
+      background: var(--card-inner);
       border: 1px dashed var(--border);
-      border-radius: 12px;
-      margin-bottom: 14px;
+      border-radius: 14px;
     }
-    .test-summary {
+    
+    /* Result Cards & Filter Bar */
+    .test-summary-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px 20px;
+      margin-bottom: 16px;
+    }
+    .ts-header {
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      margin-bottom: 12px;
-      color: var(--text);
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 16px;
     }
-    .test-summary .ts-dot {
-      width: 9px;
-      height: 9px;
+    .ts-title-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .ts-status-indicator {
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent);
       flex-shrink: 0;
     }
-    .test-summary.all-ok .ts-dot {
-      background: var(--accent);
-      box-shadow: 0 0 10px var(--accent-glow);
+    .ts-heading {
+      font-size: 15px;
+      font-weight: 750;
+      color: var(--text);
+      margin-bottom: 2px;
     }
-    .test-summary.partial .ts-dot {
-      background: #ffc94d;
-      box-shadow: 0 0 10px rgba(255, 201, 77, 0.4);
-    }
-    .test-summary.all-fail .ts-dot {
-      background: #ff505a;
-      box-shadow: 0 0 10px rgba(255, 80, 90, 0.4);
-    }
-    .test-summary strong {
-      font-size: 13px;
-    }
-    .test-summary .ts-sub {
-      color: var(--text-muted);
+    .ts-subinfo {
       font-size: 12px;
+      color: var(--text-muted);
     }
-    .result-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      text-align: left;
-      max-height: 340px;
-      overflow-y: auto;
-      padding-right: 4px;
-      margin-bottom: 14px;
+    .ts-rate-pill {
+      background: rgba(0, 230, 118, 0.12);
+      border: 1px solid rgba(0, 230, 118, 0.3);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 750;
+      padding: 4px 12px;
+      border-radius: 999px;
     }
-    .result-card {
+    .ts-controls {
       display: flex;
       align-items: center;
-      gap: 11px;
-      background: rgba(255, 255, 255, 0.04);
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .ts-search-box {
+      flex: 1;
+      min-width: 220px;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .ts-search-box svg {
+      position: absolute;
+      left: 12px;
+      color: var(--text-dim);
+      pointer-events: none;
+    }
+    .ts-search-box input {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.4);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 10px 12px;
-      transition: border-color 0.2s ease;
+      padding: 9px 12px 9px 34px;
+      font-size: 13px;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .ts-search-box input:focus {
+      border-color: var(--accent);
+    }
+    .ts-filters {
+      display: flex;
+      gap: 6px;
+    }
+    .ts-filter-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 11.5px;
+      font-weight: 650;
+      padding: 8px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .ts-filter-btn:hover {
+      color: var(--text);
+      border-color: var(--border-hover);
+    }
+    .ts-filter-btn.active {
+      background: rgba(255, 255, 255, 0.14);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      text-align: left;
+      max-height: 480px;
+      overflow-y: auto;
+      padding-right: 6px;
+      margin-bottom: 14px;
+    }
+    @media (max-width: 720px) {
+      .result-grid { grid-template-columns: 1fr; }
+    }
+    .result-card {
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .result-card:hover {
+      border-color: var(--border-hover);
+      background: rgba(255, 255, 255, 0.05);
     }
     .result-card.ok {
-      border-color: rgba(0, 230, 118, 0.25);
-      background: rgba(0, 230, 118, 0.05);
+      border-color: rgba(0, 230, 118, 0.22);
+      background: rgba(0, 230, 118, 0.035);
     }
     .result-card.fail {
-      border-color: rgba(255, 80, 90, 0.28);
-      background: rgba(255, 80, 90, 0.05);
+      border-color: rgba(239, 68, 68, 0.2);
+      background: rgba(239, 68, 68, 0.035);
+    }
+    .rc-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .rc-title-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
     .rc-dot {
       width: 8px;
@@ -402,181 +552,236 @@
       box-shadow: 0 0 8px var(--accent-glow);
     }
     .result-card.fail .rc-dot {
-      background: #ff505a;
-      box-shadow: 0 0 8px rgba(255, 80, 90, 0.35);
-    }
-    .rc-main {
-      flex: 1;
-      min-width: 0;
+      background: #ef4444;
+      box-shadow: 0 0 8px rgba(239, 68, 68, 0.35);
     }
     .rc-name {
-      display: block;
-      font-size: 13px;
-      font-weight: 700;
+      font-size: 13.5px;
+      font-weight: 750;
       color: var(--text);
-      margin-bottom: 1px;
+    }
+    .rc-latency {
+      font-size: 11px;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      color: var(--text-dim);
+      background: rgba(255, 255, 255, 0.04);
+      padding: 2px 7px;
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+    .rc-latency.fast {
+      color: #86efac;
+      background: rgba(0, 230, 118, 0.08);
+    }
+    .rc-main {
+      font-size: 12px;
+      line-height: 1.4;
     }
     .rc-msg {
       display: block;
-      font-size: 12px;
       color: var(--text-muted);
+      margin-bottom: 2px;
     }
     .rc-detail {
       display: block;
       font-size: 11px;
-      color: var(--text-muted);
-      opacity: 0.7;
+      font-family: ui-monospace, SFMono-Regular, monospace;
+      color: var(--text-dim);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      max-width: 100%;
     }
-    .rc-latency {
-      font-size: 11px;
-      font-variant-numeric: tabular-nums;
+    
+    /* Feature Highlights Section */
+    .features-section {
+      border-top: 1px solid var(--border);
+      padding-top: 26px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      text-align: left;
+    }
+    @media (max-width: 680px) {
+      .features-section { grid-template-columns: 1fr; }
+    }
+    .feat-card {
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px 18px;
+    }
+    .feat-card-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13.5px;
+      font-weight: 750;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .feat-card-desc {
+      font-size: 12px;
+      line-height: 1.5;
       color: var(--text-muted);
-      flex-shrink: 0;
     }
+    
     .test-note {
-      font-size: 11px;
-      color: var(--text-muted);
-      opacity: 0.75;
-      margin-top: 12px;
+      font-size: 11.5px;
+      color: var(--text-dim);
+      margin-top: 14px;
       text-align: center;
       line-height: 1.5;
     }
-    .htmx-indicator {
+    
+    /* Toast & Spinner */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #1e293b;
+      color: #f8fafc;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 600;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
       opacity: 0;
-      transition: opacity 0.2s ease;
-      display: inline-block;
+      pointer-events: none;
+      z-index: 100;
     }
-    .htmx-request.htmx-indicator,
-    .htmx-request .htmx-indicator {
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
       opacity: 1;
     }
-
-    /* Test butonu loading state */
-    .test-btn .btn-text {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .test-btn .spinner {
+    .spinner {
       display: inline-block;
       width: 14px;
       height: 14px;
       border: 2px solid var(--text-muted);
-      border-top-color: var(--accent, #e50914);
+      border-top-color: var(--accent);
       border-radius: 50%;
       animation: spin 0.8s linear infinite;
       opacity: 0;
       transition: opacity 0.15s ease;
       vertical-align: middle;
     }
-    .htmx-request .test-btn .spinner,
-    .test-btn.htmx-request .spinner {
-      opacity: 1;
-    }
-    .htmx-request .test-btn .btn-label,
-    .test-btn.htmx-request .btn-label {
-      opacity: 0.6;
-    }
-    .htmx-request .test-btn,
-    .test-btn.htmx-request {
-      pointer-events: none;
-      cursor: wait;
-    }
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
+    .htmx-request .spinner,
+    .htmx-request.spinner { opacity: 1; }
+    .htmx-request .btn-label { opacity: 0.6; }
+    .htmx-request.test-btn { pointer-events: none; cursor: wait; }
+    @keyframes spin { to { transform: rotate(360deg); } }
   </style>
 </head>
 <body>
   <div class="card">
-    <div class="logo-container">
-      <div class="logo-glow"></div>
-      <img src="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_2_transparent.png" alt="Anthology Logo" class="logo">
-    </div>
-    <h1>Anthology</h1>
-    <p class="tagline">Golang tabanlı yüksek performanslı Türkçe dizi, film, anime ve Canlı IPTV yayın motoru.</p>
+    <header class="header-section">
+      <div class="logo-container">
+        <div class="logo-glow"></div>
+        <img src="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_2_transparent.png" alt="Anthology Logo" class="logo">
+      </div>
+      <div class="badge-status">
+        <span class="pulse-dot"></span>
+        <span>v1.2.0 · Sistem Çevrimiçi</span>
+      </div>
+      <h1>Anthology</h1>
+      <p class="tagline">Golang tabanlı yüksek performanslı Türkçe dizi, film, anime ve kesintisiz Canlı IPTV yayın motoru.</p>
+    </header>
     
-    <div class="actions">
+    <div class="actions-grid">
       <button onclick="installStremio()" class="btn btn-primary">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l14 9-14 9V3z"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l14 9-14 9V3z"/></svg>
         Stremio'ya Yükle
       </button>
       <button onclick="copyManifest()" class="btn btn-secondary">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-        Manifest Linkini Kopyala (Nuvio / Stremio)
+        Manifest Kopyala
       </button>
     </div>
 
-    <div class="features">
-      <li>⚡ 30+ Yerli & Yabancı Dizi/Film/Anime Kaynağı</li>
-      <li>📺 35+ Canlı TV Kanalı (Ulusal, Haber, Spor)</li>
-      <li>🛡️ Kesintisiz Dahili HLS Proxy ve CORS Çözücü</li>
+    <div class="manifest-bar">
+      <span class="manifest-code">{{.ManifestURL}}</span>
+      <button onclick="copyManifest()" class="manifest-copy-btn">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Kopyala
+      </button>
     </div>
 
+    <!-- Eklenti Durumu -->
     <section class="status-section">
       <div class="status-head">
-        <h2>⚙️ Eklenti Durumu</h2>
+        <h2>⚙️ Platform &amp; Motor Durumu</h2>
         <button class="btn-refresh"
                 hx-get="/fragments/status"
                 hx-target="#status-grid"
-                hx-swap="innerHTML"
-                hx-indicator="#status-refresh-indicator">
-          <span id="status-refresh-indicator" class="htmx-indicator">⟳</span> Yenile
+                hx-swap="innerHTML">
+          <span>⟳</span> Yenile
         </button>
       </div>
       <div id="status-grid"
            hx-get="/fragments/status"
            hx-trigger="load"
-           hx-swap="innerHTML"
-           hx-indicator="#status-load-indicator">
-        <div class="frag-grid" id="status-load-indicator">
+           hx-swap="innerHTML">
+        <div class="frag-grid">
           <div class="frag-card" style="grid-column: 1 / -1; justify-content: center;">
             <span class="frag-dot" style="opacity: 0.5;"></span>
-            <span style="color: var(--text-muted); font-size: 13px;">Eklenti durumu yükleniyor…</span>
+            <span style="color: var(--text-muted); font-size: 13px;">Eklenti durumu kontrol ediliyor…</span>
           </div>
         </div>
       </div>
-      <div class="status-time" id="status-time">Son güncelleme: —</div>
+      <div class="status-time" id="status-time">Son kontrol: —</div>
     </section>
 
+    <!-- Kaynak & Yayın Test Paneli -->
     <section class="test-section">
       <div class="test-head">
-        <h2>🩺 Kaynak &amp; Yayın Canlı Testi</h2>
+        <h2>🩺 Kaynak &amp; Canlı Yayın Tanı Paneli</h2>
       </div>
       <div class="test-actions">
         <button class="test-btn"
                 hx-get="/fragments/test/providers"
                 hx-target="#provider-tests"
                 hx-swap="innerHTML"
-                hx-on::error="document.getElementById('provider-tests').innerHTML = '<p class=&quot;result-empty&quot;>Test isteğinde hata oluştu (zaman aşımı olabilir). Lütfen tekrar deneyin.</p>'">
-          <span class="btn-text">
-            <span class="spinner"></span>
-            <span class="btn-label">⚡ Kaynakları Test Et (tüm sağlayıcılar)</span>
-          </span>
+                hx-on::error="document.getElementById('provider-tests').innerHTML = '<p class=&quot;result-empty&quot;>Test isteğinde hata oluştu. Lütfen tekrar deneyin.</p>'">
+          <span class="spinner"></span>
+          <span class="btn-label">⚡ Tüm Video Kaynaklarını Test Et (33 Sağlayıcı)</span>
         </button>
         <button class="test-btn secondary"
                 hx-get="/fragments/test/channels"
                 hx-target="#channel-tests"
                 hx-swap="innerHTML"
-                hx-on::error="document.getElementById('channel-tests').innerHTML = '<p class=&quot;result-empty&quot;>Test isteğinde hata oluştu (zaman aşımı olabilir). Lütfen tekrar deneyin.</p>'">
-          <span class="btn-text">
-            <span class="spinner"></span>
-            <span class="btn-label">📺 Canlı Yayınları Test Et</span>
-          </span>
+                hx-on::error="document.getElementById('channel-tests').innerHTML = '<p class=&quot;result-empty&quot;>Test isteğinde hata oluştu. Lütfen tekrar deneyin.</p>'">
+          <span class="spinner"></span>
+          <span class="btn-label">📺 Canlı TV Kanallarını Test Et (35+ Yayın)</span>
         </button>
       </div>
       <div id="provider-tests" class="test-results">
-        <p class="result-empty">Henüz test edilmedi — yukarıdaki butona tıklayın. Testler bu sunucudan canlı arama yapar ve birkaç saniye sürebilir.</p>
+        <p class="result-empty">Henüz test başlatılmadı. Yukarıdaki "Tüm Video Kaynaklarını Test Et" butonuna tıklayarak sağlayıcıların canlı yayın akışlarını anlık olarak doğrulayabilirsiniz.</p>
       </div>
       <div id="channel-tests" class="test-results">
-        <p class="result-empty">Henüz test edilmedi — yukarıdaki butona tıklayın. Tüm kanal yayın URL'leri tek tek kontrol edilir.</p>
+        <p class="result-empty">Henüz test başlatılmadı. Yukarıdaki "Canlı TV Kanallarını Test Et" butonuna tıklayarak ulusal ve tematik canlı yayın URL'lerinin aktifliğini kontrol edebilirsiniz.</p>
       </div>
-      <p class="test-note">✳️ Sonuçlar anlık gerçek isteklerdir; her kaynak farklı popüler içerikleri dener. Çoğu Türk sağlayıcı Cloudflare WAF kullanır ve yabancı IP'leri (Vercel/CDN) engeller — bu nedenle bu sunucudan test edildiğinde kırmızı çıkabilir, Türk IP ile test edildiğinde yeşil olabilir. Sağlayıcı ve ağ durumuna göre değişir.</p>
+      <p class="test-note">✳️ Testler bu sunucudan gerçek medya araması yapar. Bazı yerli kaynaklar yurt dışı IP veya Cloudflare koruması uygulayabilir; bu durumda tarayıcı/eklenti üzerinden oynatma Türkiye'deki cihazınızda sorunsuz devam eder.</p>
     </section>
+
+    <!-- Özellikler -->
+    <div class="features-section">
+      <div class="feat-card">
+        <div class="feat-card-title">🍿 33 Aktif Motor</div>
+        <div class="feat-card-desc">Yerli diziler, yabancı filmler, popüler animeler ve kült seriler için optimize edilmiş 33 bağımsız arama motoru.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-card-title">📺 35+ Canlı TV</div>
+        <div class="feat-card-desc">TRT, ATV, Kanal D, Show TV, TV8, spor ve haber kanalları donmasız HLS canlı yayın bağlantılarıyla her an elinizin altında.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-card-title">🛡️ Dahili HLS Proxy</div>
+        <div class="feat-card-desc">CORS kısıtlamalarını ve ISS engellerini otomatik bypass eden yerleşik proxy katmanı ile kesintisiz oynatma deneyimi.</div>
+      </div>
+    </div>
   </div>
 
   <div id="toast" class="toast">Link kopyalandı!</div>
@@ -594,10 +799,7 @@
     }
 
     function installStremio() {
-      // 1. Try protocol handler
       window.location.href = stremioDeepLink;
-
-      // 2. If protocol handler fails / doesn't open Stremio after 1.2s, offer Stremio Web
       setTimeout(() => {
         if (!document.hidden) {
           const openWeb = confirm("Stremio uygulaması açılmadıysa, Stremio Web üzerinde açmak ister misiniz?\n\nTamam: Stremio Web'de Aç\nİptal: Linki Panoya Kopyala");
@@ -630,11 +832,10 @@
       showToast("📋 Manifest kopyalandı! Nuvio veya Stremio'ya yapıştırın.");
     }
 
-    // Keep the status panel "last updated" time in sync after every htmx swap.
     document.body.addEventListener("htmx:afterSwap", function (evt) {
       if (evt.detail && evt.detail.target && evt.detail.target.id === "status-grid") {
         var el = document.getElementById("status-time");
-        if (el) el.textContent = "Son güncelleme: " + new Date().toLocaleTimeString("tr-TR");
+        if (el) el.textContent = "Son kontrol: " + new Date().toLocaleTimeString("tr-TR");
       }
     });
   </script>
