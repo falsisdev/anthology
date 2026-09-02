@@ -16,9 +16,9 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/falsisdev/anthology"
 	"github.com/falsisdev/anthology/pkg/catalog"
 	"github.com/falsisdev/anthology/pkg/engine"
+	"github.com/falsisdev/anthology/pkg/manifest"
 	"github.com/falsisdev/anthology/pkg/models"
 	"github.com/falsisdev/anthology/pkg/provider"
 	"github.com/falsisdev/anthology/pkg/providers/m3u"
@@ -119,7 +119,7 @@ func (s *Server) handleManifest(w http.ResponseWriter, r *http.Request) {
 	// stremioAddonsConfig (stremio-addons.net) verification block.
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
 	w.WriteHeader(http.StatusOK)
-	_, _ = w.Write(anthology.ManifestJSON)
+	_, _ = w.Write(manifest.ManifestJSON)
 }
 
 func (s *Server) handleCatalog(w http.ResponseWriter, r *http.Request) {
