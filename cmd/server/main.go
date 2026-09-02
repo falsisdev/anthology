@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"net/url"
 	"os"
 	"os/signal"
 	"strconv"
@@ -14,6 +15,7 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/falsisdev/anthology/pkg/catalog"
 	"github.com/falsisdev/anthology/pkg/engine"
 	"github.com/falsisdev/anthology/pkg/models"
 	"github.com/falsisdev/anthology/pkg/provider"
@@ -86,8 +88,40 @@ func (s *Server) handleManifest(w http.ResponseWriter, r *http.Request) {
 		"author":      "falsisdev",
 		"resources":   []string{"catalog", "stream", "meta"},
 		"types":       []string{"movie", "series", "tv", "live", "channel", "anime"},
-		"idPrefixes":  []string{"tt", "tmdb:", "kitsu:", "animecix:", "canli:"},
+		"idPrefixes":  []string{"tt", "tmdb:", "kitsu:", "animecix:", "canli:", "ddizi:", "dizimom:", "diziyou:", "hdfc:"},
 		"catalogs": []map[string]interface{}{
+			{
+				"type": "series",
+				"id":   "anthology_ddizi",
+				"name": "Anthology - Ddizi",
+				"extra": []map[string]interface{}{
+					{"name": "search", "isRequired": false},
+				},
+			},
+			{
+				"type": "series",
+				"id":   "anthology_dizimom",
+				"name": "Anthology - Dizimom",
+				"extra": []map[string]interface{}{
+					{"name": "search", "isRequired": false},
+				},
+			},
+			{
+				"type": "series",
+				"id":   "anthology_diziyou",
+				"name": "Anthology - DiziYou",
+				"extra": []map[string]interface{}{
+					{"name": "search", "isRequired": false},
+				},
+			},
+			{
+				"type": "movie",
+				"id":   "anthology_hdfc",
+				"name": "Anthology - HDFilmCehennemi",
+				"extra": []map[string]interface{}{
+					{"name": "search", "isRequired": false},
+				},
+			},
 			{
 				"type": "tv",
 				"id":   "falsis_canli_tv",
@@ -116,43 +150,85 @@ func (s *Server) handleManifest(w http.ResponseWriter, r *http.Request) {
 
 func (s *Server) handleCatalog(w http.ResponseWriter, r *http.Request) {
 	parts := strings.Split(strings.Trim(r.URL.Path, "/"), "/")
-	channels, err := s.m3uProv.GetLiveChannels(r.Context())
-	if err != nil {
+	if len(parts) < 3 {
 		jsonResponse(w, http.StatusOK, map[string]interface{}{"metas": []interface{}{}})
 		return
 	}
 
-	type metaItem struct {
-		ID          string   `json:"id"`
-		Type        string   `json:"type"`
-		Name        string   `json:"name"`
-		Poster      string   `json:"poster,omitempty"`
-		Background  string   `json:"background,omitempty"`
-		Logo        string   `json:"logo,omitempty"`
-		Description string   `json:"description,omitempty"`
-		Genres      []string `json:"genres,omitempty"`
+	catalogType := parts[1]
+	rawCatalogID := strings.TrimSuffix(parts[2], ".json")
+
+	searchQuery := r.URL.Query().Get("search")
+	if len(parts) >= 4 {
+		extraPart := strings.TrimSuffix(parts[3], ".json")
+		if strings.HasPrefix(extraPart, "search=") {
+			searchQuery = strings.TrimPrefix(extraPart, "search=")
+		}
+	} else if strings.Contains(rawCatalogID, "search=") {
+		subParts := strings.Split(rawCatalogID, "&")
+		rawCatalogID = subParts[0]
+		for _, sp := range subParts[1:] {
+			if strings.HasPrefix(sp, "search=") {
+				searchQuery = strings.TrimPrefix(sp, "search=")
+			}
+		}
 	}
 
-	var metas []metaItem
-	for _, ch := range channels {
-		mediaType := "tv"
-		if len(parts) >= 2 && parts[1] == "live" {
-			mediaType = "live"
+	if unescaped, err := url.QueryUnescape(searchQuery); err == nil {
+		searchQuery = unescaped
+	}
+
+	if rawCatalogID == "falsis_canli_tv" || catalogType == "tv" || catalogType == "live" {
+		channels, err := s.m3uProv.GetLiveChannels(r.Context())
+		if err != nil {
+			jsonResponse(w, http.StatusOK, map[string]interface{}{"metas": []interface{}{}})
+			return
 		}
-		metas = append(metas, metaItem{
-			ID:          "canli:" + ch.ID,
-			Type:        mediaType,
-			Name:        ch.Name,
-			Poster:      ch.Logo,
-			Background:  ch.Logo,
-			Logo:        ch.Logo,
-			Description: ch.Name + " Canlı Yayın",
-			Genres:      []string{ch.Group, "Canlı TV"},
+
+		type metaItem struct {
+			ID          string   `json:"id"`
+			Type        string   `json:"type"`
+			Name        string   `json:"name"`
+			Poster      string   `json:"poster,omitempty"`
+			Background  string   `json:"background,omitempty"`
+			Logo        string   `json:"logo,omitempty"`
+			Description string   `json:"description,omitempty"`
+			Genres      []string `json:"genres,omitempty"`
+		}
+
+		var metas []metaItem
+		for _, ch := range channels {
+			mediaType := "tv"
+			if len(parts) >= 2 && parts[1] == "live" {
+				mediaType = "live"
+			}
+			metas = append(metas, metaItem{
+				ID:          "canli:" + ch.ID,
+				Type:        mediaType,
+				Name:        ch.Name,
+				Poster:      ch.Logo,
+				Background:  ch.Logo,
+				Logo:        ch.Logo,
+				Description: ch.Name + " Canlı Yayın",
+				Genres:      []string{ch.Group, "Canlı TV"},
+			})
+		}
+
+		jsonResponse(w, http.StatusOK, map[string]interface{}{
+			"metas": metas,
 		})
+		return
+	}
+
+	// Custom Provider Catalogs (Ddizi, Dizimom, DiziYou, HDFilmCehennemi)
+	items, err := catalog.Search(r.Context(), rawCatalogID, searchQuery)
+	if err != nil || items == nil {
+		jsonResponse(w, http.StatusOK, map[string]interface{}{"metas": []interface{}{}})
+		return
 	}
 
 	jsonResponse(w, http.StatusOK, map[string]interface{}{
-		"metas": metas,
+		"metas": items,
 	})
 }
 
@@ -163,28 +239,48 @@ func (s *Server) handleMeta(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	mediaType := parts[1]
 	rawID := strings.TrimSuffix(parts[2], ".json")
-	cleanID := strings.TrimPrefix(rawID, "canli:")
 
-	ch, err := s.m3uProv.GetChannelByID(r.Context(), cleanID)
-	if err != nil {
-		jsonResponse(w, http.StatusOK, map[string]interface{}{"meta": nil})
+	// 1. Custom Catalogs (Ddizi, Dizimom, DiziYou, HDFC)
+	if strings.HasPrefix(rawID, "ddizi:") || strings.HasPrefix(rawID, "dizimom:") || strings.HasPrefix(rawID, "diziyou:") || strings.HasPrefix(rawID, "hdfc:") {
+		meta, err := catalog.GetMeta(r.Context(), mediaType, rawID)
+		if err != nil || meta == nil {
+			jsonResponse(w, http.StatusOK, map[string]interface{}{"meta": nil})
+			return
+		}
+		jsonResponse(w, http.StatusOK, map[string]interface{}{
+			"meta": meta,
+		})
 		return
 	}
 
-	meta := map[string]interface{}{
-		"id":          "canli:" + ch.ID,
-		"type":        parts[1],
-		"name":        ch.Name,
-		"poster":      ch.Logo,
-		"background":  ch.Logo,
-		"logo":        ch.Logo,
-		"description": ch.Name + " Canlı HD Yayın",
+	// 2. Live channel
+	if strings.HasPrefix(rawID, "canli:") {
+		cleanID := strings.TrimPrefix(rawID, "canli:")
+		ch, err := s.m3uProv.GetChannelByID(r.Context(), cleanID)
+		if err != nil {
+			jsonResponse(w, http.StatusOK, map[string]interface{}{"meta": nil})
+			return
+		}
+
+		meta := map[string]interface{}{
+			"id":          "canli:" + ch.ID,
+			"type":        parts[1],
+			"name":        ch.Name,
+			"poster":      ch.Logo,
+			"background":  ch.Logo,
+			"logo":        ch.Logo,
+			"description": ch.Name + " Canlı HD Yayın",
+		}
+
+		jsonResponse(w, http.StatusOK, map[string]interface{}{
+			"meta": meta,
+		})
+		return
 	}
 
-	jsonResponse(w, http.StatusOK, map[string]interface{}{
-		"meta": meta,
-	})
+	jsonResponse(w, http.StatusOK, map[string]interface{}{"meta": nil})
 }
 
 func (s *Server) handleStream(w http.ResponseWriter, r *http.Request) {
@@ -223,6 +319,57 @@ func (s *Server) handleStream(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	scheme := "https"
+	if r.TLS == nil && !strings.HasPrefix(r.Header.Get("X-Forwarded-Proto"), "https") && strings.HasPrefix(r.Host, "localhost") {
+		scheme = "http"
+	}
+	proxyBase := fmt.Sprintf("%s://%s/proxy", scheme, r.Host)
+
+	type stremioStream struct {
+		Name          string                 `json:"name"`
+		Title         string                 `json:"title"`
+		URL           string                 `json:"url,omitempty"`
+		YTID          string                 `json:"ytId,omitempty"`
+		BehaviorHints map[string]interface{} `json:"behaviorHints,omitempty"`
+	}
+
+	// Custom Provider Stream (ddizi:, dizimom:, diziyou:, hdfc:)
+	if strings.HasPrefix(rawID, "ddizi:") || strings.HasPrefix(rawID, "dizimom:") || strings.HasPrefix(rawID, "diziyou:") || strings.HasPrefix(rawID, "hdfc:") {
+		customStreams, err := catalog.GetStream(r.Context(), rawID)
+		if err != nil || len(customStreams) == 0 {
+			jsonResponse(w, http.StatusOK, map[string]interface{}{"streams": []interface{}{}})
+			return
+		}
+
+		var sStreams []stremioStream
+		for _, s := range customStreams {
+			finalURL := s.URL
+			if s.YTID == "" && (len(s.Headers) > 0 || strings.Contains(s.URL, "videoplay.vip") || strings.Contains(s.URL, "hdplayersystem") || strings.Contains(s.URL, "streambox") || strings.Contains(s.URL, "diziyou.one") || strings.Contains(s.URL, "sibnet.ru")) {
+				finalURL = proxy.FormatProxyURL(proxyBase, s.URL, s.Headers)
+			}
+
+			providerName := s.Provider
+			if providerName == "" {
+				providerName = "Anthology"
+			}
+
+			sStreams = append(sStreams, stremioStream{
+				Name:  strings.ToUpper(providerName),
+				Title: s.Title,
+				URL:   finalURL,
+				YTID:  s.YTID,
+				BehaviorHints: map[string]interface{}{
+					"notWebReady": false,
+				},
+			})
+		}
+
+		jsonResponse(w, http.StatusOK, map[string]interface{}{
+			"streams": sStreams,
+		})
+		return
+	}
+
 	idParts := strings.Split(rawID, ":")
 	tmdbID := idParts[0]
 	if (strings.HasPrefix(rawID, "tmdb:") || strings.HasPrefix(rawID, "kitsu:") || strings.HasPrefix(rawID, "animecix:")) && len(idParts) > 1 {
@@ -254,23 +401,10 @@ func (s *Server) handleStream(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	scheme := "https"
-	if r.TLS == nil && !strings.HasPrefix(r.Header.Get("X-Forwarded-Proto"), "https") && strings.HasPrefix(r.Host, "localhost") {
-		scheme = "http"
-	}
-	proxyBase := fmt.Sprintf("%s://%s/proxy", scheme, r.Host)
-
-	type stremioStream struct {
-		Name          string                 `json:"name"`
-		Title         string                 `json:"title"`
-		URL           string                 `json:"url"`
-		BehaviorHints map[string]interface{} `json:"behaviorHints,omitempty"`
-	}
-
 	var stremioStreams []stremioStream
 	for _, st := range result.Streams {
 		finalURL := st.URL
-		if len(st.Headers) > 0 || strings.Contains(st.URL, "videoplay.vip") || strings.Contains(st.URL, "hdplayersystem") || strings.Contains(st.URL, "streambox") || strings.Contains(st.URL, "diziyou.one") || strings.Contains(st.URL, "sibnet.ru") {
+		if st.YTID == "" && (len(st.Headers) > 0 || strings.Contains(st.URL, "videoplay.vip") || strings.Contains(st.URL, "hdplayersystem") || strings.Contains(st.URL, "streambox") || strings.Contains(st.URL, "diziyou.one") || strings.Contains(st.URL, "sibnet.ru")) {
 			finalURL = proxy.FormatProxyURL(proxyBase, st.URL, st.Headers)
 		}
 
@@ -283,6 +417,7 @@ func (s *Server) handleStream(w http.ResponseWriter, r *http.Request) {
 			Name:  strings.ToUpper(providerName),
 			Title: st.Title,
 			URL:   finalURL,
+			YTID:  st.YTID,
 			BehaviorHints: map[string]interface{}{
 				"notWebReady": false,
 			},

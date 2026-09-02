@@ -36,6 +36,7 @@ type Stream struct {
 	Headers   map[string]string `json:"headers,omitempty"`
 	Subtitles []Subtitle        `json:"subtitles,omitempty"`
 	IsLive    bool              `json:"is_live,omitempty"`
+	YTID      string            `json:"ytId,omitempty"`
 }
 
 // Channel represents an IPTV live stream item.

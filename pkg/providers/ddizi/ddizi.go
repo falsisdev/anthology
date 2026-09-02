@@ -191,7 +191,7 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 		if src == "" || src == "about:blank" {
 			src, _ = s.Attr("data-src")
 		}
-		if src == "" || strings.Contains(src, "facebook") || strings.Contains(src, "youtube") {
+		if src == "" || strings.Contains(src, "facebook") || strings.Contains(src, "disqus") {
 			return
 		}
 		if strings.HasPrefix(src, "//") {
@@ -209,6 +209,7 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 					Quality:  es.Quality,
 					Provider: ID,
 					URL:      es.URL,
+					YTID:     es.YTID,
 					Headers:  es.Headers,
 				})
 			}

@@ -36,7 +36,12 @@ func Extract(ctx context.Context, embedURL, referer string) ([]models.Stream, er
 		return ExtractSibnet(ctx, embedURL, referer)
 	}
 
-	// 5. Generic JWPlayer / Player pages (ddizi, dizibox, etc.)
+	// 5. YouTube
+	if strings.Contains(lowerURL, "youtube.com") || strings.Contains(lowerURL, "youtu.be") || strings.Contains(lowerURL, "youtube.php") {
+		return ExtractYouTube(ctx, embedURL, referer)
+	}
+
+	// 6. Generic JWPlayer / Player pages (ddizi, dizibox, etc.)
 	if strings.Contains(lowerURL, "/player/") || strings.Contains(lowerURL, "streambox.") || strings.Contains(lowerURL, "jwplayer") || strings.Contains(lowerURL, "king.php") {
 		return ExtractJWPlayer(ctx, embedURL, referer)
 	}
