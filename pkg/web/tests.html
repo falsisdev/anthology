@@ -1,0 +1,24 @@
+{{if .Results}}
+{{if .Summary}}
+<div class="test-summary {{.SummaryClass}}">
+  <span class="ts-dot"></span>
+  <strong>{{.OKCount}}/{{.Total}} çevrimiçi</strong>
+  <span class="ts-sub">· {{.ElapsedMS}} ms'de tamamlandı</span>
+</div>
+{{end}}
+<div class="result-grid">
+{{range .Results}}
+  <div class="result-card {{if .OK}}ok{{else}}fail{{end}}">
+    <span class="rc-dot"></span>
+    <div class="rc-main">
+      <strong class="rc-name">{{.Name}}</strong>
+      <span class="rc-msg">{{.Message}}</span>
+      {{if .Detail}}<span class="rc-detail">{{.Detail}}</span>{{end}}
+    </div>
+    <span class="rc-latency">{{.LatencyMS}} ms</span>
+  </div>
+{{end}}
+</div>
+{{else}}
+<p class="result-empty">Sonuç yok — lütfen tekrar deneyin.</p>
+{{end}}

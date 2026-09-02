@@ -49,6 +49,14 @@ func handleStatusFragment(w http.ResponseWriter, r *http.Request) {
 	web.ServeStatus(w, r)
 }
 
+func handleProviderTests(w http.ResponseWriter, r *http.Request) {
+	web.ServeProviderTests(w, r)
+}
+
+func handleChannelTests(w http.ResponseWriter, r *http.Request) {
+	web.ServeChannelTests(w, r)
+}
+
 func handleManifest(w http.ResponseWriter, r *http.Request) {
 	// Root path always serves the HTML landing page; manifest endpoints always serve JSON.
 	// (Vercel rewrites "/" to this serverless entry file, so we derive the original path.)
@@ -642,6 +650,18 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	case "providers":
 		handleProviders(w, r)
 	case "fragments":
+		if len(parts) > 2 && parts[1] == "test" {
+			switch parts[2] {
+			case "providers":
+				handleProviderTests(w, r)
+				return
+			case "channels":
+				handleChannelTests(w, r)
+				return
+			}
+			handleManifest(w, r)
+			return
+		}
 		if len(parts) > 1 && parts[1] == "status" {
 			handleStatusFragment(w, r)
 			return

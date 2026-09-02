@@ -260,6 +260,191 @@
       margin-top: 12px;
       text-align: center;
     }
+    .test-section {
+      margin-top: 28px;
+      border-top: 1px solid var(--border);
+      padding-top: 22px;
+      width: 100%;
+    }
+    .test-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .test-head h2 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.3px;
+      color: var(--text-muted);
+    }
+    .test-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .test-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: rgba(0, 230, 118, 0.08);
+      border: 1px solid rgba(0, 230, 118, 0.28);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 12px 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      width: 100%;
+    }
+    .test-btn:hover {
+      background: rgba(0, 230, 118, 0.16);
+      border-color: rgba(0, 230, 118, 0.5);
+      box-shadow: 0 4px 16px var(--accent-glow);
+    }
+    .test-btn.secondary {
+      background: rgba(90, 140, 255, 0.08);
+      border-color: rgba(90, 140, 255, 0.28);
+    }
+    .test-btn.secondary:hover {
+      background: rgba(90, 140, 255, 0.16);
+      border-color: rgba(90, 140, 255, 0.5);
+      box-shadow: 0 4px 16px rgba(90, 140, 255, 0.25);
+    }
+    .test-results {
+      margin-bottom: 4px;
+    }
+    .result-empty {
+      color: var(--text-muted);
+      font-size: 12.5px;
+      line-height: 1.6;
+      padding: 14px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+      margin-bottom: 14px;
+    }
+    .test-summary {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+    .test-summary .ts-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .test-summary.all-ok .ts-dot {
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent-glow);
+    }
+    .test-summary.partial .ts-dot {
+      background: #ffc94d;
+      box-shadow: 0 0 10px rgba(255, 201, 77, 0.4);
+    }
+    .test-summary.all-fail .ts-dot {
+      background: #ff505a;
+      box-shadow: 0 0 10px rgba(255, 80, 90, 0.4);
+    }
+    .test-summary strong {
+      font-size: 13px;
+    }
+    .test-summary .ts-sub {
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+    .result-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      text-align: left;
+      max-height: 340px;
+      overflow-y: auto;
+      padding-right: 4px;
+      margin-bottom: 14px;
+    }
+    .result-card {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 12px;
+      transition: border-color 0.2s ease;
+    }
+    .result-card.ok {
+      border-color: rgba(0, 230, 118, 0.25);
+      background: rgba(0, 230, 118, 0.05);
+    }
+    .result-card.fail {
+      border-color: rgba(255, 80, 90, 0.28);
+      background: rgba(255, 80, 90, 0.05);
+    }
+    .rc-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .result-card.ok .rc-dot {
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent-glow);
+    }
+    .result-card.fail .rc-dot {
+      background: #ff505a;
+      box-shadow: 0 0 8px rgba(255, 80, 90, 0.35);
+    }
+    .rc-main {
+      flex: 1;
+      min-width: 0;
+    }
+    .rc-name {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1px;
+    }
+    .rc-msg {
+      display: block;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .rc-detail {
+      display: block;
+      font-size: 11px;
+      color: var(--text-muted);
+      opacity: 0.7;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+    .rc-latency {
+      font-size: 11px;
+      font-variant-numeric: tabular-nums;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+    .test-note {
+      font-size: 11px;
+      color: var(--text-muted);
+      opacity: 0.75;
+      margin-top: 12px;
+      text-align: center;
+      line-height: 1.5;
+    }
     .htmx-indicator {
       opacity: 0;
       transition: opacity 0.2s ease;
@@ -320,6 +505,37 @@
         </div>
       </div>
       <div class="status-time" id="status-time">Son güncelleme: —</div>
+    </section>
+
+    <section class="test-section">
+      <div class="test-head">
+        <h2>🩺 Kaynak &amp; Yayın Canlı Testi</h2>
+      </div>
+      <div class="test-actions">
+        <button class="test-btn"
+                hx-get="/fragments/test/providers"
+                hx-target="#provider-tests"
+                hx-swap="innerHTML"
+                hx-indicator="#provider-test-spinner"
+                hx-on::error="document.getElementById('provider-tests').innerHTML = '<p class=&quot;result-empty&quot;>Test isteğinde hata oluştu (zaman aşımı olabilir). Lütfen tekrar deneyin.</p>'">
+          <span id="provider-test-spinner" class="htmx-indicator">⟳</span> ⚡ Kaynakları Test Et (tüm sağlayıcılar)
+        </button>
+        <button class="test-btn secondary"
+                hx-get="/fragments/test/channels"
+                hx-target="#channel-tests"
+                hx-swap="innerHTML"
+                hx-indicator="#channel-test-spinner"
+                hx-on::error="document.getElementById('channel-tests').innerHTML = '<p class=&quot;result-empty&quot;>Test isteğinde hata oluştu (zaman aşımı olabilir). Lütfen tekrar deneyin.</p>'">
+          <span id="channel-test-spinner" class="htmx-indicator">⟳</span> 📺 Canlı Yayınları Test Et
+        </button>
+      </div>
+      <div id="provider-tests" class="test-results">
+        <p class="result-empty">Henüz test edilmedi — yukarıdaki butona tıklayın. Testler bu sunucudan canlı arama yapar ve birkaç saniye sürebilir.</p>
+      </div>
+      <div id="channel-tests" class="test-results">
+        <p class="result-empty">Henüz test edilmedi — yukarıdaki butona tıklayın. Tüm kanal yayın URL'leri tek tek kontrol edilir.</p>
+      </div>
+      <p class="test-note">✳️ Sonuçlar anlık gerçek isteklerdir; sağlayıcı ve ağ durumuna göre değişebilir. Kırmızı çıkan kaynak genelde Cloudflare WAF veya bölgesel erişim kısıtlaması anlamına gelir.</p>
     </section>
   </div>
 
