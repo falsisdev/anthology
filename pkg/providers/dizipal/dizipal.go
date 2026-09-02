@@ -24,7 +24,7 @@ import (
 const (
 	ID         = "dizipal"
 	Name       = "Dizipal"
-	BaseURL    = "https://dizipal1578.com"
+	BaseURL    = "https://dizipal1579.com"
 	DecryptKey = "3hPn4uCjTVtfYWcjIcoJQ4cL1WWk1qxXI39egLYOmNv6IblA7eKJz68uU3eLzux1biZLCms0quEjTYniGv5z1JcKbNIsDQFSeIZOBZJz4is6pD7UyWDggWWzTLBQbHcQFpBQdClnuQaMNUHtLHTpzCvZy33p6I7wFBvL4fnXBYH84aUIyWGTRvM2G5cfoNf4705tO2kv"
 )
 

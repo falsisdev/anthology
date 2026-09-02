@@ -19,6 +19,11 @@ func FormatProxyURL(proxyBase, rawURL string, headers map[string]string) string 
 	if rawURL == "" {
 		return ""
 	}
+
+	// Twitter / X video streams are directly accessible with CORS and reject custom referers
+	if strings.Contains(rawURL, "twimg.com") {
+		return rawURL
+	}
 	
 	// If it's already an open direct stream without header requirements (like SineWix direct MKV/MP4 or M3U)
 	// and doesn't need Referer spoofing, we still check if proxyBase is set.
@@ -100,12 +105,11 @@ func HandleProxy(w http.ResponseWriter, r *http.Request) {
 	defer resp.Body.Close()
 
 	lowerCT := strings.ToLower(resp.Header.Get("Content-Type"))
-	isM3U8 := strings.Contains(lowerCT, "mpegurl") ||
-		strings.Contains(lowerCT, "text/plain") ||
-		strings.Contains(lowerCT, "application/octet-stream") ||
+	isM3U8Candidate := strings.Contains(lowerCT, "mpegurl") ||
 		strings.HasSuffix(strings.ToLower(parsedTarget.Path), ".m3u8") ||
-		strings.HasSuffix(strings.ToLower(parsedTarget.Path), ".txt") ||
-		strings.Contains(strings.ToLower(parsedTarget.Path), "/hls/")
+		(resp.ContentLength < 1024*1024 && (strings.Contains(lowerCT, "text/plain") ||
+			strings.HasSuffix(strings.ToLower(parsedTarget.Path), ".txt") ||
+			strings.Contains(strings.ToLower(parsedTarget.Path), "/hls/")))
 
 	// Determine proxy base URL for playlist rewriting
 	scheme := "https"
@@ -116,9 +120,13 @@ func HandleProxy(w http.ResponseWriter, r *http.Request) {
 	if strings.HasPrefix(r.URL.Path, "/proxy") {
 		proxyPath = "/proxy"
 	}
-	proxyEndpoint := fmt.Sprintf("%s://%s%s", scheme, r.Host, proxyPath)
+	host := r.Header.Get("X-Forwarded-Host")
+	if host == "" {
+		host = r.Host
+	}
+	proxyEndpoint := fmt.Sprintf("%s://%s%s", scheme, host, proxyPath)
 
-	if isM3U8 {
+	if isM3U8Candidate {
 		bodyBytes, err := io.ReadAll(resp.Body)
 		if err != nil {
 			http.Error(w, "failed to read playlist", http.StatusBadGateway)
@@ -135,7 +143,16 @@ func HandleProxy(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		// If it did not start with #EXTM3U, it might be a binary segment served with text/plain, fall through
+		// If it did not start with #EXTM3U, it is a binary segment served with text/plain
+		for k, vv := range resp.Header {
+			lowerK := strings.ToLower(k)
+			if lowerK == "content-type" || lowerK == "content-length" || lowerK == "content-range" || lowerK == "accept-ranges" {
+				for _, v := range vv {
+					w.Header().Add(k, v)
+				}
+			}
+		}
+		w.Header().Set("Accept-Ranges", "bytes")
 		w.Header().Set("Content-Type", "video/MP2T")
 		w.WriteHeader(resp.StatusCode)
 		w.Write(bodyBytes)

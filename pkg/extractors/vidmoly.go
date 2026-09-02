@@ -11,16 +11,26 @@ import (
 
 var (
 	reVidmolySources = regexp.MustCompile(`(?:sources:\s*\[\s*{\s*file:\s*|file:\s*)["'](https?://[^"']+\.(?:m3u8|mp4)[^"']*)["']`)
+	reVidmolyDomain  = regexp.MustCompile(`https?://(?:www\.)?vidmoly\.[a-z]+(/embed-[a-zA-Z0-9]+(?:\.html)?)`)
 )
 
 func ExtractVidmoly(ctx context.Context, embedURL, referer string) ([]models.Stream, error) {
+	// Normalize vidmoly mirrors (vidmoly.me, vidmoly.to, vidmoly.net) to the active vidmoly.biz
+	if m := reVidmolyDomain.FindStringSubmatch(embedURL); len(m) > 1 {
+		cleanPath := m[1]
+		if !strings.HasSuffix(cleanPath, ".html") {
+			cleanPath += ".html"
+		}
+		embedURL = "https://vidmoly.biz" + cleanPath
+	}
+
 	headers := map[string]string{
 		"User-Agent": utils.DefaultUserAgent,
 	}
 	if referer != "" {
 		headers["Referer"] = referer
 	} else {
-		headers["Referer"] = "https://vidmoly.to/"
+		headers["Referer"] = "https://vidmoly.biz/"
 	}
 
 	body, err := utils.DefaultClient.Get(ctx, embedURL, headers)

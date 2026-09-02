@@ -1,0 +1,538 @@
+[
+  {
+    "provider_id": "dizimom",
+    "provider_name": "Dizimom",
+    "media_type": "tv",
+    "test_title": "Breaking Bad",
+    "stream_count": 2,
+    "duration_ms": 1916478375,
+    "status": "OK",
+    "streams": [
+      {
+        "title": "⌜ Dizimom ⌟ | HLS (1080p)",
+        "url": "https://hdplayersystem.com/cdn/hls/757766f1efab898e9a24d804dc67941c/master.m3u8?...",
+        "quality": "1080p"
+      },
+      {
+        "title": "⌜ Dizimom ⌟ | HLS (1080p)",
+        "url": "https://hdplayersystem.com/cdn/hls/757766f1efab898e9a24d804dc67941c/master.m3u8?...",
+        "quality": "1080p"
+      }
+    ]
+  },
+  {
+    "provider_id": "diziyou",
+    "provider_name": "DiziYou",
+    "media_type": "tv",
+    "test_title": "Breaking Bad",
+    "stream_count": 1,
+    "duration_ms": 787415041,
+    "status": "OK",
+    "streams": [
+      {
+        "title": "⌜ DiziYou ⌟ | HLS (1080p)",
+        "url": "https://storage.diziyou.one/episodes/10551/play.m3u8",
+        "quality": "1080p"
+      }
+    ]
+  },
+  {
+    "provider_id": "m3u",
+    "provider_name": "M3U Provider",
+    "media_type": "live",
+    "test_title": "TRT 1",
+    "stream_count": 1,
+    "duration_ms": 1514917,
+    "status": "OK",
+    "streams": [
+      {
+        "title": "⌜ MoOnCrOwN ⌟ | Canlı TV (TRT 1)",
+        "url": "https://trt.daioncdn.net/trt-1/master.m3u8?app=clean",
+        "quality": ""
+      }
+    ]
+  },
+  {
+    "provider_id": "m3u",
+    "provider_name": "M3U Provider",
+    "media_type": "movie",
+    "test_title": "Fight Club",
+    "stream_count": 1,
+    "duration_ms": 8627416,
+    "status": "OK",
+    "streams": [
+      {
+        "title": "⌜ M3U ⌟ | 🌟8.8-Dövüş Kulübü:Fight Club-Dram(1999)",
+        "url": "https://vidmody.com/mm/tt0137523/main/index.m3u8",
+        "quality": "Auto"
+      }
+    ]
+  },
+  {
+    "provider_id": "sinewix",
+    "provider_name": "SineWix",
+    "media_type": "tv",
+    "test_title": "Breaking Bad",
+    "stream_count": 1,
+    "duration_ms": 554996125,
+    "status": "OK",
+    "streams": [
+      {
+        "title": "⌜ SİNEWİX ⌟ | İNDIR",
+        "url": "https://4sa.7862564.xyz/file/snwixdepo2/Breaking%20BadS01-E01.mkv",
+        "quality": "Auto"
+      }
+    ]
+  },
+  {
+    "provider_id": "sinewix",
+    "provider_name": "SineWix",
+    "media_type": "movie",
+    "test_title": "Fight Club",
+    "stream_count": 1,
+    "duration_ms": 554966667,
+    "status": "OK",
+    "streams": [
+      {
+        "title": "⌜ SİNEWİX ⌟ | İNDIR",
+        "url": "https://4astras.45464654.xyz/file/snwixdepo2/Fight%20Club%20(1999)%20DUAL%20@Sin...",
+        "quality": "Auto"
+      }
+    ]
+  },
+  {
+    "provider_id": "vidmody",
+    "provider_name": "Vidmody",
+    "media_type": "movie",
+    "test_title": "Fight Club",
+    "stream_count": 1,
+    "duration_ms": 352772500,
+    "status": "OK",
+    "streams": [
+      {
+        "title": "Fight Club (1999)",
+        "url": "https://vidmody.com/vs/tt0137523",
+        "quality": "Auto"
+      }
+    ]
+  },
+  {
+    "provider_id": "vidmody",
+    "provider_name": "Vidmody",
+    "media_type": "tv",
+    "test_title": "Breaking Bad",
+    "stream_count": 1,
+    "duration_ms": 343589208,
+    "status": "OK",
+    "streams": [
+      {
+        "title": "Breaking Bad - S01E01",
+        "url": "https://vidmody.com/vs/tt0903747/s1/e01",
+        "quality": "Auto"
+      }
+    ]
+  },
+  {
+    "provider_id": "acheriya",
+    "provider_name": "Acheriya",
+    "media_type": "movie",
+    "test_title": "Fight Club",
+    "stream_count": 0,
+    "duration_ms": 665135500,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "acheriya",
+    "provider_name": "Acheriya",
+    "media_type": "tv",
+    "test_title": "Breaking Bad",
+    "stream_count": 0,
+    "duration_ms": 664034584,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "animecix",
+    "provider_name": "AnimeciX",
+    "media_type": "movie",
+    "test_title": "Fight Club",
+    "stream_count": 0,
+    "duration_ms": 473902750,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "animecix",
+    "provider_name": "AnimeciX",
+    "media_type": "tv",
+    "test_title": "Breaking Bad",
+    "stream_count": 0,
+    "duration_ms": 508752958,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "animexe",
+    "provider_name": "Animexe",
+    "media_type": "movie",
+    "test_title": "Fight Club",
+    "stream_count": 0,
+    "duration_ms": 1502144792,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "animexe",
+    "provider_name": "Animexe",
+    "media_type": "tv",
+    "test_title": "Breaking Bad",
+    "stream_count": 0,
+    "duration_ms": 1738696083,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "animpow",
+    "provider_name": "Animpow",
+    "media_type": "movie",
+    "test_title": "Fight Club",
+    "stream_count": 0,
+    "duration_ms": 608214792,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "animpow",
+    "provider_name": "Animpow",
+    "media_type": "tv",
+    "test_title": "Breaking Bad",
+    "stream_count": 0,
+    "duration_ms": 607833000,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "asyaanimeleri",
+    "provider_name": "Asyaanimeleri",
+    "media_type": "movie",
+    "test_title": "Fight Club",
+    "stream_count": 0,
+    "duration_ms": 1528299000,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "asyaanimeleri",
+    "provider_name": "Asyaanimeleri",
+    "media_type": "tv",
+    "test_title": "Breaking Bad",
+    "stream_count": 0,
+    "duration_ms": 1551250666,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "ddizi",
+    "provider_name": "Ddizi",
+    "media_type": "tv",
+    "test_title": "Breaking Bad",
+    "stream_count": 0,
+    "duration_ms": 629146875,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "dizigom",
+    "provider_name": "Dizigom",
+    "media_type": "tv",
+    "test_title": "Breaking Bad",
+    "stream_count": 0,
+    "duration_ms": 805413375,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "dizimag",
+    "provider_name": "Dizimag",
+    "media_type": "tv",
+    "test_title": "Breaking Bad",
+    "stream_count": 0,
+    "duration_ms": 3104481042,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "dizipal",
+    "provider_name": "Dizipal",
+    "media_type": "tv",
+    "test_title": "Breaking Bad",
+    "stream_count": 0,
+    "duration_ms": 1052910833,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "diziwatch",
+    "provider_name": "Diziwatch",
+    "media_type": "movie",
+    "test_title": "Fight Club",
+    "stream_count": 0,
+    "duration_ms": 370121750,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "diziwatch",
+    "provider_name": "Diziwatch",
+    "media_type": "tv",
+    "test_title": "Breaking Bad",
+    "stream_count": 0,
+    "duration_ms": 338783792,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "diziyo",
+    "provider_name": "Diziyo",
+    "media_type": "tv",
+    "test_title": "Breaking Bad",
+    "stream_count": 0,
+    "duration_ms": 2078072791,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "filmekseni",
+    "provider_name": "Filmekseni",
+    "media_type": "movie",
+    "test_title": "Fight Club",
+    "stream_count": 0,
+    "duration_ms": 1150913708,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "filmhane",
+    "provider_name": "Filmhane",
+    "media_type": "movie",
+    "test_title": "Fight Club",
+    "stream_count": 0,
+    "duration_ms": 854645417,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "filmhane",
+    "provider_name": "Filmhane",
+    "media_type": "tv",
+    "test_title": "Breaking Bad",
+    "stream_count": 0,
+    "duration_ms": 880702917,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "filmifullizle",
+    "provider_name": "Filmifullizle",
+    "media_type": "movie",
+    "test_title": "Fight Club",
+    "stream_count": 0,
+    "duration_ms": 1637040541,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "filmzal",
+    "provider_name": "Filmzal",
+    "media_type": "tv",
+    "test_title": "Breaking Bad",
+    "stream_count": 0,
+    "duration_ms": 4384277917,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "filmzal",
+    "provider_name": "Filmzal",
+    "media_type": "movie",
+    "test_title": "Fight Club",
+    "stream_count": 0,
+    "duration_ms": 2544180125,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "hdfilmcehennemi",
+    "provider_name": "HDFilmCehennemi",
+    "media_type": "movie",
+    "test_title": "Fight Club",
+    "stream_count": 0,
+    "duration_ms": 2134560958,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "hdfilmdelisi",
+    "provider_name": "HDFilmdelisi",
+    "media_type": "movie",
+    "test_title": "Fight Club",
+    "stream_count": 0,
+    "duration_ms": 662836500,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "jetfilmizle",
+    "provider_name": "Jetfilmizle",
+    "media_type": "movie",
+    "test_title": "Fight Club",
+    "stream_count": 0,
+    "duration_ms": 618151541,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "m3u",
+    "provider_name": "M3U Provider",
+    "media_type": "tv",
+    "test_title": "Breaking Bad",
+    "stream_count": 0,
+    "duration_ms": 450417,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "seicode",
+    "provider_name": "SeiCode",
+    "media_type": "tv",
+    "test_title": "Breaking Bad",
+    "stream_count": 0,
+    "duration_ms": 697020834,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "seicode",
+    "provider_name": "SeiCode",
+    "media_type": "movie",
+    "test_title": "Fight Club",
+    "stream_count": 0,
+    "duration_ms": 930940209,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "setfilmizle",
+    "provider_name": "SetFilmizle",
+    "media_type": "movie",
+    "test_title": "Fight Club",
+    "stream_count": 0,
+    "duration_ms": 635135750,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "setfilmizle",
+    "provider_name": "SetFilmizle",
+    "media_type": "tv",
+    "test_title": "Breaking Bad",
+    "stream_count": 0,
+    "duration_ms": 955579833,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "sezonlukdizi",
+    "provider_name": "SezonlukDizi",
+    "media_type": "tv",
+    "test_title": "Breaking Bad",
+    "stream_count": 0,
+    "duration_ms": 1308798125,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "sinemacx",
+    "provider_name": "SinemaCX",
+    "media_type": "movie",
+    "test_title": "Fight Club",
+    "stream_count": 0,
+    "duration_ms": 1154029583,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "sinemacx",
+    "provider_name": "SinemaCX",
+    "media_type": "tv",
+    "test_title": "Breaking Bad",
+    "stream_count": 0,
+    "duration_ms": 3661348292,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "tekfullfilmizle",
+    "provider_name": "Tekfullfilmizle",
+    "media_type": "movie",
+    "test_title": "Fight Club",
+    "stream_count": 0,
+    "duration_ms": 4791471208,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "tranimeizle",
+    "provider_name": "Tranimeizle",
+    "media_type": "tv",
+    "test_title": "Breaking Bad",
+    "stream_count": 0,
+    "duration_ms": 859191750,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "tranimeizle",
+    "provider_name": "Tranimeizle",
+    "media_type": "movie",
+    "test_title": "Fight Club",
+    "stream_count": 0,
+    "duration_ms": 844307542,
+    "status": "NO_STREAMS"
+  },
+  {
+    "provider_id": "dizipal",
+    "provider_name": "Dizipal",
+    "media_type": "movie",
+    "test_title": "Fight Club",
+    "stream_count": 0,
+    "duration_ms": 861566292,
+    "error": "HTTP 404: 404 Not Found",
+    "status": "ERROR"
+  },
+  {
+    "provider_id": "filmmakinesi",
+    "provider_name": "Film Makinesi",
+    "media_type": "movie",
+    "test_title": "Fight Club",
+    "stream_count": 0,
+    "duration_ms": 427053292,
+    "error": "HTTP 404: 404 Not Found",
+    "status": "ERROR"
+  },
+  {
+    "provider_id": "filmmakinesi",
+    "provider_name": "Film Makinesi",
+    "media_type": "tv",
+    "test_title": "Breaking Bad",
+    "stream_count": 0,
+    "duration_ms": 403329916,
+    "error": "HTTP 404: 404 Not Found",
+    "status": "ERROR"
+  },
+  {
+    "provider_id": "sinezy",
+    "provider_name": "Sinezy",
+    "media_type": "movie",
+    "test_title": "Fight Club",
+    "stream_count": 0,
+    "duration_ms": 112505708,
+    "error": "Get \"https://sinezy.com/?s=Fight+Club\": tls: failed to verify certificate: x509: certificate signed by unknown authority",
+    "status": "ERROR"
+  },
+  {
+    "provider_id": "vidlink",
+    "provider_name": "Vidlink",
+    "media_type": "movie",
+    "test_title": "Fight Club",
+    "stream_count": 0,
+    "duration_ms": 324408625,
+    "error": "failed to encrypt tmdb id: HTTP 404: 404 Not Found",
+    "status": "ERROR"
+  },
+  {
+    "provider_id": "vidlink",
+    "provider_name": "Vidlink",
+    "media_type": "tv",
+    "test_title": "Breaking Bad",
+    "stream_count": 0,
+    "duration_ms": 369963958,
+    "error": "failed to encrypt tmdb id: HTTP 404: 404 Not Found",
+    "status": "ERROR"
+  },
+  {
+    "provider_id": "dizibox",
+    "provider_name": "Dizibox",
+    "media_type": "tv",
+    "test_title": "Breaking Bad",
+    "stream_count": 0,
+    "duration_ms": 10001693000,
+    "error": "Get \"https://www.dizibox.live/?s=Breaking+Bad\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)",
+    "status": "TIMEOUT"
+  }
+]

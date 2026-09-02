@@ -296,7 +296,7 @@ func getDizimomStream(ctx context.Context, rawID string) ([]models.Stream, error
 	// Check schema embedUrl
 	if m := reDizimomEmbed.FindStringSubmatch(bodyStr); len(m) > 1 {
 		embedURL := m[1]
-		if strings.Contains(embedURL, "hdplayersystem.com") {
+		if strings.Contains(embedURL, "hdplayersystem.com") || strings.Contains(embedURL, "hdstreamable.com") {
 			if s := fetchHDPlayer(ctx, embedURL); s != nil {
 				streams = append(streams, *s)
 			}
@@ -331,7 +331,7 @@ func getDizimomStream(ctx context.Context, rawID string) ([]models.Stream, error
 				src = "https:" + src
 			}
 
-			if strings.Contains(src, "hdplayersystem.com") {
+			if strings.Contains(src, "hdplayersystem.com") || strings.Contains(src, "hdstreamable.com") {
 				if stream := fetchHDPlayer(ctx, src); stream != nil {
 					streams = append(streams, *stream)
 				}
@@ -393,6 +393,10 @@ func fetchHDPlayer(ctx context.Context, embedURL string) *models.Stream {
 	}
 
 	apiURL := fmt.Sprintf("https://hdplayersystem.com/player/index.php?data=%s&do=getVideo", dataID)
+	if strings.Contains(u.Host, "hdstreamable") {
+		apiURL = fmt.Sprintf("https://%s%s?do=getVideo", u.Host, u.Path)
+	}
+
 	postData := url.Values{
 		"hash": {dataID},
 		"r":    {"https://www.dizimom.diy/"},
@@ -411,8 +415,12 @@ func fetchHDPlayer(ctx context.Context, embedURL string) *models.Stream {
 	defer resp.Body.Close()
 
 	var res struct {
-		SecuredLink string `json:"securedLink"`
-		VideoSource string `json:"videoSource"`
+		SecuredLink  string `json:"securedLink"`
+		VideoSource  string `json:"videoSource"`
+		VideoSources []struct {
+			File  string `json:"file"`
+			Label string `json:"label"`
+		} `json:"videoSources"`
 	}
 	json.NewDecoder(resp.Body).Decode(&res)
 
@@ -420,9 +428,20 @@ func fetchHDPlayer(ctx context.Context, embedURL string) *models.Stream {
 	if targetLink == "" {
 		targetLink = res.VideoSource
 	}
+	if targetLink == "" && len(res.VideoSources) > 0 {
+		targetLink = res.VideoSources[0].File
+	}
 
 	if targetLink == "" {
 		return nil
+	}
+
+	var headers map[string]string
+	if !strings.Contains(targetLink, "twimg.com") {
+		headers = map[string]string{
+			"Referer": fmt.Sprintf("https://%s/", u.Host),
+			"Origin":  fmt.Sprintf("https://%s", u.Host),
+		}
 	}
 
 	return &models.Stream{
@@ -430,9 +449,6 @@ func fetchHDPlayer(ctx context.Context, embedURL string) *models.Stream {
 		Quality:  "1080p",
 		Provider: "dizimom",
 		URL:      targetLink,
-		Headers: map[string]string{
-			"Referer": "https://hdplayersystem.com/",
-			"Origin":  "https://hdplayersystem.com",
-		},
+		Headers:  headers,
 	}
 }

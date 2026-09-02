@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
+	"github.com/falsisdev/anthology/pkg/extractors"
 	"github.com/falsisdev/anthology/pkg/models"
 	"github.com/falsisdev/anthology/pkg/provider"
 	"github.com/falsisdev/anthology/pkg/utils"
@@ -38,10 +39,13 @@ func (p *Provider) Name() string {
 }
 
 func (p *Provider) SupportedTypes() []models.MediaType {
-	return []models.MediaType{models.MediaTypeMovie, models.MediaTypeTV}
+	return []models.MediaType{models.MediaTypeMovie}
 }
 
 func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]models.Stream, error) {
+	if media.Type != models.MediaTypeMovie {
+		return nil, nil
+	}
 
 	searchQuery := media.Title
 	if searchQuery == "" {
@@ -106,29 +110,26 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 		if !exists || src == "" {
 			src, _ = s.Attr("data-src")
 		}
-		if src == "" || strings.Contains(src, "facebook") || strings.Contains(src, "disqus") {
+		if src == "" || strings.Contains(src, "facebook") || strings.Contains(src, "youtube") || strings.Contains(src, "disqus") {
 			return
 		}
-
-		serverName := "Film Makinesi Player"
-		if strings.Contains(src, "vidmoly") {
-			serverName = "VidMoly"
-		} else if strings.Contains(src, "rapid") {
-			serverName = "RapidPlay"
-		} else if strings.Contains(src, "sibnet") {
-			serverName = "Sibnet"
+		if strings.HasPrefix(src, "//") {
+			src = "https:" + src
 		}
 
-		streams = append(streams, models.Stream{
-			Name:     media.Title,
-			Title:    fmt.Sprintf("⌜ Film Makinesi ⌟ | %s", serverName),
-			URL:      src,
-			Quality:  "1080p",
-			Provider: ID,
-			Headers: map[string]string{
-				"Referer": BaseURL + "/",
-			},
-		})
+		extracted, err := extractors.Extract(ctx, src, filmURL)
+		if err == nil && len(extracted) > 0 {
+			for _, es := range extracted {
+				streams = append(streams, models.Stream{
+					Name:     media.Title,
+					Title:    fmt.Sprintf("⌜ Film Makinesi ⌟ | %s", es.Title),
+					URL:      es.URL,
+					Quality:  es.Quality,
+					Provider: ID,
+					Headers:  es.Headers,
+				})
+			}
+		}
 	})
 
 	return streams, nil

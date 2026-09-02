@@ -192,7 +192,7 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 				src = "https:" + src
 			}
 
-			if strings.Contains(src, "hdplayersystem.com") {
+			if strings.Contains(src, "hdplayersystem.com") || strings.Contains(src, "hdstreamable.com") {
 				if stream := fetchHDPlayerStream(ctx, src, media.Title); stream != nil {
 					streams = append(streams, *stream)
 				}
@@ -225,10 +225,18 @@ func fetchHDPlayerStream(ctx context.Context, embedURL, mediaTitle string) *mode
 	}
 	dataID := u.Query().Get("data")
 	if dataID == "" {
+		parts := strings.Split(strings.Trim(u.Path, "/"), "/")
+		dataID = parts[len(parts)-1]
+	}
+	if dataID == "" {
 		return nil
 	}
 
 	apiURL := fmt.Sprintf("https://hdplayersystem.com/player/index.php?data=%s&do=getVideo", dataID)
+	if strings.Contains(u.Host, "hdstreamable") {
+		apiURL = fmt.Sprintf("https://%s%s?do=getVideo", u.Host, u.Path)
+	}
+
 	postData := url.Values{
 		"hash": {dataID},
 		"r":    {"https://www.dizimom.diy/"},
@@ -247,8 +255,12 @@ func fetchHDPlayerStream(ctx context.Context, embedURL, mediaTitle string) *mode
 	defer resp.Body.Close()
 
 	var res struct {
-		SecuredLink string `json:"securedLink"`
-		VideoSource string `json:"videoSource"`
+		SecuredLink  string `json:"securedLink"`
+		VideoSource  string `json:"videoSource"`
+		VideoSources []struct {
+			File  string `json:"file"`
+			Label string `json:"label"`
+		} `json:"videoSources"`
 	}
 	json.NewDecoder(resp.Body).Decode(&res)
 
@@ -256,9 +268,20 @@ func fetchHDPlayerStream(ctx context.Context, embedURL, mediaTitle string) *mode
 	if targetLink == "" {
 		targetLink = res.VideoSource
 	}
+	if targetLink == "" && len(res.VideoSources) > 0 {
+		targetLink = res.VideoSources[0].File
+	}
 
 	if targetLink == "" {
 		return nil
+	}
+
+	var headers map[string]string
+	if !strings.Contains(targetLink, "twimg.com") {
+		headers = map[string]string{
+			"Referer": fmt.Sprintf("https://%s/", u.Host),
+			"Origin":  fmt.Sprintf("https://%s", u.Host),
+		}
 	}
 
 	return &models.Stream{
@@ -267,9 +290,6 @@ func fetchHDPlayerStream(ctx context.Context, embedURL, mediaTitle string) *mode
 		Quality:  "1080p",
 		Provider: ID,
 		URL:      targetLink,
-		Headers: map[string]string{
-			"Referer": "https://hdplayersystem.com/",
-			"Origin":  "https://hdplayersystem.com",
-		},
+		Headers:  headers,
 	}
 }

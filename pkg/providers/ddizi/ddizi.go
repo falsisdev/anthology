@@ -127,7 +127,7 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 	if epURL == "" {
 		reSayfaNum := regexp.MustCompile(`/sayfa-(\d+)`)
 		maxPage := 0
-		showDoc.Find(".content_ nav a, nav[aria-label='Page navigation'] a").Each(func(i int, s *goquery.Selection) {
+		showDoc.Find(".pagination a, nav a, a[href*='sayfa-']").Each(func(i int, s *goquery.Selection) {
 			href, _ := s.Attr("href")
 			if m := reSayfaNum.FindStringSubmatch(href); len(m) > 1 {
 				var p int
@@ -138,7 +138,7 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 			}
 		})
 
-		for p := maxPage; p >= 1; p-- {
+		for p := maxPage; p >= 0; p-- {
 			pageURL := fmt.Sprintf("%s/sayfa-%d", strings.TrimSuffix(showURL, "/"), p)
 			pBody, err := utils.DefaultClient.Get(ctx, pageURL, headers)
 			if err != nil {
@@ -149,7 +149,7 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 				continue
 			}
 
-			pDoc.Find(".content_ .dizi-boxpost-cat a").EachWithBreak(func(i int, s *goquery.Selection) bool {
+			pDoc.Find(".dizi-boxpost-cat a, .content_ a[href*='/izle/']").EachWithBreak(func(i int, s *goquery.Selection) bool {
 				href, _ := s.Attr("href")
 				title, _ := s.Attr("title")
 				hrefLower := strings.ToLower(href)
@@ -203,6 +203,10 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 		extracted, err := extractors.Extract(ctx, src, epURL)
 		if err == nil && len(extracted) > 0 {
 			for _, es := range extracted {
+				var hdrs map[string]string
+				if !strings.Contains(es.URL, "twimg.com") {
+					hdrs = es.Headers
+				}
 				streams = append(streams, models.Stream{
 					Name:     media.Title,
 					Title:    fmt.Sprintf("⌜ Ddizi ⌟ | %s", es.Title),
@@ -210,7 +214,7 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 					Provider: ID,
 					URL:      es.URL,
 					YTID:     es.YTID,
-					Headers:  es.Headers,
+					Headers:  hdrs,
 				})
 			}
 		}
