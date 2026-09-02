@@ -88,7 +88,7 @@ func (s *Server) handleManifest(w http.ResponseWriter, r *http.Request) {
 		"author":      "falsisdev",
 		"resources":   []string{"catalog", "stream", "meta"},
 		"types":       []string{"movie", "series", "tv", "live", "channel", "anime"},
-		"idPrefixes":  []string{"tt", "tmdb:", "kitsu:", "animecix:", "canli:", "ddizi:", "dizimom:", "diziyou:", "hdfc:"},
+		"idPrefixes":  []string{"tt", "tmdb:", "kitsu:", "animecix:", "canli:", "ddizi:", "dizimom:", "diziyou:", "hdfc:", "sinewix:"},
 		"catalogs": []map[string]interface{}{
 			{
 				"type": "series",
@@ -110,6 +110,22 @@ func (s *Server) handleManifest(w http.ResponseWriter, r *http.Request) {
 				"type": "series",
 				"id":   "anthology_diziyou",
 				"name": "Anthology - DiziYou",
+				"extra": []map[string]interface{}{
+					{"name": "search", "isRequired": false},
+				},
+			},
+			{
+				"type": "series",
+				"id":   "anthology_sinewix_series",
+				"name": "Anthology - SineWix Dizi",
+				"extra": []map[string]interface{}{
+					{"name": "search", "isRequired": false},
+				},
+			},
+			{
+				"type": "movie",
+				"id":   "anthology_sinewix_movies",
+				"name": "Anthology - SineWix Film",
 				"extra": []map[string]interface{}{
 					{"name": "search", "isRequired": false},
 				},
@@ -242,8 +258,8 @@ func (s *Server) handleMeta(w http.ResponseWriter, r *http.Request) {
 	mediaType := parts[1]
 	rawID := strings.TrimSuffix(parts[2], ".json")
 
-	// 1. Custom Catalogs (Ddizi, Dizimom, DiziYou, HDFC)
-	if strings.HasPrefix(rawID, "ddizi:") || strings.HasPrefix(rawID, "dizimom:") || strings.HasPrefix(rawID, "diziyou:") || strings.HasPrefix(rawID, "hdfc:") {
+	// 1. Custom Catalogs (Ddizi, Dizimom, DiziYou, HDFC, SineWix)
+	if strings.HasPrefix(rawID, "ddizi:") || strings.HasPrefix(rawID, "dizimom:") || strings.HasPrefix(rawID, "diziyou:") || strings.HasPrefix(rawID, "hdfc:") || strings.HasPrefix(rawID, "sinewix:") {
 		meta, err := catalog.GetMeta(r.Context(), mediaType, rawID)
 		if err != nil || meta == nil {
 			jsonResponse(w, http.StatusOK, map[string]interface{}{"meta": nil})
@@ -333,8 +349,8 @@ func (s *Server) handleStream(w http.ResponseWriter, r *http.Request) {
 		BehaviorHints map[string]interface{} `json:"behaviorHints,omitempty"`
 	}
 
-	// Custom Provider Stream (ddizi:, dizimom:, diziyou:, hdfc:)
-	if strings.HasPrefix(rawID, "ddizi:") || strings.HasPrefix(rawID, "dizimom:") || strings.HasPrefix(rawID, "diziyou:") || strings.HasPrefix(rawID, "hdfc:") {
+	// Custom Provider Stream (ddizi:, dizimom:, diziyou:, hdfc:, sinewix:)
+	if strings.HasPrefix(rawID, "ddizi:") || strings.HasPrefix(rawID, "dizimom:") || strings.HasPrefix(rawID, "diziyou:") || strings.HasPrefix(rawID, "hdfc:") || strings.HasPrefix(rawID, "sinewix:") {
 		customStreams, err := catalog.GetStream(r.Context(), rawID)
 		if err != nil || len(customStreams) == 0 {
 			jsonResponse(w, http.StatusOK, map[string]interface{}{"streams": []interface{}{}})
