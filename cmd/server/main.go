@@ -16,6 +16,7 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/falsisdev/anthology"
 	"github.com/falsisdev/anthology/pkg/catalog"
 	"github.com/falsisdev/anthology/pkg/engine"
 	"github.com/falsisdev/anthology/pkg/models"
@@ -113,99 +114,12 @@ func (s *Server) handleManifest(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	manifest := map[string]interface{}{
-		"id":          "anthology.falsisdev.addon",
-		"name":        "Anthology",
-		"version":     web.Version,
-		"description": "Golang tabanlı yüksek performanslı Türkçe dizi, film, anime ve Canlı IPTV yayın motoru.",
-		"logo":        "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_2_transparent.png",
-		"icon":        "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_2_transparent.png",
-		"background":  "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_2_transparent.png",
-		"author":      "falsisdev",
-		"resources":   []string{"catalog", "stream", "meta"},
-		"types":       []string{"movie", "series", "tv", "live", "channel", "anime"},
-		"idPrefixes":  []string{"tt", "tmdb:", "kitsu:", "animecix:", "canli:", "ddizi:", "dizimom:", "diziyou:", "diziwatch:", "hdfc:", "sinewix:"},
-		"catalogs": []map[string]interface{}{
-			{
-				"type": "series",
-				"id":   "anthology_ddizi",
-				"name": "Anthology - Ddizi",
-				"extra": []map[string]interface{}{
-					{"name": "search", "isRequired": false},
-				},
-			},
-			{
-				"type": "series",
-				"id":   "anthology_dizimom",
-				"name": "Anthology - Dizimom",
-				"extra": []map[string]interface{}{
-					{"name": "search", "isRequired": false},
-				},
-			},
-			{
-				"type": "series",
-				"id":   "anthology_diziyou",
-				"name": "Anthology - DiziYou",
-				"extra": []map[string]interface{}{
-					{"name": "search", "isRequired": false},
-				},
-			},
-			{
-				"type": "series",
-				"id":   "anthology_diziwatch",
-				"name": "Anthology - Diziwatch (Anime & Dizi)",
-				"extra": []map[string]interface{}{
-					{"name": "search", "isRequired": false},
-				},
-			},
-			{
-				"type": "series",
-				"id":   "anthology_sinewix_series",
-				"name": "Anthology - SineWix Dizi",
-				"extra": []map[string]interface{}{
-					{"name": "search", "isRequired": false},
-				},
-			},
-			{
-				"type": "movie",
-				"id":   "anthology_sinewix_movies",
-				"name": "Anthology - SineWix Film",
-				"extra": []map[string]interface{}{
-					{"name": "search", "isRequired": false},
-				},
-			},
-			{
-				"type": "movie",
-				"id":   "anthology_hdfc",
-				"name": "Anthology - HDFilmCehennemi",
-				"extra": []map[string]interface{}{
-					{"name": "search", "isRequired": false},
-				},
-			},
-			{
-				"type": "tv",
-				"id":   "falsis_canli_tv",
-				"name": "Canlı TV (Ulusal & Haber & Sinema)",
-				"extra": []map[string]interface{}{
-					{"name": "genre", "isRequired": false},
-				},
-			},
-			{
-				"type": "live",
-				"id":   "falsis_canli_tv",
-				"name": "Canlı TV (Ulusal & Haber & Sinema)",
-				"extra": []map[string]interface{}{
-					{"name": "genre", "isRequired": false},
-				},
-			},
-		},
-		"behaviorHints": map[string]interface{}{
-			"configurable":          false,
-			"configurationRequired": false,
-		},
-		"repository": "https://github.com/falsisdev/anthology",
-	}
-	jsonResponse(w, http.StatusOK, manifest)
+	// Serve the canonical manifest byte-for-byte from the embedded repo-root
+	// manifest.json. That file is the single source of truth and carries the
+	// stremioAddonsConfig (stremio-addons.net) verification block.
+	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.WriteHeader(http.StatusOK)
+	_, _ = w.Write(anthology.ManifestJSON)
 }
 
 func (s *Server) handleCatalog(w http.ResponseWriter, r *http.Request) {
