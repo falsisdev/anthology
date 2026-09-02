@@ -9,6 +9,7 @@ import (
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
+	"github.com/falsisdev/nuviotr/pkg/extractors"
 	"github.com/falsisdev/nuviotr/pkg/models"
 	"github.com/falsisdev/nuviotr/pkg/provider"
 	"github.com/falsisdev/nuviotr/pkg/utils"
@@ -52,7 +53,7 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 		searchQuery = media.OriginalTitle
 	}
 
-	searchURL := fmt.Sprintf("%s/ara/%s", BaseURL, url.PathEscape(searchQuery))
+	searchURL := fmt.Sprintf("%s/?s=%s", BaseURL, url.QueryEscape(searchQuery))
 	headers := map[string]string{
 		"User-Agent": utils.DefaultUserAgent,
 		"Referer":    BaseURL + "/",
@@ -69,9 +70,9 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 	}
 
 	var showURL string
-	doc.Find("article a, .post-title a, .film-content a, .entry-title a, a").EachWithBreak(func(i int, s *goquery.Selection) bool {
+	doc.Find("article a, .film-card a, .post-title a, a").EachWithBreak(func(i int, s *goquery.Selection) bool {
 		href, exists := s.Attr("href")
-		if !exists || !strings.HasPrefix(href, BaseURL) {
+		if !exists || !strings.HasPrefix(href, BaseURL) || strings.Contains(href, "/iletisim") || strings.Contains(href, "/kategori") {
 			return true
 		}
 		if strings.Contains(href, "/dizi/") || strings.Contains(href, "/diziler/") {
@@ -121,25 +122,19 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 			src = "https:" + src
 		}
 
-		serverName := "Dizibox Player"
-		if strings.Contains(src, "vidmoly") {
-			serverName = "VidMoly"
-		} else if strings.Contains(src, "sibnet") {
-			serverName = "Sibnet"
-		} else if strings.Contains(src, "rapidvid") {
-			serverName = "RapidVid"
+		extracted, err := extractors.Extract(ctx, src, epURL)
+		if err == nil && len(extracted) > 0 {
+			for _, es := range extracted {
+				streams = append(streams, models.Stream{
+					Name:     media.Title,
+					Title:    fmt.Sprintf("⌜ Dizibox ⌟ | %s", es.Title),
+					Quality:  es.Quality,
+					URL:      es.URL,
+					Provider: ID,
+					Headers:  es.Headers,
+				})
+			}
 		}
-
-		streams = append(streams, models.Stream{
-			Name:     media.Title,
-			Title:    fmt.Sprintf("⌜ Dizibox ⌟ | %s", serverName),
-			URL:      src,
-			Quality:  "1080p",
-			Provider: ID,
-			Headers: map[string]string{
-				"Referer": BaseURL + "/",
-			},
-		})
 	})
 
 	return streams, nil

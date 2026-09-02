@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
+	"github.com/falsisdev/nuviotr/pkg/extractors"
 	"github.com/falsisdev/nuviotr/pkg/models"
 	"github.com/falsisdev/nuviotr/pkg/provider"
 	"github.com/falsisdev/nuviotr/pkg/utils"
@@ -106,7 +107,7 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 	showDoc.Find("a").EachWithBreak(func(i int, s *goquery.Selection) bool {
 		href, _ := s.Attr("href")
 		title, _ := s.Attr("title")
-		
+
 		titleLower := strings.ToLower(title)
 		hrefLower := strings.ToLower(href)
 
@@ -149,27 +150,19 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 			src = BaseURL + src
 		}
 
-		serverName := "Alternatif Player"
-		if strings.Contains(src, "vidmoly") {
-			serverName = "VidMoly"
-		} else if strings.Contains(src, "ok.ru") || strings.Contains(src, "odnoklassniki") {
-			serverName = "Okru"
-		} else if strings.Contains(src, "vk.com") {
-			serverName = "VK"
-		} else if strings.Contains(src, "mail.ru") {
-			serverName = "MailRu"
+		extracted, err := extractors.Extract(ctx, src, epURL)
+		if err == nil && len(extracted) > 0 {
+			for _, es := range extracted {
+				streams = append(streams, models.Stream{
+					Name:     media.Title,
+					Title:    fmt.Sprintf("⌜ Ddizi ⌟ | %s", es.Title),
+					Quality:  es.Quality,
+					Provider: ID,
+					URL:      es.URL,
+					Headers:  es.Headers,
+				})
+			}
 		}
-
-		streams = append(streams, models.Stream{
-			Name:     media.Title,
-			Title:    fmt.Sprintf("⌜ Ddizi ⌟ | %s", serverName),
-			Quality:  "1080p",
-			Provider: ID,
-			URL:      src,
-			Headers: map[string]string{
-				"Referer": BaseURL + "/",
-			},
-		})
 	})
 
 	return streams, nil

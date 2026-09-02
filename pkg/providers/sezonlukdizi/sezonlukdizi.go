@@ -10,6 +10,7 @@ import (
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
+	"github.com/falsisdev/nuviotr/pkg/extractors"
 	"github.com/falsisdev/nuviotr/pkg/models"
 	"github.com/falsisdev/nuviotr/pkg/provider"
 	"github.com/falsisdev/nuviotr/pkg/utils"
@@ -43,13 +44,15 @@ func (p *Provider) SupportedTypes() []models.MediaType {
 	return []models.MediaType{models.MediaTypeTV}
 }
 
+type altData struct {
+	ID     int    `json:"id"`
+	Baslik string `json:"baslik"`
+	Dil    string `json:"dil"`
+}
+
 type alternatifResponse struct {
-	Status string `json:"status"`
-	Data   []struct {
-		ID     int    `json:"id"`
-		Baslik string `json:"baslik"`
-		Kalite int    `json:"kalite"`
-	} `json:"data"`
+	Status string    `json:"status"`
+	Data   []altData `json:"data"`
 }
 
 func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]models.Stream, error) {
@@ -57,27 +60,27 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 		return nil, nil
 	}
 
-	slug := utils.ToSlug(media.OriginalTitle)
+	slug := utils.ToSlug(media.Title)
 	if slug == "" {
-		slug = utils.ToSlug(media.Title)
+		slug = utils.ToSlug(media.OriginalTitle)
 	}
 
+	epURL := fmt.Sprintf("%s/diziler/%s/%d-sezon-%d-bolum.html", BaseURL, slug, media.Season, media.Episode)
 	headers := map[string]string{
 		"User-Agent": utils.DefaultUserAgent,
 		"Referer":    BaseURL + "/",
 	}
 
-	// Episode URL format: https://sezonlukdizi.cc/{slug}/{season}-sezon-{episode}-bolum.html
-	epURL := fmt.Sprintf("%s/%s/%d-sezon-%d-bolum.html", BaseURL, slug, media.Season, media.Episode)
 	body, err := utils.DefaultClient.Get(ctx, epURL, headers)
 	if err != nil {
-		trSlug := utils.ToSlug(media.Title)
-		if trSlug != "" && trSlug != slug {
-			epURL = fmt.Sprintf("%s/%s/%d-sezon-%d-bolum.html", BaseURL, trSlug, media.Season, media.Episode)
-			body, err = utils.DefaultClient.Get(ctx, epURL, headers)
+		if media.OriginalTitle != "" && media.OriginalTitle != media.Title {
+			origSlug := utils.ToSlug(media.OriginalTitle)
+			altURL := fmt.Sprintf("%s/diziler/%s/%d-sezon-%d-bolum.html", BaseURL, origSlug, media.Season, media.Episode)
+			body, err = utils.DefaultClient.Get(ctx, altURL, headers)
 			if err != nil {
 				return nil, nil
 			}
+			epURL = altURL
 		} else {
 			return nil, nil
 		}
@@ -88,7 +91,6 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 		return nil, nil
 	}
 
-	// Extract episode bid (data-id on #dilsec or bid on #topBarBtn)
 	bid := ""
 	if v, exists := doc.Find("#dilsec").Attr("data-id"); exists && v != "" {
 		bid = v
@@ -99,7 +101,6 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 	var streams []models.Stream
 
 	if bid != "" {
-		// Fetch alternatives for both subtitle (dil=1) and dubbing (dil=0)
 		for _, dil := range []string{"1", "0"} {
 			altURL := fmt.Sprintf("%s/ajax/dataAlternatif22.asp", BaseURL)
 			postData := url.Values{
@@ -153,23 +154,24 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 								src = "https:" + src
 							}
 
-							streamTitle := fmt.Sprintf("⌜ SezonlukDizi ⌟ | %s", alt.Baslik)
-							if dil == "1" {
-								streamTitle += " [Altyazı]"
-							} else {
-								streamTitle += " [Dublaj]"
+							tag := "[Altyazı]"
+							if dil == "0" {
+								tag = "[Dublaj]"
 							}
 
-							streams = append(streams, models.Stream{
-								Name:     media.Title,
-								Title:    streamTitle,
-								URL:      src,
-								Quality:  "1080p",
-								Provider: ID,
-								Headers: map[string]string{
-									"Referer": BaseURL + "/",
-								},
-							})
+							extracted, err := extractors.Extract(ctx, src, epURL)
+							if err == nil && len(extracted) > 0 {
+								for _, es := range extracted {
+									streams = append(streams, models.Stream{
+										Name:     media.Title,
+										Title:    fmt.Sprintf("⌜ SezonlukDizi ⌟ | %s %s (%s)", alt.Baslik, tag, es.Title),
+										URL:      es.URL,
+										Quality:  es.Quality,
+										Provider: ID,
+										Headers:  es.Headers,
+									})
+								}
+							}
 						})
 					}
 				}
@@ -177,38 +179,32 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 		}
 	}
 
-	// Fallback check on standard iframes in document
+	// Document-level iframes
 	doc.Find("iframe").Each(func(i int, s *goquery.Selection) {
 		src, _ := s.Attr("src")
 		if src == "" || src == "about:blank" {
 			src, _ = s.Attr("data-src")
 		}
-		if src == "" || strings.Contains(src, "facebook") || strings.Contains(src, "youtube") || strings.Contains(src, "disqus") || strings.Contains(src, "reCAPTCHA") {
+		if src == "" || strings.Contains(src, "reCAPTCHA") || strings.Contains(src, "facebook") || strings.Contains(src, "youtube") {
 			return
 		}
 		if strings.HasPrefix(src, "//") {
 			src = "https:" + src
 		}
 
-		serverName := "SezonlukDizi Player"
-		if strings.Contains(src, "vidmoly") {
-			serverName = "VidMoly"
-		} else if strings.Contains(src, "sibnet") {
-			serverName = "Sibnet"
-		} else if strings.Contains(src, "odnoklassniki") {
-			serverName = "OK.ru"
+		extracted, err := extractors.Extract(ctx, src, epURL)
+		if err == nil && len(extracted) > 0 {
+			for _, es := range extracted {
+				streams = append(streams, models.Stream{
+					Name:     media.Title,
+					Title:    fmt.Sprintf("⌜ SezonlukDizi ⌟ | %s", es.Title),
+					URL:      es.URL,
+					Quality:  es.Quality,
+					Provider: ID,
+					Headers:  es.Headers,
+				})
+			}
 		}
-
-		streams = append(streams, models.Stream{
-			Name:     media.Title,
-			Title:    fmt.Sprintf("⌜ SezonlukDizi ⌟ | %s", serverName),
-			URL:      src,
-			Quality:  "1080p",
-			Provider: ID,
-			Headers: map[string]string{
-				"Referer": BaseURL + "/",
-			},
-		})
 	})
 
 	return streams, nil
