@@ -84,20 +84,80 @@ func defaultDdizi(ctx context.Context) ([]MetaItem, error) {
 		return nil, err
 	}
 
+	reCleanTitle := regexp.MustCompile(`(?i)[\s\-_]*\d+[\.\s\-_]*b[oö]l[uü]m.*`)
+	reStripHTML := regexp.MustCompile(`<[^>]*>`)
+
 	var results []MetaItem
 	seen := make(map[string]bool)
-	doc.Find(".dizi-boxpost-cat a").Each(func(i int, s *goquery.Selection) {
-		href, _ := s.Attr("href")
-		if !strings.Contains(href, "/diziler/") || seen[href] {
+
+	// 1. Episode cards with posters
+	doc.Find("img[data-src]").Each(func(i int, img *goquery.Selection) {
+		src, _ := img.Attr("data-src")
+		if src == "" || !strings.Contains(src, "/diziresimleri/") {
 			return
 		}
-		seen[href] = true
 
-		name := strings.TrimSpace(s.Text())
-		img := s.Find("img")
-		poster, _ := img.Attr("data-src")
-		if poster == "" {
-			poster, _ = img.Attr("src")
+		a := img.Closest("a")
+		if a.Length() == 0 {
+			a = img.Parent()
+		}
+		href, _ := a.Attr("href")
+		if href == "" || strings.Contains(href, "iletisim") {
+			return
+		}
+
+		alt, _ := img.Attr("alt")
+		title := reCleanTitle.ReplaceAllString(alt, "")
+		title = reStripHTML.ReplaceAllString(title, "")
+		title = strings.TrimSpace(title)
+
+		parts := strings.Split(strings.Trim(href, "/"), "/")
+		if len(parts) < 2 {
+			return
+		}
+
+		var id string
+		if strings.Contains(href, "/izle/") {
+			slugPart := strings.Join(parts[len(parts)-2:], ":")
+			id = "ddizi:ep:" + slugPart
+		} else if strings.Contains(href, "/diziler/") {
+			slugPart := strings.Join(parts[len(parts)-2:], ":")
+			id = "ddizi:show:" + slugPart
+		} else {
+			return
+		}
+
+		if seen[title] {
+			return
+		}
+		seen[title] = true
+
+		results = append(results, MetaItem{
+			ID:          id,
+			Type:        "series",
+			Name:        title,
+			Poster:      src,
+			Background:  src,
+			Description: title + " - Ddizi Popüler Dizi",
+			Genres:      []string{"Ddizi", "Popüler Dizi"},
+		})
+	})
+
+	// 2. Series links
+	doc.Find("a").Each(func(i int, a *goquery.Selection) {
+		href, _ := a.Attr("href")
+		if !strings.Contains(href, "/diziler/") {
+			return
+		}
+		title := strings.TrimSpace(a.Text())
+		if title == "" || len(title) < 2 {
+			title, _ = a.Attr("title")
+		}
+		title = regexp.MustCompile(`(?i)[\s\-_]*(?:son[\s\-_]+bolum[\s\-_]+izle|dizisi|izle)$`).ReplaceAllString(title, "")
+		title = reStripHTML.ReplaceAllString(title, "")
+		title = strings.TrimSpace(title)
+		if title == "" || seen[title] {
+			return
 		}
 
 		parts := strings.Split(strings.Trim(href, "/"), "/")
@@ -106,20 +166,64 @@ func defaultDdizi(ctx context.Context) ([]MetaItem, error) {
 		}
 		slugPart := strings.Join(parts[len(parts)-2:], ":")
 		id := "ddizi:show:" + slugPart
+		seen[title] = true
 
 		results = append(results, MetaItem{
 			ID:          id,
 			Type:        "series",
-			Name:        name,
-			Poster:      poster,
-			Background:  poster,
-			Genres:      []string{"Ddizi", "Popüler Dizi"},
+			Name:        title,
+			Description: title + " - Ddizi Dizi Arşivi",
+			Genres:      []string{"Ddizi", "Dizi"},
 		})
 	})
+
 	return results, nil
 }
 
 func getDdiziMeta(ctx context.Context, showID string) (*MetaDetail, error) {
+	if strings.HasPrefix(showID, "ddizi:ep:") {
+		clean := strings.TrimPrefix(showID, "ddizi:ep:")
+		parts := strings.Split(clean, ":")
+		if len(parts) < 2 {
+			return nil, fmt.Errorf("invalid episode id")
+		}
+		epURL := fmt.Sprintf("%s/izle/%s/%s", ddiziBase, parts[0], parts[1])
+		body, err := utils.DefaultClient.Get(ctx, epURL, ddiziHeaders())
+		if err != nil {
+			return nil, err
+		}
+		doc, err := goquery.NewDocumentFromReader(bytes.NewReader(body))
+		if err != nil {
+			return nil, err
+		}
+		title := strings.TrimSpace(doc.Find(".title_con h1, .white_back h1, title").First().Text())
+		title = strings.TrimSuffix(title, " izle")
+		title = strings.TrimSpace(title)
+
+		poster, _ := doc.Find(".dizi-resmi img, .img-back-cat, .content_ img, img.lazyload").First().Attr("data-src")
+		if poster == "" {
+			poster, _ = doc.Find(".dizi-resmi img, .img-back-cat, .content_ img, img.lazyload").First().Attr("src")
+		}
+
+		return &MetaDetail{
+			ID:          showID,
+			Type:        "series",
+			Name:        title,
+			Poster:      poster,
+			Background:  poster,
+			Description: title + " - Ddizi",
+			Genres:      []string{"Ddizi", "Dizi"},
+			Videos: []VideoItem{
+				{
+					ID:      showID,
+					Title:   title,
+					Season:  1,
+					Episode: 1,
+				},
+			},
+		}, nil
+	}
+
 	clean := strings.TrimPrefix(showID, "ddizi:show:")
 	parts := strings.Split(clean, ":")
 	if len(parts) < 2 {

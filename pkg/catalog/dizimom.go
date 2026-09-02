@@ -50,32 +50,42 @@ func searchDizimom(ctx context.Context, query string) ([]MetaItem, error) {
 		clean := strings.Trim(href, "/")
 		parts := strings.Split(clean, "/")
 		slug := parts[len(parts)-1]
-
-		title := strings.TrimSpace(s.Text())
-		if title == "" {
-			title, _ = s.Attr("title")
-		}
-
-		// Find surrounding card to extract image and title if missing
-		parent := s.Closest("div, article")
-		if parent.Length() > 0 {
-			if title == "" {
-				title = strings.TrimSpace(parent.Find(".categorytitle, h2, h3, a").Text())
-			}
-		}
-
-		if title == "" {
-			title = strings.ReplaceAll(strings.TrimPrefix(slug, "diziler/"), "-", " ")
-		}
-
-		if seen[slug] {
+		if seen[slug] || slug == "diziler" || slug == "" {
 			return
 		}
 		seen[slug] = true
 
-		poster, _ := parent.Find("img").Attr("src")
-		if poster == "" {
-			poster, _ = parent.Find("img").Attr("data-src")
+		parent := s.Closest("div.cat-img, div.category-item, article, div")
+
+		title := ""
+		if parent.Length() > 0 {
+			title = strings.TrimSpace(parent.Find(".categorytitle a, .cat-title a, h2, h3").First().Text())
+		}
+		if title == "" {
+			title, _ = s.Attr("title")
+		}
+		if title == "" {
+			img := parent.Find("img").First()
+			title, _ = img.Attr("alt")
+		}
+		// Strip any HTML tags if leaked
+		title = regexp.MustCompile(`<[^>]*>`).ReplaceAllString(title, "")
+		title = strings.TrimSpace(title)
+
+		if title == "" {
+			title = strings.Title(strings.ReplaceAll(strings.TrimPrefix(slug, "diziler/"), "-", " "))
+		}
+
+		poster := ""
+		if parent.Length() > 0 {
+			img := parent.Find("img").First()
+			poster, _ = img.Attr("data-src")
+			if poster == "" || strings.HasPrefix(poster, "data:") {
+				poster, _ = img.Attr("src")
+			}
+			if strings.HasPrefix(poster, "data:") {
+				poster = ""
+			}
 		}
 
 		cleanTitle := title
@@ -90,7 +100,7 @@ func searchDizimom(ctx context.Context, query string) ([]MetaItem, error) {
 			Name:        cleanTitle,
 			Poster:      poster,
 			Background:  poster,
-			Description: cleanTitle + " Dizimom dizisi",
+			Description: cleanTitle + " - Dizimom Dizi",
 			Genres:      []string{"Dizimom", "Dizi"},
 		})
 	})
@@ -112,22 +122,53 @@ func defaultDizimom(ctx context.Context) ([]MetaItem, error) {
 	var results []MetaItem
 	seen := make(map[string]bool)
 
-	doc.Find(".categorytitle a, .cat-img a").Each(func(i int, s *goquery.Selection) {
-		href, _ := s.Attr("href")
-		if !strings.Contains(href, "/diziler/") || seen[href] {
+	doc.Find("div.cat-img, div.categorytitle, div.cat-container").Each(func(i int, s *goquery.Selection) {
+		a := s.Find("a").First()
+		href, _ := a.Attr("href")
+		if !strings.Contains(href, "/diziler/") {
 			return
 		}
-		seen[href] = true
 
-		title := strings.TrimSpace(s.Text())
 		clean := strings.Trim(href, "/")
 		parts := strings.Split(clean, "/")
 		slug := parts[len(parts)-1]
+		if seen[slug] || slug == "diziler" || slug == "" {
+			return
+		}
+		seen[slug] = true
+
+		parent := s.Closest(".cat-item, div")
+		if parent.Length() == 0 {
+			parent = s
+		}
+
+		img := parent.Find("img").First()
+		poster, _ := img.Attr("data-src")
+		if poster == "" || strings.HasPrefix(poster, "data:") {
+			poster, _ = img.Attr("src")
+		}
+		if strings.HasPrefix(poster, "data:") {
+			poster = ""
+		}
+
+		title := strings.TrimSpace(parent.Find(".categorytitle a, .cat-title a").First().Text())
+		if title == "" {
+			title, _ = img.Attr("alt")
+		}
+		title = regexp.MustCompile(`<[^>]*>`).ReplaceAllString(title, "")
+		title = regexp.MustCompile(`(?i)[\s\-_]+(?:son[\s\-_]+bolum[\s\-_]+izle|izle[\s\-_]+hd|izle|dizi)$`).ReplaceAllString(title, "")
+		title = strings.TrimSpace(title)
+		if title == "" {
+			title = strings.Title(strings.ReplaceAll(slug, "-", " "))
+		}
 
 		results = append(results, MetaItem{
 			ID:          "dizimom:show:" + slug,
 			Type:        "series",
 			Name:        title,
+			Poster:      poster,
+			Background:  poster,
+			Description: title + " - Dizimom Popüler Dizi",
 			Genres:      []string{"Dizimom", "Popüler Dizi"},
 		})
 	})

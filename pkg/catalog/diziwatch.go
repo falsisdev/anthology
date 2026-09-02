@@ -62,22 +62,31 @@ func searchDiziwatch(ctx context.Context, query string) ([]MetaItem, error) {
 		}
 		seen[slug] = true
 
-		title := ""
-		for _, l := range strings.Split(s.Text(), "\n") {
-			l = strings.TrimSpace(l)
-			if l != "" && !strings.Contains(l, "Türkçe") && !strings.Contains(l, "Altyazı") && !strings.Contains(l, "Dublaj") && !strings.Contains(l, "★") && !strings.Contains(l, "Hemen İzle") && !strings.Contains(l, "play_arrow") {
-				title = l
-				break
-			}
+		img := s.Find("img").First()
+		title := strings.TrimSpace(s.Find("h3").First().Text())
+		if title == "" {
+			title, _ = img.Attr("alt")
 		}
+		title = regexp.MustCompile(`<[^>]*>`).ReplaceAllString(title, "")
+		title = strings.TrimSpace(title)
 		if title == "" {
 			title = strings.Title(strings.ReplaceAll(slug, "-", " "))
 		}
 
-		img := s.Find("img").First()
 		poster, _ := img.Attr("src")
-		if poster == "" {
+		if poster == "" || strings.HasPrefix(poster, "data:") {
 			poster, _ = img.Attr("data-src")
+		}
+		if poster == "" {
+			srcset, _ := img.Attr("srcset")
+			if srcset != "" {
+				parts := strings.Split(srcset, ",")
+				last := strings.TrimSpace(parts[len(parts)-1])
+				subParts := strings.Fields(last)
+				if len(subParts) > 0 {
+					poster = subParts[0]
+				}
+			}
 		}
 
 		results = append(results, MetaItem{

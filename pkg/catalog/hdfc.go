@@ -48,22 +48,33 @@ func searchHDFC(ctx context.Context, query string) ([]MetaItem, error) {
 		seen[href] = true
 
 		img := s.Find("img").First()
-		poster, _ := img.Attr("src")
-		if poster == "" {
-			poster, _ = img.Attr("data-src")
+		poster, _ := img.Attr("data-src")
+		if poster == "" || strings.HasPrefix(poster, "data:") {
+			poster, _ = img.Attr("data-original")
+		}
+		if poster == "" || strings.HasPrefix(poster, "data:") {
+			poster, _ = img.Attr("src")
+		}
+		if strings.HasPrefix(poster, "data:") {
+			poster = ""
 		}
 
-		title := strings.TrimSpace(s.Find(".title, h3, h2").First().Text())
-		if title == "" {
-			title, _ = a.Attr("title")
-		}
+		title := strings.TrimSpace(s.Find("h2.flbaslik, .flbaslik, .title, h3, h2").First().Text())
 		if title == "" {
 			title, _ = img.Attr("alt")
 		}
+		if title == "" {
+			title, _ = a.Attr("title")
+		}
+		title = regexp.MustCompile(`<[^>]*>`).ReplaceAllString(title, "")
+		title = strings.TrimSpace(title)
 
 		clean := strings.Trim(href, "/")
 		parts := strings.Split(clean, "/")
 		slug := parts[len(parts)-1]
+		if title == "" {
+			title = strings.Title(strings.ReplaceAll(strings.TrimSuffix(slug, "-izle"), "-", " "))
+		}
 
 		results = append(results, MetaItem{
 			ID:          "hdfc:movie:" + slug,
@@ -71,7 +82,7 @@ func searchHDFC(ctx context.Context, query string) ([]MetaItem, error) {
 			Name:        title,
 			Poster:      poster,
 			Background:  poster,
-			Description: title + " HDFilmCehennemi filmi",
+			Description: title + " - HDFilmCehennemi Filmi",
 			Genres:      []string{"HDFilmCehennemi", "Film"},
 		})
 	})
@@ -101,26 +112,48 @@ func defaultHDFC(ctx context.Context) ([]MetaItem, error) {
 		seen[href] = true
 
 		img := s.Find("img").First()
-		poster, _ := img.Attr("src")
-		if poster == "" {
-			poster, _ = img.Attr("data-src")
+		poster, _ := img.Attr("data-src")
+		if poster == "" || strings.HasPrefix(poster, "data:") {
+			poster, _ = img.Attr("data-original")
+		}
+		if poster == "" || strings.HasPrefix(poster, "data:") {
+			poster, _ = img.Attr("src")
+		}
+		if strings.HasPrefix(poster, "data:") {
+			poster = ""
 		}
 
-		title := strings.TrimSpace(s.Text())
+		title := strings.TrimSpace(s.Find("h2.flbaslik, .flbaslik, .title, h2, h3").First().Text())
 		if title == "" {
 			title, _ = img.Attr("alt")
 		}
+		if title == "" {
+			for _, l := range strings.Split(s.Text(), "\n") {
+				l = strings.TrimSpace(l)
+				if l != "" && !strings.Contains(l, "Dublaj") && !strings.Contains(l, "Altyazı") {
+					title = l
+					break
+				}
+			}
+		}
+		title = regexp.MustCompile(`<[^>]*>`).ReplaceAllString(title, "")
+		title = strings.TrimSpace(title)
 
 		clean := strings.Trim(href, "/")
 		parts := strings.Split(clean, "/")
 		slug := parts[len(parts)-1]
+		if title == "" {
+			title = strings.Title(strings.ReplaceAll(strings.TrimSuffix(slug, "-izle"), "-", " "))
+		}
 
 		results = append(results, MetaItem{
-			ID:     "hdfc:movie:" + slug,
-			Type:   "movie",
-			Name:   title,
-			Poster: poster,
-			Genres: []string{"HDFilmCehennemi", "Popüler Film"},
+			ID:          "hdfc:movie:" + slug,
+			Type:        "movie",
+			Name:        title,
+			Poster:      poster,
+			Background:  poster,
+			Description: title + " - HDFilmCehennemi Popüler Film",
+			Genres:      []string{"HDFilmCehennemi", "Popüler Film"},
 		})
 	})
 
