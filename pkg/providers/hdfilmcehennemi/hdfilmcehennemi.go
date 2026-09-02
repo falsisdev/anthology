@@ -84,10 +84,14 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 	bodyStr := string(body)
 
 	// Extract nonce
-	reNonce := regexp.MustCompile(`nonce:\s*'([^']+)'`)
+	reNonce := regexp.MustCompile(`videoAjax\s*=\s*\{[^}]*nonce:\s*['"]([^'"]+)['"]`)
 	mNonce := reNonce.FindStringSubmatch(bodyStr)
 	if len(mNonce) < 2 {
-		return nil, nil
+		reFallback := regexp.MustCompile(`nonce:\s*['"]([a-f0-9]{10})['"]`)
+		mNonce = reFallback.FindStringSubmatch(bodyStr)
+		if len(mNonce) < 2 {
+			return nil, nil
+		}
 	}
 	nonce := mNonce[1]
 

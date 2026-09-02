@@ -21,10 +21,10 @@ import (
 
 const (
 	// ProviderTestTimeout bounds a single provider's stream search.
-	ProviderTestTimeout = 3 * time.Second
+	ProviderTestTimeout = 7 * time.Second
 
 	// ChannelTestTimeout bounds a single channel connectivity check.
-	ChannelTestTimeout = 3 * time.Second
+	ChannelTestTimeout = 4 * time.Second
 
 	// WorkerCount limits how many live tests run at the same time.
 	WorkerCount = 16
@@ -46,31 +46,41 @@ type TestResult struct {
 // göre bu haritadan döner; eşleşme yoksa kategorik aday havuzundan seçim yapar.
 var providerFixtures = map[string][]models.MediaInfo{
 	// Anime
-	"animexe":       {probeTV("Naruto")},
-	"animpow":       {probeTV("Bleach")},
+	"animexe":       {probeTV("Naruto"), probeTV("Death Note")},
+	"animpow":       {probeTV("Bleach"), probeTV("Naruto")},
 	"seicode":       {probeTV("Bleach")},
-	"diziwatch":     {probeTV("Bleach")},
-	"asyaanimeleri": {probeTV("Shingeki no Kyojin")},
+	"diziwatch":     {probeTV("Bleach"), probeTV("Naruto")},
+	"asyaanimeleri": {probeTV("Naruto"), probeTV("Shingeki no Kyojin")},
+	"tranimeizle":   {probeTV("Naruto"), probeTV("Death Note")},
+	"animecix":      {probeTV("Naruto"), probeTV("Death Note")},
+	"acheriya":      {probeTV("Naruto"), probeTV("Death Note")},
 
 	// Türk / yabancı dizi
-	"diziyou":      {probeTV("The Mentalist")},
-	"sezonlukdizi": {probeTV("The Mentalist")},
-	"dizigom":      {probeTV("Last Seen")},
-	"dizimag":      {probeTV("Shogun")},
-	"setfilmizle":  {probeTV("Supergirl")},
-	"sinemacx":     {probeMovie("Saplantı")},
-	"sinezy":       {probeMovie("Saplantı")},
+	"ddizi":        {probeTV("Kızılcık Şerbeti"), probeTV("Son Yaz"), probeTV("Bahar")},
+	"dizimom":      {probeTV("Son Yaz"), probeTV("The Mentalist"), probeTV("Gibi")},
+	"diziyou":      {probeTV("The Mentalist"), probeTV("Breaking Bad")},
+	"sezonlukdizi": {probeTV("The Mentalist"), probeTV("Breaking Bad")},
+	"dizigom":      {probeTV("The Mentalist"), probeTV("Breaking Bad")},
+	"dizimag":      {probeTV("The Mentalist"), probeTV("Breaking Bad")},
+	"diziyo":       {probeTV("The Mentalist"), probeTV("Game of Thrones")},
+	"dizibox":      {probeTV("The Mentalist"), probeTV("Game of Thrones")},
 
 	// Film
-	"dizipal":         {probeMovie("Örümcek-Adam: Yepyeni Bir Gün")},
-	"filmekseni":      {probeMovie("Son Gün Doğumu")},
-	"filmhane":        {probeTV("Supergirl")},
-	"filmifullizle":   {probeTV("Supergirl")},
-	"filmzal":         {probeTV("Supergirl")},
-	"hdfilmcehennemi": {probeMovie("The Runner")},
-	"hdfilmdelisi":    {probeMovie("Saplantı")},
-	"jetfilmizle":     {probeMovie("spiked")},
-	"tekfullfilmizle": {probeMovie("Patron Bebek")},
+	"sinewix":         {probeMovie("Inception"), probeMovie("Başlangıç")},
+	"sinemacx":        {probeMovie("Saplantı"), probeMovie("Inception")},
+	"sinezy":          {probeMovie("Saplantı"), probeMovie("Inception")},
+	"filmifullizle":   {probeMovie("Godfather"), probeMovie("Inception")},
+	"filmhane":        {probeTV("Reacher"), probeMovie("Inception")},
+	"filmzal":         {probeMovie("Inception"), probeMovie("The Matrix")},
+	"hdfilmcehennemi": {probeMovie("The Gorge"), probeMovie("Başlangıç"), probeMovie("Fight Club")},
+	"hdfilmdelisi":    {probeMovie("Saplantı"), probeMovie("Inception")},
+	"jetfilmizle":     {probeMovie("Inception"), probeMovie("The Matrix")},
+	"tekfullfilmizle": {probeMovie("Inception"), probeMovie("The Matrix")},
+	"setfilmizle":     {probeMovie("Inception"), probeMovie("The Matrix")},
+	"filmmakinesi":    {probeMovie("Inception"), probeMovie("The Matrix")},
+	"filmekseni":      {probeMovie("Inception"), probeMovie("Saplantı")},
+	"dizipal":         {probeMovie("Inception"), probeMovie("Saplantı")},
+	"m3u":             {probeMovie("Inception")},
 }
 
 // probeTV, sağlayıcının kendi arama motorunun başlığı çözmesi için dış ID'siz
@@ -128,6 +138,8 @@ const maxCandidatesPerProvider = 4
 // titlesForCategory, kategoriye göre başlık dizesi döndürür.
 func titlesForCategory(cat string) []string {
 	switch cat {
+	case "turkish":
+		return []string{"Kızılcık Şerbeti", "Son Yaz", "Bahar", "Yalı Çapkını", "Ezel"}
 	case "movie":
 		return movieCandidates
 	case "anime":

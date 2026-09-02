@@ -187,13 +187,17 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 	}
 
 	var pageURL string
-	cleanSlug := strings.TrimPrefix(targetSlug, "series/")
-	cleanSlug = strings.TrimPrefix(cleanSlug, "film/")
-
 	if media.Type == models.MediaTypeTV {
+		cleanSlug := strings.TrimPrefix(targetSlug, "series/")
+		cleanSlug = strings.TrimPrefix(cleanSlug, "film/")
+		cleanSlug = strings.TrimPrefix(cleanSlug, "movies/")
 		pageURL = fmt.Sprintf("%s/bolum/%s-%dx%d", BaseURL, cleanSlug, media.Season, media.Episode)
 	} else {
-		pageURL = fmt.Sprintf("%s/film/%s", BaseURL, cleanSlug)
+		if strings.HasPrefix(targetSlug, "movies/") || strings.HasPrefix(targetSlug, "film/") {
+			pageURL = fmt.Sprintf("%s/%s", BaseURL, targetSlug)
+		} else {
+			pageURL = fmt.Sprintf("%s/movies/%s", BaseURL, targetSlug)
+		}
 	}
 
 	body, err := utils.DefaultClient.Get(ctx, pageURL, headers)

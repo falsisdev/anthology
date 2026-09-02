@@ -94,7 +94,34 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 	}
 
 	if media.Type == models.MediaTypeTV {
-		targetURL = fmt.Sprintf("%s-%d-sezon-%d-bolum", strings.TrimSuffix(targetURL, "/"), media.Season, media.Episode)
+		if strings.Contains(targetURL, "/series/") {
+			seriesBody, err := utils.DefaultClient.Get(ctx, targetURL, headers)
+			if err == nil {
+				sDoc, err := goquery.NewDocumentFromReader(bytes.NewReader(seriesBody))
+				if err == nil {
+					targetEpPattern := fmt.Sprintf("-%d-bolum", media.Episode)
+					var epURL string
+					sDoc.Find("a[href*='bolum']").EachWithBreak(func(i int, s *goquery.Selection) bool {
+						href, _ := s.Attr("href")
+						if strings.Contains(href, targetEpPattern) {
+							epURL = href
+							return false
+						}
+						return true
+					})
+					if epURL != "" {
+						targetURL = epURL
+					}
+				}
+			}
+		}
+		if !strings.Contains(targetURL, "bolum") {
+			slug := utils.ToSlug(media.OriginalTitle)
+			if slug == "" {
+				slug = utils.ToSlug(media.Title)
+			}
+			targetURL = fmt.Sprintf("%s/%s-%d-bolum/", BaseURL, slug, media.Episode)
+		}
 	}
 
 	targetBody, err := utils.DefaultClient.Get(ctx, targetURL, headers)

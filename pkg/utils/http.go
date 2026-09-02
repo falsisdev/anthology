@@ -3,6 +3,7 @@ package utils
 import (
 	"bytes"
 	"context"
+	"crypto/tls"
 	"fmt"
 	"io"
 	"net/http"
@@ -31,6 +32,11 @@ func NewHTTPClient(timeout time.Duration) *HTTPClient {
 	return &HTTPClient{
 		client: &http.Client{
 			Timeout: timeout,
+			Transport: &http.Transport{
+				TLSClientConfig: &tls.Config{
+					InsecureSkipVerify: true,
+				},
+			},
 		},
 	}
 }
