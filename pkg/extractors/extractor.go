@@ -4,7 +4,7 @@ import (
 	"context"
 	"strings"
 
-	"github.com/falsisdev/nuviotr/pkg/models"
+	"github.com/falsisdev/anthology/pkg/models"
 )
 
 // Extract attempts to extract direct playable video streams (.m3u8 or .mp4) from known embed players.

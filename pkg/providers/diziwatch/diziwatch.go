@@ -4,9 +4,9 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/falsisdev/nuviotr/pkg/extractors"
-	"github.com/falsisdev/nuviotr/pkg/models"
-	"github.com/falsisdev/nuviotr/pkg/provider"
+	"github.com/falsisdev/anthology/pkg/extractors"
+	"github.com/falsisdev/anthology/pkg/models"
+	"github.com/falsisdev/anthology/pkg/provider"
 )
 
 const (

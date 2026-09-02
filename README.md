@@ -1,5 +1,6 @@
 <div align="center">
-  <h1>NuvioTR - Stremio Addon</h1>
+  <img src="assets/logo_1.png" alt="Anthology Logo" width="180" style="border-radius: 16px; margin-bottom: 12px;" />
+  <h1>Anthology - Stremio Addon</h1>
   <p>Golang tabanlı, yüksek performanslı, dahili video extractor motoruna ve proxy desteğine sahip Türkçe Dizi, Film, Anime ve Canlı TV eklentisi.</p>
 </div>
 
@@ -48,7 +49,7 @@ Bulut sunucular (Vercel vb.) veri merkezi (datacenter) IP adresleri kullandığ�
 
 ## 🛠️ Kurulum (Vercel)
 
-NuvioTR'yi ücretsiz olarak Vercel üzerinde barındırabilirsiniz:
+Anthology'yi ücretsiz olarak Vercel üzerinde barındırabilirsiniz:
 
 1. Projeyi kendi GitHub hesabınıza Fork'layın.
 2. Vercel'de yeni bir proje oluşturup bu repoyu seçin.
@@ -63,7 +64,7 @@ Vercel veya kendi sunucunuzda (PC/VPS) yayınladıktan sonra Stremio'ya eklemek 
 
 1. Stremio uygulamasını açın.
 2. Arama çubuğuna uygulamanızın adresini sonuna `/manifest.json` ekleyerek yazın.
-   - Örnek: `https://senin-nuviotr-uygulaman.vercel.app/manifest.json` (Veya yerelde çalışıyorsa `http://127.0.0.1:8080/manifest.json`)
+   - Örnek: `https://senin-anthology-uygulaman.vercel.app/manifest.json` (Veya yerelde çalışıyorsa `http://127.0.0.1:8080/manifest.json`)
 3. "Yükle" (Install) butonuna tıklayın.
 
-Hepsi bu kadar! Artık dizi veya filmlere girdiğinizde NuvioTR kaynakları listelenecektir.
+Hepsi bu kadar! Artık dizi veya filmlere girdiğinizde Anthology kaynakları listelenecektir.

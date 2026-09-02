@@ -8,10 +8,10 @@ import (
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
-	"github.com/falsisdev/nuviotr/pkg/extractors"
-	"github.com/falsisdev/nuviotr/pkg/models"
-	"github.com/falsisdev/nuviotr/pkg/provider"
-	"github.com/falsisdev/nuviotr/pkg/utils"
+	"github.com/falsisdev/anthology/pkg/extractors"
+	"github.com/falsisdev/anthology/pkg/models"
+	"github.com/falsisdev/anthology/pkg/provider"
+	"github.com/falsisdev/anthology/pkg/utils"
 )
 
 const (

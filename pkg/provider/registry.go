@@ -3,7 +3,7 @@ package provider
 import (
 	"sync"
 
-	"github.com/falsisdev/nuviotr/pkg/models"
+	"github.com/falsisdev/anthology/pkg/models"
 )
 
 type Registry struct {

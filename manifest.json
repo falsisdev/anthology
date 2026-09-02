@@ -1,10 +1,10 @@
 {
-  "id": "nuviotr.falsisdev.addon",
-  "name": "FalsisAddons",
+  "id": "anthology.falsisdev.addon",
+  "name": "Anthology",
   "version": "1.2.0",
   "description": "Golang tabanlı 30+ sağlayıcılı yüksek performanslı Türkçe dizi, film, anime ve Canlı IPTV yayın motoru.",
   "author": "falsisdev",
-  "repository": "https://github.com/falsisdev/nuviotr",
+  "repository": "https://github.com/falsisdev/anthology",
   "engine": "golang",
   "supportedTypes": ["movie", "series", "tv", "live", "channel", "anime"],
   "resources": ["catalog", "stream", "meta"],

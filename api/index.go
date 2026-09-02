@@ -10,12 +10,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/falsisdev/nuviotr/pkg/engine"
-	"github.com/falsisdev/nuviotr/pkg/models"
-	"github.com/falsisdev/nuviotr/pkg/provider"
-	"github.com/falsisdev/nuviotr/pkg/providers/m3u"
-	"github.com/falsisdev/nuviotr/pkg/tmdb"
-	"github.com/falsisdev/nuviotr/pkg/utils"
+	"github.com/falsisdev/anthology/pkg/engine"
+	"github.com/falsisdev/anthology/pkg/models"
+	"github.com/falsisdev/anthology/pkg/provider"
+	"github.com/falsisdev/anthology/pkg/providers/m3u"
+	"github.com/falsisdev/anthology/pkg/tmdb"
+	"github.com/falsisdev/anthology/pkg/utils"
 )
 
 var (
@@ -36,8 +36,8 @@ func jsonResponse(w http.ResponseWriter, status int, data interface{}) {
 
 func handleManifest(w http.ResponseWriter, r *http.Request) {
 	manifest := map[string]interface{}{
-		"id":          "nuviotr.falsisdev.addon",
-		"name":        "FalsisAddons",
+		"id":          "anthology.falsisdev.addon",
+		"name":        "Anthology",
 		"version":     "1.1.0",
 		"description": "Golang tabanlı yüksek performanslı Türkçe dizi, film, anime ve Canlı IPTV yayın motoru.",
 		"author":      "falsisdev",
@@ -66,7 +66,7 @@ func handleManifest(w http.ResponseWriter, r *http.Request) {
 			"configurable":          false,
 			"configurationRequired": false,
 		},
-		"repository": "https://github.com/falsisdev/nuviotr",
+		"repository": "https://github.com/falsisdev/anthology",
 	}
 	jsonResponse(w, http.StatusOK, manifest)
 }

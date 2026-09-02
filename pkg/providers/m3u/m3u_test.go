@@ -5,7 +5,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/falsisdev/nuviotr/pkg/models"
+	"github.com/falsisdev/anthology/pkg/models"
 )
 
 func TestGetLiveChannels(t *testing.T) {

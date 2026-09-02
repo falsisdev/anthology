@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/falsisdev/nuviotr/pkg/models"
+	"github.com/falsisdev/anthology/pkg/models"
 )
 
 func TestSineWixMovie(t *testing.T) {
