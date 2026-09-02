@@ -1,5 +1,5 @@
 /**
- * Nuviotr Cloudflare Workers HTTP Proxy
+ * Anthology Cloudflare Workers HTTP Proxy
  *
  * Vercel'deki Go backend streaming sitelerine istek yaparken
  * Cloudflare'in IP'sini kullanarak 403 engelini aşar.

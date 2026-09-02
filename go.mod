@@ -1,4 +1,4 @@
-module github.com/falsisdev/nuviotr
+module github.com/falsisdev/anthology
 
 go 1.26.5
 

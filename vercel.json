@@ -14,6 +14,6 @@
     }
   ],
   "env": {
-    "PROXY_URL": "https://nuviotr-proxy.falsis.workers.dev"
+    "PROXY_URL": "https://anthology-proxy.falsis.workers.dev"
   }
 }

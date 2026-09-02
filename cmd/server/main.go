@@ -14,10 +14,10 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/falsisdev/nuviotr/pkg/engine"
-	"github.com/falsisdev/nuviotr/pkg/models"
-	"github.com/falsisdev/nuviotr/pkg/provider"
-	"github.com/falsisdev/nuviotr/pkg/providers/m3u"
+	"github.com/falsisdev/anthology/pkg/engine"
+	"github.com/falsisdev/anthology/pkg/models"
+	"github.com/falsisdev/anthology/pkg/provider"
+	"github.com/falsisdev/anthology/pkg/providers/m3u"
 )
 
 type Server struct {
@@ -78,8 +78,8 @@ func (s *Server) handleProviders(w http.ResponseWriter, r *http.Request) {
 
 func (s *Server) handleManifest(w http.ResponseWriter, r *http.Request) {
 	manifest := map[string]interface{}{
-		"id":          "nuviotr.falsisdev.addon",
-		"name":        "FalsisAddons",
+		"id":          "anthology.falsisdev.addon",
+		"name":        "Anthology",
 		"version":     "1.1.0",
 		"description": "Golang tabanlı yüksek performanslı Türkçe dizi, film, anime ve Canlı IPTV yayın motoru.",
 		"author":      "falsisdev",
@@ -108,7 +108,7 @@ func (s *Server) handleManifest(w http.ResponseWriter, r *http.Request) {
 			"configurable":          false,
 			"configurationRequired": false,
 		},
-		"repository": "https://github.com/falsisdev/nuviotr",
+		"repository": "https://github.com/falsisdev/anthology",
 	}
 	jsonResponse(w, http.StatusOK, manifest)
 }
@@ -333,7 +333,7 @@ func main() {
 	}
 
 	go func() {
-		log.Printf("🚀 Nuviotr Go Server started on http://localhost:%d\n", serverPort)
+		log.Printf("🚀 Anthology Go Server started on http://localhost:%d\n", serverPort)
 		log.Printf("📡 Stremio/Nuvio Protocol: /manifest.json, /catalog/..., /stream/..., /meta/...\n")
 		if err := httpServer.ListenAndServe(); err != nil && err != http.ErrServerClosed {
 			log.Fatalf("Server failed: %v", err)

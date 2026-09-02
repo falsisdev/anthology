@@ -3,7 +3,7 @@ package provider
 import (
 	"context"
 
-	"github.com/falsisdev/nuviotr/pkg/models"
+	"github.com/falsisdev/anthology/pkg/models"
 )
 
 // Provider defines the interface that all streaming scrapers must implement.

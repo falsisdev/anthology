@@ -1,4 +1,4 @@
-name = "nuviotr-proxy"
+name = "anthology-proxy"
 main = "src/index.js"
 compatibility_date = "2024-09-01"
 

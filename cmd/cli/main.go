@@ -8,9 +8,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/falsisdev/nuviotr/pkg/engine"
-	"github.com/falsisdev/nuviotr/pkg/models"
-	"github.com/falsisdev/nuviotr/pkg/providers/m3u"
+	"github.com/falsisdev/anthology/pkg/engine"
+	"github.com/falsisdev/anthology/pkg/models"
+	"github.com/falsisdev/anthology/pkg/providers/m3u"
 )
 
 func main() {
@@ -69,7 +69,7 @@ func main() {
 
 	eng := engine.New("", time.Duration(*timeoutSec)*time.Second)
 
-	fmt.Printf("\n🚀 Nuviotr Arama Başlatılıyor...\n")
+	fmt.Printf("\n🚀 Anthology Arama Başlatılıyor...\n")
 	fmt.Printf("TMDB ID: %s | Tür: %s", *id, mType)
 	if mType == models.MediaTypeTV {
 		fmt.Printf(" | Sezon: %d | Bölüm: %d", *season, *episode)

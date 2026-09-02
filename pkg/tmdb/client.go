@@ -11,7 +11,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/falsisdev/nuviotr/pkg/models"
+	"github.com/falsisdev/anthology/pkg/models"
 )
 
 const (
