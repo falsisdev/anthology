@@ -41,10 +41,51 @@ type TestResult struct {
 	Detail    string `json:"detail,omitempty"`
 }
 
-// Her sağlayıcı, desteklediği türe göre bir aday havuzundan başlanarak
-// test edilir; ilk akış dönen aday yeterlidir. Böylece "bu sitede tam olarak
-// hangi içerik var" tahmini yapmak yerine, kategoride yaygın birkaç başlığı
-// deniyoruz — biri mutlaka bulunur. Adaylar yaygınlığa göre sıralıdır.
+// Her sağlayıcı için spesifik test içerikleri. Sağlayıcının kendi kataloğunda
+// bulunacağından emin olunan içerikler. candidateMediaFor, sağlayıcı ID'sine
+// göre bu haritadan döner; eşleşme yoksa kategorik aday havuzundan seçim yapar.
+var providerFixtures = map[string][]models.MediaInfo{
+	// Anime
+	"animexe":       {probeTV("Naruto")},
+	"animpow":       {probeTV("Bleach")},
+	"seicode":       {probeTV("Bleach")},
+	"diziwatch":     {probeTV("Bleach")},
+	"asyaanimeleri": {probeTV("Shingeki no Kyojin")},
+
+	// Türk / yabancı dizi
+	"diziyou":      {probeTV("The Mentalist")},
+	"sezonlukdizi": {probeTV("The Mentalist")},
+	"dizigom":      {probeTV("Last Seen")},
+	"dizimag":      {probeTV("Shogun")},
+	"setfilmizle":  {probeTV("Supergirl")},
+	"sinemacx":     {probeMovie("Saplantı")},
+	"sinezy":       {probeMovie("Saplantı")},
+
+	// Film
+	"dizipal":         {probeMovie("Örümcek-Adam: Yepyeni Bir Gün")},
+	"filmekseni":      {probeMovie("Son Gün Doğumu")},
+	"filmhane":        {probeTV("Supergirl")},
+	"filmifullizle":   {probeTV("Supergirl")},
+	"filmzal":         {probeTV("Supergirl")},
+	"hdfilmcehennemi": {probeMovie("The Runner")},
+	"hdfilmdelisi":    {probeMovie("Saplantı")},
+	"jetfilmizle":     {probeMovie("spiked")},
+	"tekfullfilmizle": {probeMovie("Patron Bebek")},
+}
+
+// probeTV, sağlayıcının kendi arama motorunun başlığı çözmesi için dış ID'siz
+// bir dizi probu oluşturur.
+func probeTV(title string) models.MediaInfo {
+	return models.MediaInfo{Title: title, Type: models.MediaTypeTV, Season: 1, Episode: 1}
+}
+
+// probeMovie, dış ID'siz bir film probu oluşturur.
+func probeMovie(title string) models.MediaInfo {
+	return models.MediaInfo{Title: title, Type: models.MediaTypeMovie}
+}
+
+// Sağlayıcının kategorik aday havuzundan seçim için kullanılacak başlıklar.
+// Spesifik fixtür olmayan sağlayıcılar bunlardan test edilir.
 var (
 	movieCandidates = []string{
 		"Inception", "The Matrix", "Interstellar", "The Dark Knight",
@@ -54,43 +95,34 @@ var (
 		"Breaking Bad", "Game of Thrones", "The Office", "Friends",
 		"Stranger Things", "The Simpsons", "Peaky Blinders", "The Walking Dead",
 	}
-	turkishCandidates = []string{
-		"Yalı Çapkını", "Kızılcık Şerbeti", "Kuruluş Osman", "Aşk-ı Memnu",
-		"Çukur", "Diriliş Ertuğrul", "Arka Sokaklar", "Yabani",
-	}
 	animeCandidates = []string{
 		"One Piece", "Naruto", "Attack on Titan", "Demon Slayer",
 		"Dragon Ball", "Death Note", "My Hero Academia", "Jujutsu Kaisen",
 	}
-	koreanCandidates = []string{
-		"Goblin", "Crash Landing on You", "Squid Game", "Descendants of the Sun",
-	}
 )
 
-// providerCategory, sağlayıcıyı bir içerik kategorisiler. Kategori, hangi aday
-// havuzunun kullanılacağını belirler. Eşleşmeyen her sağlayıcı "multi" (film +
-// dizi karışık) olarak test edilir.
+// providerCategory, sağlayıcıyı bir içerik kategorisine yerleştirir. Spesifik
+// fixtür olmayan sağlayıcılar bu haritadan kategorik aday havuzu seçer.
 var providerCategory = map[string]string{
-	// Türk dizileri
-	"ddizi": "turkish", "dizibox": "turkish", "dizigom": "turkish",
-	"dizimag": "turkish", "diziyo": "turkish", "sezonlukdizi": "turkish",
-	"dizipal": "turkish", "dizimom": "turkish", "diziyou": "turkish",
-	"setfilmizle": "turkish",
-	// Anime
-	"animecix": "anime", "tranimeizle": "anime", "animexe": "anime",
-	"animpow": "anime", "acheriya": "anime", "seicode": "anime",
-	"diziwatch": "anime", "asyaanimeleri": "korean",
-	// Film
-	"filmekseni": "movie", "filmhane": "movie", "filmifullizle": "movie",
-	"filmmakinesi": "movie", "jetfilmizle": "movie", "hdfilmcehennemi": "movie",
-	"hdfilmdelisi": "movie", "tekfullfilmizle": "movie", "sinezy": "movie",
-	"filmzal": "movie", "sinemacx": "movie",
-	// ID tabanlı / karışık
-	"sinewix": "multi", "vidlink": "multi", "vidmody": "multi", "m3u": "multi",
+	"ddizi":         "turkish",
+	"dizibox":       "turkish",
+	"diziyo":        "turkish",
+	"dizimom":       "turkish",
+	"animecix":      "anime",
+	"tranimeizle":   "anime",
+	"acheriya":      "anime",
+	"filmekseni":    "movie",
+	"hdfilmcehennemi": "movie",
+	"sinemacx":      "movie",
+	"sinezy":        "movie",
+	"filmzal":       "movie",
+	"tekfullfilmizle": "movie",
+	"sinewix":       "multi",
+	"vidlink":       "multi",
+	"vidmody":       "multi",
+	"m3u":           "multi",
 }
 
-// maxCandidatesPerProvider, bir sağlayıcı başına denenme üst sınırıdır.
-// Çok denemekten kaçınır; ilk başarılı adayda durulur.
 const maxCandidatesPerProvider = 4
 
 // titlesForCategory, kategoriye göre başlık dizesi döndürür.
@@ -98,14 +130,9 @@ func titlesForCategory(cat string) []string {
 	switch cat {
 	case "movie":
 		return movieCandidates
-	case "turkish":
-		return turkishCandidates
 	case "anime":
 		return animeCandidates
-	case "korean":
-		return koreanCandidates
 	case "multi":
-		// Karışık sağlayıcılar için film + dizi başlıklarını birleştir.
 		return append(append([]string{}, movieCandidates...), tvCandidates...)
 	default:
 		return append(append([]string{}, movieCandidates...), tvCandidates...)
@@ -316,12 +343,16 @@ launchLoop:
 	return out
 }
 
-// candidateMediaFor, sağlayıcıya uygun aday içerikleri döndürür. Sağlayıcının
-// kategorisine göre bir başlık havuzu seçilir, desteklenen türe (film/dizi)
-// göre MediaInfo'ya dönüştürülür ve en fazla maxCandidatesPerProvider adet
-// adayla sınırlandırılır. Adaylar yaygınlığa göre sıralı olduğundan, döngü
-// genellikle ilk veya ikinci adayda başarıyla sonuçlanır.
+// candidateMediaFor, sağlayıcıya uygun aday içerikleri döndürür. Önce
+// providerFixtures'ta kayıtlı spesifik içerik yoksa, kategorik aday havuzundan
+// seçim yapılır. Adaylar yaygınlığa göre sıralıdır; ilk başarılı adayda durulur.
 func candidateMediaFor(p provider.Provider) []models.MediaInfo {
+	// Spesifik fixtür varsa onu kullan.
+	if fx, ok := providerFixtures[p.ID()]; ok && len(fx) > 0 {
+		return fx
+	}
+
+	// Yoksa kategorik aday havuzundan seç.
 	cat := providerCategory[p.ID()]
 	if cat == "" {
 		cat = "multi"

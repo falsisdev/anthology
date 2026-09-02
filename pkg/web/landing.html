@@ -454,19 +454,40 @@
     .htmx-request .htmx-indicator {
       opacity: 1;
     }
-    .test-btn .htmx-indicator {
-      font-size: 18px;
-      margin-right: 6px;
-      animation: spin 1s linear infinite;
+
+    /* Test butonu loading state */
+    .test-btn .btn-text {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
-    .test-btn.secondary .htmx-indicator {
-      font-size: 18px;
-      margin-right: 6px;
-      animation: spin 1s linear infinite;
+    .test-btn .spinner {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border: 2px solid var(--text-muted);
+      border-top-color: var(--accent, #e50914);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      vertical-align: middle;
+    }
+    .htmx-request .test-btn .spinner,
+    .test-btn.htmx-request .spinner {
+      opacity: 1;
+    }
+    .htmx-request .test-btn .btn-label,
+    .test-btn.htmx-request .btn-label {
+      opacity: 0.6;
+    }
+    .htmx-request .test-btn,
+    .test-btn.htmx-request {
+      pointer-events: none;
+      cursor: wait;
     }
     @keyframes spin {
-      from { transform: rotate(0deg); }
-      to   { transform: rotate(360deg); }
+      to { transform: rotate(360deg); }
     }
   </style>
 </head>
@@ -531,17 +552,21 @@
                 hx-get="/fragments/test/providers"
                 hx-target="#provider-tests"
                 hx-swap="innerHTML"
-                hx-indicator="#provider-test-spinner"
                 hx-on::error="document.getElementById('provider-tests').innerHTML = '<p class=&quot;result-empty&quot;>Test isteğinde hata oluştu (zaman aşımı olabilir). Lütfen tekrar deneyin.</p>'">
-          <span id="provider-test-spinner" class="htmx-indicator">⟳</span> ⚡ Kaynakları Test Et (tüm sağlayıcılar)
+          <span class="btn-text">
+            <span class="spinner"></span>
+            <span class="btn-label">⚡ Kaynakları Test Et (tüm sağlayıcılar)</span>
+          </span>
         </button>
         <button class="test-btn secondary"
                 hx-get="/fragments/test/channels"
                 hx-target="#channel-tests"
                 hx-swap="innerHTML"
-                hx-indicator="#channel-test-spinner"
                 hx-on::error="document.getElementById('channel-tests').innerHTML = '<p class=&quot;result-empty&quot;>Test isteğinde hata oluştu (zaman aşımı olabilir). Lütfen tekrar deneyin.</p>'">
-          <span id="channel-test-spinner" class="htmx-indicator">⟳</span> 📺 Canlı Yayınları Test Et
+          <span class="btn-text">
+            <span class="spinner"></span>
+            <span class="btn-label">📺 Canlı Yayınları Test Et</span>
+          </span>
         </button>
       </div>
       <div id="provider-tests" class="test-results">
