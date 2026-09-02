@@ -20,6 +20,7 @@ import (
 	"github.com/falsisdev/anthology/pkg/proxy"
 	"github.com/falsisdev/anthology/pkg/tmdb"
 	"github.com/falsisdev/anthology/pkg/utils"
+	"github.com/falsisdev/anthology/pkg/web"
 )
 
 //go:embed favicon.ico
@@ -44,285 +45,28 @@ func jsonResponse(w http.ResponseWriter, status int, data interface{}) {
 	_ = json.NewEncoder(w).Encode(data)
 }
 
+func handleStatusFragment(w http.ResponseWriter, r *http.Request) {
+	web.ServeStatus(w, r)
+}
+
 func handleManifest(w http.ResponseWriter, r *http.Request) {
-	// Only render HTML landing page if explicitly requested from root path and NOT asking for json
-	isExplicitManifestJSON := strings.HasSuffix(r.URL.Path, "manifest.json") || strings.HasSuffix(r.URL.Path, "/manifest")
-	if !isExplicitManifestJSON && strings.Contains(r.Header.Get("Accept"), "text/html") && (r.URL.Path == "/" || r.URL.Path == "" || r.URL.Path == "/api" || r.URL.Path == "/api/index.go") {
-		w.Header().Set("Content-Type", "text/html; charset=utf-8")
-		scheme := "https"
-		if r.TLS == nil && !strings.HasPrefix(r.Header.Get("X-Forwarded-Proto"), "https") {
-			scheme = "http"
-		}
-		host := r.Host
-		manifestURL := fmt.Sprintf("%s://%s/manifest.json", scheme, host)
-		stremioURL := fmt.Sprintf("stremio://%s/manifest.json", host)
-
-		html := fmt.Sprintf(`<!DOCTYPE html>
-<html lang="tr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anthology - Stremio & Nuvio Addon</title>
-  <link rel="icon" type="image/png" href="/favicon.png">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <style>
-    :root {
-      --bg: #090a0d;
-      --card-bg: rgba(22, 26, 34, 0.85);
-      --border: rgba(255, 255, 255, 0.08);
-      --border-hover: rgba(255, 255, 255, 0.15);
-      --accent: #00e676;
-      --accent-glow: rgba(0, 230, 118, 0.25);
-      --text: #f0f3f6;
-      --text-muted: #8b949e;
-      --logo-bg: rgba(255, 255, 255, 0.06);
-      --logo-border: rgba(255, 255, 255, 0.12);
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: radial-gradient(circle at 50%% 20%%, #171d29 0%%, #090a0d 80%%);
-      color: var(--text);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 32px 20px;
-    }
-    .card {
-      background: var(--card-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      max-width: 520px;
-      width: 100%%;
-      padding: 56px 44px;
-      text-align: center;
-      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.03);
-      position: relative;
-      overflow: hidden;
-    }
-    .logo-container {
-      position: relative;
-      width: 136px;
-      height: 136px;
-      margin: 0 auto 28px auto;
-      border-radius: 30px;
-      background: var(--logo-bg);
-      border: 1px solid var(--logo-border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    }
-    .logo-glow {
-      position: absolute;
-      width: 100px;
-      height: 100px;
-      border-radius: 50%%;
-      background: radial-gradient(circle, rgba(90, 120, 255, 0.35) 0%%, rgba(0, 230, 118, 0.15) 60%%, transparent 100%%);
-      filter: blur(16px);
-      z-index: 1;
-    }
-    .logo {
-      width: 108px;
-      height: 108px;
-      object-fit: contain;
-      position: relative;
-      z-index: 2;
-      filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 20px rgba(90, 140, 255, 0.4));
-    }
-    h1 {
-      font-size: 30px;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      margin-bottom: 12px;
-      background: linear-gradient(135deg, #ffffff 30%%, #a5b4fc 100%%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .tagline {
-      color: var(--text-muted);
-      font-size: 15px;
-      line-height: 1.6;
-      margin-bottom: 36px;
-      padding: 0 8px;
-    }
-    .actions {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin-bottom: 36px;
-    }
-    .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      font-weight: 600;
-      font-size: 15px;
-      padding: 16px 24px;
-      border-radius: 14px;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      width: 100%%;
-    }
-    .btn-primary {
-      background: var(--accent);
-      color: #05140b;
-      box-shadow: 0 4px 18px var(--accent-glow);
-    }
-    .btn-primary:hover {
-      background: #00ff84;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 26px var(--accent-glow);
-    }
-    .btn-primary:active {
-      transform: translateY(0);
-    }
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border);
-      color: var(--text);
-    }
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.09);
-      border-color: var(--border-hover);
-      transform: translateY(-2px);
-    }
-    .btn-secondary:active {
-      transform: translateY(0);
-    }
-    .features {
-      text-align: left;
-      font-size: 13.5px;
-      color: var(--text-muted);
-      border-top: 1px solid var(--border);
-      padding-top: 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .features li {
-      list-style: none;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .toast {
-      position: fixed;
-      bottom: 24px;
-      left: 50%%;
-      transform: translateX(-50%%) translateY(100px);
-      background: #1e293b;
-      color: #f8fafc;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 12px 24px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 500;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
-      opacity: 0;
-      pointer-events: none;
-      z-index: 100;
-    }
-    .toast.show {
-      transform: translateX(-50%%) translateY(0);
-      opacity: 1;
-    }
-  </style>
-</head>
-<body>
-  <div class="card">
-    <div class="logo-container">
-      <div class="logo-glow"></div>
-      <img src="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_2_transparent.png" alt="Anthology Logo" class="logo">
-    </div>
-    <h1>Anthology</h1>
-    <p class="tagline">Golang tabanlı yüksek performanslı Türkçe dizi, film, anime ve Canlı IPTV yayın motoru.</p>
-    
-    <div class="actions">
-      <button onclick="installStremio()" class="btn btn-primary">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l14 9-14 9V3z"/></svg>
-        Stremio'ya Yükle
-      </button>
-      <button onclick="copyManifest()" class="btn btn-secondary">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-        Manifest Linkini Kopyala (Nuvio / Stremio)
-      </button>
-    </div>
-
-    <div class="features">
-      <li>⚡ 30+ Yerli & Yabancı Dizi/Film/Anime Kaynağı</li>
-      <li>📺 35+ Canlı TV Kanalı (Ulusal, Haber, Spor)</li>
-      <li>🛡️ Kesintisiz Dahili HLS Proxy ve CORS Çözücü</li>
-    </div>
-  </div>
-
-  <div id="toast" class="toast">Link kopyalandı!</div>
-
-  <script>
-    const manifestURL = "%s";
-    const stremioDeepLink = "%s";
-    const webStremioURL = "https://web.stremio.com/#/addons?addon=" + encodeURIComponent(manifestURL);
-
-    function showToast(msg) {
-      const t = document.getElementById("toast");
-      t.textContent = msg;
-      t.classList.add("show");
-      setTimeout(() => t.classList.remove("show"), 2800);
-    }
-
-    function installStremio() {
-      // 1. Try protocol handler
-      window.location.href = stremioDeepLink;
-      
-      // 2. If protocol handler fails / doesn't open Stremio after 1.2s, offer Stremio Web
-      setTimeout(() => {
-        if (!document.hidden) {
-          const openWeb = confirm("Stremio uygulaması açılmadıysa, Stremio Web üzerinde açmak ister misiniz?\\n\\nTamam: Stremio Web'de Aç\\nİptal: Linki Panoya Kopyala");
-          if (openWeb) {
-            window.open(webStremioURL, "_blank");
-          } else {
-            copyManifest();
-          }
-        }
-      }, 1200);
-    }
-
-    function copyManifest() {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(manifestURL).then(() => {
-          showToast("📋 Manifest kopyalandı! Nuvio veya Stremio'ya yapıştırın.");
-        }).catch(() => fallbackCopy());
-      } else {
-        fallbackCopy();
-      }
-    }
-
-    function fallbackCopy() {
-      const ta = document.createElement("textarea");
-      ta.value = manifestURL;
-      document.body.appendChild(ta);
-      ta.select();
-      document.execCommand("copy");
-      document.body.removeChild(ta);
-      showToast("📋 Manifest kopyalandı! Nuvio veya Stremio'ya yapıştırın.");
-    }
-  </script>
-</body>
-</html>`, manifestURL, stremioURL)
-		w.Write([]byte(html))
+	// Root path always serves the HTML landing page; manifest endpoints always serve JSON.
+	// (Vercel rewrites "/" to this serverless entry file, so we derive the original path.)
+	originalPath := r.URL.Path
+	if parsed, err := url.Parse(r.RequestURI); err == nil && parsed.Path != "" {
+		originalPath = parsed.Path
+	}
+	isExplicitManifestJSON := strings.HasSuffix(originalPath, "manifest.json") || strings.HasSuffix(originalPath, "/manifest") ||
+		strings.HasSuffix(r.URL.Path, "manifest.json") || strings.HasSuffix(r.URL.Path, "/manifest")
+	if !isExplicitManifestJSON && web.IsHomePath(originalPath) {
+		web.ServeLanding(w, r)
+		return
 	}
 
 	manifest := map[string]interface{}{
 		"id":          "anthology.falsisdev.addon",
 		"name":        "Anthology",
-		"version":     "1.1.0",
+		"version":     web.Version,
 		"description": "Golang tabanlı yüksek performanslı Türkçe dizi, film, anime ve Canlı IPTV yayın motoru.",
 		"logo":        "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_2_transparent.png",
 		"icon":        "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_2_transparent.png",
@@ -723,7 +467,7 @@ func handleStream(w http.ResponseWriter, r *http.Request, pathParts []string) {
 func handleHealth(w http.ResponseWriter, r *http.Request) {
 	jsonResponse(w, http.StatusOK, map[string]interface{}{
 		"status":  "ok",
-		"version": "1.1.1",
+		"version": web.Version,
 		"engine":  "golang-vercel-serverless",
 		"time":    time.Now().Format(time.RFC3339),
 	})
@@ -735,12 +479,12 @@ func handleDebug(w http.ResponseWriter, r *http.Request) {
 	testURL := "https://sezonlukdizi.cc/fatma/1-sezon-1-bolum.html"
 	testStatus := 0
 	testErr := ""
-	
+
 	var headersMap map[string][]string
 	var bodyPreview string
 
 	ctx := r.Context()
-	
+
 	// Check TMDB response
 	tmdbClient := tmdb.NewClient("")
 	mediaInfo, tmdbErr := tmdbClient.GetMediaInfo(ctx, "123138", models.MediaTypeTV, 1, 1)
@@ -748,42 +492,42 @@ func handleDebug(w http.ResponseWriter, r *http.Request) {
 	// DEBUG: Do the POST request via the PROXY
 	testURL = "https://sezonlukdizi.cc/ajax/dataAlternatif22.asp"
 	postData := "bid=44946&dil=1"
-	
+
 	altHeaders := map[string]string{
 		"Content-Type":     "application/x-www-form-urlencoded",
 		"Referer":          "https://sezonlukdizi.cc/fatma/1-sezon-1-bolum.html",
 		"X-Requested-With": "XMLHttpRequest",
 	}
-	
+
 	resp, err := utils.DefaultClient.Request(ctx, http.MethodPost, testURL, strings.NewReader(postData), altHeaders)
 	if err != nil {
 		testErr = err.Error()
 	} else {
 		testStatus = resp.StatusCode
 		headersMap = resp.Header
-		
+
 		bodyBytes, _ := io.ReadAll(resp.Body)
 		if len(bodyBytes) > 500 {
 			bodyPreview = string(bodyBytes[:500])
 		} else {
 			bodyPreview = string(bodyBytes)
 		}
-		
+
 		resp.Body.Close()
 	}
 
 	jsonResponse(w, http.StatusOK, map[string]interface{}{
-		"proxy_url":         proxyURL,
-		"proxy_active":      proxyURL != "",
-		"env_PROXY_URL":     os.Getenv("PROXY_URL"),
-		"test_url":          testURL,
-		"test_status":       testStatus,
-		"test_headers":      headersMap,
-		"test_body":         bodyPreview,
-		"test_error":        testErr,
-		"tmdb_media":        mediaInfo,
-		"tmdb_error":        fmt.Sprintf("%v", tmdbErr),
-		"engine_timeout":    "8s",
+		"proxy_url":      proxyURL,
+		"proxy_active":   proxyURL != "",
+		"env_PROXY_URL":  os.Getenv("PROXY_URL"),
+		"test_url":       testURL,
+		"test_status":    testStatus,
+		"test_headers":   headersMap,
+		"test_body":      bodyPreview,
+		"test_error":     testErr,
+		"tmdb_media":     mediaInfo,
+		"tmdb_error":     fmt.Sprintf("%v", tmdbErr),
+		"engine_timeout": "8s",
 	})
 }
 
@@ -838,6 +582,14 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		reqPath = "/" + strings.TrimPrefix(pathQuery, "/")
 	}
 
+	// Defensive: absolute-form request targets (http://host/path) should be normalized
+	// into path-form before routing; Vercel usually sends origin-form, but be safe.
+	if !strings.HasPrefix(reqPath, "/") {
+		if parsed, err := url.Parse(reqPath); err == nil && parsed.Path != "" {
+			reqPath = parsed.Path
+		}
+	}
+
 	cleanPath := strings.TrimPrefix(reqPath, "/api")
 	cleanPath = strings.TrimSuffix(cleanPath, ".go")
 	cleanPath = strings.TrimSuffix(cleanPath, "/index")
@@ -889,6 +641,12 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		handleDebug(w, r)
 	case "providers":
 		handleProviders(w, r)
+	case "fragments":
+		if len(parts) > 1 && parts[1] == "status" {
+			handleStatusFragment(w, r)
+			return
+		}
+		handleManifest(w, r)
 	default:
 		// Fallback for custom /streams or /live endpoints
 		if parts[0] == "streams" {
