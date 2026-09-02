@@ -45,8 +45,9 @@ func jsonResponse(w http.ResponseWriter, status int, data interface{}) {
 }
 
 func handleManifest(w http.ResponseWriter, r *http.Request) {
-	// If visited directly in a browser at root URL, render nice install page
-	if strings.Contains(r.Header.Get("Accept"), "text/html") && (r.URL.Path == "/" || r.URL.Path == "" || r.URL.Path == "/manifest") {
+	// Only render HTML landing page if explicitly requested from root path and NOT asking for json
+	isExplicitManifestJSON := strings.HasSuffix(r.URL.Path, "manifest.json") || strings.HasSuffix(r.URL.Path, "/manifest")
+	if !isExplicitManifestJSON && strings.Contains(r.Header.Get("Accept"), "text/html") && (r.URL.Path == "/" || r.URL.Path == "" || r.URL.Path == "/api" || r.URL.Path == "/api/index.go") {
 		w.Header().Set("Content-Type", "text/html; charset=utf-8")
 		scheme := "https"
 		if r.TLS == nil && !strings.HasPrefix(r.Header.Get("X-Forwarded-Proto"), "https") {
