@@ -46,7 +46,7 @@ func handleManifest(w http.ResponseWriter, r *http.Request) {
 		"author":      "falsisdev",
 		"resources":   []string{"catalog", "stream", "meta"},
 		"types":       []string{"movie", "series", "tv", "live", "channel", "anime"},
-		"idPrefixes":  []string{"tt", "tmdb:", "kitsu:", "animecix:", "canli:", "ddizi:", "dizimom:", "diziyou:", "hdfc:", "sinewix:"},
+		"idPrefixes":  []string{"tt", "tmdb:", "kitsu:", "animecix:", "canli:", "ddizi:", "dizimom:", "diziyou:", "diziwatch:", "hdfc:", "sinewix:"},
 		"catalogs": []map[string]interface{}{
 			{
 				"type": "series",
@@ -68,6 +68,14 @@ func handleManifest(w http.ResponseWriter, r *http.Request) {
 				"type": "series",
 				"id":   "anthology_diziyou",
 				"name": "Anthology - DiziYou",
+				"extra": []map[string]interface{}{
+					{"name": "search", "isRequired": false},
+				},
+			},
+			{
+				"type": "series",
+				"id":   "anthology_diziwatch",
+				"name": "Anthology - Diziwatch (Anime & Dizi)",
 				"extra": []map[string]interface{}{
 					{"name": "search", "isRequired": false},
 				},
@@ -218,8 +226,8 @@ func handleMeta(w http.ResponseWriter, r *http.Request, pathParts []string) {
 	mediaType := pathParts[1]
 	rawID := strings.TrimSuffix(pathParts[2], ".json")
 
-	// 1. Custom Catalogs (Ddizi, Dizimom, DiziYou, HDFC, SineWix)
-	if strings.HasPrefix(rawID, "ddizi:") || strings.HasPrefix(rawID, "dizimom:") || strings.HasPrefix(rawID, "diziyou:") || strings.HasPrefix(rawID, "hdfc:") || strings.HasPrefix(rawID, "sinewix:") {
+	// 1. Custom Catalogs (Ddizi, Dizimom, DiziYou, Diziwatch, HDFC, SineWix)
+	if strings.HasPrefix(rawID, "ddizi:") || strings.HasPrefix(rawID, "dizimom:") || strings.HasPrefix(rawID, "diziyou:") || strings.HasPrefix(rawID, "diziwatch:") || strings.HasPrefix(rawID, "hdfc:") || strings.HasPrefix(rawID, "sinewix:") {
 		meta, err := catalog.GetMeta(r.Context(), mediaType, rawID)
 		if err != nil || meta == nil {
 			jsonResponse(w, http.StatusOK, map[string]interface{}{"meta": nil})
@@ -298,7 +306,7 @@ func handleStream(w http.ResponseWriter, r *http.Request, pathParts []string) {
 	}
 
 	scheme := "https"
-	if r.TLS == nil && !strings.HasPrefix(r.Header.Get("X-Forwarded-Proto"), "https") && strings.HasPrefix(r.Host, "localhost") {
+	if r.TLS == nil && !strings.HasPrefix(r.Header.Get("X-Forwarded-Proto"), "https") && (strings.HasPrefix(r.Host, "localhost") || strings.HasPrefix(r.Host, "127.0.0.1")) {
 		scheme = "http"
 	}
 	proxyBase := fmt.Sprintf("%s://%s/api/proxy", scheme, r.Host)
@@ -311,8 +319,8 @@ func handleStream(w http.ResponseWriter, r *http.Request, pathParts []string) {
 		BehaviorHints map[string]interface{} `json:"behaviorHints,omitempty"`
 	}
 
-	// Custom Provider Stream (ddizi:, dizimom:, diziyou:, hdfc:, sinewix:)
-	if strings.HasPrefix(rawID, "ddizi:") || strings.HasPrefix(rawID, "dizimom:") || strings.HasPrefix(rawID, "diziyou:") || strings.HasPrefix(rawID, "hdfc:") || strings.HasPrefix(rawID, "sinewix:") {
+	// Custom Provider Stream (ddizi:, dizimom:, diziyou:, diziwatch:, hdfc:, sinewix:)
+	if strings.HasPrefix(rawID, "ddizi:") || strings.HasPrefix(rawID, "dizimom:") || strings.HasPrefix(rawID, "diziyou:") || strings.HasPrefix(rawID, "diziwatch:") || strings.HasPrefix(rawID, "hdfc:") || strings.HasPrefix(rawID, "sinewix:") {
 		customStreams, err := catalog.GetStream(r.Context(), rawID)
 		if err != nil || len(customStreams) == 0 {
 			jsonResponse(w, http.StatusOK, map[string]interface{}{"streams": []interface{}{}})
@@ -534,6 +542,12 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 
 	trimmed := strings.Trim(cleanPath, "/")
 	parts := strings.Split(trimmed, "/")
+
+	// Intercept any proxy request immediately (whether with ?url= or /proxy path)
+	if r.URL.Query().Get("url") != "" || (len(parts) > 0 && parts[0] == "proxy") {
+		proxy.HandleProxy(w, r)
+		return
+	}
 
 	if len(parts) == 0 || parts[0] == "" || parts[0] == "manifest" || parts[0] == "manifest.json" {
 		handleManifest(w, r)

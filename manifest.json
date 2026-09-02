@@ -8,7 +8,7 @@
   "engine": "golang",
   "types": ["movie", "series", "tv", "live", "channel", "anime"],
   "resources": ["catalog", "stream", "meta"],
-  "idPrefixes": ["tt", "tmdb:", "kitsu:", "animecix:", "canli:", "ddizi:", "dizimom:", "diziyou:", "hdfc:", "sinewix:"],
+  "idPrefixes": ["tt", "tmdb:", "kitsu:", "animecix:", "canli:", "ddizi:", "dizimom:", "diziyou:", "diziwatch:", "hdfc:", "sinewix:"],
   "catalogs": [
     {
       "type": "series",
@@ -30,6 +30,14 @@
       "type": "series",
       "id": "anthology_diziyou",
       "name": "Anthology - DiziYou",
+      "extra": [
+        { "name": "search", "isRequired": false }
+      ]
+    },
+    {
+      "type": "series",
+      "id": "anthology_diziwatch",
+      "name": "Anthology - Diziwatch (Anime & Dizi)",
       "extra": [
         { "name": "search", "isRequired": false }
       ]

@@ -52,6 +52,8 @@ func Search(ctx context.Context, catalogID, query string) ([]MetaItem, error) {
 		return searchDizimom(ctx, query)
 	case "anthology_diziyou":
 		return searchDiziYou(ctx, query)
+	case "anthology_diziwatch":
+		return searchDiziwatch(ctx, query)
 	case "anthology_hdfc":
 		return searchHDFC(ctx, query)
 	case "anthology_sinewix_series":
@@ -72,6 +74,8 @@ func GetDefaultCatalog(ctx context.Context, catalogID string) ([]MetaItem, error
 		return defaultDizimom(ctx)
 	case "anthology_diziyou":
 		return defaultDiziYou(ctx)
+	case "anthology_diziwatch":
+		return defaultDiziwatch(ctx)
 	case "anthology_hdfc":
 		return defaultHDFC(ctx)
 	default:
@@ -88,6 +92,8 @@ func GetMeta(ctx context.Context, mediaType, rawID string) (*MetaDetail, error) 
 		return getDizimomMeta(ctx, rawID)
 	case strings.HasPrefix(rawID, "diziyou:show:"):
 		return getDiziYouMeta(ctx, rawID)
+	case strings.HasPrefix(rawID, "diziwatch:show:"):
+		return getDiziwatchMeta(ctx, rawID)
 	case strings.HasPrefix(rawID, "hdfc:movie:"):
 		return getHDFCMeta(ctx, rawID)
 	case strings.HasPrefix(rawID, "sinewix:"):
@@ -106,6 +112,8 @@ func GetStream(ctx context.Context, rawID string) ([]models.Stream, error) {
 		return getDizimomStream(ctx, rawID)
 	case strings.HasPrefix(rawID, "diziyou:ep:"):
 		return getDiziYouStream(ctx, rawID)
+	case strings.HasPrefix(rawID, "diziwatch:ep:"):
+		return getDiziwatchStream(ctx, rawID)
 	case strings.HasPrefix(rawID, "hdfc:movie:"):
 		return getHDFCStream(ctx, rawID)
 	case strings.HasPrefix(rawID, "sinewix:"):

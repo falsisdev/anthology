@@ -51,6 +51,7 @@ func HandleProxy(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Headers", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "GET, HEAD, OPTIONS")
+	w.Header().Set("Access-Control-Expose-Headers", "Content-Length, Content-Range, Accept-Ranges")
 
 	if r.Method == http.MethodOptions {
 		w.WriteHeader(http.StatusOK)
@@ -108,10 +109,14 @@ func HandleProxy(w http.ResponseWriter, r *http.Request) {
 
 	// Determine proxy base URL for playlist rewriting
 	scheme := "https"
-	if r.TLS == nil && !strings.HasPrefix(r.Header.Get("X-Forwarded-Proto"), "https") && strings.HasPrefix(r.Host, "localhost") {
+	if r.TLS == nil && !strings.HasPrefix(r.Header.Get("X-Forwarded-Proto"), "https") && (strings.HasPrefix(r.Host, "localhost") || strings.HasPrefix(r.Host, "127.0.0.1")) {
 		scheme = "http"
 	}
-	proxyEndpoint := fmt.Sprintf("%s://%s%s", scheme, r.Host, r.URL.Path)
+	proxyPath := "/api/proxy"
+	if strings.HasPrefix(r.URL.Path, "/proxy") {
+		proxyPath = "/proxy"
+	}
+	proxyEndpoint := fmt.Sprintf("%s://%s%s", scheme, r.Host, proxyPath)
 
 	if isM3U8 {
 		bodyBytes, err := io.ReadAll(resp.Body)
