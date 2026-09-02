@@ -57,6 +57,7 @@ const ALLOWED_DOMAINS = [
   "dizifilmizle.org",
   "dizilife.so",
   "filmizlesene.org",
+  "raw.githubusercontent.com",
 ];
 
 export default {
@@ -130,23 +131,33 @@ export default {
     const ct = request.headers.get("content-type");
     if (ct) proxyHeaders["Content-Type"] = ct;
 
+    let reqBody = undefined;
+    if (request.method !== "GET" && request.method !== "HEAD") {
+      reqBody = await request.arrayBuffer(); // Buffer body to ensure Content-Length is sent instead of chunked encoding
+    }
+
     try {
       const proxyResp = await fetch(targetUrl, {
         method: request.method,
         headers: proxyHeaders,
-        body: request.method !== "GET" && request.method !== "HEAD" ? request.body : undefined,
-        redirect: "follow",
+        body: reqBody,
+        redirect: "follow", // Crucial: must handle redirects internally so client doesn't get relative Location headers
       });
 
       const body = await proxyResp.arrayBuffer();
+      
+      const responseHeaders = new Headers();
+      // Forward all target response headers back to the client
+      for (const [k, v] of proxyResp.headers.entries()) {
+        responseHeaders.append(k, v);
+      }
+      // Ensure CORS is open
+      responseHeaders.set("Access-Control-Allow-Origin", "*");
+      responseHeaders.set("X-Proxy-Status", String(proxyResp.status));
 
       return new Response(body, {
         status: proxyResp.status,
-        headers: {
-          "Content-Type": proxyResp.headers.get("Content-Type") || "text/html; charset=utf-8",
-          "Access-Control-Allow-Origin": "*",
-          "X-Proxy-Status": String(proxyResp.status),
-        },
+        headers: responseHeaders,
       });
     } catch (err) {
       return new Response(JSON.stringify({ error: String(err) }), {

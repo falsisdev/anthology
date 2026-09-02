@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"bytes"
 	"context"
 	"fmt"
 	"io"
@@ -12,22 +13,10 @@ import (
 
 const (
 	DefaultUserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
-
-	// defaultProxyURL is the Cloudflare Workers proxy used to bypass datacenter IP blocks
-	// on streaming sites. It routes all HTTP scraping requests through Cloudflare's network.
-	// Set PROXY_URL="" in the environment to disable the proxy (e.g. for local development).
-	defaultProxyURL = "https://nuviotr-proxy.falsis.workers.dev"
 )
 
-// proxyBaseURL is resolved at startup:
-// 1. If PROXY_URL env var is explicitly set (including to ""), use that value.
-// 2. Otherwise fall back to the built-in defaultProxyURL.
-var proxyBaseURL = func() string {
-	if v, ok := os.LookupEnv("PROXY_URL"); ok {
-		return v // allows disabling proxy by setting PROXY_URL=""
-	}
-	return defaultProxyURL
-}()
+// proxyBaseURL is resolved at startup from the PROXY_URL env var.
+var proxyBaseURL = os.Getenv("PROXY_URL")
 
 // ProxyBaseURL returns the active proxy URL (empty string = direct mode).
 func ProxyBaseURL() string { return proxyBaseURL }
@@ -50,30 +39,22 @@ func NewHTTPClient(timeout time.Duration) *HTTPClient {
 var DefaultClient = NewHTTPClient(10 * time.Second)
 
 // Request performs an HTTP request with custom headers and context.
-// When PROXY_URL is set (e.g. https://nuviotr-proxy.workers.dev), all requests are
-// forwarded through the Cloudflare Workers proxy to bypass datacenter IP blocks.
 func (c *HTTPClient) Request(ctx context.Context, method, targetURL string, body io.Reader, headers map[string]string) (*http.Response, error) {
-	var reqURL string
-	var req *http.Request
-	var err error
+	// Buffer body if present so it can be reused for fallback
+	var bodyBytes []byte
+	if body != nil {
+		b, err := io.ReadAll(body)
+		if err == nil {
+			bodyBytes = b
+		}
+	}
 
-	if proxyBaseURL != "" {
-		// Route through Cloudflare Workers proxy
-		proxyURL := proxyBaseURL + "/?url=" + url.QueryEscape(targetURL)
-		req, err = http.NewRequestWithContext(ctx, method, proxyURL, body)
-		if err != nil {
-			return nil, fmt.Errorf("failed to create proxy request: %w", err)
+	doDirect := func() (*http.Response, error) {
+		var reqBody io.Reader
+		if len(bodyBytes) > 0 {
+			reqBody = bytes.NewReader(bodyBytes)
 		}
-		// Forward original headers using x-ph- prefix so the proxy passes them to the target
-		req.Header.Set("User-Agent", DefaultUserAgent)
-		req.Header.Set("x-ph-user-agent", DefaultUserAgent)
-		for k, v := range headers {
-			req.Header.Set("x-ph-"+k, v)
-		}
-	} else {
-		// Direct request (local development)
-		reqURL = targetURL
-		req, err = http.NewRequestWithContext(ctx, method, reqURL, body)
+		req, err := http.NewRequestWithContext(ctx, method, targetURL, reqBody)
 		if err != nil {
 			return nil, fmt.Errorf("failed to create request: %w", err)
 		}
@@ -82,9 +63,40 @@ func (c *HTTPClient) Request(ctx context.Context, method, targetURL string, body
 		for k, v := range headers {
 			req.Header.Set(k, v)
 		}
+		return c.client.Do(req)
 	}
 
-	return c.client.Do(req)
+	if proxyBaseURL == "" {
+		return doDirect()
+	}
+
+	// Try proxy request first
+	var proxyReqBody io.Reader
+	if len(bodyBytes) > 0 {
+		proxyReqBody = bytes.NewReader(bodyBytes)
+	}
+	proxyURL := proxyBaseURL + "/?url=" + url.QueryEscape(targetURL)
+	req, err := http.NewRequestWithContext(ctx, method, proxyURL, proxyReqBody)
+	if err != nil {
+		return doDirect()
+	}
+
+	req.Header.Set("User-Agent", DefaultUserAgent)
+	req.Header.Set("x-ph-user-agent", DefaultUserAgent)
+	for k, v := range headers {
+		req.Header.Set("x-ph-"+k, v)
+	}
+
+	resp, err := c.client.Do(req)
+	if err != nil || resp.StatusCode >= 400 {
+		if resp != nil {
+			resp.Body.Close()
+		}
+		// Fallback to direct request
+		return doDirect()
+	}
+
+	return resp, nil
 }
 
 // Get performs a GET request and returns the response body as bytes.
@@ -108,21 +120,6 @@ func (c *HTTPClient) CheckAlive(ctx context.Context, targetURL string, headers m
 	defer cancel()
 
 	resp, err := c.Request(ctxCheck, http.MethodHead, targetURL, nil, headers)
-	if err == nil {
-		defer resp.Body.Close()
-		if resp.StatusCode >= 200 && resp.StatusCode < 400 {
-			return true
-		}
-	}
-
-	// Fallback to GET with range
-	getHeaders := make(map[string]string)
-	for k, v := range headers {
-		getHeaders[k] = v
-	}
-	getHeaders["Range"] = "bytes=0-100"
-
-	resp, err = c.Request(ctxCheck, http.MethodGet, targetURL, nil, getHeaders)
 	if err != nil {
 		return false
 	}

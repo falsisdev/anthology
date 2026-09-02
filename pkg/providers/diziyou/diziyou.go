@@ -9,16 +9,16 @@ import (
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
+	"github.com/falsisdev/nuviotr/pkg/extractors"
 	"github.com/falsisdev/nuviotr/pkg/models"
 	"github.com/falsisdev/nuviotr/pkg/provider"
 	"github.com/falsisdev/nuviotr/pkg/utils"
 )
 
 const (
-	ID         = "diziyou"
-	Name       = "DiziYou"
-	BaseURL    = "https://www.diziyou.one"
-	StorageURL = "https://storage.diziyou.one"
+	ID      = "diziyou"
+	Name    = "DiziYou"
+	BaseURL = "https://www.diziyou.one"
 )
 
 func init() {
@@ -48,142 +48,99 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 		return nil, nil
 	}
 
+	searchQuery := media.OriginalTitle
+	if searchQuery == "" {
+		searchQuery = media.Title
+	}
+
+	ajaxURL := fmt.Sprintf("%s/wp-admin/admin-ajax.php", BaseURL)
+	postData := url.Values{
+		"action":  {"data_fetch"},
+		"keyword": {searchQuery},
+	}
 	headers := map[string]string{
-		"User-Agent": utils.DefaultUserAgent,
-		"Referer":    BaseURL + "/",
-		"Accept":     "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+		"User-Agent":   utils.DefaultUserAgent,
+		"Referer":      BaseURL + "/",
+		"Content-Type": "application/x-www-form-urlencoded",
 	}
 
-	query := media.Title
-	if query == "" {
-		query = media.OriginalTitle
-	}
-
-	searchURL := fmt.Sprintf("%s/?s=%s", BaseURL, url.QueryEscape(query))
-	body, err := utils.DefaultClient.Get(ctx, searchURL, headers)
+	resp, err := utils.DefaultClient.Request(ctx, "POST", ajaxURL, strings.NewReader(postData.Encode()), headers)
 	if err != nil {
-		return nil, fmt.Errorf("diziyou search failed: %w", err)
+		return nil, err
 	}
+	defer resp.Body.Close()
 
-	doc, err := goquery.NewDocumentFromReader(bytes.NewReader(body))
+	doc, err := goquery.NewDocumentFromReader(resp.Body)
 	if err != nil {
-		return nil, fmt.Errorf("failed to parse search html: %w", err)
+		return nil, err
 	}
 
-	searchTitleLower := strings.ToLower(strings.TrimSpace(media.Title))
-	orgTitleLower := strings.ToLower(strings.TrimSpace(media.OriginalTitle))
-	var foundLink string
-
-	doc.Find(".list-series a, .post-title a, #categorytitle a, .entry-title a").EachWithBreak(func(i int, s *goquery.Selection) bool {
+	var showURL string
+	doc.Find("a").EachWithBreak(func(i int, s *goquery.Selection) bool {
 		href, exists := s.Attr("href")
-		if !exists || strings.Contains(href, "/kategori/") {
-			return true
-		}
-
-		currentTitle := strings.ToLower(strings.TrimSpace(strings.ReplaceAll(s.Text(), "izle", "")))
-		isExact := (currentTitle == searchTitleLower || currentTitle == orgTitleLower)
-		isBrackets := strings.Contains(currentTitle, searchTitleLower+" (") || strings.Contains(currentTitle, orgTitleLower+" (")
-		isDiziSuffix := strings.Contains(currentTitle, searchTitleLower+" dizi") || strings.Contains(currentTitle, orgTitleLower+" dizi")
-
-		if isExact || isBrackets || isDiziSuffix {
-			foundLink = href
+		if exists && strings.Contains(href, BaseURL) && !strings.Contains(href, "/wp-") {
+			showURL = href
 			return false
 		}
 		return true
 	})
 
-	if foundLink == "" {
-		firstLink := doc.Find(".list-series a, .post-title a, #categorytitle a, .entry-title a").First()
-		if href, exists := firstLink.Attr("href"); exists && !strings.Contains(href, "/kategori/") {
-			foundLink = href
+	if showURL == "" {
+		slug := utils.ToSlug(media.OriginalTitle)
+		if slug == "" {
+			slug = utils.ToSlug(media.Title)
 		}
+		showURL = fmt.Sprintf("%s/%s/", BaseURL, slug)
 	}
 
-	if foundLink == "" {
-		return nil, nil
-	}
+	cleanShow := strings.Trim(showURL, "/")
+	showSlug := path.Base(cleanShow)
 
-	// Extract slug
-	cleanPath := strings.Trim(foundLink, "/")
-	slug := path.Base(cleanPath)
-
-	epURL := fmt.Sprintf("%s/%s-%d-sezon-%d-bolum/", BaseURL, slug, media.Season, media.Episode)
+	// Episode URL format: https://www.diziyou.one/{showSlug}-{season}-sezon-{episode}-bolum/
+	epURL := fmt.Sprintf("%s/%s-%d-sezon-%d-bolum/", BaseURL, showSlug, media.Season, media.Episode)
 	epBody, err := utils.DefaultClient.Get(ctx, epURL, headers)
 	if err != nil {
-		return nil, fmt.Errorf("failed to get episode page: %w", err)
+		epURL = fmt.Sprintf("%s/%s/%d-sezon-%d-bolum/", BaseURL, showSlug, media.Season, media.Episode)
+		epBody, err = utils.DefaultClient.Get(ctx, epURL, headers)
+		if err != nil {
+			return nil, nil
+		}
 	}
 
 	epDoc, err := goquery.NewDocumentFromReader(bytes.NewReader(epBody))
 	if err != nil {
-		return nil, fmt.Errorf("failed to parse episode page: %w", err)
-	}
-
-	playerSrc, exists := epDoc.Find("#diziyouPlayer").Attr("src")
-	if !exists || playerSrc == "" {
 		return nil, nil
 	}
 
-	// Extract item ID from player src (e.g. /episodes/10551.html -> 10551)
-	srcPath := strings.Split(playerSrc, "?")[0]
-	baseItem := path.Base(srcPath)
-	itemID := strings.TrimSuffix(baseItem, ".html")
-
-	epHTML := string(epBody)
-	hasSub := strings.Contains(epHTML, "turkceAltyazili")
-	hasDub := strings.Contains(epHTML, "turkceDublaj")
-
 	var streams []models.Stream
+	epDoc.Find("iframe").Each(func(i int, s *goquery.Selection) {
+		src, _ := s.Attr("src")
+		if src == "" || src == "about:blank" {
+			src, _ = s.Attr("data-src")
+		}
+		if src == "" || strings.Contains(src, "facebook") || strings.Contains(src, "youtube") {
+			return
+		}
+		if strings.HasPrefix(src, "//") {
+			src = "https:" + src
+		} else if strings.HasPrefix(src, "/") {
+			src = BaseURL + src
+		}
 
-	if hasSub {
-		streams = append(streams, models.Stream{
-			Name:     media.Title,
-			Title:    "⌜ DiziYou ⌟ | 🌐 Türkçe Altyazılı",
-			URL:      fmt.Sprintf("%s/episodes/%s/play.m3u8", StorageURL, itemID),
-			Quality:  "1080p",
-			Provider: ID,
-			Headers: map[string]string{
-				"Referer": BaseURL + "/",
-			},
-			Subtitles: []models.Subtitle{
-				{
-					Label: "Turkish",
-					URL:   fmt.Sprintf("%s/subtitles/%s/tr.vtt", StorageURL, itemID),
-				},
-			},
-		})
-	}
-
-	if hasDub {
-		streams = append(streams, models.Stream{
-			Name:     media.Title,
-			Title:    "⌜ DiziYou ⌟ | 🇹🇷 Türkçe Dublaj",
-			URL:      fmt.Sprintf("%s/episodes/%s_tr/play.m3u8", StorageURL, itemID),
-			Quality:  "1080p",
-			Provider: ID,
-			Headers: map[string]string{
-				"Referer": BaseURL + "/",
-			},
-			Subtitles: []models.Subtitle{
-				{
-					Label: "Turkish",
-					URL:   fmt.Sprintf("%s/subtitles/%s/tr.vtt", StorageURL, itemID),
-				},
-			},
-		})
-	}
-
-	if len(streams) == 0 {
-		streams = append(streams, models.Stream{
-			Name:     media.Title,
-			Title:    "⌜ DiziYou ⌟ | 🌐 Otomatik Stream",
-			URL:      fmt.Sprintf("%s/episodes/%s/play.m3u8", StorageURL, itemID),
-			Quality:  "1080p",
-			Provider: ID,
-			Headers: map[string]string{
-				"Referer": BaseURL + "/",
-			},
-		})
-	}
+		extracted, err := extractors.Extract(ctx, src, epURL)
+		if err == nil && len(extracted) > 0 {
+			for _, es := range extracted {
+				streams = append(streams, models.Stream{
+					Name:     media.Title,
+					Title:    fmt.Sprintf("⌜ DiziYou ⌟ | %s", es.Title),
+					Quality:  es.Quality,
+					URL:      es.URL,
+					Provider: ID,
+					Headers:  es.Headers,
+				})
+			}
+		}
+	})
 
 	return streams, nil
 }

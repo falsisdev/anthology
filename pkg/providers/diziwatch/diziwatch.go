@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/falsisdev/nuviotr/pkg/extractors"
 	"github.com/falsisdev/nuviotr/pkg/models"
 	"github.com/falsisdev/nuviotr/pkg/provider"
 )
@@ -48,16 +49,22 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 		embedURL = fmt.Sprintf("https://videoplay.vip/film/%s?sid=diziwatch8.com", media.TMDBID)
 	}
 
-	return []models.Stream{
-		{
+	extracted, err := extractors.ExtractVideoplay(ctx, embedURL, BaseURL+"/")
+	if err != nil || len(extracted) == 0 {
+		return nil, nil
+	}
+
+	var streams []models.Stream
+	for _, s := range extracted {
+		streams = append(streams, models.Stream{
 			Name:     media.Title,
-			Title:    "⌜ Diziwatch ⌟ | Hızlı Oynatıcı",
-			Quality:  "1080p",
-			URL:      embedURL,
+			Title:    fmt.Sprintf("⌜ Diziwatch ⌟ | %s", s.Title),
+			Quality:  s.Quality,
+			URL:      s.URL,
 			Provider: ID,
-			Headers: map[string]string{
-				"Referer": "https://diziwatch8.com/",
-			},
-		},
-	}, nil
+			Headers:  s.Headers,
+		})
+	}
+
+	return streams, nil
 }
