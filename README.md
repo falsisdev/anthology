@@ -20,7 +20,7 @@
 - **Dahili Video Extractor Motoru (`pkg/extractors`):** Stremio'nun web iframe'lerini oynatamama sorununu ortadan kaldırır. OK.ru, Vidmoly, Sibnet, VideoPlay, JWPlayer, Streambox, HDPlayer, YouTube vb. gömülü oynatıcılardan doğrudan `.m3u8`, `.mp4` ve yerel YouTube (`ytId`) video akışlarını ayıklar. Fragman/tanıtım videoları otomatik olarak filtrelenip tam bölümler getirilir.
 - **Canlı TV ve IPTV:** Her kanala özel yüksek çözünürlüklü logo, kategori ve doğrudan çalışan HLS yayınları.
 - **Web Paneli (`pkg/web`):** Ana sayfa (kök `/`) tarayıcıda artık her zaman şık bir HTML karşılama sayfası döndürür; HTML/JS/CSS `//go:embed` ile ayrı şablon dosyalarında (`landing.html`, `status.html`, `tests.html`) tutulur ve `html/template` ile render edilir. Tek tıkla **Stremio'ya Yükle**, **manifest kopyalama** ve **Stremio Web** butonları içerir.
-- **Canlı Kaynak & Yayın Testi (`pkg/tester`):** Ana sayfadaki htmx bazlı panel ile her sağlayıcıya gerçek bir akış arama isteği (her site için ayrıca seçilmiş, o sitede bulunacağı emin içeriklerle — ör. ddizi→Arka Sokaklar, anime siteleri→One Piece/Naruto, film siteleri→Interstellar) ve 35+ canlı TV kanalının yayın URL'ine HTTP `Range` isteği gönderilir; sonuçlar (çevrimiçi/kapalı, gecikme ms, akış sayısı, hata detayı) anlık kartlar hâlinde listelenir.
+- **Canlı Kaynak & Yayın Testi (`pkg/tester`):** Ana sayfadaki panel ile her sağlayıcıya gerçek bir akış arama isteği, 35+ canlı TV kanalının yayın URL'ine HTTP `Range` isteği gönderilir. Her kaynak farklı popüler içerikleri paralel (goroutine + worker pool, 16 işçi, 3 sn timeout) dener; sonuçlar (çevrimiçi/kapalı, gecikme ms, akış sayısı) kartlar hâlinde listelenir. Not: Çoğu Türk sağlayıcı Cloudflare WAF kullanır ve yabancı IP'leri engeller — test sonucu test sunucusunun konumuna göre değişebilir.
 
 ## 📺 Canlı TV Kanalları & Yayın Durumları
 
@@ -115,7 +115,7 @@ Aşağıdaki tablo, sağlayıcıların, video extractor ve HLS proxy motorunun e
 | GET | `/` | Web paneli (HTML): kurulum butonları + canlı durum + test konsolu |
 | GET | `/manifest.json` | Stremio manifest (JSON) — kanonik dosya `pkg/manifest/manifest.json` derleme anında gömülür (`//go:embed`) ve birebir servis edilir; kökteki `manifest.json` ona sembolik bağdır, `stremioAddonsConfig` imza bloğu dahil |
 | GET | `/fragments/status` | htmx parçası: eklenti durumu kartları |
-| GET | `/fragments/test/providers` | htmx parçası: sağlayıcı canlı akış arama testi (her kaynağa kendi sitesinde kesin olan içeriklerle) |
+| GET | `/fragments/test/providers` | htmx parçası: sağlayıcı canlı akış arama testi (8 işçi paralel) |
 | GET | `/fragments/test/channels` | htmx parçası: canlı TV kanallarının HTTP `Range` erişilebilirlik testi |
 | GET | `/health` | Sağlık kontrolü (JSON) |
 | GET | `/providers` | Kayıtlı sağlayıcı listesi (JSON) |

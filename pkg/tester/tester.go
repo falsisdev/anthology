@@ -21,11 +21,13 @@ import (
 
 const (
 	// ProviderTestTimeout bounds a single provider's stream search.
-	ProviderTestTimeout = 4 * time.Second
+	ProviderTestTimeout = 3 * time.Second
+
 	// ChannelTestTimeout bounds a single channel connectivity check.
 	ChannelTestTimeout = 3 * time.Second
+
 	// WorkerCount limits how many live tests run at the same time.
-	WorkerCount = 8
+	WorkerCount = 16
 )
 
 // TestResult describes the outcome of a single live test.
@@ -39,101 +41,75 @@ type TestResult struct {
 	Detail    string `json:"detail,omitempty"`
 }
 
-// Generic probe fixtures: fallback for providers that have no site-specific
-// fixture in providerFixtures below.
+// Her sağlayıcı, desteklediği türe göre bir aday havuzundan başlanarak
+// test edilir; ilk akış dönen aday yeterlidir. Böylece "bu sitede tam olarak
+// hangi içerik var" tahmini yapmak yerine, kategoride yaygın birkaç başlığı
+// deniyoruz — biri mutlaka bulunur. Adaylar yaygınlığa göre sıralıdır.
 var (
-	testMovie = models.MediaInfo{
-		TMDBID: "27205",
-		IMDbID: "tt1375666",
-		Title:  "Inception",
-		Year:   "2010",
-		Type:   models.MediaTypeMovie,
+	movieCandidates = []string{
+		"Inception", "The Matrix", "Interstellar", "The Dark Knight",
+		"Forrest Gump", "Pulp Fiction", "Fight Club", "The Godfather",
 	}
-	testSeries = models.MediaInfo{
-		TMDBID:  "1399",
-		IMDbID:  "tt0944947",
-		Title:   "Game of Thrones",
-		Year:    "2011",
-		Type:    models.MediaTypeTV,
-		Season:  1,
-		Episode: 1,
+	tvCandidates = []string{
+		"Breaking Bad", "Game of Thrones", "The Office", "Friends",
+		"Stranger Things", "The Simpsons", "Peaky Blinders", "The Walking Dead",
+	}
+	turkishCandidates = []string{
+		"Yalı Çapkını", "Kızılcık Şerbeti", "Kuruluş Osman", "Aşk-ı Memnu",
+		"Çukur", "Diriliş Ertuğrul", "Arka Sokaklar", "Yabani",
+	}
+	animeCandidates = []string{
+		"One Piece", "Naruto", "Attack on Titan", "Demon Slayer",
+		"Dragon Ball", "Death Note", "My Hero Academia", "Jujutsu Kaisen",
+	}
+	koreanCandidates = []string{
+		"Goblin", "Crash Landing on You", "Squid Game", "Descendants of the Sun",
 	}
 )
 
-// providerFixtures maps provider IDs to site-specific probe media. Each entry
-// lists content that is near-certain to exist on that provider's own site, so
-// a failed probe reflects the site's reachability — not an unlucky fixture.
-// Candidates are tried in order until one yields streams.
-var providerFixtures = map[string][]models.MediaInfo{
-	// Türk dizi siteleri — arşivlerinin amiral gemisi içerikleri
-	"ddizi":        {probeTV("Arka Sokaklar")},
-	"dizibox":      {probeTV("Kuruluş Osman")},
-	"dizigom":      {probeTV("Kuruluş Osman")},
-	"dizimag":      {probeTV("Kuruluş Osman")},
-	"diziyo":       {probeTV("Yalı Çapkını")},
-	"sezonlukdizi": {probeTV("Yalı Çapkını")},
-	"dizipal":      {probeTV("Yalı Çapkını"), probeTV("Kuruluş Osman")},
-	"diziyou":      {probeTV("Kızılcık Şerbeti"), probeTV("Kuruluş Osman")},
-	"dizimom": {
-		withIDs(probeTV("Breaking Bad"), "1396", "tt0903747"), // yabancı dizi
-		probeTV("Kuruluş Osman"),
-	},
-	"setfilmizle": {
-		interstellar(),
-		probeTV("Kuruluş Osman"),
-	},
-
-	// Anime siteleri
-	"animecix":    {withIDs(probeTV("One Piece"), "37854", "tt0388629")},
-	"tranimeizle": {probeTV("One Piece"), probeTV("Naruto")},
-	"animexe":     {probeTV("Naruto")},
-	"animpow":     {probeTV("Naruto")},
-	"acheriya":    {probeTV("Naruto")},
-	"seicode":     {probeTV("Naruto")},
-	"diziwatch":   {probeTV("Naruto"), testSeries}, // GoT daha önce doğrulandı
-	// Asya dizileri (Kore)
-	"asyaanimeleri": {probeTV("Goblin")},
-
-	// Film siteleri — Interstellar her birinin kataloğunda bulunur
-	"filmekseni":      {interstellar()},
-	"filmhane":        {interstellar()},
-	"filmifullizle":   {interstellar()},
-	"filmmakinesi":    {interstellar()},
-	"jetfilmizle":     {interstellar()},
-	"hdfilmcehennemi": {interstellar()},
-	"hdfilmdelisi":    {interstellar()},
-	"tekfullfilmizle": {interstellar()},
-	"sinezy":          {interstellar()},
-	"filmzal":         {interstellar(), withIDs(probeTV("Breaking Bad"), "1396", "tt0903747")},
-	"sinemacx":        {interstellar(), testSeries},
-
-	// ID tabanlı motorlar — daha önce canlı doğrulanmış popüler içerikler
-	"sinewix": {testMovie, testSeries},
-	"vidlink": {testMovie, testSeries},
-	"vidmody": {testMovie, testSeries},
-	"m3u":     {testMovie, testSeries},
+// providerCategory, sağlayıcıyı bir içerik kategorisiler. Kategori, hangi aday
+// havuzunun kullanılacağını belirler. Eşleşmeyen her sağlayıcı "multi" (film +
+// dizi karışık) olarak test edilir.
+var providerCategory = map[string]string{
+	// Türk dizileri
+	"ddizi": "turkish", "dizibox": "turkish", "dizigom": "turkish",
+	"dizimag": "turkish", "diziyo": "turkish", "sezonlukdizi": "turkish",
+	"dizipal": "turkish", "dizimom": "turkish", "diziyou": "turkish",
+	"setfilmizle": "turkish",
+	// Anime
+	"animecix": "anime", "tranimeizle": "anime", "animexe": "anime",
+	"animpow": "anime", "acheriya": "anime", "seicode": "anime",
+	"diziwatch": "anime", "asyaanimeleri": "korean",
+	// Film
+	"filmekseni": "movie", "filmhane": "movie", "filmifullizle": "movie",
+	"filmmakinesi": "movie", "jetfilmizle": "movie", "hdfilmcehennemi": "movie",
+	"hdfilmdelisi": "movie", "tekfullfilmizle": "movie", "sinezy": "movie",
+	"filmzal": "movie", "sinemacx": "movie",
+	// ID tabanlı / karışık
+	"sinewix": "multi", "vidlink": "multi", "vidmody": "multi", "m3u": "multi",
 }
 
-// probeTV builds a TV probe without external IDs; the provider's own site
-// search resolves the title.
-func probeTV(title string) models.MediaInfo {
-	return models.MediaInfo{Title: title, Type: models.MediaTypeTV, Season: 1, Episode: 1}
-}
+// maxCandidatesPerProvider, bir sağlayıcı başına denenme üst sınırıdır.
+// Çok denemekten kaçınır; ilk başarılı adayda durulur.
+const maxCandidatesPerProvider = 4
 
-// probeMovie builds a movie probe without external IDs.
-func probeMovie(title string) models.MediaInfo {
-	return models.MediaInfo{Title: title, Type: models.MediaTypeMovie}
-}
-
-// interstellar is the shared movie probe for film sites (IDs verified).
-func interstellar() models.MediaInfo {
-	return withIDs(probeMovie("Interstellar"), "157336", "tt0816692")
-}
-
-// withIDs attaches TMDB/IMDb identifiers for ID-based engine providers.
-func withIDs(m models.MediaInfo, tmdb, imdb string) models.MediaInfo {
-	m.TMDBID, m.IMDbID = tmdb, imdb
-	return m
+// titlesForCategory, kategoriye göre başlık dizesi döndürür.
+func titlesForCategory(cat string) []string {
+	switch cat {
+	case "movie":
+		return movieCandidates
+	case "turkish":
+		return turkishCandidates
+	case "anime":
+		return animeCandidates
+	case "korean":
+		return koreanCandidates
+	case "multi":
+		// Karışık sağlayıcılar için film + dizi başlıklarını birleştir.
+		return append(append([]string{}, movieCandidates...), tvCandidates...)
+	default:
+		return append(append([]string{}, movieCandidates...), tvCandidates...)
+	}
 }
 
 // TestProviders live-tests every registered provider by running a real stream
@@ -340,13 +316,21 @@ launchLoop:
 	return out
 }
 
-// candidateMediaFor returns the probe media for p. Providers with a dedicated
-// site-specific fixture are probed with content that is near-certain to exist
-// on their own site; everything else falls back to generic popular titles.
+// candidateMediaFor, sağlayıcıya uygun aday içerikleri döndürür. Sağlayıcının
+// kategorisine göre bir başlık havuzu seçilir, desteklenen türe (film/dizi)
+// göre MediaInfo'ya dönüştürülür ve en fazla maxCandidatesPerProvider adet
+// adayla sınırlandırılır. Adaylar yaygınlığa göre sıralı olduğundan, döngü
+// genellikle ilk veya ikinci adayda başarıyla sonuçlanır.
 func candidateMediaFor(p provider.Provider) []models.MediaInfo {
-	if fx, ok := providerFixtures[p.ID()]; ok && len(fx) > 0 {
-		return fx
+	cat := providerCategory[p.ID()]
+	if cat == "" {
+		cat = "multi"
 	}
+	titles := titlesForCategory(cat)
+	if len(titles) > maxCandidatesPerProvider {
+		titles = titles[:maxCandidatesPerProvider]
+	}
+
 	var hasMovie, hasTV bool
 	for _, t := range p.SupportedTypes() {
 		if t == models.MediaTypeMovie {
@@ -356,12 +340,15 @@ func candidateMediaFor(p provider.Provider) []models.MediaInfo {
 			hasTV = true
 		}
 	}
+
 	var out []models.MediaInfo
-	if hasMovie {
-		out = append(out, testMovie)
-	}
-	if hasTV {
-		out = append(out, testSeries)
+	for _, title := range titles {
+		if hasTV {
+			out = append(out, models.MediaInfo{Title: title, Type: models.MediaTypeTV, Season: 1, Episode: 1})
+		}
+		if hasMovie {
+			out = append(out, models.MediaInfo{Title: title, Type: models.MediaTypeMovie})
+		}
 	}
 	return out
 }

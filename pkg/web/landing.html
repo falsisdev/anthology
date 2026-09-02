@@ -448,10 +448,25 @@
     .htmx-indicator {
       opacity: 0;
       transition: opacity 0.2s ease;
+      display: inline-block;
     }
     .htmx-request.htmx-indicator,
     .htmx-request .htmx-indicator {
       opacity: 1;
+    }
+    .test-btn .htmx-indicator {
+      font-size: 18px;
+      margin-right: 6px;
+      animation: spin 1s linear infinite;
+    }
+    .test-btn.secondary .htmx-indicator {
+      font-size: 18px;
+      margin-right: 6px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
     }
   </style>
 </head>
@@ -535,7 +550,7 @@
       <div id="channel-tests" class="test-results">
         <p class="result-empty">Henüz test edilmedi — yukarıdaki butona tıklayın. Tüm kanal yayın URL'leri tek tek kontrol edilir.</p>
       </div>
-      <p class="test-note">✳️ Sonuçlar anlık gerçek isteklerdir; her kaynak, kendi sitesinde bulunacağından emin olunan içeriklerle (site bazlı fixtür) test edilir. Sağlayıcı ve ağ durumuna göre sonuçlar değişebilir; kırmızı çıkan kaynak genelde Cloudflare WAF veya bölgesel erişim kısıtlaması anlamına gelir.</p>
+      <p class="test-note">✳️ Sonuçlar anlık gerçek isteklerdir; her kaynak farklı popüler içerikleri dener. Çoğu Türk sağlayıcı Cloudflare WAF kullanır ve yabancı IP'leri (Vercel/CDN) engeller — bu nedenle bu sunucudan test edildiğinde kırmızı çıkabilir, Türk IP ile test edildiğinde yeşil olabilir. Sağlayıcı ve ağ durumuna göre değişir.</p>
     </section>
   </div>
 
