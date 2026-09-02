@@ -23,13 +23,25 @@ func diziyouHeaders() map[string]string {
 }
 
 func searchDiziYou(ctx context.Context, query string) ([]MetaItem, error) {
-	searchURL := fmt.Sprintf("%s/?s=%s", diziyouBase, url.QueryEscape(query))
-	body, err := utils.DefaultClient.Get(ctx, searchURL, diziyouHeaders())
+	ajaxURL := fmt.Sprintf("%s/wp-admin/admin-ajax.php", diziyouBase)
+	postData := url.Values{
+		"action":  {"data_fetch"},
+		"keyword": {query},
+	}
+	ajaxHeaders := map[string]string{
+		"User-Agent":       utils.DefaultUserAgent,
+		"Referer":          diziyouBase + "/",
+		"Content-Type":     "application/x-www-form-urlencoded; charset=UTF-8",
+		"X-Requested-With": "XMLHttpRequest",
+	}
+
+	resp, err := utils.DefaultClient.Request(ctx, "POST", ajaxURL, strings.NewReader(postData.Encode()), ajaxHeaders)
 	if err != nil {
 		return nil, err
 	}
+	defer resp.Body.Close()
 
-	doc, err := goquery.NewDocumentFromReader(bytes.NewReader(body))
+	doc, err := goquery.NewDocumentFromReader(resp.Body)
 	if err != nil {
 		return nil, err
 	}
@@ -37,34 +49,36 @@ func searchDiziYou(ctx context.Context, query string) ([]MetaItem, error) {
 	var results []MetaItem
 	seen := make(map[string]bool)
 
-	doc.Find(".categorytitle a, .cat-img a, .post-title a, a").Each(func(i int, s *goquery.Selection) {
-		href, _ := s.Attr("href")
-		if !strings.HasPrefix(href, diziyouBase) || strings.Contains(href, "-bolum") || strings.Contains(href, "/category/") || strings.Contains(href, "/tag/") || seen[href] {
+	doc.Find("#searchelement").Each(func(i int, s *goquery.Selection) {
+		a := s.Find("a").First()
+		href, _ := a.Attr("href")
+		if href == "" {
 			return
 		}
 
 		clean := strings.Trim(href, "/")
 		parts := strings.Split(clean, "/")
-		if len(parts) < 4 {
-			return
-		}
 		slug := parts[len(parts)-1]
-
-		title := strings.TrimSpace(s.Text())
-		if title == "" {
-			title, _ = s.Attr("title")
-		}
-		if title == "" || len(title) < 2 {
+		if seen[slug] {
 			return
 		}
+		seen[slug] = true
 
-		seen[href] = true
+		title := strings.TrimSpace(s.Find("a").Last().Text())
+		if title == "" {
+			title = strings.Title(strings.ReplaceAll(slug, "-", " "))
+		}
+
+		img := s.Find("img").First()
+		poster, _ := img.Attr("src")
 
 		results = append(results, MetaItem{
 			ID:          "diziyou:show:" + slug,
 			Type:        "series",
 			Name:        title,
-			Description: title + " DiziYou dizisi",
+			Poster:      poster,
+			Background:  poster,
+			Description: fmt.Sprintf("%s - DiziYou", title),
 			Genres:      []string{"DiziYou", "Dizi"},
 		})
 	})

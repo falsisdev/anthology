@@ -21,9 +21,11 @@ const (
 	ID   = "m3u"
 	Name = "M3U Provider"
 
-	RemoteMovieM3U = "https://raw.githubusercontent.com/falsisdev/nuviotr/main/lists/film.m3u"
-	RemoteTVM3U    = "https://raw.githubusercontent.com/falsisdev/nuviotr/main/lists/dizi.m3u"
-	RemoteLiveM3U  = "https://raw.githubusercontent.com/falsisdev/nuviotr/main/lists/canli.m3u"
+	RemoteMovieM3U = "https://raw.githubusercontent.com/falsisdev/anthology/main/lists/film.m3u"
+	RemoteTVM3U    = "https://raw.githubusercontent.com/falsisdev/anthology/main/lists/dizi.m3u"
+	RemoteLiveM3U  = "https://raw.githubusercontent.com/falsisdev/anthology/main/lists/canli.m3u"
+
+	DefaultChannelLogo = "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png"
 
 	LocalMovieM3U = "lists/film.m3u"
 	LocalTVM3U    = "lists/dizi.m3u"
@@ -153,15 +155,25 @@ func (p *Provider) GetLiveChannels(ctx context.Context) ([]models.Channel, error
 			if currentChannel.ID == "" {
 				currentChannel.ID = utils.NormalizeTurkish(currentChannel.Name)
 			}
-		} else if strings.HasPrefix(line, "http") {
-			if currentChannel.Name != "" {
-				currentChannel.URL = line
-				currentChannel.Headers = map[string]string{
-					"User-Agent": "VLC/3.0.18",
-				}
-				channels = append(channels, currentChannel)
-				currentChannel = models.Channel{}
+			if currentChannel.Logo == "" {
+				currentChannel.Logo = DefaultChannelLogo
 			}
+		} else if strings.HasPrefix(line, "http") {
+			if currentChannel.Name == "" {
+				currentChannel.Name = currentChannel.ID
+			}
+			if currentChannel.Name == "" {
+				currentChannel.Name = "Canlı Yayın"
+			}
+			if currentChannel.Logo == "" {
+				currentChannel.Logo = DefaultChannelLogo
+			}
+			currentChannel.URL = line
+			currentChannel.Headers = map[string]string{
+				"User-Agent": "VLC/3.0.18",
+			}
+			channels = append(channels, currentChannel)
+			currentChannel = models.Channel{}
 		}
 	}
 

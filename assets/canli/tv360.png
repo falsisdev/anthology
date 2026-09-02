@@ -1,0 +1,16 @@
+                                       <HTML>
+                                       <HEAD><TITLE></TITLE>
+                                       <META HTTP-EQUIV="pragma" CONTENT="no-cache">
+                                       <META HTTP-EQUIV="Cache-Control"CONTENT="no-cache, must-revalidate">
+                                       <meta http-equiv="Content-Type"content="text/html; charset=gb2312" />
+                                       </HEAD>
+                                       <script language="javascript">
+                                       function redir()
+                                       {
+                                           top.location.href = "http://192.168.1.1/redirect.html";
+                                       }
+                                       </script>
+                                       <BODY onload="redir();">
+                                       <CENTER><H1></H1></CENTER>
+                                       </BODY>
+                                       </HTML>

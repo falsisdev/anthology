@@ -344,6 +344,10 @@ func fetchHDPlayer(ctx context.Context, embedURL string) *models.Stream {
 	}
 	dataID := u.Query().Get("data")
 	if dataID == "" {
+		parts := strings.Split(strings.Trim(u.Path, "/"), "/")
+		dataID = parts[len(parts)-1]
+	}
+	if dataID == "" {
 		return nil
 	}
 
