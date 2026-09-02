@@ -91,6 +91,14 @@ func (s *Server) handleStatusFragment(w http.ResponseWriter, r *http.Request) {
 	web.ServeStatus(w, r)
 }
 
+func (s *Server) handleProviderTests(w http.ResponseWriter, r *http.Request) {
+	web.ServeProviderTests(w, r)
+}
+
+func (s *Server) handleChannelTests(w http.ResponseWriter, r *http.Request) {
+	web.ServeChannelTests(w, r)
+}
+
 func (s *Server) handleManifest(w http.ResponseWriter, r *http.Request) {
 	// Root path always serves the HTML landing page; manifest endpoints always serve JSON.
 	// (Vercel may rewrite "/" to the serverless entry file, so we derive the original path.)
@@ -541,6 +549,8 @@ func main() {
 	mux.HandleFunc("/health", enableCORS(srv.handleHealth))
 	mux.HandleFunc("/providers", enableCORS(srv.handleProviders))
 	mux.HandleFunc("/fragments/status", enableCORS(srv.handleStatusFragment))
+	mux.HandleFunc("/fragments/test/providers", enableCORS(srv.handleProviderTests))
+	mux.HandleFunc("/fragments/test/channels", enableCORS(srv.handleChannelTests))
 	mux.HandleFunc("/manifest", enableCORS(srv.handleManifest))
 	mux.HandleFunc("/manifest.json", enableCORS(srv.handleManifest))
 	mux.HandleFunc("/catalog/", enableCORS(srv.handleCatalog))
