@@ -113,7 +113,7 @@ Aşağıdaki tablo, sağlayıcıların, video extractor ve HLS proxy motorunun e
 | Yöntem | Uç Nokta | Açıklama |
 | :--- | :--- | :--- |
 | GET | `/` | Web paneli (HTML): kurulum butonları + canlı durum + test konsolu |
-| GET | `/manifest.json` | Stremio manifest (JSON) — depodaki `manifest.json` dosyası (`//go:embed`) birebir servis edilir, `stremioAddonsConfig` imza bloğu dahil |
+| GET | `/manifest.json` | Stremio manifest (JSON) — kanonik dosya `pkg/manifest/manifest.json` derleme anında gömülür (`//go:embed`) ve birebir servis edilir; kökteki `manifest.json` ona sembolik bağdır, `stremioAddonsConfig` imza bloğu dahil |
 | GET | `/fragments/status` | htmx parçası: eklenti durumu kartları |
 | GET | `/fragments/test/providers` | htmx parçası: sağlayıcı canlı akış arama testi (her kaynağa kendi sitesinde kesin olan içeriklerle) |
 | GET | `/fragments/test/channels` | htmx parçası: canlı TV kanallarının HTTP `Range` erişilebilirlik testi |
