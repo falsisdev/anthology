@@ -6,8 +6,14 @@
 
 ## 🚀 Özellikler
 
+- **CloudStream Tarzı Doğrudan Sağlayıcı Katalogları (`pkg/catalog`):** Stremio ve Nuvio arama çubuğuna bir içerik yazıldığında (Örn: *Son Yaz*, *Yargı*, *Dövüş Kulübü*), Cinemeta/TMDB ID bağımlılığı olmadan doğrudan sağlayıcı sitelerinde canlı arama yapılır:
+  - `Anthology - Ddizi` (Yerli diziler, tüm sezon & bölüm listesiyle)
+  - `Anthology - Dizimom` (Yerli & yabancı diziler)
+  - `Anthology - DiziYou` (Popüler diziler)
+  - `Anthology - HDFilmCehennemi` (Filmler)
+  - Arama sonucundaki dizilere tıklandığında tüm bölümler (1. Bölümden Finale kadar) doğrudan o sağlayıcıdan çekilip listelenir ve doğrudan oynatılır!
 - **Dahili HLS Akış Proxy Motoru (`pkg/proxy`):** Stremio ve Nuvio oynatıcılarının alt segment (`.ts`, `.jpg`, `.js`, `.woff`) isteklerinde `Referer` / `Origin` başlıklarını iletememesinden kaynaklanan HTTP 403 ve 2 saniyede bir donma/takılma sorunlarını çözer. Playlistleri dinamik olarak yeniden yazıp CORS açık şekilde aracı olarak oynatır.
-- **Dahili Video Extractor Motoru (`pkg/extractors`):** Stremio'nun web iframe'lerini oynatamama sorununu ortadan kaldırır. OK.ru, Vidmoly, Sibnet, VideoPlay, JWPlayer, Streambox, HDPlayer vb. gömülü oynatıcılardan doğrudan `.m3u8` ve `.mp4` video akışlarını ayıklar.
+- **Dahili Video Extractor Motoru (`pkg/extractors`):** Stremio'nun web iframe'lerini oynatamama sorununu ortadan kaldırır. OK.ru, Vidmoly, Sibnet, VideoPlay, JWPlayer, Streambox, HDPlayer, YouTube vb. gömülü oynatıcılardan doğrudan `.m3u8`, `.mp4` ve yerel YouTube (`ytId`) video akışlarını ayıklar.
 - **Çoklu Kaynak:** Birçok popüler Türkçe film, dizi ve anime platformundan içerik çeker.
 - **Canlı TV:** M3U desteği ile ulusal kanallar, haber kanalları ve sinema kanalları.
 - **Hızlı:** Eşzamanlı (concurrent) tarama sayesinde saniyeler içinde sonuç üretir.

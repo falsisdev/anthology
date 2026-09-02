@@ -8,8 +8,40 @@
   "engine": "golang",
   "supportedTypes": ["movie", "series", "tv", "live", "channel", "anime"],
   "resources": ["catalog", "stream", "meta"],
-  "idPrefixes": ["tt", "tmdb:", "kitsu:", "animecix:", "canli:"],
+  "idPrefixes": ["tt", "tmdb:", "kitsu:", "animecix:", "canli:", "ddizi:", "dizimom:", "diziyou:", "hdfc:"],
   "catalogs": [
+    {
+      "type": "series",
+      "id": "anthology_ddizi",
+      "name": "Anthology - Ddizi",
+      "extra": [
+        { "name": "search", "isRequired": false }
+      ]
+    },
+    {
+      "type": "series",
+      "id": "anthology_dizimom",
+      "name": "Anthology - Dizimom",
+      "extra": [
+        { "name": "search", "isRequired": false }
+      ]
+    },
+    {
+      "type": "series",
+      "id": "anthology_diziyou",
+      "name": "Anthology - DiziYou",
+      "extra": [
+        { "name": "search", "isRequired": false }
+      ]
+    },
+    {
+      "type": "movie",
+      "id": "anthology_hdfc",
+      "name": "Anthology - HDFilmCehennemi",
+      "extra": [
+        { "name": "search", "isRequired": false }
+      ]
+    },
     {
       "type": "tv",
       "id": "falsis_canli_tv",
