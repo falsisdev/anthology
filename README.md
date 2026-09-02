@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/logo_1.png" alt="Anthology Logo" width="180" style="border-radius: 16px; margin-bottom: 12px;" />
+  <img src="assets/logo_1_transparent.png" alt="Anthology Logo" width="180" style="margin-bottom: 12px;" />
   <h1>Anthology - Stremio Addon</h1>
   <p>Golang tabanlı, yüksek performanslı, dahili video extractor motoruna ve HLS akış proxy'sine sahip Türkçe Dizi, Film, Anime ve Canlı TV eklentisi.</p>
 </div>

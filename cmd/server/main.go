@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	_ "embed"
 	"encoding/json"
 	"flag"
 	"fmt"
@@ -22,6 +23,12 @@ import (
 	"github.com/falsisdev/anthology/pkg/providers/m3u"
 	"github.com/falsisdev/anthology/pkg/proxy"
 )
+
+//go:embed favicon.ico
+var faviconIco []byte
+
+//go:embed favicon.png
+var faviconPng []byte
 
 type Server struct {
 	engine     *engine.Engine
@@ -85,6 +92,9 @@ func (s *Server) handleManifest(w http.ResponseWriter, r *http.Request) {
 		"name":        "Anthology",
 		"version":     "1.1.0",
 		"description": "Golang tabanlı yüksek performanslı Türkçe dizi, film, anime ve Canlı IPTV yayın motoru.",
+		"logo":        "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_2_transparent.png",
+		"icon":        "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_2_transparent.png",
+		"background":  "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_2_transparent.png",
 		"author":      "falsisdev",
 		"resources":   []string{"catalog", "stream", "meta"},
 		"types":       []string{"movie", "series", "tv", "live", "channel", "anime"},
@@ -220,7 +230,7 @@ func (s *Server) handleCatalog(w http.ResponseWriter, r *http.Request) {
 			Genres      []string `json:"genres,omitempty"`
 		}
 
-		defaultLogo := "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png"
+		defaultLogo := "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_3_transparent.png"
 		var metas []metaItem
 		for _, ch := range channels {
 			mediaType := "tv"
@@ -299,7 +309,7 @@ func (s *Server) handleMeta(w http.ResponseWriter, r *http.Request) {
 
 		logo := ch.Logo
 		if logo == "" {
-			logo = "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png"
+			logo = "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_3_transparent.png"
 		}
 		name := ch.Name
 		if name == "" {
@@ -499,6 +509,17 @@ func main() {
 	}
 
 	mux := http.NewServeMux()
+	mux.HandleFunc("/favicon.ico", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "image/x-icon")
+		w.Header().Set("Cache-Control", "public, max-age=86400")
+		w.Write(faviconIco)
+	})
+	mux.HandleFunc("/favicon.png", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "image/png")
+		w.Header().Set("Cache-Control", "public, max-age=86400")
+		w.Write(faviconPng)
+	})
+	mux.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("./assets"))))
 	mux.HandleFunc("/health", enableCORS(srv.handleHealth))
 	mux.HandleFunc("/providers", enableCORS(srv.handleProviders))
 	mux.HandleFunc("/manifest", enableCORS(srv.handleManifest))
