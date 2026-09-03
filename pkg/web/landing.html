@@ -258,8 +258,11 @@
       gap: 12px;
       text-align: left;
     }
-    @media (max-width: 768px) {
+    @media (max-width: 820px) {
       .frag-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .frag-grid { grid-template-columns: 1fr; }
     }
     .frag-card {
       background: var(--card-inner);
@@ -269,6 +272,8 @@
       display: flex;
       align-items: center;
       gap: 12px;
+      height: 100%;
+      box-sizing: border-box;
       transition: all 0.2s;
     }
     .frag-card:hover {
@@ -379,6 +384,7 @@
     }
     .test-results {
       margin-bottom: 12px;
+      min-height: 100px;
     }
     .result-empty {
       color: var(--text-muted);
@@ -498,7 +504,9 @@
     .result-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
+      grid-auto-rows: 1fr;
+      align-items: stretch;
+      gap: 12px;
       text-align: left;
       max-height: 480px;
       overflow-y: auto;
@@ -512,10 +520,13 @@
       background: var(--card-inner);
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 12px 14px;
+      padding: 14px 16px;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      justify-content: space-between;
+      gap: 8px;
+      height: 100%;
+      box-sizing: border-box;
       transition: all 0.2s ease;
     }
     .result-card:hover {
@@ -540,6 +551,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
+      min-width: 0;
     }
     .rc-dot {
       width: 8px;
@@ -559,6 +571,9 @@
       font-size: 13.5px;
       font-weight: 750;
       color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .rc-latency {
       font-size: 11px;
@@ -575,13 +590,20 @@
       background: rgba(0, 230, 118, 0.08);
     }
     .rc-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       font-size: 12px;
       line-height: 1.4;
+      min-width: 0;
     }
     .rc-msg {
       display: block;
       color: var(--text-muted);
-      margin-bottom: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .rc-detail {
       display: block;
@@ -591,6 +613,7 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      margin-top: 2px;
     }
     
     /* Feature Highlights Section */
@@ -602,7 +625,7 @@
       gap: 16px;
       text-align: left;
     }
-    @media (max-width: 680px) {
+    @media (max-width: 768px) {
       .features-section { grid-template-columns: 1fr; }
     }
     .feat-card {
