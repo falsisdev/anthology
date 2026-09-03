@@ -52,7 +52,7 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 		searchQuery = media.OriginalTitle
 	}
 
-	searchURL := fmt.Sprintf("%s/ara?q=%s", BaseURL, url.QueryEscape(searchQuery))
+	searchURL := fmt.Sprintf("%s/arama/?s=%s", BaseURL, url.QueryEscape(searchQuery))
 	headers := map[string]string{
 		"User-Agent": utils.DefaultUserAgent,
 		"Referer":    BaseURL + "/",
@@ -72,13 +72,20 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 	origQuery := strings.ToLower(utils.NormalizeTurkish(media.OriginalTitle))
 	var filmURL string
 
-	doc.Find("article a, .film-box a, .content-poster a, .post-title a, a").EachWithBreak(func(i int, s *goquery.Selection) bool {
+	doc.Find("div.film-list a.item, div.film-list a, article a, .film-box a, .content-poster a, .post-title a, a").EachWithBreak(func(i int, s *goquery.Selection) bool {
 		href, exists := s.Attr("href")
-		if !exists || !strings.HasPrefix(href, BaseURL) || strings.Contains(href, "/category/") || strings.Contains(href, "/tur/") {
+		if !exists || !strings.HasPrefix(href, BaseURL) || strings.Contains(href, "/category/") || strings.Contains(href, "/tur/") || strings.Contains(href, "/arama/") {
 			return true
 		}
 
-		title := strings.ToLower(utils.NormalizeTurkish(s.Text()))
+		title := s.AttrOr("data-title", "")
+		if title == "" {
+			title, _ = s.Find("img").Attr("alt")
+		}
+		if title == "" {
+			title = s.Text()
+		}
+		title = strings.ToLower(utils.NormalizeTurkish(strings.TrimSpace(title)))
 		if title == "" || len(title) < 3 {
 			return true
 		}
@@ -86,6 +93,9 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 		if strings.Contains(title, cleanQuery) || (origQuery != "" && strings.Contains(title, origQuery)) {
 			filmURL = href
 			return false
+		}
+		if filmURL == "" {
+			filmURL = href
 		}
 		return true
 	})

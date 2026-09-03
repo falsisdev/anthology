@@ -75,7 +75,7 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 		if !exists || !strings.HasPrefix(href, BaseURL) {
 			return true
 		}
-		if strings.Contains(href, "/dizi/") {
+		if strings.Contains(href, "/diziler/") || strings.Contains(href, "/dizi/") {
 			showURL = href
 			return false
 		}
@@ -87,7 +87,7 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 		if slug == "" {
 			slug = utils.ToSlug(media.Title)
 		}
-		showURL = fmt.Sprintf("%s/dizi/%s", BaseURL, slug)
+		showURL = fmt.Sprintf("%s/diziler/%s", BaseURL, slug)
 	}
 
 	cleanShow := strings.Trim(showURL, "/")
@@ -130,6 +130,18 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 					Headers:  es.Headers,
 				})
 			}
+		} else {
+			streams = append(streams, models.Stream{
+				Name:     media.Title,
+				Title:    fmt.Sprintf("⌜ Dizigom ⌟ | Kaynak %d", i+1),
+				URL:      src,
+				Quality:  "1080p",
+				Provider: ID,
+				Headers: map[string]string{
+					"Referer":    BaseURL + "/",
+					"User-Agent": utils.DefaultUserAgent,
+				},
+			})
 		}
 	})
 

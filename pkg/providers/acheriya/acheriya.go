@@ -5,9 +5,11 @@ import (
 	"context"
 	"fmt"
 	"net/url"
+	"regexp"
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
+	"github.com/falsisdev/anthology/pkg/extractors"
 	"github.com/falsisdev/anthology/pkg/models"
 	"github.com/falsisdev/anthology/pkg/provider"
 	"github.com/falsisdev/anthology/pkg/utils"
@@ -41,13 +43,19 @@ func (p *Provider) SupportedTypes() []models.MediaType {
 	return []models.MediaType{models.MediaTypeMovie, models.MediaTypeTV}
 }
 
+var (
+	reIzleSlug = regexp.MustCompile(`/izle/([a-zA-Z0-9_-]+)`)
+	reAcheriyaM3U8 = regexp.MustCompile(`https?://[a-zA-Z0-9_.-]*acheriya\.com/hls/[a-zA-Z0-9_-]+/playlist\.m3u8`)
+	reBunnyEmbed   = regexp.MustCompile(`https?://iframe\.mediadelivery\.net/embed/[0-9]+/[a-zA-Z0-9_-]+`)
+)
+
 func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]models.Stream, error) {
 	searchQuery := media.OriginalTitle
 	if searchQuery == "" {
 		searchQuery = media.Title
 	}
 
-	searchURL := fmt.Sprintf("%s/?s=%s", BaseURL, url.QueryEscape(searchQuery))
+	searchURL := fmt.Sprintf("%s/ara?q=%s", BaseURL, url.QueryEscape(searchQuery))
 	headers := map[string]string{
 		"User-Agent": utils.DefaultUserAgent,
 		"Referer":    BaseURL + "/",
@@ -55,7 +63,13 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 
 	body, err := utils.DefaultClient.Get(ctx, searchURL, headers)
 	if err != nil {
-		return nil, err
+		if media.Title != "" && media.Title != searchQuery {
+			searchURL = fmt.Sprintf("%s/ara?q=%s", BaseURL, url.QueryEscape(media.Title))
+			body, err = utils.DefaultClient.Get(ctx, searchURL, headers)
+		}
+		if err != nil {
+			return nil, err
+		}
 	}
 
 	doc, err := goquery.NewDocumentFromReader(bytes.NewReader(body))
@@ -63,78 +77,104 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 		return nil, err
 	}
 
+	var targetSlug string
 	cleanQuery := strings.ToLower(utils.NormalizeTurkish(searchQuery))
 	origQuery := strings.ToLower(utils.NormalizeTurkish(media.Title))
-	var targetURL string
 
-	doc.Find("article a, .film-card a, .poster a, .post-title a, a").EachWithBreak(func(i int, s *goquery.Selection) bool {
-		href, exists := s.Attr("href")
-		if !exists || (!strings.HasPrefix(href, BaseURL) && !strings.HasPrefix(href, "/")) || strings.Contains(href, "/haber") {
-			return true
-		}
-
-		title := strings.ToLower(utils.NormalizeTurkish(s.Text()))
-		if title == "" || len(title) < 3 {
-			return true
-		}
-
-		if strings.Contains(title, cleanQuery) || (origQuery != "" && strings.Contains(title, origQuery)) {
-			targetURL = href
-			return false
+	doc.Find("a[href*='/izle/']").EachWithBreak(func(i int, s *goquery.Selection) bool {
+		href, _ := s.Attr("href")
+		m := reIzleSlug.FindStringSubmatch(href)
+		if len(m) > 1 {
+			slug := m[1]
+			if strings.HasPrefix(slug, "bolum-") {
+				return true
+			}
+			text := strings.ToLower(utils.NormalizeTurkish(s.Text()))
+			if text == "" {
+				text = strings.ReplaceAll(slug, "-", " ")
+			}
+			if strings.Contains(text, cleanQuery) || (origQuery != "" && strings.Contains(text, origQuery)) {
+				targetSlug = slug
+				return false
+			}
+			if targetSlug == "" {
+				targetSlug = slug
+			}
 		}
 		return true
 	})
 
-	if targetURL == "" {
-		slug := utils.ToSlug(media.OriginalTitle)
-		if slug == "" {
-			slug = utils.ToSlug(media.Title)
+	if targetSlug == "" {
+		targetSlug = utils.ToSlug(media.OriginalTitle)
+		if targetSlug == "" {
+			targetSlug = utils.ToSlug(media.Title)
 		}
-		targetURL = fmt.Sprintf("%s/anime/%s", BaseURL, slug)
 	}
 
-	if media.Type == models.MediaTypeTV {
-		targetURL = fmt.Sprintf("%s-%d-sezon-%d-bolum", strings.TrimSuffix(targetURL, "/"), media.Season, media.Episode)
+	episode := media.Episode
+	if episode <= 0 {
+		episode = 1
 	}
 
-	targetBody, err := utils.DefaultClient.Get(ctx, targetURL, headers)
+	epURL := fmt.Sprintf("%s/izle/%s/bolum-%d", BaseURL, targetSlug, episode)
+	epBody, err := utils.DefaultClient.Get(ctx, epURL, headers)
 	if err != nil {
 		return nil, nil
 	}
 
-	targetDoc, err := goquery.NewDocumentFromReader(bytes.NewReader(targetBody))
-	if err != nil {
-		return nil, nil
-	}
-
+	epStr := string(epBody)
 	var streams []models.Stream
-	targetDoc.Find("iframe").Each(func(i int, s *goquery.Selection) {
-		src, exists := s.Attr("src")
-		if !exists || src == "" {
-			src, _ = s.Attr("data-src")
-		}
-		if src == "" || strings.Contains(src, "facebook") || strings.Contains(src, "youtube") || strings.Contains(src, "disqus") {
+	seenURLs := make(map[string]bool)
+
+	addStream := func(streamURL, title, quality string) {
+		if streamURL == "" || seenURLs[streamURL] {
 			return
 		}
-
-		serverName := "Acheriya Player"
-		if strings.Contains(src, "vidmoly") {
-			serverName = "VidMoly"
-		} else if strings.Contains(src, "sibnet") {
-			serverName = "Sibnet"
-		}
-
+		seenURLs[streamURL] = true
 		streams = append(streams, models.Stream{
 			Name:     media.Title,
-			Title:    fmt.Sprintf("⌜ Acheriya ⌟ | %s", serverName),
-			URL:      src,
-			Quality:  "1080p",
+			Title:    fmt.Sprintf("⌜ Acheriya ⌟ | %s", title),
+			URL:      streamURL,
+			Quality:  quality,
 			Provider: ID,
 			Headers: map[string]string{
-				"Referer": BaseURL + "/",
+				"Referer":    BaseURL + "/",
+				"User-Agent": utils.DefaultUserAgent,
 			},
 		})
-	})
+	}
+
+	// 1. Extract direct HLS master playlist
+	for _, m := range reAcheriyaM3U8.FindAllString(epStr, -1) {
+		cleanURL := strings.ReplaceAll(m, `\`, ``)
+		addStream(cleanURL, "Tatsumi (HLS)", "1080p")
+	}
+
+	// 2. Extract BunnyCDN embed
+	for _, m := range reBunnyEmbed.FindAllString(epStr, -1) {
+		cleanURL := strings.ReplaceAll(m, `\`, ``)
+		addStream(cleanURL, "BunnyCDN", "1080p")
+	}
+
+	// 3. Extract iframes
+	epDoc, err := goquery.NewDocumentFromReader(bytes.NewReader(epBody))
+	if err == nil {
+		epDoc.Find("iframe").Each(func(i int, s *goquery.Selection) {
+			src, exists := s.Attr("src")
+			if !exists || src == "" {
+				src, _ = s.Attr("data-src")
+			}
+			if src == "" || strings.Contains(src, "facebook") || strings.Contains(src, "youtube") || strings.Contains(src, "disqus") {
+				return
+			}
+			extracted, err := extractors.Extract(ctx, src, epURL)
+			if err == nil && len(extracted) > 0 {
+				for _, es := range extracted {
+					addStream(es.URL, es.Title, es.Quality)
+				}
+			}
+		})
+	}
 
 	return streams, nil
 }

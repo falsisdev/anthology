@@ -18,6 +18,7 @@ import (
 	_ "github.com/falsisdev/anthology/pkg/providers/ddizi"
 	_ "github.com/falsisdev/anthology/pkg/providers/dizibox"
 	_ "github.com/falsisdev/anthology/pkg/providers/dizigom"
+	_ "github.com/falsisdev/anthology/pkg/providers/dizilla"
 	_ "github.com/falsisdev/anthology/pkg/providers/dizimag"
 	_ "github.com/falsisdev/anthology/pkg/providers/dizimom"
 	_ "github.com/falsisdev/anthology/pkg/providers/dizipal"
@@ -27,12 +28,15 @@ import (
 	_ "github.com/falsisdev/anthology/pkg/providers/filmekseni"
 	_ "github.com/falsisdev/anthology/pkg/providers/filmhane"
 	_ "github.com/falsisdev/anthology/pkg/providers/filmifullizle"
+	_ "github.com/falsisdev/anthology/pkg/providers/filmkovasi"
+	_ "github.com/falsisdev/anthology/pkg/providers/filmmodu"
 	_ "github.com/falsisdev/anthology/pkg/providers/filmmakinesi"
 	_ "github.com/falsisdev/anthology/pkg/providers/filmzal"
 	_ "github.com/falsisdev/anthology/pkg/providers/hdfilmcehennemi"
 	_ "github.com/falsisdev/anthology/pkg/providers/hdfilmdelisi"
 	_ "github.com/falsisdev/anthology/pkg/providers/jetfilmizle"
 	_ "github.com/falsisdev/anthology/pkg/providers/m3u"
+	_ "github.com/falsisdev/anthology/pkg/providers/openani"
 	_ "github.com/falsisdev/anthology/pkg/providers/seicode"
 	_ "github.com/falsisdev/anthology/pkg/providers/setfilmizle"
 	_ "github.com/falsisdev/anthology/pkg/providers/sezonlukdizi"
@@ -43,6 +47,8 @@ import (
 	_ "github.com/falsisdev/anthology/pkg/providers/tranimeizle"
 	_ "github.com/falsisdev/anthology/pkg/providers/vidlink"
 	_ "github.com/falsisdev/anthology/pkg/providers/vidmody"
+	_ "github.com/falsisdev/anthology/pkg/providers/webteizle"
+	_ "github.com/falsisdev/anthology/pkg/providers/yabancidizi"
 )
 
 type ProviderStat struct {
