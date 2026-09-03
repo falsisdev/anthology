@@ -49,11 +49,13 @@ func ServeLanding(w http.ResponseWriter, r *http.Request) {
 		scheme = "http"
 	}
 	data := struct {
-		ManifestURL string
-		StremioURL  string
+		ManifestURL   string
+		StremioURL    string
+		ProviderCount int
 	}{
-		ManifestURL: fmt.Sprintf("%s://%s/manifest.json", scheme, r.Host),
-		StremioURL:  fmt.Sprintf("stremio://%s/manifest.json", r.Host),
+		ManifestURL:   fmt.Sprintf("%s://%s/manifest.json", scheme, r.Host),
+		StremioURL:    fmt.Sprintf("stremio://%s/manifest.json", r.Host),
+		ProviderCount: len(provider.All()),
 	}
 	_ = landingTmpl.Execute(w, data)
 }

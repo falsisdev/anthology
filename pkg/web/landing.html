@@ -770,7 +770,7 @@
                 hx-swap="innerHTML"
                 hx-on::error="document.getElementById('provider-tests').innerHTML = '<p class=&quot;result-empty&quot;>Test isteğinde hata oluştu. Lütfen tekrar deneyin.</p>'">
           <span class="spinner"></span>
-          <span class="btn-label">⚡ Tüm Video Kaynaklarını Test Et (33 Sağlayıcı)</span>
+          <span class="btn-label">⚡ Tüm Video Kaynaklarını Test Et ({{.ProviderCount}} Sağlayıcı)</span>
         </button>
         <button class="test-btn secondary"
                 hx-get="/fragments/test/channels"
@@ -793,8 +793,8 @@
     <!-- Özellikler -->
     <div class="features-section">
       <div class="feat-card">
-        <div class="feat-card-title">🍿 33 Aktif Motor</div>
-        <div class="feat-card-desc">Yerli diziler, yabancı filmler, popüler animeler ve kült seriler için optimize edilmiş 33 bağımsız arama motoru.</div>
+        <div class="feat-card-title">🍿 {{.ProviderCount}} Aktif Motor</div>
+        <div class="feat-card-desc">Yerli diziler, yabancı filmler, popüler animeler ve kült seriler için optimize edilmiş {{.ProviderCount}} bağımsız arama motoru.</div>
       </div>
       <div class="feat-card">
         <div class="feat-card-title">📺 35+ Canlı TV</div>

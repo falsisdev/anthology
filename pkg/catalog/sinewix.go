@@ -7,11 +7,13 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"regexp"
 	"strconv"
 	"strings"
 
 	"github.com/falsisdev/anthology/pkg/models"
 	"github.com/falsisdev/anthology/pkg/providers/sinewix"
+	"github.com/falsisdev/anthology/pkg/utils"
 )
 
 func sinewixRequest(ctx context.Context, endpoint string) ([]byte, error) {
@@ -38,6 +40,22 @@ func sinewixRequest(ctx context.Context, endpoint string) ([]byte, error) {
 	}
 
 	return io.ReadAll(resp.Body)
+}
+
+func resolveMediaFire(ctx context.Context, link string) string {
+	if !strings.Contains(link, "mediafire.com") {
+		return link
+	}
+	body, err := utils.DefaultClient.Get(ctx, link, nil)
+	if err != nil {
+		return link
+	}
+	re := regexp.MustCompile(`href="(https://download\d+\.mediafire\.com[^"]+)"`)
+	matches := re.FindSubmatch(body)
+	if len(matches) > 1 {
+		return string(matches[1])
+	}
+	return link
 }
 
 func searchSineWix(ctx context.Context, mediaType, query string) ([]MetaItem, error) {
@@ -80,7 +98,7 @@ func searchSineWix(ctx context.Context, mediaType, query string) ([]MetaItem, er
 		}
 
 		mType := "series"
-		idPrefix := "sinewix:show:"
+		idPrefix := "sinewix:series:"
 		if isMovie {
 			mType = "movie"
 			idPrefix = "sinewix:movie:"
@@ -108,6 +126,7 @@ func searchSineWix(ctx context.Context, mediaType, query string) ([]MetaItem, er
 func getSineWixMeta(ctx context.Context, rawID string) (*MetaDetail, error) {
 	isMovie := strings.HasPrefix(rawID, "sinewix:movie:")
 	idStr := strings.TrimPrefix(rawID, "sinewix:movie:")
+	idStr = strings.TrimPrefix(idStr, "sinewix:series:")
 	idStr = strings.TrimPrefix(idStr, "sinewix:show:")
 
 	id, err := strconv.Atoi(idStr)
@@ -209,6 +228,12 @@ func getSineWixMeta(ctx context.Context, rawID string) (*MetaDetail, error) {
 }
 
 func getSineWixStream(ctx context.Context, rawID string) ([]models.Stream, error) {
+	sinewixHeaders := map[string]string{
+		"User-Agent": utils.DefaultUserAgent,
+		"Referer":    "https://ydfvfdizipanel.ru/",
+		"Origin":     "https://ydfvfdizipanel.ru",
+	}
+
 	// Either sinewix:movie:{id} or sinewix:ep:{showID}:{season}:{episode}
 	if strings.HasPrefix(rawID, "sinewix:movie:") {
 		idStr := strings.TrimPrefix(rawID, "sinewix:movie:")
@@ -236,12 +261,15 @@ func getSineWixStream(ctx context.Context, rawID string) ([]models.Stream, error
 
 		var streams []models.Stream
 		for _, v := range item.Videos {
-			if v.Link != "" {
+			finalLink := resolveMediaFire(ctx, v.Link)
+			if finalLink != "" {
 				streams = append(streams, models.Stream{
+					Name:     item.Title,
 					Title:    fmt.Sprintf("⌜ SineWix ⌟ | %s (1080p)", v.Server),
 					Quality:  "1080p",
 					Provider: "sinewix",
-					URL:      v.Link,
+					URL:      finalLink,
+					Headers:  sinewixHeaders,
 				})
 			}
 		}
@@ -311,12 +339,15 @@ func getSineWixStream(ctx context.Context, rawID string) ([]models.Stream, error
 			}
 
 			for _, v := range ep.Videos {
-				if v.Link != "" {
+				finalLink := resolveMediaFire(ctx, v.Link)
+				if finalLink != "" {
 					streams = append(streams, models.Stream{
+						Name:     item.Name,
 						Title:    fmt.Sprintf("⌜ SineWix ⌟ | %s (1080p)", v.Server),
 						Quality:  "1080p",
 						Provider: "sinewix",
-						URL:      v.Link,
+						URL:      finalLink,
+						Headers:  sinewixHeaders,
 					})
 				}
 			}
