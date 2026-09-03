@@ -66,30 +66,40 @@ Anthology, tüm kanallara özel logo ve kategori desteğiyle 35+ canlı TV yayı
 
 ## 📊 Kaynak (Sağlayıcı) Durumları
 
-> **Son Güncelleme:** 2 Eylül 2026
+> **Son Güncelleme:** 3 Eylül 2026
 
 Aşağıdaki tablo, sağlayıcıların, video extractor ve HLS proxy motorunun en güncel çalışma durumlarını göstermektedir:
 
 | Sağlayıcı (Kaynak) | Kategori | Durum (Vercel / Cloud) | Durum (Local / Ev Ağı) | Açıklama |
 | :--- | :---: | :---: | :---: | :--- |
+| **FilmModu** | Film (Yeni) | ✅ Aktif | ✅ Aktif | Doğrudan CDN üzerinden 2160p 4K, 1440p 2K, 1080p FHD, 720p HD HLS master akışları (~1 sn). |
+| **FilmKovası** | Film (Yeni) | ✅ Aktif | ✅ Aktif | LiteSpeed `atob` şifre çözücü ile VidSrc, EmbedSB, DoodStream, VidMoly, Upstream akışları (~1.2 sn). |
+| **Webteİzle** | Film (Yeni) | ✅ Aktif | ✅ Aktif | Filtre 302 yönlendirmesi ve API çözücüsü ile VidMoly, FileMoon, Netu akışları. |
+| **Dizilla** | Dizi (Yeni) | ✅ Aktif | ✅ Aktif | AES-256-CBC istemci şifre çözücüsü ile Pichive / CloseForto doğrudan dizi akışları (~600 ms). |
+| **Dizigom** | Dizi | ✅ Aktif | ✅ Aktif | Güncel `/diziler/` mimarisi ve Spidypro oynatıcı entegrasyonu. |
 | **Diziwatch** | Dizi / Anime | ✅ Aktif | ✅ Aktif | VideoPlay HLS extractor + proxy ile 1080p doğrudan ve donmasız oynatılır. Yerel anime kataloğu mevcut. |
 | **Dizimom** | Dizi | ✅ Aktif | ✅ Aktif | HDPlayer API ve akıllı YouTube yedekleme ile 1080p doğrudan video oynatılır. Fragmanlar filtrelenir. |
 | **DiziYou** | Dizi | ✅ Aktif | ✅ Aktif | `diziyou.one` admin-ajax arama entegre edildi. Cloudflare CDN üzerinden 1080p doğrudan HLS akışı getirir. |
 | **Ddizi** | Dizi | ✅ Aktif | ✅ Aktif | Resmi YouTube 1080p yedekleme ve Streambox proxy ile donmasız oynatma. |
 | **M3U Canlı TV** | IPTV / Canlı | ✅ Aktif | ✅ Aktif | 35+ kanalda tam logo desteği ve test edilmiş HLS akışları. |
-| **SineWix** | Film & Dizi | ✅ Aktif | ✅ Aktif | Doğrudan CDN & MediaFire MP4/MKV akışları sağlar. |
+| **SineWix** | Film & Dizi | ✅ Aktif | ✅ Aktif | Film ve dizi katalogları tam entegre; dahili HLS/MKV proxy ve behaviorHints desteğiyle Nuvio/Stremio uyumlu. |
+| **AnimeciX** | Anime | ✅ Aktif | ✅ Aktif | Tau CDN ve doğrudan video çözücüsü ile hızlı akış desteği. |
+| **Animexe** | Anime | ✅ Aktif | ✅ Aktif | Animexe proxy / HLS doğrudan akış motoru (~350 ms). |
+| **Acheriya** | Anime | ✅ Aktif | ✅ Aktif | BunnyCDN / Tatsumi HLS doğrudan video akışları (~450 ms). |
+| **OpenAni** | Anime | ✅ Aktif | ✅ Aktif | SvelteKit CDN MP4 doğrudan anime akışları (~450 ms). |
+| **AsyaAnimeleri**| Anime | ✅ Aktif | ✅ Aktif | Sibnet doğrudan video extractor ile anime akışları. |
 | **HDFilmCehennemi**| Film | ✅ Aktif | ✅ Aktif | AJAX player URL'leri extractor motoruna bağlanarak video akışlarına dönüştürüldü. |
-| **SeiCode** | Anime | ✅ Aktif | ✅ Aktif | `seicode.net` entegre edildi. Sibnet, Ok.ru ve Vidmoly extractorları ile saf video çeker. |
-| **Filmifullizle** | Film | ✅ Aktif | ✅ Aktif | Extractor motoru entegre edildi, doğrudan video akışları sunar. |
+| **SeiCode** | Anime | ✅ Aktif | ✅ Aktif | Sibnet, Ok.ru ve Vidmoly extractorları ile saf video çeker. |
+| **Filmifullizle** | Film | ✅ Aktif | ✅ Aktif | VMCloud extractor motoru entegre edildi, doğrudan video akışları sunar. |
+| **Sinemacx** | Film | ✅ Aktif | ✅ Aktif | FilmizleIn oynatıcı çözücüsü ile doğrudan akış. |
 | **Sinezy** | Film | ✅ Aktif | ✅ Aktif | Extractor motoru ile doğrudan video akışları sunar. |
 | **Filmzal** | Film & Dizi | ✅ Aktif | ✅ Aktif | Extractor motoru ile doğrudan video akışları sunar. |
-| **Dizipal** | Dizi & Film | ⚠️ Kısmi | ✅ Aktif | `dizipal1578.com` PBKDF2/SHA512 istemci şifre çözücüsü entegre edildi. |
-| **SetFilmizle** | Film | ✅ Aktif | ✅ Aktif | Kodlar sağlam, veritabanında mevcut olan içerikleri getirir. |
+| **Dizipal** | Dizi & Film | ✅ Aktif | ✅ Aktif | PBKDF2/SHA512 istemci şifre çözücüsü ve ImagesToo CDN ile 1080p doğrudan HLS. |
+| **SetFilmizle** | Film | ✅ Aktif | ✅ Aktif | FastPlay / SetPlay HLS dönüştürücüsü. |
 | **Vidmody** | API | ✅ Aktif | ✅ Aktif | TMDB ID ile çalışan API, içerik varsa getirir. |
 | **SezonlukDizi** | Dizi | ❌ Cloudflare WAF | ✅ Aktif | Vidmoly/Sibnet/Okru extractorları ile doğrudan videoya dönüştürülür. |
 | **Film Makinesi** | Film | ❌ Cloudflare WAF | ✅ Aktif | Vercel IP'lerine 403 Forbidden atıyor. |
 | **Dizibox** | Dizi | ❌ Cloudflare WAF | ✅ Aktif | Vercel IP'lerine 403 Forbidden atıyor. |
-| **AnimeciX** | Anime | ❌ Cloudflare WAF | ⚠️ Kısmi | Sıkı Cloudflare koruması. |
 | **Tranimeizle** | Anime | ❌ Cloudflare WAF | ⚠️ Kısmi | Sıkı Cloudflare koruması. |
 | **TurkAnime** | Anime | ❌ Cloudflare WAF | ⚠️ Kısmi | Sıkı Bot koruması mevcut. |
 | **YabancıDizi** | Dizi | ❌ Cloudflare WAF | ⚠️ Kısmi | Cloudflare Challenge koruması. |

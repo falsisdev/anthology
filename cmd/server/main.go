@@ -336,7 +336,7 @@ func (s *Server) handleStream(w http.ResponseWriter, r *http.Request) {
 		var sStreams []stremioStream
 		for _, s := range customStreams {
 			finalURL := s.URL
-			if s.YTID == "" && (len(s.Headers) > 0 || strings.Contains(s.URL, "videoplay.vip") || strings.Contains(s.URL, "hdplayersystem") || strings.Contains(s.URL, "streambox") || strings.Contains(s.URL, "diziyou.one") || strings.Contains(s.URL, "sibnet.ru")) {
+			if s.YTID == "" && (len(s.Headers) > 0 || strings.Contains(s.URL, "videoplay.vip") || strings.Contains(s.URL, "hdplayersystem") || strings.Contains(s.URL, "streambox") || strings.Contains(s.URL, "diziyou.one") || strings.Contains(s.URL, "sibnet.ru") || strings.Contains(s.URL, "2545433.xyz") || strings.Contains(s.URL, "45464654.xyz") || s.Provider == "sinewix") {
 				finalURL = proxy.FormatProxyURL(proxyBase, s.URL, s.Headers)
 			}
 
@@ -345,14 +345,22 @@ func (s *Server) handleStream(w http.ResponseWriter, r *http.Request) {
 				providerName = "Anthology"
 			}
 
+			isMKV := strings.HasSuffix(strings.ToLower(s.URL), ".mkv") || strings.Contains(strings.ToLower(s.URL), ".mkv?")
+			behaviorHints := map[string]interface{}{
+				"notWebReady": isMKV,
+			}
+			if len(s.Headers) > 0 {
+				behaviorHints["proxyHeaders"] = map[string]interface{}{
+					"request": s.Headers,
+				}
+			}
+
 			sStreams = append(sStreams, stremioStream{
-				Name:  strings.ToUpper(providerName),
-				Title: s.Title,
-				URL:   finalURL,
-				YTID:  s.YTID,
-				BehaviorHints: map[string]interface{}{
-					"notWebReady": false,
-				},
+				Name:          strings.ToUpper(providerName),
+				Title:         s.Title,
+				URL:           finalURL,
+				YTID:          s.YTID,
+				BehaviorHints: behaviorHints,
 			})
 		}
 
@@ -396,7 +404,7 @@ func (s *Server) handleStream(w http.ResponseWriter, r *http.Request) {
 	var stremioStreams []stremioStream
 	for _, st := range result.Streams {
 		finalURL := st.URL
-		if st.YTID == "" && (len(st.Headers) > 0 || strings.Contains(st.URL, "videoplay.vip") || strings.Contains(st.URL, "hdplayersystem") || strings.Contains(st.URL, "streambox") || strings.Contains(st.URL, "diziyou.one") || strings.Contains(st.URL, "sibnet.ru")) {
+		if st.YTID == "" && (len(st.Headers) > 0 || strings.Contains(st.URL, "videoplay.vip") || strings.Contains(st.URL, "hdplayersystem") || strings.Contains(st.URL, "streambox") || strings.Contains(st.URL, "diziyou.one") || strings.Contains(st.URL, "sibnet.ru") || strings.Contains(st.URL, "2545433.xyz") || strings.Contains(st.URL, "45464654.xyz") || st.Provider == "sinewix") {
 			finalURL = proxy.FormatProxyURL(proxyBase, st.URL, st.Headers)
 		}
 
@@ -405,14 +413,22 @@ func (s *Server) handleStream(w http.ResponseWriter, r *http.Request) {
 			providerName = "Anthology"
 		}
 
+		isMKV := strings.HasSuffix(strings.ToLower(st.URL), ".mkv") || strings.Contains(strings.ToLower(st.URL), ".mkv?")
+		behaviorHints := map[string]interface{}{
+			"notWebReady": isMKV,
+		}
+		if len(st.Headers) > 0 {
+			behaviorHints["proxyHeaders"] = map[string]interface{}{
+				"request": st.Headers,
+			}
+		}
+
 		stremioStreams = append(stremioStreams, stremioStream{
-			Name:  strings.ToUpper(providerName),
-			Title: st.Title,
-			URL:   finalURL,
-			YTID:  st.YTID,
-			BehaviorHints: map[string]interface{}{
-				"notWebReady": false,
-			},
+			Name:          strings.ToUpper(providerName),
+			Title:         st.Title,
+			URL:           finalURL,
+			YTID:          st.YTID,
+			BehaviorHints: behaviorHints,
 		})
 	}
 
