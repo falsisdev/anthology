@@ -33,6 +33,7 @@ func NewHTTPClient(timeout time.Duration) *HTTPClient {
 		client: &http.Client{
 			Timeout: timeout,
 			Transport: &http.Transport{
+				ForceAttemptHTTP2: true,
 				TLSClientConfig: &tls.Config{
 					InsecureSkipVerify: true,
 				},

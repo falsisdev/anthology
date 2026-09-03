@@ -12,6 +12,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/url"
+	"regexp"
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
@@ -24,7 +25,7 @@ import (
 const (
 	ID         = "dizipal"
 	Name       = "Dizipal"
-	BaseURL    = "https://dizipal1579.com"
+	BaseURL    = "https://dizipal2123.com"
 	DecryptKey = "3hPn4uCjTVtfYWcjIcoJQ4cL1WWk1qxXI39egLYOmNv6IblA7eKJz68uU3eLzux1biZLCms0quEjTYniGv5z1JcKbNIsDQFSeIZOBZJz4is6pD7UyWDggWWzTLBQbHcQFpBQdClnuQaMNUHtLHTpzCvZy33p6I7wFBvL4fnXBYH84aUIyWGTRvM2G5cfoNf4705tO2kv"
 )
 
@@ -123,17 +124,34 @@ func decryptDizipal(keyStr, cipherJSON string) (string, error) {
 	return string(ct), nil
 }
 
-type dizipalSearchResult struct {
-	Data struct {
-		Result []struct {
-			ObjectID    int    `json:"object_id"`
-			UsedSlug    string `json:"used_slug"`
-			ObjectName  string `json:"object_name"`
-			ReleaseYear int    `json:"object_release_year"`
-			ImdbID      string `json:"object_related_imdb_id"`
-		} `json:"result"`
-	} `json:"data"`
+type dizipalAjaxSearch struct {
+	Success bool `json:"success"`
+	Results []struct {
+		ID     int    `json:"id"`
+		Title  string `json:"title"`
+		Year   int    `json:"year"`
+		Type   string `json:"type"` // "Film" or "Dizi"
+		Poster string `json:"poster"`
+		URL    string `json:"url"`
+	} `json:"results"`
 }
+
+type dizipalVideoConfig struct {
+	V string `json:"v"`
+	T string `json:"t"`
+	P string `json:"p"`
+}
+
+type imagestooResponse struct {
+	HLS         bool   `json:"hls"`
+	VideoSource string `json:"videoSource"`
+	SecuredLink string `json:"securedLink"`
+}
+
+var (
+	reDataCfg     = regexp.MustCompile(`data-cfg=["']([^"']+)["']`)
+	reImagestooID = regexp.MustCompile(`imagestoo\.com/video/([a-zA-Z0-9_-]+)`)
+)
 
 func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]models.Stream, error) {
 	searchQuery := media.Title
@@ -141,91 +159,190 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 		searchQuery = media.OriginalTitle
 	}
 
-	searchURL := fmt.Sprintf("%s/bg/searchcontent", BaseURL)
-	postData := url.Values{
-		"searchterm": {searchQuery},
-	}
 	headers := map[string]string{
 		"User-Agent":       utils.DefaultUserAgent,
 		"Referer":          BaseURL + "/",
-		"Content-Type":     "application/x-www-form-urlencoded",
 		"X-Requested-With": "XMLHttpRequest",
+		"Accept":           "application/json, text/javascript, */*; q=0.01",
 	}
 
-	resp, err := utils.DefaultClient.Request(ctx, "POST", searchURL, strings.NewReader(postData.Encode()), headers)
+	// 1. Modern AJAX Search on Dizipal
+	searchURL := fmt.Sprintf("%s/ajax-search?q=%s", BaseURL, url.QueryEscape(searchQuery))
+	respBytes, err := utils.DefaultClient.Get(ctx, searchURL, headers)
 	if err != nil {
-		return nil, err
-	}
-	defer resp.Body.Close()
-
-	var sRes dizipalSearchResult
-	if err := json.NewDecoder(resp.Body).Decode(&sRes); err != nil {
-		return nil, err
-	}
-
-	var targetSlug string
-	for _, item := range sRes.Data.Result {
-		if media.IMDbID != "" && item.ImdbID == media.IMDbID {
-			targetSlug = item.UsedSlug
-			break
-		}
-		if targetSlug == "" {
-			targetSlug = item.UsedSlug
+		if media.OriginalTitle != "" && media.OriginalTitle != searchQuery {
+			searchURL = fmt.Sprintf("%s/ajax-search?q=%s", BaseURL, url.QueryEscape(media.OriginalTitle))
+			respBytes, err = utils.DefaultClient.Get(ctx, searchURL, headers)
 		}
 	}
 
-	if targetSlug == "" {
-		slug := utils.ToSlug(media.OriginalTitle)
+	var targetURL string
+	var isSeries bool
+
+	if err == nil && len(respBytes) > 0 {
+		var sRes dizipalAjaxSearch
+		if err := json.Unmarshal(respBytes, &sRes); err == nil && sRes.Success && len(sRes.Results) > 0 {
+			targetType := "Film"
+			if media.Type == models.MediaTypeTV {
+				targetType = "Dizi"
+			}
+
+			for _, item := range sRes.Results {
+				if strings.EqualFold(item.Type, targetType) {
+					targetURL = item.URL
+					if targetType == "Dizi" {
+						isSeries = true
+					}
+					break
+				}
+			}
+			if targetURL == "" && len(sRes.Results) > 0 {
+				targetURL = sRes.Results[0].URL
+				if strings.EqualFold(sRes.Results[0].Type, "Dizi") {
+					isSeries = true
+				}
+			}
+		}
+	}
+
+	if targetURL == "" {
+		slug := utils.ToSlug(media.Title)
 		if slug == "" {
-			slug = utils.ToSlug(media.Title)
+			slug = utils.ToSlug(media.OriginalTitle)
 		}
 		if media.Type == models.MediaTypeTV {
-			targetSlug = "series/" + slug
+			targetURL = fmt.Sprintf("%s/dizi/%s", BaseURL, slug)
+			isSeries = true
 		} else {
-			targetSlug = "film/" + slug
+			targetURL = fmt.Sprintf("%s/film/%s", BaseURL, slug)
 		}
 	}
 
-	var pageURL string
-	if media.Type == models.MediaTypeTV {
-		cleanSlug := strings.TrimPrefix(targetSlug, "series/")
-		cleanSlug = strings.TrimPrefix(cleanSlug, "film/")
-		cleanSlug = strings.TrimPrefix(cleanSlug, "movies/")
-		pageURL = fmt.Sprintf("%s/bolum/%s-%dx%d", BaseURL, cleanSlug, media.Season, media.Episode)
-	} else {
-		if strings.HasPrefix(targetSlug, "movies/") || strings.HasPrefix(targetSlug, "film/") {
-			pageURL = fmt.Sprintf("%s/%s", BaseURL, targetSlug)
-		} else {
-			pageURL = fmt.Sprintf("%s/movies/%s", BaseURL, targetSlug)
+	pageURL := targetURL
+	if isSeries || media.Type == models.MediaTypeTV {
+		season := media.Season
+		if season <= 0 {
+			season = 1
 		}
+		episode := media.Episode
+		if episode <= 0 {
+			episode = 1
+		}
+		pageURL = fmt.Sprintf("%s/sezon-%d/bolum-%d", strings.TrimRight(targetURL, "/"), season, episode)
 	}
 
-	body, err := utils.DefaultClient.Get(ctx, pageURL, headers)
-	if err != nil {
-		return nil, err
-	}
-
-	doc, err := goquery.NewDocumentFromReader(bytes.NewReader(body))
+	body, err := utils.DefaultClient.Get(ctx, pageURL, map[string]string{
+		"User-Agent": utils.DefaultUserAgent,
+		"Referer":    BaseURL + "/",
+	})
 	if err != nil {
 		return nil, err
 	}
 
 	var streams []models.Stream
+	bodyStr := string(body)
 
-	// Check for encrypted player div
-	encryptedJSON := ""
-	doc.Find("div[data-rm-k='true']").Each(func(i int, s *goquery.Selection) {
-		encryptedJSON = strings.TrimSpace(s.Text())
-	})
+	// 2. Extract data-cfg base64 payload
+	cfgMatches := reDataCfg.FindStringSubmatch(bodyStr)
+	if len(cfgMatches) > 1 {
+		rawCfg := cfgMatches[1]
+		if pad := len(rawCfg) % 4; pad > 0 {
+			rawCfg += strings.Repeat("=", 4-pad)
+		}
+		if decoded, err := base64.StdEncoding.DecodeString(rawCfg); err == nil {
+			var cfg dizipalVideoConfig
+			if err := json.Unmarshal(decoded, &cfg); err == nil && cfg.V != "" {
+				embedURL := cfg.V
+				if strings.HasPrefix(embedURL, "//") {
+					embedURL = "https:" + embedURL
+				}
 
-	if encryptedJSON != "" {
-		playerURL, err := decryptDizipal(DecryptKey, encryptedJSON)
-		if err == nil && playerURL != "" {
-			if strings.HasPrefix(playerURL, "//") {
-				playerURL = "https:" + playerURL
+				if imgMatches := reImagestooID.FindStringSubmatch(embedURL); len(imgMatches) > 1 {
+					videoID := imgMatches[1]
+					imgAPIURL := fmt.Sprintf("https://imagestoo.com/player/index.php?data=%s&do=getVideo", videoID)
+					imgHeaders := map[string]string{
+						"User-Agent":       utils.DefaultUserAgent,
+						"Referer":          embedURL,
+						"X-Requested-With": "XMLHttpRequest",
+						"Accept":           "*/*",
+					}
+					if imgResp, err := utils.DefaultClient.Request(ctx, "POST", imgAPIURL, strings.NewReader(""), imgHeaders); err == nil {
+						defer imgResp.Body.Close()
+						var imgRes imagestooResponse
+						if err := json.NewDecoder(imgResp.Body).Decode(&imgRes); err == nil {
+							m3u8URL := imgRes.SecuredLink
+							if m3u8URL == "" {
+								m3u8URL = imgRes.VideoSource
+							}
+							if m3u8URL != "" {
+								streams = append(streams, models.Stream{
+									Name:     media.Title,
+									Title:    "⌜ Dizipal ⌟ | Imagestoo (HLS)",
+									Quality:  "1080p",
+									URL:      m3u8URL,
+									Provider: ID,
+									Headers: map[string]string{
+										"Referer":    embedURL,
+										"User-Agent": utils.DefaultUserAgent,
+									},
+								})
+							}
+						}
+					}
+				}
+
+				if extracted, err := extractors.Extract(ctx, embedURL, pageURL); err == nil && len(extracted) > 0 {
+					for _, es := range extracted {
+						streams = append(streams, models.Stream{
+							Name:     media.Title,
+							Title:    fmt.Sprintf("⌜ Dizipal ⌟ | %s", es.Title),
+							Quality:  es.Quality,
+							URL:      es.URL,
+							Provider: ID,
+							Headers:  es.Headers,
+						})
+					}
+				}
 			}
-			extracted, err := extractors.Extract(ctx, playerURL, pageURL)
-			if err == nil && len(extracted) > 0 {
+		}
+	}
+
+	// 3. Fallback: Check for encrypted player div (data-rm-k)
+	doc, err := goquery.NewDocumentFromReader(bytes.NewReader(body))
+	if err == nil {
+		doc.Find("div[data-rm-k='true']").Each(func(i int, s *goquery.Selection) {
+			encryptedJSON := strings.TrimSpace(s.Text())
+			if encryptedJSON != "" {
+				if playerURL, err := decryptDizipal(DecryptKey, encryptedJSON); err == nil && playerURL != "" {
+					if strings.HasPrefix(playerURL, "//") {
+						playerURL = "https:" + playerURL
+					}
+					if extracted, err := extractors.Extract(ctx, playerURL, pageURL); err == nil && len(extracted) > 0 {
+						for _, es := range extracted {
+							streams = append(streams, models.Stream{
+								Name:     media.Title,
+								Title:    fmt.Sprintf("⌜ Dizipal ⌟ | %s", es.Title),
+								Quality:  es.Quality,
+								URL:      es.URL,
+								Provider: ID,
+								Headers:  es.Headers,
+							})
+						}
+					}
+				}
+			}
+		})
+
+		// 4. Fallback: Check iframes
+		doc.Find("iframe").Each(func(i int, s *goquery.Selection) {
+			src, _ := s.Attr("src")
+			if src == "" || strings.Contains(src, "facebook") || strings.Contains(src, "youtube") {
+				return
+			}
+			if strings.HasPrefix(src, "//") {
+				src = "https:" + src
+			}
+			if extracted, err := extractors.Extract(ctx, src, pageURL); err == nil && len(extracted) > 0 {
 				for _, es := range extracted {
 					streams = append(streams, models.Stream{
 						Name:     media.Title,
@@ -237,32 +354,8 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 					})
 				}
 			}
-		}
+		})
 	}
-
-	// Also check iframes
-	doc.Find("iframe").Each(func(i int, s *goquery.Selection) {
-		src, _ := s.Attr("src")
-		if src == "" || strings.Contains(src, "facebook") || strings.Contains(src, "youtube") {
-			return
-		}
-		if strings.HasPrefix(src, "//") {
-			src = "https:" + src
-		}
-		extracted, err := extractors.Extract(ctx, src, pageURL)
-		if err == nil && len(extracted) > 0 {
-			for _, es := range extracted {
-				streams = append(streams, models.Stream{
-					Name:     media.Title,
-					Title:    fmt.Sprintf("⌜ Dizipal ⌟ | %s", es.Title),
-					Quality:  es.Quality,
-					URL:      es.URL,
-					Provider: ID,
-					Headers:  es.Headers,
-				})
-			}
-		}
-	})
 
 	return streams, nil
 }

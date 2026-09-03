@@ -48,22 +48,25 @@ var providerFixtures = map[string][]models.MediaInfo{
 	// Anime
 	"animexe":       {probeTV("Naruto"), probeTV("Death Note")},
 	"animpow":       {probeTV("Bleach"), probeTV("Naruto")},
+	"openani":       {probeTV("Naruto"), probeTV("Death Note")},
 	"seicode":       {probeTV("Bleach")},
 	"diziwatch":     {probeTV("Bleach"), probeTV("Naruto")},
 	"asyaanimeleri": {probeTV("Naruto"), probeTV("Shingeki no Kyojin")},
 	"tranimeizle":   {probeTV("Naruto"), probeTV("Death Note")},
-	"animecix":      {probeTV("Naruto"), probeTV("Death Note")},
-	"acheriya":      {probeTV("Naruto"), probeTV("Death Note")},
+	"animecix":      {probeTV("Bleach"), probeTV("Naruto")},
+	"acheriya":      {probeTV("Re:Zero kara Hajimeru Isekai Seikatsu"), probeTV("Naruto")},
 
 	// Türk / yabancı dizi
 	"ddizi":        {probeTV("Kızılcık Şerbeti"), probeTV("Son Yaz"), probeTV("Bahar")},
 	"dizimom":      {probeTV("Son Yaz"), probeTV("The Mentalist"), probeTV("Gibi")},
 	"diziyou":      {probeTV("The Mentalist"), probeTV("Breaking Bad")},
+	"yabancidizi":  {probeTV("The Mentalist"), probeMovie("Venom")},
 	"sezonlukdizi": {probeTV("The Mentalist"), probeTV("Breaking Bad")},
-	"dizigom":      {probeTV("The Mentalist"), probeTV("Breaking Bad")},
+	"dizigom":      {probeTV("Lovesick"), probeTV("The Mentalist")},
 	"dizimag":      {probeTV("The Mentalist"), probeTV("Breaking Bad")},
 	"diziyo":       {probeTV("The Mentalist"), probeTV("Game of Thrones")},
 	"dizibox":      {probeTV("The Mentalist"), probeTV("Game of Thrones")},
+	"dizilla":      {probeTV("The Mentalist"), probeTV("Breaking Bad")},
 
 	// Film
 	"sinewix":         {probeMovie("Inception"), probeMovie("Başlangıç")},
@@ -71,6 +74,9 @@ var providerFixtures = map[string][]models.MediaInfo{
 	"sinezy":          {probeMovie("Saplantı"), probeMovie("Inception")},
 	"filmifullizle":   {probeMovie("Godfather"), probeMovie("Inception")},
 	"filmhane":        {probeTV("Reacher"), probeMovie("Inception")},
+	"filmkovasi":      {probeMovie("Inception"), probeMovie("The Matrix")},
+	"filmmodu":        {probeMovie("The Matrix"), probeMovie("Inception")},
+	"webteizle":       {probeMovie("Inception"), probeMovie("The Matrix")},
 	"filmzal":         {probeMovie("Inception"), probeMovie("The Matrix")},
 	"hdfilmcehennemi": {probeMovie("The Gorge"), probeMovie("Başlangıç"), probeMovie("Fight Club")},
 	"hdfilmdelisi":    {probeMovie("Saplantı"), probeMovie("Inception")},
@@ -79,7 +85,7 @@ var providerFixtures = map[string][]models.MediaInfo{
 	"setfilmizle":     {probeMovie("Inception"), probeMovie("The Matrix")},
 	"filmmakinesi":    {probeMovie("Inception"), probeMovie("The Matrix")},
 	"filmekseni":      {probeMovie("Inception"), probeMovie("Saplantı")},
-	"dizipal":         {probeMovie("Inception"), probeMovie("Saplantı")},
+	"dizipal":         {probeMovie("Inception"), probeMovie("Başlangıç")},
 	"m3u":             {probeMovie("Inception")},
 }
 

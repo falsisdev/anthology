@@ -4,9 +4,12 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"net/http"
 	"net/url"
+	"regexp"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/falsisdev/anthology/pkg/models"
 	"github.com/falsisdev/anthology/pkg/provider"
@@ -17,6 +20,7 @@ const (
 	ID      = "animecix"
 	Name    = "AnimeciX"
 	BaseURL = "https://animecix.tv"
+	XEHKey  = "7Y2ozlO+QysR5w9Q6Tupmtvl9jJp7ThFH8SB+Lo7NvZjgjqRSqOgcT2v4ISM9sP10LmnlYI8WQ==.xrlyOBFS5BHjQ2Lk"
 )
 
 func init() {
@@ -56,33 +60,68 @@ type searchResponse struct {
 }
 
 type videoItem struct {
-	ID         int    `json:"id"`
-	Name       string `json:"name"`
-	Extra      string `json:"extra"`
-	URL        string `json:"url"`
-	Type       string `json:"type"`
-	Quality    string `json:"quality"`
-	SeasonNum  int    `json:"season_num"`
-	EpisodeNum int    `json:"episode_num"`
-	Language   string `json:"language"`
-	Category   string `json:"category"`
+	ID         int         `json:"id"`
+	Name       string      `json:"name"`
+	Extra      string      `json:"extra"`
+	URL        string      `json:"url"`
+	Type       string      `json:"type"`
+	Quality    string      `json:"quality"`
+	SeasonNum  interface{} `json:"season_num"`
+	EpisodeNum interface{} `json:"episode_num"`
+	Language   string      `json:"language"`
+	Category   string      `json:"category"`
+}
+
+type relatedVideosResponse struct {
+	Videos []videoItem `json:"videos"`
 }
 
 type titleDetailResponse struct {
 	Title struct {
-		ID     int         `json:"id"`
-		Name   string      `json:"name"`
-		Videos []videoItem `json:"videos"`
+		ID        int         `json:"id"`
+		Name      string      `json:"name"`
+		TitleType string      `json:"title_type"`
+		Videos    []videoItem `json:"videos"`
 	} `json:"title"`
 }
 
+type tauVideoResponse struct {
+	ID   string `json:"_id"`
+	URLs []struct {
+		Label string `json:"label"`
+		URL   string `json:"url"`
+		Size  int64  `json:"size"`
+	} `json:"urls"`
+}
+
+var (
+	reTauEmbed = regexp.MustCompile(`tau-video\.xyz/embed/([a-zA-Z0-9_-]+)`)
+)
+
+func parseNum(val interface{}) int {
+	if val == nil {
+		return 0
+	}
+	switch v := val.(type) {
+	case float64:
+		return int(v)
+	case int:
+		return v
+	case string:
+		n, _ := strconv.Atoi(v)
+		return n
+	default:
+		return 0
+	}
+}
+
 func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]models.Stream, error) {
-	searchQuery := media.OriginalTitle
+	searchQuery := media.Title
 	if searchQuery == "" {
-		searchQuery = media.Title
+		searchQuery = media.OriginalTitle
 	}
 
-	searchURL := fmt.Sprintf("%s/secure/search/%s?type=&limit=10", BaseURL, url.PathEscape(searchQuery))
+	searchURL := fmt.Sprintf("%s/secure/search/%s?limit=20", BaseURL, url.PathEscape(searchQuery))
 	headers := map[string]string{
 		"User-Agent": utils.DefaultUserAgent,
 		"Referer":    BaseURL + "/",
@@ -90,7 +129,13 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 
 	body, err := utils.DefaultClient.Get(ctx, searchURL, headers)
 	if err != nil {
-		return nil, err
+		if media.OriginalTitle != "" && media.OriginalTitle != searchQuery {
+			searchURL = fmt.Sprintf("%s/secure/search/%s?limit=20", BaseURL, url.PathEscape(media.OriginalTitle))
+			body, err = utils.DefaultClient.Get(ctx, searchURL, headers)
+		}
+		if err != nil {
+			return nil, err
+		}
 	}
 
 	var sResp searchResponse
@@ -99,6 +144,9 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 	}
 
 	var matchedItem *searchItem
+	titleNorm := utils.NormalizeTurkish(media.Title)
+	origNorm := utils.NormalizeTurkish(media.OriginalTitle)
+
 	for _, item := range sResp.Results {
 		if item.TMDBID != nil {
 			var tmdbStr string
@@ -119,12 +167,12 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 			break
 		}
 
-		origNorm := utils.NormalizeTurkish(media.OriginalTitle)
 		nameNorm := utils.NormalizeTurkish(item.Name)
 		engNorm := utils.NormalizeTurkish(item.NameEnglish)
 		romNorm := utils.NormalizeTurkish(item.NameRomanji)
 
-		if nameNorm == origNorm || engNorm == origNorm || romNorm == origNorm {
+		if (titleNorm != "" && (nameNorm == titleNorm || engNorm == titleNorm || romNorm == titleNorm)) ||
+			(origNorm != "" && (nameNorm == origNorm || engNorm == origNorm || romNorm == origNorm)) {
 			matchedItem = &item
 			break
 		}
@@ -138,64 +186,130 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 		return nil, nil
 	}
 
-	// Fetch title details
-	detailsURL := fmt.Sprintf("%s/secure/titles/%d", BaseURL, matchedItem.ID)
-	dBody, err := utils.DefaultClient.Get(ctx, detailsURL, headers)
-	if err != nil {
-		return nil, err
+	apiHeaders := map[string]string{
+		"User-Agent": utils.DefaultUserAgent,
+		"Referer":    BaseURL + "/",
+		"x-e-h":      XEHKey,
 	}
 
-	var dResp titleDetailResponse
-	if err := json.Unmarshal(dBody, &dResp); err != nil || len(dResp.Title.Videos) == 0 {
-		return nil, nil
+	var candidateVideos []videoItem
+
+	season := media.Season
+	if season <= 0 {
+		season = 1
+	}
+	episode := media.Episode
+	if episode <= 0 {
+		episode = 1
+	}
+
+	if media.Type == models.MediaTypeTV {
+		relURL := fmt.Sprintf("%s/secure/related-videos?episode=%d&season=%d&videoId=0&titleId=%d", BaseURL, episode, season, matchedItem.ID)
+		if rBody, err := utils.DefaultClient.Get(ctx, relURL, apiHeaders); err == nil {
+			var rResp relatedVideosResponse
+			if err := json.Unmarshal(rBody, &rResp); err == nil && len(rResp.Videos) > 0 {
+				candidateVideos = append(candidateVideos, rResp.Videos...)
+			}
+		}
+	}
+
+	// Also fetch title details as fallback or for movies
+	if len(candidateVideos) == 0 {
+		detailsURL := fmt.Sprintf("%s/secure/titles/%d?titleId=%d", BaseURL, matchedItem.ID, matchedItem.ID)
+		if dBody, err := utils.DefaultClient.Get(ctx, detailsURL, apiHeaders); err == nil {
+			var dResp titleDetailResponse
+			if err := json.Unmarshal(dBody, &dResp); err == nil {
+				candidateVideos = append(candidateVideos, dResp.Title.Videos...)
+			}
+		}
 	}
 
 	var streams []models.Stream
-	streamHeaders := map[string]string{
-		"User-Agent": utils.DefaultUserAgent,
-		"Referer":    BaseURL + "/",
-	}
 
-	for _, v := range dResp.Title.Videos {
+	for _, v := range candidateVideos {
 		if v.URL == "" || v.Category == "trailer" || v.Category == "opening credits" || v.Category == "ending credits" {
 			continue
 		}
 
 		if media.Type == models.MediaTypeTV {
-			if v.SeasonNum > 0 && v.SeasonNum != media.Season {
+			sNum := parseNum(v.SeasonNum)
+			eNum := parseNum(v.EpisodeNum)
+			if sNum > 0 && sNum != season {
 				continue
 			}
-			if v.EpisodeNum > 0 && v.EpisodeNum != media.Episode {
+			if eNum > 0 && eNum != episode {
 				continue
 			}
 		}
 
-		fansub := v.Extra
-		if fansub == "" {
-			fansub = v.Name
-		}
-		if fansub == "" {
-			fansub = "AnimeciX"
+		fullURL := v.URL
+		if !strings.HasPrefix(fullURL, "http") {
+			fullURL = fmt.Sprintf("%s/%s", BaseURL, strings.TrimPrefix(v.URL, "/"))
 		}
 
-		quality := v.Quality
-		if quality == "" || quality == "regular" {
-			quality = "HD"
+		// Follow redirect to resolve tau-video embed URL
+		req, err := http.NewRequestWithContext(ctx, "GET", fullURL, nil)
+		if err != nil {
+			continue
+		}
+		for k, val := range apiHeaders {
+			req.Header.Set(k, val)
 		}
 
-		streamTitle := fmt.Sprintf("⌜ AnimeciX ⌟ | %s [%s]", fansub, strings.ToUpper(quality))
-		if v.Language != "" {
-			streamTitle += fmt.Sprintf(" (%s)", strings.ToUpper(v.Language))
+		client := &http.Client{
+			Timeout: 10 * time.Second,
+			CheckRedirect: func(req *http.Request, via []*http.Request) error {
+				return nil
+			},
 		}
 
-		streams = append(streams, models.Stream{
-			Name:     matchedItem.Name,
-			Title:    streamTitle,
-			URL:      v.URL,
-			Quality:  quality,
-			Provider: ID,
-			Headers:  streamHeaders,
-		})
+		resp, err := client.Do(req)
+		if err != nil {
+			continue
+		}
+		finalURL := resp.Request.URL.String()
+		resp.Body.Close()
+
+		// If finalURL is a tau-video embed
+		if tauMatches := reTauEmbed.FindStringSubmatch(finalURL); len(tauMatches) > 1 {
+			videoKey := tauMatches[1]
+			tauAPIURL := fmt.Sprintf("https://tau-video.xyz/api/video/%s", videoKey)
+			tauHeaders := map[string]string{
+				"User-Agent": utils.DefaultUserAgent,
+				"Referer":    BaseURL + "/",
+			}
+
+			if tBody, err := utils.DefaultClient.Get(ctx, tauAPIURL, tauHeaders); err == nil {
+				var tResp tauVideoResponse
+				if err := json.Unmarshal(tBody, &tResp); err == nil && len(tResp.URLs) > 0 {
+					for _, u := range tResp.URLs {
+						if u.URL == "" {
+							continue
+						}
+						quality := u.Label
+						if quality == "" {
+							quality = "HD"
+						}
+						streamTitle := fmt.Sprintf("⌜ AnimeciX ⌟ | TauVideo [%s]", strings.ToUpper(quality))
+						if v.Extra != "" {
+							streamTitle = fmt.Sprintf("⌜ AnimeciX ⌟ | %s [%s]", v.Extra, strings.ToUpper(quality))
+						}
+
+						streams = append(streams, models.Stream{
+							Name:     matchedItem.Name,
+							Title:    streamTitle,
+							URL:      u.URL,
+							Quality:  quality,
+							Provider: ID,
+							Headers: map[string]string{
+								"Referer":    BaseURL + "/",
+								"User-Agent": utils.DefaultUserAgent,
+							},
+						})
+					}
+				}
+			}
+		}
 	}
 
 	return streams, nil

@@ -19,7 +19,7 @@ func TestServeLanding(t *testing.T) {
 	for _, want := range []string{
 		"Anthology",
 		"htmx.org@2.0.4",
-		"Eklenti Durumu",
+		"Platform &amp; Motor Durumu",
 		`hx-get="/fragments/status"`,
 	} {
 		if !strings.Contains(body, want) {
@@ -62,7 +62,7 @@ func TestServeStatus(t *testing.T) {
 		t.Fatalf("expected text/html, got %q", ct)
 	}
 	body := w.Body.String()
-	if !strings.Contains(body, "Aktif Video Kaynağı") {
+	if !strings.Contains(body, "Aktif Sağlayıcı") {
 		t.Errorf("status fragment missing provider count")
 	}
 	if !strings.Contains(body, "v"+Version) {
