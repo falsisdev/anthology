@@ -24,47 +24,60 @@ Geri bildirim ve iletişim için: [E-Posta](mailto:falsis@proton.me)
 - **Web Paneli (`pkg/web`):** Ana sayfa (kök `/`) tarayıcıda artık her zaman şık bir HTML karşılama sayfası döndürür; HTML/JS/CSS `//go:embed` ile ayrı şablon dosyalarında (`landing.html`, `status.html`, `tests.html`) tutulur ve `html/template` ile render edilir. Tek tıkla **Stremio'ya Yükle**, **manifest kopyalama** ve **Stremio Web** butonları içerir.
 - **Canlı Kaynak & Yayın Testi (`pkg/tester`):** Ana sayfadaki panel ile her sağlayıcıya gerçek bir akış arama isteği, 100+ canlı TV ve spor kanalının yayın URL'ine HTTP `Range` isteği gönderilir. Her kaynak farklı popüler içerikleri paralel (goroutine + worker pool, 16 işçi, 3 sn timeout) dener; sonuçlar (çevrimiçi/kapalı, gecikme ms, akış sayısı) kartlar hâlinde listelenir. Not: Çoğu Türk sağlayıcı Cloudflare WAF kullanır ve yabancı IP'leri engeller — test sonucu test sunucusunun konumuna göre değişebilir.
 
-## 📺 Canlı TV Kanalları & Yayın Durumları
+## 📺 Canlı TV & Spor Kanalları & Yayın Durumları
 
-Anthology, tüm kanallara özel logo ve kategori desteğiyle 35+ canlı TV yayını sunar:
+Anthology, tüm kanallara özel logo ve kategori desteğiyle 100+ canlı TV, spor ve anlık canlı maç yayını sunar:
 
-| Kanal Adı          |    Kategori     |  Çözünürlük  | Logo Durumu  |   Yayın Durumu   |
-| :----------------- | :-------------: | :----------: | :----------: | :--------------: |
-| **TRT 1**          |     Ulusal      |    1080p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **ATV**            |     Ulusal      |    1080p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Kanal D**        |     Ulusal      | 720p / 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Show TV**        |     Ulusal      |    1080p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Star TV**        |     Ulusal      |     720p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **NOW TV**         |     Ulusal      |    1080p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **TV8**            |     Ulusal      |    1080p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Kanal 7**        |     Ulusal      |     720p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Beyaz TV**       |     Ulusal      |    1080p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Teve2**          |     Ulusal      |    1080p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **A2 TV**          |     Ulusal      |    1080p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **360 TV**         |     Ulusal      |    1080p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **TRT 2**          | Ulusal / Sanat  |    1080p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **TRT Avaz**       |     Ulusal      |    1080p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **TRT Türk**       |     Ulusal      |    1080p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Kanal 7 Avrupa** |     Ulusal      |     720p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **TRT Haber**      |      Haber      |    1080p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **A Haber**        |      Haber      |    1080p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **NTV**            |      Haber      |    1080p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Habertürk**      |      Haber      |    1080p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Halk TV**        |      Haber      |    1080p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Tele 1**         |      Haber      |    1080p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **TGRT Haber**     |      Haber      |    1080p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Haber Global**   |      Haber      |    1080p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **24 TV**          |      Haber      |     720p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Bloomberg HT**   | Haber / Ekonomi |    1080p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Bengü Türk**     |      Haber      |    1080p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Flash Haber**    |      Haber      |    1080p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Lider Haber**    |      Haber      |    1080p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Türk Haber**     |      Haber      |     720p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **A Spor**         |      Spor       |    1080p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **HT Spor**        |      Spor       |    1080p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **TRT Belgesel**   |    Belgesel     |    1080p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **TRT Çocuk**      |      Çocuk      |    1080p     | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **TRT Müzik**      |      Müzik      |    1080p     | ✅ Özel Logo | ✅ Canlı / Aktif |
+| Kanal Adı | Kategori | Çözünürlük | Logo Durumu | Yayın Durumu |
+| :--- | :---: | :---: | :---: | :---: |
+| **TRT 1** | Ulusal | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **ATV** | Ulusal | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **Kanal D** | Ulusal | 720p / 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **Show TV** | Ulusal | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **Star TV** | Ulusal | 720p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **NOW TV** | Ulusal | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **TV8** | Ulusal | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **Kanal 7** | Ulusal | 720p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **Beyaz TV** | Ulusal | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **Teve2** | Ulusal | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **A2 TV** | Ulusal | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **360 TV** | Ulusal | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **TRT 2** | Ulusal / Sanat | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **TRT Avaz** | Ulusal | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **TRT Türk** | Ulusal | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **Kanal 7 Avrupa** | Ulusal | 720p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **TRT Haber** | Haber | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **A Haber** | Haber | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **NTV** | Haber | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **Habertürk** | Haber | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **Halk TV** | Haber | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **Tele 1** | Haber | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **TGRT Haber** | Haber | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **Haber Global** | Haber | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **24 TV** | Haber | 720p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **Bloomberg HT** | Haber / Ekonomi | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **Bengü Türk** | Haber | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **Flash Haber** | Haber | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **Lider Haber** | Haber | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **Türk Haber** | Haber | 720p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **BeIN Sports 1 - 5 & Max 1 - 2** | Spor | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **S Sport 1, 2 & S Sport Plus** | Spor | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **Tivibu Spor & Tivibu 1 - 4** | Spor | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **Smart Spor 1 & 2** | Spor | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **Euro Sport 1 & 2** | Spor | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **Exxen TV & Exxen Sports 1 - 8** | Spor | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **Tabii Spor & Tabii 1 - 8** | Spor | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **TRT Spor & TRT Spor Yıldız** | Spor | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **TV8,5** | Spor | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **TJK TV** | Spor / At Yarışı | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **NBA TV** | Spor / Basketbol | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **FB TV & GS TV & Sports TV** | Spor / Kulüp | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **CBC Sport & iDMAN Tv** | Spor / Uluslararası | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **A Spor & HT Spor** | Spor | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **🔴 Canlı Maç Yayınları (Mahsun)** | Canlı Maç | 1080p | ✅ Maç Rozeti | ✅ Canlı / Anlık |
+| **TRT Belgesel** | Belgesel | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **TRT Çocuk** | Çocuk | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
+| **TRT Müzik** | Müzik | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
 
 ## 📊 Kaynak (Sağlayıcı) Durumları
 
@@ -122,7 +135,7 @@ _Emoji Anlamları:_
 
 - **Tek tıkla kurulum:** `Stremio'ya Yükle`, `Manifest Kopyala`, `Stremio Web` butonları,
 - **Canlı eklenti durumu:** sunucu, sağlayıcı, katalog ve canlı TV sayıları (`/fragments/status`),
-- **🩺 Kaynak & Yayın Canlı Test Konsolu:** tüm sağlayıcılara gerçek akış araması ve 35+ kanala yayın erişilebilirlik testi, tek tıkla (`pkg/tester`).
+- **🩺 Kaynak & Yayın Canlı Test Konsolu:** tüm sağlayıcılara gerçek akış araması ve 100+ kanala yayın erişilebilirlik testi, tek tıkla (`pkg/tester`).
 
 | Yöntem | Uç Nokta                    | Açıklama                                                                                                                                                                                                                 |
 | :----- | :-------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
