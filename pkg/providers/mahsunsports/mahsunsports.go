@@ -229,11 +229,12 @@ func (p *Provider) GetLiveChannels(ctx context.Context) ([]models.Channel, error
 					matchTitle = fmt.Sprintf("🕒 [%s] %s (%s)", m.Time, m.Title, m.League)
 				}
 
+				matchLogo := getMatchLogo(m.League, streamKey)
 				streamURL := fmt.Sprintf("%s%s.m3u8", streamBase, streamKey)
 				channels = append(channels, models.Channel{
 					ID:      matchID,
 					Name:    matchTitle,
-					Logo:    DefaultLogoURL,
+					Logo:    matchLogo,
 					Group:   "🔴 CANLI MAÇLAR (Mahsun)",
 					URL:     streamURL,
 					Headers: streamHeaders,
@@ -289,20 +290,135 @@ func getChannelLogo(channelName string) string {
 	rawBase := "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/"
 
 	switch {
+	// beIN Sports
+	case strings.Contains(lower, "bein sports max 1") || strings.Contains(lower, "max 1"):
+		return "https://i.imgur.com/FjWQjdy.png"
+	case strings.Contains(lower, "bein sports max 2") || strings.Contains(lower, "max 2"):
+		return "https://i.imgur.com/5dBc5rn.png"
+	case strings.Contains(lower, "bein sports 1"):
+		return "https://i.imgur.com/Vtk2cGI.png"
+	case strings.Contains(lower, "bein sports 2"):
+		return "https://i.imgur.com/vUJZSvs.png"
+	case strings.Contains(lower, "bein sports 3"):
+		return "https://i.imgur.com/UYSMao3.png"
+	case strings.Contains(lower, "bein sports 4"):
+		return "https://i.imgur.com/vwAgJNi.png"
+	case strings.Contains(lower, "bein sports 5"):
+		return "https://i.imgur.com/2Rha5aY.png"
+	case strings.Contains(lower, "bein"):
+		return "https://i.imgur.com/Vtk2cGI.png"
+
+	// S Sport
+	case strings.Contains(lower, "s sport 2"):
+		return "https://i.imgur.com/2jIItAy.png"
+	case strings.Contains(lower, "s sport plus") || strings.Contains(lower, "ssplus"):
+		return "https://i.imgur.com/2jIItAy.png"
+	case strings.Contains(lower, "s sport"):
+		return "https://i.imgur.com/2jIItAy.png"
+
+	// Tivibu Spor
+	case strings.Contains(lower, "tivibu spor 2"):
+		return "https://i.imgur.com/fZMSjNE.png"
+	case strings.Contains(lower, "tivibu spor 3"):
+		return "https://i.imgur.com/xLrgt2O.png"
+	case strings.Contains(lower, "tivibu spor 4"):
+		return "https://i.imgur.com/LgGxe7z.png"
+	case strings.Contains(lower, "tivibu"):
+		return "https://i.imgur.com/qvrKQY3.png"
+
+	// Smart Spor
+	case strings.Contains(lower, "smart spor 2") || strings.Contains(lower, "sm2"):
+		return "https://i.imgur.com/qyUKCUa.png"
+	case strings.Contains(lower, "smart spor") || strings.Contains(lower, "spor smart"):
+		return "https://i.imgur.com/blu6v6P.png"
+
+	// Eurosport
+	case strings.Contains(lower, "euro sport 2") || strings.Contains(lower, "eurosport 2"):
+		return "https://i.imgur.com/f56dHgR.png"
+	case strings.Contains(lower, "euro sport") || strings.Contains(lower, "eurosport"):
+		return "https://i.imgur.com/olQJgm7.png"
+
+	// Exxen
+	case strings.Contains(lower, "exxen"):
+		return rawBase + "exxen.png"
+
+	// Tabii Spor
+	case strings.Contains(lower, "tabi") || strings.Contains(lower, "tabii"):
+		return "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg"
+
+	// TRT
+	case strings.Contains(lower, "trt spor yıldız") || strings.Contains(lower, "trt spor yildiz"):
+		return "https://i.imgur.com/6tv0zxh.png"
+	case strings.Contains(lower, "trt spor"):
+		return "https://i.imgur.com/6tv0zxh.png"
 	case strings.Contains(lower, "trt 1"):
 		return rawBase + "trt1.png"
-	case strings.Contains(lower, "trt spor"):
-		return rawBase + "trt1.png"
+
+	// TV8 & TV8,5
+	case strings.Contains(lower, "tv8,5") || strings.Contains(lower, "tv8.5"):
+		return "https://i.imgur.com/QuelSsc.png"
+	case strings.Contains(lower, "tv8"):
+		return rawBase + "tv8.png"
+
+	// Kulüp & Tematik Kanallar
+	case strings.Contains(lower, "tjk"):
+		return "https://i.imgur.com/3zHdkYG.png"
+	case strings.Contains(lower, "nba"):
+		return "https://i.imgur.com/QmSc6kh.png"
+	case strings.Contains(lower, "fb tv") || strings.Contains(lower, "fenerbah"):
+		return "https://i.imgur.com/qBVqtYd.png"
+	case strings.Contains(lower, "gs tv") || strings.Contains(lower, "galatasaray"):
+		return "https://i.postimg.cc/d3k5nDBJ/galatasaray-sk.png"
+	case strings.Contains(lower, "sports tv") || strings.Contains(lower, "sptstv"):
+		return "https://i.imgur.com/tGTVcVe.jpg"
+	case strings.Contains(lower, "cbc"):
+		return "https://i.imgur.com/3mEdjuq.png"
+	case strings.Contains(lower, "idman"):
+		return "https://i.imgur.com/fM9FOrZ.png"
+
+	// Ulusal
 	case strings.Contains(lower, "a spor"):
 		return rawBase + "aspor.png"
 	case strings.Contains(lower, "atv"):
 		return rawBase + "atv.png"
 	case strings.Contains(lower, "a2"):
 		return rawBase + "a2.png"
-	case strings.Contains(lower, "tv8"):
-		return rawBase + "tv8.png"
 	case strings.Contains(lower, "ht spor"):
 		return rawBase + "htspor.png"
+
+	default:
+		return DefaultLogoURL
+	}
+}
+
+// getMatchLogo returns a relevant channel logo based on the broadcast stream key or sport.
+func getMatchLogo(league, streamKey string) string {
+	rawBase := "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/"
+	k := strings.ToLower(streamKey)
+
+	switch {
+	case strings.Contains(k, "bs"):
+		return "https://i.imgur.com/Vtk2cGI.png" // BeIN Sports
+	case strings.Contains(k, "ss"):
+		return "https://i.imgur.com/2jIItAy.png" // S Sport
+	case strings.Contains(k, "exn"):
+		return rawBase + "exxen.png" // Exxen
+	case strings.Contains(k, "ts"):
+		return "https://i.imgur.com/qvrKQY3.png" // Tivibu Spor
+	case strings.Contains(k, "tb"):
+		return "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg" // Tabii Spor
+	case strings.Contains(k, "trts"):
+		return "https://i.imgur.com/6tv0zxh.png" // TRT Spor
+	case strings.Contains(k, "cbcs"):
+		return "https://i.imgur.com/3mEdjuq.png" // CBC Sport
+	case strings.Contains(k, "idm"):
+		return "https://i.imgur.com/fM9FOrZ.png" // İdman TV
+	case strings.Contains(k, "sm"):
+		return "https://i.imgur.com/blu6v6P.png" // Smart Spor
+	case strings.Contains(k, "es"):
+		return "https://i.imgur.com/olQJgm7.png" // Eurosport
+	case strings.Contains(k, "ch"):
+		return "https://i.imgur.com/2jIItAy.png" // Canlı Spor Akışı
 	default:
 		return DefaultLogoURL
 	}

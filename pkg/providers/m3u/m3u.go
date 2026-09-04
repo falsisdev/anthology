@@ -178,13 +178,30 @@ func (p *Provider) GetLiveChannels(ctx context.Context) ([]models.Channel, error
 		}
 	}
 
-	// Append dynamic sports channels and live matches from Mahsun Sports
+	// Track existing channel names/URLs to prevent duplicate entries
+	seen := make(map[string]bool)
+	for _, ch := range channels {
+		seen[ch.URL] = true
+		seen[utils.NormalizeTurkish(ch.Name)] = true
+		seen[utils.NormalizeTurkish(ch.ID)] = true
+	}
+
+	// Append dynamic live matches and any additional channels from Mahsun Sports
 	mahsunProv := mahsunsports.New()
 	mahsunCtx, cancel := context.WithTimeout(ctx, 4*time.Second)
 	defer cancel()
 
 	if sportsChannels, err := mahsunProv.GetLiveChannels(mahsunCtx); err == nil && len(sportsChannels) > 0 {
-		channels = append(channels, sportsChannels...)
+		for _, sc := range sportsChannels {
+			idNorm := utils.NormalizeTurkish(sc.ID)
+			nameNorm := utils.NormalizeTurkish(sc.Name)
+			if !seen[sc.URL] && !seen[idNorm] && !seen[nameNorm] {
+				seen[sc.URL] = true
+				seen[idNorm] = true
+				seen[nameNorm] = true
+				channels = append(channels, sc)
+			}
+		}
 	}
 
 	return channels, nil
