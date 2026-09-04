@@ -335,10 +335,15 @@ func (s *Server) handleStream(w http.ResponseWriter, r *http.Request) {
 
 		var sStreams []stremioStream
 		for _, s := range customStreams {
-			finalURL := s.URL
-			if s.YTID == "" && (len(s.Headers) > 0 || strings.Contains(s.URL, "videoplay.vip") || strings.Contains(s.URL, "hdplayersystem") || strings.Contains(s.URL, "streambox") || strings.Contains(s.URL, "diziyou.one") || strings.Contains(s.URL, "sibnet.ru") || strings.Contains(s.URL, "2545433.xyz") || strings.Contains(s.URL, "45464654.xyz") || s.Provider == "sinewix") {
+		var finalURL string
+		if s.YTID != "" {
+			finalURL = ""
+		} else {
+			finalURL = s.URL
+			if len(s.Headers) > 0 || strings.Contains(s.URL, "videoplay.vip") || strings.Contains(s.URL, "hdplayersystem") || strings.Contains(s.URL, "streambox") || strings.Contains(s.URL, "diziyou.one") || strings.Contains(s.URL, "sibnet.ru") || strings.Contains(s.URL, "2545433.xyz") || strings.Contains(s.URL, "45464654.xyz") || s.Provider == "sinewix" {
 				finalURL = proxy.FormatProxyURL(proxyBase, s.URL, s.Headers)
 			}
+		}
 
 			providerName := s.Provider
 			if providerName == "" {
@@ -403,9 +408,14 @@ func (s *Server) handleStream(w http.ResponseWriter, r *http.Request) {
 
 	var stremioStreams []stremioStream
 	for _, st := range result.Streams {
-		finalURL := st.URL
-		if st.YTID == "" && (len(st.Headers) > 0 || strings.Contains(st.URL, "videoplay.vip") || strings.Contains(st.URL, "hdplayersystem") || strings.Contains(st.URL, "streambox") || strings.Contains(st.URL, "diziyou.one") || strings.Contains(st.URL, "sibnet.ru") || strings.Contains(st.URL, "2545433.xyz") || strings.Contains(st.URL, "45464654.xyz") || st.Provider == "sinewix") {
-			finalURL = proxy.FormatProxyURL(proxyBase, st.URL, st.Headers)
+		var finalURL string
+		if st.YTID != "" {
+			finalURL = ""
+		} else {
+			finalURL = st.URL
+			if len(st.Headers) > 0 || strings.Contains(st.URL, "videoplay.vip") || strings.Contains(st.URL, "hdplayersystem") || strings.Contains(st.URL, "streambox") || strings.Contains(st.URL, "diziyou.one") || strings.Contains(st.URL, "sibnet.ru") || strings.Contains(st.URL, "2545433.xyz") || strings.Contains(st.URL, "45464654.xyz") || st.Provider == "sinewix" {
+				finalURL = proxy.FormatProxyURL(proxyBase, st.URL, st.Headers)
+			}
 		}
 
 		providerName := st.Provider

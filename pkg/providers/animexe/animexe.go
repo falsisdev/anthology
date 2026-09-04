@@ -3,6 +3,7 @@ package animexe
 import (
 	"bytes"
 	"context"
+	"encoding/base64"
 	"encoding/json"
 	"fmt"
 	"net/url"
@@ -140,12 +141,29 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 	seenURLs := make(map[string]bool)
 
 	addStream := func(streamURL, label, quality string) {
-		if streamURL == "" || seenURLs[streamURL] {
+		if streamURL == "" {
 			return
 		}
-		seenURLs[streamURL] = true
 
 		finalURL := streamURL
+
+		// If it's a proxy URL, extract and decode the direct URL
+		if strings.Contains(streamURL, "stream/proxy?u=") {
+			u, err := url.Parse(streamURL)
+			if err == nil {
+				if encodedU := u.Query().Get("u"); encodedU != "" {
+					if decodedURL, err := base64.StdEncoding.DecodeString(encodedU); err == nil {
+						finalURL = string(decodedURL)
+					}
+				}
+			}
+		}
+
+		if seenURLs[finalURL] {
+			return
+		}
+		seenURLs[finalURL] = true
+
 		if quality == "" {
 			quality = "1080p"
 			if strings.Contains(label, "720") {

@@ -1,13 +1,13 @@
 package dizilla
 
 import (
-	"bytes"
 	"context"
 	"crypto/aes"
 	"crypto/cipher"
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
+	"io"
 	"net/url"
 	"regexp"
 	"strings"
@@ -108,7 +108,7 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 		searchQuery = media.OriginalTitle
 	}
 
-	searchAPIURL := fmt.Sprintf("%s/api/bg/searchContent?searchterm=%s", BaseURL, url.QueryEscape(searchQuery))
+	searchAPIURL := fmt.Sprintf("%s/api/bg/searchContent", BaseURL)
 	headers := map[string]string{
 		"User-Agent":       utils.DefaultUserAgent,
 		"Referer":          BaseURL + "/",
@@ -116,14 +116,25 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 		"Accept":           "application/json, text/plain, */*",
 	}
 
-	resp, err := utils.DefaultClient.Request(ctx, "POST", searchAPIURL, bytes.NewReader(nil), headers)
+	formData := url.Values{
+		"searchterm": {searchQuery},
+	}
+
+	headers["Content-Type"] = "application/x-www-form-urlencoded"
+
+	resp, err := utils.DefaultClient.Request(ctx, "POST", searchAPIURL, strings.NewReader(formData.Encode()), headers)
 	if err != nil {
 		return nil, err
 	}
 	defer resp.Body.Close()
 
+	bodyBytes, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return nil, err
+	}
+
 	var apiRes searchAPIResponse
-	if err := json.NewDecoder(resp.Body).Decode(&apiRes); err != nil {
+	if err := json.Unmarshal(bodyBytes, &apiRes); err != nil {
 		return nil, err
 	}
 
