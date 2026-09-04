@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
+	"github.com/falsisdev/anthology/pkg/extractors"
 	"github.com/falsisdev/anthology/pkg/models"
 	"github.com/falsisdev/anthology/pkg/provider"
 	"github.com/falsisdev/anthology/pkg/utils"
@@ -144,23 +145,44 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 			return
 		}
 
+		if strings.HasPrefix(src, "//") {
+			src = "https:" + src
+		}
+
 		serverName := "Asyaanimeleri Player"
 		if strings.Contains(src, "vidmoly") {
 			serverName = "VidMoly"
 		} else if strings.Contains(src, "sibnet") {
 			serverName = "Sibnet"
+		} else if strings.Contains(src, "rumble") {
+			serverName = "Rumble"
 		}
 
-		streams = append(streams, models.Stream{
-			Name:     media.Title,
-			Title:    fmt.Sprintf("⌜ Asyaanimeleri ⌟ | %s", serverName),
-			URL:      src,
-			Quality:  "1080p",
-			Provider: ID,
-			Headers: map[string]string{
-				"Referer": BaseURL + "/",
-			},
-		})
+		extracted, err := extractors.Extract(ctx, src, targetURL)
+		if err == nil && len(extracted) > 0 {
+			for _, es := range extracted {
+				streams = append(streams, models.Stream{
+					Name:     media.Title,
+					Title:    fmt.Sprintf("⌜ Asyaanimeleri ⌟ | %s", es.Title),
+					URL:      es.URL,
+					Quality:  es.Quality,
+					Provider: ID,
+					Headers:  es.Headers,
+				})
+			}
+		} else {
+			streams = append(streams, models.Stream{
+				Name:     media.Title,
+				Title:    fmt.Sprintf("⌜ Asyaanimeleri ⌟ | %s", serverName),
+				URL:      src,
+				Quality:  "1080p",
+				Provider: ID,
+				Headers: map[string]string{
+					"Referer":    BaseURL + "/",
+					"User-Agent": utils.DefaultUserAgent,
+				},
+			})
+		}
 	})
 
 	return streams, nil

@@ -41,7 +41,12 @@ func Extract(ctx context.Context, embedURL, referer string) ([]models.Stream, er
 		return ExtractYouTube(ctx, embedURL, referer)
 	}
 
-	// 6. Generic JWPlayer / Player pages (ddizi, dizibox, etc.)
+	// 6. Spidypro / Bepeak (AES Encrypted)
+	if strings.Contains(lowerURL, "spidypro.com") || strings.Contains(lowerURL, "bepeak.net") || strings.Contains(lowerURL, "pilavyerplay.top") {
+		return ExtractSpidypro(ctx, embedURL, referer)
+	}
+
+	// 7. Generic JWPlayer / Player pages (ddizi, dizibox, etc.)
 	if strings.Contains(lowerURL, "/player/") || strings.Contains(lowerURL, "streambox.") || strings.Contains(lowerURL, "jwplayer") || strings.Contains(lowerURL, "king.php") {
 		return ExtractJWPlayer(ctx, embedURL, referer)
 	}

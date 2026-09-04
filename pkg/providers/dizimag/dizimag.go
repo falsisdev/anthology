@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"net/url"
 	"path"
+	"regexp"
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
@@ -93,8 +94,15 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 	cleanShow := strings.Trim(showURL, "/")
 	showSlug := path.Base(cleanShow)
 
-	// Episode URL: https://dizimag.eu/{showSlug}-{season}-sezon-{episode}-bolum/
-	epURL := fmt.Sprintf("%s/%s-%d-sezon-%d-bolum/", BaseURL, showSlug, media.Season, media.Episode)
+	// Sitenin arama sonuçları dizi ismine yıl ekliyor (örn: breaking-bad-2008)
+	// Ancak bölüm linklerinde yıl kullanılmıyor (örn: breaking-bad-1-sezon-1-bolum)
+	// Sondaki yılı (ve tireyi) regex ile temizliyoruz.
+	if m := regexp.MustCompile(`-(\d{4})$`).FindStringSubmatch(showSlug); len(m) > 0 {
+		showSlug = strings.TrimSuffix(showSlug, m[0])
+	}
+
+	// Episode URL: https://dizimag.eu/bolum/{showSlug}-{season}-sezon-{episode}-bolum/
+	epURL := fmt.Sprintf("%s/bolum/%s-%d-sezon-%d-bolum/", BaseURL, showSlug, media.Season, media.Episode)
 	epBody, err := utils.DefaultClient.Get(ctx, epURL, headers)
 	if err != nil {
 		epURL = fmt.Sprintf("%s/dizi/%s/%d-sezon-%d-bolum", BaseURL, showSlug, media.Season, media.Episode)
