@@ -16,13 +16,13 @@ Geri bildirim ve iletişim için: [E-Posta](mailto:falsis@proton.me)
   - `Anthology - SineWix Dizi` (Diziler ve animeler)
   - `Anthology - SineWix Film` (Yerli ve yabancı filmler)
   - `Anthology - HDFilmCehennemi` (Filmler)
-  - `Canlı TV (Ulusal & Haber & Sinema)` (35+ ulusal, haber, spor, belgesel kanalı)
+  - `Canlı TV & Spor (Ulusal & Haber & Sinema & Spor)` (100+ ulusal, haber, spor kanalı ve günlük canlı maç yayını)
   - Arama sonucundaki dizilere tıklandığında tüm bölümler (1. Bölümden Finale kadar) doğrudan o sağlayıcıdan çekilip listelenir ve doğrudan oynatılır!
 - **Dahili HLS Akış Proxy Motoru (`pkg/proxy`):** Stremio ve Nuvio oynatıcılarının alt segment (`.ts`, `.jpg`, `.js`, `.woff`) isteklerinde `Referer` / `Origin` başlıklarını iletememesinden kaynaklanan HTTP 403 ve 2 saniyede bir donma/takılma sorunlarını çözer. Playlistleri dinamik olarak yeniden yazıp CORS açık şekilde aracı olarak oynatır.
 - **Dahili Video Extractor Motoru (`pkg/extractors`):** Stremio'nun web iframe'lerini oynatamama sorununu ortadan kaldırır. OK.ru, Vidmoly, Sibnet, VideoPlay, JWPlayer, Streambox, HDPlayer, YouTube vb. gömülü oynatıcılardan doğrudan `.m3u8`, `.mp4` ve yerel YouTube (`ytId`) video akışlarını ayıklar. Fragman/tanıtım videoları otomatik olarak filtrelenip tam bölümler getirilir.
-- **Canlı TV ve IPTV:** Her kanala özel yüksek çözünürlüklü logo, kategori ve doğrudan çalışan HLS yayınları.
+- **Canlı TV, Spor ve Canlı Maçlar:** BeIN Sports 1-5, S Sport 1-2, Exxen Spor 1-8, Tivibu Spor 1-4, Smart Spor, Tabii Spor ve anlık Süper Lig / Avrupa ligleri canlı maç akışları.
 - **Web Paneli (`pkg/web`):** Ana sayfa (kök `/`) tarayıcıda artık her zaman şık bir HTML karşılama sayfası döndürür; HTML/JS/CSS `//go:embed` ile ayrı şablon dosyalarında (`landing.html`, `status.html`, `tests.html`) tutulur ve `html/template` ile render edilir. Tek tıkla **Stremio'ya Yükle**, **manifest kopyalama** ve **Stremio Web** butonları içerir.
-- **Canlı Kaynak & Yayın Testi (`pkg/tester`):** Ana sayfadaki panel ile her sağlayıcıya gerçek bir akış arama isteği, 35+ canlı TV kanalının yayın URL'ine HTTP `Range` isteği gönderilir. Her kaynak farklı popüler içerikleri paralel (goroutine + worker pool, 16 işçi, 3 sn timeout) dener; sonuçlar (çevrimiçi/kapalı, gecikme ms, akış sayısı) kartlar hâlinde listelenir. Not: Çoğu Türk sağlayıcı Cloudflare WAF kullanır ve yabancı IP'leri engeller — test sonucu test sunucusunun konumuna göre değişebilir.
+- **Canlı Kaynak & Yayın Testi (`pkg/tester`):** Ana sayfadaki panel ile her sağlayıcıya gerçek bir akış arama isteği, 100+ canlı TV ve spor kanalının yayın URL'ine HTTP `Range` isteği gönderilir. Her kaynak farklı popüler içerikleri paralel (goroutine + worker pool, 16 işçi, 3 sn timeout) dener; sonuçlar (çevrimiçi/kapalı, gecikme ms, akış sayısı) kartlar hâlinde listelenir. Not: Çoğu Türk sağlayıcı Cloudflare WAF kullanır ve yabancı IP'leri engeller — test sonucu test sunucusunun konumuna göre değişebilir.
 
 ## 📺 Canlı TV Kanalları & Yayın Durumları
 
@@ -84,6 +84,7 @@ Aşağıdaki tablo, sağlayıcıların, video extractor ve HLS proxy motorunun e
 | **DiziYou**         |     Dizi     |        ✅ Aktif        |        ✅ Aktif        | `diziyou.one` admin-ajax arama entegre edildi. Cloudflare CDN üzerinden 1080p doğrudan HLS akışı getirir.    |
 | **Ddizi**           |     Dizi     |        ✅ Aktif        |        ✅ Aktif        | Resmi YouTube 1080p yedekleme ve Streambox proxy ile donmasız oynatma.                                       |
 | **M3U Canlı TV**    | IPTV / Canlı |        ✅ Aktif        |        ✅ Aktif        | 35+ kanalda tam logo desteği ve test edilmiş HLS akışları.                                                   |
+| **Mahsun Sports**   | Canlı TV & Spor |        ✅ Aktif        |        ✅ Aktif        | 50+ spor kanalı (BeIN Sports 1-5, S Sport 1-2, Exxen, Tivibu) ve günlük canlı maç yayınları.                 |
 | **SineWix**         | Film & Dizi  |        ✅ Aktif        |        ✅ Aktif        | Film ve dizi katalogları tam entegre; dahili HLS/MKV proxy ve behaviorHints desteğiyle Nuvio/Stremio uyumlu. |
 | **AnimeciX**        |    Anime     |        ✅ Aktif        |        ✅ Aktif        | Tau CDN ve doğrudan video çözücüsü ile hızlı akış desteği.                                                   |
 | **Animexe**         |    Anime     |        ✅ Aktif        |        ✅ Aktif        | Animexe proxy / HLS doğrudan akış motoru (~350 ms).                                                          |
