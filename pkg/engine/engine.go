@@ -2,9 +2,11 @@ package engine
 
 import (
 	"context"
+	"fmt"
 	"sync"
 	"time"
 
+	"github.com/falsisdev/anthology/pkg/cache"
 	"github.com/falsisdev/anthology/pkg/models"
 	"github.com/falsisdev/anthology/pkg/provider"
 	"github.com/falsisdev/anthology/pkg/tmdb"
@@ -83,6 +85,13 @@ func New(tmdbKey string, providerTimeout time.Duration) *Engine {
 
 // Search executes concurrent stream extraction across all relevant providers.
 func (e *Engine) Search(ctx context.Context, tmdbID string, mediaType models.MediaType, season, episode int, providerFilter string) (*SearchResult, error) {
+	cacheKey := fmt.Sprintf("stream:%s:%s:%d:%d:%s", tmdbID, mediaType, season, episode, providerFilter)
+	if cached, ok := cache.Default.Get(cacheKey); ok {
+		if res, valid := cached.(*SearchResult); valid {
+			return res, nil
+		}
+	}
+
 	var mediaInfo *models.MediaInfo
 	var err error
 
@@ -153,9 +162,18 @@ func (e *Engine) Search(ctx context.Context, tmdbID string, mediaType models.Med
 
 	wg.Wait()
 
-	return &SearchResult{
+	res := &SearchResult{
 		Media:   mediaInfo,
 		Streams: allStreams,
 		Stats:   stats,
-	}, nil
+	}
+
+	// Cache successful searches with at least 1 stream for 15 minutes, or empty results for 2 minutes
+	ttl := 15 * time.Minute
+	if len(allStreams) == 0 {
+		ttl = 2 * time.Minute
+	}
+	cache.Default.Set(cacheKey, res, ttl)
+
+	return res, nil
 }
