@@ -2,7 +2,7 @@
   "id": "anthology.falsisdev.addon",
   "name": "Anthology",
   "version": "1.2.0",
-  "description": "Golang tabanlı 39+ sağlayıcılı yüksek performanslı Türkçe dizi, film, anime ve Canlı IPTV yayın motoru.",
+  "description": "Golang tabanlı 40+ sağlayıcılı yüksek performanslı Türkçe dizi, film, anime ve Canlı IPTV & Maç yayın motoru.",
   "author": "falsisdev",
   "repository": "https://github.com/falsisdev/anthology",
   "engine": "golang",
@@ -67,11 +67,12 @@
     {
       "type": "tv",
       "id": "falsis_canli_tv",
-      "name": "Canlı TV (Ulusal & Haber & Sinema)",
+      "name": "Canlı TV & Spor (Ulusal & Haber & Maç)",
       "extra": [{ "name": "genre", "isRequired": false }]
     }
   ],
   "providers": [
+    { "id": "mahsunsports", "name": "Mahsun Sports", "supportedTypes": ["live"] },
     { "id": "sinewix", "name": "SineWix", "supportedTypes": ["movie", "tv"] },
     { "id": "diziyou", "name": "DiziYou", "supportedTypes": ["tv"] },
     { "id": "dizigom", "name": "Dizigom", "supportedTypes": ["tv"] },

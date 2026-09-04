@@ -14,6 +14,7 @@ import (
 
 	"github.com/falsisdev/anthology/pkg/models"
 	"github.com/falsisdev/anthology/pkg/provider"
+	"github.com/falsisdev/anthology/pkg/providers/mahsunsports"
 	"github.com/falsisdev/anthology/pkg/utils"
 )
 
@@ -175,6 +176,15 @@ func (p *Provider) GetLiveChannels(ctx context.Context) ([]models.Channel, error
 			channels = append(channels, currentChannel)
 			currentChannel = models.Channel{}
 		}
+	}
+
+	// Append dynamic sports channels and live matches from Mahsun Sports
+	mahsunProv := mahsunsports.New()
+	mahsunCtx, cancel := context.WithTimeout(ctx, 4*time.Second)
+	defer cancel()
+
+	if sportsChannels, err := mahsunProv.GetLiveChannels(mahsunCtx); err == nil && len(sportsChannels) > 0 {
+		channels = append(channels, sportsChannels...)
 	}
 
 	return channels, nil

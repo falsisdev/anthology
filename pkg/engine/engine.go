@@ -38,6 +38,7 @@ import (
 	_ "github.com/falsisdev/anthology/pkg/providers/hdfilmdelisi"
 	_ "github.com/falsisdev/anthology/pkg/providers/jetfilmizle"
 	_ "github.com/falsisdev/anthology/pkg/providers/m3u"
+	_ "github.com/falsisdev/anthology/pkg/providers/mahsunsports"
 	_ "github.com/falsisdev/anthology/pkg/providers/openani"
 	_ "github.com/falsisdev/anthology/pkg/providers/seicode"
 	_ "github.com/falsisdev/anthology/pkg/providers/setfilmizle"
