@@ -24,7 +24,7 @@ func FormatProxyURL(proxyBase, rawURL string, headers map[string]string) string 
 	if strings.Contains(rawURL, "twimg.com") {
 		return rawURL
 	}
-	
+
 	// If it's already an open direct stream without header requirements (like SineWix direct MKV/MP4 or M3U)
 	// and doesn't need Referer spoofing, we still check if proxyBase is set.
 	referer := ""

@@ -44,7 +44,7 @@ func (p *Provider) SupportedTypes() []models.MediaType {
 }
 
 var (
-	reIzleSlug = regexp.MustCompile(`/izle/([a-zA-Z0-9_-]+)`)
+	reIzleSlug     = regexp.MustCompile(`/izle/([a-zA-Z0-9_-]+)`)
 	reAcheriyaM3U8 = regexp.MustCompile(`https?://[a-zA-Z0-9_.-]*acheriya\.com/hls/[a-zA-Z0-9_-]+/playlist\.m3u8`)
 	reBunnyEmbed   = regexp.MustCompile(`https?://iframe\.mediadelivery\.net/embed/[0-9]+/[a-zA-Z0-9_-]+`)
 )

@@ -105,7 +105,7 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 	doc.Find("a[data-player-name]").Each(func(i int, s *goquery.Selection) {
 		playerName, _ := s.Attr("data-player-name")
 		postID, _ := s.Attr("data-post-id")
-		
+
 		if playerName != "" && postID != "" {
 			ajaxURL := BaseURL + "/wp-admin/admin-ajax.php"
 			postData := url.Values{
@@ -121,7 +121,7 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 				"Referer":          targetURL,
 				"User-Agent":       utils.DefaultUserAgent,
 			}
-			
+
 			resp, err := utils.DefaultClient.Request(ctx, "POST", ajaxURL, strings.NewReader(postData.Encode()), ajaxHeaders)
 			if err == nil {
 				defer resp.Body.Close()
@@ -132,7 +132,7 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 					} `json:"data"`
 				}
 				json.NewDecoder(resp.Body).Decode(&res)
-				
+
 				if res.Success && res.Data.URL != "" {
 					playerURL := res.Data.URL
 					if strings.HasPrefix(playerURL, "//") {

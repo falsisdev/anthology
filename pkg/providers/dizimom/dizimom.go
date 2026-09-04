@@ -89,7 +89,7 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 				if strings.HasPrefix(href, "/") {
 					href = BaseURL + href
 				}
-				
+
 				// Direct episode match from search results
 				if strings.Contains(href, epMatchPattern) || (season == 1 && strings.Contains(href, epMatchShort) && !strings.Contains(href, "-sezon-")) {
 					if directEpURL == "" {

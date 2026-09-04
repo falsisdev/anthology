@@ -46,7 +46,12 @@ func Extract(ctx context.Context, embedURL, referer string) ([]models.Stream, er
 		return ExtractSpidypro(ctx, embedURL, referer)
 	}
 
-	// 7. Generic JWPlayer / Player pages (ddizi, dizibox, etc.)
+	// 7. HDPlayer / HDStreamable / FirePlayer (most common Turkish embed players)
+	if strings.Contains(lowerURL, "hdplayersystem.com") || strings.Contains(lowerURL, "hdstreamable.com") || strings.Contains(lowerURL, "player.filmizle.in") {
+		return ExtractHDPlayer(ctx, embedURL, referer)
+	}
+
+	// 8. Generic JWPlayer / Player pages (ddizi, dizibox, etc.)
 	if strings.Contains(lowerURL, "/player/") || strings.Contains(lowerURL, "streambox.") || strings.Contains(lowerURL, "jwplayer") || strings.Contains(lowerURL, "king.php") {
 		return ExtractJWPlayer(ctx, embedURL, referer)
 	}

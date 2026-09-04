@@ -15,13 +15,20 @@ var (
 )
 
 func ExtractVidmoly(ctx context.Context, embedURL, referer string) ([]models.Stream, error) {
-	// Normalize vidmoly mirrors (vidmoly.me, vidmoly.to, vidmoly.net) to the active vidmoly.biz
+	// Normalize vidmoly mirrors (vidmoly.me, vidmoly.to, vidmoly.net, etc.)
+	// to the currently active domain. vidmoly.biz is now dead – vidmoly.to
+	// is the live mirror.
 	if m := reVidmolyDomain.FindStringSubmatch(embedURL); len(m) > 1 {
 		cleanPath := m[1]
 		if !strings.HasSuffix(cleanPath, ".html") {
 			cleanPath += ".html"
 		}
-		embedURL = "https://vidmoly.biz" + cleanPath
+		// Don't redirect if already pointing at a possibly-live domain;
+		// only rewrite when the hostname is not a known-active vidmoly TLD.
+		lowerURL := strings.ToLower(embedURL)
+		if !strings.Contains(lowerURL, "vidmoly.to") {
+			embedURL = "https://vidmoly.to" + cleanPath
+		}
 	}
 
 	headers := map[string]string{
@@ -30,7 +37,7 @@ func ExtractVidmoly(ctx context.Context, embedURL, referer string) ([]models.Str
 	if referer != "" {
 		headers["Referer"] = referer
 	} else {
-		headers["Referer"] = "https://vidmoly.biz/"
+		headers["Referer"] = "https://vidmoly.to/"
 	}
 
 	body, err := utils.DefaultClient.Get(ctx, embedURL, headers)

@@ -440,4 +440,3 @@ func defaultSineWixMovies(ctx context.Context) ([]MetaItem, error) {
 	}
 	return items, nil
 }
-
