@@ -36,6 +36,18 @@ func NewHTTPClient(timeout time.Duration) *HTTPClient {
 				ForceAttemptHTTP2: true,
 				TLSClientConfig: &tls.Config{
 					InsecureSkipVerify: true,
+					MinVersion:         tls.VersionTLS12,
+					CipherSuites: []uint16{
+						tls.TLS_AES_128_GCM_SHA256,
+						tls.TLS_AES_256_GCM_SHA384,
+						tls.TLS_CHACHA20_POLY1305_SHA256,
+						tls.TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,
+						tls.TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,
+						tls.TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,
+						tls.TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,
+						tls.TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256,
+						tls.TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256,
+					},
 				},
 			},
 		},
@@ -56,6 +68,20 @@ func (c *HTTPClient) Request(ctx context.Context, method, targetURL string, body
 		}
 	}
 
+	applyBrowserHeaders := func(req *http.Request) {
+		req.Header.Set("User-Agent", DefaultUserAgent)
+		req.Header.Set("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7")
+		req.Header.Set("Accept-Language", "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7")
+		req.Header.Set("Sec-Ch-Ua", `"Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"`)
+		req.Header.Set("Sec-Ch-Ua-Mobile", "?0")
+		req.Header.Set("Sec-Ch-Ua-Platform", `"Windows"`)
+		req.Header.Set("Sec-Fetch-Dest", "document")
+		req.Header.Set("Sec-Fetch-Mode", "navigate")
+		req.Header.Set("Sec-Fetch-Site", "none")
+		req.Header.Set("Sec-Fetch-User", "?1")
+		req.Header.Set("Upgrade-Insecure-Requests", "1")
+	}
+
 	doDirect := func() (*http.Response, error) {
 		var reqBody io.Reader
 		if len(bodyBytes) > 0 {
@@ -65,8 +91,7 @@ func (c *HTTPClient) Request(ctx context.Context, method, targetURL string, body
 		if err != nil {
 			return nil, fmt.Errorf("failed to create request: %w", err)
 		}
-		req.Header.Set("User-Agent", DefaultUserAgent)
-		req.Header.Set("Accept", "*/*")
+		applyBrowserHeaders(req)
 		for k, v := range headers {
 			req.Header.Set(k, v)
 		}

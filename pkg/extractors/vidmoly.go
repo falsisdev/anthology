@@ -47,6 +47,11 @@ func ExtractVidmoly(ctx context.Context, embedURL, referer string) ([]models.Str
 
 	bodyStr := string(body)
 	matches := reVidmolySources.FindAllStringSubmatch(bodyStr, -1)
+	if len(matches) == 0 && strings.Contains(bodyStr, "eval(function(p,a,c,k,e,d)") {
+		if unpacked, err := UnpackJS(bodyStr); err == nil {
+			matches = reVidmolySources.FindAllStringSubmatch(unpacked, -1)
+		}
+	}
 	if len(matches) == 0 {
 		return nil, nil
 	}
