@@ -77,14 +77,14 @@ type seasonItem struct {
 }
 
 type detailItem struct {
-	ID             int          `json:"id"`
-	Name           string       `json:"name"`
-	Title          string       `json:"title"`
-	IMDb           string       `json:"imdb_external_id"`
-	ReleaseDate    string       `json:"release_date"`
-	FirstAirDate   string       `json:"first_air_date"`
-	Videos         []apiVideo   `json:"videos"`
-	Seasons        []seasonItem `json:"seasons"`
+	ID           int          `json:"id"`
+	Name         string       `json:"name"`
+	Title        string       `json:"title"`
+	IMDb         string       `json:"imdb_external_id"`
+	ReleaseDate  string       `json:"release_date"`
+	FirstAirDate string       `json:"first_air_date"`
+	Videos       []apiVideo   `json:"videos"`
+	Seasons      []seasonItem `json:"seasons"`
 }
 
 func (p *Provider) requestAPI(ctx context.Context, endpoint string) ([]byte, error) {

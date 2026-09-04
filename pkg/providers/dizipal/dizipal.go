@@ -25,9 +25,28 @@ import (
 const (
 	ID         = "dizipal"
 	Name       = "Dizipal"
-	BaseURL    = "https://dizipal2123.com"
 	DecryptKey = "3hPn4uCjTVtfYWcjIcoJQ4cL1WWk1qxXI39egLYOmNv6IblA7eKJz68uU3eLzux1biZLCms0quEjTYniGv5z1JcKbNIsDQFSeIZOBZJz4is6pD7UyWDggWWzTLBQbHcQFpBQdClnuQaMNUHtLHTpzCvZy33p6I7wFBvL4fnXBYH84aUIyWGTRvM2G5cfoNf4705tO2kv"
 )
+
+// Dizipal frequently rotates domains (dizipal2122.com → dizipal2123.com → …).
+// We try them in order and fall back if the current one is dead.
+var candidateDomains = []string{
+	"https://dizipal2124.com",
+	"https://dizipal2123.com",
+	"https://dizipal2125.com",
+	"https://dizipal2122.com",
+}
+
+// BaseURL is the primary (first) domain; GetStreams will fall back to others.
+var BaseURL = candidateDomains[0]
+
+func copyMap(m map[string]string) map[string]string {
+	out := make(map[string]string, len(m))
+	for k, v := range m {
+		out[k] = v
+	}
+	return out
+}
 
 func init() {
 	provider.Register(New())
@@ -161,20 +180,46 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 
 	headers := map[string]string{
 		"User-Agent":       utils.DefaultUserAgent,
-		"Referer":          BaseURL + "/",
 		"X-Requested-With": "XMLHttpRequest",
 		"Accept":           "application/json, text/javascript, */*; q=0.01",
 	}
 
-	// 1. Modern AJAX Search on Dizipal
-	searchURL := fmt.Sprintf("%s/ajax-search?q=%s", BaseURL, url.QueryEscape(searchQuery))
-	respBytes, err := utils.DefaultClient.Get(ctx, searchURL, headers)
-	if err != nil {
+	// Dizipal frequently rotates domains. Try each candidate domain until
+	// one responds successfully.
+	var respBytes []byte
+	var err error
+	var activeBaseURL string
+
+	for _, d := range candidateDomains {
+		searchURL := fmt.Sprintf("%s/ajax-search?q=%s", d, url.QueryEscape(searchQuery))
+		h := copyMap(headers)
+		h["Referer"] = d + "/"
+		respBytes, err = utils.DefaultClient.Get(ctx, searchURL, h)
+		if err == nil && len(respBytes) > 0 && bytes.Contains(respBytes, []byte(`"success": true`)) {
+			activeBaseURL = d
+			break
+		}
 		if media.OriginalTitle != "" && media.OriginalTitle != searchQuery {
-			searchURL = fmt.Sprintf("%s/ajax-search?q=%s", BaseURL, url.QueryEscape(media.OriginalTitle))
-			respBytes, err = utils.DefaultClient.Get(ctx, searchURL, headers)
+			searchURL = fmt.Sprintf("%s/ajax-search?q=%s", d, url.QueryEscape(media.OriginalTitle))
+			respBytes, err = utils.DefaultClient.Get(ctx, searchURL, h)
+			if err == nil && len(respBytes) > 0 && bytes.Contains(respBytes, []byte(`"success": true`)) {
+				activeBaseURL = d
+				break
+			}
 		}
 	}
+
+	if activeBaseURL == "" {
+		// Fall back to original BaseURL (may still work if it redirects)
+		activeBaseURL = BaseURL
+		searchURL := fmt.Sprintf("%s/ajax-search?q=%s", BaseURL, url.QueryEscape(searchQuery))
+		h := copyMap(headers)
+		h["Referer"] = BaseURL + "/"
+		respBytes, err = utils.DefaultClient.Get(ctx, searchURL, h)
+	}
+
+	// Update the Referer in headers for subsequent requests
+	headers["Referer"] = activeBaseURL + "/"
 
 	var targetURL string
 	var isSeries bool
@@ -211,10 +256,10 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 			slug = utils.ToSlug(media.OriginalTitle)
 		}
 		if media.Type == models.MediaTypeTV {
-			targetURL = fmt.Sprintf("%s/dizi/%s", BaseURL, slug)
+			targetURL = fmt.Sprintf("%s/dizi/%s", activeBaseURL, slug)
 			isSeries = true
 		} else {
-			targetURL = fmt.Sprintf("%s/film/%s", BaseURL, slug)
+			targetURL = fmt.Sprintf("%s/film/%s", activeBaseURL, slug)
 		}
 	}
 
@@ -233,7 +278,7 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 
 	body, err := utils.DefaultClient.Get(ctx, pageURL, map[string]string{
 		"User-Agent": utils.DefaultUserAgent,
-		"Referer":    BaseURL + "/",
+		"Referer":    activeBaseURL + "/",
 	})
 	if err != nil {
 		return nil, err

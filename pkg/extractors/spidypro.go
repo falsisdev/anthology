@@ -17,7 +17,7 @@ import (
 )
 
 var (
-	reSpidyproPayload = regexp.MustCompile(`bePlayer\(['"]([^"']+)['"]\s*,\s*['"]({.*})['"]\)`)
+	reSpidyproPayload = regexp.MustCompile(`bePlayer\(['"]([^"']+)['"]\s*,\s*['"]({[^}]*})['"]\)`)
 )
 
 type cryptoJSPayload struct {
@@ -46,7 +46,14 @@ func ExtractSpidypro(ctx context.Context, embedURL, referer string) ([]models.St
 	passBase64 := m[1]
 	payloadStr := m[2]
 
-	passBytes := []byte(passBase64)
+	// The password is base64-encoded in the bePlayer() call; decode it
+	// before using it in EVP_BytesToKey so the derived key matches
+	// CryptoJS.AES.decrypt(password, …) on the frontend.
+	passBytes, err := base64.StdEncoding.DecodeString(passBase64)
+	if err != nil {
+		// Fallback: use the raw string if decoding fails
+		passBytes = []byte(passBase64)
+	}
 
 	var payload cryptoJSPayload
 	if err := json.Unmarshal([]byte(payloadStr), &payload); err != nil {

@@ -81,42 +81,56 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 		return nil, err
 	}
 
+	// The search endpoint 301-redirects straight to the movie page when
+	// there is an exact match, so the response body may already be the
+	// movie page itself (it contains "var videoId").
+	var movieURL string
+	if reVideoID.Match(body) {
+		movieURL = searchURL
+	}
+
 	doc, err := goquery.NewDocumentFromReader(bytes.NewReader(body))
 	if err != nil {
 		return nil, err
 	}
 
-	var movieURL string
 	cleanQuery := strings.ToLower(utils.NormalizeTurkish(searchQuery))
 	origQuery := strings.ToLower(utils.NormalizeTurkish(media.OriginalTitle))
 
-	doc.Find("div.movie a, a").EachWithBreak(func(i int, s *goquery.Selection) bool {
-		href, exists := s.Attr("href")
-		if !exists || !strings.Contains(href, "filmmodu.one") {
+	if movieURL == "" {
+		doc.Find("div.movie a, a").EachWithBreak(func(i int, s *goquery.Selection) bool {
+			href, exists := s.Attr("href")
+			if !exists || !strings.Contains(href, "filmmodu.one") {
+				return true
+			}
+			if !strings.HasSuffix(href, "-film-izle") && !strings.Contains(href, "-izle") {
+				return true
+			}
+			text := strings.ToLower(utils.NormalizeTurkish(s.Text()))
+			if strings.Contains(text, cleanQuery) || (origQuery != "" && strings.Contains(text, origQuery)) {
+				movieURL = href
+				return false
+			}
+			if movieURL == "" && !strings.Contains(href, "/film-tur/") && !strings.Contains(href, "/film-yil/") {
+				movieURL = href
+			}
 			return true
-		}
-		if !strings.HasSuffix(href, "-film-izle") && !strings.Contains(href, "-izle") {
-			return true
-		}
-		text := strings.ToLower(utils.NormalizeTurkish(s.Text()))
-		if strings.Contains(text, cleanQuery) || (origQuery != "" && strings.Contains(text, origQuery)) {
-			movieURL = href
-			return false
-		}
-		if movieURL == "" && !strings.Contains(href, "/film-tur/") && !strings.Contains(href, "/film-yil/") {
-			movieURL = href
-		}
-		return true
-	})
+		})
+	}
 
 	if movieURL == "" {
 		return nil, nil
 	}
 
-	// Fetch movie page
-	movieBody, err := utils.DefaultClient.Get(ctx, movieURL, headers)
-	if err != nil {
-		return nil, err
+	// Fetch movie page (skip if the search response already is it)
+	var movieBody []byte
+	if movieURL == searchURL {
+		movieBody = body
+	} else {
+		movieBody, err = utils.DefaultClient.Get(ctx, movieURL, headers)
+		if err != nil {
+			return nil, err
+		}
 	}
 
 	movieDoc, err := goquery.NewDocumentFromReader(bytes.NewReader(movieBody))
@@ -173,7 +187,9 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 			continue
 		}
 		vidID := vidIDMatch[1]
-		vidType := "en"
+		// FilmModu defaults to the Turkish dub ("tr") when videoType is absent;
+		// "en" sources are rarely present and the API returns empty for them.
+		vidType := "tr"
 		if len(vidTypeMatch) >= 2 {
 			vidType = vidTypeMatch[1]
 		}

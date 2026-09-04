@@ -57,8 +57,8 @@ type vidlinkQualities struct {
 }
 
 type vidlinkStreamData struct {
-	Playlist  string           `json:"playlist"`
-	Qualities vidlinkQualities `json:"qualities"`
+	Playlist  string            `json:"playlist"`
+	Qualities vidlinkQualities  `json:"qualities"`
 	Tracks    []vidlinkSubtitle `json:"tracks"`
 }
 
