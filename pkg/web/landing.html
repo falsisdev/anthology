@@ -810,9 +810,28 @@
   <div id="toast" class="toast">Link kopyalandı!</div>
 
   <script>
-    const manifestURL = "{{.ManifestURL}}";
-    const stremioDeepLink = "{{.StremioURL}}";
+    const serverManifestURL = "{{.ManifestURL}}";
+    const serverStremioURL = "{{.StremioURL}}";
+    const realHost = window.location.host;
+    const realOrigin = window.location.origin;
+
+    const manifestURL = (serverManifestURL && !serverManifestURL.includes(":///")) ? serverManifestURL : (realOrigin + "/manifest.json");
+    const stremioDeepLink = (serverStremioURL && !serverStremioURL.includes(":///")) ? serverStremioURL : ("stremio://" + realHost + "/manifest.json");
     const webStremioURL = "https://web.stremio.com/#/addons?addon=" + encodeURIComponent(manifestURL);
+
+    // Update DOM text if server rendered empty host
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", syncManifestBar);
+    } else {
+      syncManifestBar();
+    }
+
+    function syncManifestBar() {
+      const codeSpan = document.querySelector(".manifest-code");
+      if (codeSpan && (codeSpan.textContent.includes(":///") || !codeSpan.textContent.trim())) {
+        codeSpan.textContent = manifestURL;
+      }
+    }
 
     function showToast(msg) {
       const t = document.getElementById("toast");
