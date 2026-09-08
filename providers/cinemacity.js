@@ -1,5 +1,5 @@
 /**
- * CinemaCity - MoOnCrOwN Edition
+ * CinemaCity - Anthology Edition
  * Gelişmiş Arama (Fallback) + Dil & Bayrak Desteği
  */
 

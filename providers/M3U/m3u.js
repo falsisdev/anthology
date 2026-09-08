@@ -1,13 +1,13 @@
 /**
- * MoOnCrOwN - Ultimate Provider (V17)
+ * Anthology - Ultimate Provider (V17)
  * - M3U etiketlerinden Dil ve Kalite bilgilerini çeker.
  * - Modern "Dizi" formatına bu bilgileri ekler.
  * - Boş verileri otomatik gizler.
  */
 
 const SOURCES = {
-    movie: "https://raw.githubusercontent.com/mooncrown04/nuviotr/refs/heads/main/providers/M3U/Liste/film.m3u",
-    tv: "https://raw.githubusercontent.com/mooncrown04/nuviotr/refs/heads/main/providers/M3U/Liste/dizi.m3u"
+    movie: "https://raw.githubusercontent.com/falsisdev/anthology/main/providers/M3U/Liste/film.m3u",
+    tv: "https://raw.githubusercontent.com/falsisdev/anthology/main/providers/M3U/Liste/dizi.m3u"
 };
 
 const getStreams = function(tmdbId, mediaType, seasonNum, episodeNum) {
