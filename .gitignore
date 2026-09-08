@@ -1,8 +1,20 @@
-bin/
-*.exe
-*.dll
-*.so
-*.dylib
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
 .idea/
+.vscode/
+*.swp
+*.swo
+
+# Build artifacts
+bin/
+dist/
 netlify/functions/
-.netlify/
+
+# Node
+node_modules/
+
+# Misc
+*.log

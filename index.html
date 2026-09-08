@@ -10,7 +10,7 @@
     :root {
       --bg: #060810;
       --surface: #0d1117;
-      --surface2: rgba(22, 27, 42, 0.9);
+      --surface2: #161b2a;
       --border: rgba(255,255,255,0.07);
       --border-hover: rgba(255,255,255,0.16);
       --accent: #00e676;
@@ -19,742 +19,216 @@
       --blue: #60a5fa;
       --blue-dim: rgba(96,165,250,0.12);
       --purple: #a78bfa;
+      --purple-dim: rgba(167,139,250,0.12);
       --orange: #fb923c;
+      --orange-dim: rgba(251,146,60,0.12);
       --pink: #f472b6;
+      --pink-dim: rgba(244,114,182,0.12);
+      --red: #f87171;
       --text: #f1f5f9;
       --text-muted: #94a3b8;
       --text-dim: #64748b;
       --radius: 20px;
       --radius-sm: 12px;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased}
 
-    /* ── NAV ─────────────────────────────── */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(6,8,16,0.8);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 24px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-    .nav-brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 800;
-      font-size: 17px;
-      letter-spacing: -0.3px;
-    }
-    .nav-brand img { width: 30px; height: 30px; object-fit: contain; }
-    .nav-links {
-      display: flex;
-      gap: 4px;
-    }
-    .nav-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
-      padding: 6px 12px;
-      border-radius: 8px;
-      transition: all 0.15s;
-    }
-    .nav-links a:hover { color: var(--text); background: rgba(255,255,255,0.06); }
-    .nav-cta {
-      background: var(--accent);
-      color: #000;
-      font-size: 13px;
-      font-weight: 700;
-      padding: 8px 16px;
-      border-radius: 10px;
-      border: none;
-      cursor: pointer;
-      transition: all 0.15s;
-      white-space: nowrap;
-    }
-    .nav-cta:hover { box-shadow: 0 0 20px var(--accent-glow); }
+    /* NAV */
+    nav{position:sticky;top:0;z-index:50;background:rgba(6,8,16,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .nav-brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:16px;letter-spacing:-0.3px}
+    .nav-brand img{width:28px;height:28px;object-fit:contain}
+    .nav-links{display:flex;gap:2px}
+    .nav-links a{color:var(--text-muted);text-decoration:none;font-size:13px;font-weight:500;padding:6px 12px;border-radius:8px;transition:all .15s}
+    .nav-links a:hover{color:var(--text);background:rgba(255,255,255,0.06)}
+    .nav-cta{background:var(--accent);color:#000;font-size:12px;font-weight:700;padding:7px 14px;border-radius:9px;border:none;cursor:pointer;transition:all .15s;white-space:nowrap}
+    .nav-cta:hover{box-shadow:0 0 20px var(--accent-glow)}
 
-    /* ── HERO ─────────────────────────────── */
-    .hero {
-      position: relative;
-      overflow: hidden;
-      padding: 90px 24px 80px;
-      text-align: center;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -120px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 800px;
-      height: 500px;
-      background: radial-gradient(ellipse at center, rgba(0,230,118,0.08) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-logo {
-      width: 100px;
-      height: 100px;
-      object-fit: contain;
-      filter: drop-shadow(0 8px 30px rgba(0,0,0,0.6));
-      margin-bottom: 24px;
-    }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--accent-dim);
-      border: 1px solid rgba(0,230,118,0.25);
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 700;
-      padding: 5px 14px;
-      border-radius: 999px;
-      margin-bottom: 18px;
-    }
-    .hero-badge .dot {
-      width: 6px; height: 6px;
-      background: var(--accent);
-      border-radius: 50%;
-      box-shadow: 0 0 8px var(--accent);
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
-    }
-    h1 {
-      font-size: clamp(36px, 6vw, 64px);
-      font-weight: 900;
-      letter-spacing: -2px;
-      background: linear-gradient(135deg, #fff 30%, #94a3b8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 16px;
-      line-height: 1.05;
-    }
-    .hero-desc {
-      font-size: 17px;
-      color: var(--text-muted);
-      max-width: 540px;
-      margin: 0 auto 36px;
-      line-height: 1.65;
-    }
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 40px;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 13px 26px;
-      border-radius: 14px;
-      font-size: 15px;
-      font-weight: 700;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.2s;
-      border: none;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, #00e676, #00b0ff);
-      color: #000;
-      box-shadow: 0 6px 24px rgba(0,230,118,0.3);
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 32px rgba(0,230,118,0.45);
-    }
-    .btn-secondary {
-      background: rgba(255,255,255,0.06);
-      color: #fff;
-      border: 1px solid var(--border);
-    }
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.1);
-      border-color: var(--border-hover);
-      transform: translateY(-2px);
-    }
+    /* HERO */
+    .hero{position:relative;overflow:hidden;padding:80px 24px 64px;text-align:center}
+    .hero::before{content:'';position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:700px;height:450px;background:radial-gradient(ellipse at center,rgba(0,230,118,0.06) 0%,transparent 70%);pointer-events:none}
+    .hero-logo{width:88px;height:88px;object-fit:contain;filter:drop-shadow(0 8px 24px rgba(0,0,0,0.5));margin-bottom:20px}
+    .hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--accent-dim);border:1px solid rgba(0,230,118,0.25);color:var(--accent);font-size:11px;font-weight:700;padding:4px 12px;border-radius:999px;margin-bottom:16px}
+    .hero-badge .dot{width:6px;height:6px;background:var(--accent);border-radius:50%;box-shadow:0 0 8px var(--accent);animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+    h1{font-size:clamp(32px,5vw,56px);font-weight:900;letter-spacing:-2px;background:linear-gradient(135deg,#fff 30%,#94a3b8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px;line-height:1.05}
+    .hero-desc{font-size:16px;color:var(--text-muted);max-width:500px;margin:0 auto 32px;line-height:1.65}
+    .hero-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:32px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:13px;font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;transition:all .2s;border:none}
+    .btn-primary{background:linear-gradient(135deg,#00e676,#00b0ff);color:#000;box-shadow:0 6px 24px rgba(0,230,118,0.25)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(0,230,118,0.4)}
+    .btn-ghost{background:rgba(255,255,255,0.06);color:#fff;border:1px solid var(--border)}
+    .btn-ghost:hover{background:rgba(255,255,255,0.1);border-color:var(--border-hover);transform:translateY(-2px)}
 
-    /* Manifest bar */
-    .manifest-bar {
-      max-width: 600px;
-      margin: 0 auto;
-      background: rgba(0,0,0,0.5);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 12px 14px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .manifest-label {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      white-space: nowrap;
-    }
-    .manifest-url {
-      flex: 1;
-      font-family: ui-monospace, monospace;
-      font-size: 12px;
-      color: var(--blue);
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-    .copy-btn {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid var(--border);
-      color: #fff;
-      padding: 7px 14px;
-      border-radius: 8px;
-      font-size: 12px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.15s;
-      white-space: nowrap;
-    }
-    .copy-btn:hover { background: rgba(255,255,255,0.14); }
-    .copy-btn.copied { color: var(--accent); border-color: rgba(0,230,118,0.3); }
+    .manifest-bar{max-width:580px;margin:0 auto;background:rgba(0,0,0,0.5);border:1px solid var(--border);border-radius:13px;padding:11px 14px;display:flex;align-items:center;gap:10px}
+    .manifest-label{font-size:10px;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
+    .manifest-url{flex:1;font-family:ui-monospace,monospace;font-size:11.5px;color:var(--blue);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .copy-btn{background:rgba(255,255,255,0.08);border:1px solid var(--border);color:#fff;padding:6px 12px;border-radius:8px;font-size:11px;font-weight:600;cursor:pointer;transition:all .15s;white-space:nowrap}
+    .copy-btn:hover{background:rgba(255,255,255,0.14)}
+    .copy-btn.copied{color:var(--accent);border-color:rgba(0,230,118,0.3)}
 
-    /* ── STATS ─────────────────────────────── */
-    .stats-row {
-      display: flex;
-      justify-content: center;
-      gap: 0;
-      max-width: 640px;
-      margin: 60px auto 0;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
-    .stat {
-      flex: 1;
-      text-align: center;
-      padding: 22px 16px;
-      border-right: 1px solid var(--border);
-    }
-    .stat:last-child { border-right: none; }
-    .stat-value {
-      font-size: 28px;
-      font-weight: 900;
-      background: linear-gradient(135deg, #fff, #94a3b8);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .stat-label {
-      font-size: 12px;
-      color: var(--text-dim);
-      margin-top: 4px;
-      font-weight: 500;
-    }
+    .stats-row{display:flex;justify-content:center;gap:0;max-width:560px;margin:48px auto 0;border:1px solid var(--border);border-radius:16px;overflow:hidden}
+    .stat{flex:1;text-align:center;padding:18px 12px;border-right:1px solid var(--border)}
+    .stat:last-child{border-right:none}
+    .stat-value{font-size:24px;font-weight:900;color:#fff}
+    .stat-label{font-size:11px;color:var(--text-dim);margin-top:2px;font-weight:500}
 
-    /* ── SECTION ─────────────────────────────── */
-    section { padding: 72px 24px; }
-    .container { max-width: 1000px; margin: 0 auto; }
-    .section-header {
-      margin-bottom: 36px;
-    }
-    .section-eyebrow {
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--accent);
-      margin-bottom: 10px;
-    }
-    .section-title {
-      font-size: clamp(22px, 4vw, 34px);
-      font-weight: 800;
-      letter-spacing: -0.8px;
-      margin-bottom: 8px;
-    }
-    .section-desc {
-      font-size: 15px;
-      color: var(--text-muted);
-      line-height: 1.6;
-      max-width: 560px;
-    }
+    /* SECTIONS */
+    section{padding:64px 24px}
+    .container{max-width:960px;margin:0 auto}
+    .section-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);margin-bottom:8px}
+    .section-title{font-size:clamp(20px,4vw,30px);font-weight:800;letter-spacing:-.6px;margin-bottom:8px}
+    .section-desc{font-size:14px;color:var(--text-muted);line-height:1.6;max-width:520px;margin-bottom:32px}
 
-    /* ── HOW TO INSTALL ─────────────────────────────── */
-    #install { background: var(--surface); }
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-    }
-    .step-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
-      position: relative;
-    }
-    .step-num {
-      width: 36px;
-      height: 36px;
-      background: var(--accent-dim);
-      border: 1px solid rgba(0,230,118,0.25);
-      color: var(--accent);
-      font-size: 15px;
-      font-weight: 900;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 14px;
-    }
-    .step-card h3 {
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-    .step-card p {
-      font-size: 13.5px;
-      color: var(--text-muted);
-      line-height: 1.55;
-    }
-    code {
-      font-family: ui-monospace, monospace;
-      background: rgba(255,255,255,0.08);
-      padding: 2px 6px;
-      border-radius: 5px;
-      font-size: 12px;
-      color: var(--blue);
-    }
+    /* INSTALL */
+    #install{background:var(--surface)}
+    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+    .step-card{background:rgba(255,255,255,0.025);border:1px solid var(--border);border-radius:var(--radius);padding:22px;position:relative}
+    .step-num{width:32px;height:32px;background:var(--accent-dim);border:1px solid rgba(0,230,118,0.25);color:var(--accent);font-size:14px;font-weight:900;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+    .step-card h3{font-size:14px;font-weight:700;margin-bottom:5px}
+    .step-card p{font-size:12.5px;color:var(--text-muted);line-height:1.5}
+    code{font-family:ui-monospace,monospace;background:rgba(255,255,255,0.08);padding:2px 6px;border-radius:5px;font-size:11px;color:var(--blue)}
 
-    /* ── PROVIDER BROWSER ─────────────────────────────── */
-    .filter-bar {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 24px;
-    }
-    .filter-btn {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      padding: 7px 16px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.15s;
-    }
-    .filter-btn:hover { border-color: var(--border-hover); color: var(--text); }
-    .filter-btn.active {
-      background: var(--accent-dim);
-      border-color: rgba(0,230,118,0.35);
-      color: var(--accent);
-    }
-    .provider-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 12px;
-    }
-    .provider-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      transition: all 0.2s;
-      cursor: default;
-    }
-    .provider-card:hover {
-      border-color: var(--border-hover);
-      background: rgba(255,255,255,0.05);
-      transform: translateY(-2px);
-    }
-    .provider-card.hidden { display: none; }
-    .provider-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 9px;
-      object-fit: cover;
-      background: rgba(255,255,255,0.08);
-    }
-    .provider-icon-fallback {
-      width: 36px;
-      height: 36px;
-      border-radius: 9px;
-      background: rgba(255,255,255,0.08);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      flex-shrink: 0;
-    }
-    .provider-name {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--text);
-    }
-    .provider-tags {
-      display: flex;
-      gap: 4px;
-      flex-wrap: wrap;
-    }
-    .tag {
-      font-size: 10px;
-      font-weight: 600;
-      padding: 2px 7px;
-      border-radius: 5px;
-      text-transform: uppercase;
-      letter-spacing: 0.3px;
-    }
-    .tag-movie { background: rgba(251,146,60,0.15); color: var(--orange); }
-    .tag-tv { background: rgba(96,165,250,0.15); color: var(--blue); }
-    .tag-anime { background: rgba(167,139,250,0.15); color: var(--purple); }
-    .tag-live { background: rgba(244,114,182,0.15); color: var(--pink); }
-    .tag-m3u { background: rgba(0,230,118,0.12); color: var(--accent); }
+    /* PROVIDERS */
+    .filter-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+    .filter-btn{background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--text-muted);padding:6px 14px;border-radius:999px;font-size:12px;font-weight:600;cursor:pointer;transition:all .15s}
+    .filter-btn:hover{border-color:var(--border-hover);color:var(--text)}
+    .filter-btn.active{background:var(--accent-dim);border-color:rgba(0,230,118,0.35);color:var(--accent)}
 
-    /* ── PROVIDER TEST ─────────────────────────────── */
-    #test { background: var(--surface); }
-    .test-panel {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
-    .test-panel-header {
-      padding: 20px 24px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .test-panel-header h3 {
-      font-size: 16px;
-      font-weight: 700;
-    }
-    .test-controls {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .test-input {
-      background: rgba(0,0,0,0.4);
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 8px 14px;
-      border-radius: 10px;
-      font-size: 13px;
-      width: 140px;
-      outline: none;
-      transition: border-color 0.15s;
-    }
-    .test-input:focus { border-color: rgba(0,230,118,0.4); }
-    .test-input::placeholder { color: var(--text-dim); }
-    select.test-input { cursor: pointer; }
-    .test-run-btn {
-      background: var(--accent);
-      color: #000;
-      font-weight: 700;
-      font-size: 13px;
-      padding: 8px 18px;
-      border-radius: 10px;
-      border: none;
-      cursor: pointer;
-      transition: all 0.15s;
-    }
-    .test-run-btn:hover { box-shadow: 0 0 16px var(--accent-glow); }
-    .test-run-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-    .test-list {
-      padding: 16px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      max-height: 480px;
-      overflow-y: auto;
-    }
-    .test-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 14px;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid var(--border);
-      border-radius: 11px;
-      transition: border-color 0.2s;
-    }
-    .test-row.running { border-color: rgba(251,191,36,0.3); }
-    .test-row.ok { border-color: rgba(0,230,118,0.25); }
-    .test-row.fail { border-color: rgba(239,68,68,0.25); }
-    .test-status {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      background: var(--text-dim);
-    }
-    .test-row.running .test-status { background: #fbbf24; animation: pulse 1s infinite; }
-    .test-row.ok .test-status { background: var(--accent); box-shadow: 0 0 6px var(--accent-glow); }
-    .test-row.fail .test-status { background: #ef4444; }
-    .test-name {
-      font-size: 13.5px;
-      font-weight: 600;
-      flex: 1;
-    }
-    .test-result {
-      font-size: 12px;
-      color: var(--text-dim);
-    }
-    .test-row.ok .test-result { color: var(--accent); }
-    .test-row.fail .test-result { color: #f87171; }
-    .test-time {
-      font-size: 11px;
-      color: var(--text-dim);
-      white-space: nowrap;
-    }
-    .test-disclaimer {
-      padding: 12px 20px;
-      border-top: 1px solid var(--border);
-      font-size: 12px;
-      color: var(--text-dim);
-    }
+    .search-bar{margin-bottom:20px}
+    .search-bar input{width:100%;max-width:360px;background:rgba(0,0,0,0.4);border:1px solid var(--border);color:var(--text);padding:10px 16px;border-radius:12px;font-size:13px;outline:none;transition:border-color .15s}
+    .search-bar input:focus{border-color:rgba(0,230,118,0.35)}
+    .search-bar input::placeholder{color:var(--text-dim)}
 
-    /* ── CHANNELS PREVIEW ─────────────────────────────── */
-    .channels-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 10px;
-    }
-    .channel-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 14px;
-      text-align: center;
-    }
-    .channel-card .ch-emoji { font-size: 22px; margin-bottom: 6px; }
-    .channel-card .ch-name { font-size: 13px; font-weight: 600; margin-bottom: 3px; }
-    .channel-card .ch-desc { font-size: 11px; color: var(--text-dim); }
+    .provider-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+    .provider-card{background:rgba(255,255,255,0.025);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px;display:flex;align-items:flex-start;gap:12px;transition:all .2s;cursor:default}
+    .provider-card:hover{border-color:var(--border-hover);background:rgba(255,255,255,0.04);transform:translateY(-1px)}
+    .provider-card.hidden{display:none}
+    .provider-logo{width:32px;height:32px;border-radius:8px;object-fit:cover;background:rgba(255,255,255,0.06);flex-shrink:0}
+    .provider-logo-fallback{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+    .provider-info{flex:1;min-width:0}
+    .provider-name{font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px;display:flex;align-items:center;gap:6px}
+    .provider-name a{color:var(--text-dim);text-decoration:none;font-size:10px;opacity:.6;transition:opacity .15s}
+    .provider-name a:hover{opacity:1;color:var(--blue)}
+    .provider-desc{font-size:11px;color:var(--text-dim);line-height:1.4;margin-bottom:4px}
+    .provider-tags{display:flex;gap:3px;flex-wrap:wrap}
+    .tag{font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;text-transform:uppercase;letter-spacing:.3px}
+    .tag-movie{background:var(--orange-dim);color:var(--orange)}
+    .tag-tv{background:var(--blue-dim);color:var(--blue)}
+    .tag-anime{background:var(--purple-dim);color:var(--purple)}
+    .tag-live{background:var(--pink-dim);color:var(--pink)}
+    .tag-m3u{background:var(--accent-dim);color:var(--accent)}
 
-    /* ── FOOTER ─────────────────────────────── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 36px 24px;
-      text-align: center;
-    }
-    footer img { width: 40px; height: 40px; object-fit: contain; margin-bottom: 10px; }
-    .footer-title { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
-    .footer-sub { font-size: 13px; color: var(--text-dim); margin-bottom: 16px; }
-    .footer-links { display: flex; justify-content: center; gap: 20px; }
-    .footer-links a { font-size: 13px; color: var(--text-dim); text-decoration: none; transition: color 0.15s; }
-    .footer-links a:hover { color: var(--text); }
-    .footer-copy { font-size: 12px; color: var(--text-dim); margin-top: 20px; }
+    /* LIVE TV */
+    #live{background:var(--surface)}
+    .channels-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}
+    .channel-card{background:rgba(255,255,255,0.025);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px;text-align:center}
+    .channel-card .ch-emoji{font-size:20px;margin-bottom:4px}
+    .channel-card .ch-name{font-size:12px;font-weight:600;margin-bottom:2px}
+    .channel-card .ch-desc{font-size:10px;color:var(--text-dim)}
 
-    /* ── TOAST ─────────────────────────────── */
-    .toast {
-      position: fixed;
-      bottom: 28px;
-      left: 50%;
-      transform: translateX(-50%) translateY(80px);
-      background: #1e293b;
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.12);
-      padding: 12px 24px;
-      border-radius: 999px;
-      font-size: 13.5px;
-      font-weight: 600;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.6);
-      transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
-      opacity: 0;
-      pointer-events: none;
-      z-index: 200;
-    }
-    .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+    /* FOOTER */
+    footer{border-top:1px solid var(--border);padding:32px 24px;text-align:center}
+    footer img{width:36px;height:36px;object-fit:contain;margin-bottom:8px}
+    .footer-title{font-size:15px;font-weight:800;margin-bottom:3px}
+    .footer-sub{font-size:12px;color:var(--text-dim);margin-bottom:14px}
+    .footer-links{display:flex;justify-content:center;gap:16px}
+    .footer-links a{font-size:12px;color:var(--text-dim);text-decoration:none;transition:color .15s}
+    .footer-links a:hover{color:var(--text)}
+    .footer-copy{font-size:11px;color:var(--text-dim);margin-top:16px}
 
-    @media (max-width: 600px) {
-      .nav-links { display: none; }
-      .manifest-bar { flex-wrap: wrap; }
-      .stats-row { border-radius: 14px; }
-      .stat-value { font-size: 22px; }
-    }
+    /* TOAST */
+    .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:#1e293b;color:#fff;border:1px solid rgba(255,255,255,0.12);padding:10px 20px;border-radius:999px;font-size:13px;font-weight:600;box-shadow:0 16px 40px rgba(0,0,0,0.6);transition:all .3s cubic-bezier(.16,1,.3,1);opacity:0;pointer-events:none;z-index:200}
+    .toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+
+    @media(max-width:600px){.nav-links{display:none}.manifest-bar{flex-wrap:wrap}.stats-row{border-radius:12px}.stat-value{font-size:20px}.provider-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
 
-<!-- ── NAV ── -->
 <nav>
-  <div class="nav-brand">
-    <img src="assets/logo_1_transparent.png" alt="Anthology">
-    <span>Anthology</span>
-  </div>
+  <div class="nav-brand"><img src="assets/logo_1_transparent.png" alt="Anthology"><span>Anthology</span></div>
   <div class="nav-links">
     <a href="#install">Kurulum</a>
     <a href="#providers">Eklentiler</a>
-    <a href="#test">Test Et</a>
     <a href="#live">Canlı TV</a>
   </div>
-  <button class="nav-cta" onclick="copyManifest()">📋 Depo Linkini Kopyala</button>
+  <button class="nav-cta" onclick="copyManifest()">📋 Linki Kopyala</button>
 </nav>
 
-<!-- ── HERO ── -->
 <div class="hero">
-  <img src="assets/logo_1_transparent.png" alt="Anthology Logo" class="hero-logo">
-  <div class="hero-badge">
-    <span class="dot"></span>
-    <span>Nuvio Eklenti Deposu · Aktif</span>
-  </div>
+  <img src="assets/logo_1_transparent.png" alt="Anthology" class="hero-logo">
+  <div class="hero-badge"><span class="dot"></span><span>Nuvio Eklenti Deposu · Aktif</span></div>
   <h1>Anthology</h1>
-  <p class="hero-desc">
-    Nuvio uygulaması için 40+ Türkçe Film, Dizi, Anime ve Canlı TV/Spor eklentisi tek bir depoda.
-  </p>
+  <p class="hero-desc">Nuvio uygulaması için 40+ Türkçe Film, Dizi, Anime ve Canlı TV/Spor eklentisi.</p>
   <div class="hero-actions">
     <button class="btn btn-primary" onclick="copyManifest()">📋 Depo Linkini Kopyala</button>
-    <a href="https://github.com/falsisdev/anthology" target="_blank" class="btn btn-secondary">⭐ GitHub</a>
+    <a href="https://github.com/falsisdev/anthology" target="_blank" class="btn btn-ghost">⭐ GitHub</a>
   </div>
   <div class="manifest-bar">
     <span class="manifest-label">Manifest</span>
-    <span class="manifest-url" id="manifestUrlDisplay">https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json</span>
+    <span class="manifest-url">https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json</span>
     <button class="copy-btn" id="copyBtn" onclick="copyManifest()">Kopyala</button>
   </div>
-
   <div class="stats-row">
-    <div class="stat">
-      <div class="stat-value">47</div>
-      <div class="stat-label">Eklenti</div>
-    </div>
-    <div class="stat">
-      <div class="stat-value">16</div>
-      <div class="stat-label">Film Kaynağı</div>
-    </div>
-    <div class="stat">
-      <div class="stat-value">14</div>
-      <div class="stat-label">Dizi Kaynağı</div>
-    </div>
-    <div class="stat">
-      <div class="stat-value">8</div>
-      <div class="stat-label">Anime Kaynağı</div>
-    </div>
-    <div class="stat">
-      <div class="stat-value">100+</div>
-      <div class="stat-label">Canlı Kanal</div>
-    </div>
+    <div class="stat"><div class="stat-value" id="totalCount">47</div><div class="stat-label">Eklenti</div></div>
+    <div class="stat"><div class="stat-value">16</div><div class="stat-label">Film</div></div>
+    <div class="stat"><div class="stat-value">14</div><div class="stat-label">Dizi</div></div>
+    <div class="stat"><div class="stat-value">8</div><div class="stat-label">Anime</div></div>
+    <div class="stat"><div class="stat-value">100+</div><div class="stat-label">Canlı Kanal</div></div>
   </div>
 </div>
 
-<!-- ── HOW TO INSTALL ── -->
 <section id="install">
   <div class="container">
-    <div class="section-header">
-      <div class="section-eyebrow">Başlangıç</div>
-      <h2 class="section-title">3 Adımda Kurulum</h2>
-      <p class="section-desc">Nuvio uygulamasını açıp manifesti yapıştırmanız yeterli — eklentiler otomatik yüklenir.</p>
-    </div>
+    <div class="section-eyebrow">Başlangıç</div>
+    <h2 class="section-title">3 Adımda Kurulum</h2>
+    <p class="section-desc">Manifesti kopyalayın, Nuvio'ya yapıştırın — hepsi bu.</p>
     <div class="steps">
       <div class="step-card">
         <div class="step-num">1</div>
         <h3>Nuvio'yu Açın</h3>
-        <p>Uygulamayı açıp <strong>Ayarlar (Settings)</strong> bölümüne gidin.</p>
+        <p><strong>Ayarlar</strong> → <strong>Eklentiler</strong> bölümüne gidin.</p>
       </div>
       <div class="step-card">
         <div class="step-num">2</div>
         <h3>Depo Ekle</h3>
-        <p><strong>Eklentiler → Depo Ekle</strong> sekmesine dokunun ve aşağıdaki linki yapıştırın:</p>
+        <p><strong>Depo Ekle</strong>'ye dokunup aşağıdaki linki yapıştırın:</p>
         <br>
-        <code style="font-size:11px; display:block; word-break:break-all; padding:8px; border-radius:8px; background:rgba(0,0,0,0.4);">https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json</code>
+        <code style="font-size:10px;display:block;word-break:break-all;padding:8px;border-radius:8px;background:rgba(0,0,0,0.4)">https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json</code>
       </div>
       <div class="step-card">
         <div class="step-num">3</div>
         <h3>Hazır!</h3>
-        <p>Tüm eklentiler cihazınıza indirilir ve hemen kullanıma hazır hale gelir.</p>
+        <p>Tüm eklentiler otomatik olarak yüklenir ve hemen kullanıma hazırdır.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── PROVIDERS ── -->
 <section id="providers">
   <div class="container">
-    <div class="section-header">
-      <div class="section-eyebrow">İçerik Kaynakları</div>
-      <h2 class="section-title">47 Eklenti, 4 Kategori</h2>
-      <p class="section-desc">Film, dizi, anime veya canlı TV — istediğiniz kategoriye göre filtreleyin.</p>
-    </div>
-
-    <div class="filter-bar">
+    <div class="section-eyebrow">İçerik Kaynakları</div>
+    <h2 class="section-title">Eklentiler</h2>
+    <p class="section-desc">Kategoriye göre filtreleyin veya eklenti arayın.</p>
+    <div class="search-bar"><input type="text" id="searchInput" placeholder="Eklenti ara…" oninput="filterProviders()"></div>
+    <div class="filter-bar" id="filterBar">
       <button class="filter-btn active" data-filter="all">Tümü</button>
       <button class="filter-btn" data-filter="movie">🎬 Film</button>
       <button class="filter-btn" data-filter="tv">📺 Dizi</button>
       <button class="filter-btn" data-filter="anime">⛩️ Anime</button>
       <button class="filter-btn" data-filter="live">📡 Canlı / M3U</button>
     </div>
-
     <div class="provider-grid" id="providerGrid"></div>
   </div>
 </section>
 
-<!-- ── PROVIDER TEST ── -->
-<section id="test">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-eyebrow">Eklenti Testi</div>
-      <h2 class="section-title">Kaynakları Test Et</h2>
-      <p class="section-desc">Bir TMDB kimliği ve içerik türü girerek eklentilerin gerçekten içerik bulup bulmadığını kontrol edin.</p>
-    </div>
-
-    <div class="test-panel">
-      <div class="test-panel-header">
-        <h3>🔍 Kaynak Erişilebilirlik Testi</h3>
-        <div class="test-controls">
-          <input class="test-input" type="text" id="testTmdbId" placeholder="TMDB ID (örn: 603)" value="603">
-          <select class="test-input" id="testMediaType">
-            <option value="movie">Film</option>
-            <option value="tv">Dizi</option>
-          </select>
-          <button class="test-run-btn" id="testRunBtn" onclick="runTests()">▶ Testleri Başlat</button>
-        </div>
-      </div>
-      <div class="test-list" id="testList">
-        <p style="color:var(--text-dim);font-size:13px;padding:12px 4px;">Testi başlatmak için yukarıdaki butona tıklayın. Her eklenti için HTTP erişilebilirlik kontrolü yapılır.</p>
-      </div>
-      <div class="test-disclaimer">
-        ℹ️ Test, eklentinin ana sayfasına bağlantı kurulabilirliğini ölçer. Bazı sitelerin CORS kısıtlaması nedeniyle "erişilemiyor" görünmesi normal olabilir — bu, eklentinin çalışmadığı anlamına gelmez.
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── LIVE TV ── -->
 <section id="live">
   <div class="container">
-    <div class="section-header">
-      <div class="section-eyebrow">Canlı Yayın</div>
-      <h2 class="section-title">100+ Canlı Kanal</h2>
-      <p class="section-desc">Spor, haber, belgesel ve eğlence kanalları tek eklentide.</p>
-    </div>
+    <div class="section-eyebrow">Canlı Yayın</div>
+    <h2 class="section-title">100+ Canlı Kanal</h2>
+    <p class="section-desc">Spor, haber, belgesel ve eğlence — tek eklentide.</p>
     <div class="channels-grid">
       <div class="channel-card"><div class="ch-emoji">⚽</div><div class="ch-name">BeIN Sports</div><div class="ch-desc">1–5 &amp; Max</div></div>
       <div class="channel-card"><div class="ch-emoji">🏆</div><div class="ch-name">S Sport</div><div class="ch-desc">1–2 &amp; Plus</div></div>
@@ -765,233 +239,137 @@
       <div class="channel-card"><div class="ch-emoji">🌟</div><div class="ch-name">ATV &amp; Kanal D</div><div class="ch-desc">Ulusal</div></div>
       <div class="channel-card"><div class="ch-emoji">📰</div><div class="ch-name">NTV &amp; CNN Türk</div><div class="ch-desc">Haber</div></div>
       <div class="channel-card"><div class="ch-emoji">🏀</div><div class="ch-name">NBA TV</div><div class="ch-desc">Basketbol</div></div>
-      <div class="channel-card"><div class="ch-emoji">🚴</div><div class="ch-name">Eurosport 1–2</div><div class="ch-desc">Avrupa Sporu</div></div>
+      <div class="channel-card"><div class="ch-emoji">🚴</div><div class="ch-name">Eurosport</div><div class="ch-desc">1–2</div></div>
       <div class="channel-card"><div class="ch-emoji">🦁</div><div class="ch-name">TRT Belgesel</div><div class="ch-desc">Belgesel</div></div>
       <div class="channel-card"><div class="ch-emoji">🎠</div><div class="ch-name">TRT Çocuk</div><div class="ch-desc">Çocuk</div></div>
     </div>
   </div>
 </section>
 
-<!-- ── FOOTER ── -->
 <footer>
   <img src="assets/logo_1_transparent.png" alt="Anthology">
   <div class="footer-title">Anthology</div>
-  <div class="footer-sub">Nuvio için Türkçe İçerik Eklenti Deposu</div>
+  <div class="footer-sub">Nuvio için Türkçe İçerik Deposu</div>
   <div class="footer-links">
     <a href="https://github.com/falsisdev/anthology" target="_blank">GitHub</a>
     <a href="https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json" target="_blank">manifest.json</a>
     <a href="mailto:falsis@proton.me">İletişim</a>
   </div>
-  <div class="footer-copy">© 2024–2025 falsisdev · Anthology</div>
+  <div class="footer-copy">© 2024–2025 falsisdev</div>
 </footer>
 
 <div class="toast" id="toast"></div>
 
 <script>
-  const MANIFEST_URL = "https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json";
+const MANIFEST_URL="https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json";
 
-  // ── PROVIDERS DATA ──────────────────────────────────────────────────────
-  const PROVIDERS = [
-    // Film
-    { id:"sinewix",         name:"SineWix",              cats:["movie","tv"],    emoji:"🎬", desc:"5000+ HD içerik" },
-    { id:"filmmodu",        name:"FilmModu",             cats:["movie"],         emoji:"🍿", desc:"HD film arşivi" },
-    { id:"hdfilmcehennemi", name:"HDFilmCehennemi",      cats:["movie"],         emoji:"🔥", desc:"En popüler film sitesi" },
-    { id:"filmkovasi",      name:"FilmKovası",           cats:["movie"],         emoji:"🎥", desc:"Türkçe dublaj filmler" },
-    { id:"filmmakinesi",    name:"FilmMakinesi",         cats:["movie"],         emoji:"🎞", desc:"Geniş film kütüphanesi" },
-    { id:"filmekseni",      name:"FilmEkseni",           cats:["movie"],         emoji:"🎦", desc:"HD film arşivi" },
-    { id:"filmhane",        name:"Filmhane",             cats:["movie"],         emoji:"🏠", desc:"Dublaj & altyazılı" },
-    { id:"filmifullizle",   name:"FilmiFullİzle",        cats:["movie"],         emoji:"▶️", desc:"Full film arşivi" },
-    { id:"filmzal",         name:"FilmZal",              cats:["movie"],         emoji:"🎫", desc:"Sinema yayınları" },
-    { id:"hdfilmdelisi",    name:"HDFilmDelisi",         cats:["movie"],         emoji:"💫", desc:"Full HD filmler" },
-    { id:"setfilmizle",     name:"SetFilmİzle",          cats:["movie"],         emoji:"🎬", desc:"HD film seçenekleri" },
-    { id:"tekfullfilmizle", name:"TekFullFilmİzle",      cats:["movie"],         emoji:"1️⃣", desc:"Tek parça full HD" },
-    { id:"sinezy",          name:"Sinezy",               cats:["movie","tv"],    emoji:"🌀", desc:"Film & dizi arşivi" },
-    { id:"jetfilmizle",     name:"JetFilmİzle",          cats:["movie"],         emoji:"✈️", desc:"Hızlı film erişimi" },
-    { id:"sinemacx",        name:"SinemaCx",             cats:["movie","tv"],    emoji:"🎭", desc:"Yerli & yabancı film" },
-    { id:"webteizle",       name:"WebteİZle",            cats:["movie"],         emoji:"🌐", desc:"Yüksek kaliteli filmler" },
-    { id:"fullhdfilmizlesene",name:"FullHDFilmİzlesene", cats:["movie"],         emoji:"📺", desc:"Full HD film" },
-    { id:"altiyuzaltmisaltifilm",name:"666Film",         cats:["movie"],         emoji:"🎱", desc:"Dublaj film kaynağı" },
-    // Dizi
-    { id:"diziyou",         name:"DiziYou",              cats:["tv"],            emoji:"📺", desc:"Hızlı yabancı dizi" },
-    { id:"dizibox",         name:"Dizibox",              cats:["tv"],            emoji:"📦", desc:"Popüler yabancı diziler" },
-    { id:"dizigom",         name:"Dizigom",              cats:["tv"],            emoji:"🌀", desc:"Türkçe dublaj & altyazı" },
-    { id:"dizilla",         name:"Dizilla",              cats:["tv"],            emoji:"⚡", desc:"Popüler yabancı diziler" },
-    { id:"dizimag",         name:"Dizimag",              cats:["tv"],            emoji:"📖", desc:"Güncel bölümler" },
-    { id:"dizimom",         name:"Dizimom",              cats:["tv"],            emoji:"💜", desc:"Yabancı diziler" },
-    { id:"dizipal",         name:"Dizipal",              cats:["movie","tv"],    emoji:"🤝", desc:"Güncel dizi & film" },
-    { id:"diziwatch",       name:"Diziwatch",            cats:["tv"],            emoji:"⌚", desc:"Dizi & anime" },
-    { id:"diziyo",          name:"Diziyo",               cats:["tv"],            emoji:"🎯", desc:"Yabancı dizi izleme" },
-    { id:"ddizi",           name:"DDizi",                cats:["tv"],            emoji:"🔤", desc:"Yerli & yabancı dizi" },
-    { id:"sezonlukdizi",    name:"SezonlukDizi",         cats:["tv"],            emoji:"📅", desc:"Geniş dizi kütüphanesi" },
-    { id:"yabancidizi",     name:"YabancıDizi",          cats:["tv"],            emoji:"🌍", desc:"Yabancı dizi yayınları" },
-    { id:"rec",             name:"Rec TV",               cats:["movie","tv"],    emoji:"🔴", desc:"Güncel yayın kaynakları" },
-    // Anime
-    { id:"animecix",        name:"AnimeciX",             cats:["anime"],         emoji:"⛩️", desc:"Türkiye'nin en büyük anime arşivi" },
-    { id:"tranimeizle",     name:"Tranimeizle",          cats:["anime"],         emoji:"🌸", desc:"Türkçe altyazılı anime" },
-    { id:"animexe",         name:"Animexe",              cats:["anime"],         emoji:"🐉", desc:"Anime dizi & film" },
-    { id:"animpow",         name:"AnimPow",              cats:["anime"],         emoji:"⚡", desc:"Güncel anime" },
-    { id:"asyaanimeleri",   name:"AsyaAnimeleri",        cats:["anime"],         emoji:"🍜", desc:"Asya dizi & anime" },
-    { id:"openani",         name:"OpenAni",              cats:["anime"],         emoji:"📂", desc:"Açık anime platformu" },
-    { id:"seicode",         name:"SeiCode",              cats:["anime"],         emoji:"💻", desc:"Anime & sinema" },
-    { id:"acheriya",        name:"Acheriya",             cats:["anime"],         emoji:"🌙", desc:"Türkçe anime" },
-    // Global
-    { id:"cinemacity",      name:"CinemaCity",           cats:["movie","tv"],    emoji:"🏙", desc:"Çok dilli film & dizi" },
-    { id:"vidlink",         name:"Vidlink",              cats:["movie","tv"],    emoji:"🔗", desc:"Global yayın sağlayıcı" },
-    { id:"netmirror",       name:"NetMirror",            cats:["movie","tv"],    emoji:"🪞", desc:"Yabancı platform içerikleri" },
-    { id:"vidmody",         name:"Vidmody",              cats:["movie","tv"],    emoji:"🎬", desc:"Hızlı film/dizi akışları" },
-    // Canlı / M3U
-    { id:"m3u.anthology.addon", name:"Anthology Canlı TV", cats:["live"],        emoji:"📡", desc:"100+ canlı kanal & spor" },
-    { id:"m3u",             name:"M3U",                  cats:["live","m3u"],    emoji:"📺", desc:"M3U yayın listesi" },
-    { id:"anthology_dizi_m3u", name:"Dizi M3U",          cats:["live","m3u"],   emoji:"🎞", desc:"M3U dizi arşivi" },
-    { id:"anthology_film_m3u", name:"Film M3U",          cats:["live","m3u"],   emoji:"🎥", desc:"M3U film arşivi" },
-  ];
+const PROVIDERS=[
+  // Film
+  {id:"sinewix",name:"SineWix",cats:["movie","tv"],domain:"sinewix.com",desc:"5000+ HD film, dizi ve anime"},
+  {id:"filmmodu",name:"FilmModu",cats:["movie"],domain:"filmmodu7.com",desc:"HD film arşivi"},
+  {id:"hdfilmcehennemi",name:"HDFilmCehennemi",cats:["movie"],domain:"www.hdfilmcehennemi.fi",desc:"En popüler film sitesi"},
+  {id:"filmkovasi",name:"FilmKovası",cats:["movie"],domain:"www.filmkovasi.biz",desc:"Türkçe dublaj filmler"},
+  {id:"filmmakinesi",name:"FilmMakinesi",cats:["movie"],domain:"filmmakinesi.online",desc:"Geniş film kütüphanesi"},
+  {id:"filmekseni",name:"FilmEkseni",cats:["movie"],domain:"filmekseni.com",desc:"HD film arşivi"},
+  {id:"filmhane",name:"Filmhane",cats:["movie"],domain:"filmhane.pro",desc:"Dublaj & altyazılı"},
+  {id:"filmifullizle",name:"FilmiFullİzle",cats:["movie"],domain:"filmifullizle.de",desc:"Full film arşivi"},
+  {id:"filmzal",name:"FilmZal",cats:["movie"],domain:"filmzal.com",desc:"Sinema yayınları"},
+  {id:"hdfilmdelisi",name:"HDFilmDelisi",cats:["movie"],domain:"www.hdfilmdelisi.com",desc:"Full HD filmler"},
+  {id:"setfilmizle",name:"SetFilmİzle",cats:["movie"],domain:"setfilmizle.com",desc:"HD film seçenekleri"},
+  {id:"tekfullfilmizle",name:"TekFullFilmİzle",cats:["movie"],domain:"www.tekfullfilmizle.la",desc:"Tek parça full HD"},
+  {id:"sinezy",name:"Sinezy",cats:["movie","tv"],domain:"sinezy.com",desc:"Film & dizi arşivi"},
+  {id:"jetfilmizle",name:"JetFilmİzle",cats:["movie"],domain:"www.jetfilmizle.best",desc:"Hızlı film erişimi"},
+  {id:"sinemacx",name:"SinemaCx",cats:["movie","tv"],domain:"www.sinemacx.com",desc:"Yerli & yabancı film"},
+  {id:"webteizle",name:"Webteİzle",cats:["movie"],domain:"webteizle.com",desc:"Yüksek kaliteli filmler"},
+  {id:"fullhdfilmizlesene",name:"FullHDFilmİzlesene",cats:["movie"],domain:"www.fullhdfilmizlesene.com",desc:"Full HD film"},
+  {id:"altiyuzaltmisaltifilm",name:"666Film",cats:["movie"],domain:"666film.com",desc:"Dublaj film kaynağı"},
+  // Dizi
+  {id:"diziyou",name:"DiziYou",cats:["tv"],domain:"www.diziyou.co",desc:"Hızlı yabancı dizi"},
+  {id:"dizibox",name:"Dizibox",cats:["tv"],domain:"www.dizibox.in",desc:"Popüler yabancı diziler"},
+  {id:"dizigom",name:"Dizigom",cats:["tv"],domain:"dizigom.com",desc:"Türkçe dublaj & altyazı"},
+  {id:"dizilla",name:"Dizilla",cats:["tv"],domain:"www.dizilla.club",desc:"Popüler yabancı diziler"},
+  {id:"dizimag",name:"Dizimag",cats:["tv"],domain:"www.dizimag.com",desc:"Güncel bölümler"},
+  {id:"dizimom",name:"Dizimom",cats:["tv"],domain:"www.dizimom.pro",desc:"Yabancı diziler"},
+  {id:"dizipal",name:"Dizipal",cats:["movie","tv"],domain:"www.dizipal781.com",desc:"Güncel dizi & film"},
+  {id:"diziwatch",name:"Diziwatch",cats:["tv"],domain:"www.diziwatch.life",desc:"Dizi & anime"},
+  {id:"diziyo",name:"Diziyo",cats:["tv"],domain:"www.diziyo.biz",desc:"Yabancı dizi"},
+  {id:"ddizi",name:"DDizi",cats:["tv"],domain:"www.ddizi.me",desc:"Yerli & yabancı dizi"},
+  {id:"sezonlukdizi",name:"SezonlukDizi",cats:["tv"],domain:"sezonlukdizi.cc",desc:"Geniş dizi kütüphanesi"},
+  {id:"yabancidizi",name:"YabancıDizi",cats:["tv"],domain:"yabancidizi.tv",desc:"Yabancı dizi yayınları"},
+  {id:"rec",name:"Rec TV",cats:["movie","tv"],domain:"rectvapp.com.tr",desc:"Güncel yayın kaynakları"},
+  // Anime
+  {id:"animecix",name:"AnimeciX",cats:["anime"],domain:"www.animecix.net",desc:"Türkiye'nin en büyük anime arşivi"},
+  {id:"tranimeizle",name:"Tranimeizle",cats:["anime"],domain:"www.tranimeizle.co",desc:"Türkçe altyazılı anime"},
+  {id:"animexe",name:"Animexe",cats:["anime"],domain:"animexe.com",desc:"Anime dizi & film"},
+  {id:"animpow",name:"AnimPow",cats:["anime"],domain:"www.animpow.com",desc:"Güncel anime"},
+  {id:"asyaanimeleri",name:"AsyaAnimeleri",cats:["anime"],domain:"asyaanimeleri.com",desc:"Asya dizi & anime"},
+  {id:"openani",name:"OpenAni",cats:["anime"],domain:"www.openani.me",desc:"Açık anime platformu"},
+  {id:"seicode",name:"SeiCode",cats:["anime"],domain:"seicode.com",desc:"Anime & sinema"},
+  {id:"acheriya",name:"Acheriya",cats:["anime"],domain:"acheriya.com",desc:"Türkçe anime"},
+  // Global
+  {id:"cinemacity",name:"CinemaCity",cats:["movie","tv"],domain:"cinemacity.io",desc:"Çok dilli film & dizi"},
+  {id:"vidlink",name:"Vidlink",cats:["movie","tv"],domain:"vidlink.pro",desc:"Global yayın sağlayıcı"},
+  {id:"netmirror",name:"NetMirror",cats:["movie","tv"],domain:"netmirror.app",desc:"Yabancı platform içerikleri"},
+  {id:"vidmody",name:"Vidmody",cats:["movie","tv"],domain:"vidmody.com",desc:"Hızlı film/dizi akışları"},
+  // Canlı / M3U
+  {id:"m3u.anthology.addon",name:"Anthology Canlı TV",cats:["live"],domain:null,desc:"100+ canlı kanal & spor"},
+  {id:"m3u",name:"M3U",cats:["live","m3u"],domain:null,desc:"M3U yayın listesi"},
+  {id:"anthology_dizi_m3u",name:"Dizi M3U",cats:["live","m3u"],domain:null,desc:"M3U dizi arşivi"},
+  {id:"anthology_film_m3u",name:"Film M3U",cats:["live","m3u"],domain:null,desc:"M3U film arşivi"},
+];
 
-  // Provider sites for testing
-  const PROVIDER_SITES = {
-    sinewix:"sinewix.com", filmmodu:"filmmodu.com", hdfilmcehennemi:"www.hdfilmcehennemi.fi",
-    filmkovasi:"www.filmkovasi.biz", filmmakinesi:"filmmakinesi.online", filmekseni:"filmekseni.com",
-    filmhane:"filmhane.com", filmifullizle:"filmifullizle.com", filmzal:"filmzal.io",
-    hdfilmdelisi:"www.hdfilmdelisi.com", setfilmizle:"setfilmizle.com", tekfullfilmizle:"www.tekfullfilmizle.la",
-    sinezy:"sinezy.com", jetfilmizle:"www.jetfilmizle.best", sinemacx:"www.sinemacx.com",
-    webteizle:"webteizle.com", fullhdfilmizlesene:"www.fullhdfilmizlesene.com",
-    altiyuzaltmisaltifilm:"666film.com", diziyou:"www.diziyou.co", dizibox:"www.dizibox.in",
-    dizigom:"dizigom.com", dizilla:"www.dizilla.club", dizimag:"www.dizimag.com",
-    dizimom:"www.dizimom.com", dizipal:"www.dizipal781.com", diziwatch:"www.diziwatch.life",
-    diziyo:"www.diziyo.biz", ddizi:"www.ddizi.me", sezonlukdizi:"www.sezonlukdizi.com",
-    yabancidizi:"yabancidizi.com", rec:"rectvapp.com.tr", animecix:"www.animecix.net",
-    tranimeizle:"www.tranimeizle.co", animexe:"animexe.com", animpow:"www.animpow.com",
-    asyaanimeleri:"asyaanimeleri.com", openani:"www.openani.me", seicode:"seicode.com",
-    acheriya:"acheriya.com", cinemacity:"www.cinemacity.io", vidlink:"vidlink.pro",
-    netmirror:"netmirror.app", vidmody:"vidmody.com",
-  };
+let currentFilter="all";
+let currentSearch="";
 
-  // ── RENDER PROVIDERS ────────────────────────────────────────────────────
-  function renderProviders(filter) {
-    const grid = document.getElementById("providerGrid");
-    grid.innerHTML = "";
-    PROVIDERS.forEach(p => {
-      const match = filter === "all" || p.cats.includes(filter);
-      const card = document.createElement("div");
-      card.className = "provider-card" + (match ? "" : " hidden");
-      const tags = p.cats.map(c => {
-        const cls = c === "anime" ? "tag-anime" : c === "movie" ? "tag-movie" : c === "live" ? "tag-live" : c === "m3u" ? "tag-m3u" : "tag-tv";
-        const label = c === "anime" ? "Anime" : c === "movie" ? "Film" : c === "live" ? "Canlı" : c === "m3u" ? "M3U" : "Dizi";
-        return `<span class="tag ${cls}">${label}</span>`;
-      }).join("");
-      card.innerHTML = `
-        <div class="provider-icon-fallback">${p.emoji}</div>
-        <div class="provider-name">${p.name}</div>
-        <div style="font-size:11.5px;color:var(--text-dim);line-height:1.4;">${p.desc}</div>
-        <div class="provider-tags">${tags}</div>
-      `;
-      grid.appendChild(card);
-    });
-  }
-
-  // Filter buttons
-  document.querySelectorAll(".filter-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      renderProviders(btn.dataset.filter);
-    });
+function renderProviders(){
+  const grid=document.getElementById("providerGrid");
+  grid.innerHTML="";
+  const q=currentSearch.toLowerCase();
+  let count=0;
+  PROVIDERS.forEach(p=>{
+    const matchCat=currentFilter==="all"||p.cats.includes(currentFilter);
+    const matchSearch=!q||p.name.toLowerCase().includes(q)||p.desc.toLowerCase().includes(q)||(p.domain&&p.domain.toLowerCase().includes(q));
+    if(!matchCat||!matchSearch)return;
+    count++;
+    const card=document.createElement("div");
+    card.className="provider-card";
+    const tags=p.cats.map(c=>{
+      const cls=c==="anime"?"tag-anime":c==="movie"?"tag-movie":c==="live"?"tag-live":c==="m3u"?"tag-m3u":"tag-tv";
+      const label=c==="anime"?"Anime":c==="movie"?"Film":c==="live"?"Canlı":c==="m3u"?"M3U":"Dizi";
+      return`<span class="tag ${cls}">${label}</span>`;
+    }).join("");
+    const logoHTML=p.domain
+      ?`<img class="provider-logo" src="https://www.google.com/s2/favicons?domain=${p.domain}&sz=64" alt="${p.name}" onerror="this.outerHTML='<div class=\\'provider-logo-fallback\\'>🔌</div>'">`
+      :`<div class="provider-logo-fallback">📡</div>`;
+    const siteLink=p.domain?`<a href="https://${p.domain}" target="_blank" title="${p.domain}">↗</a>`:"";
+    card.innerHTML=`${logoHTML}<div class="provider-info"><div class="provider-name"><span>${p.name}</span>${siteLink}</div><div class="provider-desc">${p.desc}</div><div class="provider-tags">${tags}</div></div>`;
+    grid.appendChild(card);
   });
+}
 
-  renderProviders("all");
+function filterProviders(){
+  currentSearch=document.getElementById("searchInput").value;
+  renderProviders();
+}
 
-  // ── TEST ENGINE ────────────────────────────────────────────────────────
-  async function checkSite(hostname) {
-    const t0 = Date.now();
-    const ctrl = new AbortController();
-    const tid = setTimeout(() => ctrl.abort(), 8000);
-    try {
-      await fetch(`https://${hostname}`, { method: "HEAD", mode: "no-cors", signal: ctrl.signal });
-      clearTimeout(tid);
-      return { ok: true, ms: Date.now() - t0 };
-    } catch(e) {
-      clearTimeout(tid);
-      // no-cors fetch resolves for live sites, rejects only for network errors
-      // If it's an abort, it timed out
-      if (e.name === "AbortError") return { ok: false, ms: Date.now() - t0, err: "Zaman aşımı" };
-      // Otherwise domain likely unreachable / CORS block but still reachable
-      return { ok: true, ms: Date.now() - t0 }; // conservative: assume ok if not timeout
-    }
-  }
+document.querySelectorAll(".filter-btn").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    currentFilter=btn.dataset.filter;
+    renderProviders();
+  });
+});
 
-  async function runTests() {
-    const tmdbId = document.getElementById("testTmdbId").value.trim() || "603";
-    const mediaType = document.getElementById("testMediaType").value;
-    const btn = document.getElementById("testRunBtn");
-    const list = document.getElementById("testList");
-    btn.disabled = true;
-    btn.textContent = "⏳ Test ediliyor...";
-    list.innerHTML = "";
+renderProviders();
 
-    const testable = PROVIDERS.filter(p => PROVIDER_SITES[p.id] && (p.cats.includes(mediaType) || (mediaType === "movie" && p.cats.includes("movie")) || (mediaType === "tv" && p.cats.includes("tv")) || (mediaType === "tv" && p.cats.includes("anime"))));
-
-    // Build rows
-    const rows = {};
-    testable.forEach(p => {
-      const row = document.createElement("div");
-      row.className = "test-row running";
-      row.id = `tr-${p.id}`;
-      row.innerHTML = `
-        <div class="test-status"></div>
-        <div class="test-name">${p.emoji} ${p.name}</div>
-        <div class="test-result" id="tr-res-${p.id}">Bağlanıyor…</div>
-        <div class="test-time" id="tr-ms-${p.id}">—</div>
-      `;
-      list.appendChild(row);
-      rows[p.id] = row;
-    });
-
-    // Run in parallel batches of 6
-    const batchSize = 6;
-    for (let i = 0; i < testable.length; i += batchSize) {
-      const batch = testable.slice(i, i + batchSize);
-      await Promise.all(batch.map(async p => {
-        const site = PROVIDER_SITES[p.id];
-        const res = await checkSite(site);
-        const row = rows[p.id];
-        row.className = "test-row " + (res.ok ? "ok" : "fail");
-        document.getElementById(`tr-res-${p.id}`).textContent = res.ok ? "✓ Erişilebilir" : `✗ ${res.err || "Ulaşılamadı"}`;
-        document.getElementById(`tr-ms-${p.id}`).textContent = `${res.ms}ms`;
-      }));
-    }
-
-    btn.disabled = false;
-    btn.textContent = "▶ Tekrar Test Et";
-  }
-
-  // ── COPY MANIFEST ──────────────────────────────────────────────────────
-  function showToast(msg) {
-    const t = document.getElementById("toast");
-    t.textContent = msg;
-    t.classList.add("show");
-    setTimeout(() => t.classList.remove("show"), 2800);
-  }
-
-  function copyManifest() {
-    const btn = document.getElementById("copyBtn");
-    const doCopy = () => {
-      if (btn) { btn.textContent = "✓ Kopyalandı"; btn.classList.add("copied"); setTimeout(() => { btn.textContent = "Kopyala"; btn.classList.remove("copied"); }, 2000); }
-      showToast("📋 Depo linki panoya kopyalandı!");
-    };
-    if (navigator.clipboard?.writeText) {
-      navigator.clipboard.writeText(MANIFEST_URL).then(doCopy).catch(() => fallbackCopy(doCopy));
-    } else { fallbackCopy(doCopy); }
-  }
-
-  function fallbackCopy(cb) {
-    const ta = document.createElement("textarea");
-    ta.value = MANIFEST_URL;
-    ta.style.position = "fixed"; ta.style.opacity = "0";
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand("copy");
-    document.body.removeChild(ta);
-    if (cb) cb();
-  }
+function showToast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2800)}
+function copyManifest(){
+  const btn=document.getElementById("copyBtn");
+  const done=()=>{if(btn){btn.textContent="✓ Kopyalandı";btn.classList.add("copied");setTimeout(()=>{btn.textContent="Kopyala";btn.classList.remove("copied")},2000)}showToast("📋 Depo linki kopyalandı!")};
+  if(navigator.clipboard?.writeText){navigator.clipboard.writeText(MANIFEST_URL).then(done).catch(()=>fallbackCopy(done))}else{fallbackCopy(done)}
+}
+function fallbackCopy(cb){const ta=document.createElement("textarea");ta.value=MANIFEST_URL;ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();document.execCommand("copy");document.body.removeChild(ta);if(cb)cb()}
 </script>
 </body>
 </html>
