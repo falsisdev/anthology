@@ -1,10 +1,11 @@
 [build]
-  command = "go build -o netlify/functions/server ./cmd/netlify"
+  command = "CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags=\"-s -w\" -o netlify/functions/server ./cmd/netlify"
   functions = "netlify/functions"
   publish = "public"
 
 [build.environment]
   GO_VERSION = "1.26.5"
+  CGO_ENABLED = "0"
 
 [[redirects]]
   from = "/*"
