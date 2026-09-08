@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Anthology — Nuvio Eklenti Deposu</title>
-  <meta name="description" content="Anthology — Nuvio için 40'tan fazla Türkçe Film, Dizi, Anime ve Canlı TV eklentisi.">
+  <meta name="description" content="Anthology — Nuvio için Türkçe Film, Dizi, Anime ve Canlı TV eklentileri.">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <style>
     :root {
@@ -53,7 +53,7 @@
     .hero-badge .dot{width:6px;height:6px;background:var(--accent);border-radius:50%;box-shadow:0 0 8px var(--accent);animation:pulse 2s infinite}
     @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
     h1{font-size:clamp(32px,5vw,56px);font-weight:900;letter-spacing:-2px;background:linear-gradient(135deg,#fff 30%,#94a3b8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px;line-height:1.05}
-    .hero-desc{font-size:16px;color:var(--text-muted);max-width:500px;margin:0 auto 32px;line-height:1.65}
+    .hero-desc{font-size:16px;color:var(--text-muted);max-width:520px;margin:0 auto 32px;line-height:1.65}
     .hero-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:32px}
     .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:13px;font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;transition:all .2s;border:none}
     .btn-primary{background:linear-gradient(135deg,#00e676,#00b0ff);color:#000;box-shadow:0 6px 24px rgba(0,230,118,0.25)}
@@ -101,42 +101,41 @@
     .search-bar input:focus{border-color:rgba(0,230,118,0.35)}
     .search-bar input::placeholder{color:var(--text-dim)}
 
-    .provider-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
-    .provider-card{background:rgba(255,255,255,0.025);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px;display:flex;align-items:flex-start;gap:12px;transition:all .2s;cursor:default}
+    .provider-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+    .provider-card{background:rgba(255,255,255,0.025);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px;display:flex;align-items:flex-start;gap:12px;transition:all .2s;cursor:default}
     .provider-card:hover{border-color:var(--border-hover);background:rgba(255,255,255,0.04);transform:translateY(-1px)}
     .provider-card.hidden{display:none}
-    .provider-logo{width:32px;height:32px;border-radius:8px;object-fit:cover;background:rgba(255,255,255,0.06);flex-shrink:0}
-    .provider-logo-fallback{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+    .provider-logo{width:36px;height:36px;border-radius:8px;object-fit:cover;background:rgba(255,255,255,0.06);flex-shrink:0}
+    .provider-logo-fallback{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
     .provider-info{flex:1;min-width:0}
-    .provider-name{font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px;display:flex;align-items:center;gap:6px}
-    .provider-name a{color:var(--text-dim);text-decoration:none;font-size:10px;opacity:.6;transition:opacity .15s}
+    .provider-name{font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px;display:flex;align-items:center;gap:6px}
+    .provider-name a{color:var(--text-dim);text-decoration:none;font-size:11px;opacity:.6;transition:opacity .15s}
     .provider-name a:hover{opacity:1;color:var(--blue)}
-    .provider-desc{font-size:11px;color:var(--text-dim);line-height:1.4;margin-bottom:4px}
-    .provider-tags{display:flex;gap:3px;flex-wrap:wrap}
-    .tag{font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;text-transform:uppercase;letter-spacing:.3px}
+    .provider-desc{font-size:12px;color:var(--text-muted);line-height:1.45;margin-bottom:6px}
+    .provider-tags{display:flex;gap:4px;flex-wrap:wrap}
+    .tag{font-size:9.5px;font-weight:700;padding:2px 7px;border-radius:5px;text-transform:uppercase;letter-spacing:.3px}
     .tag-movie{background:var(--orange-dim);color:var(--orange)}
     .tag-tv{background:var(--blue-dim);color:var(--blue)}
-    .tag-anime{background:var(--purple-dim);color:var(--purple)}
     .tag-live{background:var(--pink-dim);color:var(--pink)}
     .tag-m3u{background:var(--accent-dim);color:var(--accent)}
 
     /* LIVE TV */
     #live{background:var(--surface)}
-    .channels-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}
-    .channel-card{background:rgba(255,255,255,0.025);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px;text-align:center}
-    .channel-card .ch-emoji{font-size:20px;margin-bottom:4px}
-    .channel-card .ch-name{font-size:12px;font-weight:600;margin-bottom:2px}
-    .channel-card .ch-desc{font-size:10px;color:var(--text-dim)}
+    .channels-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+    .channel-card{background:rgba(255,255,255,0.025);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px;text-align:center}
+    .channel-card .ch-emoji{font-size:22px;margin-bottom:6px}
+    .channel-card .ch-name{font-size:12.5px;font-weight:700;margin-bottom:2px}
+    .channel-card .ch-desc{font-size:10.5px;color:var(--text-dim)}
 
     /* FOOTER */
-    footer{border-top:1px solid var(--border);padding:32px 24px;text-align:center}
-    footer img{width:36px;height:36px;object-fit:contain;margin-bottom:8px}
-    .footer-title{font-size:15px;font-weight:800;margin-bottom:3px}
+    footer{border-top:1px solid var(--border);padding:36px 24px;text-align:center}
+    footer img{width:40px;height:40px;object-fit:contain;margin-bottom:10px}
+    .footer-title{font-size:16px;font-weight:800;margin-bottom:4px}
     .footer-sub{font-size:12px;color:var(--text-dim);margin-bottom:14px}
     .footer-links{display:flex;justify-content:center;gap:16px}
     .footer-links a{font-size:12px;color:var(--text-dim);text-decoration:none;transition:color .15s}
     .footer-links a:hover{color:var(--text)}
-    .footer-copy{font-size:11px;color:var(--text-dim);margin-top:16px}
+    .footer-copy{font-size:11px;color:var(--text-dim);margin-top:18px}
 
     /* TOAST */
     .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:#1e293b;color:#fff;border:1px solid rgba(255,255,255,0.12);padding:10px 20px;border-radius:999px;font-size:13px;font-weight:600;box-shadow:0 16px 40px rgba(0,0,0,0.6);transition:all .3s cubic-bezier(.16,1,.3,1);opacity:0;pointer-events:none;z-index:200}
@@ -161,7 +160,7 @@
   <img src="assets/logo_1_transparent.png" alt="Anthology" class="hero-logo">
   <div class="hero-badge"><span class="dot"></span><span>Nuvio Eklenti Deposu · Aktif</span></div>
   <h1>Anthology</h1>
-  <p class="hero-desc">Nuvio uygulaması için 40+ Türkçe Film, Dizi, Anime ve Canlı TV/Spor eklentisi.</p>
+  <p class="hero-desc">Nuvio için yüksek kaliteli Türkçe Film, Dizi ve Canlı TV/Spor eklentileri. Gerçek yayın akışları, doğrudan oynatma.</p>
   <div class="hero-actions">
     <button class="btn btn-primary" onclick="copyManifest()">📋 Depo Linkini Kopyala</button>
     <a href="https://github.com/falsisdev/anthology" target="_blank" class="btn btn-ghost">⭐ GitHub</a>
@@ -172,11 +171,10 @@
     <button class="copy-btn" id="copyBtn" onclick="copyManifest()">Kopyala</button>
   </div>
   <div class="stats-row">
-    <div class="stat"><div class="stat-value" id="totalCount">47</div><div class="stat-label">Eklenti</div></div>
-    <div class="stat"><div class="stat-value">16</div><div class="stat-label">Film</div></div>
-    <div class="stat"><div class="stat-value">14</div><div class="stat-label">Dizi</div></div>
-    <div class="stat"><div class="stat-value">8</div><div class="stat-label">Anime</div></div>
-    <div class="stat"><div class="stat-value">100+</div><div class="stat-label">Canlı Kanal</div></div>
+    <div class="stat"><div class="stat-value">17</div><div class="stat-label">Aktif Eklenti</div></div>
+    <div class="stat"><div class="stat-value">11</div><div class="stat-label">Film Kaynağı</div></div>
+    <div class="stat"><div class="stat-value">8</div><div class="stat-label">Dizi Kaynağı</div></div>
+    <div class="stat"><div class="stat-value">80+</div><div class="stat-label">Canlı Kanal</div></div>
   </div>
 </div>
 
@@ -184,7 +182,7 @@
   <div class="container">
     <div class="section-eyebrow">Başlangıç</div>
     <h2 class="section-title">3 Adımda Kurulum</h2>
-    <p class="section-desc">Manifesti kopyalayın, Nuvio'ya yapıştırın — hepsi bu.</p>
+    <p class="section-desc">Depo linkini kopyalayın, Nuvio'ya yapıştırın — hepsi bu.</p>
     <div class="steps">
       <div class="step-card">
         <div class="step-num">1</div>
@@ -194,14 +192,14 @@
       <div class="step-card">
         <div class="step-num">2</div>
         <h3>Depo Ekle</h3>
-        <p><strong>Depo Ekle</strong>'ye dokunup aşağıdaki linki yapıştırın:</p>
+        <p><strong>Depo Ekle</strong>'ye dokunup aşağıdaki adresi yapıştırın:</p>
         <br>
         <code style="font-size:10px;display:block;word-break:break-all;padding:8px;border-radius:8px;background:rgba(0,0,0,0.4)">https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json</code>
       </div>
       <div class="step-card">
         <div class="step-num">3</div>
         <h3>Hazır!</h3>
-        <p>Tüm eklentiler otomatik olarak yüklenir ve hemen kullanıma hazırdır.</p>
+        <p>Tüm eklentiler otomatik yüklenir. Film, dizi veya TV izlemeye başlayın.</p>
       </div>
     </div>
   </div>
@@ -209,15 +207,14 @@
 
 <section id="providers">
   <div class="container">
-    <div class="section-eyebrow">İçerik Kaynakları</div>
+    <div class="section-eyebrow">Doğrulanmış Kaynaklar</div>
     <h2 class="section-title">Eklentiler</h2>
-    <p class="section-desc">Kategoriye göre filtreleyin veya eklenti arayın.</p>
+    <p class="section-desc">Sadece gerçek, çalışan akışlar üreten ve Nuvio oynatıcısında sorunsuz açılan kaynaklar.</p>
     <div class="search-bar"><input type="text" id="searchInput" placeholder="Eklenti ara…" oninput="filterProviders()"></div>
     <div class="filter-bar" id="filterBar">
-      <button class="filter-btn active" data-filter="all">Tümü</button>
+      <button class="filter-btn active" data-filter="all">Tümü (17)</button>
       <button class="filter-btn" data-filter="movie">🎬 Film</button>
       <button class="filter-btn" data-filter="tv">📺 Dizi</button>
-      <button class="filter-btn" data-filter="anime">⛩️ Anime</button>
       <button class="filter-btn" data-filter="live">📡 Canlı / M3U</button>
     </div>
     <div class="provider-grid" id="providerGrid"></div>
@@ -226,22 +223,22 @@
 
 <section id="live">
   <div class="container">
-    <div class="section-eyebrow">Canlı Yayın</div>
-    <h2 class="section-title">100+ Canlı Kanal</h2>
-    <p class="section-desc">Spor, haber, belgesel ve eğlence — tek eklentide.</p>
+    <div class="section-eyebrow">Canlı Yayın &amp; Katalog</div>
+    <h2 class="section-title">80+ Canlı Kanal</h2>
+    <p class="section-desc">Spor, ulusal, haber ve belgesel — Nuvio ana sayfasında taranabilir katalog ile.</p>
     <div class="channels-grid">
-      <div class="channel-card"><div class="ch-emoji">⚽</div><div class="ch-name">BeIN Sports</div><div class="ch-desc">1–5 &amp; Max</div></div>
-      <div class="channel-card"><div class="ch-emoji">🏆</div><div class="ch-name">S Sport</div><div class="ch-desc">1–2 &amp; Plus</div></div>
-      <div class="channel-card"><div class="ch-emoji">🎯</div><div class="ch-name">Tivibu Spor</div><div class="ch-desc">1–4</div></div>
-      <div class="channel-card"><div class="ch-emoji">🎬</div><div class="ch-name">Exxen Spor</div><div class="ch-desc">1–8</div></div>
-      <div class="channel-card"><div class="ch-emoji">📡</div><div class="ch-name">Tabii Spor</div><div class="ch-desc">1–8</div></div>
-      <div class="channel-card"><div class="ch-emoji">📺</div><div class="ch-name">TRT 1</div><div class="ch-desc">Ulusal</div></div>
-      <div class="channel-card"><div class="ch-emoji">🌟</div><div class="ch-name">ATV &amp; Kanal D</div><div class="ch-desc">Ulusal</div></div>
-      <div class="channel-card"><div class="ch-emoji">📰</div><div class="ch-name">NTV &amp; CNN Türk</div><div class="ch-desc">Haber</div></div>
-      <div class="channel-card"><div class="ch-emoji">🏀</div><div class="ch-name">NBA TV</div><div class="ch-desc">Basketbol</div></div>
-      <div class="channel-card"><div class="ch-emoji">🚴</div><div class="ch-name">Eurosport</div><div class="ch-desc">1–2</div></div>
-      <div class="channel-card"><div class="ch-emoji">🦁</div><div class="ch-name">TRT Belgesel</div><div class="ch-desc">Belgesel</div></div>
-      <div class="channel-card"><div class="ch-emoji">🎠</div><div class="ch-name">TRT Çocuk</div><div class="ch-desc">Çocuk</div></div>
+      <div class="channel-card"><div class="ch-emoji">⚽</div><div class="ch-name">BeIN Sports</div><div class="ch-desc">1–5 &amp; Max 1–2</div></div>
+      <div class="channel-card"><div class="ch-emoji">🏆</div><div class="ch-name">S Sport</div><div class="ch-desc">1–2 HD</div></div>
+      <div class="channel-card"><div class="ch-emoji">🎯</div><div class="ch-name">Tivibu Spor</div><div class="ch-desc">Spor Yayınları</div></div>
+      <div class="channel-card"><div class="ch-emoji">🎬</div><div class="ch-name">Exxen Spor</div><div class="ch-desc">Avrupa Maçları</div></div>
+      <div class="channel-card"><div class="ch-emoji">📺</div><div class="ch-name">TRT 1 &amp; TRT Spor</div><div class="ch-desc">Ulusal &amp; Spor HD</div></div>
+      <div class="channel-card"><div class="ch-emoji">🌟</div><div class="ch-name">ATV &amp; Kanal D</div><div class="ch-desc">Ulusal HD</div></div>
+      <div class="channel-card"><div class="ch-emoji">⚡</div><div class="ch-name">Show TV &amp; Star TV</div><div class="ch-desc">Ulusal HD</div></div>
+      <div class="channel-card"><div class="ch-emoji">📰</div><div class="ch-name">NTV &amp; Habertürk</div><div class="ch-desc">Canlı Haber</div></div>
+      <div class="channel-card"><div class="ch-emoji">🏀</div><div class="ch-name">TV8 &amp; TV8,5</div><div class="ch-desc">Spor &amp; Eğlence</div></div>
+      <div class="channel-card"><div class="ch-emoji">🚴</div><div class="ch-name">A Spor &amp; HT Spor</div><div class="ch-desc">Spor Haberleri</div></div>
+      <div class="channel-card"><div class="ch-emoji">🦁</div><div class="ch-name">TRT Belgesel</div><div class="ch-desc">Belgesel HD</div></div>
+      <div class="channel-card"><div class="ch-emoji">🎠</div><div class="ch-name">TRT Çocuk</div><div class="ch-desc">Çocuk HD</div></div>
     </div>
   </div>
 </section>
@@ -249,7 +246,7 @@
 <footer>
   <img src="assets/logo_1_transparent.png" alt="Anthology">
   <div class="footer-title">Anthology</div>
-  <div class="footer-sub">Nuvio için Türkçe İçerik Deposu</div>
+  <div class="footer-sub">Nuvio için Optimize Edilmiş Eklenti Deposu</div>
   <div class="footer-links">
     <a href="https://github.com/falsisdev/anthology" target="_blank">GitHub</a>
     <a href="https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json" target="_blank">manifest.json</a>
@@ -264,58 +261,23 @@
 const MANIFEST_URL="https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json";
 
 const PROVIDERS=[
-  // Film
-  {id:"sinewix",name:"SineWix",cats:["movie","tv"],domain:"sinewix.com",desc:"5000+ HD film, dizi ve anime"},
-  {id:"filmmodu",name:"FilmModu",cats:["movie"],domain:"filmmodu7.com",desc:"HD film arşivi"},
-  {id:"hdfilmcehennemi",name:"HDFilmCehennemi",cats:["movie"],domain:"www.hdfilmcehennemi.fi",desc:"En popüler film sitesi"},
-  {id:"filmkovasi",name:"FilmKovası",cats:["movie"],domain:"www.filmkovasi.biz",desc:"Türkçe dublaj filmler"},
-  {id:"filmmakinesi",name:"FilmMakinesi",cats:["movie"],domain:"filmmakinesi.online",desc:"Geniş film kütüphanesi"},
-  {id:"filmekseni",name:"FilmEkseni",cats:["movie"],domain:"filmekseni.com",desc:"HD film arşivi"},
-  {id:"filmhane",name:"Filmhane",cats:["movie"],domain:"filmhane.pro",desc:"Dublaj & altyazılı"},
-  {id:"filmifullizle",name:"FilmiFullİzle",cats:["movie"],domain:"filmifullizle.de",desc:"Full film arşivi"},
-  {id:"filmzal",name:"FilmZal",cats:["movie"],domain:"filmzal.com",desc:"Sinema yayınları"},
-  {id:"hdfilmdelisi",name:"HDFilmDelisi",cats:["movie"],domain:"www.hdfilmdelisi.com",desc:"Full HD filmler"},
-  {id:"setfilmizle",name:"SetFilmİzle",cats:["movie"],domain:"setfilmizle.com",desc:"HD film seçenekleri"},
-  {id:"tekfullfilmizle",name:"TekFullFilmİzle",cats:["movie"],domain:"www.tekfullfilmizle.la",desc:"Tek parça full HD"},
-  {id:"sinezy",name:"Sinezy",cats:["movie","tv"],domain:"sinezy.com",desc:"Film & dizi arşivi"},
-  {id:"jetfilmizle",name:"JetFilmİzle",cats:["movie"],domain:"www.jetfilmizle.best",desc:"Hızlı film erişimi"},
-  {id:"sinemacx",name:"SinemaCx",cats:["movie","tv"],domain:"www.sinemacx.com",desc:"Yerli & yabancı film"},
-  {id:"webteizle",name:"Webteİzle",cats:["movie"],domain:"webteizle.com",desc:"Yüksek kaliteli filmler"},
-  {id:"fullhdfilmizlesene",name:"FullHDFilmİzlesene",cats:["movie"],domain:"www.fullhdfilmizlesene.com",desc:"Full HD film"},
-  {id:"altiyuzaltmisaltifilm",name:"666Film",cats:["movie"],domain:"666film.com",desc:"Dublaj film kaynağı"},
-  // Dizi
-  {id:"diziyou",name:"DiziYou",cats:["tv"],domain:"www.diziyou.co",desc:"Hızlı yabancı dizi"},
-  {id:"dizibox",name:"Dizibox",cats:["tv"],domain:"www.dizibox.in",desc:"Popüler yabancı diziler"},
-  {id:"dizigom",name:"Dizigom",cats:["tv"],domain:"dizigom.com",desc:"Türkçe dublaj & altyazı"},
-  {id:"dizilla",name:"Dizilla",cats:["tv"],domain:"www.dizilla.club",desc:"Popüler yabancı diziler"},
-  {id:"dizimag",name:"Dizimag",cats:["tv"],domain:"www.dizimag.com",desc:"Güncel bölümler"},
-  {id:"dizimom",name:"Dizimom",cats:["tv"],domain:"www.dizimom.pro",desc:"Yabancı diziler"},
-  {id:"dizipal",name:"Dizipal",cats:["movie","tv"],domain:"www.dizipal781.com",desc:"Güncel dizi & film"},
-  {id:"diziwatch",name:"Diziwatch",cats:["tv"],domain:"www.diziwatch.life",desc:"Dizi & anime"},
-  {id:"diziyo",name:"Diziyo",cats:["tv"],domain:"www.diziyo.biz",desc:"Yabancı dizi"},
-  {id:"ddizi",name:"DDizi",cats:["tv"],domain:"www.ddizi.me",desc:"Yerli & yabancı dizi"},
-  {id:"sezonlukdizi",name:"SezonlukDizi",cats:["tv"],domain:"sezonlukdizi.cc",desc:"Geniş dizi kütüphanesi"},
-  {id:"yabancidizi",name:"YabancıDizi",cats:["tv"],domain:"yabancidizi.tv",desc:"Yabancı dizi yayınları"},
-  {id:"rec",name:"Rec TV",cats:["movie","tv"],domain:"rectvapp.com.tr",desc:"Güncel yayın kaynakları"},
-  // Anime
-  {id:"animecix",name:"AnimeciX",cats:["anime"],domain:"www.animecix.net",desc:"Türkiye'nin en büyük anime arşivi"},
-  {id:"tranimeizle",name:"Tranimeizle",cats:["anime"],domain:"www.tranimeizle.co",desc:"Türkçe altyazılı anime"},
-  {id:"animexe",name:"Animexe",cats:["anime"],domain:"animexe.com",desc:"Anime dizi & film"},
-  {id:"animpow",name:"AnimPow",cats:["anime"],domain:"www.animpow.com",desc:"Güncel anime"},
-  {id:"asyaanimeleri",name:"AsyaAnimeleri",cats:["anime"],domain:"asyaanimeleri.com",desc:"Asya dizi & anime"},
-  {id:"openani",name:"OpenAni",cats:["anime"],domain:"www.openani.me",desc:"Açık anime platformu"},
-  {id:"seicode",name:"SeiCode",cats:["anime"],domain:"seicode.com",desc:"Anime & sinema"},
-  {id:"acheriya",name:"Acheriya",cats:["anime"],domain:"acheriya.com",desc:"Türkçe anime"},
-  // Global
-  {id:"cinemacity",name:"CinemaCity",cats:["movie","tv"],domain:"cinemacity.io",desc:"Çok dilli film & dizi"},
-  {id:"vidlink",name:"Vidlink",cats:["movie","tv"],domain:"vidlink.pro",desc:"Global yayın sağlayıcı"},
-  {id:"netmirror",name:"NetMirror",cats:["movie","tv"],domain:"netmirror.app",desc:"Yabancı platform içerikleri"},
-  {id:"vidmody",name:"Vidmody",cats:["movie","tv"],domain:"vidmody.com",desc:"Hızlı film/dizi akışları"},
-  // Canlı / M3U
-  {id:"m3u.anthology.addon",name:"Anthology Canlı TV",cats:["live"],domain:null,desc:"100+ canlı kanal & spor"},
-  {id:"m3u",name:"M3U",cats:["live","m3u"],domain:null,desc:"M3U yayın listesi"},
-  {id:"anthology_dizi_m3u",name:"Dizi M3U",cats:["live","m3u"],domain:null,desc:"M3U dizi arşivi"},
-  {id:"anthology_film_m3u",name:"Film M3U",cats:["live","m3u"],domain:null,desc:"M3U film arşivi"},
+  {id:"AnthologyFilmM3U",name:"Anthology Film (M3U)",cats:["movie","live"],domain:null,desc:"On binlerce yerli ve yabancı film arşivi (Lunedor, Zerk, PowerBoard)."},
+  {id:"AnthologyDiziM3U",name:"Anthology Dizi (M3U)",cats:["tv","live"],domain:null,desc:"On binlerce yerli ve yabancı dizi bölümü (Zerk, PowerBoard)."},
+  {id:"sinewix",name:"SineWix",cats:["movie","tv"],domain:"sinewix.com",desc:"5000+ HD film, dizi ve anime - 1080p çift ses doğrudan indirme/oynatma."},
+  {id:"vidlink",name:"Vidlink",cats:["movie","tv"],domain:"vidlink.pro",desc:"TMDB tabanlı global 4K/1080p doğrudan HLS ve MP4 akışları."},
+  {id:"m3u.anthology.addon",name:"Anthology Canlı TV",cats:["live"],domain:null,desc:"80+ canlı kanal, spor ve M3U kataloğu (BeIN, S Sport, Exxen vb.)."},
+  {id:"m3u",name:"M3U",cats:["movie","tv","live"],domain:null,desc:"M3U yayın ve film/dizi arşivi."},
+  {id:"cinemacity",name:"CinemaCity",cats:["movie","tv"],domain:"cinemacity.io",desc:"Çok dilli film ve dizi akışları."},
+  {id:"netmirror",name:"NetMirror",cats:["movie","tv"],domain:"netmirror.app",desc:"Netflix, Prime ve Disney platform içerik aynası."},
+  {id:"vidmody",name:"Vidmody",cats:["movie","tv"],domain:"vidmody.com",desc:"Hızlı film ve dizi akışları."},
+  {id:"diziyou",name:"DiziYou",cats:["tv"],domain:"www.diziyou.co",desc:"Türkçe dublaj ve altyazılı yabancı dizi izleme kaynağı."},
+  {id:"filmmodu",name:"FilmModu",cats:["movie"],domain:"filmmodu7.com",desc:"Türkçe dublaj ve altyazılı full HD filmler."},
+  {id:"webteizle",name:"Webteİzle",cats:["movie"],domain:"webteizle.info",desc:"Yüksek kaliteli film arşivi."},
+  {id:"sezonlukdizi",name:"SezonlukDizi",cats:["tv"],domain:"sezonlukdizi.cc",desc:"Geniş yabancı ve yerli dizi kütüphanesi."},
+  {id:"fullhdfilmizlesene",name:"FullHDFilmİzlesene",cats:["movie"],domain:"www.fullhdfilmizlesene.de",desc:"Full HD kalitede film yayınları."},
+  {id:"sinemacx",name:"SinemaCx",cats:["movie","tv"],domain:"www.sinema.cx",desc:"Güncel yabancı ve yerli filmler."},
+  {id:"jetfilmizle",name:"JetFilmİzle",cats:["movie"],domain:"www.jetfilmizle.best",desc:"Türkçe dublaj full HD film arşivi."},
+  {id:"altiyuzaltmisaltifilm",name:"666Film",cats:["movie"],domain:"666film.com",desc:"Dublaj film arşivi."}
 ];
 
 let currentFilter="all";
@@ -325,17 +287,15 @@ function renderProviders(){
   const grid=document.getElementById("providerGrid");
   grid.innerHTML="";
   const q=currentSearch.toLowerCase();
-  let count=0;
   PROVIDERS.forEach(p=>{
     const matchCat=currentFilter==="all"||p.cats.includes(currentFilter);
     const matchSearch=!q||p.name.toLowerCase().includes(q)||p.desc.toLowerCase().includes(q)||(p.domain&&p.domain.toLowerCase().includes(q));
     if(!matchCat||!matchSearch)return;
-    count++;
     const card=document.createElement("div");
     card.className="provider-card";
     const tags=p.cats.map(c=>{
-      const cls=c==="anime"?"tag-anime":c==="movie"?"tag-movie":c==="live"?"tag-live":c==="m3u"?"tag-m3u":"tag-tv";
-      const label=c==="anime"?"Anime":c==="movie"?"Film":c==="live"?"Canlı":c==="m3u"?"M3U":"Dizi";
+      const cls=c==="movie"?"tag-movie":c==="live"?"tag-live":"tag-tv";
+      const label=c==="movie"?"Film":c==="live"?"Canlı / M3U":"Dizi";
       return`<span class="tag ${cls}">${label}</span>`;
     }).join("");
     const logoHTML=p.domain

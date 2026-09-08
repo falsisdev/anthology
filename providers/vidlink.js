@@ -162,22 +162,39 @@ function fetchAndParseM3U8(playlistUrl, mediaInfo) {
 
 // Helper function to get TMDB info
 function getTmdbInfo(tmdbId, mediaType) {
-    const url = `https://api.themoviedb.org/3/${mediaType === 'tv' ? 'tv' : 'movie'}/${tmdbId}?api_key=${TMDB_API_KEY}`;
+    const cleanId = String(tmdbId).replace(/^tmdb:/, '').split(':')[0].trim();
+    const isImdb = cleanId.startsWith('tt');
+    const isTV = (mediaType === 'tv' || mediaType === 'series');
+
+    let url;
+    if (isImdb) {
+        url = `https://api.themoviedb.org/3/find/${cleanId}?api_key=${TMDB_API_KEY}&external_source=imdb_id`;
+    } else {
+        url = `https://api.themoviedb.org/3/${isTV ? 'tv' : 'movie'}/${cleanId}?api_key=${TMDB_API_KEY}`;
+    }
     
     return makeRequest(url)
     .then(response => response.json())
-    .then(data => {
-        const title = mediaType === 'tv' ? data.name : data.title;
-        const year = mediaType === 'tv' ? data.first_air_date?.substring(0, 4) : data.release_date?.substring(0, 4);
+    .then(raw => {
+        let data = raw;
+        if (isImdb) {
+            data = isTV ? (raw.tv_results && raw.tv_results[0]) : (raw.movie_results && raw.movie_results[0]);
+        }
+        if (!data) {
+            throw new Error('Could not find media on TMDB');
+        }
+        const title = isTV ? data.name : data.title;
+        const year = isTV ? data.first_air_date?.substring(0, 4) : data.release_date?.substring(0, 4);
         
         if (!title) {
             throw new Error('Could not extract title from TMDB response');
         }
         
-        console.log(`[Vidlink] TMDB Info: "${title}" (${year})`);
-        return { title, year, data };
+        console.log(`[Vidlink] TMDB Info: "${title}" (${year}), Numeric ID: ${data.id}`);
+        return { id: data.id, title, year, data };
     });
 }
+
 
 // Encrypt TMDB ID using enc-dec.app API
 function encryptTmdbId(tmdbId) {
@@ -371,8 +388,8 @@ function getStreams(tmdbId, mediaType = 'movie', seasonNum = null, episodeNum = 
     
     return getTmdbInfo(tmdbId, mediaType)
     .then(tmdbInfo => {
-        const { title, year } = tmdbInfo;
-        return encryptTmdbId(tmdbId)
+        const { title, year, id: numericId } = tmdbInfo;
+        return encryptTmdbId(numericId)
         .then(encryptedId => {
             let vidlinkUrl;
             if (mediaType === 'tv' && seasonNum && episodeNum) {
