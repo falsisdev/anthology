@@ -4,3 +4,5 @@ bin/
 *.so
 *.dylib
 .idea/
+netlify/functions/
+.netlify/

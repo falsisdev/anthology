@@ -64,9 +64,11 @@ func handleManifest(w http.ResponseWriter, r *http.Request) {
 	if parsed, err := url.Parse(r.RequestURI); err == nil && parsed.Path != "" {
 		originalPath = parsed.Path
 	}
-	isExplicitManifestJSON := strings.HasSuffix(originalPath, "manifest.json") || strings.HasSuffix(originalPath, "/manifest") ||
+	cleanOriginal := strings.TrimPrefix(originalPath, "/.netlify/functions/server")
+	cleanOriginal = strings.TrimPrefix(cleanOriginal, "/netlify/functions/server")
+	isExplicitManifestJSON := strings.HasSuffix(cleanOriginal, "manifest.json") || strings.HasSuffix(cleanOriginal, "/manifest") ||
 		strings.HasSuffix(r.URL.Path, "manifest.json") || strings.HasSuffix(r.URL.Path, "/manifest")
-	if !isExplicitManifestJSON && web.IsHomePath(originalPath) {
+	if !isExplicitManifestJSON && web.IsHomePath(cleanOriginal) {
 		web.ServeLanding(w, r)
 		return
 	}
@@ -530,6 +532,8 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	cleanPath := strings.TrimPrefix(reqPath, "/api")
+	cleanPath = strings.TrimPrefix(cleanPath, "/.netlify/functions/server")
+	cleanPath = strings.TrimPrefix(cleanPath, "/netlify/functions/server")
 	cleanPath = strings.TrimSuffix(cleanPath, ".go")
 	cleanPath = strings.TrimSuffix(cleanPath, "/index")
 

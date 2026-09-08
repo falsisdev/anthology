@@ -75,8 +75,9 @@ func TestIsHomePath(t *testing.T) {
 		"/":                 true,
 		"":                  true,
 		"/api":              true,
-		"/api/index.go":     true,
-		"/manifest.json":    false,
+		"/api/index.go":             true,
+		"/.netlify/functions/server": true,
+		"/manifest.json":            false,
 		"/catalog/series/x": false,
 	}
 	for path, want := range cases {

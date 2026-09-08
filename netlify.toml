@@ -1,0 +1,12 @@
+[build]
+  command = "go build -o netlify/functions/server ./cmd/netlify"
+  functions = "netlify/functions"
+  publish = "public"
+
+[build.environment]
+  GO_VERSION = "1.26.5"
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/server"
+  status = 200

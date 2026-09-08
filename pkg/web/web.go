@@ -38,7 +38,8 @@ var (
 // Vercel rewrites "/" to the serverless entry file, so "api/index.go" counts too.
 func IsHomePath(path string) bool {
 	trimmed := strings.Trim(path, "/")
-	return trimmed == "" || trimmed == "api" || trimmed == "api/index" || trimmed == "api/index.go"
+	return trimmed == "" || trimmed == "api" || trimmed == "api/index" || trimmed == "api/index.go" ||
+		trimmed == ".netlify/functions/server" || trimmed == "netlify/functions/server"
 }
 
 // ServeLanding renders the HTML landing page for root requests.

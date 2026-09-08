@@ -169,6 +169,20 @@ Anthology'yi ücretsiz olarak Vercel üzerinde barındırabilirsiniz:
    - `TMDB_API_KEY`: Kendi TMDB API anahtarınız (Opsiyonel, standart bir key gömülüdür).
 4. Deploy (Yayınla) butonuna basın.
 
+## 🛠️ Kurulum (Netlify)
+
+Anthology'yi ücretsiz olarak Netlify üzerinde barındırabilirsiniz:
+
+1. Projeyi kendi GitHub hesabınıza Fork'layın veya Clone'layın.
+2. Netlify panelinde **Add new site** -> **Import an existing project** -> **GitHub** adımlarını izleyerek bu repoyu seçin.
+3. Repodaki `netlify.toml` dosyası sayesinde ayarlar otomatik algılanır:
+   - **Build command:** `go build -o netlify/functions/server ./cmd/netlify`
+   - **Publish directory:** `public`
+   - **Functions directory:** `netlify/functions`
+4. Çevresel Değişkenleri (Site configuration -> Environment variables) ayarlayın:
+   - `TMDB_API_KEY`: Kendi TMDB API anahtarınız (Opsiyonel, standart bir key gömülüdür).
+5. **Deploy Anthology** butonuna tıklayın.
+
 ## 🔌 Stremio'ya Ekleme
 
 Vercel veya kendi sunucunuzda (PC/VPS) yayınladıktan sonra Stremio'ya eklemek için:
