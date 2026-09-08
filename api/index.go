@@ -7,7 +7,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"os"
 	"strconv"
 	"strings"
 	"time"
@@ -422,9 +421,7 @@ func handleHealth(w http.ResponseWriter, r *http.Request) {
 }
 
 func handleDebug(w http.ResponseWriter, r *http.Request) {
-	// Show proxy config and do a live test fetch through the proxy
-	proxyURL := utils.ProxyBaseURL()
-	testURL := "https://sezonlukdizi.cc/fatma/1-sezon-1-bolum.html"
+	testURL := "https://sezonlukdizi.cc/ajax/dataAlternatif22.asp"
 	testStatus := 0
 	testErr := ""
 
@@ -437,10 +434,7 @@ func handleDebug(w http.ResponseWriter, r *http.Request) {
 	tmdbClient := tmdb.NewClient("")
 	mediaInfo, tmdbErr := tmdbClient.GetMediaInfo(ctx, "123138", models.MediaTypeTV, 1, 1)
 
-	// DEBUG: Do the POST request via the PROXY
-	testURL = "https://sezonlukdizi.cc/ajax/dataAlternatif22.asp"
 	postData := "bid=44946&dil=1"
-
 	altHeaders := map[string]string{
 		"Content-Type":     "application/x-www-form-urlencoded",
 		"Referer":          "https://sezonlukdizi.cc/fatma/1-sezon-1-bolum.html",
@@ -465,9 +459,6 @@ func handleDebug(w http.ResponseWriter, r *http.Request) {
 	}
 
 	jsonResponse(w, http.StatusOK, map[string]interface{}{
-		"proxy_url":      proxyURL,
-		"proxy_active":   proxyURL != "",
-		"env_PROXY_URL":  os.Getenv("PROXY_URL"),
 		"test_url":       testURL,
 		"test_status":    testStatus,
 		"test_headers":   headersMap,
