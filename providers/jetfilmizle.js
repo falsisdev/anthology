@@ -1,242 +1,315 @@
-// JetFilmizle — Nuvio Provider (Optimized)
-// Orijinale göre değişiklikler:
-//  1. fetchWithTimeout: 8s
-//  2. findFilmPage: direkt URL adayları PARALEL denenir (orijinalde tryDirect sıralıydı)
-//  3. fetchPixeldrainStream: info endpoint timeout'u düşürüldü
-//  4. TMDB + arama sıralı zinciri korundu (TMDB olmadan arama yapılamaz)
+/**
+ * Anthology - JetFilmizle Provider
+ * jetfilmizle.now üzerinden videopark (Google Drive Cloudflare Worker MP4)
+ * ve playerx.info (Çoklu Dil HLS M3U8) akışlarını doğrudan çeker.
+ */
 
-var BASE_URL         = 'https://jetfilmizle.net';
-var TMDB_API_KEY     = '500330721680edb6d5f7f12ba7cd9023';
-var FETCH_TIMEOUT_MS = 8000;
+var cheerio = require('cheerio-without-node-native');
 
-var HEADERS = {
-  'User-Agent':      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36',
-  'Accept':          'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-  'Accept-Language': 'tr-TR,tr;q=0.9,en;q=0.8',
-  'Referer':         BASE_URL + '/'
+const PROVIDER_NAME = 'JetFilmizle';
+const BASE_URL = 'https://jetfilmizle.now';
+const TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
+
+const WORKING_HEADERS = {
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'Referer': BASE_URL + '/'
 };
 
-function fetchWithTimeout(url, options, ms) {
-  var timeout = ms || FETCH_TIMEOUT_MS;
-  return new Promise(function(resolve, reject) {
-    var t = setTimeout(function() { reject(new Error('Timeout: ' + url)); }, timeout);
-    fetch(url, options)
-      .then(function(r) { clearTimeout(t); resolve(r); })
-      .catch(function(e) { clearTimeout(t); reject(e); });
-  });
-}
+async function resolveTmdbInfo(id, mediaType) {
+  try {
+    let cleanId = String(id || '').trim();
+    if (cleanId.includes(':')) cleanId = cleanId.split(':')[0];
 
-function titleToSlug(t) {
-  return (t || '').toLowerCase()
-    .replace(/ğ/g,'g').replace(/ü/g,'u').replace(/ş/g,'s')
-    .replace(/ı/g,'i').replace(/İ/g,'i').replace(/ö/g,'o')
-    .replace(/ç/g,'c').replace(/â/g,'a').replace(/û/g,'u')
-    .replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
-}
+    let numericId = null;
+    let title = '';
+    let origTitle = '';
+    let year = '';
 
-function fetchTmdbInfo(tmdbId) {
-  return fetchWithTimeout('https://api.themoviedb.org/3/movie/' + tmdbId
-    + '?api_key=' + TMDB_API_KEY + '&language=tr-TR', {})
-    .then(function(r) { return r.json(); })
-    .then(function(d) {
-      return {
-        titleTr: d.title || '',
-        titleEn: d.original_title || '',
-        year:    (d.release_date || '').slice(0, 4)
-      };
-    });
-}
-
-function searchFilm(query) {
-  return fetchWithTimeout(BASE_URL + '/filmara.php', {
-    method: 'POST',
-    headers: Object.assign({}, HEADERS, { 'Content-Type': 'application/x-www-form-urlencoded' }),
-    body: 's=' + encodeURIComponent(query)
-  })
-    .then(function(r) { return r.text(); })
-    .then(function(html) {
-      var re = /href="(https?:\/\/jetfilmizle\.net\/film\/[^"?#]+)"/g;
-      var m, seen = {}, links = [];
-      while ((m = re.exec(html)) !== null) {
-        if (!seen[m[1]]) { seen[m[1]] = true; links.push(m[1]); }
+    if (cleanId.startsWith('tt')) {
+      const findRes = await fetch(`https://api.themoviedb.org/3/find/${cleanId}?api_key=${TMDB_API_KEY}&external_source=imdb_id`);
+      if (findRes.ok) {
+        const fData = await findRes.json();
+        const item = (mediaType === 'tv' || mediaType === 'series')
+          ? (fData.tv_results && fData.tv_results[0])
+          : (fData.movie_results && fData.movie_results[0]);
+        if (item) {
+          numericId = item.id;
+          title = item.name || item.title || '';
+          origTitle = item.original_name || item.original_title || '';
+          year = (item.first_air_date || item.release_date || '').slice(0, 4);
+        }
       }
-      return links;
-    })
-    .catch(function() { return []; });
+    } else {
+      numericId = cleanId;
+    }
+
+    if (numericId && (!title || !origTitle)) {
+      const type = (mediaType === 'tv' || mediaType === 'series') ? 'tv' : 'movie';
+      const tRes = await fetch(`https://api.themoviedb.org/3/${type}/${numericId}?api_key=${TMDB_API_KEY}&language=tr-TR`);
+      if (tRes.ok) {
+        const tData = await tRes.json();
+        title = tData.name || tData.title || title;
+        origTitle = tData.original_name || tData.original_title || origTitle;
+        year = (tData.first_air_date || tData.release_date || '').slice(0, 4);
+      }
+    }
+
+    return { title, origTitle, year, numericId };
+  } catch (e) {
+    return { title: '', origTitle: '', year: '', numericId: id };
+  }
 }
 
-// OPT: Direkt URL adaylarını paralel dene — ilk geçerli olanı al
-function findFilmPage(titleTr, titleEn) {
-  var slugTr = titleToSlug(titleTr);
-  var slugEn = titleToSlug(titleEn);
-  var direct = [];
-  if (slugTr) direct.push(BASE_URL + '/film/' + slugTr);
-  if (slugEn && slugEn !== slugTr) direct.push(BASE_URL + '/film/' + slugEn);
+async function searchOnSite(query, year) {
+  if (!query || query.length < 2) return null;
+  const cleanQuery = query.toLowerCase().trim();
+  const searchUrl = `${BASE_URL}/arama?q=` + encodeURIComponent(cleanQuery);
 
-  function isValidFilmPage(html) {
-    return html.indexOf('div#movie') !== -1
-        || html.indexOf('download-btn') !== -1
-        || html.indexOf('film_id') !== -1;
+  try {
+    const res = await fetch(searchUrl, { headers: WORKING_HEADERS });
+    if (!res.ok) return null;
+    const html = await res.text();
+    const $ = cheerio.load(html);
+    const results = [];
+
+    const stopWords = new Set(['the', 'a', 'an', 've', 'ile', 'der', 'die', 'das', 'le', 'la']);
+    const significantWords = cleanQuery.split(/\s+/).filter(w => w.length > 1 && !stopWords.has(w));
+
+    $('a').each(function() {
+      const url = $(this).attr('href') || '';
+      if (!url.includes('/film/')) return;
+      const rawTitle = $(this).text().trim().replace(/\s+/g, ' ');
+      const titleLower = rawTitle.toLowerCase();
+      if (titleLower.length < 2) return;
+
+      let score = 0;
+      let matchedWordCount = 0;
+      significantWords.forEach(w => {
+        if (titleLower.includes(w) || url.includes(w)) {
+          score += 8;
+          matchedWordCount++;
+        }
+      });
+
+      if (matchedWordCount === significantWords.length && significantWords.length > 0) {
+        score += 15;
+      }
+
+      if (year && (titleLower.includes(year) || url.includes(year))) score += 10;
+      if (url.includes(cleanQuery.replace(/\s+/g, '-'))) score += 10;
+
+      // Penalize sequel numbers if we didn't search them
+      const hasSequel = /[\s\-_]([2-9]|ii|iii|iv|v)($|[\s\-_])/i.test(titleLower) || /[\s\-_]([2-9]|ii|iii|iv|v)($|[\s\-_])/i.test(url);
+      if (hasSequel && !/[\s\-_]([2-9]|ii|iii|iv|v)/i.test(cleanQuery)) {
+        score -= 20;
+      }
+
+      if (score > 5) {
+        results.push({ url: url, siteTitle: rawTitle, score: score });
+      }
+    });
+
+    if (results.length > 0) {
+      results.sort((a, b) => b.score - a.score);
+      return results[0];
+    }
+    return null;
+  } catch (err) {
+    return null;
   }
+}
 
-  return new Promise(function(resolve, reject) {
-    if (direct.length === 0) return trySearch().then(resolve).catch(reject);
+async function extractVideoparkStreams(embedUrl, displayTitle, langLabel) {
+  try {
+    const res = await fetch(embedUrl, {
+      headers: {
+        'User-Agent': WORKING_HEADERS['User-Agent'],
+        'Referer': BASE_URL + '/'
+      }
+    });
+    if (!res.ok) return [];
+    const html = await res.text();
 
-    var resolved = false;
-    var done = 0;
+    const workerMatch = html.match(/const\s+WORKER_BASE\s*=\s*["']([^"']+)["']/);
+    const videoIdMatch = html.match(/const\s+VIDEO_ID\s*=\s*(\d+)/);
+    if (!workerMatch || !videoIdMatch) return [];
 
-    direct.forEach(function(url) {
-      fetchWithTimeout(url, { headers: HEADERS })
-        .then(function(r) {
-          if (!r.ok) throw new Error(r.status + '');
-          return r.text();
-        })
-        .then(function(html) {
-          done++;
-          if (!resolved && isValidFilmPage(html)) {
-            resolved = true;
-            resolve({ url: url, html: html });
-          } else if (done === direct.length && !resolved) {
-            trySearch().then(resolve).catch(reject);
-          }
-        })
-        .catch(function() {
-          done++;
-          if (done === direct.length && !resolved) {
-            trySearch().then(resolve).catch(reject);
+    const workerBase = workerMatch[1].replace(/\\\//g, '/').replace(/\/$/, '');
+    const videoId = videoIdMatch[1];
+
+    let info = null;
+    try {
+      const infoRes = await fetch(`${workerBase}/v/${videoId}/info`, {
+        headers: { 'User-Agent': WORKING_HEADERS['User-Agent'] }
+      });
+      if (infoRes.ok) info = await infoRes.json();
+    } catch (_) {}
+
+    const streams = [];
+    if (info && Array.isArray(info.qualities) && info.qualities.length > 0) {
+      for (const q of info.qualities) {
+        streams.push({
+          name: displayTitle,
+          title: `⌜ JetFilmizle ⌟ | ${langLabel} (${q}p Direct MP4)`,
+          url: `${workerBase}/v/${videoId}?q=${q}`,
+          quality: `${q}p`,
+          type: 'mp4',
+          provider: 'jetfilmizle',
+          headers: {
+            'User-Agent': WORKING_HEADERS['User-Agent']
           }
         });
-    });
-  });
-
-  function trySearch() {
-    return searchFilm(titleTr)
-      .then(function(links) {
-        if (!links.length && titleEn && titleEn !== titleTr) return searchFilm(titleEn);
-        return links;
-      })
-      .then(function(links) {
-        if (!links.length) throw new Error('Film bulunamadi: ' + titleTr);
-        var normTr = slugTr, normEn = slugEn;
-        var best = null;
-        for (var i = 0; i < links.length; i++) {
-          var slug = (links[i].split('/film/')[1] || '').replace(/\/$/, '');
-          if (slug === normTr || slug === normEn) { best = links[i]; break; }
+      }
+    } else {
+      streams.push({
+        name: displayTitle,
+        title: `⌜ JetFilmizle ⌟ | ${langLabel} (Direct MP4)`,
+        url: `${workerBase}/v/${videoId}`,
+        quality: '1080p',
+        type: 'mp4',
+        provider: 'jetfilmizle',
+        headers: {
+          'User-Agent': WORKING_HEADERS['User-Agent']
         }
-        var target = best || links[0];
-        return fetchWithTimeout(target, { headers: HEADERS })
-          .then(function(r) { return r.text(); })
-          .then(function(html) { return { url: target, html: html }; });
       });
+    }
+
+    return streams;
+  } catch (e) {
+    return [];
   }
 }
 
-function parseFilmPage(html) {
-  var result = { iframeSrc: null, pixeldrains: [] };
-  var iframeRe = /<iframe[^>]+(?:data-litespeed-src|src)="([^"]+)"/gi;
-  var m;
-  while ((m = iframeRe.exec(html)) !== null) {
-    if (!result.iframeSrc) result.iframeSrc = m[1];
+async function extractPlayerxStreams(embedUrl, displayTitle, langLabel) {
+  try {
+    const res = await fetch(embedUrl, {
+      headers: {
+        'User-Agent': WORKING_HEADERS['User-Agent'],
+        'Referer': BASE_URL + '/'
+      }
+    });
+    if (!res.ok) return [];
+    const html = await res.text();
+
+    const fileMatch = html.match(/file:\s*["'](watch\/[^"']+)["']/);
+    if (!fileMatch) return [];
+
+    const path = fileMatch[1];
+    const streamUrl = `https://playerx.info/${path}`;
+
+    return [{
+      name: displayTitle,
+      title: `⌜ JetFilmizle ⌟ | ${langLabel} (Çoklu Dil HLS)`,
+      url: streamUrl,
+      quality: '1080p',
+      type: 'hls',
+      provider: 'jetfilmizle',
+      headers: {
+        'User-Agent': WORKING_HEADERS['User-Agent'],
+        'Referer': embedUrl
+      }
+    }];
+  } catch (e) {
+    return [];
   }
-  var pdRe = /href="(https?:\/\/pixeldrain\.com\/u\/[^"]+)"/g;
-  while ((m = pdRe.exec(html)) !== null) result.pixeldrains.push(m[1]);
-  return result;
 }
 
-function fetchPixeldrainStream(pdUrl) {
-  var fileId = pdUrl.split('/u/').pop().split('?')[0];
-  // OPT: info endpoint timeout 4s (küçük meta isteği, hızlı olmalı)
-  return fetchWithTimeout('https://pixeldrain.com/api/file/' + fileId + '/info', {}, 4000)
-    .then(function(r) { return r.ok ? r.json() : null; })
-    .then(function(info) {
-      var name = (info && info.name) || '';
-      var size = (info && info.size) || 0;
-      var quality = /2160p|4k/i.test(name) ? '4K'
-                  : /1080p/i.test(name)    ? '1080p'
-                  : /720p/i.test(name)     ? '720p'
-                  : /480p/i.test(name)     ? '480p' : 'Auto';
-      return {
-        url:     'https://pixeldrain.com/api/file/' + fileId + '?download',
-        name:    'TR Dublaj',
-        title:   'Pixeldrain ' + quality + (size ? ' · ' + Math.round(size/1024/1024) + 'MB' : ''),
-        quality: quality,
-        headers: { 'Referer': 'https://pixeldrain.com/' }
-      };
-    })
-    .catch(function() {
-      return {
-        url:     'https://pixeldrain.com/api/file/' + fileId + '?download',
-        name:    'TR Dublaj', title: 'Pixeldrain', quality: 'Auto',
-        headers: { 'Referer': 'https://pixeldrain.com/' }
-      };
+async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
+  try {
+    if (mediaType === 'tv' || mediaType === 'series') return [];
+
+    const info = await resolveTmdbInfo(tmdbId, mediaType);
+    const trTitle = (info.title || '').trim();
+    const orgTitle = (info.origTitle || '').trim();
+    const displayTitle = trTitle || orgTitle || 'Film';
+    const releaseYear = info.year;
+
+    let match = null;
+    const candidates = [];
+    if (orgTitle) {
+      candidates.push(orgTitle);
+      const withoutThe = orgTitle.replace(/^the\s+/i, '').trim();
+      if (withoutThe && withoutThe !== orgTitle) candidates.push(withoutThe);
+    }
+    if (trTitle && trTitle !== orgTitle) {
+      candidates.push(trTitle);
+      const withoutTheTr = trTitle.replace(/^the\s+/i, '').trim();
+      if (withoutTheTr && withoutTheTr !== trTitle) candidates.push(withoutTheTr);
+    }
+
+    for (const cand of candidates) {
+      match = await searchOnSite(cand, releaseYear);
+      if (match && match.score >= 10) break;
+    }
+
+    if (!match || !match.url) return [];
+
+    const filmRes = await fetch(match.url, { headers: WORKING_HEADERS });
+    if (!filmRes.ok) return [];
+    const filmHtml = await filmRes.text();
+    const $film = cheerio.load(filmHtml);
+
+    const filmId = $film('input[name=film_id]').val();
+    if (!filmId) return [];
+
+    const allStreams = [];
+    const playerTypes = ['dublaj', 'altyazili'];
+
+    for (const playerType of playerTypes) {
+      const langLabel = (playerType === 'dublaj') ? '🇹🇷 TR Dublaj' : '🌐 TR Altyazı';
+
+      for (let idx = 0; idx < 3; idx++) {
+        try {
+          const params = new URLSearchParams();
+          params.append('film_id', filmId);
+          params.append('source_index', idx.toString());
+          params.append('player_type', playerType);
+
+          const postRes = await fetch(`${BASE_URL}/jetplayer`, {
+            method: 'POST',
+            headers: {
+              'User-Agent': WORKING_HEADERS['User-Agent'],
+              'Referer': match.url,
+              'X-Requested-With': 'XMLHttpRequest',
+              'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: params.toString()
+          });
+
+          if (!postRes.ok) continue;
+          const postText = await postRes.text();
+          const iframeMatch = postText.match(/<iframe[^>]+src=[\x27"]([^\x27"]+)[\x27"]/i);
+          if (!iframeMatch) continue;
+
+          let iframeSrc = iframeMatch[1];
+          if (iframeSrc.startsWith('//')) iframeSrc = 'https:' + iframeSrc;
+
+          if (iframeSrc.includes('videopark.top')) {
+            const vpStreams = await extractVideoparkStreams(iframeSrc, displayTitle, langLabel);
+            allStreams.push(...vpStreams);
+          } else if (iframeSrc.includes('playerx.info')) {
+            const pxStreams = await extractPlayerxStreams(iframeSrc, displayTitle, langLabel);
+            allStreams.push(...pxStreams);
+          }
+        } catch (_) {}
+      }
+    }
+
+    // Deduplicate by URL
+    const seen = new Set();
+    return allStreams.filter(s => {
+      if (seen.has(s.url)) return false;
+      seen.add(s.url);
+      return true;
     });
-}
-
-function fetchJetvStream(iframeUrl) {
-  var fullUrl = iframeUrl.startsWith('//') ? 'https:' + iframeUrl : iframeUrl;
-  return fetchWithTimeout(fullUrl, {
-    headers: Object.assign({}, HEADERS, { 'Referer': BASE_URL + '/' })
-  })
-    .then(function(r) { return r.text(); })
-    .then(function(html) {
-      var srcMatch = html.match(/"sources"\s*:\s*\[\s*\{[^}]+\}/);
-      if (srcMatch) {
-        var fileM  = srcMatch[0].match(/"file"\s*:\s*"([^"]+)"/);
-        var labelM = srcMatch[0].match(/"label"\s*:\s*"([^"]+)"/);
-        if (fileM) return {
-          url: fileM[1], name: 'TR Dublaj', title: 'Jetv',
-          quality: labelM ? labelM[1] : 'Auto', type: 'hls',
-          headers: { 'Referer': fullUrl }
-        };
-      }
-      var innerM = html.match(/<iframe[^>]+src="([^"]+)"/i);
-      if (innerM) return fetchJetvStream(innerM[1]);
-      return null;
-    })
-    .catch(function() { return null; });
-}
-
-function getStreams(tmdbId, mediaType) {
-  return fetchTmdbInfo(tmdbId)
-    .then(function(info) {
-      return findFilmPage(info.titleTr, info.titleEn);
-    })
-    .then(function(result) {
-      var parsed   = parseFilmPage(result.html);
-      var streams  = [];
-      var promises = [];
-
-      if (parsed.pixeldrains.length > 0) {
-        promises.push(
-          Promise.all(parsed.pixeldrains.map(fetchPixeldrainStream))
-            .then(function(pdStreams) {
-              var seen = {};
-              pdStreams.forEach(function(s) {
-                if (!seen[s.url]) { seen[s.url] = true; streams.push(s); }
-              });
-            })
-        );
-      }
-
-      if (parsed.iframeSrc) {
-        var src = parsed.iframeSrc;
-        if (src.indexOf('jetv.xyz') !== -1 || src.indexOf('d2rs.com') !== -1 || src.indexOf('d2rs') !== -1) {
-          promises.push(
-            fetchJetvStream(src).then(function(s) { if (s) streams.push(s); })
-          );
-        }
-      }
-
-      return Promise.all(promises).then(function() { return streams; });
-    })
-    .catch(function(err) {
-      console.log('[JetFilmizle] Hata: ' + err.message);
-      return [];
-    });
+  } catch (err) {
+    return [];
+  }
 }
 
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { getStreams: getStreams };
-} else {
-  global.getStreams = getStreams;
+}
+if (typeof globalThis !== 'undefined') {
+  globalThis.getStreams = getStreams;
 }

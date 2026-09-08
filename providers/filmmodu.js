@@ -5,34 +5,46 @@
 //  Sadece Film (movie) destekler
 // ============================================================
 
-var BASE_URL = 'https://www.filmmodu.ws';
+var BASE_URL = 'https://www.filmmodu.one';
 var TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
 
 var HEADERS = {
-  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
   'Accept-Language': 'tr-TR,tr;q=0.9,en;q=0.8',
   'Referer': BASE_URL + '/'
 };
 
 // ── Yardımcı: TMDB'den film bilgisi çek ─────────────────────
-function fetchTmdbInfo(tmdbId) {
-  var url = 'https://api.themoviedb.org/3/movie/' + tmdbId
+async function fetchTmdbInfo(tmdbId) {
+  let cleanId = String(tmdbId || '').trim();
+  if (cleanId.includes(':')) cleanId = cleanId.split(':')[0];
+
+  let numericId = cleanId;
+  if (cleanId.startsWith('tt')) {
+    try {
+      const fRes = await fetch(`https://api.themoviedb.org/3/find/${cleanId}?api_key=${TMDB_API_KEY}&external_source=imdb_id`);
+      if (fRes.ok) {
+        const fData = await fRes.json();
+        if (fData.movie_results && fData.movie_results.length > 0) {
+          numericId = fData.movie_results[0].id;
+        }
+      }
+    } catch (e) {}
+  }
+
+  var url = 'https://api.themoviedb.org/3/movie/' + numericId
     + '?api_key=' + TMDB_API_KEY
     + '&language=tr-TR';
 
-  return fetch(url)
-    .then(function(r) {
-      if (!r.ok) throw new Error('TMDB yanıt vermedi: ' + r.status);
-      return r.json();
-    })
-    .then(function(data) {
-      return {
-        titleTr:  data.title || '',
-        titleEn:  data.original_title || '',
-        year:     data.release_date ? data.release_date.slice(0, 4) : ''
-      };
-    });
+  const r = await fetch(url);
+  if (!r.ok) throw new Error('TMDB yanıt vermedi: ' + r.status);
+  const data = await r.json();
+  return {
+    titleTr:  data.title || '',
+    titleEn:  data.original_title || '',
+    year:     data.release_date ? data.release_date.slice(0, 4) : ''
+  };
 }
 
 // ── Yardımcı: Başlığı URL karşılaştırması için normalize et ─

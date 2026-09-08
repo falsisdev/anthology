@@ -107,4 +107,9 @@ const getStreams = function(tmdbId, mediaType, seasonNum, episodeNum) {
     });
 };
 
-globalThis.getStreams = getStreams;
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { getStreams };
+}
+if (typeof globalThis !== 'undefined') {
+    globalThis.getStreams = getStreams;
+}

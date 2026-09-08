@@ -4,11 +4,11 @@
  * Altta (title): ⌜ SEZONLUKDIZI ⌟ | Kaynak | Dil Bilgisi
  */
 
-var BASE_URL     = 'https://sezonlukdizi8.com';
+var BASE_URL     = 'https://sezonlukdizi.cc';
 var TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
 
 var HEADERS = {
-  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36',
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
   'Accept-Language': 'tr-TR,tr;q=0.9,en;q=0.8',
   'Referer': BASE_URL + '/'
@@ -16,17 +16,31 @@ var HEADERS = {
 
 // ── Yardımcılar ───────────────────────────────────────────────
 
-function fetchTmdbInfo(tmdbId) {
-  return fetch('https://api.themoviedb.org/3/tv/' + tmdbId + '?api_key=' + TMDB_API_KEY + '&language=tr-TR')
-    .then(function(r) { return r.json(); })
-    .then(function(d) {
-      return {
-        title: d.name || d.original_name || 'Dizi',
-        titleEn: d.original_name || '',
-        titleTr: d.name || '',
-        year: (d.first_air_date || '').slice(0, 4)
-      };
-    });
+async function fetchTmdbInfo(tmdbId) {
+  let cleanId = String(tmdbId || '').trim();
+  if (cleanId.includes(':')) cleanId = cleanId.split(':')[0];
+
+  let numericId = cleanId;
+  if (cleanId.startsWith('tt')) {
+    try {
+      const fRes = await fetch(`https://api.themoviedb.org/3/find/${cleanId}?api_key=${TMDB_API_KEY}&external_source=imdb_id`);
+      if (fRes.ok) {
+        const fData = await fRes.json();
+        if (fData.tv_results && fData.tv_results.length > 0) {
+          numericId = fData.tv_results[0].id;
+        }
+      }
+    } catch (e) {}
+  }
+
+  const r = await fetch('https://api.themoviedb.org/3/tv/' + numericId + '?api_key=' + TMDB_API_KEY + '&language=tr-TR');
+  const d = await r.json();
+  return {
+    title: d.name || d.original_name || 'Dizi',
+    titleEn: d.original_name || '',
+    titleTr: d.name || '',
+    year: (d.first_air_date || '').slice(0, 4)
+  };
 }
 
 function fetchSessionCookie() {
