@@ -1,16 +1,10 @@
 {
   "version": 2,
-  "regions": ["cdg1"],
-  "builds": [
+  "redirects": [
     {
-      "src": "api/index.go",
-      "use": "@vercel/go"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "api/index.go"
+      "source": "/:path*",
+      "destination": "https://nuviotr.netlify.app/:path*",
+      "permanent": true
     }
   ]
 }
