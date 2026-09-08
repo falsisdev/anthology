@@ -1,199 +1,81 @@
 <div align="center">
   <img src="assets/logo_1_transparent.png" alt="Anthology Logo" width="180" style="margin-bottom: 12px;" />
-  <h1>Anthology - Stremio Addon</h1>
-  <p>Golang tabanlı, yüksek performanslı, dahili video extractor motoruna ve HLS akış proxy'sine sahip Türkçe Dizi, Film, Anime ve Canlı TV eklentisi. htmx destekli <strong>canlı durum paneli</strong> ve <strong>kaynak/yayın canlı test konsolu</strong> ile birlikte gelir.</p>
+  <h1>Anthology - Nuvio Eklenti Deposu</h1>
+  <p>Nuvio uygulaması için optimize edilmiş, 0 sunucu maliyetli, yerel çalışan 20+ Türkçe Dizi, Film, Anime ve Canlı TV/Spor eklenti deposu.</p>
+
+  <p>
+    <a href="#-kurulum-ve-ekleme"><img src="https://img.shields.io/badge/Nuvio-Eklenti_Deposu-00e676?style=for-the-badge&logo=github&logoColor=white" alt="Nuvio Deposu" /></a>
+    <img src="https://img.shields.io/badge/Maliyet-0_TL_%2F_Sınırsız-blue?style=for-the-badge" alt="Ücretsiz" />
+    <img src="https://img.shields.io/badge/Durum-Aktif_%26_Güncel-success?style=for-the-badge" alt="Durum" />
+  </p>
 </div>
 
-Geri bildirim ve iletişim için: [E-Posta](mailto:falsis@proton.me)
+---
 
-## 🚀 Özellikler
+## 📌 Hızlı Kurulum Linki
 
-- **CloudStream Tarzı Doğrudan Sağlayıcı Katalogları (`pkg/catalog`):** Stremio ve Nuvio arama çubuğuna bir içerik yazıldığında (Örn: _Son Yaz_, _Yarım Kalan Aşklar_, _Solo Leveling_, _Dövüş Kulübü_), Cinemeta/TMDB ID bağımlılığı olmadan doğrudan sağlayıcı sitelerinde canlı arama yapılır:
-  - `Anthology - Ddizi` (Yerli diziler, tüm sezon & bölüm listesiyle)
-  - `Anthology - Dizimom` (Yerli & yabancı diziler, HDPlayer ve YouTube entegrasyonu)
-  - `Anthology - DiziYou` (Popüler diziler, AJAX tabanlı anlık arama)
-  - `Anthology - Diziwatch (Anime & Dizi)` (Tüm popüler animeler ve diziler, 1080p VideoPlay HLS akışları)
-  - `Anthology - SineWix Dizi` (Diziler ve animeler)
-  - `Anthology - SineWix Film` (Yerli ve yabancı filmler)
-  - `Anthology - HDFilmCehennemi` (Filmler)
-  - `Canlı TV & Spor (Ulusal & Haber & Sinema & Spor)` (100+ ulusal, haber, spor kanalı ve günlük canlı maç yayını)
-  - Arama sonucundaki dizilere tıklandığında tüm bölümler (1. Bölümden Finale kadar) doğrudan o sağlayıcıdan çekilip listelenir ve doğrudan oynatılır!
-- **Dahili HLS Akış Proxy Motoru (`pkg/proxy`):** Stremio ve Nuvio oynatıcılarının alt segment (`.ts`, `.jpg`, `.js`, `.woff`) isteklerinde `Referer` / `Origin` başlıklarını iletememesinden kaynaklanan HTTP 403 ve 2 saniyede bir donma/takılma sorunlarını çözer. Playlistleri dinamik olarak yeniden yazıp CORS açık şekilde aracı olarak oynatır.
-- **Dahili Video Extractor Motoru (`pkg/extractors`):** Stremio'nun web iframe'lerini oynatamama sorununu ortadan kaldırır. OK.ru, Vidmoly, Sibnet, VideoPlay, JWPlayer, Streambox, HDPlayer, YouTube vb. gömülü oynatıcılardan doğrudan `.m3u8`, `.mp4` ve yerel YouTube (`ytId`) video akışlarını ayıklar. Fragman/tanıtım videoları otomatik olarak filtrelenip tam bölümler getirilir.
-- **Canlı TV, Spor ve Canlı Maçlar:** BeIN Sports 1-5, S Sport 1-2, Exxen Spor 1-8, Tivibu Spor 1-4, Smart Spor, Tabii Spor ve anlık Süper Lig / Avrupa ligleri canlı maç akışları.
-- **Web Paneli (`pkg/web`):** Ana sayfa (kök `/`) tarayıcıda artık her zaman şık bir HTML karşılama sayfası döndürür; HTML/JS/CSS `//go:embed` ile ayrı şablon dosyalarında (`landing.html`, `status.html`, `tests.html`) tutulur ve `html/template` ile render edilir. Tek tıkla **Stremio'ya Yükle**, **manifest kopyalama** ve **Stremio Web** butonları içerir.
-- **Canlı Kaynak & Yayın Testi (`pkg/tester`):** Ana sayfadaki panel ile her sağlayıcıya gerçek bir akış arama isteği, 100+ canlı TV ve spor kanalının yayın URL'ine HTTP `Range` isteği gönderilir. Her kaynak farklı popüler içerikleri paralel (goroutine + worker pool, 16 işçi, 3 sn timeout) dener; sonuçlar (çevrimiçi/kapalı, gecikme ms, akış sayısı) kartlar hâlinde listelenir. Not: Çoğu Türk sağlayıcı Cloudflare WAF kullanır ve yabancı IP'leri engeller — test sonucu test sunucusunun konumuna göre değişebilir.
+Nuvio uygulamasında eklenti deposu olarak aşağıdaki bağlantıyı ekleyin:
 
-## 📺 Canlı TV & Spor Kanalları & Yayın Durumları
-
-Anthology, tüm kanallara özel logo ve kategori desteğiyle 100+ canlı TV, spor ve anlık canlı maç yayını sunar:
-
-| Kanal Adı | Kategori | Çözünürlük | Logo Durumu | Yayın Durumu |
-| :--- | :---: | :---: | :---: | :---: |
-| **TRT 1** | Ulusal | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **ATV** | Ulusal | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Kanal D** | Ulusal | 720p / 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Show TV** | Ulusal | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Star TV** | Ulusal | 720p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **NOW TV** | Ulusal | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **TV8** | Ulusal | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Kanal 7** | Ulusal | 720p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Beyaz TV** | Ulusal | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Teve2** | Ulusal | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **A2 TV** | Ulusal | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **360 TV** | Ulusal | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **TRT 2** | Ulusal / Sanat | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **TRT Avaz** | Ulusal | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **TRT Türk** | Ulusal | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Kanal 7 Avrupa** | Ulusal | 720p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **TRT Haber** | Haber | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **A Haber** | Haber | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **NTV** | Haber | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Habertürk** | Haber | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Halk TV** | Haber | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Tele 1** | Haber | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **TGRT Haber** | Haber | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Haber Global** | Haber | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **24 TV** | Haber | 720p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Bloomberg HT** | Haber / Ekonomi | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Bengü Türk** | Haber | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Flash Haber** | Haber | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Lider Haber** | Haber | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Türk Haber** | Haber | 720p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **BeIN Sports 1 - 5 & Max 1 - 2** | Spor | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **S Sport 1, 2 & S Sport Plus** | Spor | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Tivibu Spor & Tivibu 1 - 4** | Spor | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Smart Spor 1 & 2** | Spor | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Euro Sport 1 & 2** | Spor | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Exxen TV & Exxen Sports 1 - 8** | Spor | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **Tabii Spor & Tabii 1 - 8** | Spor | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **TRT Spor & TRT Spor Yıldız** | Spor | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **TV8,5** | Spor | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **TJK TV** | Spor / At Yarışı | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **NBA TV** | Spor / Basketbol | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **FB TV & GS TV & Sports TV** | Spor / Kulüp | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **CBC Sport & iDMAN Tv** | Spor / Uluslararası | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **A Spor & HT Spor** | Spor | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **🔴 Canlı Maç Yayınları (Mahsun)** | Canlı Maç | 1080p | ✅ Maç Rozeti | ✅ Canlı / Anlık |
-| **TRT Belgesel** | Belgesel | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **TRT Çocuk** | Çocuk | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-| **TRT Müzik** | Müzik | 1080p | ✅ Özel Logo | ✅ Canlı / Aktif |
-
-## 📊 Kaynak (Sağlayıcı) Durumları
-
-> **Son Güncelleme:** 3 Eylül 2026
-
-Aşağıdaki tablo, sağlayıcıların, video extractor ve HLS proxy motorunun en güncel çalışma durumlarını göstermektedir:
-
-| Sağlayıcı (Kaynak)  |   Kategori   | Durum (Vercel / Cloud) | Durum (Local / Ev Ağı) | Açıklama                                                                                                     |
-| :------------------ | :----------: | :--------------------: | :--------------------: | :----------------------------------------------------------------------------------------------------------- |
-| **FilmModu**        | Film (Yeni)  |        ✅ Aktif        |        ✅ Aktif        | Doğrudan CDN üzerinden 2160p 4K, 1440p 2K, 1080p FHD, 720p HD HLS master akışları (~1 sn).                   |
-| **FilmKovası**      | Film (Yeni)  |        ✅ Aktif        |        ✅ Aktif        | LiteSpeed `atob` şifre çözücü ile VidSrc, EmbedSB, DoodStream, VidMoly, Upstream akışları (~1.2 sn).         |
-| **Webteİzle**       | Film (Yeni)  |        ✅ Aktif        |        ✅ Aktif        | Filtre 302 yönlendirmesi ve API çözücüsü ile VidMoly, FileMoon, Netu akışları.                               |
-| **Dizilla**         | Dizi (Yeni)  |        ✅ Aktif        |        ✅ Aktif        | AES-256-CBC istemci şifre çözücüsü ile Pichive / CloseForto doğrudan dizi akışları (~600 ms).                |
-| **Dizigom**         |     Dizi     |        ✅ Aktif        |        ✅ Aktif        | Güncel `/diziler/` mimarisi ve Spidypro oynatıcı entegrasyonu.                                               |
-| **Diziwatch**       | Dizi / Anime |        ✅ Aktif        |        ✅ Aktif        | VideoPlay HLS extractor + proxy ile 1080p doğrudan ve donmasız oynatılır. Yerel anime kataloğu mevcut.       |
-| **Dizimom**         |     Dizi     |        ✅ Aktif        |        ✅ Aktif        | HDPlayer API ve akıllı YouTube yedekleme ile 1080p doğrudan video oynatılır. Fragmanlar filtrelenir.         |
-| **DiziYou**         |     Dizi     |        ✅ Aktif        |        ✅ Aktif        | `diziyou.one` admin-ajax arama entegre edildi. Cloudflare CDN üzerinden 1080p doğrudan HLS akışı getirir.    |
-| **Ddizi**           |     Dizi     |        ✅ Aktif        |        ✅ Aktif        | Resmi YouTube 1080p yedekleme ve Streambox proxy ile donmasız oynatma.                                       |
-| **M3U Canlı TV**    | IPTV / Canlı |        ✅ Aktif        |        ✅ Aktif        | 35+ kanalda tam logo desteği ve test edilmiş HLS akışları.                                                   |
-| **Mahsun Sports**   | Canlı TV & Spor |        ✅ Aktif        |        ✅ Aktif        | 50+ spor kanalı (BeIN Sports 1-5, S Sport 1-2, Exxen, Tivibu) ve günlük canlı maç yayınları.                 |
-| **SineWix**         | Film & Dizi  |        ✅ Aktif        |        ✅ Aktif        | Film ve dizi katalogları tam entegre; dahili HLS/MKV proxy ve behaviorHints desteğiyle Nuvio/Stremio uyumlu. |
-| **AnimeciX**        |    Anime     |        ✅ Aktif        |        ✅ Aktif        | Tau CDN ve doğrudan video çözücüsü ile hızlı akış desteği.                                                   |
-| **Animexe**         |    Anime     |        ✅ Aktif        |        ✅ Aktif        | Animexe proxy / HLS doğrudan akış motoru (~350 ms).                                                          |
-| **Acheriya**        |    Anime     |        ✅ Aktif        |        ✅ Aktif        | BunnyCDN / Tatsumi HLS doğrudan video akışları (~450 ms).                                                    |
-| **OpenAni**         |    Anime     |        ✅ Aktif        |        ✅ Aktif        | SvelteKit CDN MP4 doğrudan anime akışları (~450 ms).                                                         |
-| **AsyaAnimeleri**   |    Anime     |        ✅ Aktif        |        ✅ Aktif        | Sibnet doğrudan video extractor ile anime akışları.                                                          |
-| **HDFilmCehennemi** |     Film     |        ✅ Aktif        |        ✅ Aktif        | AJAX player URL'leri extractor motoruna bağlanarak video akışlarına dönüştürüldü.                            |
-| **SeiCode**         |    Anime     |        ✅ Aktif        |        ✅ Aktif        | Sibnet, Ok.ru ve Vidmoly extractorları ile saf video çeker.                                                  |
-| **Filmifullizle**   |     Film     |        ✅ Aktif        |        ✅ Aktif        | VMCloud extractor motoru entegre edildi, doğrudan video akışları sunar.                                      |
-| **Sinemacx**        |     Film     |        ✅ Aktif        |        ✅ Aktif        | FilmizleIn oynatıcı çözücüsü ile doğrudan akış.                                                              |
-| **Sinezy**          |     Film     |        ✅ Aktif        |        ✅ Aktif        | Extractor motoru ile doğrudan video akışları sunar.                                                          |
-| **Filmzal**         | Film & Dizi  |        ✅ Aktif        |        ✅ Aktif        | Extractor motoru ile doğrudan video akışları sunar.                                                          |
-| **Dizipal**         | Dizi & Film  |        ✅ Aktif        |        ✅ Aktif        | PBKDF2/SHA512 istemci şifre çözücüsü ve ImagesToo CDN ile 1080p doğrudan HLS.                                |
-| **SetFilmizle**     |     Film     |        ✅ Aktif        |        ✅ Aktif        | FastPlay / SetPlay HLS dönüştürücüsü.                                                                        |
-| **Vidmody**         |     API      |        ✅ Aktif        |        ✅ Aktif        | TMDB ID ile çalışan API, içerik varsa getirir.                                                               |
-| **SezonlukDizi**    |     Dizi     |   ❌ Cloudflare WAF    |        ✅ Aktif        | Vidmoly/Sibnet/Okru extractorları ile doğrudan videoya dönüştürülür.                                         |
-| **Film Makinesi**   |     Film     |   ❌ Cloudflare WAF    |        ✅ Aktif        | Vercel IP'lerine 403 Forbidden atıyor.                                                                       |
-| **Dizibox**         |     Dizi     |   ❌ Cloudflare WAF    |        ✅ Aktif        | Vercel IP'lerine 403 Forbidden atıyor.                                                                       |
-| **Tranimeizle**     |    Anime     |   ❌ Cloudflare WAF    |        ⚠️ Kısmi        | Sıkı Cloudflare koruması.                                                                                    |
-| **TurkAnime**       |    Anime     |   ❌ Cloudflare WAF    |        ⚠️ Kısmi        | Sıkı Bot koruması mevcut.                                                                                    |
-| **YabancıDizi**     |     Dizi     |   ❌ Cloudflare WAF    |        ⚠️ Kısmi        | Cloudflare Challenge koruması.                                                                               |
-| **Anizium**         |    Anime     |         ❌ SPA         |        ⚠️ Kısmi        | İstemci taraflı SPA mimarisi.                                                                                |
-
-_Emoji Anlamları:_
-
-- ✅ **Aktif**: Doğrudan `.mp4` veya `.m3u8` video akışı üretir ve Stremio/Nuvio'da tıklandığında anında oynatılır.
-- ❌ **Cloudflare WAF**: Kod çalışıyor ve doğrudan video akışı üretiyor ancak hedef site bulut sunucu IP'sini engellediği için akış alınamıyor (Localhost / ev IP'sinde çalışır).
-- ⚠️ **Kısmi**: Çok sıkı bot/captcha koruması mevcut.
-
-> 💡 Bu tablo statiktir; sağlayıcıların **anlık** çalışma durumunu (gecikme, akış sayısı, hata detayı) ana sayfadaki **🩺 Kaynak & Yayın Canlı Testi** panelinden saniyeler içinde görebilirsiniz.
-
-## 🌐 Web Paneli ve Uç Noktalar
-
-`//go:embed` + `html/template` ile ikili dosyaya (binary) gömülü, htmx destekli panel kök adreste (`/`) yayınlanır. Tarayıcıda açtığınızda:
-
-- **Tek tıkla kurulum:** `Stremio'ya Yükle`, `Manifest Kopyala`, `Stremio Web` butonları,
-- **Canlı eklenti durumu:** sunucu, sağlayıcı, katalog ve canlı TV sayıları (`/fragments/status`),
-- **🩺 Kaynak & Yayın Canlı Test Konsolu:** tüm sağlayıcılara gerçek akış araması ve 100+ kanala yayın erişilebilirlik testi, tek tıkla (`pkg/tester`).
-
-| Yöntem | Uç Nokta                    | Açıklama                                                                                                                                                                                                                 |
-| :----- | :-------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| GET    | `/`                         | Web paneli (HTML): kurulum butonları + canlı durum + test konsolu                                                                                                                                                        |
-| GET    | `/manifest.json`            | Stremio manifest (JSON) — kanonik dosya `pkg/manifest/manifest.json` derleme anında gömülür (`//go:embed`) ve birebir servis edilir; kökteki `manifest.json` ona sembolik bağdır, `stremioAddonsConfig` imza bloğu dahil |
-| GET    | `/fragments/status`         | htmx parçası: eklenti durumu kartları                                                                                                                                                                                    |
-| GET    | `/fragments/test/providers` | htmx parçası: sağlayıcı canlı akış arama testi (8 işçi paralel)                                                                                                                                                          |
-| GET    | `/fragments/test/channels`  | htmx parçası: canlı TV kanallarının HTTP `Range` erişilebilirlik testi                                                                                                                                                   |
-| GET    | `/health`                   | Sağlık kontrolü (JSON)                                                                                                                                                                                                   |
-| GET    | `/providers`                | Kayıtlı sağlayıcı listesi (JSON)                                                                                                                                                                                         |
-| GET    | `/catalog/{type}/{id}.json` | Stremio katalog API                                                                                                                                                                                                      |
-| GET    | `/meta/{type}/{id}.json`    | Stremio meta API                                                                                                                                                                                                         |
-| GET    | `/stream/{type}/{id}.json`  | Stremio stream API                                                                                                                                                                                                       |
-| GET    | `/proxy?url=...`            | HLS akış proxy'si (Referer/Origin yeniden yazımı)                                                                                                                                                                        |
-
-### Yerel Çalıştırma
-
-```bash
-go run ./cmd/server -port 8080   # -port verilmezse PORT env değişkeni, o da yoksa 8080 kullanılır
-# Panel:  http://127.0.0.1:8080
-# Test:   http://127.0.0.1:8080/fragments/test/providers
+```text
+https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json
 ```
 
-## 🛠️ Kurulum (Vercel)
+---
 
-Anthology'yi ücretsiz olarak Vercel üzerinde barındırabilirsiniz:
+## 🛠️ Kurulum ve Ekleme (Nuvio)
 
-1. Projeyi kendi GitHub hesabınıza Fork'layın veya Clone'layın.
-2. Vercel'de yeni bir proje oluşturup bu repoyu seçin.
-3. Çevresel Değişkenleri (Environment Variables) ayarlayın:
-   - `TMDB_API_KEY`: Kendi TMDB API anahtarınız (Opsiyonel, standart bir key gömülüdür).
-4. Deploy (Yayınla) butonuna basın.
+1. **Nuvio** uygulamasını açın.
+2. **Ayarlar (Settings)** ➔ **Eklentiler (Plugins / Providers)** sekmesine girin.
+3. **Depo Ekle (Add Repository)** kısmına aşağıdaki bağlantıyı yapıştırın:
+   ```text
+   https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json
+   ```
+4. **Ekle** butonuna tıklayın. Tüm dizi, film ve canlı TV eklentileri otomatik olarak cihazınıza yüklenecektir!
 
-## 🛠️ Kurulum (Netlify)
+---
 
-Anthology'yi ücretsiz olarak Netlify üzerinde barındırabilirsiniz:
+## 🌟 Neden Bu Sistem?
 
-1. Projeyi kendi GitHub hesabınıza Fork'layın veya Clone'layın.
-2. Netlify panelinde **Add new site** -> **Import an existing project** -> **GitHub** adımlarını izleyerek bu repoyu seçin.
-3. Repodaki `netlify.toml` dosyası sayesinde ayarlar otomatik algılanır:
-   - **Build command:** `go build -o netlify/functions/server ./cmd/netlify`
-   - **Publish directory:** `public`
-   - **Functions directory:** `netlify/functions`
-4. Çevresel Değişkenleri (Site configuration -> Environment variables) ayarlayın:
-   - `TMDB_API_KEY`: Kendi TMDB API anahtarınız (Opsiyonel, standart bir key gömülüdür).
-5. **Deploy Anthology** butonuna tıklayın.
+* ⚡ **0 Sunucu & Sınırsız Bant Genişliği:** Eklentiler doğrudan kullanıcının kendi cihazında (telefon, TV, PC) çalışır. Vercel veya Netlify gibi servislerin 100 GB kota sınırlarına takılmazsınız.
+* 🔄 **Otomatik Güncelleme:** GitHub deposunda yapılan her düzeltme ve yeni eklenen kanal, Nuvio kullanıcılarına anında yansır.
+* 🛡️ **Engelsiz Oynatma:** İstekler doğrudan sizin ev internetinizden / cihazınızdan çıktığı için sunucu IP engelleri ve bot korumaları aşılır.
 
-## 🔌 Stremio'ya Ekleme
+---
 
-Vercel veya kendi sunucunuzda (PC/VPS) yayınladıktan sonra Stremio'ya eklemek için:
+## 🍿 Dahil Olan Eklentiler & Sağlayıcılar
 
-**Yol 1 — Web Paneli (Önerilen):** Uygulamanın ana sayfasını tarayıcıda açın ve **Stremio'ya Yükle** butonuna tıklayın. Dilerseniz **Manifest Kopyala** ile URL'i panoya alıp Stremio'ya yapıştırabilir ya da **Stremio Web** ile tarayıcıdan anında kullanabilirsiniz.
+| Eklenti Adı | Tür | Desteklenen Formatlar | Açıklama |
+| :--- | :---: | :---: | :--- |
+| **SineWix** | Film / Dizi / Anime | MP4, MKV | 5000+ HD Türkçe dublaj ve altyazılı içerik arşivi. |
+| **DiziYou** | Dizi | HLS (m3u8) | Hızlı ve popüler yabancı dizi arşivi. |
+| **Rec TV** | Film / Dizi | HLS (m3u8) | Güncel dizi ve popüler yayın kaynakları. |
+| **SezonlukDizi** | Dizi | MP4, MKV | Türkçe dublaj & altyazılı geniş dizi kütüphanesi. |
+| **FilmModu** | Film | MP4, MKV | Full HD film sağlayıcısı. |
+| **Webteİzle** | Film | MP4, MKV | Vidmoly/Sibnet üzerinden yüksek kaliteli filmler. |
+| **JetFilmİzle** | Film | MP4, MKV | Pixeldrain ve yerli MP4 akışları. |
+| **SinemaCX** | Film / Dizi | MP4, MKV, m3u8 | Popüler yerli ve yabancı film arşivi. |
+| **FullHDFilmİzlesene** | Film | MP4, MKV, m3u8 | Full HD film sağlayıcısı. |
+| **AltiYuzAltmisAltiFilm** | Film | HLS (m3u8) | Türkçe dublaj ve altyazılı film kaynağı. |
+| **CinemaCity** | Film / Dizi | MP4, m3u8 | Çok dilli film & dizi eklentisi. |
+| **NetMirror** | Film / Dizi | MP4, m3u8 | Popüler yabancı platform kütüphaneleri. |
+| **VidLink** | Film / Dizi | MP4, m3u8 | TMDB entegrasyonlu global yayın sağlayıcısı. |
+| **MoOnCrOwN M3U & Canlı TV** | Canlı TV / Spor | HLS, m3u8 | 100+ canlı ulusal kanal, spor kanalları ve canlı maçlar. |
 
-**Yol 2 — Manuel:**
+---
 
-1. Stremio uygulamasını açın.
-2. Arama çubuğuna uygulamanızın adresini sonuna `/manifest.json` ekleyerek yazın.
-   - Örnek: `https://senin-anthology-uygulaman.vercel.app/manifest.json` (Veya yerelde çalışıyorsa `http://127.0.0.1:8080/manifest.json`)
-3. "Yükle" (Install) butonuna tıklayın.
+## 📺 Canlı TV, Spor & Maç Yayınları
 
-Hepsi bu kadar! Artık dizi veya filmlere girdiğinizde Anthology kaynakları listelenecektir. Ekleme sonrası hangi kaynakların o an çalıştığını panelden **Kaynakları Test Et** ile doğrulayabilirsiniz.
+Eklentiyle birlikte 100'den fazla ulusal ve spor kanalı özel logolarıyla Nuvio'ya entegre gelir:
+
+* ⚽ **Spor Kanalları:** BeIN Sports 1-5 & Max, S Sport 1-2 & Plus, Tivibu Spor 1-4, Exxen Spor 1-8, Tabii Spor 1-8, Smart Spor 1-2, Eurosport 1-2, TRT Spor & Yıldız, TV8,5, A Spor, HT Spor, Sports TV, FB TV, GS TV, TJK TV, NBA TV, CBC Sport, İdman TV.
+* 🔴 **Canlı Maç Yayınları:** Günlük Süper Lig, Şampiyonlar Ligi ve Avrupa maçları için anlık canlı yayın akışları.
+* 📡 **Ulusal & Haber:** TRT 1, ATV, Kanal D, Show TV, Star TV, NOW TV, TV8, Kanal 7, Beyaz TV, Teve2, A2, 360 TV, NTV, Habertürk, Halk TV, Sözcü TV, Tele1, TGRT Haber, Haber Global, 24 TV, TRT Haber, A Haber, Bloomberg HT.
+* 🎬 **Belgesel & Çocuk:** TRT Belgesel, TRT Çocuk, TRT Müzik vb.
+
+---
+
+## 💻 Geliştirici & Katkıda Bulunma
+
+Yeni bir eklenti veya kaynak eklemek için `providers/` dizini altına `.js` dosyanızı ekleyip `manifest.json` dosyasına kaydetmeniz yeterlidir.
+
+Geri bildirim ve iletişim: [E-Posta](mailto:falsis@proton.me)
