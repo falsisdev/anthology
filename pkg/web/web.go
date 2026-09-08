@@ -46,16 +46,24 @@ func IsHomePath(path string) bool {
 func ServeLanding(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	scheme := "https"
-	if r.TLS == nil && !strings.HasPrefix(r.Header.Get("X-Forwarded-Proto"), "https") {
+	if r.TLS == nil && !strings.HasPrefix(r.Header.Get("X-Forwarded-Proto"), "https") && !strings.HasPrefix(r.Header.Get("x-forwarded-proto"), "https") {
 		scheme = "http"
+	}
+	host := r.Host
+	if host == "" {
+		if h := r.Header.Get("X-Forwarded-Host"); h != "" {
+			host = h
+		} else if h := r.Header.Get("Host"); h != "" {
+			host = h
+		}
 	}
 	data := struct {
 		ManifestURL   string
 		StremioURL    string
 		ProviderCount int
 	}{
-		ManifestURL:   fmt.Sprintf("%s://%s/manifest.json", scheme, r.Host),
-		StremioURL:    fmt.Sprintf("stremio://%s/manifest.json", r.Host),
+		ManifestURL:   fmt.Sprintf("%s://%s/manifest.json", scheme, host),
+		StremioURL:    fmt.Sprintf("stremio://%s/manifest.json", host),
 		ProviderCount: len(provider.All()),
 	}
 	_ = landingTmpl.Execute(w, data)
