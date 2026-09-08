@@ -1,18 +1,18 @@
 <div align="center">
   <img src="assets/logo_1_transparent.png" alt="Anthology Logo" width="140" />
   <h1>Anthology</h1>
-  <p><strong>Nuvio için Doğrulanmış Türkçe Film, Dizi ve Canlı TV/Spor Eklenti Deposu</strong></p>
+  <p><strong>Nuvio için Doğrulanmış Türkçe Film, Dizi, Anime ve Canlı TV/Spor Eklenti Deposu</strong></p>
 
   <p>
     <img src="https://img.shields.io/badge/Nuvio-Eklenti_Deposu-00e676?style=for-the-badge&logo=github&logoColor=white" alt="Nuvio" />
     <img src="https://img.shields.io/badge/Durum-Aktif-00e676?style=for-the-badge" alt="Aktif" />
-    <img src="https://img.shields.io/badge/Eklenti-17_Aktif-3b82f6?style=for-the-badge" alt="17 Aktif Eklenti" />
+    <img src="https://img.shields.io/badge/Eklenti-13_Doğrulanmış-3b82f6?style=for-the-badge" alt="13 Aktif Eklenti" />
   </p>
 
   <a href="https://falsisdev.github.io/anthology">🌐 Web Sitesi</a> &nbsp;|&nbsp;
   <a href="#-kurulum">📲 Kurulum</a> &nbsp;|&nbsp;
-  <a href="#-eklentiler">🎬 Eklentiler</a> &nbsp;|&nbsp;
-  <a href="#-canlı-tv--spor">📡 Canlı TV</a>
+  <a href="#-doğrulanmış-eklentiler">🎬 Eklentiler</a> &nbsp;|&nbsp;
+  <a href="#-canlı-tv--spor-kanalları">📡 Canlı TV</a>
 </div>
 
 ---
@@ -27,47 +27,50 @@
 https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json
 ```
 
-4. **Ekle** butonuna basın — eklentiler otomatik olarak kurulacaktır.
+4. **Ekle** butonuna basın — tüm eklentiler otomatik olarak kurulacaktır.
 
 ---
 
 ## 🎬 Doğrulanmış Eklentiler
 
+> [!NOTE]
+> Tüm eklentiler doğrudan Nuvio video oynatıcısına uygun `.m3u8` HLS veya `.mp4`/`.mkv` akışları döndürür. Bozuk iframe veya oynatılamayan bağlantı içermez.
+
 ### 🍿 Film Kaynakları
 
-| Eklenti | Açıklama | Destek |
-|---|---|:---:|
-| **Anthology Film (M3U)** | On binlerce yerli & yabancı film (Lunedor, Zerk, PowerBoard) | HD / 1080p |
-| **SineWix** | 5000+ HD film, dizi - 1080p çift ses doğrudan oynatma | 1080p DUAL |
-| **Vidlink** | TMDB tabanlı global 4K & 1080p HLS ve MP4 akışları | 4K / 1080p |
-| **FilmModu** | Türkçe dublaj & altyazılı güncel film arşivi | HD |
-| **Webteİzle** | Yüksek kaliteli Türkçe dublaj & altyazı filmler | HD |
-| **FullHDFilmİzlesene** | En popüler Türkçe film platformu | HD |
-| **JetFilmİzle** | Full HD Türkçe dublaj filmler | HD |
-| **SinemaCx** | Yerli ve yabancı sinema arşivi | HD |
-| **666Film** | Türkçe dublaj film arşivi | HD |
-| **CinemaCity** | Çok dilli film ve dizi akışları | HD |
-| **NetMirror** | Popüler platform dizi ve film aynası | HD |
+| Eklenti | Kaynak / Altyapı | Kalite & Format | Dil Desteği |
+|---|---|:---:|:---:|
+| **Anthology Film (M3U)** | Lunedor / Zerk / PowerBoard | 1080p HLS | 🇹🇷 Dublaj & Altyazı |
+| **FilmModu** | filmmodu.one (ImgsAPI) | 4K & 1080p HLS | 🇹🇷 Dublaj & Altyazı |
+| **DiziPal** | dizipal2127.com (Imagestoo) | 1080p HLS | 🇹🇷 Dublaj & Altyazı |
+| **JetFilmİzle** | jetfilmizle.now (Videopark & PlayerX) | 1080p MP4 / HLS | 🇹🇷 Dublaj & Çoklu Dil |
+| **SinemaCX** | sinema.gg (Player.filmizle.in) | 1080p HLS | 🇹🇷 Dublaj & Altyazı |
+| **SineWix** | sinewix (snwixdepo) | 1080p Direct MKV | 🇹🇷 Çift Ses DUAL |
+| **Vidlink** | vidlink.pro (Global CDN) | 4K & 1080p MP4 | 🌐 TR & Global |
 
 ### 📺 Dizi Kaynakları
 
-| Eklenti | Açıklama | Destek |
-|---|---|:---:|
-| **Anthology Dizi (M3U)** | On binlerce yerli ve yabancı dizi bölümü (Zerk, PowerBoard) | HD |
-| **SineWix** | Popüler yabancı diziler (Türkçe dublaj & altyazı) | 1080p DUAL |
-| **Vidlink** | Global dizi bölümleri ve altyazı desteği | 1080p |
-| **DiziYou** | Hızlı Türkçe dublaj ve altyazılı yabancı dizi kaynağı | 1080p |
-| **SezonlukDizi** | Geniş Türkçe dizi ve sezon kütüphanesi | HD |
-| **Vidmody** | Hızlı yabancı dizi akışları | HD |
-| **CinemaCity** | Uluslararası dizi yayınları | HD |
-| **SinemaCx** | Popüler diziler | HD |
+| Eklenti | Kaynak / Altyapı | Kalite & Format | Dil Desteği |
+|---|---|:---:|:---:|
+| **Anthology Dizi (M3U)** | Zerk / Ciner CDN | 1080p MP4 / HLS | 🇹🇷 Yerli & Yabancı |
+| **SezonlukDizi** | sezonlukdizi.cc (VidMoly) | 1080p HLS | 🇹🇷 Dublaj & Altyazı |
+| **DiziMom** | dizimom.diy (HDPlayer) | 1080p HLS | 🇹🇷 Dublaj & Altyazı |
+| **DiziPal** | dizipal2127.com (FormationFeed) | 1080p HLS | 🇹🇷 Dublaj & Altyazı |
+| **DiziYou** | diziyou.one (Storage CDN) | 1080p HLS | 🇹🇷 Dublaj + TR VTT |
+| **SineWix** | sinewix (snwixdepo) | 1080p Direct MKV | 🇹🇷 Çift Ses DUAL |
+| **Vidlink** | vidlink.pro (Global CDN) | 1080p MP4 | 🌐 TR & Global |
+
+### ⛩️ Anime Kaynakları
+
+| Eklenti | Kaynak / Altyapı | Kalite & Format | Dil Desteği |
+|---|---|:---:|:---:|
+| **AnimeciX** | animecix.tv (TauVideo CDN) | 1080p / 720p / 480p MP4 | 🇹🇷 Türkçe Altyazı |
 
 ### 📡 Canlı TV & Spor
 
-| Eklenti | Açıklama | Destek |
-|---|---|:---:|
-| **Anthology Canlı TV** | 80+ Ulusal, Haber ve Spor kanalı (Taranabilir katalog) | Canlı / HLS |
-| **M3U** | M3U Canlı yayın listeleri | Canlı / HLS |
+| Eklenti | Kaynak / Altyapı | Format | İçerik |
+|---|---|:---:|:---:|
+| **Anthology Canlı TV** | M3U Canlı Akış Kataloğu | HLS / M3U8 | 80+ Ulusal, Spor, Haber |
 
 ---
 

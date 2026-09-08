@@ -171,9 +171,9 @@
     <button class="copy-btn" id="copyBtn" onclick="copyManifest()">Kopyala</button>
   </div>
   <div class="stats-row">
-    <div class="stat"><div class="stat-value">17</div><div class="stat-label">Aktif Eklenti</div></div>
-    <div class="stat"><div class="stat-value">11</div><div class="stat-label">Film Kaynağı</div></div>
-    <div class="stat"><div class="stat-value">8</div><div class="stat-label">Dizi Kaynağı</div></div>
+    <div class="stat"><div class="stat-value">13</div><div class="stat-label">Aktif Eklenti</div></div>
+    <div class="stat"><div class="stat-value">7</div><div class="stat-label">Film Kaynağı</div></div>
+    <div class="stat"><div class="stat-value">7</div><div class="stat-label">Dizi Kaynağı</div></div>
     <div class="stat"><div class="stat-value">80+</div><div class="stat-label">Canlı Kanal</div></div>
   </div>
 </div>
@@ -212,7 +212,7 @@
     <p class="section-desc">Sadece gerçek, çalışan akışlar üreten ve Nuvio oynatıcısında sorunsuz açılan kaynaklar.</p>
     <div class="search-bar"><input type="text" id="searchInput" placeholder="Eklenti ara…" oninput="filterProviders()"></div>
     <div class="filter-bar" id="filterBar">
-      <button class="filter-btn active" data-filter="all">Tümü (17)</button>
+      <button class="filter-btn active" data-filter="all">Tümü (13)</button>
       <button class="filter-btn" data-filter="movie">🎬 Film</button>
       <button class="filter-btn" data-filter="tv">📺 Dizi</button>
       <button class="filter-btn" data-filter="live">📡 Canlı / M3U</button>
@@ -263,21 +263,17 @@ const MANIFEST_URL="https://raw.githubusercontent.com/falsisdev/anthology/main/m
 const PROVIDERS=[
   {id:"AnthologyFilmM3U",name:"Anthology Film (M3U)",cats:["movie","live"],domain:null,desc:"On binlerce yerli ve yabancı film arşivi (Lunedor, Zerk, PowerBoard)."},
   {id:"AnthologyDiziM3U",name:"Anthology Dizi (M3U)",cats:["tv","live"],domain:null,desc:"On binlerce yerli ve yabancı dizi bölümü (Zerk, PowerBoard)."},
-  {id:"sinewix",name:"SineWix",cats:["movie","tv"],domain:"sinewix.com",desc:"5000+ HD film, dizi ve anime - 1080p çift ses doğrudan indirme/oynatma."},
+  {id:"sinewix",name:"SineWix",cats:["movie","tv"],domain:"sinewix.com",desc:"5000+ HD film, dizi ve anime - 1080p çift ses doğrudan MKV indirme ve oynatma."},
   {id:"vidlink",name:"Vidlink",cats:["movie","tv"],domain:"vidlink.pro",desc:"TMDB tabanlı global 4K/1080p doğrudan HLS ve MP4 akışları."},
   {id:"m3u.anthology.addon",name:"Anthology Canlı TV",cats:["live"],domain:null,desc:"80+ canlı kanal, spor ve M3U kataloğu (BeIN, S Sport, Exxen vb.)."},
-  {id:"m3u",name:"M3U",cats:["movie","tv","live"],domain:null,desc:"M3U yayın ve film/dizi arşivi."},
-  {id:"cinemacity",name:"CinemaCity",cats:["movie","tv"],domain:"cinemacity.io",desc:"Çok dilli film ve dizi akışları."},
-  {id:"netmirror",name:"NetMirror",cats:["movie","tv"],domain:"netmirror.app",desc:"Netflix, Prime ve Disney platform içerik aynası."},
-  {id:"vidmody",name:"Vidmody",cats:["movie","tv"],domain:"vidmody.com",desc:"Hızlı film ve dizi akışları."},
-  {id:"diziyou",name:"DiziYou",cats:["tv"],domain:"www.diziyou.co",desc:"Türkçe dublaj ve altyazılı yabancı dizi izleme kaynağı."},
-  {id:"filmmodu",name:"FilmModu",cats:["movie"],domain:"filmmodu7.com",desc:"Türkçe dublaj ve altyazılı full HD filmler."},
-  {id:"webteizle",name:"Webteİzle",cats:["movie"],domain:"webteizle.info",desc:"Yüksek kaliteli film arşivi."},
-  {id:"sezonlukdizi",name:"SezonlukDizi",cats:["tv"],domain:"sezonlukdizi.cc",desc:"Geniş yabancı ve yerli dizi kütüphanesi."},
-  {id:"fullhdfilmizlesene",name:"FullHDFilmİzlesene",cats:["movie"],domain:"www.fullhdfilmizlesene.de",desc:"Full HD kalitede film yayınları."},
-  {id:"sinemacx",name:"SinemaCx",cats:["movie","tv"],domain:"www.sinema.cx",desc:"Güncel yabancı ve yerli filmler."},
-  {id:"jetfilmizle",name:"JetFilmİzle",cats:["movie"],domain:"www.jetfilmizle.best",desc:"Türkçe dublaj full HD film arşivi."},
-  {id:"altiyuzaltmisaltifilm",name:"666Film",cats:["movie"],domain:"666film.com",desc:"Dublaj film arşivi."}
+  {id:"filmmodu",name:"FilmModu",cats:["movie"],domain:"filmmodu.one",desc:"Türkçe dublaj ve altyazılı 4K/1080p Full HD ImgsAPI doğrudan HLS akışları."},
+  {id:"dizipal",name:"DiziPal",cats:["movie","tv"],domain:"dizipal2127.com",desc:"Popüler yerli ve yabancı dizi/filmler (Imagestoo & FormationFeed HLS)."},
+  {id:"dizimom",name:"DiziMom",cats:["tv"],domain:"dizimom.diy",desc:"HDPlayer altyapısıyla Türkçe dublaj ve altyazılı doğrudan yabancı diziler."},
+  {id:"sezonlukdizi",name:"SezonlukDizi",cats:["tv"],domain:"sezonlukdizi.cc",desc:"VidMoly altyapısıyla Türkçe dublaj ve altyazılı geniş yabancı dizi arşivi."},
+  {id:"diziyou",name:"DiziYou",cats:["tv"],domain:"diziyou.one",desc:"DiziYou doğrudan depolama akışları ve Türkçe VTT altyazı desteği."},
+  {id:"sinemacx",name:"SinemaCX",cats:["movie"],domain:"sinema.gg",desc:"Sinema.gg ve Filmizle API üzerinden doğrudan 1080p master HLS akışları."},
+  {id:"jetfilmizle",name:"JetFilmİzle",cats:["movie"],domain:"jetfilmizle.now",desc:"Videopark Google Drive doğrudan MP4 ve PlayerX çok dilli HLS master akışları."},
+  {id:"animecix",name:"AnimeciX",cats:["tv","movie"],domain:"animecix.tv",desc:"TauVideo altyapısıyla binlerce anime bölümü (1080p, 720p, 480p doğrudan MP4)."}
 ];
 
 let currentFilter="all";

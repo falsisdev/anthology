@@ -1,136 +1,225 @@
 /**
- * Nuvio Local Scraper - SinemaCX (V42 - Hatalı Bilgi Fix)
+ * Anthology - SinemaCX Provider
+ * Sinema.gg arşivi ve player.filmizle.in API üzerinden
+ * doğrudan master.m3u8 HLS akışları sunar.
  */
 
-var cheerio = require("cheerio-without-node-native");
+var cheerio = require('cheerio-without-node-native');
 
-const PROVIDER_NAME = "SinemaCX";
-const BASE_URL = "https://www.sinema.la";
-const EMPTY_RESULT = [];
+const PROVIDER_NAME = 'SinemaCX';
+const BASE_URL = 'https://www.sinema.gg';
+const TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
 
 const WORKING_HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-    'Referer': 'https://www.sinema.la/'
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'Referer': BASE_URL + '/'
 };
 
-function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
-    return new Promise(function(resolve) {
-        var isMovie = mediaType === 'movie';
-        var tmdbUrl = 'https://api.themoviedb.org/3/' + (isMovie ? 'movie' : 'tv') + '/' + tmdbId + '?language=tr-TR&api_key=4ef0d7355d9ffb5151e987764708ce96';
-        
-        var displayTitle = ""; 
-        var releaseYear = "";
+async function resolveTmdbInfo(id, mediaType) {
+  try {
+    let cleanId = String(id || '').trim();
+    if (cleanId.includes(':')) cleanId = cleanId.split(':')[0];
 
-        fetch(tmdbUrl)
-            .then(res => res.json())
-            .then(data => {
-                var trTitle = (data.title || data.name || "").toLowerCase();
-                var orgTitle = (data.original_title || data.original_name || "").toLowerCase();
-                displayTitle = (data.title || data.name || "Film");
-                releaseYear = (data.release_date || data.first_air_date || "").split("-")[0];
+    let numericId = null;
+    let title = '';
+    let origTitle = '';
+    let year = '';
 
-                var query1 = trTitle.replace(/[:.,\-]/g, ' ').split(" ").slice(0, 3).join(" ");
-                var query2 = orgTitle.replace(/[:.,\-]/g, ' ').split(" ").slice(0, 3).join(" ");
+    if (cleanId.startsWith('tt')) {
+      const findRes = await fetch(`https://api.themoviedb.org/3/find/${cleanId}?api_key=${TMDB_API_KEY}&external_source=imdb_id`);
+      if (findRes.ok) {
+        const fData = await findRes.json();
+        const item = (mediaType === 'tv' || mediaType === 'series')
+          ? (fData.tv_results && fData.tv_results[0])
+          : (fData.movie_results && fData.movie_results[0]);
+        if (item) {
+          numericId = item.id;
+          title = item.name || item.title || '';
+          origTitle = item.original_name || item.original_title || '';
+          year = (item.first_air_date || item.release_date || '').slice(0, 4);
+        }
+      }
+    } else {
+      numericId = cleanId;
+    }
 
-                return searchOnSite(query1, releaseYear).then(res1 => {
-                    if (res1 && res1.score >= 5) return res1;
-                    return searchOnSite(query2, releaseYear).then(res2 => {
-                        if (res2) return res2;
-                        return searchOnSite(orgTitle.split(" ")[0], releaseYear);
-                    });
-                });
-            })
-            .then(result => {
-                if (!result) return resolve(EMPTY_RESULT);
+    if (numericId && (!title || !origTitle)) {
+      const type = (mediaType === 'tv' || mediaType === 'series') ? 'tv' : 'movie';
+      const tRes = await fetch(`https://api.themoviedb.org/3/${type}/${numericId}?api_key=${TMDB_API_KEY}&language=tr-TR`);
+      if (tRes.ok) {
+        const tData = await tRes.json();
+        title = tData.name || tData.title || title;
+        origTitle = tData.original_name || tData.original_title || origTitle;
+        year = (tData.first_air_date || tData.release_date || '').slice(0, 4);
+      }
+    }
 
-                return fetch(result.url, { headers: WORKING_HEADERS }).then(res => res.text()).then(html => {
-                    var $page = cheerio.load(html);
-                    
-                    // --- DİL ANALİZİ (GÜNCELLENDİ) ---
-                    var pageText = $page("body").text().toLowerCase();
-                    var siteTitleLower = result.siteTitle.toLowerCase();
-                    
-                    var langInfo = "HD"; // Varsayılan artık sadece HD
-                    
-                    if (pageText.includes("dublaj") || siteTitleLower.includes("dublaj")) {
-                        langInfo = "Türkçe Dublaj";
-                    } else if (pageText.includes("altyazı") || siteTitleLower.includes("altyazı")) {
-                        langInfo = "Türkçe Altyazı";
-                    }
-                    // "Else" durumunda yani bir şey bulamazsa HD olarak kalacak.
-
-                    var iframeUrl = "";
-                    $page("iframe").each(function() {
-                        var src = $page(this).attr("data-vsrc") || $page(this).attr("src") || "";
-                        if (src.includes("player.filmizle.in")) {
-                            iframeUrl = src.split("?img=")[0];
-                            return false;
-                        }
-                    });
-
-                    if (!iframeUrl) return resolve(EMPTY_RESULT);
-
-                    var videoId = iframeUrl.split("/").pop();
-                    return fetch("https://player.filmizle.in/player/index.php?data=" + videoId + "&do=getVideo", {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                            'X-Requested-With': 'XMLHttpRequest',
-                            'Referer': iframeUrl
-                        },
-                        body: "data=" + videoId + "&do=getVideo"
-                    }).then(r => r.json()).then(json => {
-                        if (json && json.securedLink) {
-                            resolve([{
-                                name: displayTitle,  // Üstte Film İsmi
-                                title: langInfo,     // Altta Dil veya sadece "HD"
-                                url: json.securedLink,
-                                quality: "1080p",
-                                headers: { 'Referer': 'https://player.filmizle.in/' }
-                            }]);
-                        } else { resolve(EMPTY_RESULT); }
-                    });
-                });
-            })
-            .catch(err => {
-                resolve(EMPTY_RESULT);
-            });
-    });
+    return { title, origTitle, year, numericId };
+  } catch (e) {
+    return { title: '', origTitle: '', year: '', numericId: id };
+  }
 }
 
-function searchOnSite(query, year) {
-    if (!query || query.length < 2) return Promise.resolve(null);
-    var cleanQuery = query.toLowerCase().trim();
-    var searchUrl = `${BASE_URL}/?s=` + encodeURIComponent(cleanQuery);
-    
-    return fetch(searchUrl, { headers: WORKING_HEADERS }).then(res => res.text()).then(html => {
-        var $ = cheerio.load(html);
-        var results = [];
+async function searchOnSite(query, year) {
+  if (!query || query.length < 2) return null;
+  const cleanQuery = query.toLowerCase().trim();
+  const searchUrl = `${BASE_URL}/?s=` + encodeURIComponent(cleanQuery);
 
-        $("a").each(function() {
-            var url = $(this).attr("href") || "";
-            var title = $(this).text().toLowerCase().trim();
-            if (!url.startsWith(BASE_URL) || url.includes("/category/") || title.length < 5) return;
+  try {
+    const res = await fetch(searchUrl, { headers: WORKING_HEADERS });
+    if (!res.ok) return null;
+    const html = await res.text();
+    const $ = cheerio.load(html);
+    const results = [];
 
-            var score = 0;
-            var words = cleanQuery.split(" ");
-            words.forEach(w => { if (title.includes(w)) score += 2; });
-            if (year && title.includes(year)) score += 10;
-            if (url.includes(cleanQuery.replace(/\s+/g, '-'))) score += 5;
+    const stopWords = new Set(['the', 'a', 'an', 've', 'ile', 'der', 'die', 'das', 'le', 'la']);
+    const significantWords = cleanQuery.split(/\s+/).filter(w => w.length > 1 && !stopWords.has(w));
 
-            if (score > 3) {
-                results.push({ url: url, siteTitle: $(this).text().trim(), score: score });
-            }
-        });
+    $('a.baslik, a.resim').each(function() {
+      const url = $(this).attr('href') || '';
+      const rawTitle = $(this).attr('title') || $(this).find('span').first().text().trim() || $(this).text().trim();
+      const titleLower = rawTitle.toLowerCase();
+      if (!url.includes('sinema.gg') || url.includes('/category/') || url.includes('/search/') || url.includes('/tag/') || rawTitle.length < 2) return;
 
-        if (results.length > 0) {
-            results.sort((a, b) => b.score - a.score);
-            return results[0];
+      let score = 0;
+      let matchedWordCount = 0;
+      significantWords.forEach(w => {
+        if (titleLower.includes(w) || url.includes(w)) {
+          score += 10;
+          matchedWordCount++;
         }
-        return null;
+      });
+
+      if (matchedWordCount === significantWords.length && significantWords.length > 0) {
+        score += 15;
+      }
+
+      if (year && (titleLower.includes(year) || url.includes(year))) score += 10;
+      if (url.includes(cleanQuery.replace(/\s+/g, '-'))) score += 8;
+
+      // Penalize sequels/extra words if we didn't search for them
+      const extraWords = titleLower.split(/\s+/).filter(w => !stopWords.has(w) && !significantWords.includes(w));
+      // Sequel numbers like 2, 3, 4 when we didn't search them
+      const hasSequel = /[\s\-_]([2-9]|ii|iii|iv|v)($|[\s\-_])/i.test(titleLower) || /[\s\-_]([2-9]|ii|iii|iv|v)($|[\s\-_])/i.test(url);
+      if (hasSequel && !/[\s\-_]([2-9]|ii|iii|iv|v)/i.test(cleanQuery)) {
+        score -= 25;
+      }
+      score -= extraWords.length * 2;
+
+      if (score > 5) {
+        results.push({ url: url, siteTitle: rawTitle, score: score });
+      }
     });
+
+    if (results.length > 0) {
+      results.sort((a, b) => b.score - a.score);
+      return results[0];
+    }
+    return null;
+  } catch (err) {
+    return null;
+  }
+}
+
+async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
+  try {
+    if (mediaType === 'tv' || mediaType === 'series') return [];
+
+    const info = await resolveTmdbInfo(tmdbId, mediaType);
+    const trTitle = (info.title || '').trim();
+    const orgTitle = (info.origTitle || '').trim();
+    const displayTitle = trTitle || orgTitle || 'Film';
+    const releaseYear = info.year;
+
+    let result = null;
+    const searchCandidates = [];
+    if (orgTitle) {
+      searchCandidates.push(orgTitle);
+      const withoutThe = orgTitle.replace(/^the\s+/i, '').trim();
+      if (withoutThe && withoutThe !== orgTitle) searchCandidates.push(withoutThe);
+    }
+    if (trTitle && trTitle !== orgTitle) {
+      searchCandidates.push(trTitle);
+      const withoutTheTr = trTitle.replace(/^the\s+/i, '').trim();
+      if (withoutTheTr && withoutTheTr !== trTitle) searchCandidates.push(withoutTheTr);
+    }
+
+    for (const cand of searchCandidates) {
+      result = await searchOnSite(cand, releaseYear);
+      if (result && result.score >= 10) break;
+    }
+
+    if (!result || !result.url) return [];
+
+    const pageRes = await fetch(result.url, { headers: WORKING_HEADERS });
+    if (!pageRes.ok) return [];
+    const html = await pageRes.text();
+    const $page = cheerio.load(html);
+
+    const pageText = $page('body').text().toLowerCase();
+    let langInfo = '1080p';
+    if (pageText.includes('dublaj')) {
+      langInfo = '🇹🇷 TR Dublaj';
+    } else if (pageText.includes('altyazı')) {
+      langInfo = '🌐 TR Altyazı';
+    }
+
+    let iframeUrl = '';
+    $page('iframe').each(function() {
+      const src = $page(this).attr('data-vsrc') || $page(this).attr('src') || '';
+      if (src.toLowerCase().includes('filmizle.in')) {
+        iframeUrl = src.split('?img=')[0];
+        return false;
+      }
+    });
+
+    if (!iframeUrl) return [];
+
+    const videoId = iframeUrl.split('/').pop().split('?')[0];
+    const apiURL = 'https://player.filmizle.in/player/index.php?data=' + videoId + '&do=getVideo';
+
+    const params = new URLSearchParams();
+    params.append('hash', videoId);
+    params.append('r', result.url);
+
+    const r = await fetch(apiURL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'X-Requested-With': 'XMLHttpRequest',
+        'Referer': iframeUrl.toLowerCase(),
+        'User-Agent': WORKING_HEADERS['User-Agent']
+      },
+      body: params.toString()
+    });
+
+    if (!r.ok) return [];
+    const json = await r.json();
+
+    if (json && json.securedLink) {
+      return [{
+        name: displayTitle,
+        title: `⌜ SinemaCX ⌟ | ${langInfo}`,
+        url: json.securedLink,
+        quality: '1080p',
+        type: 'hls',
+        provider: 'sinemacx',
+        headers: {
+          'Referer': 'https://player.filmizle.in/',
+          'User-Agent': WORKING_HEADERS['User-Agent']
+        }
+      }];
+    }
+
+    return [];
+  } catch (err) {
+    return [];
+  }
 }
 
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { getStreams: getStreams };
+  module.exports = { getStreams: getStreams };
+}
+if (typeof globalThis !== 'undefined') {
+  globalThis.getStreams = getStreams;
 }
