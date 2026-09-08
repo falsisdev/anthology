@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anthology - Nuvio Eklenti Deposu</title>
+  <link rel="icon" type="image/png" href="assets/logo_1_transparent.png">
+  <style>
+    :root {
+      --bg: #07090e;
+      --card-bg: rgba(18, 22, 32, 0.88);
+      --card-inner: rgba(255, 255, 255, 0.035);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.18);
+      --accent: #00e676;
+      --accent-glow: rgba(0, 230, 118, 0.3);
+      --accent-blue: #3b82f6;
+      --accent-blue-glow: rgba(59, 130, 246, 0.25);
+      --text: #f3f4f6;
+      --text-muted: #9ca3af;
+      --text-dim: #6b7280;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: radial-gradient(circle at 50% 0%, #172033 0%, #0a0c13 50%, #050608 100%);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 860px;
+      width: 100%;
+    }
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      padding: 48px 40px;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.04);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    .header-section {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .logo-container {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 20px auto;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    }
+    .logo {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 230, 118, 0.1);
+      border: 1px solid rgba(0, 230, 118, 0.3);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+    .badge .dot {
+      width: 7px;
+      height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--accent);
+    }
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 16px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #00e676 0%, #00b0ff 100%);
+      color: #000;
+      box-shadow: 0 8px 24px var(--accent-glow);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px var(--accent-glow);
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+    .manifest-bar {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .manifest-code {
+      flex: 1;
+      font-family: ui-monospace, monospace;
+      font-size: 13px;
+      color: #7dd3fc;
+      overflow-x: auto;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    .copy-icon-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s;
+    }
+    .copy-icon-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+    .grid-card {
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      transition: all 0.2s;
+    }
+    .grid-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+    .grid-card-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .grid-card-desc {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .section-title {
+      font-size: 18px;
+      font-weight: 800;
+      margin: 28px 0 12px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 18px;
+    }
+    .step-num {
+      background: var(--accent);
+      color: #000;
+      font-size: 13px;
+      font-weight: 800;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-text {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #1e293b;
+      color: #f8fafc;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 600;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 100;
+    }
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="card">
+      <div class="header-section">
+        <div class="logo-container">
+          <img src="assets/logo_1_transparent.png" alt="Anthology Logo" class="logo">
+        </div>
+        <div class="badge">
+          <span class="dot"></span>
+          <span>Nuvio Eklenti Deposu • Aktif</span>
+        </div>
+        <h1>Anthology</h1>
+        <p class="subtitle">Nuvio uygulaması için optimize edilmiş 20+ Türkçe Dizi, Film, Anime ve Canlı TV/Spor eklenti deposu.</p>
+      </div>
+
+      <div class="actions">
+        <button onclick="copyManifest()" class="btn btn-primary">
+          📋 Depo Linkini Kopyala
+        </button>
+        <a href="https://github.com/falsisdev/anthology" target="_blank" class="btn btn-secondary">
+          ⭐ GitHub'da Gör
+        </a>
+      </div>
+
+      <div class="manifest-bar">
+        <span class="manifest-code" id="manifestUrl">https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json</span>
+        <button onclick="copyManifest()" class="copy-icon-btn">
+          Kopyala
+        </button>
+      </div>
+
+      <div class="section-title">🚀 Nuvio Uygulamasına Nasıl Eklenir?</div>
+      <div class="steps">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-text"><strong>Nuvio</strong> uygulamasını açın ve <strong>Ayarlar (Settings)</strong> bölümüne girin.</div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-text"><strong>Eklentiler (Plugins / Providers)</strong> sekmesine gidip <strong>Depo Ekle (Add Repository)</strong> butonuna dokunun.</div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-text">Yukarıdaki <code>manifest.json</code> bağlantısını yapıştırıp onaylayın. Eklentiler anında yüklenecektir!</div>
+        </div>
+      </div>
+
+      <div class="section-title">🍿 Dahil Olan Eklentiler</div>
+      <div class="grid">
+        <div class="grid-card">
+          <div class="grid-card-title">🎬 SineWix</div>
+          <div class="grid-card-desc">5000+ HD film, dizi ve anime arşivi.</div>
+        </div>
+        <div class="grid-card">
+          <div class="grid-card-title">📺 DiziYou</div>
+          <div class="grid-card-desc">Popüler Türkçe dublaj & altyazılı yabancı diziler.</div>
+        </div>
+        <div class="grid-card">
+          <div class="grid-card-title">⚡ Rec TV</div>
+          <div class="grid-card-desc">Hızlı ve güncel popüler dizi/yayın akışları.</div>
+        </div>
+        <div class="grid-card">
+          <div class="grid-card-title">🍿 SezonlukDizi</div>
+          <div class="grid-card-desc">Geniş Türkçe dublaj & altyazılı dizi kütüphanesi.</div>
+        </div>
+        <div class="grid-card">
+          <div class="grid-card-title">🎥 FilmModu & JetFilm</div>
+          <div class="grid-card-desc">Full HD yabancı ve yerli film arşivi.</div>
+        </div>
+        <div class="grid-card">
+          <div class="grid-card-title">📡 Canlı TV & Spor</div>
+          <div class="grid-card-desc">BeIN, S Sport, Exxen, Tivibu, Tabii ve 100+ ulusal kanal.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="toast" class="toast">Link kopyalandı!</div>
+
+  <script>
+    const manifestURL = "https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json";
+
+    function showToast(msg) {
+      const t = document.getElementById("toast");
+      t.textContent = msg;
+      t.classList.add("show");
+      setTimeout(() => t.classList.remove("show"), 2800);
+    }
+
+    function copyManifest() {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(manifestURL).then(() => {
+          showToast("📋 Nuvio Depo linki panoya kopyalandı!");
+        }).catch(() => fallbackCopy());
+      } else {
+        fallbackCopy();
+      }
+    }
+
+    function fallbackCopy() {
+      const ta = document.createElement("textarea");
+      ta.value = manifestURL;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+      showToast("📋 Nuvio Depo linki panoya kopyalandı!");
+    }
+  </script>
+</body>
+</html>
