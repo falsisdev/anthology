@@ -503,6 +503,14 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	if r.Host == "" {
+		if h := r.Header.Get("X-Forwarded-Host"); h != "" {
+			r.Host = h
+		} else if h := r.Header.Get("Host"); h != "" {
+			r.Host = h
+		}
+	}
+
 	reqPath := r.URL.Path
 
 	// If r.URL.Path was rewritten by Vercel to /api/index.go or /api, fallback to r.RequestURI
