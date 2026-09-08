@@ -225,7 +225,7 @@ func (p *Provider) GetStreams(ctx context.Context, media models.MediaInfo) ([]mo
 				strings.Contains(idNorm, targetNorm) || strings.Contains(nameNorm, targetNorm) {
 				streams = append(streams, models.Stream{
 					Name:     ch.Name,
-					Title:    fmt.Sprintf("⌜ MoOnCrOwN ⌟ | Canlı TV (%s)", ch.Name),
+					Title:    fmt.Sprintf("⌜ Anthology ⌟ | Canlı TV (%s)", ch.Name),
 					URL:      ch.URL,
 					Provider: ID,
 					IsLive:   true,
@@ -329,7 +329,7 @@ func (p *Provider) GetLiveStreamByID(ctx context.Context, channelID string) (*mo
 	}
 	return &models.Stream{
 		Name:     ch.Name,
-		Title:    fmt.Sprintf("⌜ MoOnCrOwN ⌟ | Canlı TV (%s)", ch.Name),
+		Title:    fmt.Sprintf("⌜ Anthology ⌟ | Canlı TV (%s)", ch.Name),
 		URL:      ch.URL,
 		Provider: ID,
 		IsLive:   true,

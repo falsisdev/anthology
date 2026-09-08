@@ -303,7 +303,7 @@ func (s *Server) handleStream(w http.ResponseWriter, r *http.Request) {
 			"streams": []stremioStream{
 				{
 					Name:  "Canlı TV",
-					Title: "⌜ MoOnCrOwN Canlı ⌟ | " + ch.Name,
+					Title: "⌜ Anthology Canlı ⌟ | " + ch.Name,
 					URL:   ch.URL,
 				},
 			},

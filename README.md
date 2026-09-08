@@ -59,7 +59,7 @@ https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json
 | **CinemaCity** | Film / Dizi | MP4, m3u8 | Çok dilli film & dizi eklentisi. |
 | **NetMirror** | Film / Dizi | MP4, m3u8 | Popüler yabancı platform kütüphaneleri. |
 | **VidLink** | Film / Dizi | MP4, m3u8 | TMDB entegrasyonlu global yayın sağlayıcısı. |
-| **MoOnCrOwN M3U & Canlı TV** | Canlı TV / Spor | HLS, m3u8 | 100+ canlı ulusal kanal, spor kanalları ve canlı maçlar. |
+| **Anthology M3U & Canlı TV** | Canlı TV / Spor | HLS, m3u8 | 100+ canlı ulusal kanal, spor kanalları ve canlı maçlar. |
 
 ---
 

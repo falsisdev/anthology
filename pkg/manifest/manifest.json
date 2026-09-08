@@ -131,7 +131,7 @@
     { "id": "sinemacx", "name": "SinemaCX", "supportedTypes": ["movie", "tv"] },
     {
       "id": "m3u",
-      "name": "MoOnCrOwN IPTV & VOD",
+      "name": "Anthology IPTV & VOD",
       "supportedTypes": ["movie", "tv", "live"]
     },
     { "id": "vidlink", "name": "Vidlink", "supportedTypes": ["movie", "tv"] }

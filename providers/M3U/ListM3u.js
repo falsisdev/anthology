@@ -1,9 +1,9 @@
 /**
- * MoOnCrOwN - V27 (Full Meta & Stream Matcher)
+ * Anthology - V27 (Full Meta & Stream Matcher)
  * tvg-id, tvg-name veya virgül sonrası (star, tmdb_atv vb.) eşleşme yapar.
  */
 
-var M3U_URL = "https://raw.githubusercontent.com/mooncrown04/nuvio/refs/heads/master/liste/canli.m3u";
+var M3U_URL = "https://raw.githubusercontent.com/falsisdev/anthology/main/providers/M3U/Liste/canli.m3u";
 
 var _HEADERS = {
     'User-Agent': 'VLC/3.0.18',
@@ -17,16 +17,16 @@ function getMeta(args) {
     
     if (!targetId) return Promise.resolve({ meta: null });
 
-    console.error('[MoOnCrOwN] Meta İsteği Geldi:', targetId);
+    console.error('[Anthology] Meta İsteği Geldi:', targetId);
 
     return Promise.resolve({
         meta: {
             id: targetId,
             type: "tv",
             name: "Canlı Yayın",
-            poster: "https://i.imgur.com/Dlsm9XP.png",
-            background: "https://i.imgur.com/Dlsm9XP.png",
-            description: "MoOnCrOwN IPTV Kanalı",
+            poster: "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+            background: "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+            description: "Anthology IPTV Kanalı",
             // Oynatıcının yayını sorması için gerekli video objesi
             videos: [{
                 id: targetId,
@@ -41,7 +41,7 @@ function getMeta(args) {
 // M3U içinden asıl .m3u8 linkini bulan kısım.
 function getStreams(args) {
     var targetId = (typeof args === 'string') ? args : (args ? args.id : "");
-    console.error('[MoOnCrOwN] Yayın Sorgulanıyor:', targetId);
+    console.error('[Anthology] Yayın Sorgulanıyor:', targetId);
 
     return new Promise(function(resolve) {
         if (!targetId) return resolve({ streams: [] });
@@ -69,13 +69,13 @@ function getStreams(args) {
 
                         // Üçlü kontrol (ID, Name veya Virgül Sonrası)
                         if (tvgId === searchKey || tvgName === searchKey || aliasName === searchKey) {
-                            console.error('[MoOnCrOwN] Eşleşme Başarılı:', aliasName);
+                            console.error('[Anthology] Eşleşme Başarılı:', aliasName);
                             
                             for (var j = i + 1; j < lines.length; j++) {
                                 var urlLine = lines[j].trim();
                                 if (urlLine && urlLine.indexOf("http") === 0) {
                                     streams.push({
-                                        name: '⌜ MoOnCrOwN ⌟',
+                                        name: '⌜ Anthology ⌟',
                                         title: 'Canlı TV (ID: ' + aliasName + ')',
                                         url: urlLine,
                                         headers: _HEADERS,
@@ -93,7 +93,7 @@ function getStreams(args) {
                 resolve({ streams: streams });
             })
             .catch(function(err) {
-                console.error('[MoOnCrOwN] Bağlantı Hatası:', err.message);
+                console.error('[Anthology] Bağlantı Hatası:', err.message);
                 resolve({ streams: [] });
             });
     });
