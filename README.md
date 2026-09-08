@@ -18,44 +18,42 @@
 
 ## 📲 Kurulum
 
-Nuvio uygulamasında bu depoyu kullanmak için şu adımları izleyin:
-
 1. **Nuvio** uygulamasını açın.
-2. **Ayarlar (Settings)** → **Eklentiler (Plugins / Providers)** bölümüne girin.
-3. **Depo Ekle (Add Repository)** seçeneğine dokunun ve şu adresi yapıştırın:
+2. **Ayarlar** → **Eklentiler** bölümüne girin.
+3. **Depo Ekle** seçeneğine dokunup şu adresi yapıştırın:
 
 ```
 https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json
 ```
 
-4. **Ekle** butonuna basın. 47 eklentinin tamamı cihazınıza otomatik olarak yüklenir.
+4. **Ekle** butonuna basın — tüm eklentiler otomatik yüklenir.
 
 ---
 
 ## 🎬 Eklentiler
 
-### 🍿 Film (16 Kaynak)
+### 🍿 Film
 
 | Eklenti | Açıklama |
 |---|---|
 | **SineWix** | 5000+ HD film, dizi ve anime arşivi |
-| **FilmModu** | Full HD film sağlayıcısı |
+| **FilmModu** | HD film arşivi |
 | **HDFilmCehennemi** | Türkiye'nin en popüler film platformu |
-| **FilmKovası** | Türkçe dublaj ve altyazılı geniş film arşivi |
+| **FilmKovası** | Türkçe dublaj ve altyazılı filmler |
 | **FilmMakinesi** | Geniş film kütüphanesi |
 | **FilmEkseni** | HD film arşivi |
 | **Filmhane** | Dublaj & altyazılı filmler |
 | **FilmiFullİzle** | Popüler film arşivleri |
-| **FilmZal** | Sinema ve film yayınları |
-| **HDFilmDelisi** | Full HD film izleme kaynağı |
-| **SetFilmİzle** | HD kalitede film seçenekleri |
+| **FilmZal** | Sinema yayınları |
+| **HDFilmDelisi** | Full HD filmler |
+| **SetFilmİzle** | HD film seçenekleri |
 | **TekFullFilmİzle** | Tek parça full HD filmler |
 | **Sinezy** | Film & dizi arşivi |
 | **JetFilmİzle** | Hızlı film erişimi |
 | **SinemaCx** | Yerli & yabancı film arşivi |
 | **WebteİZle** | Yüksek kaliteli filmler |
 
-### 📺 Dizi (14 Kaynak)
+### 📺 Dizi
 
 | Eklenti | Açıklama |
 |---|---|
@@ -65,65 +63,63 @@ https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json
 | **Dizilla** | En popüler yabancı diziler |
 | **Dizimag** | Güncel bölümler |
 | **Dizimom** | Türkçe altyazılı yabancı diziler |
-| **Dizipal** | Güncel dizi & sinema filmleri |
+| **Dizipal** | Güncel dizi & film |
 | **Diziwatch** | Dizi ve anime içerikleri |
-| **Diziyo** | Yabancı dizi izleme kaynağı |
+| **Diziyo** | Yabancı dizi |
 | **DDizi** | Yerli ve yabancı dizi arşivi |
 | **SezonlukDizi** | Geniş Türkçe dizi kütüphanesi |
 | **YabancıDizi** | Yabancı dizi yayınları |
 | **Rec TV** | Güncel yayın kaynakları |
-| **Sinezy** | Film & dizi arşivi |
 
-### ⛩️ Anime (8 Kaynak)
+### ⛩️ Anime
 
 | Eklenti | Açıklama |
 |---|---|
 | **AnimeciX** | Türkiye'nin en büyük anime arşivi |
-| **Tranimeizle** | Türkçe altyazılı geniş anime kütüphanesi |
+| **Tranimeizle** | Türkçe altyazılı anime |
 | **Animexe** | Anime dizi ve filmleri |
 | **AnimPow** | Güncel anime yayınları |
-| **AsyaAnimeleri** | Anime & Asya dizileri arşivi |
-| **OpenAni** | Açık anime izleme platformu |
-| **SeiCode** | Anime dizi ve sinema filmleri |
-| **Acheriya** | Türkçe anime izleme kaynağı |
+| **AsyaAnimeleri** | Anime & Asya dizileri |
+| **OpenAni** | Açık anime platformu |
+| **SeiCode** | Anime dizi ve sinema |
+| **Acheriya** | Türkçe anime |
 
-### 🌍 Global & Çok Dilli (4 Kaynak)
+### 🌍 Global
 
 | Eklenti | Açıklama |
 |---|---|
-| **CinemaCity** | Çok dilli film & dizi eklentisi |
-| **Vidlink** | TMDB entegrasyonlu global yayın sağlayıcısı |
-| **NetMirror** | Popüler yabancı platform kütüphaneleri |
-| **Vidmody** | Hızlı ve güvenilir film/dizi akışları |
+| **CinemaCity** | Çok dilli film & dizi |
+| **Vidlink** | TMDB entegrasyonlu global sağlayıcı |
+| **NetMirror** | Yabancı platform içerikleri |
+| **Vidmody** | Hızlı film/dizi akışları |
 
 ### 📡 Canlı TV, Spor & M3U
 
 | Eklenti | Açıklama |
 |---|---|
-| **Anthology Canlı TV** | 100+ canlı ulusal kanal, spor kanalları |
+| **Anthology Canlı TV** | 100+ canlı kanal & spor |
 | **M3U** | M3U yayın listesi |
-| **Anthology Dizi M3U** | M3U dizi arşivi |
-| **Anthology Film M3U** | M3U film arşivi |
+| **Dizi M3U** | M3U dizi arşivi |
+| **Film M3U** | M3U film arşivi |
 
 ---
 
-## 📡 Canlı TV & Spor Kanalları
+## 📡 Canlı TV & Spor
 
-- ⚽ **Spor:** BeIN Sports 1–5 & Max, S Sport 1–2 & Plus, Tivibu Spor 1–4, Exxen Spor 1–8, Tabii Spor 1–8, Smart Spor 1–2, Eurosport 1–2, TRT Spor & Yıldız, NBA TV, A Spor, HT Spor, TV8,5, FB TV, GS TV
-- 📰 **Haber & Ulusal:** TRT 1, ATV, Kanal D, Show TV, Star TV, TV8, NTV, CNN Türk, Habertürk, Halk TV, A Haber, TRT Haber
-- 🎬 **Diğer:** TRT Belgesel, TRT Çocuk, TRT Müzik, Beyaz TV ve daha fazlası
+- ⚽ **Spor:** BeIN Sports 1–5 & Max, S Sport 1–2 & Plus, Tivibu Spor 1–4, Exxen Spor 1–8, Tabii Spor 1–8, Eurosport 1–2, NBA TV, A Spor
+- 📰 **Haber:** NTV, CNN Türk, Habertürk, TRT Haber, A Haber, Halk TV
+- 📺 **Ulusal:** TRT 1, ATV, Kanal D, Show TV, Star TV, TV8, Kanal 7
+- 🎬 **Diğer:** TRT Belgesel, TRT Çocuk, TRT Müzik
 
 ---
 
-## 💬 İletişim & Katkı
+## 💬 İletişim
 
-Bir sorun mu gördünüz veya yeni bir kaynak eklemek mi istiyorsunuz?
-
-- **GitHub Issues:** [Sorun bildir](https://github.com/falsisdev/anthology/issues)
-- **E-posta:** [falsis@proton.me](mailto:falsis@proton.me)
+- [GitHub Issues](https://github.com/falsisdev/anthology/issues)
+- [falsis@proton.me](mailto:falsis@proton.me)
 
 ---
 
 <div align="center">
-  <sub>Anthology &nbsp;·&nbsp; <a href="https://github.com/falsisdev/anthology">github.com/falsisdev/anthology</a></sub>
+  <sub>Anthology · <a href="https://github.com/falsisdev/anthology">github.com/falsisdev/anthology</a></sub>
 </div>
