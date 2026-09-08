@@ -1,17 +1,18 @@
 <div align="center">
   <img src="assets/logo_1_transparent.png" alt="Anthology Logo" width="140" />
   <h1>Anthology</h1>
-  <p><strong>Nuvio için 40+ Türkçe Film, Dizi, Anime ve Canlı TV Eklenti Deposu</strong></p>
+  <p><strong>Nuvio için Doğrulanmış Türkçe Film, Dizi ve Canlı TV/Spor Eklenti Deposu</strong></p>
 
   <p>
     <img src="https://img.shields.io/badge/Nuvio-Eklenti_Deposu-00e676?style=for-the-badge&logo=github&logoColor=white" alt="Nuvio" />
     <img src="https://img.shields.io/badge/Durum-Aktif-00e676?style=for-the-badge" alt="Aktif" />
-    <img src="https://img.shields.io/badge/Eklenti-47%2B-3b82f6?style=for-the-badge" alt="47+ Eklenti" />
+    <img src="https://img.shields.io/badge/Eklenti-17_Aktif-3b82f6?style=for-the-badge" alt="17 Aktif Eklenti" />
   </p>
 
   <a href="https://falsisdev.github.io/anthology">🌐 Web Sitesi</a> &nbsp;|&nbsp;
   <a href="#-kurulum">📲 Kurulum</a> &nbsp;|&nbsp;
-  <a href="#-eklentiler">🎬 Eklentiler</a>
+  <a href="#-eklentiler">🎬 Eklentiler</a> &nbsp;|&nbsp;
+  <a href="#-canlı-tv--spor">📡 Canlı TV</a>
 </div>
 
 ---
@@ -20,96 +21,62 @@
 
 1. **Nuvio** uygulamasını açın.
 2. **Ayarlar** → **Eklentiler** bölümüne girin.
-3. **Depo Ekle** seçeneğine dokunup şu adresi yapıştırın:
+3. **Depo Ekle** seçeneğine dokunup aşağıdaki bağlantıyı yapıştırın:
 
-```
+```text
 https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json
 ```
 
-4. **Ekle** butonuna basın — tüm eklentiler otomatik yüklenir.
+4. **Ekle** butonuna basın — eklentiler otomatik olarak kurulacaktır.
 
 ---
 
-## 🎬 Eklentiler
+## 🎬 Doğrulanmış Eklentiler
 
-### 🍿 Film
+### 🍿 Film Kaynakları
 
-| Eklenti | Açıklama |
-|---|---|
-| **SineWix** | 5000+ HD film, dizi ve anime arşivi |
-| **FilmModu** | HD film arşivi |
-| **HDFilmCehennemi** | Türkiye'nin en popüler film platformu |
-| **FilmKovası** | Türkçe dublaj ve altyazılı filmler |
-| **FilmMakinesi** | Geniş film kütüphanesi |
-| **FilmEkseni** | HD film arşivi |
-| **Filmhane** | Dublaj & altyazılı filmler |
-| **FilmiFullİzle** | Popüler film arşivleri |
-| **FilmZal** | Sinema yayınları |
-| **HDFilmDelisi** | Full HD filmler |
-| **SetFilmİzle** | HD film seçenekleri |
-| **TekFullFilmİzle** | Tek parça full HD filmler |
-| **Sinezy** | Film & dizi arşivi |
-| **JetFilmİzle** | Hızlı film erişimi |
-| **SinemaCx** | Yerli & yabancı film arşivi |
-| **WebteİZle** | Yüksek kaliteli filmler |
+| Eklenti | Açıklama | Destek |
+|---|---|:---:|
+| **Anthology Film (M3U)** | On binlerce yerli & yabancı film (Lunedor, Zerk, PowerBoard) | HD / 1080p |
+| **SineWix** | 5000+ HD film, dizi - 1080p çift ses doğrudan oynatma | 1080p DUAL |
+| **Vidlink** | TMDB tabanlı global 4K & 1080p HLS ve MP4 akışları | 4K / 1080p |
+| **FilmModu** | Türkçe dublaj & altyazılı güncel film arşivi | HD |
+| **Webteİzle** | Yüksek kaliteli Türkçe dublaj & altyazı filmler | HD |
+| **FullHDFilmİzlesene** | En popüler Türkçe film platformu | HD |
+| **JetFilmİzle** | Full HD Türkçe dublaj filmler | HD |
+| **SinemaCx** | Yerli ve yabancı sinema arşivi | HD |
+| **666Film** | Türkçe dublaj film arşivi | HD |
+| **CinemaCity** | Çok dilli film ve dizi akışları | HD |
+| **NetMirror** | Popüler platform dizi ve film aynası | HD |
 
-### 📺 Dizi
+### 📺 Dizi Kaynakları
 
-| Eklenti | Açıklama |
-|---|---|
-| **DiziYou** | Hızlı yabancı dizi arşivi |
-| **Dizibox** | Popüler yabancı dizi platformu |
-| **Dizigom** | Türkçe dublaj & altyazı |
-| **Dizilla** | En popüler yabancı diziler |
-| **Dizimag** | Güncel bölümler |
-| **Dizimom** | Türkçe altyazılı yabancı diziler |
-| **Dizipal** | Güncel dizi & film |
-| **Diziwatch** | Dizi ve anime içerikleri |
-| **Diziyo** | Yabancı dizi |
-| **DDizi** | Yerli ve yabancı dizi arşivi |
-| **SezonlukDizi** | Geniş Türkçe dizi kütüphanesi |
-| **YabancıDizi** | Yabancı dizi yayınları |
-| **Rec TV** | Güncel yayın kaynakları |
+| Eklenti | Açıklama | Destek |
+|---|---|:---:|
+| **Anthology Dizi (M3U)** | On binlerce yerli ve yabancı dizi bölümü (Zerk, PowerBoard) | HD |
+| **SineWix** | Popüler yabancı diziler (Türkçe dublaj & altyazı) | 1080p DUAL |
+| **Vidlink** | Global dizi bölümleri ve altyazı desteği | 1080p |
+| **DiziYou** | Hızlı Türkçe dublaj ve altyazılı yabancı dizi kaynağı | 1080p |
+| **SezonlukDizi** | Geniş Türkçe dizi ve sezon kütüphanesi | HD |
+| **Vidmody** | Hızlı yabancı dizi akışları | HD |
+| **CinemaCity** | Uluslararası dizi yayınları | HD |
+| **SinemaCx** | Popüler diziler | HD |
 
-### ⛩️ Anime
+### 📡 Canlı TV & Spor
 
-| Eklenti | Açıklama |
-|---|---|
-| **AnimeciX** | Türkiye'nin en büyük anime arşivi |
-| **Tranimeizle** | Türkçe altyazılı anime |
-| **Animexe** | Anime dizi ve filmleri |
-| **AnimPow** | Güncel anime yayınları |
-| **AsyaAnimeleri** | Anime & Asya dizileri |
-| **OpenAni** | Açık anime platformu |
-| **SeiCode** | Anime dizi ve sinema |
-| **Acheriya** | Türkçe anime |
-
-### 🌍 Global
-
-| Eklenti | Açıklama |
-|---|---|
-| **CinemaCity** | Çok dilli film & dizi |
-| **Vidlink** | TMDB entegrasyonlu global sağlayıcı |
-| **NetMirror** | Yabancı platform içerikleri |
-| **Vidmody** | Hızlı film/dizi akışları |
-
-### 📡 Canlı TV, Spor & M3U
-
-| Eklenti | Açıklama |
-|---|---|
-| **Anthology Canlı TV** | 100+ canlı kanal & spor |
-| **M3U** | M3U yayın listesi |
-| **Dizi M3U** | M3U dizi arşivi |
-| **Film M3U** | M3U film arşivi |
+| Eklenti | Açıklama | Destek |
+|---|---|:---:|
+| **Anthology Canlı TV** | 80+ Ulusal, Haber ve Spor kanalı (Taranabilir katalog) | Canlı / HLS |
+| **M3U** | M3U Canlı yayın listeleri | Canlı / HLS |
 
 ---
 
-## 📡 Canlı TV & Spor
+## 📡 Canlı TV & Spor Kanalları
 
-- ⚽ **Spor:** BeIN Sports 1–5 & Max, S Sport 1–2 & Plus, Tivibu Spor 1–4, Exxen Spor 1–8, Tabii Spor 1–8, Eurosport 1–2, NBA TV, A Spor
-- 📰 **Haber:** NTV, CNN Türk, Habertürk, TRT Haber, A Haber, Halk TV
-- 📺 **Ulusal:** TRT 1, ATV, Kanal D, Show TV, Star TV, TV8, Kanal 7
-- 🎬 **Diğer:** TRT Belgesel, TRT Çocuk, TRT Müzik
+- ⚽ **Spor:** BeIN Sports 1–5 & Max 1–2, S Sport 1–2, Tivibu Spor, Exxen Spor, TRT Spor, TRT Spor Yıldız, TV8,5, A Spor, HT Spor
+- 📰 **Haber:** NTV, Habertürk, TRT Haber, A Haber, Halk TV, Tele 1, TGRT Haber, Haber Global, 24 TV, Bloomberg HT, Bengü Türk, Flash Haber
+- 📺 **Ulusal:** TRT 1, ATV, Kanal D, Show TV, Star TV, NOW TV, TV8, Kanal 7, Beyaz TV, Teve2, A2 TV, 360 TV, TRT 2
+- 🎬 **Belgesel & Çocuk:** TRT Belgesel, TRT Çocuk, TRT Avaz, TRT Müzik
 
 ---
 

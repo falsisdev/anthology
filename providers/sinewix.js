@@ -104,25 +104,54 @@ function searchAndFetch(title, originalTitle, targetImdb, mediaType, seasonNum, 
         .catch(function() { return []; });
 }
 
-function getStreams(id, mediaType, seasonNum, episodeNum) {
-    return new Promise(function(resolve) {
-        var imdbId = (typeof id === 'string') ? id.split(/[:\.]/)[0] : id;
-        var tmdbType = mediaType === 'movie' ? 'movie' : 'tv';
-        var tmdbUrl = 'https://api.themoviedb.org/3/' + tmdbType + '/' + imdbId + '?api_key=4ef0d7355d9ffb5151e987764708ce96&language=tr-TR&append_to_response=external_ids';
+async function resolveTmdbInfo(rawId, mediaType) {
+    var TMDB_KEY = '4ef0d7355d9ffb5151e987764708ce96';
+    var cleanId = String(rawId).replace(/^tmdb:/, '').split(':')[0].trim();
+    var isImdb = cleanId.startsWith('tt');
+    var isTV = (mediaType === 'tv' || mediaType === 'series');
 
-        fetch(tmdbUrl).then(function(res) { return res.json(); }).then(function(data) {
-            var ot = data.original_title || data.original_name;
-            var releaseDate = data.release_date || data.first_air_date;
-            var year = releaseDate ? releaseDate.split('-')[0] : '';
-            var targetImdb = data.imdb_id || (data.external_ids && data.external_ids.imdb_id);
-            
-            return searchAndFetch(data.title || data.name, ot, targetImdb, mediaType, seasonNum || 1, episodeNum || 1, year);
-        }).then(function(streams) {
-            resolve(streams || []);
-        }).catch(function() {
-            resolve([]);
-        });
-    });
+    try {
+        if (isImdb) {
+            var findUrl = 'https://api.themoviedb.org/3/find/' + cleanId + '?api_key=' + TMDB_KEY + '&external_source=imdb_id';
+            var r = await fetch(findUrl);
+            var d = await r.json();
+            var item = isTV ? (d.tv_results && d.tv_results[0]) : (d.movie_results && d.movie_results[0]);
+            if (!item) return null;
+            return {
+                title: item.title || item.name,
+                original_title: item.original_title || item.original_name,
+                release_date: item.release_date || item.first_air_date || '',
+                imdb_id: cleanId
+            };
+        } else {
+            var tmdbType = isTV ? 'tv' : 'movie';
+            var tmdbUrl = 'https://api.themoviedb.org/3/' + tmdbType + '/' + cleanId + '?api_key=' + TMDB_KEY + '&language=tr-TR&append_to_response=external_ids';
+            var res = await fetch(tmdbUrl);
+            var data = await res.json();
+            return data && (data.title || data.name) ? data : null;
+        }
+    } catch (e) {
+        return null;
+    }
 }
 
-module.exports = { getStreams };
+async function getStreams(id, mediaType, seasonNum, episodeNum) {
+    try {
+        var data = await resolveTmdbInfo(id, mediaType);
+        if (!data) return [];
+
+        var ot = data.original_title || data.original_name || data.title || data.name;
+        var releaseDate = data.release_date || data.first_air_date || '';
+        var year = releaseDate ? releaseDate.split('-')[0] : '';
+        var targetImdb = data.imdb_id || (data.external_ids && data.external_ids.imdb_id);
+
+        var streams = await searchAndFetch(data.title || data.name, ot, targetImdb, mediaType, seasonNum || 1, episodeNum || 1, year);
+        return streams || [];
+    } catch (e) {
+        return [];
+    }
+}
+
+if (typeof module !== 'undefined') module.exports = { getStreams };
+if (typeof globalThis !== 'undefined') globalThis.getStreams = getStreams;
+
