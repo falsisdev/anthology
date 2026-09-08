@@ -167,7 +167,6 @@ Anthology'yi ücretsiz olarak Vercel üzerinde barındırabilirsiniz:
 2. Vercel'de yeni bir proje oluşturup bu repoyu seçin.
 3. Çevresel Değişkenleri (Environment Variables) ayarlayın:
    - `TMDB_API_KEY`: Kendi TMDB API anahtarınız (Opsiyonel, standart bir key gömülüdür).
-   - `PROXY_URL`: Cloudflare Workers Proxy adresiniz (Opsiyonel).
 4. Deploy (Yayınla) butonuna basın.
 
 ## 🔌 Stremio'ya Ekleme
