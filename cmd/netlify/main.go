@@ -43,6 +43,21 @@ func Handler(ctx context.Context, req events.APIGatewayProxyRequest) (resp event
 		adapter = httpadapter.New(http.HandlerFunc(handler.Handler))
 	}
 
+	if req.Headers == nil {
+		req.Headers = make(map[string]string)
+	}
+	host := req.Headers["host"]
+	if host == "" {
+		host = req.Headers["Host"]
+	}
+	if host == "" && req.RequestContext.DomainName != "" {
+		host = req.RequestContext.DomainName
+	}
+	if host != "" {
+		req.Headers["Host"] = host
+		req.Headers["X-Forwarded-Host"] = host
+	}
+
 	return adapter.ProxyWithContext(ctx, req)
 }
 
