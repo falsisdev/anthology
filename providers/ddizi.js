@@ -1,0 +1,419 @@
+/**
+ * Anthology - DDizi Provider
+ * Yerli dizi arşivi, güncel bölümler kataloğu ve doğrudan Ciner/Yandex CDN MP4/HLS ve resmi yayın akışları.
+ */
+
+var BASE_URL = 'https://www.ddizi.im';
+var TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
+
+var HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+    'Referer': BASE_URL + '/'
+};
+
+function ultraClean(str) {
+    if (!str) return '';
+    return str.toString().toLowerCase()
+        .replace(/[ıİ]/g, 'i').replace(/[üÜ]/g, 'u').replace(/[öÖ]/g, 'o')
+        .replace(/[şŞ]/g, 's').replace(/[ğĞ]/g, 'g').replace(/[çÇ]/g, 'c')
+        .replace(/[^a-z0-9]/g, '')
+        .trim();
+}
+
+async function resolveTmdbInfo(id, mediaType) {
+    try {
+        let cleanId = String(id || '').trim();
+        if (cleanId.includes(':')) cleanId = cleanId.split(':')[0];
+
+        let numericId = null;
+        let title = '';
+        let origTitle = '';
+
+        if (cleanId.startsWith('tt')) {
+            const findRes = await fetch(`https://api.themoviedb.org/3/find/${cleanId}?api_key=${TMDB_API_KEY}&external_source=imdb_id`);
+            if (findRes.ok) {
+                const fData = await findRes.json();
+                const item = (mediaType === 'tv' || mediaType === 'series')
+                    ? (fData.tv_results && fData.tv_results[0])
+                    : (fData.movie_results && fData.movie_results[0]);
+                if (item) {
+                    numericId = item.id;
+                    title = item.name || item.title || '';
+                    origTitle = item.original_name || item.original_title || '';
+                }
+            }
+        } else {
+            numericId = cleanId;
+        }
+
+        if (numericId && (!title || !origTitle)) {
+            const type = (mediaType === 'tv' || mediaType === 'series') ? 'tv' : 'movie';
+            const tRes = await fetch(`https://api.themoviedb.org/3/${type}/${numericId}?api_key=${TMDB_API_KEY}&language=tr-TR`);
+            if (tRes.ok) {
+                const tData = await tRes.json();
+                title = tData.name || tData.title || title;
+                origTitle = tData.original_name || tData.original_title || origTitle;
+            }
+        }
+
+        return { title, origTitle, numericId };
+    } catch (e) {
+        return { title: '', origTitle: '', numericId: id };
+    }
+}
+
+async function getCatalog(args) {
+    try {
+        const query = (args && args.extra && args.extra.search) || (args && args.query) || '';
+        let url = `${BASE_URL}/yeni-eklenenler1`;
+        let options = { headers: HEADERS };
+
+        if (query) {
+            const form = new URLSearchParams();
+            form.append('arama', query);
+            url = `${BASE_URL}/arama/`;
+            options = {
+                method: 'POST',
+                headers: Object.assign({}, HEADERS, { 'Content-Type': 'application/x-www-form-urlencoded' }),
+                body: form.toString()
+            };
+        }
+
+        const res = await fetch(url, options);
+        if (!res.ok) return { metas: [] };
+        const html = await res.text();
+
+        const metas = [];
+        const seen = new Set();
+
+        if (query) {
+            const seriesMatches = [...html.matchAll(/<a href="([^"]*\/diziler\/([^"]*))"[^>]*>([\s\S]*?)<\/a>/gi)];
+            for (const m of seriesMatches) {
+                const slug = m[2];
+                const title = m[3].replace(/<[^>]+>/g, '').trim();
+                if (!slug || seen.has(slug) || title.length < 2) continue;
+                seen.add(slug);
+
+                metas.push({
+                    id: `ddizi:show:${slug.replace(/\/$/, '')}`,
+                    type: 'tv',
+                    name: title,
+                    poster: 'https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png',
+                    background: 'https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png',
+                    genres: ['Yerli Dizi', 'DDizi'],
+                    description: `${title} - DDizi Yerli Dizi Arşivi`
+                });
+            }
+        } else {
+            const cardRegex = /<div class="dizi-boxpost-cat">[\s\S]*?<a href="([^"]*\/izle\/([^"]*))"[^>]*title="([^"]*)"[\s\S]*?<img[^>]+(?:data-src|src)="([^"]*)"/gi;
+            let cardMatch;
+            while ((cardMatch = cardRegex.exec(html)) !== null) {
+                const epSlug = cardMatch[2];
+                const epTitle = cardMatch[3].trim();
+                const poster = cardMatch[4];
+
+                if (!epSlug || seen.has(epSlug)) continue;
+                seen.add(epSlug);
+
+                metas.push({
+                    id: `ddizi:ep:${epSlug.replace(/\/$/, '')}`,
+                    type: 'tv',
+                    name: epTitle,
+                    poster: poster.startsWith('http') ? poster : `${BASE_URL}${poster}`,
+                    background: poster.startsWith('http') ? poster : `${BASE_URL}${poster}`,
+                    genres: ['Yerli Dizi', 'DDizi'],
+                    description: `${epTitle} - DDizi Güncel Bölüm`
+                });
+            }
+        }
+
+        return { metas };
+    } catch (e) {
+        return { metas: [] };
+    }
+}
+
+async function getMeta(args) {
+    try {
+        const rawId = (typeof args === 'string') ? args : (args && args.id ? args.id : '');
+        if (!rawId) return { meta: null };
+
+        if (rawId.startsWith('ddizi:ep:')) {
+            const epSlug = rawId.replace('ddizi:ep:', '');
+            const epUrl = `${BASE_URL}/izle/${epSlug}`;
+            const res = await fetch(epUrl, { headers: HEADERS });
+            if (!res.ok) return { meta: null };
+            const html = await res.text();
+
+            const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i) || html.match(/<title>([^<]+)<\/title>/i);
+            const title = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, '').replace(/\s*izle\s*$/i, '').trim() : 'DDizi Bölüm';
+
+            const posterMatch = html.match(/class="[^"]*(?:dizi-resmi|img-back-cat)[^"]*"[\s\S]*?(?:data-src|src)="([^"]*)"/i);
+            const poster = posterMatch ? (posterMatch[1].startsWith('http') ? posterMatch[1] : `${BASE_URL}${posterMatch[1]}`) : 'https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png';
+
+            const epNumMatch = title.match(/(\d+)\s*\.?\s*bölüm/i);
+            const epNum = epNumMatch ? parseInt(epNumMatch[1]) : 1;
+
+            return {
+                meta: {
+                    id: rawId,
+                    type: 'tv',
+                    name: title,
+                    poster,
+                    background: poster,
+                    description: `${title} - DDizi`,
+                    genres: ['Yerli Dizi', 'DDizi'],
+                    videos: [{
+                        id: rawId,
+                        title,
+                        season: 1,
+                        episode: epNum
+                    }]
+                }
+            };
+        }
+
+        if (rawId.startsWith('ddizi:show:')) {
+            const showSlug = rawId.replace('ddizi:show:', '');
+            const showUrl = `${BASE_URL}/diziler/${showSlug}`;
+            const res = await fetch(showUrl, { headers: HEADERS });
+            if (!res.ok) return { meta: null };
+            const html = await res.text();
+
+            const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i) || html.match(/<title>([^<]+)<\/title>/i);
+            const title = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, '').replace(/\s*son\s*bölüm\s*izle\s*$/i, '').trim() : 'DDizi';
+
+            const posterMatch = html.match(/class="[^"]*(?:dizi-resmi|img-back-cat)[^"]*"[\s\S]*?(?:data-src|src)="([^"]*)"/i);
+            const poster = posterMatch ? (posterMatch[1].startsWith('http') ? posterMatch[1] : `${BASE_URL}${posterMatch[1]}`) : 'https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png';
+
+            const epMatches = [...html.matchAll(/<a href="([^"]*\/izle\/([^"]*))"[^>]*>([\s\S]*?)<\/a>/gi)];
+            const videos = [];
+            const seen = new Set();
+
+            for (const ep of epMatches) {
+                const epSlug = ep[2];
+                if (!epSlug || seen.has(epSlug)) continue;
+                seen.add(epSlug);
+
+                const epTitle = ep[3].replace(/<[^>]+>/g, '').trim();
+                const epNumMatch = epTitle.match(/(\d+)\s*\.?\s*bölüm/i) || epSlug.match(/-(\d+)-bolum/i);
+                const epNum = epNumMatch ? parseInt(epNumMatch[1]) : 1;
+
+                videos.push({
+                    id: `ddizi:ep:${epSlug.replace(/\/$/, '')}`,
+                    title: epTitle || `${epNum}. Bölüm`,
+                    season: 1,
+                    episode: epNum
+                });
+            }
+
+            return {
+                meta: {
+                    id: rawId,
+                    type: 'tv',
+                    name: title,
+                    poster,
+                    background: poster,
+                    description: `${title} - DDizi Dizi Arşivi`,
+                    genres: ['Yerli Dizi', 'DDizi'],
+                    videos: videos.reverse()
+                }
+            };
+        }
+
+        return { meta: null };
+    } catch (e) {
+        return { meta: null };
+    }
+}
+
+async function extractStreamsFromEpisodePage(epUrl) {
+    try {
+        const epRes = await fetch(epUrl, { headers: HEADERS });
+        if (!epRes.ok) return [];
+        const epHtml = await epRes.text();
+
+        const iframes = [...epHtml.matchAll(/<iframe[^>]+src=["']([^"']+)["']/gi)];
+        const streams = [];
+
+        for (const ifr of iframes) {
+            let src = ifr[1];
+            if (src.startsWith('//')) src = 'https:' + src;
+            else if (src.startsWith('/')) src = BASE_URL + src;
+
+            // Type 1: Direct player
+            if (src.includes('/player/oynat/')) {
+                const pRes = await fetch(src, { headers: { ...HEADERS, Referer: epUrl } });
+                if (!pRes.ok) continue;
+                const pHtml = await pRes.text();
+
+                const videoMatches = [...pHtml.matchAll(/https?:\/\/[^\s"'<>\\]+\.(?:mp4|m3u8)[^\s"'<>\\]*/gi)];
+                for (const vm of videoMatches) {
+                    const vUrl = vm[0];
+                    if (vUrl.includes('preview/') || vUrl.includes('image/')) continue;
+
+                    let quality = '1080p';
+                    if (vUrl.includes('720')) quality = '720p';
+                    else if (vUrl.includes('480')) quality = '480p';
+                    else if (vUrl.includes('360')) quality = '360p';
+
+                    let server = 'CDN';
+                    if (vUrl.includes('ciner.com.tr')) server = 'Ciner CDN';
+                    else if (vUrl.includes('yandex')) server = 'Yandex';
+
+                    streams.push({
+                        name: 'DDizi',
+                        title: `⌜ DDizi ⌟ | ${server} (${quality})`,
+                        url: vUrl,
+                        quality,
+                        provider: 'ddizi',
+                        headers: {
+                            'User-Agent': HEADERS['User-Agent'],
+                            'Referer': src
+                        }
+                    });
+                }
+            }
+
+            // Type 2: Telif / YouTube fallback
+            if (src.includes('telif') && src.includes('youtube.com/watch?v=')) {
+                const ytMatch = src.match(/v=([a-zA-Z0-9_-]{11})/);
+                if (ytMatch) {
+                    const ytId = ytMatch[1];
+                    streams.push({
+                        name: 'DDizi',
+                        title: `⌜ DDizi ⌟ | YouTube (1080p)`,
+                        url: `https://www.youtube.com/watch?v=${ytId}`,
+                        ytId: ytId,
+                        quality: '1080p',
+                        provider: 'ddizi'
+                    });
+                }
+            }
+        }
+
+        return streams;
+    } catch (e) {
+        return [];
+    }
+}
+
+async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
+    try {
+        if (typeof tmdbIdOrArgs === 'object' && tmdbIdOrArgs && tmdbIdOrArgs.id) {
+            return getStreams(tmdbIdOrArgs.id, mediaType, seasonNum, episodeNum);
+        }
+
+        if (typeof tmdbIdOrArgs === 'string' && tmdbIdOrArgs.startsWith('ddizi:ep:')) {
+            const slug = tmdbIdOrArgs.replace('ddizi:ep:', '');
+            const epUrl = `${BASE_URL}/izle/${slug}`;
+            return await extractStreamsFromEpisodePage(epUrl);
+        }
+
+        const episode = parseInt(episodeNum) || 1;
+        const info = await resolveTmdbInfo(tmdbIdOrArgs, mediaType);
+        const searchTitles = [info.title, info.origTitle].filter(Boolean);
+        if (searchTitles.length === 0) return [];
+
+        for (const title of searchTitles) {
+            const form = new URLSearchParams();
+            form.append('arama', title);
+
+            const sRes = await fetch(`${BASE_URL}/arama/`, {
+                method: 'POST',
+                headers: Object.assign({}, HEADERS, { 'Content-Type': 'application/x-www-form-urlencoded' }),
+                body: form.toString()
+            });
+            if (!sRes.ok) continue;
+            const sHtml = await sRes.text();
+
+            const seriesMatches = [...sHtml.matchAll(/<a href="([^"]*\/diziler\/[^"]*)"[^>]*>([\s\S]*?)<\/a>/gi)];
+            if (seriesMatches.length === 0) continue;
+
+            const cleanTarget = ultraClean(title);
+            let matchedShowHref = null;
+
+            for (const sm of seriesMatches) {
+                const sName = sm[2].replace(/<[^>]+>/g, '').trim();
+                const sClean = ultraClean(sName);
+                if (sClean === cleanTarget) {
+                    matchedShowHref = sm[1];
+                    break;
+                }
+            }
+
+            if (!matchedShowHref) {
+                for (const sm of seriesMatches) {
+                    const sName = sm[2].replace(/<[^>]+>/g, '').trim();
+                    const sClean = ultraClean(sName);
+                    if (sClean.includes(cleanTarget) || cleanTarget.includes(sClean)) {
+                        matchedShowHref = sm[1];
+                        break;
+                    }
+                }
+            }
+
+            if (!matchedShowHref && seriesMatches.length > 0) {
+                matchedShowHref = seriesMatches[0][1];
+            }
+
+            if (!matchedShowHref) continue;
+            if (!matchedShowHref.startsWith('http')) matchedShowHref = `${BASE_URL}${matchedShowHref.startsWith('/') ? '' : '/'}${matchedShowHref}`;
+
+            // Check pages (starting with main page, then sayfa-N if not found)
+            const pagesToCheck = [matchedShowHref];
+            const showRes = await fetch(matchedShowHref, { headers: HEADERS });
+            if (!showRes.ok) continue;
+            const showHtml = await showRes.text();
+
+            const pageLinks = [...showHtml.matchAll(/href="([^"]*sayfa-(\d+))"/g)];
+            const sortedPages = pageLinks.map(p => ({ url: p[1], num: parseInt(p[2]) }))
+                .sort((a, b) => b.num - a.num); // Check oldest pages first for ep 1
+            for (const sp of sortedPages) {
+                if (!pagesToCheck.includes(sp.url)) pagesToCheck.push(sp.url);
+            }
+
+            for (const pageUrl of pagesToCheck.slice(0, 6)) {
+                const pRes = (pageUrl === matchedShowHref) ? { ok: true, text: () => Promise.resolve(showHtml) } : await fetch(pageUrl, { headers: HEADERS });
+                if (!pRes.ok) continue;
+                const pHtml = await pRes.text();
+
+                const epMatches = [...pHtml.matchAll(/<a href="([^"]*\/izle\/[^"]*)"[^>]*>([\s\S]*?)<\/a>/gi)];
+                if (epMatches.length === 0) continue;
+
+                let targetEpUrl = null;
+                const targetBolumStr = `${episode}.bölüm`;
+                const targetBolumStrAlt = `${episode}. bolum`;
+                const targetBolumSlug = `-${episode}-bolum-`;
+
+                for (const ep of epMatches) {
+                    const epText = ep[2].replace(/<[^>]+>/g, '').toLowerCase().replace(/\s+/g, ' ');
+                    const epLink = ep[1].toLowerCase();
+                    if (epText.includes(targetBolumStr) || epText.includes(targetBolumStrAlt) || epLink.includes(targetBolumSlug)) {
+                        targetEpUrl = ep[1];
+                        break;
+                    }
+                }
+
+                if (targetEpUrl) {
+                    if (!targetEpUrl.startsWith('http')) targetEpUrl = `${BASE_URL}${targetEpUrl.startsWith('/') ? '' : '/'}${targetEpUrl}`;
+                    const streams = await extractStreamsFromEpisodePage(targetEpUrl);
+                    if (streams.length > 0) return streams;
+                }
+            }
+        }
+
+        return [];
+    } catch (e) {
+        return [];
+    }
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { getStreams, getMeta, getCatalog };
+}
+if (typeof globalThis !== 'undefined') {
+    globalThis.getStreams = getStreams;
+    globalThis.getMeta = getMeta;
+    globalThis.getCatalog = getCatalog;
+}

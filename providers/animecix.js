@@ -57,9 +57,36 @@ async function resolveTmdbInfo(id, mediaType) {
 
 async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
   try {
-    const isTv = (mediaType === 'tv' || mediaType === 'series');
+    if (typeof tmdbId === 'object' && tmdbId && tmdbId.id) {
+      return getStreams(tmdbId.id, mediaType || 'tv', seasonNum, episodeNum);
+    }
+    const isTv = (mediaType === 'tv' || mediaType === 'series' || !mediaType);
     const season = parseInt(seasonNum) || 1;
     const episode = parseInt(episodeNum) || 1;
+
+    if (typeof tmdbId === 'string' && tmdbId.startsWith('animecix:title:')) {
+      const titleId = tmdbId.replace('animecix:title:', '');
+      const videoUrl = `${BASE_URL}/secure/best-video?titleId=${titleId}&episode=${episode}&season=${season}`;
+      const bestRes = await fetch(videoUrl, { headers: HEADERS, redirect: 'follow' });
+      const finalUrl = bestRes.url || '';
+      const m = finalUrl.match(/tau-video\.xyz\/embed\/([a-zA-Z0-9_-]+)/);
+      if (!m) return [];
+      const tauId = m[1];
+      const tauRes = await fetch(`https://tau-video.xyz/api/video/${tauId}`, {
+        headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': BASE_URL + '/' }
+      });
+      if (!tauRes.ok) return [];
+      const tauData = await tauRes.json();
+      if (!tauData.urls || tauData.urls.length === 0) return [];
+      return tauData.urls.map(u => ({
+        name: 'AnimeciX',
+        title: `⌜ AnimeciX ⌟ | TauVideo [${u.label || 'HD'}]`,
+        url: u.url,
+        quality: u.label || '1080p',
+        provider: 'animecix',
+        headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': BASE_URL + '/' }
+      }));
+    }
 
     const info = await resolveTmdbInfo(tmdbId, mediaType);
     const queries = [info.title, info.origTitle].filter(Boolean);
@@ -128,3 +155,90 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
 
 if (typeof module !== 'undefined') module.exports = { getStreams };
 if (typeof globalThis !== 'undefined') globalThis.getStreams = getStreams;
+
+// ── Catalog & Meta Entegrasyonu ──────────────────────────────
+async function getCatalog(args) {
+  try {
+    const query = (args && args.extra && args.extra.search) || (args && args.query) || '';
+    let items = [];
+
+    if (query) {
+      const res = await fetch(`${BASE_URL}/secure/search/${encodeURIComponent(query)}?limit=20`, { headers: HEADERS });
+      if (res.ok) {
+        const data = await res.json();
+        items = data.results || [];
+      }
+    } else {
+      const res = await fetch(`${BASE_URL}/secure/titles?limit=20`, { headers: HEADERS });
+      if (res.ok) {
+        const data = await res.json();
+        items = (data.pagination && data.pagination.data) || [];
+      }
+    }
+
+    const metas = items.map(item => ({
+      id: `animecix:title:${item.id}`,
+      type: 'tv',
+      name: item.name,
+      poster: item.poster || 'https://www.google.com/s2/favicons?domain=animecix.tv&sz=128',
+      background: item.backdrop || item.poster || 'https://www.google.com/s2/favicons?domain=animecix.tv&sz=128',
+      description: item.description || `${item.name} - AnimeciX`,
+      genres: ['Anime', 'AnimeciX']
+    }));
+
+    return { metas };
+  } catch (e) {
+    return { metas: [] };
+  }
+}
+
+async function getMeta(args) {
+  try {
+    const rawId = (typeof args === 'string') ? args : (args && args.id ? args.id : '');
+    if (!rawId || !rawId.startsWith('animecix:title:')) return { meta: null };
+
+    const titleId = rawId.replace('animecix:title:', '');
+    const sRes = await fetch(`${BASE_URL}/secure/search/${titleId}?limit=1`, { headers: HEADERS });
+    let name = 'Anime';
+    let poster = 'https://www.google.com/s2/favicons?domain=animecix.tv&sz=128';
+    let desc = 'AnimeciX';
+
+    if (sRes.ok) {
+      const sData = await sRes.json();
+      if (sData.results && sData.results[0]) {
+        name = sData.results[0].name;
+        poster = sData.results[0].poster || poster;
+        desc = sData.results[0].description || desc;
+      }
+    }
+
+    return {
+      meta: {
+        id: rawId,
+        type: 'tv',
+        name,
+        poster,
+        background: poster,
+        description: desc,
+        genres: ['Anime', 'AnimeciX'],
+        videos: [{
+          id: rawId,
+          title: `${name} 1. Bölüm`,
+          season: 1,
+          episode: 1
+        }]
+      }
+    };
+  } catch (e) {
+    return { meta: null };
+  }
+}
+
+if (typeof module !== 'undefined') {
+  module.exports = { getStreams, getCatalog, getMeta };
+}
+if (typeof globalThis !== 'undefined') {
+  globalThis.getStreams = getStreams;
+  globalThis.getCatalog = getCatalog;
+  globalThis.getMeta = getMeta;
+}

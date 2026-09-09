@@ -167,3 +167,33 @@ if (typeof module !== 'undefined' && module.exports) {
     var g = (typeof globalThis !== 'undefined') ? globalThis : (typeof global !== 'undefined') ? global : window;
     g.getStreams = getStreams; g.getCatalog = getCatalog;
 }
+
+function getMeta(args) {
+    var targetId = (typeof args === 'string') ? args : (args && args.id ? args.id : null);
+    if (!targetId) return Promise.resolve({ meta: null });
+    return fetchChannels()
+        .then(function(content) {
+            var channels = parseUlusalChannels(content);
+            var ch = channels.find(function(c) { return c.id === targetId || cleanKey(c.name) === cleanKey(targetId); }) || channels[0];
+            return {
+                meta: {
+                    id: ch.id,
+                    type: "tv",
+                    name: ch.name,
+                    poster: ch.logo,
+                    background: ch.logo,
+                    description: ch.name + " Canlı Ulusal Yayın",
+                    genres: ["Ulusal"],
+                    videos: [{ id: ch.id, title: ch.name, released: new Date().toISOString() }]
+                }
+            };
+        })
+        .catch(function() { return { meta: null }; });
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { getStreams: getStreams, getCatalog: getCatalog, getMeta: getMeta };
+} else {
+    var g = (typeof globalThis !== 'undefined') ? globalThis : (typeof global !== 'undefined') ? global : window;
+    g.getStreams = getStreams; g.getCatalog = getCatalog; g.getMeta = getMeta;
+}

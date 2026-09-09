@@ -27,7 +27,7 @@ const path = require("path");
       } else if (scraper.id === "cizgimax") {
         testTarget = "Avatar (246 S01E01)";
         streams = await mod.getStreams("246", "tv", 1, 1);
-      } else if (scraper.id === "AnthologyDiziM3U" || scraper.id === "anthology_yerlidizi") {
+      } else if (scraper.id === "AnthologyDiziM3U" || scraper.id === "anthology_yerlidizi" || scraper.id === "ddizi") {
         testTarget = "Bahar (245914 S01E01)";
         streams = await mod.getStreams("245914", "tv", 1, 1);
       } else if (scraper.id === "anthology_yabancidizi") {
