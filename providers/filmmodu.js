@@ -357,7 +357,7 @@ if (typeof module !== 'undefined' && module.exports) {
 
 // ── Catalog & Meta Entegrasyonu ──────────────────────────────
 function getCatalog(args) {
-  var query = (args && args.extra && args.extra.search) || (args && args.query) || '';
+  var query = (args && args.search) || (args && args.extra && args.extra.search) || (args && args.query) || '';
   var targetUrl = query ? (BASE_URL + '/film-ara?term=' + encodeURIComponent(query)) : (BASE_URL + '/');
 
   return fetch(targetUrl, { headers: HEADERS })

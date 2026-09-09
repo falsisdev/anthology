@@ -134,7 +134,7 @@ async function resolveTmdbInfo(rawId, mediaType) {
 
 async function getCatalog(args) {
     try {
-        var query = (args && args.extra && args.extra.search) || (args && args.query) || '';
+        var query = (args && args.search) || (args && args.extra && args.extra.search) || (args && args.query) || '';
         var isMovie = (args && (args.type === 'movie' || args.id === 'anthology_sinewix_movies'));
 
         if (query) {
@@ -233,9 +233,9 @@ async function getMeta(args) {
             var videos = [];
 
             (sIt.seasons || []).forEach(function(sea) {
-                var sNum = parseInt(sea.season_number) || 1;
+                var sNum = (sea.season_number !== undefined && sea.season_number !== null && !isNaN(parseInt(sea.season_number))) ? parseInt(sea.season_number) : 1;
                 (sea.episodes || []).forEach(function(ep) {
-                    var eNum = parseInt(ep.episode_number) || 1;
+                    var eNum = (ep.episode_number !== undefined && ep.episode_number !== null && !isNaN(parseInt(ep.episode_number))) ? parseInt(ep.episode_number) : 1;
                     videos.push({
                         id: 'sinewix:ep:' + sId + ':' + sNum + ':' + eNum,
                         title: ep.name || (sNum + '. Sezon ' + eNum + '. Bölüm'),
@@ -277,6 +277,14 @@ async function getStreams(id, mediaType, seasonNum, episodeNum) {
             var mRes = await fetch(API_BASE + '/media/detail/' + mId + '/' + API_KEY, { headers: API_HEADERS });
             var mData = await mRes.json();
             return buildStreams(mData.videos || [], mData.title || mData.name);
+        }
+
+        // Direct SineWix series stream fallback to episode 1
+        if (typeof id === 'string' && id.startsWith('sinewix:series:')) {
+            var showMeta = await getMeta(id);
+            if (showMeta && showMeta.meta && Array.isArray(showMeta.meta.videos) && showMeta.meta.videos.length > 0) {
+                return await getStreams(showMeta.meta.videos[0].id);
+            }
         }
 
         // Direct SineWix episode stream: sinewix:ep:{showId}:{season}:{episode}

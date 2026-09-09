@@ -109,6 +109,13 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
       return getStreams(tmdbId.id, mediaType, seasonNum, episodeNum);
     }
 
+    if (typeof tmdbId === 'string' && tmdbId.startsWith('dizimom:show:')) {
+      const showMeta = await getMeta(tmdbId);
+      if (showMeta && showMeta.meta && Array.isArray(showMeta.meta.videos) && showMeta.meta.videos.length > 0) {
+        return await getStreams(showMeta.meta.videos[0].id);
+      }
+    }
+
     if (typeof tmdbId === 'string' && tmdbId.startsWith('dizimom:ep:')) {
       const slug = tmdbId.replace('dizimom:ep:', '');
       const epUrl = `${BASE_URL}/${slug}/`;
@@ -198,9 +205,14 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
         const h = $(el).attr('href') || '';
         const t = $(el).text().trim();
         // Eşleşme: "1.Sezon 1.Bölüm" veya URL içinde "-1-sezon-1-bolum-"
-        const patternText = `${season}.Sezon ${episode}.Bölüm`;
-        const patternUrl = `-${season}-sezon-${episode}-bolum-`;
-        if (t.includes(patternText) || h.includes(patternUrl)) {
+        const sRegex = new RegExp(`(?:^|\\s|\\.)${season}\\.?\\s*(?:Sezon|sezon)`, 'i');
+        const eRegex = new RegExp(`(?:^|\\s|\\.)${episode}\\.?\\s*(?:Bölüm|bolum|bölüm)`, 'i');
+        const patternUrl = `-${season}-sezon-${episode}-bolum`;
+        if (sRegex.test(t) && eRegex.test(t)) {
+          episodeUrl = h;
+          return false;
+        }
+        if (h.includes(patternUrl)) {
           episodeUrl = h;
           return false;
         }
@@ -252,7 +264,7 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
 // ── Catalog & Meta Entegrasyonu ──────────────────────────────
 async function getCatalog(args) {
   try {
-    const query = (args && args.extra && args.extra.search) || (args && args.query) || '';
+    const query = (args && args.search) || (args && args.extra && args.extra.search) || (args && args.query) || '';
     const metas = [];
     const seen = new Set();
 
@@ -420,6 +432,8 @@ async function getMeta(args) {
         }
       });
 
+      videos.sort((a, b) => (a.season - b.season) || (a.episode - b.episode));
+
       return {
         meta: {
           id: rawId,
@@ -429,7 +443,7 @@ async function getMeta(args) {
           background: poster,
           description: desc,
           genres: ['Yabancı Dizi', 'DiziMom'],
-          videos: videos.length > 0 ? videos : [{ id: rawId, title: `${title} 1. Bölüm`, season: 1, episode: 1 }]
+          videos: videos
         }
       };
     }

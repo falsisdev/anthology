@@ -65,7 +65,7 @@ async function resolveTmdbInfo(id, mediaType) {
 
 async function getCatalog(args) {
     try {
-        const query = (args && args.extra && args.extra.search) || (args && args.query) || '';
+        const query = (args && args.search) || (args && args.extra && args.extra.search) || (args && args.query) || '';
         
         if (query) {
             const sRes = await fetch(`${BASE_URL}/wp-admin/admin-ajax.php?s=${encodeURIComponent(query)}&action=dwls_search`, { headers: HEADERS });
@@ -189,7 +189,7 @@ async function getMeta(args) {
             let poster = ogImg ? ogImg[1] : '';
             if (!poster) poster = 'https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png';
 
-            const epMatches = [...html.matchAll(/<a href="([^"]*bolum-izle[^"]*)"[^>]*>([\s\S]*?)<\/a>/gi)];
+            const epMatches = [...html.matchAll(/<a href="([^"]*bolum[^"]*izle[^"]*)"[^>]*>([\s\S]*?)<\/a>/gi)];
             const videos = [];
             const seen = new Set();
 
@@ -197,9 +197,11 @@ async function getMeta(args) {
                 const epUrl = ep[1];
                 const epSlug = epUrl.replace(BASE_URL, '').replace(/^\//, '').replace(/\/$/, '');
                 if (!epSlug || seen.has(epSlug)) continue;
-                seen.add(epSlug);
 
                 const epText = ep[2].replace(/<[^>]+>/g, '').trim();
+                if (!epText.toLowerCase().includes('bölüm') && !epText.toLowerCase().includes('sezon')) continue;
+                seen.add(epSlug);
+
                 const epNumMatch = epText.match(/(\d+)\s*\.?\s*bölüm/i) || epSlug.match(/-(\d+)-bolum/i);
                 const sNumMatch = epText.match(/(\d+)\s*\.?\s*sezon/i) || epSlug.match(/-(\d+)-sezon/i);
 
@@ -213,6 +215,8 @@ async function getMeta(args) {
                     episode: epNum
                 });
             }
+
+            videos.sort((a, b) => (a.season - b.season) || (a.episode - b.episode));
 
             return {
                 meta: {
@@ -289,6 +293,13 @@ async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
             return getStreams(tmdbIdOrArgs.id, mediaType, seasonNum, episodeNum);
         }
 
+        if (typeof tmdbIdOrArgs === 'string' && tmdbIdOrArgs.startsWith('dizibox:show:')) {
+            const showMeta = await getMeta(tmdbIdOrArgs);
+            if (showMeta && showMeta.meta && Array.isArray(showMeta.meta.videos) && showMeta.meta.videos.length > 0) {
+                return await getStreams(showMeta.meta.videos[0].id);
+            }
+        }
+
         if (typeof tmdbIdOrArgs === 'string' && tmdbIdOrArgs.startsWith('dizibox:ep:')) {
             const slug = tmdbIdOrArgs.replace('dizibox:ep:', '');
             const epUrl = `${BASE_URL}/${slug}/`;
@@ -342,16 +353,14 @@ async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
                 const showRes = await fetch(matchedShow.permalink, { headers: HEADERS });
                 if (showRes.ok) {
                     const showHtml = await showRes.text();
-                    const epMatches = [...showHtml.matchAll(/<a href="([^"]*bolum-izle[^"]*)"[^>]*>([\s\S]*?)<\/a>/gi)];
+                    const epMatches = [...showHtml.matchAll(/<a href="([^"]*bolum[^"]*izle[^"]*)"[^>]*>([\s\S]*?)<\/a>/gi)];
                     
-                    const sSearch1 = `${season}.sezon`;
-                    const sSearch2 = `${season}. sezon`;
-                    const epSearch1 = `${episode}.bölüm`;
-                    const epSearch2 = `${episode}. bölüm`;
+                    const sRegex = new RegExp(`(?:^|\\s|\\.)${season}\\.?\\s*(?:sezon|\\. sezon)`, 'i');
+                    const eRegex = new RegExp(`(?:^|\\s|\\.)${episode}\\.?\\s*(?:bölüm|\\. bölüm)`, 'i');
 
                     for (const ep of epMatches) {
                         const epText = ep[2].toLowerCase();
-                        if ((epText.includes(sSearch1) || epText.includes(sSearch2)) && (epText.includes(epSearch1) || epText.includes(epSearch2))) {
+                        if (sRegex.test(epText) && eRegex.test(epText)) {
                             targetEpUrl = ep[1];
                             break;
                         }

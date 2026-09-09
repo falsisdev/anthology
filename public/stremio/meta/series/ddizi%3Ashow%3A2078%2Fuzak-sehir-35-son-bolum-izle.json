@@ -12,6 +12,324 @@
     ],
     "videos": [
       {
+        "id": "ddizi:ep:85679/uzak-sehir-1-bolum-hd2.htm",
+        "title": "Uzak Şehir 1.Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "ddizi:ep:85748/uzak-sehir-2-bolum-hd2.htm",
+        "title": "Uzak Şehir 2.Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "ddizi:ep:85822/uzak-sehir-3-bolum-hd2.htm",
+        "title": "Uzak Şehir 3.Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "ddizi:ep:85901/uzak-sehir-4-bolum-hd3.htm",
+        "title": "Uzak Şehir 4.Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "ddizi:ep:85975/uzak-sehir-5-bolum-hd5.htm",
+        "title": "Uzak Şehir 5.Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "ddizi:ep:86051/uzak-sehir-6-bolum-hd4.htm",
+        "title": "Uzak Şehir 6.Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "ddizi:ep:86125/uzak-sehir-7-bolum-hd5.htm",
+        "title": "Uzak Şehir 7.Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "ddizi:ep:86208/uzak-sehir-8-bolum-hd3.htm",
+        "title": "Uzak Şehir 8.Bölüm",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "ddizi:ep:86318/uzak-sehir-9-bolum-izle-hd.htm",
+        "title": "Uzak Şehir 9.Bölüm",
+        "season": 1,
+        "episode": 9
+      },
+      {
+        "id": "ddizi:ep:86392/uzak-sehir-10-bolum-hd3.htm",
+        "title": "Uzak Şehir 10.Bölüm",
+        "season": 1,
+        "episode": 10
+      },
+      {
+        "id": "ddizi:ep:86456/uzak-sehir-11-bolum-izle-hd1.htm",
+        "title": "Uzak Şehir 11.Bölüm",
+        "season": 1,
+        "episode": 11
+      },
+      {
+        "id": "ddizi:ep:86523/uzak-sehir-12-bolum-izle-hd.htm",
+        "title": "Uzak Şehir 12.Bölüm",
+        "season": 1,
+        "episode": 12
+      },
+      {
+        "id": "ddizi:ep:86593/uzak-sehir-13-bolum-hd5.htm",
+        "title": "Uzak Şehir 13.Bölüm",
+        "season": 1,
+        "episode": 13
+      },
+      {
+        "id": "ddizi:ep:86657/uzak-sehir-14-bolum-hd1.htm",
+        "title": "Uzak Şehir 14.Bölüm",
+        "season": 1,
+        "episode": 14
+      },
+      {
+        "id": "ddizi:ep:86718/uzak-sehir-15-bolum-izle-hd1.htm",
+        "title": "Uzak Şehir 15.Bölüm",
+        "season": 1,
+        "episode": 15
+      },
+      {
+        "id": "ddizi:ep:86794/uzak-sehir-16-bolum-hd4.htm",
+        "title": "Uzak Şehir 16.Bölüm",
+        "season": 1,
+        "episode": 16
+      },
+      {
+        "id": "ddizi:ep:86859/uzak-sehir-17-bolum-hd1.htm",
+        "title": "Uzak Şehir 17.Bölüm",
+        "season": 1,
+        "episode": 17
+      },
+      {
+        "id": "ddizi:ep:86929/uzak-sehir-18-bolum-izle.htm",
+        "title": "Uzak Şehir 18.Bölüm",
+        "season": 1,
+        "episode": 18
+      },
+      {
+        "id": "ddizi:ep:87002/uzak-sehir-19-bolum-hd3.htm",
+        "title": "Uzak Şehir 19.Bölüm",
+        "season": 1,
+        "episode": 19
+      },
+      {
+        "id": "ddizi:ep:87100/uzak-sehir-20-bolum-hd3.htm",
+        "title": "Uzak Şehir 20.Bölüm",
+        "season": 1,
+        "episode": 20
+      },
+      {
+        "id": "ddizi:ep:87163/uzak-sehir-21-bolum-izle-hd.htm",
+        "title": "Uzak Şehir 21.Bölüm",
+        "season": 1,
+        "episode": 21
+      },
+      {
+        "id": "ddizi:ep:87229/uzak-sehir-22-bolum-hd3.htm",
+        "title": "Uzak Şehir 22.Bölüm",
+        "season": 1,
+        "episode": 22
+      },
+      {
+        "id": "ddizi:ep:87287/uzak-sehir-23-bolum-izle-hd.htm",
+        "title": "Uzak Şehir 23.Bölüm",
+        "season": 1,
+        "episode": 23
+      },
+      {
+        "id": "ddizi:ep:87342/uzak-sehir-24-bolum-izle-hd.htm",
+        "title": "Uzak Şehir 24.Bölüm",
+        "season": 1,
+        "episode": 24
+      },
+      {
+        "id": "ddizi:ep:87391/uzak-sehir-25-bolum-hd1.htm",
+        "title": "Uzak Şehir 25.Bölüm",
+        "season": 1,
+        "episode": 25
+      },
+      {
+        "id": "ddizi:ep:87433/uzak-sehir-26-bolum-izle-hd.htm",
+        "title": "Uzak Şehir 26.Bölüm",
+        "season": 1,
+        "episode": 26
+      },
+      {
+        "id": "ddizi:ep:87477/uzak-sehir-27-bolum-hd2.htm",
+        "title": "Uzak Şehir 27.Bölüm",
+        "season": 1,
+        "episode": 27
+      },
+      {
+        "id": "ddizi:ep:87529/uzak-sehir-28-bolum-sezon-finali-hd1.htm",
+        "title": "Uzak Şehir 28.Bölüm Sezon Finali",
+        "season": 1,
+        "episode": 28
+      },
+      {
+        "id": "ddizi:ep:88094/uzak-sehir-29-bolum-hd.htm",
+        "title": "Uzak Şehir 29.Bölüm",
+        "season": 1,
+        "episode": 29
+      },
+      {
+        "id": "ddizi:ep:88154/uzak-sehir-30-bolum-hd3.htm",
+        "title": "Uzak Şehir 30.Bölüm",
+        "season": 1,
+        "episode": 30
+      },
+      {
+        "id": "ddizi:ep:88206/uzak-sehir-31-bolum-hd7.htm",
+        "title": "Uzak Şehir 31.Bölüm",
+        "season": 1,
+        "episode": 31
+      },
+      {
+        "id": "ddizi:ep:88255/uzak-sehir-32-bolum-izle-hd.htm",
+        "title": "Uzak Şehir 32.Bölüm",
+        "season": 1,
+        "episode": 32
+      },
+      {
+        "id": "ddizi:ep:88315/uzak-sehir-33-bolum-izle-hd1.htm",
+        "title": "Uzak Şehir 33.Bölüm",
+        "season": 1,
+        "episode": 33
+      },
+      {
+        "id": "ddizi:ep:88365/uzak-sehir-34-bolum-hd2.htm",
+        "title": "Uzak Şehir 34.Bölüm",
+        "season": 1,
+        "episode": 34
+      },
+      {
+        "id": "ddizi:ep:88414/uzak-sehir-35-bolum-izle-hd.htm",
+        "title": "Uzak Şehir 35.Bölüm",
+        "season": 1,
+        "episode": 35
+      },
+      {
+        "id": "ddizi:ep:88467/uzak-sehir-36-bolum-izle-hd2.htm",
+        "title": "Uzak Şehir 36.Bölüm",
+        "season": 1,
+        "episode": 36
+      },
+      {
+        "id": "ddizi:ep:88538/uzak-sehir-37-bolum-izle-hd.htm",
+        "title": "Uzak Şehir 37.Bölüm",
+        "season": 1,
+        "episode": 37
+      },
+      {
+        "id": "ddizi:ep:88604/uzak-sehir-38-bolum-izle-hd2.htm",
+        "title": "Uzak Şehir 38.Bölüm",
+        "season": 1,
+        "episode": 38
+      },
+      {
+        "id": "ddizi:ep:88740/uzak-sehir-39-bolum-izle-hd.htm",
+        "title": "Uzak Şehir 39.Bölüm",
+        "season": 1,
+        "episode": 39
+      },
+      {
+        "id": "ddizi:ep:88813/uzak-sehir-40-bolum-hd2.htm",
+        "title": "Uzak Şehir 40.Bölüm",
+        "season": 1,
+        "episode": 40
+      },
+      {
+        "id": "ddizi:ep:88883/uzak-sehir-41-bolum-izle-hd.htm",
+        "title": "Uzak Şehir 41.Bölüm",
+        "season": 1,
+        "episode": 41
+      },
+      {
+        "id": "ddizi:ep:88954/uzak-sehir-42-bolum-izle-hd1.htm",
+        "title": "Uzak Şehir 42.Bölüm",
+        "season": 1,
+        "episode": 42
+      },
+      {
+        "id": "ddizi:ep:89055/uzak-sehir-43-bolum-hd1.htm",
+        "title": "Uzak Şehir 43.Bölüm",
+        "season": 1,
+        "episode": 43
+      },
+      {
+        "id": "ddizi:ep:89182/uzak-sehir-44-bolum-hd8.htm",
+        "title": "Uzak Şehir 44.Bölüm",
+        "season": 1,
+        "episode": 44
+      },
+      {
+        "id": "ddizi:ep:89227/uzak-sehir-45-bolum-hd01.htm",
+        "title": "Uzak Şehir 45.Bölüm",
+        "season": 1,
+        "episode": 45
+      },
+      {
+        "id": "ddizi:ep:89435/uzak-sehir-46-bolum-izle-hd2.htm",
+        "title": "Uzak Şehir 46.Bölüm",
+        "season": 1,
+        "episode": 46
+      },
+      {
+        "id": "ddizi:ep:89564/uzak-sehir-47-bolum-izle-hd.htm",
+        "title": "Uzak Şehir 47.Bölüm",
+        "season": 1,
+        "episode": 47
+      },
+      {
+        "id": "ddizi:ep:89615/uzak-sehir-48-bolum-hd7.htm",
+        "title": "Uzak Şehir 48.Bölüm",
+        "season": 1,
+        "episode": 48
+      },
+      {
+        "id": "ddizi:ep:89666/uzak-sehir-49-bolum-hd2.htm",
+        "title": "Uzak Şehir 49.Bölüm",
+        "season": 1,
+        "episode": 49
+      },
+      {
+        "id": "ddizi:ep:89729/uzak-sehir-50-bolum-hd9.htm",
+        "title": "Uzak Şehir 50.Bölüm",
+        "season": 1,
+        "episode": 50
+      },
+      {
+        "id": "ddizi:ep:89781/uzak-sehir-51-bolum-izle-hd.htm",
+        "title": "Uzak Şehir 51.Bölüm",
+        "season": 1,
+        "episode": 51
+      },
+      {
+        "id": "ddizi:ep:89828/uzak-sehir-52-bolum-hd4.htm",
+        "title": "Uzak Şehir 52.Bölüm",
+        "season": 1,
+        "episode": 52
+      },
+      {
+        "id": "ddizi:ep:89876/uzak-sehir-53-bolum-hd1.htm",
+        "title": "Uzak Şehir 53.Bölüm",
+        "season": 1,
+        "episode": 53
+      },
+      {
         "id": "ddizi:ep:90411/uzak-sehir-54-bolum-hd3.htm",
         "title": "Uzak Şehir 54.Bölüm",
         "season": 1,
