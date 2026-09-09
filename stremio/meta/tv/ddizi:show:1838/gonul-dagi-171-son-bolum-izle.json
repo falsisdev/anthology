@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "id": "ddizi:show:1838/gonul-dagi-171-son-bolum-izle",
+    "type": "series",
+    "name": "Gönül Dağı",
+    "poster": "https://www.ddizi.im/diziresimleri/gonuldagi3-min.jpg",
+    "background": "https://www.ddizi.im/diziresimleri/gonuldagi3-min.jpg",
+    "description": "Gönül Dağı - DDizi Dizi Arşivi",
+    "genres": [
+      "Yerli Dizi",
+      "DDizi"
+    ],
+    "videos": [
+      {
+        "id": "ddizi:ep:90940/gonul-dagi-212-bolum-izle-hd5.htm",
+        "title": "Gönül Dağı 212.Bölüm",
+        "season": 1,
+        "episode": 212
+      },
+      {
+        "id": "ddizi:ep:90988/gonul-dagi-213-bolum-izle-hd6.htm",
+        "title": "Gönül Dağı 213.Bölüm",
+        "season": 1,
+        "episode": 213
+      },
+      {
+        "id": "ddizi:ep:91072/gonul-dagi-214-bolum-izle-hd3.htm",
+        "title": "Gönül Dağı 214.Bölüm",
+        "season": 1,
+        "episode": 214
+      },
+      {
+        "id": "ddizi:ep:91112/gonul-dagi-215-bolum-izle-hd2.htm",
+        "title": "Gönül Dağı 215.Bölüm",
+        "season": 1,
+        "episode": 215
+      },
+      {
+        "id": "ddizi:ep:91151/gonul-dagi-216-bolum-izle-hd5.htm",
+        "title": "Gönül Dağı 216.Bölüm",
+        "season": 1,
+        "episode": 216
+      },
+      {
+        "id": "ddizi:ep:91191/gonul-dagi-217-bolum-izle-hd3.htm",
+        "title": "Gönül Dağı 217.Bölüm",
+        "season": 1,
+        "episode": 217
+      },
+      {
+        "id": "ddizi:ep:91231/gonul-dagi-218-bolum-izle-hd4.htm",
+        "title": "Gönül Dağı 218.Bölüm",
+        "season": 1,
+        "episode": 218
+      },
+      {
+        "id": "ddizi:ep:91257/gonul-dagi-219-bolum-izle-hd3.htm",
+        "title": "Gönül Dağı 219.Bölüm",
+        "season": 1,
+        "episode": 219
+      },
+      {
+        "id": "ddizi:ep:91292/gonul-dagi-220-bolum-izle-sezon-finali-hd4.htm",
+        "title": "Gönül Dağı 220.Bölüm Sezon Finali",
+        "season": 1,
+        "episode": 220
+      },
+      {
+        "id": "ddizi:ep:91663/gonul-dagi-221-bolum-izle-hd1.htm",
+        "title": "Gönül Dağı 221.Bölüm",
+        "season": 1,
+        "episode": 221
+      }
+    ]
+  }
+}

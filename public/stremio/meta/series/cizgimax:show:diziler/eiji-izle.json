@@ -2,18 +2,18 @@
   "meta": {
     "id": "cizgimax:show:diziler/eiji-izle",
     "type": "series",
-    "name": "&quot;Eiji&quot;",
-    "poster": "https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128",
-    "background": "https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128",
-    "description": "&quot;Eiji&quot; - ÇizgiMax Arşivi",
+    "name": "\"Eiji\"",
+    "poster": "https://cdn.myanimelist.net/images/anime/7/38319l.jpg",
+    "background": "https://cdn.myanimelist.net/images/anime/7/38319l.jpg",
+    "description": "\"Eiji\" - ÇizgiMax",
     "genres": [
       "Çizgi Dizi",
       "ÇizgiMax"
     ],
     "videos": [
       {
-        "id": "cizgimax:show:diziler/eiji-izle",
-        "title": "&quot;Eiji&quot;",
+        "id": "cizgimax:ep:episode-35648-s1e1",
+        "title": "1. Sezon 1. Bölüm",
         "season": 1,
         "episode": 1
       }

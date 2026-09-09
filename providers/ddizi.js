@@ -65,7 +65,7 @@ async function resolveTmdbInfo(id, mediaType) {
 async function getCatalog(args) {
     try {
         const query = (args && args.extra && args.extra.search) || (args && args.query) || '';
-        let url = `${BASE_URL}/yeni-eklenenler1`;
+        let url = `${BASE_URL}/`;
         let options = { headers: HEADERS };
 
         if (query) {
@@ -86,46 +86,41 @@ async function getCatalog(args) {
         const metas = [];
         const seen = new Set();
 
-        if (query) {
-            const seriesMatches = [...html.matchAll(/<a href="([^"]*\/diziler\/([^"]*))"[^>]*>([\s\S]*?)<\/a>/gi)];
-            for (const m of seriesMatches) {
-                const slug = m[2];
-                const title = m[3].replace(/<[^>]+>/g, '').trim();
-                if (!slug || seen.has(slug) || title.length < 2) continue;
-                seen.add(slug);
+        const seriesMatches = [...html.matchAll(/<a href="([^"]*\/diziler\/([^"]*))"[^>]*>([\s\S]*?)<\/a>/gi)];
+        for (const m of seriesMatches) {
+            const slug = m[2].replace(/\/$/, '');
+            const title = m[3].replace(/<[^>]+>/g, '').trim();
+            if (!slug || seen.has(slug) || title.length < 2) continue;
+            seen.add(slug);
 
-                metas.push({
-                    id: `ddizi:show:${slug.replace(/\/$/, '')}`,
-                    type: 'tv',
-                    name: title,
-                    poster: 'https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png',
-                    background: 'https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png',
-                    genres: ['Yerli Dizi', 'DDizi'],
-                    description: `${title} - DDizi Yerli Dizi Arşivi`
-                });
-            }
-        } else {
-            const cardRegex = /<div class="dizi-boxpost-cat">[\s\S]*?<a href="([^"]*\/izle\/([^"]*))"[^>]*title="([^"]*)"[\s\S]*?<img[^>]+(?:data-src|src)="([^"]*)"/gi;
-            let cardMatch;
-            while ((cardMatch = cardRegex.exec(html)) !== null) {
-                const epSlug = cardMatch[2];
-                const epTitle = cardMatch[3].trim();
-                const poster = cardMatch[4];
-
-                if (!epSlug || seen.has(epSlug)) continue;
-                seen.add(epSlug);
-
-                metas.push({
-                    id: `ddizi:ep:${epSlug.replace(/\/$/, '')}`,
-                    type: 'tv',
-                    name: epTitle,
-                    poster: poster.startsWith('http') ? poster : `${BASE_URL}${poster}`,
-                    background: poster.startsWith('http') ? poster : `${BASE_URL}${poster}`,
-                    genres: ['Yerli Dizi', 'DDizi'],
-                    description: `${epTitle} - DDizi Güncel Bölüm`
-                });
-            }
+            metas.push({
+                id: `ddizi:show:${slug}`,
+                type: 'tv',
+                name: title,
+                poster: 'https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png',
+                background: 'https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png',
+                genres: ['Yerli Dizi', 'DDizi'],
+                description: `${title} - DDizi Yerli Dizi Arşivi`
+            });
         }
+
+        // Fetch posters for first 15 shows in parallel
+        const topShows = metas.slice(0, 15);
+        await Promise.all(topShows.map(async s => {
+            try {
+                const sSlug = s.id.replace('ddizi:show:', '');
+                const sRes = await fetch(`${BASE_URL}/diziler/${sSlug}`, { headers: HEADERS });
+                if (sRes.ok) {
+                    const sHtml = await sRes.text();
+                    const pMatch = sHtml.match(/class="[^"]*(?:dizi-resmi|img-back-cat)[^"]*"[\s\S]*?(?:data-src|src)="([^"]*)"/i);
+                    if (pMatch) {
+                        const pUrl = pMatch[1].startsWith('http') ? pMatch[1] : `${BASE_URL}${pMatch[1]}`;
+                        s.poster = pUrl;
+                        s.background = pUrl;
+                    }
+                }
+            } catch (e) {}
+        }));
 
         return { metas };
     } catch (e) {
@@ -181,7 +176,8 @@ async function getMeta(args) {
             const html = await res.text();
 
             const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i) || html.match(/<title>([^<]+)<\/title>/i);
-            const title = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, '').replace(/\s*son\s*bölüm\s*izle\s*$/i, '').trim() : 'DDizi';
+            const rawTitle = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, '').replace(/\s*son\s*bölüm\s*izle.*$/i, '').replace(/\s*\|.*$/i, '').trim() : 'DDizi';
+            const title = rawTitle.replace(/\s*Full\s*.*$/i, '').trim() || rawTitle;
 
             const posterMatch = html.match(/class="[^"]*(?:dizi-resmi|img-back-cat)[^"]*"[\s\S]*?(?:data-src|src)="([^"]*)"/i);
             const poster = posterMatch ? (posterMatch[1].startsWith('http') ? posterMatch[1] : `${BASE_URL}${posterMatch[1]}`) : 'https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png';
@@ -190,12 +186,24 @@ async function getMeta(args) {
             const videos = [];
             const seen = new Set();
 
+            const slugPart = (showSlug.split('/')[1] || showSlug).replace(/-\d+-son-bolum.*$/i, '').replace(/-izle.*$/i, '');
+            const baseSlugKey = ultraClean(slugPart);
+            const titleKey = ultraClean(title);
+
             for (const ep of epMatches) {
                 const epSlug = ep[2];
                 if (!epSlug || seen.has(epSlug)) continue;
-                seen.add(epSlug);
 
                 const epTitle = ep[3].replace(/<[^>]+>/g, '').trim();
+                const epClean = ultraClean(epSlug + ' ' + epTitle);
+
+                // Ensure episode belongs to this show
+                if (baseSlugKey && !epClean.includes(baseSlugKey) && titleKey && !epClean.includes(titleKey)) {
+                    continue;
+                }
+
+                seen.add(epSlug);
+
                 const epNumMatch = epTitle.match(/(\d+)\s*\.?\s*bölüm/i) || epSlug.match(/-(\d+)-bolum/i);
                 const epNum = epNumMatch ? parseInt(epNumMatch[1]) : 1;
 
@@ -247,19 +255,28 @@ async function extractStreamsFromEpisodePage(epUrl) {
                 if (!pRes.ok) continue;
                 const pHtml = await pRes.text();
 
-                const videoMatches = [...pHtml.matchAll(/https?:\/\/[^\s"'<>\\]+\.(?:mp4|m3u8)[^\s"'<>\\]*/gi)];
-                for (const vm of videoMatches) {
-                    const vUrl = vm[0];
-                    if (vUrl.includes('preview/') || vUrl.includes('image/')) continue;
+                const videoMatches = [
+                    ...[...pHtml.matchAll(/https?:\/\/[^\s"'<>\\]+\.(?:mp4|m3u8)[^\s"'<>\\]*/gi)].map(m => m[0]),
+                    ...[...pHtml.matchAll(/file\s*:\s*["'](https?:\\\/\\\/[^"']+|https?:[^"']+)["']/gi)].map(m => m[1].replace(/\\\//g, '/'))
+                ];
+                const seenStreamUrls = new Set();
+                for (const rawVUrl of videoMatches) {
+                    const vUrl = rawVUrl.trim();
+                    if (!vUrl || seenStreamUrls.has(vUrl)) continue;
+                    seenStreamUrls.add(vUrl);
+                    if (vUrl.includes('preview/') || vUrl.includes('image/') || vUrl.includes('.svg') || vUrl.includes('.jpg') || vUrl.includes('.png')) continue;
 
                     let quality = '1080p';
-                    if (vUrl.includes('720')) quality = '720p';
+                    if (vUrl.includes('720') || vUrl.includes('itag=22')) quality = '720p';
                     else if (vUrl.includes('480')) quality = '480p';
-                    else if (vUrl.includes('360')) quality = '360p';
+                    else if (vUrl.includes('360') || vUrl.includes('itag=18')) quality = '360p';
 
                     let server = 'CDN';
                     if (vUrl.includes('ciner.com.tr')) server = 'Ciner CDN';
                     else if (vUrl.includes('yandex')) server = 'Yandex';
+                    else if (vUrl.includes('googlevideo')) server = 'Google Direct';
+                    else if (vUrl.includes('twimg')) server = 'Fast CDN';
+                    else if (vUrl.includes('akamaized')) server = 'Akamai';
 
                     streams.push({
                         name: 'DDizi',
@@ -271,22 +288,6 @@ async function extractStreamsFromEpisodePage(epUrl) {
                             'User-Agent': HEADERS['User-Agent'],
                             'Referer': src
                         }
-                    });
-                }
-            }
-
-            // Type 2: Telif / YouTube fallback
-            if (src.includes('telif') && src.includes('youtube.com/watch?v=')) {
-                const ytMatch = src.match(/v=([a-zA-Z0-9_-]{11})/);
-                if (ytMatch) {
-                    const ytId = ytMatch[1];
-                    streams.push({
-                        name: 'DDizi',
-                        title: `⌜ DDizi ⌟ | YouTube (1080p)`,
-                        url: `https://www.youtube.com/watch?v=${ytId}`,
-                        ytId: ytId,
-                        quality: '1080p',
-                        provider: 'ddizi'
                     });
                 }
             }

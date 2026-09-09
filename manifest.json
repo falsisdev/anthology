@@ -132,6 +132,7 @@
         "movie"
       ],
       "idPrefixes": [
+        "tv:",
         "tv_",
         "tmdb_",
         "iptv_",
@@ -466,6 +467,10 @@
       "contentLanguage": [
         "tr"
       ],
+      "idPrefixes": [
+        "tv:",
+        "tv_"
+      ],
       "catalogs": [
         {
           "type": "tv",
@@ -504,6 +509,10 @@
       "contentLanguage": [
         "tr"
       ],
+      "idPrefixes": [
+        "tv:",
+        "tv_"
+      ],
       "catalogs": [
         {
           "type": "tv",
@@ -541,6 +550,10 @@
       "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt1.png",
       "contentLanguage": [
         "tr"
+      ],
+      "idPrefixes": [
+        "tv:",
+        "tv_"
       ],
       "catalogs": [
         {
@@ -805,7 +818,7 @@
         {
           "type": "tv",
           "id": "anthology_ddizi",
-          "name": "DDizi — Son Eklenen Yerli Diziler",
+          "name": "DDizi — Popüler Yerli Diziler",
           "extra": [
             {
               "name": "search",
@@ -843,7 +856,45 @@
         {
           "type": "tv",
           "id": "anthology_dizibox",
-          "name": "DiziBox — Son Eklenen Yabancı Diziler",
+          "name": "DiziBox — Popüler Yabancı Diziler",
+          "extra": [
+            {
+              "name": "search",
+              "isRequired": false
+            }
+          ]
+        }
+      ],
+      "resources": [
+        "catalog",
+        "meta",
+        "stream"
+      ],
+      "contentLanguage": [
+        "tr"
+      ]
+    },
+    {
+      "id": "dizimom",
+      "name": "DiziMom",
+      "description": "Popüler yabancı diziler arşivi, güncel bölümler kataloğu ve doğrudan 1080p Fire HLS master akışları.",
+      "version": "1.7.0",
+      "author": "falsisdev",
+      "supportedTypes": [
+        "tv"
+      ],
+      "filename": "providers/dizimom.js",
+      "enabled": true,
+      "formats": [
+        "hls",
+        "m3u8"
+      ],
+      "logo": "https://www.google.com/s2/favicons?domain=dizimom.diy&sz=128",
+      "catalogs": [
+        {
+          "type": "tv",
+          "id": "anthology_dizimom",
+          "name": "DiziMom — Popüler Diziler",
           "extra": [
             {
               "name": "search",
@@ -866,7 +917,7 @@
     {
       "type": "tv",
       "id": "anthology_ddizi",
-      "name": "DDizi — Son Eklenen Yerli Diziler",
+      "name": "DDizi — Popüler Yerli Diziler",
       "extra": [
         {
           "name": "search",
@@ -877,7 +928,18 @@
     {
       "type": "tv",
       "id": "anthology_dizibox",
-      "name": "DiziBox — Son Eklenen Yabancı Diziler",
+      "name": "DiziBox — Popüler Yabancı Diziler",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "tv",
+      "id": "anthology_dizimom",
+      "name": "DiziMom — Popüler Diziler",
       "extra": [
         {
           "name": "search",

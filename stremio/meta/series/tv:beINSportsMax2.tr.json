@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "id": "tv:beINSportsMax2.tr",
+    "type": "tv",
+    "name": "BeIN Sports Max 2 HD",
+    "poster": "https://i.imgur.com/5dBc5rn.png",
+    "background": "https://i.imgur.com/5dBc5rn.png",
+    "description": "BeIN Sports Max 2 HD Canlı Spor Yayını",
+    "genres": [
+      "Spor"
+    ],
+    "videos": [
+      {
+        "id": "tv:beINSportsMax2.tr",
+        "title": "BeIN Sports Max 2 HD",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

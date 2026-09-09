@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "ddizi:show:1884/squid-game-hd23",
+    "type": "series",
+    "name": "Squid Game",
+    "poster": "https://www.ddizi.im/diziresimleri/squidgamekapak-min.jpg",
+    "background": "https://www.ddizi.im/diziresimleri/squidgamekapak-min.jpg",
+    "description": "Squid Game izle - DDizi Dizi Arşivi",
+    "genres": [
+      "Yerli Dizi",
+      "DDizi"
+    ],
+    "videos": [
+      {
+        "id": "ddizi:show:1884/squid-game-hd23",
+        "title": "Squid Game",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

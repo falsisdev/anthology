@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "ddizi:show:1917/the-witcher-hd",
+    "type": "series",
+    "name": "The Witcher",
+    "poster": "https://www.ddizi.im/diziresimleri/witcherkapak-minx.jpg",
+    "background": "https://www.ddizi.im/diziresimleri/witcherkapak-minx.jpg",
+    "description": "The Witcher izle - DDizi Dizi Arşivi",
+    "genres": [
+      "Yerli Dizi",
+      "DDizi"
+    ],
+    "videos": [
+      {
+        "id": "ddizi:show:1917/the-witcher-hd",
+        "title": "The Witcher",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

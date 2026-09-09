@@ -1,7 +1,7 @@
 {
   "metas": [
     {
-      "id": "TRT1.tr",
+      "id": "tv:TRT1.tr",
       "type": "tv",
       "name": "TRT 1 HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt1.png",
@@ -12,7 +12,7 @@
       ]
     },
     {
-      "id": "ATV.tr",
+      "id": "tv:ATV.tr",
       "type": "tv",
       "name": "ATV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/atv.png",
@@ -23,7 +23,7 @@
       ]
     },
     {
-      "id": "KanalD.tr",
+      "id": "tv:KanalD.tr",
       "type": "tv",
       "name": "Kanal D HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanald.png",
@@ -34,7 +34,7 @@
       ]
     },
     {
-      "id": "ShowTV.tr",
+      "id": "tv:ShowTV.tr",
       "type": "tv",
       "name": "Show TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/showtv.png",
@@ -45,7 +45,7 @@
       ]
     },
     {
-      "id": "StarTV.tr",
+      "id": "tv:StarTV.tr",
       "type": "tv",
       "name": "Star TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/startv.png",
@@ -56,7 +56,7 @@
       ]
     },
     {
-      "id": "NOW.tr",
+      "id": "tv:NOW.tr",
       "type": "tv",
       "name": "NOW TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/now.png",
@@ -67,7 +67,7 @@
       ]
     },
     {
-      "id": "TV8.tr",
+      "id": "tv:TV8.tr",
       "type": "tv",
       "name": "TV8 HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv8.png",
@@ -78,7 +78,7 @@
       ]
     },
     {
-      "id": "Kanal7.tr",
+      "id": "tv:Kanal7.tr",
       "type": "tv",
       "name": "Kanal 7 HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png",
@@ -89,7 +89,7 @@
       ]
     },
     {
-      "id": "BeyazTV.tr",
+      "id": "tv:BeyazTV.tr",
       "type": "tv",
       "name": "Beyaz TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beyaztv.png",
@@ -100,7 +100,7 @@
       ]
     },
     {
-      "id": "Teve2.tr",
+      "id": "tv:Teve2.tr",
       "type": "tv",
       "name": "Teve2 HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/teve2.png",
@@ -111,7 +111,7 @@
       ]
     },
     {
-      "id": "A2.tr",
+      "id": "tv:A2.tr",
       "type": "tv",
       "name": "A2 TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/a2.png",
@@ -122,7 +122,7 @@
       ]
     },
     {
-      "id": "TV360.tr",
+      "id": "tv:TV360.tr",
       "type": "tv",
       "name": "360 TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv360.png",
@@ -133,7 +133,7 @@
       ]
     },
     {
-      "id": "TRT2.tr",
+      "id": "tv:TRT2.tr",
       "type": "tv",
       "name": "TRT 2 Kültür & Sanat HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt2.png",
@@ -144,7 +144,7 @@
       ]
     },
     {
-      "id": "TRTAvaz.tr",
+      "id": "tv:TRTAvaz.tr",
       "type": "tv",
       "name": "TRT Avaz HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtavaz.png",
@@ -155,7 +155,7 @@
       ]
     },
     {
-      "id": "TRTTurk.tr",
+      "id": "tv:TRTTurk.tr",
       "type": "tv",
       "name": "TRT Türk HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtturk.png",
@@ -166,7 +166,7 @@
       ]
     },
     {
-      "id": "Kanal7Avrupa.tr",
+      "id": "tv:Kanal7Avrupa.tr",
       "type": "tv",
       "name": "Kanal 7 Avrupa",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png",
@@ -177,7 +177,7 @@
       ]
     },
     {
-      "id": "TRTHaber.tr",
+      "id": "tv:TRTHaber.tr",
       "type": "tv",
       "name": "TRT Haber HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trthaber.png",
@@ -188,7 +188,7 @@
       ]
     },
     {
-      "id": "AHaber.tr",
+      "id": "tv:AHaber.tr",
       "type": "tv",
       "name": "A Haber HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ahaber.png",
@@ -199,7 +199,7 @@
       ]
     },
     {
-      "id": "NTV.tr",
+      "id": "tv:NTV.tr",
       "type": "tv",
       "name": "NTV Haber HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ntv.png",
@@ -210,7 +210,7 @@
       ]
     },
     {
-      "id": "HaberTurk.tr",
+      "id": "tv:HaberTurk.tr",
       "type": "tv",
       "name": "Habertürk TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/haberturk.png",
@@ -221,7 +221,7 @@
       ]
     },
     {
-      "id": "HalkTV.tr",
+      "id": "tv:HalkTV.tr",
       "type": "tv",
       "name": "Halk TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/halktv.png",
@@ -232,7 +232,7 @@
       ]
     },
     {
-      "id": "Tele1.tr",
+      "id": "tv:Tele1.tr",
       "type": "tv",
       "name": "Tele 1 HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tele1.png",
@@ -243,7 +243,7 @@
       ]
     },
     {
-      "id": "TGRTHaber.tr",
+      "id": "tv:TGRTHaber.tr",
       "type": "tv",
       "name": "TGRT Haber HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tgrthaber.png",
@@ -254,7 +254,7 @@
       ]
     },
     {
-      "id": "HaberGlobal.tr",
+      "id": "tv:HaberGlobal.tr",
       "type": "tv",
       "name": "Haber Global HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/haberglobal.png",
@@ -265,7 +265,7 @@
       ]
     },
     {
-      "id": "Kanal24.tr",
+      "id": "tv:Kanal24.tr",
       "type": "tv",
       "name": "24 TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/24tv.png",
@@ -276,7 +276,7 @@
       ]
     },
     {
-      "id": "BloombergHT.tr",
+      "id": "tv:BloombergHT.tr",
       "type": "tv",
       "name": "Bloomberg HT Ekonomi HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bloomberght.png",
@@ -287,7 +287,7 @@
       ]
     },
     {
-      "id": "BenguTurk.tr",
+      "id": "tv:BenguTurk.tr",
       "type": "tv",
       "name": "Bengü Türk TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/benguturk.png",
@@ -298,7 +298,7 @@
       ]
     },
     {
-      "id": "FlashHaber.tr",
+      "id": "tv:FlashHaber.tr",
       "type": "tv",
       "name": "Flash Haber TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/flashhaber.png",
@@ -309,7 +309,7 @@
       ]
     },
     {
-      "id": "LiderHaber.tr",
+      "id": "tv:LiderHaber.tr",
       "type": "tv",
       "name": "Lider Haber TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/liderhaber.png",
@@ -320,7 +320,7 @@
       ]
     },
     {
-      "id": "TurkHaber.tr",
+      "id": "tv:TurkHaber.tr",
       "type": "tv",
       "name": "Türk Haber TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/turkhaber.png",
@@ -331,7 +331,7 @@
       ]
     },
     {
-      "id": "ASpor.tr",
+      "id": "tv:ASpor.tr",
       "type": "tv",
       "name": "A Spor HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/aspor.png",
@@ -342,7 +342,7 @@
       ]
     },
     {
-      "id": "HTSpor.tr",
+      "id": "tv:HTSpor.tr",
       "type": "tv",
       "name": "HT Spor HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/htspor.png",
@@ -353,7 +353,7 @@
       ]
     },
     {
-      "id": "TRTSpor.tr",
+      "id": "tv:TRTSpor.tr",
       "type": "tv",
       "name": "TRT Spor HD",
       "poster": "https://i.imgur.com/6tv0zxh.png",
@@ -364,7 +364,7 @@
       ]
     },
     {
-      "id": "TRTSporYildiz.tr",
+      "id": "tv:TRTSporYildiz.tr",
       "type": "tv",
       "name": "TRT Spor Yıldız HD",
       "poster": "https://i.imgur.com/6tv0zxh.png",
@@ -375,18 +375,18 @@
       ]
     },
     {
-      "id": "TV85.tr",
+      "id": "tv:TV85.tr",
       "type": "tv",
-      "name": "5 HD",
-      "poster": "https://i.imgur.com/QuelSsc.png",
-      "background": "https://i.imgur.com/QuelSsc.png",
-      "description": "5 HD Canlı Yayın",
+      "name": "TV8,5 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv8.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv8.png",
+      "description": "TV8,5 HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
       ]
     },
     {
-      "id": "beINSports1.tr",
+      "id": "tv:beINSports1.tr",
       "type": "tv",
       "name": "BeIN Sports 1 HD",
       "poster": "https://i.imgur.com/Vtk2cGI.png",
@@ -397,7 +397,7 @@
       ]
     },
     {
-      "id": "beINSports2.tr",
+      "id": "tv:beINSports2.tr",
       "type": "tv",
       "name": "BeIN Sports 2 HD",
       "poster": "https://i.imgur.com/vUJZSvs.png",
@@ -408,7 +408,7 @@
       ]
     },
     {
-      "id": "beINSports3.tr",
+      "id": "tv:beINSports3.tr",
       "type": "tv",
       "name": "BeIN Sports 3 HD",
       "poster": "https://i.imgur.com/UYSMao3.png",
@@ -419,7 +419,7 @@
       ]
     },
     {
-      "id": "beINSports4.tr",
+      "id": "tv:beINSports4.tr",
       "type": "tv",
       "name": "BeIN Sports 4 HD",
       "poster": "https://i.imgur.com/vwAgJNi.png",
@@ -430,7 +430,7 @@
       ]
     },
     {
-      "id": "beINSports5.tr",
+      "id": "tv:beINSports5.tr",
       "type": "tv",
       "name": "BeIN Sports 5 HD",
       "poster": "https://i.imgur.com/2Rha5aY.png",
@@ -441,7 +441,7 @@
       ]
     },
     {
-      "id": "beINSportsMax1.tr",
+      "id": "tv:beINSportsMax1.tr",
       "type": "tv",
       "name": "BeIN Sports Max 1 HD",
       "poster": "https://i.imgur.com/FjWQjdy.png",
@@ -452,7 +452,7 @@
       ]
     },
     {
-      "id": "beINSportsMax2.tr",
+      "id": "tv:beINSportsMax2.tr",
       "type": "tv",
       "name": "BeIN Sports Max 2 HD",
       "poster": "https://i.imgur.com/5dBc5rn.png",
@@ -463,7 +463,7 @@
       ]
     },
     {
-      "id": "SSport.tr",
+      "id": "tv:SSport.tr",
       "type": "tv",
       "name": "S Sport HD",
       "poster": "https://i.imgur.com/2jIItAy.png",
@@ -474,7 +474,7 @@
       ]
     },
     {
-      "id": "SSport2.tr",
+      "id": "tv:SSport2.tr",
       "type": "tv",
       "name": "S Sport 2 HD",
       "poster": "https://i.imgur.com/2jIItAy.png",
@@ -485,7 +485,7 @@
       ]
     },
     {
-      "id": "SSportPlus.tr",
+      "id": "tv:SSportPlus.tr",
       "type": "tv",
       "name": "S Sport Plus HD",
       "poster": "https://i.imgur.com/2jIItAy.png",
@@ -496,7 +496,7 @@
       ]
     },
     {
-      "id": "TivibuSpor.tr",
+      "id": "tv:TivibuSpor.tr",
       "type": "tv",
       "name": "Tivibu Spor HD",
       "poster": "https://i.imgur.com/qvrKQY3.png",
@@ -507,7 +507,7 @@
       ]
     },
     {
-      "id": "TivibuSpor1.tr",
+      "id": "tv:TivibuSpor1.tr",
       "type": "tv",
       "name": "Tivibu Spor 1 HD",
       "poster": "https://i.imgur.com/qvrKQY3.png",
@@ -518,7 +518,7 @@
       ]
     },
     {
-      "id": "TivibuSpor2.tr",
+      "id": "tv:TivibuSpor2.tr",
       "type": "tv",
       "name": "Tivibu Spor 2 HD",
       "poster": "https://i.imgur.com/fZMSjNE.png",
@@ -529,7 +529,7 @@
       ]
     },
     {
-      "id": "TivibuSpor3.tr",
+      "id": "tv:TivibuSpor3.tr",
       "type": "tv",
       "name": "Tivibu Spor 3 HD",
       "poster": "https://i.imgur.com/xLrgt2O.png",
@@ -540,7 +540,7 @@
       ]
     },
     {
-      "id": "TivibuSpor4.tr",
+      "id": "tv:TivibuSpor4.tr",
       "type": "tv",
       "name": "Tivibu Spor 4 HD",
       "poster": "https://i.imgur.com/LgGxe7z.png",
@@ -551,7 +551,7 @@
       ]
     },
     {
-      "id": "SmartSpor1.tr",
+      "id": "tv:SmartSpor1.tr",
       "type": "tv",
       "name": "Smart Spor 1 HD",
       "poster": "https://i.imgur.com/blu6v6P.png",
@@ -562,7 +562,7 @@
       ]
     },
     {
-      "id": "SmartSpor2.tr",
+      "id": "tv:SmartSpor2.tr",
       "type": "tv",
       "name": "Smart Spor 2 HD",
       "poster": "https://i.imgur.com/qyUKCUa.png",
@@ -573,7 +573,7 @@
       ]
     },
     {
-      "id": "EuroSport1.tr",
+      "id": "tv:EuroSport1.tr",
       "type": "tv",
       "name": "Euro Sport 1 HD",
       "poster": "https://i.imgur.com/olQJgm7.png",
@@ -584,7 +584,7 @@
       ]
     },
     {
-      "id": "EuroSport2.tr",
+      "id": "tv:EuroSport2.tr",
       "type": "tv",
       "name": "Euro Sport 2 HD",
       "poster": "https://i.imgur.com/f56dHgR.png",
@@ -595,7 +595,7 @@
       ]
     },
     {
-      "id": "ExxenTV.tr",
+      "id": "tv:ExxenTV.tr",
       "type": "tv",
       "name": "Exxen TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
@@ -606,7 +606,7 @@
       ]
     },
     {
-      "id": "ExxenSports1.tr",
+      "id": "tv:ExxenSports1.tr",
       "type": "tv",
       "name": "Exxen Sports 1 HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
@@ -617,7 +617,7 @@
       ]
     },
     {
-      "id": "ExxenSports2.tr",
+      "id": "tv:ExxenSports2.tr",
       "type": "tv",
       "name": "Exxen Sports 2 HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
@@ -628,7 +628,7 @@
       ]
     },
     {
-      "id": "ExxenSports3.tr",
+      "id": "tv:ExxenSports3.tr",
       "type": "tv",
       "name": "Exxen Sports 3 HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
@@ -639,7 +639,7 @@
       ]
     },
     {
-      "id": "ExxenSports4.tr",
+      "id": "tv:ExxenSports4.tr",
       "type": "tv",
       "name": "Exxen Sports 4 HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
@@ -650,7 +650,7 @@
       ]
     },
     {
-      "id": "ExxenSports5.tr",
+      "id": "tv:ExxenSports5.tr",
       "type": "tv",
       "name": "Exxen Sports 5 HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
@@ -661,7 +661,7 @@
       ]
     },
     {
-      "id": "ExxenSports6.tr",
+      "id": "tv:ExxenSports6.tr",
       "type": "tv",
       "name": "Exxen Sports 6 HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
@@ -672,7 +672,7 @@
       ]
     },
     {
-      "id": "ExxenSports7.tr",
+      "id": "tv:ExxenSports7.tr",
       "type": "tv",
       "name": "Exxen Sports 7 HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
@@ -683,7 +683,7 @@
       ]
     },
     {
-      "id": "ExxenSports8.tr",
+      "id": "tv:ExxenSports8.tr",
       "type": "tv",
       "name": "Exxen Sports 8 HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
@@ -694,7 +694,7 @@
       ]
     },
     {
-      "id": "TabiiSpor.tr",
+      "id": "tv:TabiiSpor.tr",
       "type": "tv",
       "name": "Tabii Spor HD",
       "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
@@ -705,7 +705,7 @@
       ]
     },
     {
-      "id": "TabiiSpor1.tr",
+      "id": "tv:TabiiSpor1.tr",
       "type": "tv",
       "name": "Tabii Spor 1 HD",
       "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
@@ -716,7 +716,7 @@
       ]
     },
     {
-      "id": "TabiiSpor2.tr",
+      "id": "tv:TabiiSpor2.tr",
       "type": "tv",
       "name": "Tabii Spor 2 HD",
       "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
@@ -727,7 +727,7 @@
       ]
     },
     {
-      "id": "TabiiSpor3.tr",
+      "id": "tv:TabiiSpor3.tr",
       "type": "tv",
       "name": "Tabii Spor 3 HD",
       "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
@@ -738,7 +738,7 @@
       ]
     },
     {
-      "id": "TabiiSpor4.tr",
+      "id": "tv:TabiiSpor4.tr",
       "type": "tv",
       "name": "Tabii Spor 4 HD",
       "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
@@ -749,7 +749,7 @@
       ]
     },
     {
-      "id": "TabiiSpor5.tr",
+      "id": "tv:TabiiSpor5.tr",
       "type": "tv",
       "name": "Tabii Spor 5 HD",
       "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
@@ -760,7 +760,7 @@
       ]
     },
     {
-      "id": "TabiiSpor6.tr",
+      "id": "tv:TabiiSpor6.tr",
       "type": "tv",
       "name": "Tabii Spor 6 HD",
       "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
@@ -771,7 +771,7 @@
       ]
     },
     {
-      "id": "TabiiSpor7.tr",
+      "id": "tv:TabiiSpor7.tr",
       "type": "tv",
       "name": "Tabii Spor 7 HD",
       "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
@@ -782,7 +782,7 @@
       ]
     },
     {
-      "id": "TabiiSpor8.tr",
+      "id": "tv:TabiiSpor8.tr",
       "type": "tv",
       "name": "Tabii Spor 8 HD",
       "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
@@ -793,7 +793,7 @@
       ]
     },
     {
-      "id": "TJKTV.tr",
+      "id": "tv:TJKTV.tr",
       "type": "tv",
       "name": "TJK TV HD",
       "poster": "https://i.imgur.com/3zHdkYG.png",
@@ -804,7 +804,7 @@
       ]
     },
     {
-      "id": "NBATV.tr",
+      "id": "tv:NBATV.tr",
       "type": "tv",
       "name": "NBA TV HD",
       "poster": "https://i.imgur.com/QmSc6kh.png",
@@ -815,7 +815,7 @@
       ]
     },
     {
-      "id": "FBTV.tr",
+      "id": "tv:FBTV.tr",
       "type": "tv",
       "name": "FB TV HD",
       "poster": "https://i.imgur.com/qBVqtYd.png",
@@ -826,18 +826,18 @@
       ]
     },
     {
-      "id": "GSTV.tr",
+      "id": "tv:GSTV.tr",
       "type": "tv",
       "name": "GS TV HD",
-      "poster": "https://i.postimg.cc/d3k5nDBJ/galatasaray-sk.png",
-      "background": "https://i.postimg.cc/d3k5nDBJ/galatasaray-sk.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png",
       "description": "GS TV HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
       ]
     },
     {
-      "id": "SportsTV.tr",
+      "id": "tv:SportsTV.tr",
       "type": "tv",
       "name": "Sports TV HD",
       "poster": "https://i.imgur.com/tGTVcVe.jpg",
@@ -848,7 +848,7 @@
       ]
     },
     {
-      "id": "CBCSport.tr",
+      "id": "tv:CBCSport.tr",
       "type": "tv",
       "name": "CBC Sport HD",
       "poster": "https://i.imgur.com/3mEdjuq.png",
@@ -859,7 +859,7 @@
       ]
     },
     {
-      "id": "IdmanTV.tr",
+      "id": "tv:IdmanTV.tr",
       "type": "tv",
       "name": "iDMAN Tv HD",
       "poster": "https://i.imgur.com/fM9FOrZ.png",
@@ -870,7 +870,7 @@
       ]
     },
     {
-      "id": "TRTBelgesel.tr",
+      "id": "tv:TRTBelgesel.tr",
       "type": "tv",
       "name": "TRT Belgesel HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtbelgesel.png",
@@ -881,7 +881,7 @@
       ]
     },
     {
-      "id": "TRTCocuk.tr",
+      "id": "tv:TRTCocuk.tr",
       "type": "tv",
       "name": "TRT Çocuk HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtcocuk.png",
@@ -892,7 +892,7 @@
       ]
     },
     {
-      "id": "TRTMuzik.tr",
+      "id": "tv:TRTMuzik.tr",
       "type": "tv",
       "name": "TRT Müzik HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtmuzik.png",

@@ -64,6 +64,33 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
     const season = parseInt(seasonNum) || 1;
     const episode = parseInt(episodeNum) || 1;
 
+    if (typeof tmdbId === 'string' && tmdbId.startsWith('animecix:ep:')) {
+      const parts = tmdbId.replace('animecix:ep:', '').split(':');
+      const titleId = parts[0];
+      const targetSeason = parseInt(parts[1]) || season;
+      const targetEp = parseInt(parts[2]) || episode;
+      const videoUrl = `${BASE_URL}/secure/best-video?titleId=${titleId}&episode=${targetEp}&season=${targetSeason}`;
+      const bestRes = await fetch(videoUrl, { headers: HEADERS, redirect: 'follow' });
+      const finalUrl = bestRes.url || '';
+      const m = finalUrl.match(/tau-video\.xyz\/embed\/([a-zA-Z0-9_-]+)/);
+      if (!m) return [];
+      const tauId = m[1];
+      const tauRes = await fetch(`https://tau-video.xyz/api/video/${tauId}`, {
+        headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': BASE_URL + '/' }
+      });
+      if (!tauRes.ok) return [];
+      const tauData = await tauRes.json();
+      if (!tauData.urls || tauData.urls.length === 0) return [];
+      return tauData.urls.map(u => ({
+        name: 'AnimeciX',
+        title: `⌜ AnimeciX ⌟ | TauVideo [${u.label || 'HD'}]`,
+        url: u.url,
+        quality: u.label || '1080p',
+        provider: 'animecix',
+        headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': BASE_URL + '/' }
+      }));
+    }
+
     if (typeof tmdbId === 'string' && tmdbId.startsWith('animecix:title:')) {
       const titleId = tmdbId.replace('animecix:title:', '');
       const videoUrl = `${BASE_URL}/secure/best-video?titleId=${titleId}&episode=${episode}&season=${season}`;
@@ -198,17 +225,43 @@ async function getMeta(args) {
     if (!rawId || !rawId.startsWith('animecix:title:')) return { meta: null };
 
     const titleId = rawId.replace('animecix:title:', '');
-    const sRes = await fetch(`${BASE_URL}/secure/search/${titleId}?limit=1`, { headers: HEADERS });
-    let name = 'Anime';
-    let poster = 'https://www.google.com/s2/favicons?domain=animecix.tv&sz=128';
-    let desc = 'AnimeciX';
+    const dRes = await fetch(`${BASE_URL}/secure/titles/${titleId}`, { headers: HEADERS });
+    if (!dRes.ok) return { meta: null };
+    const dData = await dRes.json();
+    const titleObj = dData.title || {};
 
-    if (sRes.ok) {
-      const sData = await sRes.json();
-      if (sData.results && sData.results[0]) {
-        name = sData.results[0].name;
-        poster = sData.results[0].poster || poster;
-        desc = sData.results[0].description || desc;
+    const name = titleObj.name || titleObj.name_english || 'Anime';
+    const poster = titleObj.poster || 'https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png';
+    const bg = titleObj.backdrop || poster;
+    const desc = titleObj.description || `${name} - AnimeciX`;
+
+    const videos = [];
+    const seasons = titleObj.seasons || [];
+
+    if (seasons.length > 0) {
+      seasons.forEach(s => {
+        const sNum = parseInt(s.number) || 1;
+        const epCount = parseInt(s.episode_count) || 0;
+        for (let ep = 1; ep <= epCount; ep++) {
+          videos.push({
+            id: `animecix:ep:${titleId}:${sNum}:${ep}`,
+            title: `${name} ${sNum}. Sezon ${ep}. Bölüm`,
+            season: sNum,
+            episode: ep
+          });
+        }
+      });
+    }
+
+    if (videos.length === 0) {
+      const epCount = parseInt(titleObj.episode_count) || 1;
+      for (let ep = 1; ep <= epCount; ep++) {
+        videos.push({
+          id: `animecix:ep:${titleId}:1:${ep}`,
+          title: `${name} ${ep}. Bölüm`,
+          season: 1,
+          episode: ep
+        });
       }
     }
 
@@ -218,15 +271,10 @@ async function getMeta(args) {
         type: 'tv',
         name,
         poster,
-        background: poster,
+        background: bg,
         description: desc,
         genres: ['Anime', 'AnimeciX'],
-        videos: [{
-          id: rawId,
-          title: `${name} 1. Bölüm`,
-          season: 1,
-          episode: 1
-        }]
+        videos
       }
     };
   } catch (e) {

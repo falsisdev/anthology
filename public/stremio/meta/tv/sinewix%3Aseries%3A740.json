@@ -4,18 +4,930 @@
     "type": "series",
     "name": "Doctor Who",
     "poster": "https://image.tmdb.org/t/p/w500/4edFyasCrkH4MKs6H4mHqlrxA6b.jpg",
-    "background": "https://image.tmdb.org/t/p/w500/4edFyasCrkH4MKs6H4mHqlrxA6b.jpg",
-    "description": "Doctor Who - Anthology",
+    "background": "https://image.tmdb.org/t/p/w500/vcFW09U4834DyFOeRZpsx9x1D3S.jpg",
+    "description": "Bu Doktor bambaşka bir doktor. Adı, karakteri, tavırları her şeyiyle bir muamma. Rose Tyler adında bir kadın, kendisini Doktor diye adlandıran gizemli bir yabancıyla tanışır ve bundan sonra hayatı baştan sona değişir. Kısa süre içerisinde ailesi de dahil bütün dünyanın tehlike altında olduğunu öğrenir. Yapması gereken ise kurtuluş yolunu bulmaktır.",
     "genres": [
       "SineWix",
       "Popüler Dizi"
     ],
     "videos": [
       {
-        "id": "sinewix:series:740",
-        "title": "Doctor Who",
+        "id": "sinewix:ep:740:1:1",
+        "title": "Rose",
         "season": 1,
         "episode": 1
+      },
+      {
+        "id": "sinewix:ep:740:1:2",
+        "title": "The End of the World",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "sinewix:ep:740:1:3",
+        "title": "The Unquiet Dead",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "sinewix:ep:740:1:4",
+        "title": "Aliens of London",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "sinewix:ep:740:1:5",
+        "title": "World War Three",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "sinewix:ep:740:1:6",
+        "title": "Dalek",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "sinewix:ep:740:1:7",
+        "title": "The Long Game",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "sinewix:ep:740:1:8",
+        "title": "Father's Day",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "sinewix:ep:740:1:9",
+        "title": "The Empty Child",
+        "season": 1,
+        "episode": 9
+      },
+      {
+        "id": "sinewix:ep:740:1:10",
+        "title": "The Doctor Dances",
+        "season": 1,
+        "episode": 10
+      },
+      {
+        "id": "sinewix:ep:740:1:11",
+        "title": "Boom Town",
+        "season": 1,
+        "episode": 11
+      },
+      {
+        "id": "sinewix:ep:740:1:12",
+        "title": "Bad Wolf",
+        "season": 1,
+        "episode": 12
+      },
+      {
+        "id": "sinewix:ep:740:1:13",
+        "title": "The Parting of the Ways",
+        "season": 1,
+        "episode": 13
+      },
+      {
+        "id": "sinewix:ep:740:2:1",
+        "title": "New Earth",
+        "season": 2,
+        "episode": 1
+      },
+      {
+        "id": "sinewix:ep:740:2:2",
+        "title": "Tooth and Claw",
+        "season": 2,
+        "episode": 2
+      },
+      {
+        "id": "sinewix:ep:740:2:3",
+        "title": "School Reunion",
+        "season": 2,
+        "episode": 3
+      },
+      {
+        "id": "sinewix:ep:740:2:4",
+        "title": "The Girl in the Fireplace",
+        "season": 2,
+        "episode": 4
+      },
+      {
+        "id": "sinewix:ep:740:2:5",
+        "title": "Rise of the Cybermen",
+        "season": 2,
+        "episode": 5
+      },
+      {
+        "id": "sinewix:ep:740:2:6",
+        "title": "The Age of Steel",
+        "season": 2,
+        "episode": 6
+      },
+      {
+        "id": "sinewix:ep:740:2:7",
+        "title": "The Idiot's Lantern",
+        "season": 2,
+        "episode": 7
+      },
+      {
+        "id": "sinewix:ep:740:2:8",
+        "title": "The Impossible Planet",
+        "season": 2,
+        "episode": 8
+      },
+      {
+        "id": "sinewix:ep:740:2:9",
+        "title": "The Satan Pit",
+        "season": 2,
+        "episode": 9
+      },
+      {
+        "id": "sinewix:ep:740:2:10",
+        "title": "Love & Monsters",
+        "season": 2,
+        "episode": 10
+      },
+      {
+        "id": "sinewix:ep:740:2:11",
+        "title": "Fear Her",
+        "season": 2,
+        "episode": 11
+      },
+      {
+        "id": "sinewix:ep:740:2:12",
+        "title": "Army of Ghosts",
+        "season": 2,
+        "episode": 12
+      },
+      {
+        "id": "sinewix:ep:740:2:13",
+        "title": "Doomsday",
+        "season": 2,
+        "episode": 13
+      },
+      {
+        "id": "sinewix:ep:740:3:1",
+        "title": "Smith and Jones",
+        "season": 3,
+        "episode": 1
+      },
+      {
+        "id": "sinewix:ep:740:3:2",
+        "title": "The Shakespeare Code",
+        "season": 3,
+        "episode": 2
+      },
+      {
+        "id": "sinewix:ep:740:3:3",
+        "title": "Gridlock",
+        "season": 3,
+        "episode": 3
+      },
+      {
+        "id": "sinewix:ep:740:3:4",
+        "title": "Daleks in Manhattan",
+        "season": 3,
+        "episode": 4
+      },
+      {
+        "id": "sinewix:ep:740:3:5",
+        "title": "Evolution of the Daleks",
+        "season": 3,
+        "episode": 5
+      },
+      {
+        "id": "sinewix:ep:740:3:6",
+        "title": "The Lazarus Experiment",
+        "season": 3,
+        "episode": 6
+      },
+      {
+        "id": "sinewix:ep:740:3:7",
+        "title": "42",
+        "season": 3,
+        "episode": 7
+      },
+      {
+        "id": "sinewix:ep:740:3:8",
+        "title": "Human Nature",
+        "season": 3,
+        "episode": 8
+      },
+      {
+        "id": "sinewix:ep:740:3:9",
+        "title": "The Family of Blood",
+        "season": 3,
+        "episode": 9
+      },
+      {
+        "id": "sinewix:ep:740:3:10",
+        "title": "Blink",
+        "season": 3,
+        "episode": 10
+      },
+      {
+        "id": "sinewix:ep:740:3:11",
+        "title": "Utopia",
+        "season": 3,
+        "episode": 11
+      },
+      {
+        "id": "sinewix:ep:740:3:12",
+        "title": "The Sound of Drums",
+        "season": 3,
+        "episode": 12
+      },
+      {
+        "id": "sinewix:ep:740:3:13",
+        "title": "Last of the Time Lords",
+        "season": 3,
+        "episode": 13
+      },
+      {
+        "id": "sinewix:ep:740:4:1",
+        "title": "Partners in Crime",
+        "season": 4,
+        "episode": 1
+      },
+      {
+        "id": "sinewix:ep:740:4:2",
+        "title": "The Fires of Pompeii",
+        "season": 4,
+        "episode": 2
+      },
+      {
+        "id": "sinewix:ep:740:4:3",
+        "title": "Planet of the Ood",
+        "season": 4,
+        "episode": 3
+      },
+      {
+        "id": "sinewix:ep:740:4:4",
+        "title": "The Sontaran Stratagem",
+        "season": 4,
+        "episode": 4
+      },
+      {
+        "id": "sinewix:ep:740:4:5",
+        "title": "The Poison Sky",
+        "season": 4,
+        "episode": 5
+      },
+      {
+        "id": "sinewix:ep:740:4:6",
+        "title": "The Doctor's Daughter",
+        "season": 4,
+        "episode": 6
+      },
+      {
+        "id": "sinewix:ep:740:4:7",
+        "title": "The Unicorn and the Wasp",
+        "season": 4,
+        "episode": 7
+      },
+      {
+        "id": "sinewix:ep:740:4:8",
+        "title": "Silence in the Library",
+        "season": 4,
+        "episode": 8
+      },
+      {
+        "id": "sinewix:ep:740:4:9",
+        "title": "Forest of the Dead",
+        "season": 4,
+        "episode": 9
+      },
+      {
+        "id": "sinewix:ep:740:4:10",
+        "title": "Midnight",
+        "season": 4,
+        "episode": 10
+      },
+      {
+        "id": "sinewix:ep:740:4:11",
+        "title": "Turn Left",
+        "season": 4,
+        "episode": 11
+      },
+      {
+        "id": "sinewix:ep:740:4:12",
+        "title": "The Stolen Earth",
+        "season": 4,
+        "episode": 12
+      },
+      {
+        "id": "sinewix:ep:740:4:13",
+        "title": "Journey's End",
+        "season": 4,
+        "episode": 13
+      },
+      {
+        "id": "sinewix:ep:740:5:1",
+        "title": "The Eleventh Hour",
+        "season": 5,
+        "episode": 1
+      },
+      {
+        "id": "sinewix:ep:740:5:2",
+        "title": "The Beast Below",
+        "season": 5,
+        "episode": 2
+      },
+      {
+        "id": "sinewix:ep:740:5:3",
+        "title": "Victory of the Daleks",
+        "season": 5,
+        "episode": 3
+      },
+      {
+        "id": "sinewix:ep:740:5:4",
+        "title": "Time of the Angels",
+        "season": 5,
+        "episode": 4
+      },
+      {
+        "id": "sinewix:ep:740:5:5",
+        "title": "Flesh and Stone",
+        "season": 5,
+        "episode": 5
+      },
+      {
+        "id": "sinewix:ep:740:5:6",
+        "title": "The Vampires of Venice",
+        "season": 5,
+        "episode": 6
+      },
+      {
+        "id": "sinewix:ep:740:5:7",
+        "title": "Amy's Choice",
+        "season": 5,
+        "episode": 7
+      },
+      {
+        "id": "sinewix:ep:740:5:8",
+        "title": "The Hungry Earth",
+        "season": 5,
+        "episode": 8
+      },
+      {
+        "id": "sinewix:ep:740:5:9",
+        "title": "Cold Blood",
+        "season": 5,
+        "episode": 9
+      },
+      {
+        "id": "sinewix:ep:740:5:10",
+        "title": "Vincent and the Doctor",
+        "season": 5,
+        "episode": 10
+      },
+      {
+        "id": "sinewix:ep:740:5:11",
+        "title": "The Lodger",
+        "season": 5,
+        "episode": 11
+      },
+      {
+        "id": "sinewix:ep:740:5:12",
+        "title": "The Pandorica Opens",
+        "season": 5,
+        "episode": 12
+      },
+      {
+        "id": "sinewix:ep:740:5:13",
+        "title": "The Big Bang",
+        "season": 5,
+        "episode": 13
+      },
+      {
+        "id": "sinewix:ep:740:6:1",
+        "title": "The Impossible Astronaut",
+        "season": 6,
+        "episode": 1
+      },
+      {
+        "id": "sinewix:ep:740:6:2",
+        "title": "Day of the Moon",
+        "season": 6,
+        "episode": 2
+      },
+      {
+        "id": "sinewix:ep:740:6:3",
+        "title": "The Curse of the Black Spot",
+        "season": 6,
+        "episode": 3
+      },
+      {
+        "id": "sinewix:ep:740:6:4",
+        "title": "The Doctor's Wife",
+        "season": 6,
+        "episode": 4
+      },
+      {
+        "id": "sinewix:ep:740:6:5",
+        "title": "The Rebel Flesh",
+        "season": 6,
+        "episode": 5
+      },
+      {
+        "id": "sinewix:ep:740:6:6",
+        "title": "The Almost People",
+        "season": 6,
+        "episode": 6
+      },
+      {
+        "id": "sinewix:ep:740:6:7",
+        "title": "A Good Man Goes to War",
+        "season": 6,
+        "episode": 7
+      },
+      {
+        "id": "sinewix:ep:740:6:8",
+        "title": "Let's Kill Hitler",
+        "season": 6,
+        "episode": 8
+      },
+      {
+        "id": "sinewix:ep:740:6:9",
+        "title": "Night Terrors",
+        "season": 6,
+        "episode": 9
+      },
+      {
+        "id": "sinewix:ep:740:6:10",
+        "title": "The Girl Who Waited",
+        "season": 6,
+        "episode": 10
+      },
+      {
+        "id": "sinewix:ep:740:6:11",
+        "title": "The God Complex",
+        "season": 6,
+        "episode": 11
+      },
+      {
+        "id": "sinewix:ep:740:6:12",
+        "title": "Closing Time",
+        "season": 6,
+        "episode": 12
+      },
+      {
+        "id": "sinewix:ep:740:6:13",
+        "title": "The Wedding of River Song",
+        "season": 6,
+        "episode": 13
+      },
+      {
+        "id": "sinewix:ep:740:7:1",
+        "title": "Asylum of the Daleks",
+        "season": 7,
+        "episode": 1
+      },
+      {
+        "id": "sinewix:ep:740:7:2",
+        "title": "Dinosaurs on a Spaceship",
+        "season": 7,
+        "episode": 2
+      },
+      {
+        "id": "sinewix:ep:740:7:3",
+        "title": "A Town Called Mercy",
+        "season": 7,
+        "episode": 3
+      },
+      {
+        "id": "sinewix:ep:740:7:4",
+        "title": "The Power of Three",
+        "season": 7,
+        "episode": 4
+      },
+      {
+        "id": "sinewix:ep:740:7:5",
+        "title": "The Angels Take Manhattan",
+        "season": 7,
+        "episode": 5
+      },
+      {
+        "id": "sinewix:ep:740:7:6",
+        "title": "The Bells of Saint John",
+        "season": 7,
+        "episode": 6
+      },
+      {
+        "id": "sinewix:ep:740:7:7",
+        "title": "The Rings of Akhaten",
+        "season": 7,
+        "episode": 7
+      },
+      {
+        "id": "sinewix:ep:740:7:8",
+        "title": "Cold War",
+        "season": 7,
+        "episode": 8
+      },
+      {
+        "id": "sinewix:ep:740:7:9",
+        "title": "Hide",
+        "season": 7,
+        "episode": 9
+      },
+      {
+        "id": "sinewix:ep:740:7:10",
+        "title": "Journey to the Center of the TARDIS",
+        "season": 7,
+        "episode": 10
+      },
+      {
+        "id": "sinewix:ep:740:7:11",
+        "title": "The Crimson Horror",
+        "season": 7,
+        "episode": 11
+      },
+      {
+        "id": "sinewix:ep:740:7:12",
+        "title": "Nightmare in Silver",
+        "season": 7,
+        "episode": 12
+      },
+      {
+        "id": "sinewix:ep:740:7:13",
+        "title": "The Name of the Doctor",
+        "season": 7,
+        "episode": 13
+      },
+      {
+        "id": "sinewix:ep:740:8:1",
+        "title": "Deep Breath",
+        "season": 8,
+        "episode": 1
+      },
+      {
+        "id": "sinewix:ep:740:8:2",
+        "title": "Into the Dalek",
+        "season": 8,
+        "episode": 2
+      },
+      {
+        "id": "sinewix:ep:740:8:3",
+        "title": "Robot of Sherwood",
+        "season": 8,
+        "episode": 3
+      },
+      {
+        "id": "sinewix:ep:740:8:4",
+        "title": "Listen",
+        "season": 8,
+        "episode": 4
+      },
+      {
+        "id": "sinewix:ep:740:8:5",
+        "title": "Time Heist",
+        "season": 8,
+        "episode": 5
+      },
+      {
+        "id": "sinewix:ep:740:8:6",
+        "title": "The Caretaker",
+        "season": 8,
+        "episode": 6
+      },
+      {
+        "id": "sinewix:ep:740:8:7",
+        "title": "Kill the Moon",
+        "season": 8,
+        "episode": 7
+      },
+      {
+        "id": "sinewix:ep:740:8:8",
+        "title": "Mummy on the Orient Express",
+        "season": 8,
+        "episode": 8
+      },
+      {
+        "id": "sinewix:ep:740:8:9",
+        "title": "Flatline",
+        "season": 8,
+        "episode": 9
+      },
+      {
+        "id": "sinewix:ep:740:8:10",
+        "title": "In the Forest of the Night",
+        "season": 8,
+        "episode": 10
+      },
+      {
+        "id": "sinewix:ep:740:8:11",
+        "title": "Dark Water",
+        "season": 8,
+        "episode": 11
+      },
+      {
+        "id": "sinewix:ep:740:8:12",
+        "title": "Death in Heaven",
+        "season": 8,
+        "episode": 12
+      },
+      {
+        "id": "sinewix:ep:740:9:1",
+        "title": "The Magician's Apprentice",
+        "season": 9,
+        "episode": 1
+      },
+      {
+        "id": "sinewix:ep:740:9:2",
+        "title": "The Witch's Familiar",
+        "season": 9,
+        "episode": 2
+      },
+      {
+        "id": "sinewix:ep:740:9:3",
+        "title": "Under the Lake",
+        "season": 9,
+        "episode": 3
+      },
+      {
+        "id": "sinewix:ep:740:9:4",
+        "title": "Before the Flood",
+        "season": 9,
+        "episode": 4
+      },
+      {
+        "id": "sinewix:ep:740:9:5",
+        "title": "The Girl Who Died",
+        "season": 9,
+        "episode": 5
+      },
+      {
+        "id": "sinewix:ep:740:9:6",
+        "title": "The Woman Who Lived",
+        "season": 9,
+        "episode": 6
+      },
+      {
+        "id": "sinewix:ep:740:9:7",
+        "title": "The Zygon Invasion",
+        "season": 9,
+        "episode": 7
+      },
+      {
+        "id": "sinewix:ep:740:9:8",
+        "title": "The Zygon Inversion",
+        "season": 9,
+        "episode": 8
+      },
+      {
+        "id": "sinewix:ep:740:9:9",
+        "title": "Sleep No More",
+        "season": 9,
+        "episode": 9
+      },
+      {
+        "id": "sinewix:ep:740:9:10",
+        "title": "Face the Raven",
+        "season": 9,
+        "episode": 10
+      },
+      {
+        "id": "sinewix:ep:740:9:11",
+        "title": "Heaven Sent",
+        "season": 9,
+        "episode": 11
+      },
+      {
+        "id": "sinewix:ep:740:9:12",
+        "title": "Hell Bent",
+        "season": 9,
+        "episode": 12
+      },
+      {
+        "id": "sinewix:ep:740:10:1",
+        "title": "The Pilot",
+        "season": 10,
+        "episode": 1
+      },
+      {
+        "id": "sinewix:ep:740:10:2",
+        "title": "Smile",
+        "season": 10,
+        "episode": 2
+      },
+      {
+        "id": "sinewix:ep:740:10:3",
+        "title": "Thin Ice",
+        "season": 10,
+        "episode": 3
+      },
+      {
+        "id": "sinewix:ep:740:10:4",
+        "title": "Knock Knock",
+        "season": 10,
+        "episode": 4
+      },
+      {
+        "id": "sinewix:ep:740:10:5",
+        "title": "Oxygen",
+        "season": 10,
+        "episode": 5
+      },
+      {
+        "id": "sinewix:ep:740:10:6",
+        "title": "Extremis",
+        "season": 10,
+        "episode": 6
+      },
+      {
+        "id": "sinewix:ep:740:10:7",
+        "title": "The Pyramid at the End of the World",
+        "season": 10,
+        "episode": 7
+      },
+      {
+        "id": "sinewix:ep:740:10:8",
+        "title": "The Lie of the Land",
+        "season": 10,
+        "episode": 8
+      },
+      {
+        "id": "sinewix:ep:740:10:9",
+        "title": "Empress of Mars",
+        "season": 10,
+        "episode": 9
+      },
+      {
+        "id": "sinewix:ep:740:10:10",
+        "title": "The Eaters of Light",
+        "season": 10,
+        "episode": 10
+      },
+      {
+        "id": "sinewix:ep:740:10:11",
+        "title": "World Enough and Time",
+        "season": 10,
+        "episode": 11
+      },
+      {
+        "id": "sinewix:ep:740:10:12",
+        "title": "The Doctor Falls",
+        "season": 10,
+        "episode": 12
+      },
+      {
+        "id": "sinewix:ep:740:11:1",
+        "title": "The Woman Who Fell to Earth",
+        "season": 11,
+        "episode": 1
+      },
+      {
+        "id": "sinewix:ep:740:11:2",
+        "title": "The Ghost Monument",
+        "season": 11,
+        "episode": 2
+      },
+      {
+        "id": "sinewix:ep:740:11:3",
+        "title": "Rosa",
+        "season": 11,
+        "episode": 3
+      },
+      {
+        "id": "sinewix:ep:740:11:4",
+        "title": "Arachnids in the UK",
+        "season": 11,
+        "episode": 4
+      },
+      {
+        "id": "sinewix:ep:740:11:5",
+        "title": "The Tsuranga Conundrum",
+        "season": 11,
+        "episode": 5
+      },
+      {
+        "id": "sinewix:ep:740:11:6",
+        "title": "Demons of the Punjab",
+        "season": 11,
+        "episode": 6
+      },
+      {
+        "id": "sinewix:ep:740:11:7",
+        "title": "Kerblam!",
+        "season": 11,
+        "episode": 7
+      },
+      {
+        "id": "sinewix:ep:740:11:8",
+        "title": "The Witchfinders",
+        "season": 11,
+        "episode": 8
+      },
+      {
+        "id": "sinewix:ep:740:11:9",
+        "title": "It Takes You Away",
+        "season": 11,
+        "episode": 9
+      },
+      {
+        "id": "sinewix:ep:740:11:10",
+        "title": "The Battle of Ranskoor Av Kolos",
+        "season": 11,
+        "episode": 10
+      },
+      {
+        "id": "sinewix:ep:740:12:1",
+        "title": "Spyfall (1)",
+        "season": 12,
+        "episode": 1
+      },
+      {
+        "id": "sinewix:ep:740:12:2",
+        "title": "Spyfall (2)",
+        "season": 12,
+        "episode": 2
+      },
+      {
+        "id": "sinewix:ep:740:12:3",
+        "title": "Orphan 55",
+        "season": 12,
+        "episode": 3
+      },
+      {
+        "id": "sinewix:ep:740:12:4",
+        "title": "Nikola Tesla's Night of Terror",
+        "season": 12,
+        "episode": 4
+      },
+      {
+        "id": "sinewix:ep:740:12:5",
+        "title": "Fugitive of the Judoon",
+        "season": 12,
+        "episode": 5
+      },
+      {
+        "id": "sinewix:ep:740:12:6",
+        "title": "Praxeus",
+        "season": 12,
+        "episode": 6
+      },
+      {
+        "id": "sinewix:ep:740:12:7",
+        "title": "Can You Hear Me?",
+        "season": 12,
+        "episode": 7
+      },
+      {
+        "id": "sinewix:ep:740:12:8",
+        "title": "The Haunting of Villa Diodati",
+        "season": 12,
+        "episode": 8
+      },
+      {
+        "id": "sinewix:ep:740:12:9",
+        "title": "Ascension of the Cybermen (1)",
+        "season": 12,
+        "episode": 9
+      },
+      {
+        "id": "sinewix:ep:740:12:10",
+        "title": "The Timeless Children (2)",
+        "season": 12,
+        "episode": 10
+      },
+      {
+        "id": "sinewix:ep:740:13:1",
+        "title": "The Halloween Apocalypse",
+        "season": 13,
+        "episode": 1
+      },
+      {
+        "id": "sinewix:ep:740:13:2",
+        "title": "War of the Sontarans",
+        "season": 13,
+        "episode": 2
+      },
+      {
+        "id": "sinewix:ep:740:13:3",
+        "title": "Once, Upon Time",
+        "season": 13,
+        "episode": 3
+      },
+      {
+        "id": "sinewix:ep:740:13:4",
+        "title": "Village of the Angels",
+        "season": 13,
+        "episode": 4
+      },
+      {
+        "id": "sinewix:ep:740:13:5",
+        "title": "Survivors of the Flux",
+        "season": 13,
+        "episode": 5
+      },
+      {
+        "id": "sinewix:ep:740:13:6",
+        "title": "The Vanquishers",
+        "season": 13,
+        "episode": 6
       }
     ]
   }

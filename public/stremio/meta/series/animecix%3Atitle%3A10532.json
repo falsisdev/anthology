@@ -12,10 +12,160 @@
     ],
     "videos": [
       {
-        "id": "animecix:title:10532",
-        "title": "Arakawa Under the Bridge",
+        "id": "animecix:ep:10532:1:1",
+        "title": "Arakawa Under the Bridge 1. Sezon 1. Bölüm",
         "season": 1,
         "episode": 1
+      },
+      {
+        "id": "animecix:ep:10532:1:2",
+        "title": "Arakawa Under the Bridge 1. Sezon 2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "animecix:ep:10532:1:3",
+        "title": "Arakawa Under the Bridge 1. Sezon 3. Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "animecix:ep:10532:1:4",
+        "title": "Arakawa Under the Bridge 1. Sezon 4. Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "animecix:ep:10532:1:5",
+        "title": "Arakawa Under the Bridge 1. Sezon 5. Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "animecix:ep:10532:1:6",
+        "title": "Arakawa Under the Bridge 1. Sezon 6. Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "animecix:ep:10532:1:7",
+        "title": "Arakawa Under the Bridge 1. Sezon 7. Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "animecix:ep:10532:1:8",
+        "title": "Arakawa Under the Bridge 1. Sezon 8. Bölüm",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "animecix:ep:10532:1:9",
+        "title": "Arakawa Under the Bridge 1. Sezon 9. Bölüm",
+        "season": 1,
+        "episode": 9
+      },
+      {
+        "id": "animecix:ep:10532:1:10",
+        "title": "Arakawa Under the Bridge 1. Sezon 10. Bölüm",
+        "season": 1,
+        "episode": 10
+      },
+      {
+        "id": "animecix:ep:10532:1:11",
+        "title": "Arakawa Under the Bridge 1. Sezon 11. Bölüm",
+        "season": 1,
+        "episode": 11
+      },
+      {
+        "id": "animecix:ep:10532:1:12",
+        "title": "Arakawa Under the Bridge 1. Sezon 12. Bölüm",
+        "season": 1,
+        "episode": 12
+      },
+      {
+        "id": "animecix:ep:10532:1:13",
+        "title": "Arakawa Under the Bridge 1. Sezon 13. Bölüm",
+        "season": 1,
+        "episode": 13
+      },
+      {
+        "id": "animecix:ep:10532:2:1",
+        "title": "Arakawa Under the Bridge 2. Sezon 1. Bölüm",
+        "season": 2,
+        "episode": 1
+      },
+      {
+        "id": "animecix:ep:10532:2:2",
+        "title": "Arakawa Under the Bridge 2. Sezon 2. Bölüm",
+        "season": 2,
+        "episode": 2
+      },
+      {
+        "id": "animecix:ep:10532:2:3",
+        "title": "Arakawa Under the Bridge 2. Sezon 3. Bölüm",
+        "season": 2,
+        "episode": 3
+      },
+      {
+        "id": "animecix:ep:10532:2:4",
+        "title": "Arakawa Under the Bridge 2. Sezon 4. Bölüm",
+        "season": 2,
+        "episode": 4
+      },
+      {
+        "id": "animecix:ep:10532:2:5",
+        "title": "Arakawa Under the Bridge 2. Sezon 5. Bölüm",
+        "season": 2,
+        "episode": 5
+      },
+      {
+        "id": "animecix:ep:10532:2:6",
+        "title": "Arakawa Under the Bridge 2. Sezon 6. Bölüm",
+        "season": 2,
+        "episode": 6
+      },
+      {
+        "id": "animecix:ep:10532:2:7",
+        "title": "Arakawa Under the Bridge 2. Sezon 7. Bölüm",
+        "season": 2,
+        "episode": 7
+      },
+      {
+        "id": "animecix:ep:10532:2:8",
+        "title": "Arakawa Under the Bridge 2. Sezon 8. Bölüm",
+        "season": 2,
+        "episode": 8
+      },
+      {
+        "id": "animecix:ep:10532:2:9",
+        "title": "Arakawa Under the Bridge 2. Sezon 9. Bölüm",
+        "season": 2,
+        "episode": 9
+      },
+      {
+        "id": "animecix:ep:10532:2:10",
+        "title": "Arakawa Under the Bridge 2. Sezon 10. Bölüm",
+        "season": 2,
+        "episode": 10
+      },
+      {
+        "id": "animecix:ep:10532:2:11",
+        "title": "Arakawa Under the Bridge 2. Sezon 11. Bölüm",
+        "season": 2,
+        "episode": 11
+      },
+      {
+        "id": "animecix:ep:10532:2:12",
+        "title": "Arakawa Under the Bridge 2. Sezon 12. Bölüm",
+        "season": 2,
+        "episode": 12
+      },
+      {
+        "id": "animecix:ep:10532:2:13",
+        "title": "Arakawa Under the Bridge 2. Sezon 13. Bölüm",
+        "season": 2,
+        "episode": 13
       }
     ]
   }

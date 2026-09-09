@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "ddizi:show:2170/masterchef-turkiye-2026-son-bolum-izle",
+    "type": "series",
+    "name": "MasterChef Türkiye 2026",
+    "poster": "https://www.ddizi.im/diziresimleri/masterchefturkiye.jpg",
+    "background": "https://www.ddizi.im/diziresimleri/masterchefturkiye.jpg",
+    "description": "MasterChef Türkiye 2026 - DDizi Dizi Arşivi",
+    "genres": [
+      "Yerli Dizi",
+      "DDizi"
+    ],
+    "videos": [
+      {
+        "id": "ddizi:show:2170/masterchef-turkiye-2026-son-bolum-izle",
+        "title": "MasterChef Türkiye 2026",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

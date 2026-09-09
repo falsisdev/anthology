@@ -6,15 +6,15 @@
   <p>
     <img src="https://img.shields.io/badge/Nuvio-Eklenti_Deposu-00e676?style=for-the-badge&logo=github&logoColor=white" alt="Nuvio" />
     <img src="https://img.shields.io/badge/Durum-Aktif-00e676?style=for-the-badge" alt="Aktif" />
-    <img src="https://img.shields.io/badge/Eklenti-31_Doğrulanmış-3b82f6?style=for-the-badge" alt="31 Aktif Eklenti" />
-    <img src="https://img.shields.io/badge/Katalog-12_Aktif-8b5cf6?style=for-the-badge" alt="12 Aktif Katalog" />
+    <img src="https://img.shields.io/badge/Eklenti-32_Doğrulanmış-3b82f6?style=for-the-badge" alt="32 Aktif Eklenti" />
+    <img src="https://img.shields.io/badge/Katalog-13_Aktif-8b5cf6?style=for-the-badge" alt="13 Aktif Katalog" />
     <img src="https://img.shields.io/badge/Başarı_Oranı-%25100-00e676?style=for-the-badge" alt="100% Başarı" />
   </p>
 
   <a href="https://falsisdev.github.io/anthology">🌐 Web Sitesi</a> &nbsp;|&nbsp;
   <a href="#-kurulum">📲 Kurulum</a> &nbsp;|&nbsp;
-  <a href="#-zengin-kataloglar-12-katalog">📚 Zengin Kataloglar</a> &nbsp;|&nbsp;
-  <a href="#-doğrulanmış-eklentiler-31-aktif">🎬 Eklentiler (31)</a> &nbsp;|&nbsp;
+  <a href="#-zengin-kataloglar-13-katalog">📚 Zengin Kataloglar</a> &nbsp;|&nbsp;
+  <a href="#-doğrulanmış-eklentiler-32-aktif">🎬 Eklentiler (32)</a> &nbsp;|&nbsp;
   <a href="#-canlı-tv--spor-kanalları">📡 Canlı TV & Spor</a>
 </div>
 
@@ -27,7 +27,7 @@ Nuvio'da yerli dizileri, animeleri, çizgi dizileri ve canlı TV kanallarını h
 ---
 
 ### 1️⃣ Adım: Video Oynatma Motorunu Ekleyin (Pluginler)
-Bu adım, bir içerik açtığınızda arka planda çalışan 31 Türkçe/yabancı video scraper'ını Nuvio oynatıcısına yükler.
+Bu adım, bir içerik açtığınızda arka planda çalışan 32 Türkçe/yabancı video scraper'ını Nuvio oynatıcısına yükler.
 
 1. **Nuvio** uygulamasında **Ayarlar** → **Genel** → **İçerik & Keşif** → **Pluginler** → **Depo Ekle** bölümüne gidin.
 2. Aşağıdaki bağlantıyı yapıştırıp **Ekle** butonuna basın:
@@ -39,7 +39,7 @@ https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json
 ---
 
 ### 2️⃣ Adım: Ana Sayfa Keşif Kataloglarını Ekleyin (Eklentiler)
-Bu adım, TMDB'de bulunmayan yerli nostalji dizileri (DDizi), güncel yabancı dizileri (DiziBox), nostaljik çizgi dizileri (ÇizgiMax) ve 80+ Canlı TV/Spor kanalını **Nuvio'nun ana sayfa vitrinine** taşır.
+Bu adım; popüler yerli dizileri (DDizi), güncel yabancı dizileri (DiziBox, DiziMom), popüler film ve dizileri (SineWix), animeleri (AnimeciX, TurkAnime), nostaljik çizgi dizileri (ÇizgiMax) ve 80+ Canlı TV/Spor kanalını **Nuvio'nun ana sayfa vitrinine** taşır.
 
 1. **Nuvio** uygulamasında **Ayarlar** → **Genel** → **İçerik & Keşif** → **Eklentiler** → **Depo Ekle** bölümüne gidin.
 2. Aşağıdaki statik katalog bağlantısını yapıştırıp **Ekle** butonuna basın:
@@ -53,24 +53,25 @@ https://falsisdev.github.io/anthology/stremio/manifest.json
 
 > [!TIP]
 > **Nasıl Birlikte Çalışırlar?**
-> Nuvio ana sayfasında 2. Adımda eklediğiniz **DDizi**, **DiziBox**, **ÇizgiMax** veya **Canlı TV** vitrinlerini gezebilir, dilediğiniz diziye/bölüme tıklayabilirsiniz. Tıkladığınız anda 1. Adımda kurduğunuz Anthology eklenti motoru devreye girer ve 1080p doğrudan akışı (`.m3u8` / `.mp4`) başlatır. Tamamen sunucusuzdur ve GitHub üzerinden ömür boyu ücretsiz çalışır!
+> Nuvio ana sayfasında 2. Adımda eklediğiniz **DDizi**, **DiziBox**, **DiziMom**, **SineWix**, **ÇizgiMax** veya **Canlı TV** vitrinlerini gezebilir, dilediğiniz diziye/bölüme tıklayabilirsiniz. Tıkladığınız anda 1. Adımda kurduğunuz Anthology eklenti motoru devreye girer ve 1080p doğrudan akışı (`.m3u8` / `.mp4`) başlatır. Tamamen sunucusuzdur ve GitHub üzerinden ömür boyu ücretsiz çalışır!
 
 ---
 
-## 📚 Zengin Kataloglar (12 Katalog)
+## 📚 Zengin Kataloglar (13 Katalog)
 
 Nuvio ana ekranında içerik keşfetmenizi sağlayan yerli/yabancı kataloglar:
 
 | Katalog | Sağlayıcı | Tür | Açıklama |
 |---|---|:---:|---|
-| **DDizi — Son Eklenen Yerli Diziler** | `ddizi.js` | Dizi (TV) | Güncel yerli dizilerin son eklenen bölümleri |
-| **DiziBox — Son Eklenen Yabancı Diziler** | `dizibox.js` | Dizi (TV) | En popüler yabancı dizilerin yeni bölümleri |
+| **DDizi — Popüler Yerli Diziler** | `ddizi.js` | Dizi (TV) | Güncel ve nostaljik Türk dizileri arşivi (tüm bölümler) |
+| **DiziBox — Popüler Yabancı Diziler** | `dizibox.js` | Dizi (TV) | En popüler yabancı diziler (tüm sezon ve bölümler) |
+| **DiziMom — Popüler Diziler** | `dizimom.js` | Dizi (TV) | Popüler yabancı diziler ve 1080p Fire HLS master akışları |
 | **SineWix — Popüler Filmler** | `sinewix.js` | Film | SineWix platformunun en çok izlenen filmleri |
 | **SineWix — Popüler Diziler** | `sinewix.js` | Dizi (TV) | SineWix platformunun en çok izlenen dizileri |
 | **FilmModu — Son Eklenen Filmler** | `filmmodu.js` | Film | Güncel vizyon ve dijital platform filmleri |
-| **AnimeciX — Popüler Animeler** | `animecix.js` | Anime / Dizi | Trend ve güncel anime serileri |
-| **TurkAnime — Popüler Animeler** | `turkanime.js` | Anime / Dizi | Türkiye'nin en popüler animeleri |
-| **ÇizgiMax — Çizgi Diziler** | `cizgimax.js` | Çizgi Dizi | Nostaljik ve güncel çizgi diziler |
+| **AnimeciX — Popüler Animeler** | `animecix.js` | Anime / Dizi | Trend ve güncel anime serileri (tüm bölümler) |
+| **TurkAnime — Popüler Animeler** | `turkanime.js` | Anime / Dizi | Türkiye'nin en popüler animeleri (tüm bölümler) |
+| **ÇizgiMax — Çizgi Diziler** | `cizgimax.js` | Çizgi Dizi | Nostaljik ve güncel çizgi diziler (tüm bölümler) |
 | **Anthology Canlı TV** | `ListM3u.js` | Canlı | 80+ ulusal, haber, spor ve belgesel kanalları |
 | **Anthology Canlı Spor** | `anthology_spor.js` | Canlı | BeIN Sports, S Sport, Tivibu, Exxen ve 49 spor kanalı |
 | **Anthology Canlı Haber** | `anthology_haber.js` | Canlı | NTV, Habertürk, TRT Haber ve 14 haber kanalı |
@@ -78,7 +79,7 @@ Nuvio ana ekranında içerik keşfetmenizi sağlayan yerli/yabancı kataloglar:
 
 ---
 
-## 🎬 Doğrulanmış Eklentiler (31 Aktif)
+## 🎬 Doğrulanmış Eklentiler (32 Aktif)
 
 > [!NOTE]
 > Tüm eklentiler doğrudan Nuvio video oynatıcısına uygun `.m3u8` HLS veya `.mp4`/`.mkv` doğrudan akışları döndürür. Bozuk iframe veya oynatılamayan bağlantı kesinlikle içermez.
@@ -108,13 +109,13 @@ Nuvio ana ekranında içerik keşfetmenizi sağlayan yerli/yabancı kataloglar:
 
 | Eklenti | Kaynak / Altyapı | Kalite & Format | İçerik & Dil |
 |---|---|:---:|:---:|
-| **DDizi** | ddizi.im (Ciner CDN / Yandex / YouTube) | 1080p MP4 / HLS | 🇹🇷 Yerli Dizi & Güncel Bölümler Arşivi |
+| **DDizi** | ddizi.im (Fast CDN / Akamai / Google Direct) | 1080p MP4 / HLS | 🇹🇷 Yerli Dizi & Güncel Bölümler Arşivi |
 | **DiziBox** | dizibox.live (Molystream Sheila) | 1080p HLS Master | 🌍 Popüler Yabancı Diziler Arşivi |
+| **DiziMom** | dizimom.diy (HDPlayer Fire HLS) | 1080p HLS Master | 🌍 Popüler Yabancı Diziler (Dublaj & Altyazı) |
 | **Anthology Dizi (M3U)** | Zerk / Ciner CDN | 1080p MP4 / HLS | 🇹🇷 Yerli & Yabancı Dizi Arşivi |
 | **Anthology Yerli Dizi** | Ciner & Zerk CDN | 1080p MP4 / HLS | 🇹🇷 Güncel & Klasik Türk Dizileri |
 | **Anthology Yabancı Dizi** | Zerk DUAL Master CDN | 1080p HLS | 🌍 Popüler Yabancı Dizi Arşivi |
 | **SezonlukDizi** | sezonlukdizi.cc (VidMoly) | 1080p HLS | 🇹🇷 Dublaj & Altyazı |
-| **DiziMom** | dizimom.diy (HDPlayer) | 1080p HLS | 🇹🇷 Dublaj & Altyazı |
 | **DiziPal** | dizipal2127.com (FormationFeed) | 1080p HLS | 🇹🇷 Dublaj & Altyazı |
 | **DiziYou** | diziyou.one (Storage CDN) | 1080p HLS | 🇹🇷 Dublaj + TR VTT |
 | **SineWix** | sinewix (snwixdepo) | 1080p Direct MKV | 🇹🇷 Çift Ses DUAL |

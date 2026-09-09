@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "id": "tv:LiderHaber.tr",
+    "type": "tv",
+    "name": "Lider Haber TV HD",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/liderhaber.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/liderhaber.png",
+    "description": "Lider Haber TV HD Canlı Haber Yayını",
+    "genres": [
+      "Haber"
+    ],
+    "videos": [
+      {
+        "id": "tv:LiderHaber.tr",
+        "title": "Lider Haber TV HD",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

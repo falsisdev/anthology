@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "ddizi:show:1811/riverdale-hd",
+    "type": "series",
+    "name": "Riverdale",
+    "poster": "https://www.ddizi.im/diziresimleri/riverdale-min.jpg",
+    "background": "https://www.ddizi.im/diziresimleri/riverdale-min.jpg",
+    "description": "Riverdale izle Türkçe Dublaj Tüm Bölümler HD - DDizi Dizi Arşivi",
+    "genres": [
+      "Yerli Dizi",
+      "DDizi"
+    ],
+    "videos": [
+      {
+        "id": "ddizi:show:1811/riverdale-hd",
+        "title": "Riverdale",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

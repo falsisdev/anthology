@@ -13,6 +13,8 @@
     "tv"
   ],
   "idPrefixes": [
+    "tv:",
+    "dizimom:",
     "ddizi:",
     "dizibox:",
     "sinewix:",
@@ -30,12 +32,17 @@
     {
       "type": "series",
       "id": "anthology_ddizi",
-      "name": "DDizi — Son Eklenen Yerli Diziler"
+      "name": "DDizi — Popüler Yerli Diziler"
     },
     {
       "type": "series",
       "id": "anthology_dizibox",
-      "name": "DiziBox — Son Eklenen Yabancı Diziler"
+      "name": "DiziBox — Popüler Yabancı Diziler"
+    },
+    {
+      "type": "series",
+      "id": "anthology_dizimom",
+      "name": "DiziMom — Popüler Diziler"
     },
     {
       "type": "movie",

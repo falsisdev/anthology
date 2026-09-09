@@ -3,17 +3,17 @@
     "id": "cizgimax:show:diziler/91-days-mijikai-rousoku-izle",
     "type": "series",
     "name": "91 Days: Brief Candle",
-    "poster": "https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128",
-    "background": "https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128",
-    "description": "91 Days: Brief Candle - ÇizgiMax Arşivi",
+    "poster": "https://cdn.myanimelist.net/images/anime/13/81707l.jpg",
+    "background": "https://cdn.myanimelist.net/images/anime/13/81707l.jpg",
+    "description": "91 Days: Brief Candle - ÇizgiMax",
     "genres": [
       "Çizgi Dizi",
       "ÇizgiMax"
     ],
     "videos": [
       {
-        "id": "cizgimax:show:diziler/91-days-mijikai-rousoku-izle",
-        "title": "91 Days: Brief Candle",
+        "id": "cizgimax:ep:episode-35652-s1e1",
+        "title": "1. Sezon 1. Bölüm",
         "season": 1,
         "episode": 1
       }

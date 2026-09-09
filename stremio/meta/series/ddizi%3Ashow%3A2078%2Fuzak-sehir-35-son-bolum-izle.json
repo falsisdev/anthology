@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "id": "ddizi:show:2078/uzak-sehir-35-son-bolum-izle",
+    "type": "series",
+    "name": "Uzak Şehir",
+    "poster": "https://www.ddizi.im/diziresimleri/uzaksehirkapaky-min.jpg",
+    "background": "https://www.ddizi.im/diziresimleri/uzaksehirkapaky-min.jpg",
+    "description": "Uzak Şehir - DDizi Dizi Arşivi",
+    "genres": [
+      "Yerli Dizi",
+      "DDizi"
+    ],
+    "videos": [
+      {
+        "id": "ddizi:ep:90411/uzak-sehir-54-bolum-hd3.htm",
+        "title": "Uzak Şehir 54.Bölüm",
+        "season": 1,
+        "episode": 54
+      },
+      {
+        "id": "ddizi:ep:90824/uzak-sehir-55-bolum-hd05.htm",
+        "title": "Uzak Şehir 55.Bölüm",
+        "season": 1,
+        "episode": 55
+      },
+      {
+        "id": "ddizi:ep:90953/uzak-sehir-56-bolum-izle-hd.htm",
+        "title": "Uzak Şehir 56.Bölüm",
+        "season": 1,
+        "episode": 56
+      },
+      {
+        "id": "ddizi:ep:91000/uzak-sehir-57-bolum-izle-hd1.htm",
+        "title": "Uzak Şehir 57.Bölüm",
+        "season": 1,
+        "episode": 57
+      },
+      {
+        "id": "ddizi:ep:91042/uzak-sehir-58-bolum-hd2.htm",
+        "title": "Uzak Şehir 58.Bölüm",
+        "season": 1,
+        "episode": 58
+      },
+      {
+        "id": "ddizi:ep:91082/uzak-sehir-59-bolum-izle-hd1.htm",
+        "title": "Uzak Şehir 59.Bölüm",
+        "season": 1,
+        "episode": 59
+      },
+      {
+        "id": "ddizi:ep:91122/uzak-sehir-60-bolum-hd4.htm",
+        "title": "Uzak Şehir 60.Bölüm",
+        "season": 1,
+        "episode": 60
+      },
+      {
+        "id": "ddizi:ep:91161/uzak-sehir-61-bolum-hd5.htm",
+        "title": "Uzak Şehir 61.Bölüm",
+        "season": 1,
+        "episode": 61
+      },
+      {
+        "id": "ddizi:ep:91201/uzak-sehir-62-bolum-hd3.htm",
+        "title": "Uzak Şehir 62.Bölüm",
+        "season": 1,
+        "episode": 62
+      },
+      {
+        "id": "ddizi:ep:91266/uzak-sehir-63-bolum-izle-sezon-finali-hd01.htm",
+        "title": "Uzak Şehir 63.Bölüm Sezon Finali",
+        "season": 1,
+        "episode": 63
+      }
+    ]
+  }
+}

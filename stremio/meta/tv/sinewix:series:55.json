@@ -4,18 +4,48 @@
     "type": "series",
     "name": "Hawkeye",
     "poster": "https://image.tmdb.org/t/p/w500/5BxY6UN0e7wAE5LUQVVj39JAItM.jpg",
-    "background": "https://image.tmdb.org/t/p/w500/5BxY6UN0e7wAE5LUQVVj39JAItM.jpg",
-    "description": "Hawkeye - Anthology",
+    "background": "https://image.tmdb.org/t/p/w500/1R68vl3d5s86JsS2NPjl8UoMqIS.jpg",
+    "description": "Dizi, Marvel Sinematik Evreni’nin sevilen kahramanlarından olan Hawkeye’a odaklanıyor. Hawkeye'ın dizide eğitmesine tanık olacağımız Kate Bishop karakteri, çizgi romanlarda zengin bir iş adamının kızı olarak tanınıyor. Kate, babası Derek'e hayran olan bir genç kızdır. Babasının dikkatini çekmek için her şeyi yapabilecek olan Kate'in annesi ise bir tatilde hayatını kaybeder. Kate, henüz küçük yaşlardayken, babasının o kadar da iyi biri olmadığına tanıklık eder. Bunun ardından artık ona saygı duymamaya ve onu yakından takip etmeye başlar. Kate Bishop, Ant-Man'in kızı ile birlikte Young Avengers isimli gruba katıldığında gerçek bir süper kahraman dönüşür. Kate, Civil War sırasında Captain America'nın yanında olan Clint Barton'ın ile birlikte savaşır.",
     "genres": [
       "SineWix",
       "Popüler Dizi"
     ],
     "videos": [
       {
-        "id": "sinewix:series:55",
-        "title": "Hawkeye",
+        "id": "sinewix:ep:55:1:1",
+        "title": "1.Bölüm - Kahramanlarınızla Asla Tanışmayın",
         "season": 1,
         "episode": 1
+      },
+      {
+        "id": "sinewix:ep:55:1:2",
+        "title": "2.Bölüm - Saklambaç",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "sinewix:ep:55:1:3",
+        "title": "3.Bölüm - Yankılar",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "sinewix:ep:55:1:4",
+        "title": "4.Bölüm - Ortaklar, Haklı mıyım?",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "sinewix:ep:55:1:5",
+        "title": "5.Bölüm - Ronin",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "sinewix:ep:55:1:6",
+        "title": "6. Bölüm",
+        "season": 1,
+        "episode": 6
       }
     ]
   }

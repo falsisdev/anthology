@@ -4,18 +4,114 @@
     "type": "series",
     "name": "Halo",
     "poster": "https://image.tmdb.org/t/p/w500/hmHA5jqxN3ESIAGx0jAwV7TJhTQ.jpg",
-    "background": "https://image.tmdb.org/t/p/w500/hmHA5jqxN3ESIAGx0jAwV7TJhTQ.jpg",
-    "description": "Halo - Anthology",
+    "background": "https://image.tmdb.org/t/p/w500/zW0v2YT74C6tRafzqqBkfSqLAN0.jpg",
+    "description": "Tüm zamanların en sevilen video oyunlarından, askeri bilim kurgu Halo’nun uzun süredir beklenen sinematik uyarlaması, oyuncuların sevdiği ve şimdiden simgeleşmiş baş karakter Master Chief’i odağına alıyor. 26'ncı yüzyılda insanlık ile The Covenant olarak bilinen uzaylı tehdidi arasındaki büyük çatışmayı konu edinen yapımda, zengin bir hayal gücüyle oluşturulmuş bir gelecek betimlemesinin aksiyon, macera ve derinlikli karakter anlatılarıyla birleşimi olarak tanımlanıyor.",
     "genres": [
       "SineWix",
       "Popüler Dizi"
     ],
     "videos": [
       {
-        "id": "sinewix:series:174",
-        "title": "Halo",
+        "id": "sinewix:ep:174:1:1",
+        "title": "İletişim",
         "season": 1,
         "episode": 1
+      },
+      {
+        "id": "sinewix:ep:174:1:2",
+        "title": "Bağımsız",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "sinewix:ep:174:1:3",
+        "title": "Ortaya Çıkış",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "sinewix:ep:174:1:4",
+        "title": "Eve Dönüş",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "sinewix:ep:174:1:5",
+        "title": "Hesaplaşma",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "sinewix:ep:174:1:6",
+        "title": "Avuntu",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "sinewix:ep:174:1:7",
+        "title": "Miras",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "sinewix:ep:174:1:8",
+        "title": "Sadakat",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "sinewix:ep:174:1:9",
+        "title": "Üstünlük",
+        "season": 1,
+        "episode": 9
+      },
+      {
+        "id": "sinewix:ep:174:2:1",
+        "title": "Sanctuary",
+        "season": 2,
+        "episode": 1
+      },
+      {
+        "id": "sinewix:ep:174:2:2",
+        "title": "Sword",
+        "season": 2,
+        "episode": 2
+      },
+      {
+        "id": "sinewix:ep:174:2:3",
+        "title": "Visegrad",
+        "season": 2,
+        "episode": 3
+      },
+      {
+        "id": "sinewix:ep:174:2:4",
+        "title": "Reach",
+        "season": 2,
+        "episode": 4
+      },
+      {
+        "id": "sinewix:ep:174:2:5",
+        "title": "Aleria",
+        "season": 2,
+        "episode": 5
+      },
+      {
+        "id": "sinewix:ep:174:2:6",
+        "title": "Onyx",
+        "season": 2,
+        "episode": 6
+      },
+      {
+        "id": "sinewix:ep:174:2:7",
+        "title": "Thermopylae",
+        "season": 2,
+        "episode": 7
+      },
+      {
+        "id": "sinewix:ep:174:2:8",
+        "title": "8. Bölüm",
+        "season": 2,
+        "episode": 8
       }
     ]
   }

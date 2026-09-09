@@ -105,6 +105,49 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
   if (mediaType === 'movie') return [];
 
   try {
+    if (typeof tmdbId === 'object' && tmdbId && tmdbId.id) {
+      return getStreams(tmdbId.id, mediaType, seasonNum, episodeNum);
+    }
+
+    if (typeof tmdbId === 'string' && tmdbId.startsWith('dizimom:ep:')) {
+      const slug = tmdbId.replace('dizimom:ep:', '');
+      const epUrl = `${BASE_URL}/${slug}/`;
+      const epRes = await fetch(epUrl, { headers: HEADERS });
+      if (!epRes.ok) return [];
+      const epHtml = await epRes.text();
+      const $ep = cheerio.load(epHtml);
+
+      const iframes = [];
+      $ep('div.video p iframe, iframe').each((i, el) => {
+        const src = $ep(el).attr('src') || $ep(el).attr('data-src');
+        if (src && !src.includes('facebook') && !src.includes('disqus')) {
+          iframes.push(src.startsWith('//') ? 'https:' + src : src);
+        }
+      });
+
+      const streams = [];
+      for (const iframe of iframes) {
+        if (iframe.includes('hdplayersystem') || iframe.includes('hdstreamable') || iframe.includes('filmizle.in')) {
+          const directM3u8 = await extractFromHDPlayer(iframe, epUrl);
+          if (directM3u8) {
+            streams.push({
+              name: '⌜ DiziMom ⌟',
+              title: '⌜ DiziMom ⌟ | HDPlayer (1080p HLS)',
+              url: directM3u8,
+              quality: '1080p',
+              type: 'hls',
+              provider: 'dizimom',
+              headers: {
+                'Referer': iframe,
+                'User-Agent': HEADERS['User-Agent']
+              }
+            });
+          }
+        }
+      }
+      return streams;
+    }
+
     const season = parseInt(seasonNum) || 1;
     const episode = parseInt(episodeNum) || 1;
 
@@ -206,5 +249,202 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
   }
 }
 
-if (typeof module !== 'undefined') module.exports = { getStreams };
-if (typeof globalThis !== 'undefined') globalThis.getStreams = getStreams;
+// ── Catalog & Meta Entegrasyonu ──────────────────────────────
+async function getCatalog(args) {
+  try {
+    const query = (args && args.extra && args.extra.search) || (args && args.query) || '';
+    const metas = [];
+    const seen = new Set();
+
+    if (query) {
+      const searchUrl = `${BASE_URL}/?s=${encodeURIComponent(query)}`;
+      const sRes = await fetch(searchUrl, { headers: HEADERS });
+      if (!sRes.ok) return { metas: [] };
+      const sHtml = await sRes.text();
+      const $ = cheerio.load(sHtml);
+
+      $('div.categorytitle').each((i, el) => {
+        const a = $(el).find('a');
+        const href = a.attr('href') || '';
+        const title = a.text().replace(/\s*izle\s*$/i, '').trim();
+        const slug = href.replace(`${BASE_URL}/diziler/`, '').replace(`${BASE_URL}/`, '').replace(/^\//, '').replace(/\/$/, '');
+        if (!slug || seen.has(slug) || title.length < 2) return;
+        seen.add(slug);
+
+        const parent = $(el).closest('.cat-container').parent();
+        const img = parent.find('div.cat-img img[data-src]').attr('data-src') || parent.find('div.cat-img noscript img').attr('src') || parent.find('div.cat-img img').attr('src') || '';
+        const poster = img.startsWith('http') ? img : 'https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png';
+
+        metas.push({
+          id: `dizimom:show:${slug}`,
+          type: 'tv',
+          name: title,
+          poster: poster,
+          background: poster,
+          genres: ['Yabancı Dizi', 'DiziMom'],
+          description: `${title} - DiziMom Arşivi`
+        });
+      });
+
+      return { metas };
+    }
+
+    // Default: Popular yabancı diziler
+    const targetUrls = [
+      `${BASE_URL}/yabanci-dizi-izle/`,
+      `${BASE_URL}/tum-diziler-hd1/`
+    ];
+
+    for (const url of targetUrls) {
+      try {
+        const res = await fetch(url, { headers: HEADERS });
+        if (!res.ok) continue;
+        const html = await res.text();
+        const $ = cheerio.load(html);
+
+        $('div.categorytitle').each((i, el) => {
+          const a = $(el).find('a');
+          const href = a.attr('href') || '';
+          const title = a.text().replace(/\s*izle\s*$/i, '').trim();
+          const slug = href.replace(`${BASE_URL}/diziler/`, '').replace(`${BASE_URL}/`, '').replace(/^\//, '').replace(/\/$/, '');
+          if (!slug || seen.has(slug) || title.length < 2) return;
+          seen.add(slug);
+
+          const parent = $(el).closest('.cat-container').parent();
+          const img = parent.find('div.cat-img img[data-src]').attr('data-src') || parent.find('div.cat-img noscript img').attr('src') || parent.find('div.cat-img img').attr('src') || '';
+          const desc = parent.find('div.cat_ozet').text().trim() || `${title} - DiziMom`;
+          const poster = img.startsWith('http') ? img : 'https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png';
+
+          metas.push({
+            id: `dizimom:show:${slug}`,
+            type: 'tv',
+            name: title,
+            poster: poster,
+            background: poster,
+            genres: ['Yabancı Dizi', 'DiziMom'],
+            description: desc
+          });
+        });
+      } catch (err) {}
+    }
+
+    return { metas };
+  } catch (e) {
+    return { metas: [] };
+  }
+}
+
+async function getMeta(args) {
+  try {
+    const rawId = (typeof args === 'string') ? args : (args && args.id ? args.id : '');
+    if (!rawId) return { meta: null };
+
+    if (rawId.startsWith('dizimom:ep:')) {
+      const epSlug = rawId.replace('dizimom:ep:', '');
+      const epUrl = `${BASE_URL}/${epSlug}/`;
+      const res = await fetch(epUrl, { headers: HEADERS });
+      if (!res.ok) return { meta: null };
+      const html = await res.text();
+
+      const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i) || html.match(/<title>([^<]+)<\/title>/i);
+      const rawTitle = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, '').trim() : 'DiziMom Bölüm';
+      const title = rawTitle.replace(/\s*izle\s*$/i, '').trim();
+
+      const ogImg = html.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i);
+      const poster = ogImg ? ogImg[1] : 'https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png';
+
+      const epNumMatch = title.match(/(\d+)\s*\.?\s*bölüm/i);
+      const seasonNumMatch = title.match(/(\d+)\s*\.?\s*sezon/i);
+      const epNum = epNumMatch ? parseInt(epNumMatch[1]) : 1;
+      const seasonNum = seasonNumMatch ? parseInt(seasonNumMatch[1]) : 1;
+
+      return {
+        meta: {
+          id: rawId,
+          type: 'tv',
+          name: title,
+          poster: poster,
+          background: poster,
+          description: `${title} - DiziMom`,
+          genres: ['Yabancı Dizi', 'DiziMom'],
+          videos: [{
+            id: rawId,
+            title,
+            season: seasonNum,
+            episode: epNum
+          }]
+        }
+      };
+    }
+
+    if (rawId.startsWith('dizimom:show:')) {
+      const showSlug = rawId.replace('dizimom:show:', '');
+      const showUrl = `${BASE_URL}/diziler/${showSlug}/`;
+      const res = await fetch(showUrl, { headers: HEADERS });
+      if (!res.ok) return { meta: null };
+      const html = await res.text();
+      const $ = cheerio.load(html);
+
+      const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i) || html.match(/<title>([^<]+)<\/title>/i);
+      const rawTitle = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, '').trim() : 'DiziMom';
+      const title = rawTitle.replace(/\s*izle\s*$/i, '').trim();
+
+      const ogImg = html.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i);
+      const poster = ogImg ? ogImg[1] : 'https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png';
+
+      const desc = $('div.cat_ozet').text().trim() || $('meta[name="description"]').attr('content') || `${title} - DiziMom Arşivi`;
+
+      const videos = [];
+      const seen = new Set();
+
+      $('a').each((i, el) => {
+        const href = $(el).attr('href') || '';
+        const epText = $(el).text().trim();
+
+        if (href.includes('-sezon-') && href.includes('-bolum-')) {
+          const epSlug = href.replace(BASE_URL, '').replace(/^\//, '').replace(/\/$/, '');
+          if (!epSlug || seen.has(epSlug)) return;
+          seen.add(epSlug);
+
+          const sMatch = href.match(/-(\d+)-sezon-/i) || epText.match(/(\d+)\s*\.?\s*sezon/i);
+          const eMatch = href.match(/-(\d+)-bolum-/i) || epText.match(/(\d+)\s*\.?\s*bölüm/i);
+          const sNum = sMatch ? parseInt(sMatch[1]) : 1;
+          const eNum = eMatch ? parseInt(eMatch[1]) : 1;
+
+          videos.push({
+            id: `dizimom:ep:${epSlug}`,
+            title: epText || `${sNum}. Sezon ${eNum}. Bölüm`,
+            season: sNum,
+            episode: eNum
+          });
+        }
+      });
+
+      return {
+        meta: {
+          id: rawId,
+          type: 'tv',
+          name: title,
+          poster: poster,
+          background: poster,
+          description: desc,
+          genres: ['Yabancı Dizi', 'DiziMom'],
+          videos: videos.length > 0 ? videos : [{ id: rawId, title: `${title} 1. Bölüm`, season: 1, episode: 1 }]
+        }
+      };
+    }
+
+    return { meta: null };
+  } catch (e) {
+    return { meta: null };
+  }
+}
+
+if (typeof module !== 'undefined') {
+  module.exports = { getStreams, getCatalog, getMeta };
+}
+if (typeof globalThis !== 'undefined') {
+  globalThis.getStreams = getStreams;
+  globalThis.getCatalog = getCatalog;
+  globalThis.getMeta = getMeta;
+}

@@ -3,8 +3,8 @@
     "id": "turkanime:anime:gaikotsu-kishi-sama-tadaima-isekai-e-odekakechuu-ii",
     "type": "series",
     "name": "Gaikotsu Kishi-sama, Tadaima Isekai e Odekakechuu II",
-    "poster": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
-    "background": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/6787.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/6787.jpg",
     "description": "Gaikotsu Kishi-sama, Tadaima Isekai e Odekakechuu II - TurkAnime TV",
     "genres": [
       "Anime",
@@ -12,10 +12,52 @@
     ],
     "videos": [
       {
-        "id": "turkanime:anime:gaikotsu-kishi-sama-tadaima-isekai-e-odekakechuu-ii",
-        "title": "Gaikotsu Kishi-sama, Tadaima Isekai e Odekakechuu II",
+        "id": "turkanime:ep:gaikotsu-kishi-sama-tadaima-isekai-e-odekakechuu-ii-1-bolum",
+        "title": "1. Bölüm",
         "season": 1,
         "episode": 1
+      },
+      {
+        "id": "turkanime:ep:gaikotsu-kishi-sama-tadaima-isekai-e-odekakechuu-ii-2-bolum",
+        "title": "2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "turkanime:ep:gaikotsu-kishi-sama-tadaima-isekai-e-odekakechuu-ii-3-bolum",
+        "title": "3. Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "turkanime:ep:gaikotsu-kishi-sama-tadaima-isekai-e-odekakechuu-ii-4-bolum",
+        "title": "4. Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "turkanime:ep:gaikotsu-kishi-sama-tadaima-isekai-e-odekakechuu-ii-5-bolum",
+        "title": "5. Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "turkanime:ep:gaikotsu-kishi-sama-tadaima-isekai-e-odekakechuu-ii-6-bolum",
+        "title": "6. Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "turkanime:ep:gaikotsu-kishi-sama-tadaima-isekai-e-odekakechuu-ii-7-bolum",
+        "title": "7. Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "turkanime:ep:gaikotsu-kishi-sama-tadaima-isekai-e-odekakechuu-ii-8-bolum",
+        "title": "8. Bölüm",
+        "season": 1,
+        "episode": 8
       }
     ]
   }

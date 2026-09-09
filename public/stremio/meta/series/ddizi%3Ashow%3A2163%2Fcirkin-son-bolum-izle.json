@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "id": "ddizi:show:2163/cirkin-son-bolum-izle",
+    "type": "series",
+    "name": "Çirkin",
+    "poster": "https://www.ddizi.im/diziresimleri/cirkinkapak-min.jpg",
+    "background": "https://www.ddizi.im/diziresimleri/cirkinkapak-min.jpg",
+    "description": "Çirkin - DDizi Dizi Arşivi",
+    "genres": [
+      "Yerli Dizi",
+      "DDizi"
+    ],
+    "videos": [
+      {
+        "id": "ddizi:ep:90817/cirkin-1-bolum-izle-hd2.htm",
+        "title": "Çirkin 1.Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "ddizi:ep:90945/cirkin-2-bolum-izle-hd2.htm",
+        "title": "Çirkin 2.Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "ddizi:ep:90993/cirkin-3-bolum-izle-hd2.htm",
+        "title": "Çirkin 3.Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "ddizi:ep:91036/cirkin-4-bolum-izle-hd2.htm",
+        "title": "Çirkin 4.Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "ddizi:ep:91076/cirkin-5-bolum-izle-hd2.htm",
+        "title": "Çirkin 5.Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "ddizi:ep:91116/cirkin-6-bolum-izle-hd2.htm",
+        "title": "Çirkin 6.Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "ddizi:ep:91155/cirkin-7-bolum-izle-hd2.htm",
+        "title": "Çirkin 7.Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "ddizi:ep:91195/cirkin-8-bolum-sezon-finali-izle-hd2.htm",
+        "title": "Çirkin 8.Bölüm Sezon Finali",
+        "season": 1,
+        "episode": 8
+      }
+    ]
+  }
+}

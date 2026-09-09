@@ -57,9 +57,10 @@ function parseUlusalChannels(content) {
                 var tvgIdMatch = line.match(/tvg-id="([^"]+)"/i);
                 var tvgNameMatch = line.match(/tvg-name="([^"]+)"/i);
                 var logoMatch = line.match(/tvg-logo="([^"]+)"/i);
-                var commaParts = line.split(',');
-                var channelName = commaParts[commaParts.length - 1].trim();
-                var channelId = tvgIdMatch && tvgIdMatch[1] ? tvgIdMatch[1].trim() : (tvgNameMatch ? tvgNameMatch[1].trim() : channelName);
+                var nameMatch = line.match(/"\s*,\s*(.+)$/);
+                var channelName = nameMatch ? nameMatch[1].trim() : line.split(',').pop().trim();
+                var rawId = tvgIdMatch && tvgIdMatch[1] ? tvgIdMatch[1].trim() : (tvgNameMatch ? tvgNameMatch[1].trim() : channelName);
+                var channelId = rawId.startsWith('tv:') ? rawId : ('tv:' + rawId);
                 var logo = logoMatch ? logoMatch[1] : "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png";
 
                 var streamUrl = '';
@@ -124,12 +125,12 @@ function getStreams(args) {
                 });
             }
 
-            var searchKey = cleanKey(targetId);
+            var searchKey = cleanKey(targetId.replace(/^tv:/, ''));
             var streams = [];
 
             for (var i = 0; i < channels.length; i++) {
                 var ch = channels[i];
-                var cId = cleanKey(ch.id);
+                var cId = cleanKey(ch.id.replace(/^tv:/, ''));
                 var cName = cleanKey(ch.name);
 
                 if (cId === searchKey || cName === searchKey || (searchKey && (cName.includes(searchKey) || searchKey.includes(cName)))) {
@@ -174,17 +175,18 @@ function getMeta(args) {
     return fetchChannels()
         .then(function(content) {
             var channels = parseUlusalChannels(content);
-            var ch = channels.find(function(c) { return c.id === targetId || cleanKey(c.name) === cleanKey(targetId); }) || channels[0];
+            var cleanTarget = cleanKey(targetId.replace(/^tv:/, ''));
+            var ch = channels.find(function(c) { return c.id === targetId || cleanKey(c.id.replace(/^tv:/, '')) === cleanTarget || cleanKey(c.name) === cleanTarget; }) || channels[0];
             return {
                 meta: {
-                    id: ch.id,
+                    id: targetId,
                     type: "tv",
                     name: ch.name,
                     poster: ch.logo,
                     background: ch.logo,
                     description: ch.name + " Canlı Ulusal Yayın",
                     genres: ["Ulusal"],
-                    videos: [{ id: ch.id, title: ch.name, released: new Date().toISOString() }]
+                    videos: [{ id: targetId, title: ch.name, released: new Date().toISOString() }]
                 }
             };
         })

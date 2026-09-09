@@ -73,45 +73,53 @@ async function getCatalog(args) {
             const sJson = await sRes.json();
             const results = sJson.results || [];
             
-            const metas = results.map(r => ({
-                id: `dizibox:show:${r.post_name || r.ID}`,
-                type: 'tv',
-                name: r.post_title,
-                poster: r.attachment_thumbnail || 'https://www.google.com/s2/favicons?domain=dizibox.live&sz=128',
-                background: r.attachment_thumbnail || 'https://www.google.com/s2/favicons?domain=dizibox.live&sz=128',
-                genres: ['Yabancı Dizi', 'DiziBox'],
-                description: (r.post_excerpt || r.post_title).replace(/<[^>]+>/g, '').trim()
-            }));
+            const metas = results.map(r => {
+                let poster = r.attachment_thumbnail || '';
+                if (poster && poster.includes('-220x140')) {
+                    poster = poster.replace('-220x140', '-200x290');
+                }
+                if (!poster) poster = 'https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png';
+                return {
+                    id: `dizibox:show:${r.post_name || r.ID}`,
+                    type: 'tv',
+                    name: r.post_title,
+                    poster: poster,
+                    background: poster,
+                    genres: ['Yabancı Dizi', 'DiziBox'],
+                    description: (r.post_excerpt || r.post_title).replace(/<[^>]+>/g, '').trim()
+                };
+            });
             return { metas };
         }
 
-        // Recent episodes from /tum-bolumler/
-        const res = await fetch(`${BASE_URL}/tum-bolumler/`, { headers: HEADERS });
+        // Popular series from homepage and /tum-bolumler/
+        const res = await fetch(`${BASE_URL}/`, { headers: HEADERS });
         if (!res.ok) return { metas: [] };
         const html = await res.text();
 
-        const cardRegex = /<article class="article-episode-card[^"]*"[\s\S]*?<a href="([^"]*)"[^>]*title="([^"]*)"[\s\S]*?<img[^>]+data-src=['"]([^'"]*)['"]/gi;
+        const cardRegex = /<article class="article-episode-card[^"]*"[\s\S]*?<a href="([^"]*)"[^>]*title="([^"]*)"[\s\S]*?<b class=['"]series-name[^'"]*['"]>([\s\S]*?)<\/b>[\s\S]*?<img[^>]+data-src=['"]([^'"]*)['"]/gi;
         const metas = [];
         const seen = new Set();
         let m;
 
         while ((m = cardRegex.exec(html)) !== null) {
             const url = m[1];
-            const title = m[2].trim();
-            const poster = m[3];
-            const slug = url.replace(BASE_URL, '').replace(/^\//, '').replace(/\/$/, '');
+            const epSlug = url.replace(BASE_URL, '').replace(/^\//, '').replace(/\/$/, '');
+            const showSlug = epSlug.replace(/-\d+-sezon.*$/, '').replace(/-\d+-bolum.*$/, '').replace(/-izle.*$/, '');
+            const seriesName = m[3].replace(/<[^>]+>/g, '').trim();
+            let poster = m[4].replace('-220x140', '-200x290');
 
-            if (!slug || seen.has(slug)) continue;
-            seen.add(slug);
+            if (!showSlug || seen.has(showSlug)) continue;
+            seen.add(showSlug);
 
             metas.push({
-                id: `dizibox:ep:${slug}`,
+                id: `dizibox:show:${showSlug}`,
                 type: 'tv',
-                name: title,
+                name: seriesName,
                 poster: poster.startsWith('http') ? poster : `${BASE_URL}${poster}`,
                 background: poster.startsWith('http') ? poster : `${BASE_URL}${poster}`,
                 genres: ['Yabancı Dizi', 'DiziBox'],
-                description: `${title} - DiziBox Güncel Bölüm`
+                description: `${seriesName} - DiziBox Yabancı Dizi Arşivi`
             });
         }
 
@@ -136,8 +144,11 @@ async function getMeta(args) {
             const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i) || html.match(/<title>([^<]+)<\/title>/i);
             const title = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, '').trim() : 'DiziBox Bölüm';
 
+            const ogImg = html.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i);
             const posterMatch = html.match(/class="figure-link"[\s\S]*?data-src=['"]([^'"]*)['"]/i);
-            const poster = posterMatch ? posterMatch[1] : 'https://www.google.com/s2/favicons?domain=dizibox.live&sz=128';
+            let poster = ogImg ? ogImg[1] : (posterMatch ? posterMatch[1] : '');
+            if (poster && poster.includes('-220x140')) poster = poster.replace('-220x140', '-200x290');
+            if (!poster) poster = 'https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png';
 
             const epNumMatch = title.match(/(\d+)\s*\.?\s*bölüm/i);
             const seasonNumMatch = title.match(/(\d+)\s*\.?\s*sezon/i);
@@ -171,7 +182,12 @@ async function getMeta(args) {
             const html = await res.text();
 
             const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i) || html.match(/<title>([^<]+)<\/title>/i);
-            const title = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, '').trim() : 'DiziBox Dizi';
+            const rawTitle = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, '').trim() : 'DiziBox Dizi';
+            const title = rawTitle.replace(/\s*izle\s*$/i, '').trim();
+
+            const ogImg = html.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i);
+            let poster = ogImg ? ogImg[1] : '';
+            if (!poster) poster = 'https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png';
 
             const epMatches = [...html.matchAll(/<a href="([^"]*bolum-izle[^"]*)"[^>]*>([\s\S]*?)<\/a>/gi)];
             const videos = [];
@@ -203,8 +219,8 @@ async function getMeta(args) {
                     id: rawId,
                     type: 'tv',
                     name: title,
-                    poster: 'https://www.google.com/s2/favicons?domain=dizibox.live&sz=128',
-                    background: 'https://www.google.com/s2/favicons?domain=dizibox.live&sz=128',
+                    poster: poster,
+                    background: poster,
                     description: `${title} - DiziBox Arşivi`,
                     genres: ['Yabancı Dizi', 'DiziBox'],
                     videos

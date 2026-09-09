@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "id": "tv:TRTCocuk.tr",
+    "type": "tv",
+    "name": "TRT Çocuk HD",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtcocuk.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtcocuk.png",
+    "description": "TRT Çocuk HD Canlı Yayın",
+    "genres": [
+      "BELGESEL  ÇOCUK"
+    ],
+    "videos": [
+      {
+        "id": "tv:TRTCocuk.tr",
+        "title": "TRT Çocuk HD",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

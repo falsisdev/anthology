@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "id": "ddizi:show:2176/tuzlu-kahve-son-bolum-izle",
+    "type": "series",
+    "name": "Tuzlu Kahve",
+    "poster": "https://www.ddizi.im/diziresimleri/tuzlukahvekapakmin.jpg",
+    "background": "https://www.ddizi.im/diziresimleri/tuzlukahvekapakmin.jpg",
+    "description": "Tuzlu Kahve - DDizi Dizi Arşivi",
+    "genres": [
+      "Yerli Dizi",
+      "DDizi"
+    ],
+    "videos": [
+      {
+        "id": "ddizi:ep:91644/tuzlu-kahve-1-bolum-izle-hd2.htm",
+        "title": "Tuzlu Kahve 1.Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "ddizi:ep:91680/tuzlu-kahve-2-bolum-izle-hd2.htm",
+        "title": "Tuzlu Kahve 2.Bölüm",
+        "season": 1,
+        "episode": 2
+      }
+    ]
+  }
+}

@@ -1,120 +1,552 @@
 {
   "metas": [
     {
-      "id": "ddizi:ep:91688/sevdan-bir-ates-1-bolum-izle-hd2.htm",
+      "id": "ddizi:show:2144/abi-3-son-bolum-izle",
       "type": "series",
-      "name": "Sevdan Bir Ateş 1.Bölüm izle",
-      "poster": "https://www.ddizi.im/diziresimleri/sevdanbirateskapakmin.jpg",
-      "background": "https://www.ddizi.im/diziresimleri/sevdanbirateskapakmin.jpg",
-      "description": "Sevdan Bir Ateş 1.Bölüm izle - DDizi Güncel Bölüm",
-      "genres": [
-        "Yerli Dizi",
-        "DDizi"
-      ]
-    },
-    {
-      "id": "ddizi:ep:91687/ask-ve-taht-1-bolum-izle-hd2.htm",
-      "type": "series",
-      "name": "Aşk ve Taht 1.Bölüm izle",
-      "poster": "https://www.ddizi.im/diziresimleri/askvetahtkapakmin.jpg",
-      "background": "https://www.ddizi.im/diziresimleri/askvetahtkapakmin.jpg",
-      "description": "Aşk ve Taht 1.Bölüm izle - DDizi Güncel Bölüm",
-      "genres": [
-        "Yerli Dizi",
-        "DDizi"
-      ]
-    },
-    {
-      "id": "ddizi:ep:91686/masterchef-2026-84-bolum-izle-9-eylul.htm",
-      "type": "series",
-      "name": "MasterChef 2026 84.Bölüm 9 Eylül izle",
-      "poster": "https://www.ddizi.im/diziresimleri/masterchefturkiye.jpg",
-      "background": "https://www.ddizi.im/diziresimleri/masterchefturkiye.jpg",
-      "description": "MasterChef 2026 84.Bölüm 9 Eylül izle - DDizi Güncel Bölüm",
-      "genres": [
-        "Yerli Dizi",
-        "DDizi"
-      ]
-    },
-    {
-      "id": "ddizi:ep:91685/firtinaya-dogru-10-bolum-izle-hd1.htm",
-      "type": "series",
-      "name": "Fırtınaya Doğru 10.Bölüm izle",
-      "poster": "https://www.ddizi.im/diziresimleri/firtinayadogrukapakmin.jpg",
-      "background": "https://www.ddizi.im/diziresimleri/firtinayadogrukapakmin.jpg",
-      "description": "Fırtınaya Doğru 10.Bölüm izle - DDizi Güncel Bölüm",
-      "genres": [
-        "Yerli Dizi",
-        "DDizi"
-      ]
-    },
-    {
-      "id": "ddizi:ep:91684/sana-her-baktigimda-4-bolum-izle-hd1.htm",
-      "type": "series",
-      "name": "Sana Her Baktığımda 4.Bölüm izle",
-      "poster": "https://www.ddizi.im/diziresimleri/sanaherbaktigimdakapakmin.jpg",
-      "background": "https://www.ddizi.im/diziresimleri/sanaherbaktigimdakapakmin.jpg",
-      "description": "Sana Her Baktığımda 4.Bölüm izle - DDizi Güncel Bölüm",
-      "genres": [
-        "Yerli Dizi",
-        "DDizi"
-      ]
-    },
-    {
-      "id": "ddizi:ep:91683/kalbim-sana-emanet-9-bolum-izle-hd1.htm",
-      "type": "series",
-      "name": "Kalbim Sana Emanet 9.Bölüm izle",
-      "poster": "https://www.ddizi.im/diziresimleri/kalbimsanaemanetkapakmin.jpg",
-      "background": "https://www.ddizi.im/diziresimleri/kalbimsanaemanetkapakmin.jpg",
-      "description": "Kalbim Sana Emanet 9.Bölüm izle - DDizi Güncel Bölüm",
-      "genres": [
-        "Yerli Dizi",
-        "DDizi"
-      ]
-    },
-    {
-      "id": "ddizi:ep:91682/muge-anli-9-eylul-2026.htm",
-      "type": "series",
-      "name": "Müge Anlı 9 Eylül 2026 izle",
-      "poster": "https://www.ddizi.im/diziresimleri/mugeanliyeni.jpg",
-      "background": "https://www.ddizi.im/diziresimleri/mugeanliyeni.jpg",
-      "description": "Müge Anlı 9 Eylül 2026 izle - DDizi Güncel Bölüm",
-      "genres": [
-        "Yerli Dizi",
-        "DDizi"
-      ]
-    },
-    {
-      "id": "ddizi:ep:91681/haysiyet-1-bolum-izle-hd2.htm",
-      "type": "series",
-      "name": "Haysiyet 1.Bölüm izle",
-      "poster": "https://www.ddizi.im/diziresimleri/haysiyetkapakmin.jpg",
-      "background": "https://www.ddizi.im/diziresimleri/haysiyetkapakmin.jpg",
-      "description": "Haysiyet 1.Bölüm izle - DDizi Güncel Bölüm",
-      "genres": [
-        "Yerli Dizi",
-        "DDizi"
-      ]
-    },
-    {
-      "id": "ddizi:ep:91680/tuzlu-kahve-2-bolum-izle-hd2.htm",
-      "type": "series",
-      "name": "Tuzlu Kahve 2.Bölüm izle",
-      "poster": "https://www.ddizi.im/diziresimleri/tuzlukahvekapakmin.jpg",
-      "background": "https://www.ddizi.im/diziresimleri/tuzlukahvekapakmin.jpg",
-      "description": "Tuzlu Kahve 2.Bölüm izle - DDizi Güncel Bölüm",
-      "genres": [
-        "Yerli Dizi",
-        "DDizi"
-      ]
-    },
-    {
-      "id": "ddizi:ep:91679/abi-19-bolum-izle-hd1.htm",
-      "type": "series",
-      "name": "Abi 19.Bölüm izle",
+      "name": "Abi",
       "poster": "https://www.ddizi.im/diziresimleri/abikapak_new.jpg",
       "background": "https://www.ddizi.im/diziresimleri/abikapak_new.jpg",
-      "description": "Abi 19.Bölüm izle - DDizi Güncel Bölüm",
+      "description": "Abi - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2171/alti-ustu-istanbul-son-bolum-izle",
+      "type": "series",
+      "name": "Altı Üstü İstanbul",
+      "poster": "https://www.ddizi.im/diziresimleri/altiustuistanbulkapakmin.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/altiustuistanbulkapakmin.jpg",
+      "description": "Altı Üstü İstanbul - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2181/ask-ve-taht-son-bolum-izle",
+      "type": "series",
+      "name": "Aşk ve Taht",
+      "poster": "https://www.ddizi.im/diziresimleri/askvetahtkapakmin.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/askvetahtkapakmin.jpg",
+      "description": "Aşk ve Taht - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2163/cirkin-son-bolum-izle",
+      "type": "series",
+      "name": "Çirkin",
+      "poster": "https://www.ddizi.im/diziresimleri/cirkinkapak-min.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/cirkinkapak-min.jpg",
+      "description": "Çirkin - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2167/daha-17-son-bolum-izle",
+      "type": "series",
+      "name": "Daha 17",
+      "poster": "https://www.ddizi.im/diziresimleri/daha17kapakmin.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/daha17kapakmin.jpg",
+      "description": "Daha 17 - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2179/evlilik-guzeldir-son-bolum-izle",
+      "type": "series",
+      "name": "Evlilik Güzeldir",
+      "poster": "https://www.ddizi.im/diziresimleri/evlilikguzeldirkapakmin.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/evlilikguzeldirkapakmin.jpg",
+      "description": "Evlilik Güzeldir - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2174/firtinaya-dogru-son-bolum-izle",
+      "type": "series",
+      "name": "Fırtınaya Doğru",
+      "poster": "https://www.ddizi.im/diziresimleri/firtinayadogrukapakmin.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/firtinayadogrukapakmin.jpg",
+      "description": "Fırtınaya Doğru - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1838/gonul-dagi-171-son-bolum-izle",
+      "type": "series",
+      "name": "Gönül Dağı",
+      "poster": "https://www.ddizi.im/diziresimleri/gonuldagi3-min.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/gonuldagi3-min.jpg",
+      "description": "Gönül Dağı - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2129/guller-ve-gunahlar-7-son-bolum-izle",
+      "type": "series",
+      "name": "Güller ve Günahlar",
+      "poster": "https://www.ddizi.im/diziresimleri/gullervegunahlarkapak-min.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/gullervegunahlarkapak-min.jpg",
+      "description": "Güller ve Günahlar - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2122/halef-koklerin-cagrisi-10-son-bolum-izle",
+      "type": "series",
+      "name": "Halef: Köklerin Çağrısı",
+      "poster": "https://www.ddizi.im/diziresimleri/halefkapak-min.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/halefkapak-min.jpg",
+      "description": "Halef: Köklerin Çağrısı - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2180/haysiyet-son-bolum-izle",
+      "type": "series",
+      "name": "Haysiyet",
+      "poster": "https://www.ddizi.im/diziresimleri/haysiyetkapakmin.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/haysiyetkapakmin.jpg",
+      "description": "Haysiyet - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2175/kalbim-sana-emanet-son-bolum-izle",
+      "type": "series",
+      "name": "Kalbim Sana Emanet",
+      "poster": "https://www.ddizi.im/diziresimleri/kalbimsanaemanetkapakmin.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/kalbimsanaemanetkapakmin.jpg",
+      "description": "Kalbim Sana Emanet - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1952/kizilcik-serbeti-20-son-bolum-izle",
+      "type": "series",
+      "name": "Kızılcık Şerbeti",
+      "poster": "https://www.ddizi.im/diziresimleri/kizilcikserbetikapak-min.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/kizilcikserbetikapak-min.jpg",
+      "description": "Kızılcık Şerbeti - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2170/masterchef-turkiye-2026-son-bolum-izle",
+      "type": "series",
+      "name": "MasterChef Türkiye 2026",
+      "poster": "https://www.ddizi.im/diziresimleri/masterchefturkiye.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/masterchefturkiye.jpg",
+      "description": "MasterChef Türkiye 2026 - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2161/masumiyet-muzesi-14-son-bolum-izle",
+      "type": "series",
+      "name": "Masumiyet Müzesi",
+      "poster": "https://www.ddizi.im/diziresimleri/masumiyetmuzekapakmin.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/masumiyetmuzekapakmin.jpg",
+      "description": "Masumiyet Müzesi - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2041/mehmed-fetihler-sultani-178-son-bolum-izle",
+      "type": "series",
+      "name": "Mehmed: Fetihler Sultanı",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Mehmed: Fetihler Sultanı - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2178/mercan-kosk-son-bolum-izle",
+      "type": "series",
+      "name": "Mercan Köşk",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Mercan Köşk - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1535/muge-anli-ile-tatli-sert-hd6-son-bolum-izle",
+      "type": "series",
+      "name": "Müge Anlı ile Tatlı Sert",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Müge Anlı ile Tatlı Sert - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2172/muhtemel-ask-son-bolum-izle",
+      "type": "series",
+      "name": "Muhtemel Aşk",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Muhtemel Aşk - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2177/sana-her-baktigimda-son-bolum-izle",
+      "type": "series",
+      "name": "Sana Her Baktığımda",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Sana Her Baktığımda - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2182/sevdan-bir-ates-son-bolum-izle",
+      "type": "series",
+      "name": "Sevdan Bir Ateş",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Sevdan Bir Ateş - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2160/sevdigim-sensin-son-bolum-izle",
+      "type": "series",
+      "name": "Sevdiğim Sensin",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Sevdiğim Sensin - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2127/tasacak-bu-deniz-123-son-bolum-izle",
+      "type": "series",
+      "name": "Taşacak Bu Deniz",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Taşacak Bu Deniz - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1856/teskilat-188-son-bolum-izle",
+      "type": "series",
+      "name": "Teşkilat",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Teşkilat - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2176/tuzlu-kahve-son-bolum-izle",
+      "type": "series",
+      "name": "Tuzlu Kahve",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Tuzlu Kahve - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2078/uzak-sehir-35-son-bolum-izle",
+      "type": "series",
+      "name": "Uzak Şehir",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Uzak Şehir - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2158/yeralti-2-son-bolum-izle",
+      "type": "series",
+      "name": "Yeraltı",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Yeraltı - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1937/zeytin-agaci-hd21-son-bolum-izle",
+      "type": "series",
+      "name": "Zeytin Ağacı",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Zeytin Ağacı - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1957/1899",
+      "type": "series",
+      "name": "1899",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "1899 - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2030/berlin",
+      "type": "series",
+      "name": "Berlin",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Berlin - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1916/bridgerton-hd",
+      "type": "series",
+      "name": "Bridgerton",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Bridgerton - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1815/dark-hd",
+      "type": "series",
+      "name": "Dark",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dark - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1807/elite-hd",
+      "type": "series",
+      "name": "Elite",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Elite - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1808/la-casa-de-papel-hd",
+      "type": "series",
+      "name": "La Casa De Papel",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "La Casa De Papel - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1813/narcos-hd",
+      "type": "series",
+      "name": "Narcos",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Narcos - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1816/ozark-hd",
+      "type": "series",
+      "name": "Ozark",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Ozark - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1812/peaky-blinders-hd24",
+      "type": "series",
+      "name": "Peaky Blinders",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Peaky Blinders - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1791/rise-of-empires-ottoman-hd",
+      "type": "series",
+      "name": "Rise Of Empires: Ottoman",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Rise Of Empires: Ottoman - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1811/riverdale-hd",
+      "type": "series",
+      "name": "Riverdale",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Riverdale - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1817/snowpiercer-hd04",
+      "type": "series",
+      "name": "Snowpiercer",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Snowpiercer - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1884/squid-game-hd23",
+      "type": "series",
+      "name": "Squid Game",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Squid Game - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1809/stranger-things-hd15",
+      "type": "series",
+      "name": "Stranger Things",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Stranger Things - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1814/the-100",
+      "type": "series",
+      "name": "The 100",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "The 100 - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1810/the-last-dance-hd",
+      "type": "series",
+      "name": "The Last Dance",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "The Last Dance - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1917/the-witcher-hd",
+      "type": "series",
+      "name": "The Witcher",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "The Witcher - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1972/wednesday-hd",
+      "type": "series",
+      "name": "Wednesday",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Wednesday - DDizi Yerli Dizi Arşivi",
       "genres": [
         "Yerli Dizi",
         "DDizi"

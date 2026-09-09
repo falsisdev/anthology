@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "id": "ddizi:show:2160/sevdigim-sensin-son-bolum-izle",
+    "type": "series",
+    "name": "Sevdiğim Sensin",
+    "poster": "https://www.ddizi.im/diziresimleri/sevdigimsensinkapakmin.jpg",
+    "background": "https://www.ddizi.im/diziresimleri/sevdigimsensinkapakmin.jpg",
+    "description": "Sevdiğim Sensin - DDizi Dizi Arşivi",
+    "genres": [
+      "Yerli Dizi",
+      "DDizi"
+    ],
+    "videos": [
+      {
+        "id": "ddizi:ep:90143/sevdigim-sensin-6-bolum-izle-hd2.htm",
+        "title": "Sevdiğim Sensin 6.Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "ddizi:ep:90800/sevdigim-sensin-7-bolum-izle-hd2.htm",
+        "title": "Sevdiğim Sensin 7.Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "ddizi:ep:90849/sevdigim-sensin-8-bolum-izle-hd2.htm",
+        "title": "Sevdiğim Sensin 8.Bölüm",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "ddizi:ep:90977/sevdigim-sensin-9-bolum-izle-hd2.htm",
+        "title": "Sevdiğim Sensin 9.Bölüm",
+        "season": 1,
+        "episode": 9
+      },
+      {
+        "id": "ddizi:ep:91062/sevdigim-sensin-10-bolum-izle-hd2.htm",
+        "title": "Sevdiğim Sensin 10.Bölüm",
+        "season": 1,
+        "episode": 10
+      },
+      {
+        "id": "ddizi:ep:91102/sevdigim-sensin-11-bolum-izle-hd2.htm",
+        "title": "Sevdiğim Sensin 11.Bölüm",
+        "season": 1,
+        "episode": 11
+      },
+      {
+        "id": "ddizi:ep:91141/sevdigim-sensin-12-bolum-izle-hd2.htm",
+        "title": "Sevdiğim Sensin 12.Bölüm",
+        "season": 1,
+        "episode": 12
+      },
+      {
+        "id": "ddizi:ep:91181/sevdigim-sensin-13-bolum-izle-hd2.htm",
+        "title": "Sevdiğim Sensin 13.Bölüm",
+        "season": 1,
+        "episode": 13
+      },
+      {
+        "id": "ddizi:ep:91221/sevdigim-sensin-14-bolum-izle-hd2.htm",
+        "title": "Sevdiğim Sensin 14.Bölüm",
+        "season": 1,
+        "episode": 14
+      },
+      {
+        "id": "ddizi:ep:91283/sevdigim-sensin-15-bolum-izle-sezon-finali-hd2.htm",
+        "title": "Sevdiğim Sensin 15.Bölüm Sezon Finali",
+        "season": 1,
+        "episode": 15
+      }
+    ]
+  }
+}

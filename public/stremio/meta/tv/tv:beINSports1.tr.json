@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "id": "tv:beINSports1.tr",
+    "type": "tv",
+    "name": "BeIN Sports 1 HD",
+    "poster": "https://i.imgur.com/Vtk2cGI.png",
+    "background": "https://i.imgur.com/Vtk2cGI.png",
+    "description": "BeIN Sports 1 HD Canlı Spor Yayını",
+    "genres": [
+      "Spor"
+    ],
+    "videos": [
+      {
+        "id": "tv:beINSports1.tr",
+        "title": "BeIN Sports 1 HD",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

@@ -99,16 +99,52 @@ async function resolveSibnet(iframeUrl) {
 
 async function getCatalog(args) {
   try {
+    const query = (args && args.extra && args.extra.search) || (args && args.query) || '';
+    const metas = [];
+    const seen = new Set();
+
+    if (query) {
+      const searchRes = await fetch(`${BASE_URL}/arama`, {
+        method: 'POST',
+        headers: Object.assign({}, HEADERS, { 'Content-Type': 'application/x-www-form-urlencoded' }),
+        body: `arama=${encodeURIComponent(query)}`
+      });
+      if (searchRes.ok) {
+        const searchHtml = await searchRes.text();
+        const itemRegex = /<div[^>]*class=["'][^"']*panel-title[^"']*["'][^>]*>\s*<a[^>]*href=["']([^"']+)["'][^>]*>(.*?)<\/a>/gis;
+        let match;
+        while ((match = itemRegex.exec(searchHtml)) !== null) {
+          const h = match[1];
+          const t = match[2].replace(/<[^>]+>/g, '').trim();
+          let cleanHref = h.startsWith('//') ? 'https:' + h : h;
+          const slug = cleanHref.replace(/https?:\/\/www\.turkanime\.tv\/anime\//, '').replace(/^\//, '').replace(/\/$/, '');
+          if (!slug || seen.has(slug)) continue;
+          seen.add(slug);
+
+          metas.push({
+            id: `turkanime:anime:${slug}`,
+            type: 'tv',
+            name: t,
+            poster: 'https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png',
+            background: 'https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png',
+            genres: ['Anime', 'TurkAnime'],
+            description: `${t} - TurkAnime TV`
+          });
+        }
+        return { metas };
+      }
+    }
+
     const res = await fetch(BASE_URL + '/', { headers: HEADERS });
     if (!res.ok) return { metas: [] };
     const html = await res.text();
 
     const matches = [...html.matchAll(/<a\b([^>]*)data-title=["']([^"']+)["']([^>]*)>/gi)];
-    const metas = [];
-    const seen = new Set();
 
     for (const m of matches) {
-      const hMatch = (m[1] + m[3]).match(/href=["']([^"']+)["']/);
+      const combinedAttrs = m[1] + m[3];
+      const hMatch = combinedAttrs.match(/href=["']([^"']+)["']/i);
+      const imgMatch = combinedAttrs.match(/data-img=["']([^"']+)["']/i);
       const title = m[2].trim();
       if (hMatch && title) {
         let href = hMatch[1];
@@ -117,12 +153,16 @@ async function getCatalog(args) {
         if (!slug || seen.has(slug)) continue;
         seen.add(slug);
 
+        let poster = imgMatch ? imgMatch[1] : '';
+        if (poster.startsWith('//')) poster = 'https:' + poster;
+        if (!poster) poster = 'https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png';
+
         metas.push({
           id: `turkanime:anime:${slug}`,
           type: 'tv',
           name: title,
-          poster: 'https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128',
-          background: 'https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128',
+          poster: poster,
+          background: poster,
           genres: ['Anime', 'TurkAnime'],
           description: `${title} - TurkAnime TV`
         });
@@ -147,18 +187,73 @@ async function getMeta(args) {
     const detHtml = await detRes.text();
 
     const titleMatch = detHtml.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i) || detHtml.match(/<title>([^<]+)<\/title>/i);
-    const title = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, '').trim() : 'Anime';
+    const rawTitle = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, '').trim() : 'Anime';
+    const title = rawTitle.replace(/\s*izle\s*\|.*$/i, '').trim();
+
+    const posterMatch = detHtml.match(/<meta\s+name=["']twitter:image["']\s+content=["']([^"']+)["']/i) ||
+                        detHtml.match(/<meta\s+property=["']og:image["']\s+content=["']([^"']+)["']/i) ||
+                        detHtml.match(/src=["']([^"']*serilerb\/[^"']+)["']/i);
+    let poster = posterMatch ? posterMatch[1] : '';
+    if (poster.startsWith('//')) poster = 'https:' + poster;
+    if (!poster) poster = 'https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png';
+
+    const videos = [];
+    const ajaxMatch = detHtml.match(/ajax\/bolumler&animeId=(\d+)/i);
+    if (ajaxMatch) {
+      try {
+        const tokenMatch = detHtml.match(/<meta[^>]*name=["']_token["'][^>]*content=["']([^"']+)["']/i) ||
+                           detHtml.match(/token\s*=\s*['"]([^'"]+)['"]/);
+        const token = tokenMatch ? tokenMatch[1] : '';
+        const bolumlerUrl = `${BASE_URL}/${ajaxMatch[0]}`;
+        const bRes = await fetch(bolumlerUrl, {
+          headers: Object.assign({}, HEADERS, {
+            'X-Requested-With': 'XMLHttpRequest',
+            'token': token,
+            'Referer': animeHref
+          })
+        });
+        if (bRes.ok) {
+          const bHtml = await bRes.text();
+          const epRegex = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
+          let m;
+          const seen = new Set();
+          while ((m = epRegex.exec(bHtml)) !== null) {
+            const attrs = m[1];
+            const text = m[2].replace(/<[^>]+>/g, '').trim();
+            if (attrs.includes('/video/')) {
+              const hrefMatch = attrs.match(/href=["']([^"']+)["']/i);
+              if (hrefMatch) {
+                const rawUrl = hrefMatch[1];
+                const epSlug = rawUrl.replace(/^.*?\/video\//, '').replace(/\/$/, '');
+                if (epSlug && !seen.has(epSlug)) {
+                  seen.add(epSlug);
+                  const numMatch = text.match(/\b(\d+)\b/) || epSlug.match(/-(\d+)-bolum/);
+                  const epNum = numMatch ? parseInt(numMatch[1]) : (videos.length + 1);
+                  videos.push({
+                    id: `turkanime:ep:${epSlug}`,
+                    title: `${epNum}. Bölüm`,
+                    season: 1,
+                    episode: epNum
+                  });
+                }
+              }
+            }
+          }
+          videos.sort((a, b) => a.episode - b.episode);
+        }
+      } catch (e) {}
+    }
 
     return {
       meta: {
         id: rawId,
         type: 'tv',
         name: title,
-        poster: 'https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128',
-        background: 'https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128',
+        poster: poster,
+        background: poster,
         description: `${title} - TurkAnime TV`,
         genres: ['Anime', 'TurkAnime'],
-        videos: [{ id: rawId, title: `${title} 1. Bölüm`, season: 1, episode: 1 }]
+        videos: videos.length > 0 ? videos : [{ id: rawId, title: `${title} 1. Bölüm`, season: 1, episode: 1 }]
       }
     };
   } catch (e) {
@@ -175,9 +270,13 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
     let finalSeason = parseInt(seasonNum) || 1;
     let finalEpisode = parseInt(episodeNum) || 1;
 
+    let epHref = null;
     let animeHref = null;
 
-    if (typeof tmdbId === 'string' && tmdbId.startsWith('turkanime:')) {
+    if (typeof tmdbId === 'string' && tmdbId.startsWith('turkanime:ep:')) {
+      const epSlug = tmdbId.replace(/^turkanime:ep:/, '').replace(/^\//, '');
+      epHref = `${BASE_URL}/video/${epSlug}`;
+    } else if (typeof tmdbId === 'string' && tmdbId.startsWith('turkanime:')) {
       const slug = tmdbId.replace(/^turkanime:(?:anime:|ep:)?/, '');
       animeHref = `${BASE_URL}/anime/${slug}`;
     } else {
@@ -248,57 +347,58 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
       }
     }
 
-    if (!animeHref) return [];
+    if (!epHref) {
+      if (!animeHref) return [];
 
-    if (animeHref.startsWith('//')) animeHref = 'https:' + animeHref;
-    else if (!animeHref.startsWith('http')) animeHref = `${BASE_URL}/${animeHref.replace(/^\//, '')}`;
+      if (animeHref.startsWith('//')) animeHref = 'https:' + animeHref;
+      else if (!animeHref.startsWith('http')) animeHref = `${BASE_URL}/${animeHref.replace(/^\//, '')}`;
 
-    const detRes = await fetch(animeHref, { headers: HEADERS });
-    if (!detRes.ok) return [];
-    const detHtml = await detRes.text();
+      const detRes = await fetch(animeHref, { headers: HEADERS });
+      if (!detRes.ok) return [];
+      const detHtml = await detRes.text();
 
-    const tokenMatch = detHtml.match(/<meta[^>]*name=["']_token["'][^>]*content=["']([^"']+)["']/i) ||
-                       detHtml.match(/token\s*=\s*['"]([^'"]+)['"]/);
-    const token = tokenMatch ? tokenMatch[1] : '';
+      const tokenMatch = detHtml.match(/<meta[^>]*name=["']_token["'][^>]*content=["']([^"']+)["']/i) ||
+                         detHtml.match(/token\s*=\s*['"]([^'"]+)['"]/);
+      const token = tokenMatch ? tokenMatch[1] : '';
 
-    const ajaxMatch = detHtml.match(/ajax\/bolumler&animeId=(\d+)/i);
-    if (!ajaxMatch) return [];
+      const ajaxMatch = detHtml.match(/ajax\/bolumler&animeId=(\d+)/i);
+      if (!ajaxMatch) return [];
 
-    const bolumlerUrl = `${BASE_URL}/${ajaxMatch[0]}`;
-    const bRes = await fetch(bolumlerUrl, {
-      headers: Object.assign({}, HEADERS, {
-        'X-Requested-With': 'XMLHttpRequest',
-        'token': token,
-        'Referer': animeHref
-      })
-    });
-    if (!bRes.ok) return [];
-    const bHtml = await bRes.text();
+      const bolumlerUrl = `${BASE_URL}/${ajaxMatch[0]}`;
+      const bRes = await fetch(bolumlerUrl, {
+        headers: Object.assign({}, HEADERS, {
+          'X-Requested-With': 'XMLHttpRequest',
+          'token': token,
+          'Referer': animeHref
+        })
+      });
+      if (!bRes.ok) return [];
+      const bHtml = await bRes.text();
 
-    let epHref = null;
-    const epRegex = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
-    let epMatch;
-    const candidates = [];
+      const epRegex = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
+      let epMatch;
+      const candidates = [];
 
-    while ((epMatch = epRegex.exec(bHtml)) !== null) {
-      const attrs = epMatch[1];
-      const text = epMatch[2].replace(/<[^>]+>/g, '').trim();
-      if (attrs.includes('/video/')) {
-        const hrefMatch = attrs.match(/href=["']([^"']+)["']/i);
-        if (hrefMatch) {
-          const h = hrefMatch[1];
-          candidates.push({ href: h, text });
-          const epNumMatch = text.match(/\b(\d+)\b/) || h.match(/-(\d+)-bolum/);
-          if (epNumMatch && parseInt(epNumMatch[1]) === finalEpisode) {
-            epHref = h;
-            break;
+      while ((epMatch = epRegex.exec(bHtml)) !== null) {
+        const attrs = epMatch[1];
+        const text = epMatch[2].replace(/<[^>]+>/g, '').trim();
+        if (attrs.includes('/video/')) {
+          const hrefMatch = attrs.match(/href=["']([^"']+)["']/i);
+          if (hrefMatch) {
+            const h = hrefMatch[1];
+            candidates.push({ href: h, text });
+            const epNumMatch = text.match(/\b(\d+)\b/) || h.match(/-(\d+)-bolum/);
+            if (epNumMatch && parseInt(epNumMatch[1]) === finalEpisode) {
+              epHref = h;
+              break;
+            }
           }
         }
       }
-    }
 
-    if (!epHref && candidates.length > 0) {
-      epHref = candidates[0].href;
+      if (!epHref && candidates.length > 0) {
+        epHref = candidates[0].href;
+      }
     }
 
     if (!epHref) return [];

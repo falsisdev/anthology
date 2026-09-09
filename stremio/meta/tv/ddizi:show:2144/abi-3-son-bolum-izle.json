@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "id": "ddizi:show:2144/abi-3-son-bolum-izle",
+    "type": "series",
+    "name": "Abi",
+    "poster": "https://www.ddizi.im/diziresimleri/abikapak_new.jpg",
+    "background": "https://www.ddizi.im/diziresimleri/abikapak_new.jpg",
+    "description": "Abi - DDizi Dizi Arşivi",
+    "genres": [
+      "Yerli Dizi",
+      "DDizi"
+    ],
+    "videos": [
+      {
+        "id": "ddizi:ep:91679/abi-19-bolum-izle-hd2.htm",
+        "title": "Abi 19.Bölüm izle",
+        "season": 1,
+        "episode": 19
+      },
+      {
+        "id": "ddizi:ep:90128/abi-10-bolum-hd5.htm",
+        "title": "Abi 10.Bölüm",
+        "season": 1,
+        "episode": 10
+      },
+      {
+        "id": "ddizi:ep:90418/abi-11-bolum-hd7.htm",
+        "title": "Abi 11.Bölüm",
+        "season": 1,
+        "episode": 11
+      },
+      {
+        "id": "ddizi:ep:90962/abi-12-bolum-hd5.htm",
+        "title": "Abi 12.Bölüm",
+        "season": 1,
+        "episode": 12
+      },
+      {
+        "id": "ddizi:ep:91008/abi-13-bolum-izle-hd6.htm",
+        "title": "Abi 13.Bölüm",
+        "season": 1,
+        "episode": 13
+      },
+      {
+        "id": "ddizi:ep:91089/abi-14-bolum-hd6.htm",
+        "title": "Abi 14.Bölüm",
+        "season": 1,
+        "episode": 14
+      },
+      {
+        "id": "ddizi:ep:91168/abi-15-bolum-hd4.htm",
+        "title": "Abi 15.Bölüm",
+        "season": 1,
+        "episode": 15
+      },
+      {
+        "id": "ddizi:ep:91208/abi-16-bolum-hd3.htm",
+        "title": "Abi 16.Bölüm",
+        "season": 1,
+        "episode": 16
+      },
+      {
+        "id": "ddizi:ep:91272/abi-17-bolum-izle-hd.htm",
+        "title": "Abi 17.Bölüm",
+        "season": 1,
+        "episode": 17
+      },
+      {
+        "id": "ddizi:ep:91307/abi-18-bolum-izle-sezon-finali-hd1.htm",
+        "title": "Abi 18.Bölüm Sezon Finali",
+        "season": 1,
+        "episode": 18
+      },
+      {
+        "id": "ddizi:ep:91679/abi-19-bolum-izle-hd1.htm",
+        "title": "Abi 19.Bölüm",
+        "season": 1,
+        "episode": 19
+      }
+    ]
+  }
+}

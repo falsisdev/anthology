@@ -1,7 +1,7 @@
 {
   "metas": [
     {
-      "id": "TRT1.tr",
+      "id": "tv:TRT1.tr",
       "type": "tv",
       "name": "TRT 1 HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt1.png",
@@ -12,7 +12,7 @@
       ]
     },
     {
-      "id": "ATV.tr",
+      "id": "tv:ATV.tr",
       "type": "tv",
       "name": "ATV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/atv.png",
@@ -23,7 +23,7 @@
       ]
     },
     {
-      "id": "KanalD.tr",
+      "id": "tv:KanalD.tr",
       "type": "tv",
       "name": "Kanal D HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanald.png",
@@ -34,7 +34,7 @@
       ]
     },
     {
-      "id": "ShowTV.tr",
+      "id": "tv:ShowTV.tr",
       "type": "tv",
       "name": "Show TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/showtv.png",
@@ -45,7 +45,7 @@
       ]
     },
     {
-      "id": "StarTV.tr",
+      "id": "tv:StarTV.tr",
       "type": "tv",
       "name": "Star TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/startv.png",
@@ -56,7 +56,7 @@
       ]
     },
     {
-      "id": "NOW.tr",
+      "id": "tv:NOW.tr",
       "type": "tv",
       "name": "NOW TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/now.png",
@@ -67,7 +67,7 @@
       ]
     },
     {
-      "id": "TV8.tr",
+      "id": "tv:TV8.tr",
       "type": "tv",
       "name": "TV8 HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv8.png",
@@ -78,7 +78,7 @@
       ]
     },
     {
-      "id": "Kanal7.tr",
+      "id": "tv:Kanal7.tr",
       "type": "tv",
       "name": "Kanal 7 HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png",
@@ -89,7 +89,7 @@
       ]
     },
     {
-      "id": "BeyazTV.tr",
+      "id": "tv:BeyazTV.tr",
       "type": "tv",
       "name": "Beyaz TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beyaztv.png",
@@ -100,7 +100,7 @@
       ]
     },
     {
-      "id": "Teve2.tr",
+      "id": "tv:Teve2.tr",
       "type": "tv",
       "name": "Teve2 HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/teve2.png",
@@ -111,7 +111,7 @@
       ]
     },
     {
-      "id": "A2.tr",
+      "id": "tv:A2.tr",
       "type": "tv",
       "name": "A2 TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/a2.png",
@@ -122,7 +122,7 @@
       ]
     },
     {
-      "id": "TV360.tr",
+      "id": "tv:TV360.tr",
       "type": "tv",
       "name": "360 TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv360.png",
@@ -133,7 +133,7 @@
       ]
     },
     {
-      "id": "TRT2.tr",
+      "id": "tv:TRT2.tr",
       "type": "tv",
       "name": "TRT 2 Kültür & Sanat HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt2.png",
@@ -144,7 +144,7 @@
       ]
     },
     {
-      "id": "TRTAvaz.tr",
+      "id": "tv:TRTAvaz.tr",
       "type": "tv",
       "name": "TRT Avaz HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtavaz.png",
@@ -155,7 +155,7 @@
       ]
     },
     {
-      "id": "TRTTurk.tr",
+      "id": "tv:TRTTurk.tr",
       "type": "tv",
       "name": "TRT Türk HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtturk.png",
@@ -166,7 +166,7 @@
       ]
     },
     {
-      "id": "Kanal7Avrupa.tr",
+      "id": "tv:Kanal7Avrupa.tr",
       "type": "tv",
       "name": "Kanal 7 Avrupa",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png",
