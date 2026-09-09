@@ -3,8 +3,8 @@
     "id": "tv:SSport.tr",
     "type": "tv",
     "name": "S Sport HD",
-    "poster": "https://i.imgur.com/2jIItAy.png",
-    "background": "https://i.imgur.com/2jIItAy.png",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssport.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssport.png",
     "description": "S Sport HD Canlı Spor Yayını",
     "genres": [
       "Spor"

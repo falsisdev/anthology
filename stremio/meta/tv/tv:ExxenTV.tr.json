@@ -3,8 +3,8 @@
     "id": "tv:ExxenTV.tr",
     "type": "tv",
     "name": "Exxen TV HD",
-    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
-    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
     "description": "Exxen TV HD Canlı Spor Yayını",
     "genres": [
       "Spor"

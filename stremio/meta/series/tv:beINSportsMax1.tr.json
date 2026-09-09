@@ -3,8 +3,8 @@
     "id": "tv:beINSportsMax1.tr",
     "type": "tv",
     "name": "BeIN Sports Max 1 HD",
-    "poster": "https://i.imgur.com/FjWQjdy.png",
-    "background": "https://i.imgur.com/FjWQjdy.png",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
     "description": "BeIN Sports Max 1 HD Canlı Spor Yayını",
     "genres": [
       "Spor"

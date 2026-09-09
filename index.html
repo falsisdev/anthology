@@ -130,7 +130,8 @@
     .channels-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
     .channel-card{background:rgba(255,255,255,0.025);border:1px solid var(--border);border-radius:12px;padding:12px 10px;text-align:center;transition:all .15s}
     .channel-card:hover{border-color:var(--border-hover);transform:translateY(-2px);background:rgba(255,255,255,0.05)}
-    .ch-emoji{font-size:22px;margin-bottom:6px}
+    .ch-logo{width:44px;height:44px;object-fit:contain;margin-bottom:8px;border-radius:10px;background:rgba(255,255,255,0.04);padding:4px;display:inline-block;transition:transform .15s}
+    .channel-card:hover .ch-logo{transform:scale(1.08)}
     .ch-name{font-size:12px;font-weight:700;color:var(--text)}
     .ch-desc{font-size:10.5px;color:var(--text-dim);margin-top:2px}
 
@@ -178,7 +179,7 @@
 <div class="hero">
   <img class="hero-logo" src="assets/logo_1_transparent.png" alt="Anthology">
   <br>
-  <span class="hero-badge"><span class="dot"></span> 32 Aktif Eklenti · 13 Zengin Katalog · %100 Doğrulanmış</span>
+  <span class="hero-badge"><span class="dot"></span> 31 Aktif Eklenti · 13 Zengin Katalog · %100 Doğrulanmış</span>
   <h1>Anthology</h1>
   <p class="hero-desc">Nuvio için optimize edilmiş, doğrulanmış Türkçe dizi, film, anime ve canlı yayın eklenti deposu.</p>
 
@@ -194,7 +195,7 @@
   </div>
 
   <div class="stats-row">
-    <div class="stat"><div class="stat-value">32</div><div class="stat-label">Doğrulanmış Eklenti</div></div>
+    <div class="stat"><div class="stat-value">31</div><div class="stat-label">Doğrulanmış Eklenti</div></div>
     <div class="stat"><div class="stat-value">13</div><div class="stat-label">Ana Sayfa Kataloğu</div></div>
     <div class="stat"><div class="stat-value">100%</div><div class="stat-label">Doğrudan Video Yayını</div></div>
   </div>
@@ -212,7 +213,7 @@
         <div>
           <div class="install-badge">1. ADIM · ZORUNLU</div>
           <h3>Video Oynatıcı Motoru (Pluginler)</h3>
-          <p class="install-card-desc">Bir film veya dizi açtığınızda arka planda çalışan 32 Türkçe/yabancı video scraper'ını Nuvio oynatıcısına yükler.</p>
+          <p class="install-card-desc">Bir film veya dizi açtığınızda arka planda çalışan 31 Türkçe/yabancı video scraper'ını Nuvio oynatıcısına yükler.</p>
           <div class="install-step-route">
             <code>Nuvio</code> &rarr; <code>Ayarlar</code> &rarr; <code>Genel</code> &rarr; <code>İçerik &amp; Keşif</code> &rarr; <code>Pluginler</code> &rarr; <code>Depo Ekle</code>
           </div>
@@ -244,7 +245,7 @@
       <div class="notice-icon">💡</div>
       <div class="notice-content">
         <strong>Nasıl Birlikte Çalışırlar?</strong><br>
-        2. Adımı eklediğinizde Nuvio ana sayfanızda <strong>DDizi</strong>, <strong>DiziBox</strong>, <strong>DiziMom</strong>, <strong>SineWix</strong>, <strong>ÇizgiMax</strong>, <strong>Anime</strong> ve <strong>Canlı TV</strong> vitrinleri görünür. Bir diziye veya bölüme tıkladığınızda ise 1. Adımda eklediğiniz 32 Anthology oynatıcı plugin'i devreye girer ve 1080p doğrudan akışı (<code>.m3u8</code> / <code>.mp4</code>) başlatır. Tüm sistem GitHub Pages üzerinden sıfır maliyetle ve tamamen ücretsiz çalışır!
+        2. Adımı eklediğinizde Nuvio ana sayfanızda <strong>DDizi</strong>, <strong>DiziBox</strong>, <strong>DiziMom</strong>, <strong>SineWix</strong>, <strong>ÇizgiMax</strong>, <strong>Anime</strong> ve <strong>Canlı TV</strong> vitrinleri görünür. Bir diziye veya bölüme tıkladığınızda ise 1. Adımda eklediğiniz 31 Anthology oynatıcı plugin'i devreye girer ve 1080p doğrudan akışı (<code>.m3u8</code> / <code>.mp4</code>) başlatır. Tüm sistem GitHub Pages üzerinden sıfır maliyetle ve tamamen ücretsiz çalışır!
       </div>
     </div>
   </div>
@@ -257,7 +258,7 @@
     <p class="section-desc">Sadece gerçek, çalışan akışlar üreten ve Nuvio oynatıcısında sorunsuz açılan kaynaklar.</p>
     <div class="search-bar"><input type="text" id="searchInput" placeholder="Eklenti ara…" oninput="filterProviders()"></div>
     <div class="filter-bar" id="filterBar">
-      <button class="filter-btn active" data-filter="all">Tümü (29)</button>
+      <button class="filter-btn active" data-filter="all">Tümü (31)</button>
       <button class="filter-btn" data-filter="movie">🎬 Film</button>
       <button class="filter-btn" data-filter="tv">📺 Dizi</button>
       <button class="filter-btn" data-filter="anime">⛩️ Anime &amp; Çizgi</button>
@@ -273,18 +274,24 @@
     <h2 class="section-title">80+ Canlı Kanal</h2>
     <p class="section-desc">Spor, ulusal, haber ve belgesel — Nuvio ana sayfasında taranabilir katalog ile.</p>
     <div class="channels-grid">
-      <div class="channel-card"><div class="ch-emoji">⚽</div><div class="ch-name">BeIN Sports</div><div class="ch-desc">1–5 &amp; Max 1–2</div></div>
-      <div class="channel-card"><div class="ch-emoji">🏆</div><div class="ch-name">S Sport</div><div class="ch-desc">1–2 HD</div></div>
-      <div class="channel-card"><div class="ch-emoji">🎯</div><div class="ch-name">Tivibu Spor</div><div class="ch-desc">Spor Yayınları</div></div>
-      <div class="channel-card"><div class="ch-emoji">🎬</div><div class="ch-name">Exxen Spor</div><div class="ch-desc">Avrupa Maçları</div></div>
-      <div class="channel-card"><div class="ch-emoji">📺</div><div class="ch-name">TRT 1 &amp; TRT Spor</div><div class="ch-desc">Ulusal &amp; Spor HD</div></div>
-      <div class="channel-card"><div class="ch-emoji">🌟</div><div class="ch-name">ATV &amp; Kanal D</div><div class="ch-desc">Ulusal HD</div></div>
-      <div class="channel-card"><div class="ch-emoji">⚡</div><div class="ch-name">Show TV &amp; Star TV</div><div class="ch-desc">Ulusal HD</div></div>
-      <div class="channel-card"><div class="ch-emoji">📰</div><div class="ch-name">NTV &amp; Habertürk</div><div class="ch-desc">Canlı Haber</div></div>
-      <div class="channel-card"><div class="ch-emoji">🏀</div><div class="ch-name">TV8 &amp; TV8,5</div><div class="ch-desc">Spor &amp; Eğlence</div></div>
-      <div class="channel-card"><div class="ch-emoji">🚴</div><div class="ch-name">A Spor &amp; HT Spor</div><div class="ch-desc">Spor Haberleri</div></div>
-      <div class="channel-card"><div class="ch-emoji">🦁</div><div class="ch-name">TRT Belgesel</div><div class="ch-desc">Belgesel HD</div></div>
-      <div class="channel-card"><div class="ch-emoji">🎠</div><div class="ch-name">TRT Çocuk</div><div class="ch-desc">Çocuk HD</div></div>
+      <div class="channel-card"><img class="ch-logo" src="https://i.pinimg.com/736x/20/f8/53/20f853787e15c584b40cb92aee225029.jpg" onerror="this.src='assets/canli/beinsports.jpg'" alt="BeIN Sports"><div class="ch-name">BeIN Sports</div><div class="ch-desc">1–5 &amp; Max 1–2 HD</div></div>
+      <div class="channel-card"><img class="ch-logo" src="https://upload.wikimedia.org/wikipedia/commons/9/91/S_Sport_Plus_Logo.png" onerror="this.src='assets/canli/ssport.png'" alt="S Sport"><div class="ch-name">S Sport</div><div class="ch-desc">1–2 HD &amp; Plus</div></div>
+      <div class="channel-card"><img class="ch-logo" src="https://upload.wikimedia.org/wikipedia/tr/thumb/3/36/Tivibu_spor_logosu.jpg/250px-Tivibu_spor_logosu.jpg" onerror="this.src='assets/canli/tivibuspor.jpg'" alt="Tivibu Spor"><div class="ch-name">Tivibu Spor</div><div class="ch-desc">1–4 HD</div></div>
+      <div class="channel-card"><img class="ch-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK9InesAS1UOC0SncC59Td7MRuowocxr7VkTw3zMisTjzQ0kQICzZj8qWI&amp;s=10" onerror="this.src='assets/canli/exxenspor.jpg'" alt="Exxen Spor"><div class="ch-name">Exxen Spor</div><div class="ch-desc">1–8 Avrupa Maçları</div></div>
+      <div class="channel-card"><img class="ch-logo" src="https://images.seeklogo.com/logo-png/39/2/trt-logo-png_seeklogo-399831.png" onerror="this.src='assets/canli/trt.png'" alt="TRT"><div class="ch-name">TRT 1 &amp; TRT Spor</div><div class="ch-desc">Ulusal &amp; Spor HD</div></div>
+      <div class="channel-card"><img class="ch-logo" src="assets/canli/atv.png" alt="ATV"><div class="ch-name">ATV</div><div class="ch-desc">Ulusal HD</div></div>
+      <div class="channel-card"><img class="ch-logo" src="assets/canli/kanald.png" alt="Kanal D"><div class="ch-name">Kanal D</div><div class="ch-desc">Ulusal HD</div></div>
+      <div class="channel-card"><img class="ch-logo" src="assets/canli/showtv.png" alt="Show TV"><div class="ch-name">Show TV</div><div class="ch-desc">Ulusal HD</div></div>
+      <div class="channel-card"><img class="ch-logo" src="assets/canli/startv.png" alt="Star TV"><div class="ch-name">Star TV</div><div class="ch-desc">Ulusal HD</div></div>
+      <div class="channel-card"><img class="ch-logo" src="assets/canli/now.png" alt="NOW TV"><div class="ch-name">NOW TV</div><div class="ch-desc">Ulusal HD</div></div>
+      <div class="channel-card"><img class="ch-logo" src="assets/canli/tv8.png" alt="TV8 &amp; TV8,5"><div class="ch-name">TV8 &amp; TV8,5</div><div class="ch-desc">Spor &amp; Eğlence</div></div>
+      <div class="channel-card"><img class="ch-logo" src="assets/canli/aspor.png" alt="A Spor"><div class="ch-name">A Spor</div><div class="ch-desc">Canlı Spor HD</div></div>
+      <div class="channel-card"><img class="ch-logo" src="assets/canli/htspor.png" alt="HT Spor"><div class="ch-name">HT Spor</div><div class="ch-desc">Spor Haberleri</div></div>
+      <div class="channel-card"><img class="ch-logo" src="assets/canli/ntv.png" alt="NTV"><div class="ch-name">NTV</div><div class="ch-desc">Canlı Haber</div></div>
+      <div class="channel-card"><img class="ch-logo" src="assets/canli/haberturk.png" alt="Habertürk"><div class="ch-name">Habertürk</div><div class="ch-desc">Canlı Haber</div></div>
+      <div class="channel-card"><img class="ch-logo" src="assets/canli/trtbelgesel.png" alt="TRT Belgesel"><div class="ch-name">TRT Belgesel</div><div class="ch-desc">Belgesel HD</div></div>
+      <div class="channel-card"><img class="ch-logo" src="assets/canli/trtcocuk.png" alt="TRT Çocuk"><div class="ch-name">TRT Çocuk</div><div class="ch-desc">Çocuk &amp; Aile HD</div></div>
+      <div class="channel-card"><img class="ch-logo" src="assets/canli/kanal7.png" alt="Kanal 7"><div class="ch-name">Kanal 7</div><div class="ch-desc">Ulusal HD</div></div>
     </div>
   </div>
 </section>
@@ -307,13 +314,13 @@
 const MANIFEST_URL="https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json";
 
 const PROVIDERS=[
-  {id:"AnthologyFilmM3U",name:"Anthology Film (M3U)",cats:["movie"],domain:null,desc:"On binlerce yerli ve yabancı film arşivi (Lunedor, Zerk, PowerBoard)."},
-  {id:"AnthologyDiziM3U",name:"Anthology Dizi (M3U)",cats:["tv"],domain:null,desc:"On binlerce yerli ve yabancı dizi bölümü (Zerk, PowerBoard)."},
+  {id:"AnthologyFilmM3U",name:"Anthology Film (M3U)",cats:["movie"],domain:null,logo:"assets/logo_1_transparent.png",desc:"On binlerce yerli ve yabancı film arşivi (Lunedor, Zerk, PowerBoard)."},
+  {id:"AnthologyDiziM3U",name:"Anthology Dizi (M3U)",cats:["tv"],domain:null,logo:"assets/logo_1_transparent.png",desc:"On binlerce yerli ve yabancı dizi bölümü (Zerk, PowerBoard)."},
   {id:"ddizi",name:"DDizi",cats:["tv"],domain:"ddizi.im",desc:"Yerli dizi arşivi, güncel bölümler kataloğu ve doğrudan Ciner/Yandex CDN MP4/HLS akışları."},
   {id:"dizibox",name:"DiziBox",cats:["tv"],domain:"dizibox.live",desc:"Popüler yabancı diziler arşivi, güncel bölümler kataloğu ve doğrudan 1080p Molystream HLS master akışları."},
   {id:"sinewix",name:"SineWix",cats:["movie","tv"],domain:"sinewix.com",desc:"5000+ HD film, dizi ve anime - 1080p çift ses doğrudan MKV indirme ve oynatma."},
   {id:"vidlink",name:"Vidlink",cats:["movie","tv"],domain:"vidlink.pro",desc:"TMDB tabanlı global 4K/1080p doğrudan HLS ve MP4 akışları."},
-  {id:"m3u.anthology.addon",name:"Anthology Canlı TV",cats:["live"],domain:null,desc:"80+ canlı kanal, spor ve M3U kataloğu (BeIN, S Sport, Exxen vb.)."},
+  {id:"m3u.anthology.addon",name:"Anthology Canlı TV",cats:["live"],domain:null,logo:"assets/logo_1_transparent.png",desc:"80+ canlı kanal, spor ve M3U kataloğu (BeIN, S Sport, Exxen vb.)."},
   {id:"filmmodu",name:"FilmModu",cats:["movie"],domain:"filmmodu.one",desc:"Türkçe dublaj ve altyazılı 4K/1080p Full HD ImgsAPI doğrudan HLS akışları."},
   {id:"dizipal",name:"DiziPal",cats:["movie","tv"],domain:"dizipal2127.com",desc:"Popüler yerli ve yabancı dizi/filmler (Imagestoo & FormationFeed HLS)."},
   {id:"dizimom",name:"DiziMom",cats:["tv"],domain:"dizimom.diy",desc:"HDPlayer altyapısıyla Türkçe dublaj ve altyazılı doğrudan yabancı diziler."},
@@ -327,17 +334,17 @@ const PROVIDERS=[
   {id:"anthology_spor",name:"Anthology Canlı Spor",cats:["live"],domain:null,logo:"assets/canli/aspor.png",desc:"BeIN Sports 1-5, S Sport 1-2, Tivibu Spor, Exxen Spor ve 49 canlı spor kanalı."},
   {id:"anthology_haber",name:"Anthology Canlı Haber",cats:["live"],domain:null,logo:"assets/canli/ntv.png",desc:"NTV, Habertürk, TRT Haber, A Haber, CNN Türk, Sözcü TV ve 14 canlı haber kanalı."},
   {id:"anthology_ulusal",name:"Anthology Ulusal Kanallar",cats:["live"],domain:null,logo:"assets/canli/trt1.png",desc:"TRT 1, ATV, Kanal D, Show TV, Star TV, NOW TV, TV8 ve 16 ulusal televizyon kanalı."},
-  {id:"anthology_aksiyon",name:"Anthology Aksiyon & Macera",cats:["movie"],domain:null,desc:"Aksiyon, macera, suç ve gerilim sineması doğrudan HD HLS akışları."},
-  {id:"anthology_bilimkurgu",name:"Anthology Bilim Kurgu",cats:["movie"],domain:null,desc:"Bilim kurgu, fantastik ve uzay sineması doğrudan HD HLS akışları."},
-  {id:"anthology_korku",name:"Anthology Korku & Gerilim",cats:["movie"],domain:null,desc:"Korku, gerilim, gizem ve doğaüstü sineması doğrudan HD HLS akışları."},
-  {id:"anthology_komedi",name:"Anthology Komedi",cats:["movie"],domain:null,desc:"Yerli ve yabancı komedi filmleri için doğrudan HD HLS akışları."},
-  {id:"anthology_animasyon",name:"Anthology Animasyon",cats:["movie","anime"],domain:null,desc:"Animasyon, anime ve çizgi sinema doğrudan HD HLS akışları."},
-  {id:"anthology_yerlifilm",name:"Anthology Yerli Film & Yeşilçam",cats:["movie"],domain:null,desc:"Klasik Yeşilçam, Türk sineması ve yerli başyapıtlar doğrudan HD HLS akışları."},
+  {id:"anthology_aksiyon",name:"Anthology Aksiyon & Macera",cats:["movie"],domain:null,logo:"assets/logo_1_transparent.png",desc:"Aksiyon, macera, suç ve gerilim sineması doğrudan HD HLS akışları."},
+  {id:"anthology_bilimkurgu",name:"Anthology Bilim Kurgu",cats:["movie"],domain:null,logo:"assets/logo_1_transparent.png",desc:"Bilim kurgu, fantastik ve uzay sineması doğrudan HD HLS akışları."},
+  {id:"anthology_korku",name:"Anthology Korku & Gerilim",cats:["movie"],domain:null,logo:"assets/logo_1_transparent.png",desc:"Korku, gerilim, gizem ve doğaüstü sineması doğrudan HD HLS akışları."},
+  {id:"anthology_komedi",name:"Anthology Komedi",cats:["movie"],domain:null,logo:"assets/logo_1_transparent.png",desc:"Yerli ve yabancı komedi filmleri için doğrudan HD HLS akışları."},
+  {id:"anthology_animasyon",name:"Anthology Animasyon",cats:["movie","anime"],domain:null,logo:"assets/logo_1_transparent.png",desc:"Animasyon, anime ve çizgi sinema doğrudan HD HLS akışları."},
+  {id:"anthology_yerlifilm",name:"Anthology Yerli Film & Yeşilçam",cats:["movie"],domain:null,logo:"assets/logo_1_transparent.png",desc:"Klasik Yeşilçam, Türk sineması ve yerli başyapıtlar doğrudan HD HLS akışları."},
   {id:"anthology_belgesel",name:"Anthology Belgesel & Doğa",cats:["movie","tv","live"],domain:null,logo:"assets/canli/trtbelgesel.png",desc:"Belgeseller, doğa, bilim ve tarih yapımları doğrudan HD HLS akışları."},
   {id:"anthology_cocuk",name:"Anthology Çocuk & Aile",cats:["movie","tv"],domain:null,logo:"assets/canli/trtcocuk.png",desc:"Çocuk filmleri, çizgi diziler ve aile sineması doğrudan HD HLS akışları."},
-  {id:"anthology_toprated",name:"Anthology IMDb Top Rated",cats:["movie"],domain:null,desc:"IMDb'nin en yüksek puanlı kült ve başyapıt filmleri doğrudan HD HLS akışları."},
-  {id:"anthology_yerlidizi",name:"Anthology Yerli Dizi",cats:["tv"],domain:null,desc:"Yerli diziler, Türk televizyon arşivi ve güncel Türk dizileri doğrudan MP4/HLS akışları."},
-  {id:"anthology_yabancidizi",name:"Anthology Yabancı Dizi",cats:["tv"],domain:null,desc:"Yabancı popüler diziler için doğrudan HD HLS master akışları."}
+  {id:"anthology_toprated",name:"Anthology IMDb Top Rated",cats:["movie"],domain:null,logo:"assets/logo_1_transparent.png",desc:"IMDb'nin en yüksek puanlı kült ve başyapıt filmleri doğrudan HD HLS akışları."},
+  {id:"anthology_yerlidizi",name:"Anthology Yerli Dizi",cats:["tv"],domain:null,logo:"assets/logo_1_transparent.png",desc:"Yerli diziler, Türk televizyon arşivi ve güncel Türk dizileri doğrudan MP4/HLS akışları."},
+  {id:"anthology_yabancidizi",name:"Anthology Yabancı Dizi",cats:["tv"],domain:null,logo:"assets/logo_1_transparent.png",desc:"Yabancı popüler diziler için doğrudan HD HLS master akışları."}
 ];
 
 let currentFilter="all";
@@ -347,6 +354,7 @@ function renderProviders(){
   const grid=document.getElementById("providerGrid");
   grid.innerHTML="";
   const q=currentSearch.toLowerCase();
+  const fallbackLogo="assets/logo_1_transparent.png";
   PROVIDERS.forEach(p=>{
     const matchCat=currentFilter==="all"||p.cats.includes(currentFilter);
     const matchSearch=!q||p.name.toLowerCase().includes(q)||p.desc.toLowerCase().includes(q)||(p.domain&&p.domain.toLowerCase().includes(q));
@@ -359,10 +367,10 @@ function renderProviders(){
       return`<span class="tag ${cls}">${label}</span>`;
     }).join("");
     const logoHTML=p.logo
-      ?`<img class="provider-logo" src="${p.logo}" alt="${p.name}">`
+      ?`<img class="provider-logo" src="${p.logo}" alt="${p.name}" onerror="this.src='${fallbackLogo}'">`
       :(p.domain
-        ?`<img class="provider-logo" src="https://www.google.com/s2/favicons?domain=${p.domain}&sz=64" alt="${p.name}" onerror="this.outerHTML='<div class=\\'provider-logo-fallback\\'>🔌</div>'">`
-        :`<div class="provider-logo-fallback">📡</div>`);
+        ?`<img class="provider-logo" src="https://www.google.com/s2/favicons?domain=${p.domain}&sz=64" alt="${p.name}" onerror="this.src='${fallbackLogo}'">`
+        :`<img class="provider-logo" src="${fallbackLogo}" alt="${p.name}">`);
     const siteLink=p.domain?`<a href="https://${p.domain}" target="_blank" title="${p.domain}">↗</a>`:"";
     card.innerHTML=`${logoHTML}<div class="provider-info"><div class="provider-name"><span>${p.name}</span>${siteLink}</div><div class="provider-desc">${p.desc}</div><div class="provider-tags">${tags}</div></div>`;
     grid.appendChild(card);
