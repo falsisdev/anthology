@@ -23,14 +23,20 @@
 ## 📲 Kurulum
 
 1. **Nuvio** uygulamasını açın.
-2. **Ayarlar** → **Eklentiler** bölümüne girin.
+2. **Ayarlar** → **Genel** → **İçerik & Keşif** → **Pluginler** → **Depo Ekle** bölümüne girin.
+
+> [!IMPORTANT]
+> **Nuvio'da "Pluginler" ve "Eklentiler" Farkı:**
+> - **Pluginler (Bu Depo - Anthology):** `Ayarlar` → `Genel` → `İçerik & Keşif` → **`Pluginler`** bölümüne eklenir. Nuvio'nun yerel istemci (client-side) JavaScript scraper motorudur; GitHub üzerinde barınır ve sıfır sunucu maliyeti gerektirir. Arama yaptığınızda veya bir içeriğe tıkladığınızda 31 aktif sağlayıcıdan en kaliteli doğrudan akışları (`.m3u8`, `.mp4`) getirir.
+> - **Eklentiler (Stremio Addons):** `Ayarlar` → `Genel` → `İçerik & Keşif` → **`Eklentiler`** bölümüne eklenir. Stremio protokolünü kullanan harici HTTP sunucularıdır. Nuvio ana sayfasındaki vitrin katalogları (Popüler Filmler, Trend Diziler vb.) yalnızca bu Stremio eklentilerinden çekilir. Ana sayfada katalog gezinmek için TMDB veya Cyberflix gibi ücretsiz Stremio eklentilerini `Eklentiler`e ekleyebilir; oynatma kaynağı olarak ise Anthology'nin 31 scraper'ını kullanabilirsiniz!
+
 3. **Depo Ekle** seçeneğine dokunup aşağıdaki bağlantıyı yapıştırın:
 
 ```text
 https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json
 ```
 
-4. **Ekle** butonuna basın — 31 eklentinin ve 12 kataloğun tümü anında aktif hale gelecektir.
+4. **Ekle** butonuna basın — 31 eklentinin tümü anında aktif hale gelecektir.
 
 ---
 

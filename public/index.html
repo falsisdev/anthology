@@ -89,6 +89,11 @@
     .step-card h3{font-size:14px;font-weight:700;margin-bottom:5px}
     .step-card p{font-size:12.5px;color:var(--text-muted);line-height:1.5}
     code{font-family:ui-monospace,monospace;background:rgba(255,255,255,0.08);padding:2px 6px;border-radius:5px;font-size:11px;color:var(--blue)}
+    .notice-box{background:rgba(0,230,118,0.04);border:1px solid rgba(0,230,118,0.2);border-radius:var(--radius);padding:18px 20px;margin-top:20px;display:flex;gap:14px;align-items:flex-start}
+    .notice-icon{font-size:22px;line-height:1;margin-top:2px}
+    .notice-content{font-size:12.5px;color:var(--text-muted);line-height:1.6}
+    .notice-content strong{color:var(--text)}
+    .notice-content em{color:var(--accent);font-style:normal;font-weight:600}
 
     /* PROVIDERS */
     .filter-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
@@ -200,8 +205,8 @@
     <div class="steps">
       <div class="step-card">
         <div class="step-num">1</div>
-        <h3>Ayarlara Girin</h3>
-        <p>Nuvio uygulamasında <code>Ayarlar</code> &rarr; <code>Eklentiler</code> &rarr; <code>Depo Ekle</code> bölümüne gidin.</p>
+        <h3>Plugin Menüsüne Girin</h3>
+        <p>Nuvio uygulamasında <code>Ayarlar</code> &rarr; <code>Genel</code> &rarr; <code>İçerik &amp; Keşif</code> &rarr; <code>Pluginler</code> &rarr; <code>Depo Ekle</code> bölümüne gidin.</p>
       </div>
       <div class="step-card">
         <div class="step-num">2</div>
@@ -211,7 +216,15 @@
       <div class="step-card">
         <div class="step-num">3</div>
         <h3>Hazır!</h3>
-        <p>Tüm 31 eklenti ve 12 katalog otomatik yüklenir. Film, dizi, anime veya TV izlemeye başlayın.</p>
+        <p>Tüm 31 eklenti anında aktifleşir. Film veya dizi arattığınızda en kaliteli Türkçe yayınlar otomatik listelenir.</p>
+      </div>
+    </div>
+    <div class="notice-box">
+      <div class="notice-icon">💡</div>
+      <div class="notice-content">
+        <strong>Nuvio'da "Pluginler" ve "Eklentiler" Farkı:</strong><br>
+        • <strong>Pluginler (Bu Depo):</strong> Nuvio istemcisinde çalışan doğrudan oynatma kaynaklarıdır (scrapers). Arama yaptığınızda veya bir içeriğe tıkladığınızda 31 farklı platformdan en kaliteli doğrudan akışları (1080p HLS / MP4) sunar.<br>
+        • <strong>Eklentiler (Stremio Addons):</strong> Stremio protokolüyle çalışan harici sunuculu eklentilerdir. Nuvio ana sayfasındaki vitrin keşif şeritleri bu sekmeden beslenir. Ana sayfada vitrin listelemek için TMDB gibi ücretsiz bir katalog eklentisini <em>Eklentiler</em>'e ekleyebilir, izleme kaynağı olarak ise Anthology'nin sunucusuz ve sınırsız 31 scraper'ını kullanabilirsiniz.
       </div>
     </div>
   </div>
