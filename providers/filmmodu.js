@@ -270,8 +270,23 @@ function fetchStreamsFromAlt(altLink, filmUrl) {
 
 // ── Ana fonksiyon ────────────────────────────────────────────
 function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
+  if (typeof tmdbId === 'object' && tmdbId && tmdbId.id) {
+    return getStreams(tmdbId.id, mediaType || 'movie', seasonNum, episodeNum);
+  }
+  if (typeof tmdbId === 'string' && tmdbId.startsWith('filmmodu:')) {
+    var slug = tmdbId.replace('filmmodu:', '');
+    var filmUrl = BASE_URL + '/' + slug;
+    return fetchAlternateLinks(filmUrl).then(function(altLinks) {
+      return Promise.all(altLinks.map(function(alt) { return fetchStreamsFromAlt(alt, filmUrl); }))
+        .then(function(results) {
+          var allStreams = [];
+          results.forEach(function(arr) { if (arr) arr.forEach(function(s) { allStreams.push(s); }); });
+          return allStreams;
+        });
+    });
+  }
   // FilmModu sadece film içeriği sunar
-  if (mediaType !== 'movie') {
+  if (mediaType && mediaType !== 'movie') {
     console.log('[FilmModu] Sadece film destekleniyor, mediaType: ' + mediaType);
     return Promise.resolve([]);
   }
@@ -339,3 +354,84 @@ if (typeof module !== 'undefined' && module.exports) {
 } else {
   global.getStreams = getStreams;
                     }
+
+// ── Catalog & Meta Entegrasyonu ──────────────────────────────
+function getCatalog(args) {
+  var query = (args && args.extra && args.extra.search) || (args && args.query) || '';
+  var targetUrl = query ? (BASE_URL + '/film-ara?term=' + encodeURIComponent(query)) : (BASE_URL + '/');
+
+  return fetch(targetUrl, { headers: HEADERS })
+    .then(function(res) { return res.text(); })
+    .then(function(html) {
+      var cheerio = require('cheerio-without-node-native');
+      var $ = cheerio.load(html);
+      var metas = [];
+      var seen = new Set();
+
+      $('div.movie').each(function() {
+        var a = $(this).find('a').first();
+        var img = $(this).find('img').first();
+        var href = a.attr('href') || '';
+        var title = a.text().trim() || img.attr('alt') || '';
+        var poster = img.attr('data-src') || img.attr('src') || '';
+        var slug = href.replace(BASE_URL, '').replace(/^\//, '').replace(/\/$/, '');
+
+        if (slug && !seen.has(slug) && title) {
+          seen.add(slug);
+          metas.push({
+            id: 'filmmodu:' + slug,
+            type: 'movie',
+            name: title,
+            poster: poster,
+            background: poster,
+            genres: ['FilmModu', 'Film'],
+            description: title + ' - FilmModu HD Film'
+          });
+        }
+      });
+
+      return { metas: metas };
+    })
+    .catch(function() { return { metas: [] }; });
+}
+
+function getMeta(args) {
+  var rawId = (typeof args === 'string') ? args : (args && args.id ? args.id : '');
+  if (!rawId || !rawId.startsWith('filmmodu:')) return Promise.resolve({ meta: null });
+
+  var slug = rawId.replace('filmmodu:', '');
+  var filmUrl = BASE_URL + '/' + slug;
+
+  return fetch(filmUrl, { headers: HEADERS })
+    .then(function(res) { return res.text(); })
+    .then(function(html) {
+      var cheerio = require('cheerio-without-node-native');
+      var $ = cheerio.load(html);
+      var title = $('h1').first().text().trim() || $('title').first().text().replace(/film izle.*/i, '').trim();
+      var poster = $('div.poster img').first().attr('src') || $('div.poster img').first().attr('data-src') || '';
+      var desc = $('div.description, div.summary, p').first().text().trim();
+
+      return {
+        meta: {
+          id: rawId,
+          type: 'movie',
+          name: title,
+          poster: poster,
+          background: poster,
+          description: desc,
+          genres: ['FilmModu', 'Film'],
+          videos: [{ id: rawId, title: title }]
+        }
+      };
+    })
+    .catch(function() { return { meta: null }; });
+}
+
+// ── Export Güncellemesi ───────────────────────────────────────
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { getStreams: getStreams, getCatalog: getCatalog, getMeta: getMeta };
+} else {
+  global.getStreams = getStreams;
+  global.getCatalog = getCatalog;
+  global.getMeta = getMeta;
+}

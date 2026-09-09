@@ -1,18 +1,20 @@
 <div align="center">
   <img src="assets/logo_1_transparent.png" alt="Anthology Logo" width="140" />
   <h1>Anthology</h1>
-  <p><strong>Nuvio için Doğrulanmış Türkçe Film, Dizi, Anime ve Canlı TV/Spor Eklenti Deposu</strong></p>
+  <p><strong>Nuvio için Doğrulanmış Türkçe Film, Dizi, Anime, Canlı TV ve Zengin Katalog Eklenti Deposu</strong></p>
 
   <p>
     <img src="https://img.shields.io/badge/Nuvio-Eklenti_Deposu-00e676?style=for-the-badge&logo=github&logoColor=white" alt="Nuvio" />
     <img src="https://img.shields.io/badge/Durum-Aktif-00e676?style=for-the-badge" alt="Aktif" />
-    <img src="https://img.shields.io/badge/Eklenti-29_Doğrulanmış-3b82f6?style=for-the-badge" alt="29 Aktif Eklenti" />
+    <img src="https://img.shields.io/badge/Eklenti-31_Doğrulanmış-3b82f6?style=for-the-badge" alt="31 Aktif Eklenti" />
+    <img src="https://img.shields.io/badge/Katalog-12_Aktif-8b5cf6?style=for-the-badge" alt="12 Aktif Katalog" />
     <img src="https://img.shields.io/badge/Başarı_Oranı-%25100-00e676?style=for-the-badge" alt="100% Başarı" />
   </p>
 
   <a href="https://falsisdev.github.io/anthology">🌐 Web Sitesi</a> &nbsp;|&nbsp;
   <a href="#-kurulum">📲 Kurulum</a> &nbsp;|&nbsp;
-  <a href="#-doğrulanmış-eklentiler-29-aktif">🎬 Eklentiler (29)</a> &nbsp;|&nbsp;
+  <a href="#-zengin-kataloglar-12-katalog">📚 Zengin Kataloglar</a> &nbsp;|&nbsp;
+  <a href="#-doğrulanmış-eklentiler-31-aktif">🎬 Eklentiler (31)</a> &nbsp;|&nbsp;
   <a href="#-canlı-tv--spor-kanalları">📡 Canlı TV & Spor</a>
 </div>
 
@@ -28,11 +30,32 @@
 https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json
 ```
 
-4. **Ekle** butonuna basın — 29 eklentinin tümü anında aktif hale gelecektir.
+4. **Ekle** butonuna basın — 31 eklentinin ve 12 kataloğun tümü anında aktif hale gelecektir.
 
 ---
 
-## 🎬 Doğrulanmış Eklentiler (29 Aktif)
+## 📚 Zengin Kataloglar (12 Katalog)
+
+Nuvio ana ekranında içerik keşfetmenizi sağlayan yerli/yabancı kataloglar:
+
+| Katalog | Sağlayıcı | Tür | Açıklama |
+|---|---|:---:|---|
+| **DDizi — Son Eklenen Yerli Diziler** | `ddizi.js` | Dizi (TV) | Güncel yerli dizilerin son eklenen bölümleri |
+| **DiziBox — Son Eklenen Yabancı Diziler** | `dizibox.js` | Dizi (TV) | En popüler yabancı dizilerin yeni bölümleri |
+| **SineWix — Popüler Filmler** | `sinewix.js` | Film | SineWix platformunun en çok izlenen filmleri |
+| **SineWix — Popüler Diziler** | `sinewix.js` | Dizi (TV) | SineWix platformunun en çok izlenen dizileri |
+| **FilmModu — Son Eklenen Filmler** | `filmmodu.js` | Film | Güncel vizyon ve dijital platform filmleri |
+| **AnimeciX — Popüler Animeler** | `animecix.js` | Anime / Dizi | Trend ve güncel anime serileri |
+| **TurkAnime — Popüler Animeler** | `turkanime.js` | Anime / Dizi | Türkiye'nin en popüler animeleri |
+| **ÇizgiMax — Çizgi Diziler** | `cizgimax.js` | Çizgi Dizi | Nostaljik ve güncel çizgi diziler |
+| **Anthology Canlı TV** | `ListM3u.js` | Canlı | 80+ ulusal, haber, spor ve belgesel kanalları |
+| **Anthology Canlı Spor** | `anthology_spor.js` | Canlı | BeIN Sports, S Sport, Tivibu, Exxen ve 49 spor kanalı |
+| **Anthology Canlı Haber** | `anthology_haber.js` | Canlı | NTV, Habertürk, TRT Haber ve 14 haber kanalı |
+| **Anthology Ulusal Kanallar** | `anthology_ulusal.js` | Canlı | TRT 1, ATV, Kanal D, Show, Star, TV8, NOW vb. 16 kanal |
+
+---
+
+## 🎬 Doğrulanmış Eklentiler (31 Aktif)
 
 > [!NOTE]
 > Tüm eklentiler doğrudan Nuvio video oynatıcısına uygun `.m3u8` HLS veya `.mp4`/`.mkv` doğrudan akışları döndürür. Bozuk iframe veya oynatılamayan bağlantı kesinlikle içermez.
@@ -62,6 +85,8 @@ https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json
 
 | Eklenti | Kaynak / Altyapı | Kalite & Format | İçerik & Dil |
 |---|---|:---:|:---:|
+| **DDizi** | ddizi.im (Ciner CDN / Yandex / YouTube) | 1080p MP4 / HLS | 🇹🇷 Yerli Dizi & Güncel Bölümler Arşivi |
+| **DiziBox** | dizibox.live (Molystream Sheila) | 1080p HLS Master | 🌍 Popüler Yabancı Diziler Arşivi |
 | **Anthology Dizi (M3U)** | Zerk / Ciner CDN | 1080p MP4 / HLS | 🇹🇷 Yerli & Yabancı Dizi Arşivi |
 | **Anthology Yerli Dizi** | Ciner & Zerk CDN | 1080p MP4 / HLS | 🇹🇷 Güncel & Klasik Türk Dizileri |
 | **Anthology Yabancı Dizi** | Zerk DUAL Master CDN | 1080p HLS | 🌍 Popüler Yabancı Dizi Arşivi |
@@ -100,13 +125,14 @@ https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json
 
 ---
 
-## 💬 İletişim & Katkı
+## 🧪 Test ve Doğrulama
 
-- [GitHub Issues](https://github.com/falsisdev/anthology/issues)
-- [falsis@proton.me](mailto:falsis@proton.me)
+Tüm sağlayıcılar ve kataloglar otomatik entegrasyon testleriyle doğrulanabilir:
 
----
+```bash
+# Tüm 31 sağlayıcının akış testini çalıştırın:
+node scripts/test_all_providers.js
 
-<div align="center">
-  <sub>Anthology · <a href="https://github.com/falsisdev/anthology">github.com/falsisdev/anthology</a></sub>
-</div>
+# Tüm 12 kataloğun öğe çekme testini çalıştırın:
+node scripts/test_all_catalogs.js
+```

@@ -331,3 +331,113 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
 
 if (typeof module !== 'undefined') module.exports = { getStreams };
 if (typeof globalThis !== 'undefined') globalThis.getStreams = getStreams;
+
+// ── Catalog & Meta Entegrasyonu ──────────────────────────────
+async function getCatalog(args) {
+  try {
+    const query = (args && args.extra && args.extra.search) || (args && args.query) || '';
+    const targetUrl = query ? `${BASE_URL}/ara/?q=${encodeURIComponent(query)}` : `${BASE_URL}/diziler/`;
+
+    const res = await fetch(targetUrl, { headers: HEADERS });
+    if (!res.ok) return { metas: [] };
+    const html = await res.text();
+
+    const metas = [];
+    const seen = new Set();
+    const linkRegex = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
+    let m;
+
+    while ((m = linkRegex.exec(html)) !== null) {
+      const attrs = m[1];
+      const text = m[2].replace(/<[^>]+>/g, '').trim();
+      if (/class=["'][^"']*film-name[^"']*["']/i.test(attrs)) {
+        const hrefMatch = attrs.match(/href=["']([^"']+)["']/i);
+        if (hrefMatch) {
+          const href = hrefMatch[1];
+          const slug = href.replace(BASE_URL, '').replace(/^\//, '').replace(/\/$/, '');
+          if (!slug || seen.has(slug) || text.length < 2) continue;
+          seen.add(slug);
+
+          metas.push({
+            id: `cizgimax:show:${slug}`,
+            type: 'tv',
+            name: text,
+            poster: 'https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128',
+            background: 'https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128',
+            genres: ['Çizgi Dizi', 'ÇizgiMax'],
+            description: `${text} - ÇizgiMax Arşivi`
+          });
+        }
+      }
+    }
+
+    return { metas };
+  } catch (e) {
+    return { metas: [] };
+  }
+}
+
+async function getMeta(args) {
+  try {
+    const rawId = (typeof args === 'string') ? args : (args && args.id ? args.id : '');
+    if (!rawId || !rawId.startsWith('cizgimax:')) return { meta: null };
+
+    const slug = rawId.replace(/^cizgimax:(?:show:|ep:)?/, '');
+    const showUrl = `${BASE_URL}/${slug}/`;
+    const res = await fetch(showUrl, { headers: HEADERS });
+    if (!res.ok) return { meta: null };
+    const html = await res.text();
+
+    const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i) || html.match(/<title>([^<]+)<\/title>/i);
+    const title = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, '').trim() : 'ÇizgiMax';
+
+    const epMatches = [...html.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/gi)];
+    const videos = [];
+    const seen = new Set();
+
+    for (const ep of epMatches) {
+      const attrs = ep[1];
+      const epText = ep[2].replace(/<[^>]+>/g, '').trim();
+      const hrefMatch = attrs.match(/href=["']([^"']+)["']/i);
+      if (hrefMatch && hrefMatch[1].includes('-bolum-izle')) {
+        const epSlug = hrefMatch[1].replace(BASE_URL, '').replace(/^\//, '').replace(/\/$/, '');
+        if (seen.has(epSlug)) continue;
+        seen.add(epSlug);
+
+        const epNumMatch = epText.match(/(\d+)\s*\.?\s*bölüm/i) || epSlug.match(/-(\d+)-bolum/i);
+        const epNum = epNumMatch ? parseInt(epNumMatch[1]) : 1;
+
+        videos.push({
+          id: `cizgimax:ep:${epSlug}`,
+          title: epText || `${epNum}. Bölüm`,
+          season: 1,
+          episode: epNum
+        });
+      }
+    }
+
+    return {
+      meta: {
+        id: rawId,
+        type: 'tv',
+        name: title,
+        poster: 'https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128',
+        background: 'https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128',
+        description: `${title} - ÇizgiMax`,
+        genres: ['Çizgi Dizi', 'ÇizgiMax'],
+        videos: videos.length > 0 ? videos : [{ id: rawId, title: `${title} 1. Bölüm`, season: 1, episode: 1 }]
+      }
+    };
+  } catch (e) {
+    return { meta: null };
+  }
+}
+
+if (typeof module !== 'undefined') {
+  module.exports = { getStreams, getCatalog, getMeta };
+}
+if (typeof globalThis !== 'undefined') {
+  globalThis.getStreams = getStreams;
+  globalThis.getCatalog = getCatalog;
+  globalThis.getMeta = getMeta;
+}
