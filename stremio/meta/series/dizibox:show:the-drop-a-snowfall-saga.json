@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "dizibox:show:the-drop-a-snowfall-saga",
+    "type": "series",
+    "name": "THE DROP: A SNOWFALL SAGA",
+    "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-drop-a-snowfall-saga-200x290.jpg",
+    "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-drop-a-snowfall-saga-200x290.jpg",
+    "description": "The Drop: A Snowfall Saga - DiziBox Arşivi",
+    "genres": [
+      "Yabancı Dizi",
+      "DiziBox"
+    ],
+    "videos": [
+      {
+        "id": "dizibox:ep:the-drop-a-snowfall-saga-1-sezon-1-bolum-izle",
+        "title": "1.Sezon 1.Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

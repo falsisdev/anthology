@@ -109,6 +109,30 @@
       ]
     },
     {
+      "id": "dizibox:show:the-librarians-the-next-chapter",
+      "type": "series",
+      "name": "THE LIBRARIANS: THE NEXT CHAPTER",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-librarians-the-next-chapter-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-librarians-the-next-chapter-200x290.jpg",
+      "description": "THE LIBRARIANS: THE NEXT CHAPTER - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:the-drop-a-snowfall-saga",
+      "type": "series",
+      "name": "THE DROP: A SNOWFALL SAGA",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-drop-a-snowfall-saga-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-drop-a-snowfall-saga-200x290.jpg",
+      "description": "THE DROP: A SNOWFALL SAGA - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
       "id": "dizibox:show:las-azules",
       "type": "series",
       "name": "LAS AZULES",
@@ -283,54 +307,6 @@
       "poster": "https://www.dizibox.live/wp-content/uploads/afisler/a-tale-of-two-cities-200x290.jpg",
       "background": "https://www.dizibox.live/wp-content/uploads/afisler/a-tale-of-two-cities-200x290.jpg",
       "description": "A TALE OF TWO CITIES - DiziBox Yabancı Dizi Arşivi",
-      "genres": [
-        "Yabancı Dizi",
-        "DiziBox"
-      ]
-    },
-    {
-      "id": "dizibox:show:jaadugar-a-witch-in-mongolia",
-      "type": "series",
-      "name": "JAADUGAR: A WITCH IN MONGOLIA",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/jaadugar-a-witch-in-mongolia-200x290.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/jaadugar-a-witch-in-mongolia-200x290.jpg",
-      "description": "JAADUGAR: A WITCH IN MONGOLIA - DiziBox Yabancı Dizi Arşivi",
-      "genres": [
-        "Yabancı Dizi",
-        "DiziBox"
-      ]
-    },
-    {
-      "id": "dizibox:show:daemons-of-the-shadow-realm",
-      "type": "series",
-      "name": "DAEMONS OF THE SHADOW REALM",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/daemons-of-the-shadow-realm-200x290.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/daemons-of-the-shadow-realm-200x290.jpg",
-      "description": "DAEMONS OF THE SHADOW REALM - DiziBox Yabancı Dizi Arşivi",
-      "genres": [
-        "Yabancı Dizi",
-        "DiziBox"
-      ]
-    },
-    {
-      "id": "dizibox:show:adults",
-      "type": "series",
-      "name": "ADULTS",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/adults-200x290.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/adults-200x290.jpg",
-      "description": "ADULTS - DiziBox Yabancı Dizi Arşivi",
-      "genres": [
-        "Yabancı Dizi",
-        "DiziBox"
-      ]
-    },
-    {
-      "id": "dizibox:show:black-torch",
-      "type": "series",
-      "name": "BLACK TORCH",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/black-torch-200x290.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/black-torch-200x290.jpg",
-      "description": "BLACK TORCH - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"

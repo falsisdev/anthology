@@ -64,6 +64,13 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
     const season = parseInt(seasonNum) || 1;
     const episode = parseInt(episodeNum) || 1;
 
+    if (typeof tmdbId === 'string' && tmdbId.startsWith('animecix:title:')) {
+      const showMeta = await getMeta(tmdbId);
+      if (showMeta && showMeta.meta && Array.isArray(showMeta.meta.videos) && showMeta.meta.videos.length > 0) {
+        return await getStreams(showMeta.meta.videos[0].id);
+      }
+    }
+
     if (typeof tmdbId === 'string' && tmdbId.startsWith('animecix:ep:')) {
       const parts = tmdbId.replace('animecix:ep:', '').split(':');
       const titleId = parts[0];
@@ -186,7 +193,7 @@ if (typeof globalThis !== 'undefined') globalThis.getStreams = getStreams;
 // ── Catalog & Meta Entegrasyonu ──────────────────────────────
 async function getCatalog(args) {
   try {
-    const query = (args && args.extra && args.extra.search) || (args && args.query) || '';
+    const query = (args && args.search) || (args && args.extra && args.extra.search) || (args && args.query) || '';
     let items = [];
 
     if (query) {
@@ -240,7 +247,7 @@ async function getMeta(args) {
 
     if (seasons.length > 0) {
       seasons.forEach(s => {
-        const sNum = parseInt(s.number) || 1;
+        const sNum = (s.number !== undefined && s.number !== null && !isNaN(parseInt(s.number))) ? parseInt(s.number) : 1;
         const epCount = parseInt(s.episode_count) || 0;
         for (let ep = 1; ep <= epCount; ep++) {
           videos.push({

@@ -12,10 +12,28 @@
     ],
     "videos": [
       {
+        "id": "dizibox:ep:dark-matter-2024-1-sezon-1-bolum-hd-izle",
+        "title": "1.Sezon 1.Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "dizibox:ep:dark-matter-2024-1-sezon-2-bolum-hd-1-izle",
+        "title": "1.Sezon 2.Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
         "id": "dizibox:ep:dark-matter-2024-1-sezon-3-bolum-izle",
         "title": "1.Sezon 3.Bölüm",
         "season": 1,
         "episode": 3
+      },
+      {
+        "id": "dizibox:ep:dark-matter-2024-1-sezon-4-bolum-hd-1-izle",
+        "title": "1.Sezon 4.Bölüm",
+        "season": 1,
+        "episode": 4
       },
       {
         "id": "dizibox:ep:dark-matter-2024-1-sezon-5-bolum-izle",
@@ -34,6 +52,12 @@
         "title": "1.Sezon 7.Bölüm",
         "season": 1,
         "episode": 7
+      },
+      {
+        "id": "dizibox:ep:dark-matter-2024-1-sezon-8-bolum-hd-izle",
+        "title": "1.Sezon 8.Bölüm",
+        "season": 1,
+        "episode": 8
       },
       {
         "id": "dizibox:ep:dark-matter-2024-1-sezon-9-bolum-izle",

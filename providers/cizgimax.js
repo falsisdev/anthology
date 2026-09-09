@@ -214,9 +214,7 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
         }
       }
 
-      if (!epHref && candidates.length > 0) {
-        epHref = candidates[0].href;
-      }
+
 
       if (!epHref) return [];
       targetPageUrl = epHref.startsWith('http') ? epHref : `${BASE_URL}${epHref}`;
@@ -357,7 +355,7 @@ if (typeof globalThis !== 'undefined') globalThis.getStreams = getStreams;
 // ── Catalog & Meta Entegrasyonu ──────────────────────────────
 async function getCatalog(args) {
   try {
-    const query = (args && args.extra && args.extra.search) || (args && args.query) || '';
+    const query = (args && args.search) || (args && args.extra && args.extra.search) || (args && args.query) || '';
     const targetUrl = query ? `${BASE_URL}/ara/?q=${encodeURIComponent(query)}` : `${BASE_URL}/diziler/`;
 
     const res = await fetch(targetUrl, { headers: HEADERS });
@@ -469,11 +467,15 @@ async function getMeta(args) {
           seen.add(epSlug);
 
           const seMatch = epSlug.match(/-s(\d+)e(\d+)/i);
+          const trMatch = epSlug.match(/-(\d+)-sezon[^/]*-(\d+)-bolum/i);
           let season = 1;
           let episode = 1;
           if (seMatch) {
             season = parseInt(seMatch[1]);
             episode = parseInt(seMatch[2]);
+          } else if (trMatch) {
+            season = parseInt(trMatch[1]);
+            episode = parseInt(trMatch[2]);
           } else {
             const numMatch = ep[2].match(/class=["']ep-num-label["']>(\d+)</i) || attrs.match(/title=["'](?:Bölüm\s*)?(\d+)["']/i) || epSlug.match(/-(\d+)-bolum/i);
             episode = numMatch ? parseInt(numMatch[1]) : (videos.length + 1);
@@ -488,6 +490,8 @@ async function getMeta(args) {
         }
       }
     }
+    
+    videos.sort((a, b) => (a.season - b.season) || (a.episode - b.episode));
 
     return {
       meta: {

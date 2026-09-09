@@ -24,10 +24,22 @@
         "episode": 2
       },
       {
+        "id": "dizibox:ep:ted-lasso-1-sezon-3-bolum-hd-izle",
+        "title": "1.Sezon 3.Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
         "id": "dizibox:ep:ted-lasso-1-sezon-4-bolum-izle",
         "title": "1.Sezon 4.Bölüm",
         "season": 1,
         "episode": 4
+      },
+      {
+        "id": "dizibox:ep:ted-lasso-1-sezon-5-bolum-hd-izle",
+        "title": "1.Sezon 5.Bölüm",
+        "season": 1,
+        "episode": 5
       },
       {
         "id": "dizibox:ep:ted-lasso-1-sezon-6-bolum-izle",
@@ -52,6 +64,12 @@
         "title": "1.Sezon 9.Bölüm",
         "season": 1,
         "episode": 9
+      },
+      {
+        "id": "dizibox:ep:ted-lasso-1-sezon-10-bolum-sezon-finali-izle",
+        "title": "1.Sezon 10.Bölüm",
+        "season": 1,
+        "episode": 10
       }
     ]
   }

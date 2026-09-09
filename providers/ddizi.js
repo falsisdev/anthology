@@ -64,7 +64,7 @@ async function resolveTmdbInfo(id, mediaType) {
 
 async function getCatalog(args) {
     try {
-        const query = (args && args.extra && args.extra.search) || (args && args.query) || '';
+        const query = (args && args.search) || (args && args.extra && args.extra.search) || (args && args.query) || '';
         let url = `${BASE_URL}/`;
         let options = { headers: HEADERS };
 
@@ -83,7 +83,7 @@ async function getCatalog(args) {
         if (!res.ok) return { metas: [] };
         const html = await res.text();
 
-        const metas = [];
+        let metas = [];
         const seen = new Set();
 
         const seriesMatches = [...html.matchAll(/<a href="([^"]*\/diziler\/([^"]*))"[^>]*>([\s\S]*?)<\/a>/gi)];
@@ -102,6 +102,14 @@ async function getCatalog(args) {
                 genres: ['Yerli Dizi', 'DDizi'],
                 description: `${title} - DDizi Yerli Dizi Arşivi`
             });
+        }
+
+        if (query) {
+            const cleanQuery = ultraClean(query);
+            const filtered = metas.filter(m => ultraClean(m.name).includes(cleanQuery) || ultraClean(m.id).includes(cleanQuery));
+            if (filtered.length > 0) {
+                metas = filtered;
+            }
         }
 
         // Fetch posters for first 15 shows in parallel
@@ -182,7 +190,28 @@ async function getMeta(args) {
             const posterMatch = html.match(/class="[^"]*(?:dizi-resmi|img-back-cat)[^"]*"[\s\S]*?(?:data-src|src)="([^"]*)"/i);
             const poster = posterMatch ? (posterMatch[1].startsWith('http') ? posterMatch[1] : `${BASE_URL}${posterMatch[1]}`) : 'https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png';
 
-            const epMatches = [...html.matchAll(/<a href="([^"]*\/izle\/([^"]*))"[^>]*>([\s\S]*?)<\/a>/gi)];
+            const pageLinks = [...html.matchAll(/href="([^"]*sayfa-\d+)"/g)];
+            const pagesToFetch = [];
+            for (const p of pageLinks) {
+                const pUrl = p[1].startsWith('http') ? p[1] : `${BASE_URL}${p[1].startsWith('/') ? '' : '/'}${p[1]}`;
+                if (!pagesToFetch.includes(pUrl) && pUrl !== showUrl) {
+                    pagesToFetch.push(pUrl);
+                }
+            }
+
+            let allHtmls = [html];
+            for (const pUrl of pagesToFetch) {
+                try {
+                    const pRes = await fetch(pUrl, { headers: HEADERS });
+                    if (pRes.ok) allHtmls.push(await pRes.text());
+                } catch (e) {}
+            }
+
+            const epMatches = [];
+            for (const phtml of allHtmls) {
+                epMatches.push(...phtml.matchAll(/<a href="([^"]*\/izle\/([^"]*))"[^>]*>([\s\S]*?)<\/a>/gi));
+            }
+
             const videos = [];
             const seen = new Set();
 
@@ -215,6 +244,8 @@ async function getMeta(args) {
                 });
             }
 
+            videos.sort((a, b) => (a.season - b.season) || (a.episode - b.episode));
+
             return {
                 meta: {
                     id: rawId,
@@ -224,7 +255,7 @@ async function getMeta(args) {
                     background: poster,
                     description: `${title} - DDizi Dizi Arşivi`,
                     genres: ['Yerli Dizi', 'DDizi'],
-                    videos: videos.reverse()
+                    videos: videos
                 }
             };
         }
@@ -249,7 +280,7 @@ async function extractStreamsFromEpisodePage(epUrl) {
             if (src.startsWith('//')) src = 'https:' + src;
             else if (src.startsWith('/')) src = BASE_URL + src;
 
-            // Type 1: Direct player
+            // Type 1: Direct player (Ciner CDN, Yandex, etc.)
             if (src.includes('/player/oynat/')) {
                 const pRes = await fetch(src, { headers: { ...HEADERS, Referer: epUrl } });
                 if (!pRes.ok) continue;
@@ -291,6 +322,75 @@ async function extractStreamsFromEpisodePage(epUrl) {
                     });
                 }
             }
+
+            // Type 2: Dailymotion player
+            if (src.includes('daily.php') || src.includes('dailymotion.com')) {
+                const dmMatch = src.match(/(?:daily\.php\?id=|video\/)([a-zA-Z0-9]+)/);
+                if (dmMatch) {
+                    try {
+                        const dmRes = await fetch(`https://www.dailymotion.com/player/metadata/video/${dmMatch[1]}`);
+                        if (dmRes.ok) {
+                            const dmData = await dmRes.json();
+                            const autoQual = dmData.qualities && dmData.qualities.auto && dmData.qualities.auto[0];
+                            if (autoQual && autoQual.url) {
+                                streams.push({
+                                    name: 'DDizi',
+                                    title: '⌜ DDizi ⌟ | Dailymotion (1080p HLS)',
+                                    url: autoQual.url,
+                                    quality: '1080p',
+                                    provider: 'ddizi',
+                                    headers: {
+                                        'User-Agent': HEADERS['User-Agent'],
+                                        'Referer': 'https://www.dailymotion.com/'
+                                    }
+                                });
+                            }
+                        }
+                    } catch (e) {}
+                }
+            }
+
+            // Type 3: Official YouTube player
+            if (src.includes('youtube.php') || src.includes('/player/telif/') || src.includes('youtube.com') || src.includes('youtu.be')) {
+                const ytMatch = src.match(/(?:youtube\.php\?id=|v=|youtu\.be\/|\/embed\/)([a-zA-Z0-9_-]{11})/);
+                if (ytMatch) {
+                    streams.push({
+                        name: 'DDizi',
+                        title: '⌜ DDizi ⌟ | YouTube (Resmi Yayın)',
+                        ytId: ytMatch[1],
+                        provider: 'ddizi'
+                    });
+                }
+            }
+        }
+
+        // Generic fallback: extract MP4/M3U8 from any iframe
+        if (streams.length === 0) {
+            for (const ifr of iframes) {
+                let src = ifr[1];
+                if (src.startsWith('//')) src = 'https:' + src;
+                else if (src.startsWith('/')) src = BASE_URL + src;
+                if (src.includes('youtube') || src.includes('youtu.be') || src.includes('daily')) continue;
+                
+                try {
+                    const pRes = await fetch(src, { headers: { ...HEADERS, Referer: epUrl } });
+                    if (!pRes.ok) continue;
+                    const pHtml = await pRes.text();
+                    
+                    const videoMatches = [...pHtml.matchAll(/https?:\/\/[^\s"'<>\\]+\.(?:mp4|m3u8)[^\s"'<>\\]*/gi)];
+                    for (const vm of videoMatches) {
+                        const vUrl = vm[0].trim();
+                        if (vUrl.includes('preview/') || vUrl.includes('.jpg') || vUrl.includes('.png')) continue;
+                        streams.push({
+                            name: 'DDizi',
+                            title: `⌜ DDizi ⌟ | Alternatif Kaynak`,
+                            url: vUrl,
+                            provider: 'ddizi',
+                            headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': src }
+                        });
+                    }
+                } catch (e) {}
+            }
         }
 
         return streams;
@@ -303,6 +403,13 @@ async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
     try {
         if (typeof tmdbIdOrArgs === 'object' && tmdbIdOrArgs && tmdbIdOrArgs.id) {
             return getStreams(tmdbIdOrArgs.id, mediaType, seasonNum, episodeNum);
+        }
+
+        if (typeof tmdbIdOrArgs === 'string' && tmdbIdOrArgs.startsWith('ddizi:show:')) {
+            const showMeta = await getMeta(tmdbIdOrArgs);
+            if (showMeta && showMeta.meta && Array.isArray(showMeta.meta.videos) && showMeta.meta.videos.length > 0) {
+                return await getStreams(showMeta.meta.videos[0].id);
+            }
         }
 
         if (typeof tmdbIdOrArgs === 'string' && tmdbIdOrArgs.startsWith('ddizi:ep:')) {
@@ -374,7 +481,7 @@ async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
                 if (!pagesToCheck.includes(sp.url)) pagesToCheck.push(sp.url);
             }
 
-            for (const pageUrl of pagesToCheck.slice(0, 6)) {
+            for (const pageUrl of pagesToCheck.slice(0, 20)) {
                 const pRes = (pageUrl === matchedShowHref) ? { ok: true, text: () => Promise.resolve(showHtml) } : await fetch(pageUrl, { headers: HEADERS });
                 if (!pRes.ok) continue;
                 const pHtml = await pRes.text();
@@ -383,14 +490,13 @@ async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
                 if (epMatches.length === 0) continue;
 
                 let targetEpUrl = null;
-                const targetBolumStr = `${episode}.bölüm`;
-                const targetBolumStrAlt = `${episode}. bolum`;
-                const targetBolumSlug = `-${episode}-bolum-`;
+                const epRegex = new RegExp(`(?:^|\\s|\\.)${episode}\\.?\\s*bölüm`, 'i');
+                const epSlugRegex = new RegExp(`-${episode}-bolum`, 'i');
 
                 for (const ep of epMatches) {
                     const epText = ep[2].replace(/<[^>]+>/g, '').toLowerCase().replace(/\s+/g, ' ');
                     const epLink = ep[1].toLowerCase();
-                    if (epText.includes(targetBolumStr) || epText.includes(targetBolumStrAlt) || epLink.includes(targetBolumSlug)) {
+                    if (epRegex.test(epText) || epSlugRegex.test(epLink)) {
                         targetEpUrl = ep[1];
                         break;
                     }

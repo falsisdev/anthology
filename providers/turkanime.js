@@ -99,7 +99,7 @@ async function resolveSibnet(iframeUrl) {
 
 async function getCatalog(args) {
   try {
-    const query = (args && args.extra && args.extra.search) || (args && args.query) || '';
+    const query = (args && args.search) || (args && args.extra && args.extra.search) || (args && args.query) || '';
     const metas = [];
     const seen = new Set();
 
@@ -227,12 +227,14 @@ async function getMeta(args) {
                 const epSlug = rawUrl.replace(/^.*?\/video\//, '').replace(/\/$/, '');
                 if (epSlug && !seen.has(epSlug)) {
                   seen.add(epSlug);
-                  const numMatch = text.match(/\b(\d+)\b/) || epSlug.match(/-(\d+)-bolum/);
-                  const epNum = numMatch ? parseInt(numMatch[1]) : (videos.length + 1);
+                  const bolumMatch = text.match(/(\d+)\s*\.?\s*(?:bölüm|bolum)/i) || epSlug.match(/-(\d+)-bolum/i);
+                  const epNum = bolumMatch ? parseInt(bolumMatch[1]) : (videos.length + 1);
+                  const sezonMatch = text.match(/(\d+)\s*\.?\s*(?:sezon|season)/i);
+                  const seasonNum = sezonMatch ? parseInt(sezonMatch[1]) : 1;
                   videos.push({
                     id: `turkanime:ep:${epSlug}`,
                     title: `${epNum}. Bölüm`,
-                    season: 1,
+                    season: seasonNum,
                     episode: epNum
                   });
                 }
@@ -253,7 +255,7 @@ async function getMeta(args) {
         background: poster,
         description: `${title} - TurkAnime TV`,
         genres: ['Anime', 'TurkAnime'],
-        videos: videos.length > 0 ? videos : [{ id: rawId, title: `${title} 1. Bölüm`, season: 1, episode: 1 }]
+        videos: videos
       }
     };
   } catch (e) {
@@ -387,7 +389,7 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
           if (hrefMatch) {
             const h = hrefMatch[1];
             candidates.push({ href: h, text });
-            const epNumMatch = text.match(/\b(\d+)\b/) || h.match(/-(\d+)-bolum/);
+            const epNumMatch = text.match(/(\d+)\s*\.?\s*(?:bölüm|bolum)/i) || h.match(/-(\d+)-bolum/i);
             if (epNumMatch && parseInt(epNumMatch[1]) === finalEpisode) {
               epHref = h;
               break;
@@ -396,9 +398,7 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
         }
       }
 
-      if (!epHref && candidates.length > 0) {
-        epHref = candidates[0].href;
-      }
+
     }
 
     if (!epHref) return [];

@@ -12,38 +12,8 @@
     ],
     "videos": [
       {
-        "id": "ddizi:ep:91633/muge-anli-31-agustos-2026.htm",
-        "title": "Müge Anlı 31 Ağustos 2026",
-        "season": 1,
-        "episode": 1
-      },
-      {
-        "id": "ddizi:ep:91639/muge-anli-1-eylul-2026.htm",
-        "title": "Müge Anlı 1 Eylül 2026",
-        "season": 1,
-        "episode": 1
-      },
-      {
-        "id": "ddizi:ep:91645/muge-anli-2-eylul-2026.htm",
-        "title": "Müge Anlı 2 Eylül 2026",
-        "season": 1,
-        "episode": 1
-      },
-      {
-        "id": "ddizi:ep:91651/muge-anli-3-eylul-2026.htm",
-        "title": "Müge Anlı 3 Eylül 2026",
-        "season": 1,
-        "episode": 1
-      },
-      {
-        "id": "ddizi:ep:91657/muge-anli-4-eylul-2026.htm",
-        "title": "Müge Anlı 4 Eylül 2026",
-        "season": 1,
-        "episode": 1
-      },
-      {
-        "id": "ddizi:ep:91667/muge-anli-7-eylul-2026.htm",
-        "title": "Müge Anlı 7 Eylül 2026",
+        "id": "ddizi:ep:91682/muge-anli-9-eylul-2026.htm",
+        "title": "Müge Anlı 9 Eylül 2026",
         "season": 1,
         "episode": 1
       },
@@ -54,8 +24,38 @@
         "episode": 1
       },
       {
-        "id": "ddizi:ep:91682/muge-anli-9-eylul-2026.htm",
-        "title": "Müge Anlı 9 Eylül 2026",
+        "id": "ddizi:ep:91667/muge-anli-7-eylul-2026.htm",
+        "title": "Müge Anlı 7 Eylül 2026",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "ddizi:ep:91657/muge-anli-4-eylul-2026.htm",
+        "title": "Müge Anlı 4 Eylül 2026",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "ddizi:ep:91651/muge-anli-3-eylul-2026.htm",
+        "title": "Müge Anlı 3 Eylül 2026",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "ddizi:ep:91645/muge-anli-2-eylul-2026.htm",
+        "title": "Müge Anlı 2 Eylül 2026",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "ddizi:ep:91639/muge-anli-1-eylul-2026.htm",
+        "title": "Müge Anlı 1 Eylül 2026",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "ddizi:ep:91633/muge-anli-31-agustos-2026.htm",
+        "title": "Müge Anlı 31 Ağustos 2026",
         "season": 1,
         "episode": 1
       }

@@ -32,67 +32,83 @@ const stremioManifest = {
     {
       type: "series",
       id: "anthology_ddizi",
-      name: "DDizi — Popüler Yerli Diziler"
+      name: "DDizi — Popüler Yerli Diziler",
+      extra: [{ name: "search", isRequired: false }]
     },
     {
       type: "series",
       id: "anthology_dizibox",
-      name: "DiziBox — Popüler Yabancı Diziler"
+      name: "DiziBox — Popüler Yabancı Diziler",
+      extra: [{ name: "search", isRequired: false }]
     },
     {
       type: "series",
       id: "anthology_dizimom",
-      name: "DiziMom — Popüler Diziler"
+      name: "DiziMom — Popüler Diziler",
+      extra: [{ name: "search", isRequired: false }]
     },
     {
       type: "movie",
       id: "anthology_sinewix_movies",
-      name: "SineWix — Popüler Filmler"
+      name: "SineWix — Popüler Filmler",
+      extra: [{ name: "search", isRequired: false }]
     },
     {
       type: "series",
       id: "anthology_sinewix_series",
-      name: "SineWix — Popüler Diziler"
+      name: "SineWix — Popüler Diziler",
+      extra: [{ name: "search", isRequired: false }]
     },
     {
       type: "movie",
       id: "anthology_filmmodu",
-      name: "FilmModu — Son Eklenen Filmler"
+      name: "FilmModu — Son Eklenen Filmler",
+      extra: [{ name: "search", isRequired: false }]
     },
     {
       type: "series",
       id: "anthology_animecix",
-      name: "AnimeciX — Popüler Animeler"
+      name: "AnimeciX — Popüler Animeler",
+      extra: [{ name: "search", isRequired: false }]
     },
     {
       type: "series",
       id: "anthology_turkanime",
-      name: "TurkAnime — Popüler Animeler"
+      name: "TurkAnime — Popüler Animeler",
+      extra: [{ name: "search", isRequired: false }]
     },
     {
       type: "series",
       id: "anthology_cizgimax",
-      name: "ÇizgiMax — Çizgi Diziler"
+      name: "ÇizgiMax — Çizgi Diziler",
+      extra: [{ name: "search", isRequired: false }]
     },
     {
       type: "tv",
       id: "anthology_canli_tv",
-      name: "Anthology — Canlı TV"
+      name: "Anthology — Canlı TV",
+      extra: [
+        { name: "search", isRequired: false },
+        { name: "genre", isRequired: false }
+      ]
     },
     {
       type: "tv",
       id: "anthology_canli_spor",
-      name: "Anthology — Canlı Spor"
+      name: "Anthology — Canlı Spor",
+      extra: [{ name: "search", isRequired: false }]
     },
     {
       type: "tv",
       id: "anthology_canli_haber",
-      name: "Anthology — Canlı Haber"
+      name: "Anthology — Canlı Haber",
+      extra: [{ name: "search", isRequired: false }]
     },
     {
       type: "tv",
       id: "anthology_ulusal",
-      name: "Anthology — Ulusal Kanallar"
+      name: "Anthology — Ulusal Kanallar",
+      extra: [{ name: "search", isRequired: false }]
     }
   ]
 };
@@ -203,6 +219,13 @@ function copyDirRecursive(src, dest) {
   }
 }
 
+function withTimeout(promise, ms = 8000) {
+  return Promise.race([
+    promise,
+    new Promise((_, reject) => setTimeout(() => reject(new Error('Timeout after ' + ms + 'ms')), ms))
+  ]);
+}
+
 (async () => {
   console.log("==================================================");
   console.log("Building Static Stremio Addon (Catalogs & Metas)");
@@ -235,7 +258,7 @@ function copyDirRecursive(src, dest) {
 
     let metas = [];
     try {
-      const res = await mod.getCatalog(cfg.args);
+      const res = await withTimeout(mod.getCatalog(cfg.args), 15000);
       metas = (res && res.metas) || [];
     } catch (e) {
       console.error(`❌ Error fetching ${cfg.catId}:`, e.message);
@@ -279,7 +302,7 @@ function copyDirRecursive(src, dest) {
       // Fetch full episodes if the provider supports getMeta and item is a series/show
       if (typeof mod.getMeta === 'function' && (metaData.type === 'series' || metaData.type === 'tv') && !item.id.startsWith('tv:')) {
         try {
-          const detail = await mod.getMeta({ id: item.id, type: item.type || cfg.type });
+          const detail = await withTimeout(mod.getMeta({ id: item.id, type: item.type || cfg.type }), 8000);
           if (detail && detail.meta) {
             if (Array.isArray(detail.meta.videos) && detail.meta.videos.length > 0) {
               metaData.videos = detail.meta.videos;
