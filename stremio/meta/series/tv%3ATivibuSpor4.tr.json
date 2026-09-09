@@ -3,8 +3,8 @@
     "id": "tv:TivibuSpor4.tr",
     "type": "tv",
     "name": "Tivibu Spor 4 HD",
-    "poster": "https://i.imgur.com/LgGxe7z.png",
-    "background": "https://i.imgur.com/LgGxe7z.png",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
     "description": "Tivibu Spor 4 HD Canlı Spor Yayını",
     "genres": [
       "Spor"

@@ -3,8 +3,8 @@
     "id": "tv:TivibuSpor2.tr",
     "type": "tv",
     "name": "Tivibu Spor 2 HD",
-    "poster": "https://i.imgur.com/fZMSjNE.png",
-    "background": "https://i.imgur.com/fZMSjNE.png",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
     "description": "Tivibu Spor 2 HD Canlı Spor Yayını",
     "genres": [
       "Spor"

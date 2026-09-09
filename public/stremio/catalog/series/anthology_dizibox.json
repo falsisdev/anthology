@@ -1,6 +1,18 @@
 {
   "metas": [
     {
+      "id": "dizibox:show:made-in-korea",
+      "type": "series",
+      "name": "MADE IN KOREA",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/made-in-korea-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/made-in-korea-200x290.jpg",
+      "description": "MADE IN KOREA - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
       "id": "dizibox:show:ted-lasso",
       "type": "series",
       "name": "TED LASSO",

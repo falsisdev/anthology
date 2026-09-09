@@ -3,8 +3,8 @@
     "id": "tv:beINSports3.tr",
     "type": "tv",
     "name": "BeIN Sports 3 HD",
-    "poster": "https://i.imgur.com/UYSMao3.png",
-    "background": "https://i.imgur.com/UYSMao3.png",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
     "description": "BeIN Sports 3 HD Canlı Spor Yayını",
     "genres": [
       "Spor"

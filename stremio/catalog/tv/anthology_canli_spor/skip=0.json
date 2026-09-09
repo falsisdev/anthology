@@ -26,8 +26,8 @@
       "id": "tv:TRTSpor.tr",
       "type": "tv",
       "name": "TRT Spor HD",
-      "poster": "https://i.imgur.com/6tv0zxh.png",
-      "background": "https://i.imgur.com/6tv0zxh.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt.png",
       "description": "TRT Spor HD Canlı Spor Yayını",
       "genres": [
         "Spor"
@@ -37,8 +37,8 @@
       "id": "tv:TRTSporYildiz.tr",
       "type": "tv",
       "name": "TRT Spor Yıldız HD",
-      "poster": "https://i.imgur.com/6tv0zxh.png",
-      "background": "https://i.imgur.com/6tv0zxh.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt.png",
       "description": "TRT Spor Yıldız HD Canlı Spor Yayını",
       "genres": [
         "Spor"
@@ -59,8 +59,8 @@
       "id": "tv:beINSports1.tr",
       "type": "tv",
       "name": "BeIN Sports 1 HD",
-      "poster": "https://i.imgur.com/Vtk2cGI.png",
-      "background": "https://i.imgur.com/Vtk2cGI.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
       "description": "BeIN Sports 1 HD Canlı Spor Yayını",
       "genres": [
         "Spor"
@@ -70,8 +70,8 @@
       "id": "tv:beINSports2.tr",
       "type": "tv",
       "name": "BeIN Sports 2 HD",
-      "poster": "https://i.imgur.com/vUJZSvs.png",
-      "background": "https://i.imgur.com/vUJZSvs.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
       "description": "BeIN Sports 2 HD Canlı Spor Yayını",
       "genres": [
         "Spor"
@@ -81,8 +81,8 @@
       "id": "tv:beINSports3.tr",
       "type": "tv",
       "name": "BeIN Sports 3 HD",
-      "poster": "https://i.imgur.com/UYSMao3.png",
-      "background": "https://i.imgur.com/UYSMao3.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
       "description": "BeIN Sports 3 HD Canlı Spor Yayını",
       "genres": [
         "Spor"
@@ -92,8 +92,8 @@
       "id": "tv:beINSports4.tr",
       "type": "tv",
       "name": "BeIN Sports 4 HD",
-      "poster": "https://i.imgur.com/vwAgJNi.png",
-      "background": "https://i.imgur.com/vwAgJNi.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
       "description": "BeIN Sports 4 HD Canlı Spor Yayını",
       "genres": [
         "Spor"
@@ -103,8 +103,8 @@
       "id": "tv:beINSports5.tr",
       "type": "tv",
       "name": "BeIN Sports 5 HD",
-      "poster": "https://i.imgur.com/2Rha5aY.png",
-      "background": "https://i.imgur.com/2Rha5aY.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
       "description": "BeIN Sports 5 HD Canlı Spor Yayını",
       "genres": [
         "Spor"
@@ -114,8 +114,8 @@
       "id": "tv:beINSportsMax1.tr",
       "type": "tv",
       "name": "BeIN Sports Max 1 HD",
-      "poster": "https://i.imgur.com/FjWQjdy.png",
-      "background": "https://i.imgur.com/FjWQjdy.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
       "description": "BeIN Sports Max 1 HD Canlı Spor Yayını",
       "genres": [
         "Spor"
@@ -125,8 +125,8 @@
       "id": "tv:beINSportsMax2.tr",
       "type": "tv",
       "name": "BeIN Sports Max 2 HD",
-      "poster": "https://i.imgur.com/5dBc5rn.png",
-      "background": "https://i.imgur.com/5dBc5rn.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
       "description": "BeIN Sports Max 2 HD Canlı Spor Yayını",
       "genres": [
         "Spor"
@@ -136,8 +136,8 @@
       "id": "tv:SSport.tr",
       "type": "tv",
       "name": "S Sport HD",
-      "poster": "https://i.imgur.com/2jIItAy.png",
-      "background": "https://i.imgur.com/2jIItAy.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssport.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssport.png",
       "description": "S Sport HD Canlı Spor Yayını",
       "genres": [
         "Spor"
@@ -147,8 +147,8 @@
       "id": "tv:SSport2.tr",
       "type": "tv",
       "name": "S Sport 2 HD",
-      "poster": "https://i.imgur.com/2jIItAy.png",
-      "background": "https://i.imgur.com/2jIItAy.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssport.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssport.png",
       "description": "S Sport 2 HD Canlı Spor Yayını",
       "genres": [
         "Spor"
@@ -158,8 +158,8 @@
       "id": "tv:SSportPlus.tr",
       "type": "tv",
       "name": "S Sport Plus HD",
-      "poster": "https://i.imgur.com/2jIItAy.png",
-      "background": "https://i.imgur.com/2jIItAy.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssport.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssport.png",
       "description": "S Sport Plus HD Canlı Spor Yayını",
       "genres": [
         "Spor"
@@ -169,8 +169,8 @@
       "id": "tv:TivibuSpor.tr",
       "type": "tv",
       "name": "Tivibu Spor HD",
-      "poster": "https://i.imgur.com/qvrKQY3.png",
-      "background": "https://i.imgur.com/qvrKQY3.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
       "description": "Tivibu Spor HD Canlı Spor Yayını",
       "genres": [
         "Spor"
@@ -180,8 +180,8 @@
       "id": "tv:TivibuSpor1.tr",
       "type": "tv",
       "name": "Tivibu Spor 1 HD",
-      "poster": "https://i.imgur.com/qvrKQY3.png",
-      "background": "https://i.imgur.com/qvrKQY3.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
       "description": "Tivibu Spor 1 HD Canlı Spor Yayını",
       "genres": [
         "Spor"
@@ -191,8 +191,8 @@
       "id": "tv:TivibuSpor2.tr",
       "type": "tv",
       "name": "Tivibu Spor 2 HD",
-      "poster": "https://i.imgur.com/fZMSjNE.png",
-      "background": "https://i.imgur.com/fZMSjNE.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
       "description": "Tivibu Spor 2 HD Canlı Spor Yayını",
       "genres": [
         "Spor"
@@ -202,8 +202,8 @@
       "id": "tv:TivibuSpor3.tr",
       "type": "tv",
       "name": "Tivibu Spor 3 HD",
-      "poster": "https://i.imgur.com/xLrgt2O.png",
-      "background": "https://i.imgur.com/xLrgt2O.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
       "description": "Tivibu Spor 3 HD Canlı Spor Yayını",
       "genres": [
         "Spor"
@@ -213,8 +213,8 @@
       "id": "tv:TivibuSpor4.tr",
       "type": "tv",
       "name": "Tivibu Spor 4 HD",
-      "poster": "https://i.imgur.com/LgGxe7z.png",
-      "background": "https://i.imgur.com/LgGxe7z.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
       "description": "Tivibu Spor 4 HD Canlı Spor Yayını",
       "genres": [
         "Spor"
@@ -268,8 +268,8 @@
       "id": "tv:ExxenTV.tr",
       "type": "tv",
       "name": "Exxen TV HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
       "description": "Exxen TV HD Canlı Spor Yayını",
       "genres": [
         "Spor"
@@ -279,8 +279,8 @@
       "id": "tv:ExxenSports1.tr",
       "type": "tv",
       "name": "Exxen Sports 1 HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
       "description": "Exxen Sports 1 HD Canlı Spor Yayını",
       "genres": [
         "Spor"
@@ -290,8 +290,8 @@
       "id": "tv:ExxenSports2.tr",
       "type": "tv",
       "name": "Exxen Sports 2 HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
       "description": "Exxen Sports 2 HD Canlı Spor Yayını",
       "genres": [
         "Spor"
@@ -301,8 +301,8 @@
       "id": "tv:ExxenSports3.tr",
       "type": "tv",
       "name": "Exxen Sports 3 HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
       "description": "Exxen Sports 3 HD Canlı Spor Yayını",
       "genres": [
         "Spor"
@@ -312,8 +312,8 @@
       "id": "tv:ExxenSports4.tr",
       "type": "tv",
       "name": "Exxen Sports 4 HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
       "description": "Exxen Sports 4 HD Canlı Spor Yayını",
       "genres": [
         "Spor"
@@ -323,8 +323,8 @@
       "id": "tv:ExxenSports5.tr",
       "type": "tv",
       "name": "Exxen Sports 5 HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
       "description": "Exxen Sports 5 HD Canlı Spor Yayını",
       "genres": [
         "Spor"
@@ -334,8 +334,8 @@
       "id": "tv:ExxenSports6.tr",
       "type": "tv",
       "name": "Exxen Sports 6 HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
       "description": "Exxen Sports 6 HD Canlı Spor Yayını",
       "genres": [
         "Spor"
@@ -345,8 +345,8 @@
       "id": "tv:ExxenSports7.tr",
       "type": "tv",
       "name": "Exxen Sports 7 HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
       "description": "Exxen Sports 7 HD Canlı Spor Yayını",
       "genres": [
         "Spor"
@@ -356,8 +356,8 @@
       "id": "tv:ExxenSports8.tr",
       "type": "tv",
       "name": "Exxen Sports 8 HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
       "description": "Exxen Sports 8 HD Canlı Spor Yayını",
       "genres": [
         "Spor"
