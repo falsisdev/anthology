@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "sinewix:series:261",
+    "type": "series",
+    "name": "Ms. Marvel",
+    "poster": "https://image.tmdb.org/t/p/w500/cdkyMYdu8ao26XOBvilNzLneUg1.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/cdkyMYdu8ao26XOBvilNzLneUg1.jpg",
+    "description": "Ms. Marvel - Anthology",
+    "genres": [
+      "SineWix",
+      "Popüler Dizi"
+    ],
+    "videos": [
+      {
+        "id": "sinewix:series:261",
+        "title": "Ms. Marvel",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

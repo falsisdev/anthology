@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "id": "sinewix:movie:2344",
+    "type": "movie",
+    "name": "One Piece Film 7",
+    "poster": "https://image.tmdb.org/t/p/w500/8x92ekqR0bR9qBIJLpr7xX7yCBi.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/4NyJEGke7B5bZcRaImkTFc5FcZE.jpg",
+    "description": "\"Grand Line\"daki firtına sırasında, Luffy ve tayfası, batmakta olan bir gemide, büyük bir hazine sandığı bulurlar. İştahla sandığı açarlar ama içinde hazine yerine altın dişi olan yaşlı bir kadın çıkar. Yaşlı kadın, gemi batarken sandığın içine saklanmıştır. Yaşlı kadın, eğer onu yaşadığı adaya götürürlerse, onlara efsanevi hazine; Golden Crown'u vereceğini söyler. Teklifi düşünürler ve bu yeni hazineyi elde etmek için adaya doğru yola çıkarlar. Oraya vardıklarında, birinin söylediği şarkıyı duyarlar “Denizlerin Kralı, The Golden Crown...” bu sırada adanın isminin “Mecha Adası” ve ilerde duran yapının da Mecha Şatosu olduğunu öğrenirler.\n\nDiğer filmlere ulaşmak için OnePiece (boşluk olmadan) film numarasını yazarak filmlerine ulaşabilirsiniz.\n\nÖrnek OnePiece Film 3",
+    "genres": [
+      "SineWix",
+      "Film"
+    ]
+  }
+}

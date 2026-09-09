@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "sinewix:series:174",
+    "type": "series",
+    "name": "Halo",
+    "poster": "https://image.tmdb.org/t/p/w500/hmHA5jqxN3ESIAGx0jAwV7TJhTQ.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/hmHA5jqxN3ESIAGx0jAwV7TJhTQ.jpg",
+    "description": "Halo - Anthology",
+    "genres": [
+      "SineWix",
+      "Popüler Dizi"
+    ],
+    "videos": [
+      {
+        "id": "sinewix:series:174",
+        "title": "Halo",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

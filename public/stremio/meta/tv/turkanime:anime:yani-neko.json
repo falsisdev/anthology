@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:yani-neko",
+    "type": "series",
+    "name": "Yani Neko",
+    "poster": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+    "background": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+    "description": "Yani Neko - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:anime:yani-neko",
+        "title": "Yani Neko",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

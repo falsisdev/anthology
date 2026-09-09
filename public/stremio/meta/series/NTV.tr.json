@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "id": "NTV.tr",
+    "type": "tv",
+    "name": "NTV Haber HD",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ntv.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ntv.png",
+    "description": "NTV Haber HD Canlı Haber Yayını",
+    "genres": [
+      "Haber"
+    ],
+    "videos": [
+      {
+        "id": "NTV.tr",
+        "title": "NTV Haber HD",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

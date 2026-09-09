@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:re-zero-kara-hajimeru-isekai-seikatsu-4th-season",
+    "type": "series",
+    "name": "Re:Zero kara Hajimeru Isekai Seikatsu 4th Season",
+    "poster": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+    "background": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+    "description": "Re:Zero kara Hajimeru Isekai Seikatsu 4th Season - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:anime:re-zero-kara-hajimeru-isekai-seikatsu-4th-season",
+        "title": "Re:Zero kara Hajimeru Isekai Seikatsu 4th Season",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:tenmaku-no-jaadugar",
+    "type": "series",
+    "name": "Tenmaku no Jaadugar",
+    "poster": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+    "background": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+    "description": "Tenmaku no Jaadugar - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:anime:tenmaku-no-jaadugar",
+        "title": "Tenmaku no Jaadugar",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

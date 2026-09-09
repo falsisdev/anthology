@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "cizgimax:show:diziler/22-7-izle",
+    "type": "series",
+    "name": "22/7",
+    "poster": "https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128",
+    "background": "https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128",
+    "description": "22/7 - ÇizgiMax Arşivi",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:show:diziler/22-7-izle",
+        "title": "22/7",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

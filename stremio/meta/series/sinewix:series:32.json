@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "sinewix:series:32",
+    "type": "series",
+    "name": "Loki",
+    "poster": "https://image.tmdb.org/t/p/w500/voHUmluYmKyleFkTu3lOXQG702u.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/voHUmluYmKyleFkTu3lOXQG702u.jpg",
+    "description": "Loki - Anthology",
+    "genres": [
+      "SineWix",
+      "Popüler Dizi"
+    ],
+    "videos": [
+      {
+        "id": "sinewix:series:32",
+        "title": "Loki",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

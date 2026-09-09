@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "id": "TivibuSpor.tr",
+    "type": "tv",
+    "name": "Tivibu Spor HD",
+    "poster": "https://i.imgur.com/qvrKQY3.png",
+    "background": "https://i.imgur.com/qvrKQY3.png",
+    "description": "Tivibu Spor HD Canlı Spor Yayını",
+    "genres": [
+      "Spor"
+    ],
+    "videos": [
+      {
+        "id": "TivibuSpor.tr",
+        "title": "Tivibu Spor HD",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

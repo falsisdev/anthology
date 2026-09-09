@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "id": "sinewix:movie:1944",
+    "type": "movie",
+    "name": "Süper Mario Kardeşler Filmi",
+    "poster": "https://image.tmdb.org/t/p/w500/mtdbOGwZN6HEp7ZmceQEJmtcgCj.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/9n2tJBplPbgR2ca05hS5CKXwP2c.jpg",
+    "description": "Brooklyn’li tesisatçılar Mario ve erkek kardeşi Luigi bir ana su borusunu tamir etmek için yeraltında çalışırken gizemli bir borudan aktarılarak sihirli, yeni bir dünyaya girerler. Ama kardeşler ayrı düşünce Mario, Luigi’yi bulmak için destansı bir maceraya çıkar. Mario, Mantar Krallığı sakini Toad’un yardımıyla ve Mantar Krallığı’nın iradesi güçlü yöneticisi Prenses Peach’ten aldığı bazı eğitimlerle gücünü bulur.",
+    "genres": [
+      "SineWix",
+      "Film"
+    ]
+  }
+}

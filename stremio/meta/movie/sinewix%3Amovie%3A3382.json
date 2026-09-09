@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "id": "sinewix:movie:3382",
+    "type": "movie",
+    "name": "Plankton (Film)",
+    "poster": "https://image.tmdb.org/t/p/w500/iqQw58Cbgh5r7XRYUZpJPDPQD0m.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/xfIyxfxakrdpzvcQ9kUT0vmp0Um.jpg",
+    "description": "Plankton'ın duygusal bilgisayar eşiyle karmaşık aşk hayatı, eşi ona tavır alarak o olmadan dünyayı yok etmeye karar verince sarpa sarar.",
+    "genres": [
+      "SineWix",
+      "Film"
+    ]
+  }
+}

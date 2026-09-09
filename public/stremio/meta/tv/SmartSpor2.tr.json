@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "id": "SmartSpor2.tr",
+    "type": "tv",
+    "name": "Smart Spor 2 HD",
+    "poster": "https://i.imgur.com/qyUKCUa.png",
+    "background": "https://i.imgur.com/qyUKCUa.png",
+    "description": "Smart Spor 2 HD Canlı Spor Yayını",
+    "genres": [
+      "Spor"
+    ],
+    "videos": [
+      {
+        "id": "SmartSpor2.tr",
+        "title": "Smart Spor 2 HD",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

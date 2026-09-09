@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "dizibox:ep:elixer-1-sezon-4-bolum-izle",
+    "type": "series",
+    "name": "Elixer 1.Sezon 4.Bölüm",
+    "poster": "https://www.dizibox.live/wp-content/uploads/afisler/elixer-220x140.jpg",
+    "background": "https://www.dizibox.live/wp-content/uploads/afisler/elixer-220x140.jpg",
+    "description": "Elixer 1.Sezon 4.Bölüm - DiziBox Güncel Bölüm",
+    "genres": [
+      "Yabancı Dizi",
+      "DiziBox"
+    ],
+    "videos": [
+      {
+        "id": "dizibox:ep:elixer-1-sezon-4-bolum-izle",
+        "title": "Elixer 1.Sezon 4.Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

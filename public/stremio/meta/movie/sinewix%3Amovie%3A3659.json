@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "id": "sinewix:movie:3659",
+    "type": "movie",
+    "name": "Bir Minecraft Filmi",
+    "poster": "https://image.tmdb.org/t/p/w500/vltxj7fjoSp3z9PAxfzoJ3UjvOR.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/2Nti3gYAX513wvhp8IiLL6ZDyOm.jpg",
+    "description": "Dört uyumsuz, gizemli bir portaldan aniden Üst Dünya'ya çekildiklerinde kendilerini sıradan sorunlarla boğuşurken bulurlar: hayal gücüyle beslenen tuhaf, kübik bir harikalar diyarı. Eve geri dönmek için, beklenmedik, uzman bir zanaatkar olan Steve ile büyülü bir göreve çıkarken bu dünyada ustalaşmaları gerekecektir.",
+    "genres": [
+      "SineWix",
+      "Film"
+    ]
+  }
+}

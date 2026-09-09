@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:liar-game",
+    "type": "series",
+    "name": "Liar Game",
+    "poster": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+    "background": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+    "description": "Liar Game - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:anime:liar-game",
+        "title": "Liar Game",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "animecix:title:7324",
+    "type": "series",
+    "name": "Yahari Ore no Seishun Love Comedy wa Machigatteiru.",
+    "poster": "https://image.tmdb.org/t/p/original/8knvr1LbnPD8SZjZlkD3cOt3TYu.jpg",
+    "background": "https://image.tmdb.org/t/p/w1280/5VL7HC4aeLhepAaGxaQBUBWgIGo.jpg",
+    "description": "Peki, hiç arkadaşı olmayan, arkadaş edinmekle ilgilenmeyen ve herkesin sözde harika lise deneyimlerinin ya hayal ya da düpedüz yalan olduğuna inanan izole bir lise öğrencisi olan Hachiman Hikigaya, iyi niyetli bir öğretim üyesi tarafından zorlandığında tam olarak ne olacak? Akıllı, çekici ve genel olarak okulundaki herkesi kendinden aşağı biri olarak gören Yukino Yukinoshita'nın yönettiği tek üyeli “Gönüllü Hizmetler Kulübü”ne katılmaya mı karar vereceksiniz?",
+    "genres": [
+      "Anime",
+      "AnimeciX"
+    ],
+    "videos": [
+      {
+        "id": "animecix:title:7324",
+        "title": "Yahari Ore no Seishun Love Comedy wa Machigatteiru.",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "id": "sinewix:movie:2339",
+    "type": "movie",
+    "name": "One Piece Film 2",
+    "poster": "https://image.tmdb.org/t/p/w500/cXHTcUfCs6LvVjmhx3EzYgQRXWU.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/qgaVJE4SK2qRtggVyRlISKQ1zBE.jpg",
+    "description": "One Piece 2.Filmidir. Diğer filmlere ulaşmak için OnePiece (boşluk olmadan) film numarasını yazarak filmlerine ulaşabilirsiniz.\n\nÖrnek OnePiece Film 3\n\nTayfa bu sefer Clockwork Adası’na gidiyor ve maceraları daha büyük bir tehlikeyle yüzleşmelerine yol açıyor.\n\nFilmin odak noktası, tayfanın Zoro’nun kılıçlarını geri alması ve adanın gizemli yapıları. Aksiyon dozu yüksek ve adanın mekanik yapıları ilginç bir atmosfer sunuyor.\n\nEğlenceli ama basit bir hikaye, fazla derinleşmeden hızlıca ilerliyor. 53. bölüm sonrasında izlenmesi tavsiye ediliyor. Bazı dövüş sahneleri oldukça etkileyici, özellikle Zoro ve Sanji’nin performansları dikkat çekici.",
+    "genres": [
+      "SineWix",
+      "Film"
+    ]
+  }
+}

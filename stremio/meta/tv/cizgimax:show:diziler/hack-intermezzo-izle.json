@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "cizgimax:show:diziler/hack-intermezzo-izle",
+    "type": "series",
+    "name": ".hack//Intermezzo",
+    "poster": "https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128",
+    "background": "https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128",
+    "description": ".hack//Intermezzo - ÇizgiMax Arşivi",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:show:diziler/hack-intermezzo-izle",
+        "title": ".hack//Intermezzo",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

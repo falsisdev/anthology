@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "cizgimax:show:diziler/a-bridge-to-the-starry-skies-izle",
+    "type": "series",
+    "name": "A Bridge to the Starry Skies",
+    "poster": "https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128",
+    "background": "https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128",
+    "description": "A Bridge to the Starry Skies - ÇizgiMax Arşivi",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:show:diziler/a-bridge-to-the-starry-skies-izle",
+        "title": "A Bridge to the Starry Skies",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

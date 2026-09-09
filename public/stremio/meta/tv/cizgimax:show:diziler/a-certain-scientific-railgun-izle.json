@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "cizgimax:show:diziler/a-certain-scientific-railgun-izle",
+    "type": "series",
+    "name": "A Certain Scientific Railgun",
+    "poster": "https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128",
+    "background": "https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128",
+    "description": "A Certain Scientific Railgun - ÇizgiMax Arşivi",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:show:diziler/a-certain-scientific-railgun-izle",
+        "title": "A Certain Scientific Railgun",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "cizgimax:show:diziler/18if-izle",
+    "type": "series",
+    "name": "18if",
+    "poster": "https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128",
+    "background": "https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128",
+    "description": "18if - ÇizgiMax Arşivi",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:show:diziler/18if-izle",
+        "title": "18if",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

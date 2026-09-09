@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "id": "sinewix:movie:2342",
+    "type": "movie",
+    "name": "One Piece Film 5",
+    "poster": "https://image.tmdb.org/t/p/w500/h5gbvY5DFAxah8l0JalpmV2qLcM.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/sL92Cyf8oeIGm76FEsRZMj7FtzT.jpg",
+    "description": "Luffy ve tayfası, Dünya’daki en pahalı kılıç olduğu söylenen efsanevi kılıcı bulmak için bir adaya giderler. Ancak kısa süre içinde kendilerine saldıran denizciler ve güzel kızlar tayfayı ayırır. Zoro eski bir dostuna yardım etmek için gruptan koparken, Luffy ile Usopp bir mağaraya girer ve tayfanın geri kalanı köye denizcilerle olan savaşlarında yardım ederler. Sanji’yi yenen Zoro, Dünya’yı karanlığa boğacak şeytani kılıca karşı tek savunmaları olan kutsal incileri ele geçirir.\n\nDiğer filmlere ulaşmak için OnePiece (boşluk olmadan) film numarasını yazarak filmlerine ulaşabilirsiniz.\n\nÖrnek OnePiece Film 3",
+    "genres": [
+      "SineWix",
+      "Film"
+    ]
+  }
+}

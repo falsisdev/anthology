@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "id": "SSport.tr",
+    "type": "tv",
+    "name": "S Sport HD",
+    "poster": "https://i.imgur.com/2jIItAy.png",
+    "background": "https://i.imgur.com/2jIItAy.png",
+    "description": "S Sport HD Canlı Spor Yayını",
+    "genres": [
+      "Spor"
+    ],
+    "videos": [
+      {
+        "id": "SSport.tr",
+        "title": "S Sport HD",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}
