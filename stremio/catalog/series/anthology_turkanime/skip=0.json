@@ -1,0 +1,100 @@
+{
+  "metas": [
+    {
+      "id": "turkanime:anime:re-zero-kara-hajimeru-isekai-seikatsu-4th-season",
+      "type": "series",
+      "name": "Re:Zero kara Hajimeru Isekai Seikatsu 4th Season",
+      "poster": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+      "background": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+      "description": "Re:Zero kara Hajimeru Isekai Seikatsu 4th Season - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:mushoku-tensei-iii-isekai-ittara-honki-dasu",
+      "type": "series",
+      "name": "Mushoku Tensei III: Isekai Ittara Honki Dasu",
+      "poster": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+      "background": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+      "description": "Mushoku Tensei III: Isekai Ittara Honki Dasu - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:tensei-shitara-slime-datta-ken-4th-season",
+      "type": "series",
+      "name": "Tensei shitara Slime Datta Ken 4th Season",
+      "poster": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+      "background": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+      "description": "Tensei shitara Slime Datta Ken 4th Season - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:yani-neko",
+      "type": "series",
+      "name": "Yani Neko",
+      "poster": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+      "background": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+      "description": "Yani Neko - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:youjo-senki-ii",
+      "type": "series",
+      "name": "Youjo Senki II",
+      "poster": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+      "background": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+      "description": "Youjo Senki II - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:liar-game",
+      "type": "series",
+      "name": "Liar Game",
+      "poster": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+      "background": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+      "description": "Liar Game - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:tenmaku-no-jaadugar",
+      "type": "series",
+      "name": "Tenmaku no Jaadugar",
+      "poster": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+      "background": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+      "description": "Tenmaku no Jaadugar - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:gaikotsu-kishi-sama-tadaima-isekai-e-odekakechuu-ii",
+      "type": "series",
+      "name": "Gaikotsu Kishi-sama, Tadaima Isekai e Odekakechuu II",
+      "poster": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+      "background": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+      "description": "Gaikotsu Kishi-sama, Tadaima Isekai e Odekakechuu II - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    }
+  ]
+}

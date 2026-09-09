@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "id": "sinewix:movie:278",
+    "type": "movie",
+    "name": "El Camino: Bir Breaking Bad Filmi",
+    "poster": "https://image.tmdb.org/t/p/w500/ePXuKdXZuJx8hHMNr2yM4jY2L7Z.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/9igMXvlUR1zrahnQdiXAg3dtaTb.jpg",
+    "description": "Jesse Pinkman, tutsaklıktan kurtulmasının ardından geleceğini kurabilmek için geçmişiyle yüzleşmek zorundadır. Breaking Bad dizisinin son sezonunda Jesse ve Walter'ın yolları ayrılmıştı. Jesse, bir kartel tarafından uyuşturucu madde üretmesi için esir alınmışken, Walter başka mücadeleler içerisine girmişti. Sonunda Jesse kartelin elinden kurtulmayı başarmıştı. Ancak görülüyor ki bu kez de tüm dünyadan kaçması gerekiyor.",
+    "genres": [
+      "SineWix",
+      "Film"
+    ]
+  }
+}

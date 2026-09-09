@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "cizgimax:show:diziler/himesama-izle",
+    "type": "series",
+    "name": "&#039;Tis Time for &quot;Torture,&quot; Princess",
+    "poster": "https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128",
+    "background": "https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128",
+    "description": "&#039;Tis Time for &quot;Torture,&quot; Princess - ÇizgiMax Arşivi",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:show:diziler/himesama-izle",
+        "title": "&#039;Tis Time for &quot;Torture,&quot; Princess",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

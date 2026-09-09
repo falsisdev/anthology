@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "animecix:title:7254",
+    "type": "series",
+    "name": "Baki",
+    "poster": "https://image.tmdb.org/t/p/original/j4bL0G8h8k49MuXKYfZqhXqk2rI.jpg",
+    "background": "https://image.tmdb.org/t/p/w1280/qbxoEhlxNcyr7GjG2SXTShWn32m.jpg",
+    "description": "Ana karakter Baki Hanma, dünyadaki en güçlü dövüşçü olan Yujiro Hanma yani babasını geçmek için yoğun bir antrenman yapar. Dünyanın en sert ve vahşi beş idam mahkûmu, Baki'yle yüzleşmek için toplanır. Amaçları yenilgiyi tatmaktır-- Benzersiz güçleri ve yetenekleri onları hayattan bıktırmıştır, ve şu anda onları ezmek ve yerle bir etmeyi uman Baki'nin peşindedirler. Bu krizde, diğer yeraltı dövüş sanatları savaşçıları Baki'nin tarafında dövüşmek için toplanırlar: Kaoru Hanayama, Gouki Shibukawa, Retsu Kaioh, ve Doppo Orochi. Sert idam mahkûmları ve Baki ile arkadaşları arasındaki destansı dövüş mücadelesi başlar!. ",
+    "genres": [
+      "Anime",
+      "AnimeciX"
+    ],
+    "videos": [
+      {
+        "id": "animecix:title:7254",
+        "title": "Baki",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

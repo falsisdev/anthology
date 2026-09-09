@@ -1,0 +1,91 @@
+{
+  "id": "community.anthology.catalogs",
+  "version": "1.7.0",
+  "name": "Anthology — Türkçe Kataloglar",
+  "description": "DDizi, DiziBox, SineWix, FilmModu, AnimeciX, TurkAnime, ÇizgiMax ve Canlı TV ana sayfa keşif katalogları.",
+  "resources": [
+    "catalog",
+    "meta"
+  ],
+  "types": [
+    "movie",
+    "series",
+    "tv"
+  ],
+  "idPrefixes": [
+    "ddizi:",
+    "dizibox:",
+    "sinewix:",
+    "filmmodu:",
+    "animecix:",
+    "turkanime:",
+    "cizgimax:",
+    "tv_",
+    "iptv_",
+    "tmdb:"
+  ],
+  "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+  "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+  "catalogs": [
+    {
+      "type": "series",
+      "id": "anthology_ddizi",
+      "name": "DDizi — Son Eklenen Yerli Diziler"
+    },
+    {
+      "type": "series",
+      "id": "anthology_dizibox",
+      "name": "DiziBox — Son Eklenen Yabancı Diziler"
+    },
+    {
+      "type": "movie",
+      "id": "anthology_sinewix_movies",
+      "name": "SineWix — Popüler Filmler"
+    },
+    {
+      "type": "series",
+      "id": "anthology_sinewix_series",
+      "name": "SineWix — Popüler Diziler"
+    },
+    {
+      "type": "movie",
+      "id": "anthology_filmmodu",
+      "name": "FilmModu — Son Eklenen Filmler"
+    },
+    {
+      "type": "series",
+      "id": "anthology_animecix",
+      "name": "AnimeciX — Popüler Animeler"
+    },
+    {
+      "type": "series",
+      "id": "anthology_turkanime",
+      "name": "TurkAnime — Popüler Animeler"
+    },
+    {
+      "type": "series",
+      "id": "anthology_cizgimax",
+      "name": "ÇizgiMax — Çizgi Diziler"
+    },
+    {
+      "type": "tv",
+      "id": "anthology_canli_tv",
+      "name": "Anthology — Canlı TV"
+    },
+    {
+      "type": "tv",
+      "id": "anthology_canli_spor",
+      "name": "Anthology — Canlı Spor"
+    },
+    {
+      "type": "tv",
+      "id": "anthology_canli_haber",
+      "name": "Anthology — Canlı Haber"
+    },
+    {
+      "type": "tv",
+      "id": "anthology_ulusal",
+      "name": "Anthology — Ulusal Kanallar"
+    }
+  ]
+}

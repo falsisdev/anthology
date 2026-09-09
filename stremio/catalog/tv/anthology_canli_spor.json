@@ -1,0 +1,543 @@
+{
+  "metas": [
+    {
+      "id": "ASpor.tr",
+      "type": "tv",
+      "name": "A Spor HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/aspor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/aspor.png",
+      "description": "A Spor HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "HTSpor.tr",
+      "type": "tv",
+      "name": "HT Spor HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/htspor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/htspor.png",
+      "description": "HT Spor HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "TRTSpor.tr",
+      "type": "tv",
+      "name": "TRT Spor HD",
+      "poster": "https://i.imgur.com/6tv0zxh.png",
+      "background": "https://i.imgur.com/6tv0zxh.png",
+      "description": "TRT Spor HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "TRTSporYildiz.tr",
+      "type": "tv",
+      "name": "TRT Spor Yıldız HD",
+      "poster": "https://i.imgur.com/6tv0zxh.png",
+      "background": "https://i.imgur.com/6tv0zxh.png",
+      "description": "TRT Spor Yıldız HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "TV85.tr",
+      "type": "tv",
+      "name": "5 HD",
+      "poster": "https://i.imgur.com/QuelSsc.png",
+      "background": "https://i.imgur.com/QuelSsc.png",
+      "description": "5 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "beINSports1.tr",
+      "type": "tv",
+      "name": "BeIN Sports 1 HD",
+      "poster": "https://i.imgur.com/Vtk2cGI.png",
+      "background": "https://i.imgur.com/Vtk2cGI.png",
+      "description": "BeIN Sports 1 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "beINSports2.tr",
+      "type": "tv",
+      "name": "BeIN Sports 2 HD",
+      "poster": "https://i.imgur.com/vUJZSvs.png",
+      "background": "https://i.imgur.com/vUJZSvs.png",
+      "description": "BeIN Sports 2 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "beINSports3.tr",
+      "type": "tv",
+      "name": "BeIN Sports 3 HD",
+      "poster": "https://i.imgur.com/UYSMao3.png",
+      "background": "https://i.imgur.com/UYSMao3.png",
+      "description": "BeIN Sports 3 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "beINSports4.tr",
+      "type": "tv",
+      "name": "BeIN Sports 4 HD",
+      "poster": "https://i.imgur.com/vwAgJNi.png",
+      "background": "https://i.imgur.com/vwAgJNi.png",
+      "description": "BeIN Sports 4 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "beINSports5.tr",
+      "type": "tv",
+      "name": "BeIN Sports 5 HD",
+      "poster": "https://i.imgur.com/2Rha5aY.png",
+      "background": "https://i.imgur.com/2Rha5aY.png",
+      "description": "BeIN Sports 5 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "beINSportsMax1.tr",
+      "type": "tv",
+      "name": "BeIN Sports Max 1 HD",
+      "poster": "https://i.imgur.com/FjWQjdy.png",
+      "background": "https://i.imgur.com/FjWQjdy.png",
+      "description": "BeIN Sports Max 1 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "beINSportsMax2.tr",
+      "type": "tv",
+      "name": "BeIN Sports Max 2 HD",
+      "poster": "https://i.imgur.com/5dBc5rn.png",
+      "background": "https://i.imgur.com/5dBc5rn.png",
+      "description": "BeIN Sports Max 2 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "SSport.tr",
+      "type": "tv",
+      "name": "S Sport HD",
+      "poster": "https://i.imgur.com/2jIItAy.png",
+      "background": "https://i.imgur.com/2jIItAy.png",
+      "description": "S Sport HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "SSport2.tr",
+      "type": "tv",
+      "name": "S Sport 2 HD",
+      "poster": "https://i.imgur.com/2jIItAy.png",
+      "background": "https://i.imgur.com/2jIItAy.png",
+      "description": "S Sport 2 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "SSportPlus.tr",
+      "type": "tv",
+      "name": "S Sport Plus HD",
+      "poster": "https://i.imgur.com/2jIItAy.png",
+      "background": "https://i.imgur.com/2jIItAy.png",
+      "description": "S Sport Plus HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "TivibuSpor.tr",
+      "type": "tv",
+      "name": "Tivibu Spor HD",
+      "poster": "https://i.imgur.com/qvrKQY3.png",
+      "background": "https://i.imgur.com/qvrKQY3.png",
+      "description": "Tivibu Spor HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "TivibuSpor1.tr",
+      "type": "tv",
+      "name": "Tivibu Spor 1 HD",
+      "poster": "https://i.imgur.com/qvrKQY3.png",
+      "background": "https://i.imgur.com/qvrKQY3.png",
+      "description": "Tivibu Spor 1 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "TivibuSpor2.tr",
+      "type": "tv",
+      "name": "Tivibu Spor 2 HD",
+      "poster": "https://i.imgur.com/fZMSjNE.png",
+      "background": "https://i.imgur.com/fZMSjNE.png",
+      "description": "Tivibu Spor 2 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "TivibuSpor3.tr",
+      "type": "tv",
+      "name": "Tivibu Spor 3 HD",
+      "poster": "https://i.imgur.com/xLrgt2O.png",
+      "background": "https://i.imgur.com/xLrgt2O.png",
+      "description": "Tivibu Spor 3 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "TivibuSpor4.tr",
+      "type": "tv",
+      "name": "Tivibu Spor 4 HD",
+      "poster": "https://i.imgur.com/LgGxe7z.png",
+      "background": "https://i.imgur.com/LgGxe7z.png",
+      "description": "Tivibu Spor 4 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "SmartSpor1.tr",
+      "type": "tv",
+      "name": "Smart Spor 1 HD",
+      "poster": "https://i.imgur.com/blu6v6P.png",
+      "background": "https://i.imgur.com/blu6v6P.png",
+      "description": "Smart Spor 1 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "SmartSpor2.tr",
+      "type": "tv",
+      "name": "Smart Spor 2 HD",
+      "poster": "https://i.imgur.com/qyUKCUa.png",
+      "background": "https://i.imgur.com/qyUKCUa.png",
+      "description": "Smart Spor 2 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "EuroSport1.tr",
+      "type": "tv",
+      "name": "Euro Sport 1 HD",
+      "poster": "https://i.imgur.com/olQJgm7.png",
+      "background": "https://i.imgur.com/olQJgm7.png",
+      "description": "Euro Sport 1 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "EuroSport2.tr",
+      "type": "tv",
+      "name": "Euro Sport 2 HD",
+      "poster": "https://i.imgur.com/f56dHgR.png",
+      "background": "https://i.imgur.com/f56dHgR.png",
+      "description": "Euro Sport 2 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "ExxenTV.tr",
+      "type": "tv",
+      "name": "Exxen TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
+      "description": "Exxen TV HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "ExxenSports1.tr",
+      "type": "tv",
+      "name": "Exxen Sports 1 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
+      "description": "Exxen Sports 1 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "ExxenSports2.tr",
+      "type": "tv",
+      "name": "Exxen Sports 2 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
+      "description": "Exxen Sports 2 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "ExxenSports3.tr",
+      "type": "tv",
+      "name": "Exxen Sports 3 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
+      "description": "Exxen Sports 3 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "ExxenSports4.tr",
+      "type": "tv",
+      "name": "Exxen Sports 4 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
+      "description": "Exxen Sports 4 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "ExxenSports5.tr",
+      "type": "tv",
+      "name": "Exxen Sports 5 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
+      "description": "Exxen Sports 5 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "ExxenSports6.tr",
+      "type": "tv",
+      "name": "Exxen Sports 6 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
+      "description": "Exxen Sports 6 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "ExxenSports7.tr",
+      "type": "tv",
+      "name": "Exxen Sports 7 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
+      "description": "Exxen Sports 7 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "ExxenSports8.tr",
+      "type": "tv",
+      "name": "Exxen Sports 8 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
+      "description": "Exxen Sports 8 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "TabiiSpor.tr",
+      "type": "tv",
+      "name": "Tabii Spor HD",
+      "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "background": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "description": "Tabii Spor HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "TabiiSpor1.tr",
+      "type": "tv",
+      "name": "Tabii Spor 1 HD",
+      "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "background": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "description": "Tabii Spor 1 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "TabiiSpor2.tr",
+      "type": "tv",
+      "name": "Tabii Spor 2 HD",
+      "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "background": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "description": "Tabii Spor 2 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "TabiiSpor3.tr",
+      "type": "tv",
+      "name": "Tabii Spor 3 HD",
+      "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "background": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "description": "Tabii Spor 3 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "TabiiSpor4.tr",
+      "type": "tv",
+      "name": "Tabii Spor 4 HD",
+      "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "background": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "description": "Tabii Spor 4 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "TabiiSpor5.tr",
+      "type": "tv",
+      "name": "Tabii Spor 5 HD",
+      "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "background": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "description": "Tabii Spor 5 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "TabiiSpor6.tr",
+      "type": "tv",
+      "name": "Tabii Spor 6 HD",
+      "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "background": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "description": "Tabii Spor 6 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "TabiiSpor7.tr",
+      "type": "tv",
+      "name": "Tabii Spor 7 HD",
+      "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "background": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "description": "Tabii Spor 7 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "TabiiSpor8.tr",
+      "type": "tv",
+      "name": "Tabii Spor 8 HD",
+      "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "background": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "description": "Tabii Spor 8 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "TJKTV.tr",
+      "type": "tv",
+      "name": "TJK TV HD",
+      "poster": "https://i.imgur.com/3zHdkYG.png",
+      "background": "https://i.imgur.com/3zHdkYG.png",
+      "description": "TJK TV HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "NBATV.tr",
+      "type": "tv",
+      "name": "NBA TV HD",
+      "poster": "https://i.imgur.com/QmSc6kh.png",
+      "background": "https://i.imgur.com/QmSc6kh.png",
+      "description": "NBA TV HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "FBTV.tr",
+      "type": "tv",
+      "name": "FB TV HD",
+      "poster": "https://i.imgur.com/qBVqtYd.png",
+      "background": "https://i.imgur.com/qBVqtYd.png",
+      "description": "FB TV HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "GSTV.tr",
+      "type": "tv",
+      "name": "GS TV HD",
+      "poster": "https://i.postimg.cc/d3k5nDBJ/galatasaray-sk.png",
+      "background": "https://i.postimg.cc/d3k5nDBJ/galatasaray-sk.png",
+      "description": "GS TV HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "SportsTV.tr",
+      "type": "tv",
+      "name": "Sports TV HD",
+      "poster": "https://i.imgur.com/tGTVcVe.jpg",
+      "background": "https://i.imgur.com/tGTVcVe.jpg",
+      "description": "Sports TV HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "CBCSport.tr",
+      "type": "tv",
+      "name": "CBC Sport HD",
+      "poster": "https://i.imgur.com/3mEdjuq.png",
+      "background": "https://i.imgur.com/3mEdjuq.png",
+      "description": "CBC Sport HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "IdmanTV.tr",
+      "type": "tv",
+      "name": "iDMAN Tv HD",
+      "poster": "https://i.imgur.com/fM9FOrZ.png",
+      "background": "https://i.imgur.com/fM9FOrZ.png",
+      "description": "iDMAN Tv HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    }
+  ]
+}

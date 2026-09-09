@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "dizibox:ep:las-azules-2-sezon-5-bolum-izle",
+    "type": "series",
+    "name": "Las Azules 2.Sezon 5.Bölüm",
+    "poster": "https://www.dizibox.live/wp-content/uploads/afisler/las-azules-220x140.jpg",
+    "background": "https://www.dizibox.live/wp-content/uploads/afisler/las-azules-220x140.jpg",
+    "description": "Las Azules 2.Sezon 5.Bölüm - DiziBox Güncel Bölüm",
+    "genres": [
+      "Yabancı Dizi",
+      "DiziBox"
+    ],
+    "videos": [
+      {
+        "id": "dizibox:ep:las-azules-2-sezon-5-bolum-izle",
+        "title": "Las Azules 2.Sezon 5.Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

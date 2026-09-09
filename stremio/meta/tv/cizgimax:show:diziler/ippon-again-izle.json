@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "cizgimax:show:diziler/ippon-again-izle",
+    "type": "series",
+    "name": "&quot;Ippon&quot; again!",
+    "poster": "https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128",
+    "background": "https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128",
+    "description": "&quot;Ippon&quot; again! - ÇizgiMax Arşivi",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:show:diziler/ippon-again-izle",
+        "title": "&quot;Ippon&quot; again!",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

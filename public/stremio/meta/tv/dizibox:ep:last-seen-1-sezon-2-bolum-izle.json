@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "dizibox:ep:last-seen-1-sezon-2-bolum-izle",
+    "type": "series",
+    "name": "Last Seen 1.Sezon 2.Bölüm",
+    "poster": "https://www.dizibox.live/wp-content/uploads/afisler/last-seen-220x140.jpg",
+    "background": "https://www.dizibox.live/wp-content/uploads/afisler/last-seen-220x140.jpg",
+    "description": "Last Seen 1.Sezon 2.Bölüm - DiziBox Güncel Bölüm",
+    "genres": [
+      "Yabancı Dizi",
+      "DiziBox"
+    ],
+    "videos": [
+      {
+        "id": "dizibox:ep:last-seen-1-sezon-2-bolum-izle",
+        "title": "Last Seen 1.Sezon 2.Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

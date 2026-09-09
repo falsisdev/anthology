@@ -1,0 +1,41 @@
+name: Update Stremio Catalogs
+
+on:
+  schedule:
+    # Every day at 04:00 UTC
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build static Stremio catalogs and metas
+        run: node scripts/build_stremio_catalogs.js
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add stremio/ public/stremio/
+          if git diff --staged --quiet; then
+            echo "No changes in catalogs."
+          else
+            git commit -m "chore(cron): auto-update static Stremio catalogs & metas"
+            git push
+          fi

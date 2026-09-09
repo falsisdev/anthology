@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "id": "sinewix:movie:2418",
+    "type": "movie",
+    "name": "Pokemon 3 Film",
+    "poster": "https://image.tmdb.org/t/p/w500/e1TbccHsmErNIdICx99aGG3WOSV.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/6X3qdsHcwu06GiiXwwNRWzfJ5oJ.jpg",
+    "description": "5 yaşındaki Molly'nin babası yaptığı çalışmalar sırasında ortadan kaybolur. Daha sonra evlerinde Unownlar ortaya çıkar. Unownlar ilk önce efsanevi pokemon Entei'yi yaratırlar. Molly, Entei'yi babası sanır. Çünkü babası, Molly'yle oynarken her zaman Entei'ymiş gibi yapardı. Ama hala ufak Molly üzgündür. Çünkü annesi yoktur. Bunun üzerine Entei, Ash'in annesi olan Delia Ketchum'ı kaçırır ve evlerine getirir. Ash ve arkadaşları Ash'in annesini kurtarmak için ellerinden geleni yapmak zorundadırlar...",
+    "genres": [
+      "SineWix",
+      "Film"
+    ]
+  }
+}

@@ -102,17 +102,22 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
       }
     }
 
-    const info = await resolveTmdbInfo(tmdbId, mediaType);
-    const queries = [info.title, info.origTitle].filter(Boolean);
-    if (!queries.length) return [];
-
     let matchedHref = null;
-    const targetTr = ultraClean(info.title);
-    const targetEn = ultraClean(info.origTitle);
 
-    for (const q of queries) {
-      const searchRes = await fetch(`${BASE_URL}/ara/?q=${encodeURIComponent(q)}`, { headers: HEADERS });
-      if (!searchRes.ok) continue;
+    if (typeof tmdbId === 'string' && tmdbId.startsWith('cizgimax:')) {
+      const slug = tmdbId.replace(/^cizgimax:(?:show:|ep:)?/, '');
+      matchedHref = `/${slug.replace(/^\//, '')}`;
+    } else {
+      const info = await resolveTmdbInfo(tmdbId, mediaType);
+      const queries = [info.title, info.origTitle].filter(Boolean);
+      if (!queries.length) return [];
+
+      const targetTr = ultraClean(info.title);
+      const targetEn = ultraClean(info.origTitle);
+
+      for (const q of queries) {
+        const searchRes = await fetch(`${BASE_URL}/ara/?q=${encodeURIComponent(q)}`, { headers: HEADERS });
+        if (!searchRes.ok) continue;
       const searchHtml = await searchRes.text();
 
       // Robust link parsing
@@ -146,6 +151,7 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
         break;
       }
     }
+  }
 
     if (!matchedHref) return [];
 

@@ -1,0 +1,158 @@
+{
+  "metas": [
+    {
+      "id": "TRTHaber.tr",
+      "type": "tv",
+      "name": "TRT Haber HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trthaber.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trthaber.png",
+      "description": "TRT Haber HD Canlı Haber Yayını",
+      "genres": [
+        "Haber"
+      ]
+    },
+    {
+      "id": "AHaber.tr",
+      "type": "tv",
+      "name": "A Haber HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ahaber.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ahaber.png",
+      "description": "A Haber HD Canlı Haber Yayını",
+      "genres": [
+        "Haber"
+      ]
+    },
+    {
+      "id": "NTV.tr",
+      "type": "tv",
+      "name": "NTV Haber HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ntv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ntv.png",
+      "description": "NTV Haber HD Canlı Haber Yayını",
+      "genres": [
+        "Haber"
+      ]
+    },
+    {
+      "id": "HaberTurk.tr",
+      "type": "tv",
+      "name": "Habertürk TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/haberturk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/haberturk.png",
+      "description": "Habertürk TV HD Canlı Haber Yayını",
+      "genres": [
+        "Haber"
+      ]
+    },
+    {
+      "id": "HalkTV.tr",
+      "type": "tv",
+      "name": "Halk TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/halktv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/halktv.png",
+      "description": "Halk TV HD Canlı Haber Yayını",
+      "genres": [
+        "Haber"
+      ]
+    },
+    {
+      "id": "Tele1.tr",
+      "type": "tv",
+      "name": "Tele 1 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tele1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tele1.png",
+      "description": "Tele 1 HD Canlı Haber Yayını",
+      "genres": [
+        "Haber"
+      ]
+    },
+    {
+      "id": "TGRTHaber.tr",
+      "type": "tv",
+      "name": "TGRT Haber HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tgrthaber.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tgrthaber.png",
+      "description": "TGRT Haber HD Canlı Haber Yayını",
+      "genres": [
+        "Haber"
+      ]
+    },
+    {
+      "id": "HaberGlobal.tr",
+      "type": "tv",
+      "name": "Haber Global HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/haberglobal.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/haberglobal.png",
+      "description": "Haber Global HD Canlı Haber Yayını",
+      "genres": [
+        "Haber"
+      ]
+    },
+    {
+      "id": "Kanal24.tr",
+      "type": "tv",
+      "name": "24 TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/24tv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/24tv.png",
+      "description": "24 TV HD Canlı Haber Yayını",
+      "genres": [
+        "Haber"
+      ]
+    },
+    {
+      "id": "BloombergHT.tr",
+      "type": "tv",
+      "name": "Bloomberg HT Ekonomi HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bloomberght.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bloomberght.png",
+      "description": "Bloomberg HT Ekonomi HD Canlı Haber Yayını",
+      "genres": [
+        "Haber"
+      ]
+    },
+    {
+      "id": "BenguTurk.tr",
+      "type": "tv",
+      "name": "Bengü Türk TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/benguturk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/benguturk.png",
+      "description": "Bengü Türk TV HD Canlı Haber Yayını",
+      "genres": [
+        "Haber"
+      ]
+    },
+    {
+      "id": "FlashHaber.tr",
+      "type": "tv",
+      "name": "Flash Haber TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/flashhaber.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/flashhaber.png",
+      "description": "Flash Haber TV HD Canlı Haber Yayını",
+      "genres": [
+        "Haber"
+      ]
+    },
+    {
+      "id": "LiderHaber.tr",
+      "type": "tv",
+      "name": "Lider Haber TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/liderhaber.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/liderhaber.png",
+      "description": "Lider Haber TV HD Canlı Haber Yayını",
+      "genres": [
+        "Haber"
+      ]
+    },
+    {
+      "id": "TurkHaber.tr",
+      "type": "tv",
+      "name": "Türk Haber TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/turkhaber.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/turkhaber.png",
+      "description": "Türk Haber TV HD Canlı Haber Yayını",
+      "genres": [
+        "Haber"
+      ]
+    }
+  ]
+}

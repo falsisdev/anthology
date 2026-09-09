@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "id": "sinewix:movie:2346",
+    "type": "movie",
+    "name": "One Piece Film 9",
+    "poster": "https://image.tmdb.org/t/p/w500/jpPCv8rO4DjeUkdh6CQGc7ws2pD.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/yJetT9PknmMbgwPdhrpxVU8tDKk.jpg",
+    "description": "One Piece serisinin 9. filmidir. Serideki Drum Island hikâyesinin olduğu bölümlerin özetidir.\n\nDiğer filmlere ulaşmak için OnePiece (boşluk olmadan) film numarasını yazarak filmlerine ulaşabilirsiniz.\n\nÖrnek OnePiece Film 3\n\nChopper’ın hikayesi, bu filmde yeniden anlatılıyor, ancak bazı değişikliklerle. Hikaye kışın geçiyor ve duygusal anlar barındırıyor.\n\nChopper’ın geçmişi ve doktorluk arayışı filme derinlik katıyor. Kış manzarası, animeye görsel bir güzellik katıyor.\n\n325. bölüm sonrasında izlenebilir. Chopper hayranları için oldukça dokunaklı bir yapım.",
+    "genres": [
+      "SineWix",
+      "Film"
+    ]
+  }
+}

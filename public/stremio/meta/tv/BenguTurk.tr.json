@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "id": "BenguTurk.tr",
+    "type": "tv",
+    "name": "Bengü Türk TV HD",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/benguturk.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/benguturk.png",
+    "description": "Bengü Türk TV HD Canlı Haber Yayını",
+    "genres": [
+      "Haber"
+    ],
+    "videos": [
+      {
+        "id": "BenguTurk.tr",
+        "title": "Bengü Türk TV HD",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:youjo-senki-ii",
+    "type": "series",
+    "name": "Youjo Senki II",
+    "poster": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+    "background": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+    "description": "Youjo Senki II - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:anime:youjo-senki-ii",
+        "title": "Youjo Senki II",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

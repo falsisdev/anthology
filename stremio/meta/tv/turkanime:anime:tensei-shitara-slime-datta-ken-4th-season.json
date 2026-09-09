@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:tensei-shitara-slime-datta-ken-4th-season",
+    "type": "series",
+    "name": "Tensei shitara Slime Datta Ken 4th Season",
+    "poster": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+    "background": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+    "description": "Tensei shitara Slime Datta Ken 4th Season - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:anime:tensei-shitara-slime-datta-ken-4th-season",
+        "title": "Tensei shitara Slime Datta Ken 4th Season",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

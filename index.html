@@ -83,11 +83,14 @@
 
     /* INSTALL */
     #install{background:var(--surface)}
-    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
-    .step-card{background:rgba(255,255,255,0.025);border:1px solid var(--border);border-radius:var(--radius);padding:22px;position:relative}
-    .step-num{width:32px;height:32px;background:var(--accent-dim);border:1px solid rgba(0,230,118,0.25);color:var(--accent);font-size:14px;font-weight:900;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
-    .step-card h3{font-size:14px;font-weight:700;margin-bottom:5px}
-    .step-card p{font-size:12.5px;color:var(--text-muted);line-height:1.5}
+    .install-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:20px}
+    .install-card{background:rgba(255,255,255,0.025);border:1px solid var(--border);border-radius:var(--radius);padding:22px;position:relative;display:flex;flex-direction:column;justify-content:space-between}
+    .install-card:hover{border-color:var(--border-hover)}
+    .install-badge{display:inline-block;font-size:10px;font-weight:800;color:var(--accent);background:var(--accent-dim);border:1px solid rgba(0,230,118,0.25);padding:3px 8px;border-radius:6px;margin-bottom:12px;width:fit-content;letter-spacing:.5px}
+    .install-badge-stremio{color:var(--blue);background:var(--blue-dim);border-color:rgba(41,121,255,0.25)}
+    .install-card h3{font-size:15px;font-weight:700;margin-bottom:6px}
+    .install-card-desc{font-size:12.5px;color:var(--text-muted);line-height:1.5;margin-bottom:14px}
+    .install-step-route{background:rgba(0,0,0,0.35);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:11.5px;color:var(--text-dim);margin-bottom:12px}
     code{font-family:ui-monospace,monospace;background:rgba(255,255,255,0.08);padding:2px 6px;border-radius:5px;font-size:11px;color:var(--blue)}
     .notice-box{background:rgba(0,230,118,0.04);border:1px solid rgba(0,230,118,0.2);border-radius:var(--radius);padding:18px 20px;margin-top:20px;display:flex;gap:14px;align-items:flex-start}
     .notice-icon{font-size:22px;line-height:1;margin-top:2px}
@@ -200,31 +203,48 @@
 <section id="install">
   <div class="container">
     <div class="section-eyebrow">Nasıl Kullanılır</div>
-    <h2 class="section-title">Hızlı Kurulum</h2>
-    <p class="section-desc">Yalnızca üç adımda tüm arşivi ve canlı TV kanallarını Nuvio'ya ekleyin.</p>
-    <div class="steps">
-      <div class="step-card">
-        <div class="step-num">1</div>
-        <h3>Plugin Menüsüne Girin</h3>
-        <p>Nuvio uygulamasında <code>Ayarlar</code> &rarr; <code>Genel</code> &rarr; <code>İçerik &amp; Keşif</code> &rarr; <code>Pluginler</code> &rarr; <code>Depo Ekle</code> bölümüne gidin.</p>
+    <h2 class="section-title">Kurulum Rehberi (Çift Katmanlı Kusursuz Deneyim)</h2>
+    <p class="section-desc">Yerli dizileri, çizgi filmleri ve TV kanallarını hem ana sayfada vitrin olarak görmek hem de en yüksek kalitede izlemek için aşağıdaki iki adımı tamamlayın.</p>
+    
+    <div class="install-grid">
+      <!-- 1. Adım: Pluginler -->
+      <div class="install-card">
+        <div>
+          <div class="install-badge">1. ADIM · ZORUNLU</div>
+          <h3>Video Oynatıcı Motoru (Pluginler)</h3>
+          <p class="install-card-desc">Bir film veya dizi açtığınızda arka planda çalışan 31 Türkçe/yabancı video scraper'ını Nuvio oynatıcısına yükler.</p>
+          <div class="install-step-route">
+            <code>Nuvio</code> &rarr; <code>Ayarlar</code> &rarr; <code>Genel</code> &rarr; <code>İçerik &amp; Keşif</code> &rarr; <code>Pluginler</code> &rarr; <code>Depo Ekle</code>
+          </div>
+        </div>
+        <div class="manifest-bar" style="margin-top:14px;max-width:100%">
+          <span class="manifest-url" style="font-size:11px;">https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json</span>
+          <button class="copy-btn" onclick="copyText('https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json', '📋 Plugin Depo URL kopyalandı!')">Kopyala</button>
+        </div>
       </div>
-      <div class="step-card">
-        <div class="step-num">2</div>
-        <h3>Bağlantıyı Yapıştırın</h3>
-        <p>Yukarıdaki manifest URL bağlantısını yapıştırın ve <code>Ekle</code> butonuna dokunun.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">3</div>
-        <h3>Hazır!</h3>
-        <p>Tüm 31 eklenti anında aktifleşir. Film veya dizi arattığınızda en kaliteli Türkçe yayınlar otomatik listelenir.</p>
+
+      <!-- 2. Adım: Eklentiler -->
+      <div class="install-card">
+        <div>
+          <div class="install-badge install-badge-stremio">2. ADIM · ÖNERİLEN</div>
+          <h3>Ana Sayfa Vitrin Katalogları (Eklentiler)</h3>
+          <p class="install-card-desc">DDizi, DiziBox, ÇizgiMax, TurkAnime ve 80+ Canlı TV kanalını Nuvio'nun ana sayfasında taranabilir vitrin olarak gösterir.</p>
+          <div class="install-step-route">
+            <code>Nuvio</code> &rarr; <code>Ayarlar</code> &rarr; <code>Genel</code> &rarr; <code>İçerik &amp; Keşif</code> &rarr; <code>Eklentiler</code> &rarr; <code>Depo Ekle</code>
+          </div>
+        </div>
+        <div class="manifest-bar" style="margin-top:14px;max-width:100%">
+          <span class="manifest-url" style="font-size:11px;">https://falsisdev.github.io/anthology/stremio/manifest.json</span>
+          <button class="copy-btn" onclick="copyText('https://falsisdev.github.io/anthology/stremio/manifest.json', '📚 Katalog Addon URL kopyalandı!')">Kopyala</button>
+        </div>
       </div>
     </div>
+
     <div class="notice-box">
       <div class="notice-icon">💡</div>
       <div class="notice-content">
-        <strong>Nuvio'da "Pluginler" ve "Eklentiler" Farkı:</strong><br>
-        • <strong>Pluginler (Bu Depo):</strong> Nuvio istemcisinde çalışan doğrudan oynatma kaynaklarıdır (scrapers). Arama yaptığınızda veya bir içeriğe tıkladığınızda 31 farklı platformdan en kaliteli doğrudan akışları (1080p HLS / MP4) sunar.<br>
-        • <strong>Eklentiler (Stremio Addons):</strong> Stremio protokolüyle çalışan harici sunuculu eklentilerdir. Nuvio ana sayfasındaki vitrin keşif şeritleri bu sekmeden beslenir. Ana sayfada vitrin listelemek için TMDB gibi ücretsiz bir katalog eklentisini <em>Eklentiler</em>'e ekleyebilir, izleme kaynağı olarak ise Anthology'nin sunucusuz ve sınırsız 31 scraper'ını kullanabilirsiniz.
+        <strong>Nasıl Birlikte Çalışırlar?</strong><br>
+        2. Adımı eklediğinizde Nuvio ana sayfanızda <strong>DDizi</strong>, <strong>DiziBox</strong>, <strong>ÇizgiMax</strong>, <strong>Anime</strong> ve <strong>Canlı TV</strong> vitrinleri görünür. Bir bölüme tıkladığınızda ise 1. Adımda eklediğiniz 31 Anthology oynatıcı plugin'i devreye girer ve 1080p doğrudan akışı (<code>.m3u8</code> / <code>.mp4</code>) başlatır. Tüm sistem GitHub Pages üzerinden sıfır maliyetle ve tamamen ücretsiz çalışır!
       </div>
     </div>
   </div>
@@ -372,6 +392,12 @@ function copyManifest(){
   if(navigator.clipboard?.writeText){navigator.clipboard.writeText(MANIFEST_URL).then(done).catch(()=>fallbackCopy(done))}else{fallbackCopy(done)}
 }
 function fallbackCopy(cb){const ta=document.createElement("textarea");ta.value=MANIFEST_URL;ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();document.execCommand("copy");document.body.removeChild(ta);if(cb)cb()}
+
+function copyText(text, msg){
+  const done=()=>showToast(msg||"📋 Kopyalandı!");
+  if(navigator.clipboard?.writeText){navigator.clipboard.writeText(text).then(done).catch(()=>fallbackCopyText(text,done))}else{fallbackCopyText(text,done)}
+}
+function fallbackCopyText(text,cb){const ta=document.createElement("textarea");ta.value=text;ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();document.execCommand("copy");document.body.removeChild(ta);if(cb)cb()}
 </script>
 </body>
 </html>

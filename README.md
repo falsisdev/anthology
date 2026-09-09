@@ -20,23 +20,40 @@
 
 ---
 
-## 📲 Kurulum
+## 📲 Kurulum Rehberi (Çift Katmanlı Kusursuz Deneyim)
 
-1. **Nuvio** uygulamasını açın.
-2. **Ayarlar** → **Genel** → **İçerik & Keşif** → **Pluginler** → **Depo Ekle** bölümüne girin.
+Nuvio'da yerli dizileri, animeleri, çizgi dizileri ve canlı TV kanallarını hem **ana sayfada vitrin (katalog) olarak görmek** hem de tıkladığınızda **en yüksek kalitede doğrudan oynatmak** için iki adımlı kurulumu tamamlayın:
 
-> [!IMPORTANT]
-> **Nuvio'da "Pluginler" ve "Eklentiler" Farkı:**
-> - **Pluginler (Bu Depo - Anthology):** `Ayarlar` → `Genel` → `İçerik & Keşif` → **`Pluginler`** bölümüne eklenir. Nuvio'nun yerel istemci (client-side) JavaScript scraper motorudur; GitHub üzerinde barınır ve sıfır sunucu maliyeti gerektirir. Arama yaptığınızda veya bir içeriğe tıkladığınızda 31 aktif sağlayıcıdan en kaliteli doğrudan akışları (`.m3u8`, `.mp4`) getirir.
-> - **Eklentiler (Stremio Addons):** `Ayarlar` → `Genel` → `İçerik & Keşif` → **`Eklentiler`** bölümüne eklenir. Stremio protokolünü kullanan harici HTTP sunucularıdır. Nuvio ana sayfasındaki vitrin katalogları (Popüler Filmler, Trend Diziler vb.) yalnızca bu Stremio eklentilerinden çekilir. Ana sayfada katalog gezinmek için TMDB veya Cyberflix gibi ücretsiz Stremio eklentilerini `Eklentiler`e ekleyebilir; oynatma kaynağı olarak ise Anthology'nin 31 scraper'ını kullanabilirsiniz!
+---
 
-3. **Depo Ekle** seçeneğine dokunup aşağıdaki bağlantıyı yapıştırın:
+### 1️⃣ Adım: Video Oynatma Motorunu Ekleyin (Pluginler)
+Bu adım, bir içerik açtığınızda arka planda çalışan 31 Türkçe/yabancı video scraper'ını Nuvio oynatıcısına yükler.
+
+1. **Nuvio** uygulamasında **Ayarlar** → **Genel** → **İçerik & Keşif** → **Pluginler** → **Depo Ekle** bölümüne gidin.
+2. Aşağıdaki bağlantıyı yapıştırıp **Ekle** butonuna basın:
 
 ```text
 https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json
 ```
 
-4. **Ekle** butonuna basın — 31 eklentinin tümü anında aktif hale gelecektir.
+---
+
+### 2️⃣ Adım: Ana Sayfa Keşif Kataloglarını Ekleyin (Eklentiler)
+Bu adım, TMDB'de bulunmayan yerli nostalji dizileri (DDizi), güncel yabancı dizileri (DiziBox), nostaljik çizgi dizileri (ÇizgiMax) ve 80+ Canlı TV/Spor kanalını **Nuvio'nun ana sayfa vitrinine** taşır.
+
+1. **Nuvio** uygulamasında **Ayarlar** → **Genel** → **İçerik & Keşif** → **Eklentiler** → **Depo Ekle** bölümüne gidin.
+2. Aşağıdaki statik katalog bağlantısını yapıştırıp **Ekle** butonuna basın:
+
+```text
+https://falsisdev.github.io/anthology/stremio/manifest.json
+```
+*(Alternatif GitHub Raw bağlantısı: `https://raw.githubusercontent.com/falsisdev/anthology/main/stremio/manifest.json`)*
+
+---
+
+> [!TIP]
+> **Nasıl Birlikte Çalışırlar?**
+> Nuvio ana sayfasında 2. Adımda eklediğiniz **DDizi**, **DiziBox**, **ÇizgiMax** veya **Canlı TV** vitrinlerini gezebilir, dilediğiniz diziye/bölüme tıklayabilirsiniz. Tıkladığınız anda 1. Adımda kurduğunuz Anthology eklenti motoru devreye girer ve 1080p doğrudan akışı (`.m3u8` / `.mp4`) başlatır. Tamamen sunucusuzdur ve GitHub üzerinden ömür boyu ücretsiz çalışır!
 
 ---
 

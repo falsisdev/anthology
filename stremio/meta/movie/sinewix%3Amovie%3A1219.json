@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "id": "sinewix:movie:1219",
+    "type": "movie",
+    "name": "Bir Bob's Burgers Filmi",
+    "poster": "https://image.tmdb.org/t/p/w500/2MUsZIkNwPbr2pMcat5JHJiUeZA.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/rQccrEIXtZr7KZHwcy9a3QFHGdQ.jpg",
+    "description": "Hikâye, patlayan bir su borusunun Bob’s Burgers’ın hemen önünde devasa bir çukur oluşturmasından sonra girişi kapaması ve Belcher’ların başarılı bir yaz için yaptıkları tüm planların mahvolması ile başlıyor. Bob ve Linda işi ayakta tutmak için mücadele ederken, çocuklar da ailelerinin restoranını kurtarabilecek bir gizemi çözmeye çalışırlar. Tehlikeler birer birer arttıkça, bu mazlumlar birbirlerine umut bulmalarında yardımcı olur ve ait oldukları yere, tezgahın arkasına geri dönmek için savaşırlar.",
+    "genres": [
+      "SineWix",
+      "Film"
+    ]
+  }
+}

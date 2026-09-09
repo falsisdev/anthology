@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "sinewix:series:1086",
+    "type": "series",
+    "name": "The White Olive Tree",
+    "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/sLJ7z9IT0nLXJbuszYbZ4uy8AOO.jpg",
+    "background": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/sLJ7z9IT0nLXJbuszYbZ4uy8AOO.jpg",
+    "description": "The White Olive Tree - Anthology",
+    "genres": [
+      "SineWix",
+      "Popüler Dizi"
+    ],
+    "videos": [
+      {
+        "id": "sinewix:series:1086",
+        "title": "The White Olive Tree",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "id": "ExxenSports2.tr",
+    "type": "tv",
+    "name": "Exxen Sports 2 HD",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxen.png",
+    "description": "Exxen Sports 2 HD Canlı Spor Yayını",
+    "genres": [
+      "Spor"
+    ],
+    "videos": [
+      {
+        "id": "ExxenSports2.tr",
+        "title": "Exxen Sports 2 HD",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

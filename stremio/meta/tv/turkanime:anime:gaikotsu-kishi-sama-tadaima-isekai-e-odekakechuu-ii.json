@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:gaikotsu-kishi-sama-tadaima-isekai-e-odekakechuu-ii",
+    "type": "series",
+    "name": "Gaikotsu Kishi-sama, Tadaima Isekai e Odekakechuu II",
+    "poster": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+    "background": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+    "description": "Gaikotsu Kishi-sama, Tadaima Isekai e Odekakechuu II - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:anime:gaikotsu-kishi-sama-tadaima-isekai-e-odekakechuu-ii",
+        "title": "Gaikotsu Kishi-sama, Tadaima Isekai e Odekakechuu II",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

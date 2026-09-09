@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:mushoku-tensei-iii-isekai-ittara-honki-dasu",
+    "type": "series",
+    "name": "Mushoku Tensei III: Isekai Ittara Honki Dasu",
+    "poster": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+    "background": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+    "description": "Mushoku Tensei III: Isekai Ittara Honki Dasu - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:anime:mushoku-tensei-iii-isekai-ittara-honki-dasu",
+        "title": "Mushoku Tensei III: Isekai Ittara Honki Dasu",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

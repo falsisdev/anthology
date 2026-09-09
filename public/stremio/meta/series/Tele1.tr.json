@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "id": "Tele1.tr",
+    "type": "tv",
+    "name": "Tele 1 HD",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tele1.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tele1.png",
+    "description": "Tele 1 HD Canlı Haber Yayını",
+    "genres": [
+      "Haber"
+    ],
+    "videos": [
+      {
+        "id": "Tele1.tr",
+        "title": "Tele 1 HD",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

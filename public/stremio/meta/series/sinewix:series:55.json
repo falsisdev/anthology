@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "sinewix:series:55",
+    "type": "series",
+    "name": "Hawkeye",
+    "poster": "https://image.tmdb.org/t/p/w500/5BxY6UN0e7wAE5LUQVVj39JAItM.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/5BxY6UN0e7wAE5LUQVVj39JAItM.jpg",
+    "description": "Hawkeye - Anthology",
+    "genres": [
+      "SineWix",
+      "Popüler Dizi"
+    ],
+    "videos": [
+      {
+        "id": "sinewix:series:55",
+        "title": "Hawkeye",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}
