@@ -3,8 +3,8 @@
     "id": "turkanime:anime:yani-neko",
     "type": "series",
     "name": "Yani Neko",
-    "poster": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
-    "background": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/6775.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/6775.jpg",
     "description": "Yani Neko - TurkAnime TV",
     "genres": [
       "Anime",
@@ -12,10 +12,52 @@
     ],
     "videos": [
       {
-        "id": "turkanime:anime:yani-neko",
-        "title": "Yani Neko",
+        "id": "turkanime:ep:yani-neko-1-bolum",
+        "title": "1. Bölüm",
         "season": 1,
         "episode": 1
+      },
+      {
+        "id": "turkanime:ep:yani-neko-2-bolum",
+        "title": "2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "turkanime:ep:yani-neko-3-bolum",
+        "title": "3. Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "turkanime:ep:yani-neko-4-bolum",
+        "title": "4. Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "turkanime:ep:yani-neko-5-bolum",
+        "title": "5. Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "turkanime:ep:yani-neko-6-bolum",
+        "title": "6. Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "turkanime:ep:yani-neko-7-bolum",
+        "title": "7. Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "turkanime:ep:yani-neko-8-bolum",
+        "title": "8. Bölüm",
+        "season": 1,
+        "episode": 8
       }
     ]
   }

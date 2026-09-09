@@ -3,19 +3,37 @@
     "id": "cizgimax:show:diziler/eightman-after-izle",
     "type": "series",
     "name": "8 Man After",
-    "poster": "https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128",
-    "background": "https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128",
-    "description": "8 Man After - ÇizgiMax Arşivi",
+    "poster": "https://cdn.myanimelist.net/images/anime/1150/92809l.jpg",
+    "background": "https://cdn.myanimelist.net/images/anime/1150/92809l.jpg",
+    "description": "8 Man After - ÇizgiMax",
     "genres": [
       "Çizgi Dizi",
       "ÇizgiMax"
     ],
     "videos": [
       {
-        "id": "cizgimax:show:diziler/eightman-after-izle",
-        "title": "8 Man After",
+        "id": "cizgimax:ep:episode-36094-s1e1",
+        "title": "1. Sezon 1. Bölüm",
         "season": 1,
         "episode": 1
+      },
+      {
+        "id": "cizgimax:ep:episode-36094-s1e2",
+        "title": "1. Sezon 2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "cizgimax:ep:episode-36094-s1e3",
+        "title": "1. Sezon 3. Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "cizgimax:ep:episode-36094-s1e4",
+        "title": "1. Sezon 4. Bölüm",
+        "season": 1,
+        "episode": 4
       }
     ]
   }

@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "id": "ddizi:show:1814/the-100",
+    "type": "series",
+    "name": "The 100",
+    "poster": "https://www.ddizi.im/diziresimleri/the100-min.jpg",
+    "background": "https://www.ddizi.im/diziresimleri/the100-min.jpg",
+    "description": "The 100 izle Tüm Bölümler - DDizi Dizi Arşivi",
+    "genres": [
+      "Yerli Dizi",
+      "DDizi"
+    ],
+    "videos": [
+      {
+        "id": "ddizi:ep:71969/the-100-6-sezon-13-bolum-sezon-finali-izle.htm",
+        "title": "The 100 6.Sezon 13.Bölüm Sezon Finali",
+        "season": 1,
+        "episode": 13
+      },
+      {
+        "id": "ddizi:ep:71970/the-100-7-sezon-1-bolum-izle.htm",
+        "title": "The 100 7.Sezon 1.Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "ddizi:ep:71971/the-100-7-sezon-2-bolum-izle.htm",
+        "title": "The 100 7.Sezon 2.Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "ddizi:ep:72091/the-100-7-sezon-3-bolum-izle.htm",
+        "title": "The 100 7.Sezon 3.Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "ddizi:ep:72138/the-100-7-sezon-4-bolum-izle.htm",
+        "title": "The 100 7.Sezon 4.Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "ddizi:ep:72174/the-100-7-sezon-5-bolum-izle.htm",
+        "title": "The 100 7.Sezon 5.Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "ddizi:ep:72206/the-100-7-sezon-6-bolum-izle.htm",
+        "title": "The 100 7.Sezon 6.Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "ddizi:ep:72250/the-100-7-sezon-7-bolum-izle.htm",
+        "title": "The 100 7.Sezon 7.Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "ddizi:ep:72307/the-100-7-sezon-8-bolum-izle.htm",
+        "title": "The 100 7.Sezon 8.Bölüm",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "ddizi:ep:72341/the-100-7-sezon-9-bolum-izle.htm",
+        "title": "The 100 7.Sezon 9.Bölüm",
+        "season": 1,
+        "episode": 9
+      }
+    ]
+  }
+}

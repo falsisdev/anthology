@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "id": "tv:beINSportsMax1.tr",
+    "type": "tv",
+    "name": "BeIN Sports Max 1 HD",
+    "poster": "https://i.imgur.com/FjWQjdy.png",
+    "background": "https://i.imgur.com/FjWQjdy.png",
+    "description": "BeIN Sports Max 1 HD Canlı Spor Yayını",
+    "genres": [
+      "Spor"
+    ],
+    "videos": [
+      {
+        "id": "tv:beINSportsMax1.tr",
+        "title": "BeIN Sports Max 1 HD",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

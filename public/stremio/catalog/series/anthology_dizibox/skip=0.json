@@ -1,360 +1,324 @@
 {
   "metas": [
     {
-      "id": "dizibox:ep:las-azules-2-sezon-5-bolum-izle",
+      "id": "dizibox:show:ted-lasso",
       "type": "series",
-      "name": "Las Azules 2.Sezon 5.Bölüm",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/las-azules-220x140.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/las-azules-220x140.jpg",
-      "description": "Las Azules 2.Sezon 5.Bölüm - DiziBox Güncel Bölüm",
+      "name": "TED LASSO",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/ted-lasso-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/ted-lasso-200x290.jpg",
+      "description": "TED LASSO - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:ep:ted-lasso-4-sezon-6-bolum-izle",
+      "id": "dizibox:show:the-ghost-in-the-shell",
       "type": "series",
-      "name": "Ted Lasso 4.Sezon 6.Bölüm",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/ted-lasso-220x140.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/ted-lasso-220x140.jpg",
-      "description": "Ted Lasso 4.Sezon 6.Bölüm - DiziBox Güncel Bölüm",
+      "name": "THE GHOST IN THE SHELL",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-ghost-in-the-shell-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-ghost-in-the-shell-200x290.jpg",
+      "description": "THE GHOST IN THE SHELL - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:ep:last-seen-1-sezon-2-bolum-izle",
+      "id": "dizibox:show:fauda",
       "type": "series",
-      "name": "Last Seen 1.Sezon 2.Bölüm",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/last-seen-220x140.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/last-seen-220x140.jpg",
-      "description": "Last Seen 1.Sezon 2.Bölüm - DiziBox Güncel Bölüm",
+      "name": "FAUDA",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/fauda-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/fauda-200x290.jpg",
+      "description": "FAUDA - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:ep:last-seen-1-sezon-1-bolum-izle",
+      "id": "dizibox:show:lanterns",
       "type": "series",
-      "name": "Last Seen 1.Sezon 1.Bölüm",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/last-seen-220x140.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/last-seen-220x140.jpg",
-      "description": "Last Seen 1.Sezon 1.Bölüm - DiziBox Güncel Bölüm",
+      "name": "LANTERNS",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/lanterns-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/lanterns-200x290.jpg",
+      "description": "LANTERNS - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:ep:blue-murder-motel-1-sezon-8-bolum-sezon-finali-izle",
+      "id": "dizibox:show:silo",
       "type": "series",
-      "name": "Blue Murder Motel 1.Sezon 8.Bölüm Sezon Finali",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/blue-murder-motel-220x140.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/blue-murder-motel-220x140.jpg",
-      "description": "Blue Murder Motel 1.Sezon 8.Bölüm Sezon Finali - DiziBox Güncel Bölüm",
+      "name": "SILO",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/silo-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/silo-200x290.jpg",
+      "description": "SILO - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:ep:blue-murder-motel-1-sezon-7-bolum-izle",
+      "id": "dizibox:show:dark-matter-2024",
       "type": "series",
-      "name": "Blue Murder Motel 1.Sezon 7.Bölüm",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/blue-murder-motel-220x140.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/blue-murder-motel-220x140.jpg",
-      "description": "Blue Murder Motel 1.Sezon 7.Bölüm - DiziBox Güncel Bölüm",
+      "name": "DARK MATTER (2024)",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/dark-matter-2024-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/dark-matter-2024-200x290.jpg",
+      "description": "DARK MATTER (2024) - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:ep:blue-murder-motel-1-sezon-6-bolum-izle",
+      "id": "dizibox:show:star-trek-strange-new-worlds",
       "type": "series",
-      "name": "Blue Murder Motel 1.Sezon 6.Bölüm",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/blue-murder-motel-220x140.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/blue-murder-motel-220x140.jpg",
-      "description": "Blue Murder Motel 1.Sezon 6.Bölüm - DiziBox Güncel Bölüm",
+      "name": "STAR TREK: STRANGE NEW WORLDS",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/star-trek-strange-new-worlds-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/star-trek-strange-new-worlds-200x290.jpg",
+      "description": "STAR TREK: STRANGE NEW WORLDS - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:ep:blue-murder-motel-1-sezon-5-bolum-izle",
+      "id": "dizibox:show:the-gentlemen",
       "type": "series",
-      "name": "Blue Murder Motel 1.Sezon 5.Bölüm",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/blue-murder-motel-220x140.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/blue-murder-motel-220x140.jpg",
-      "description": "Blue Murder Motel 1.Sezon 5.Bölüm - DiziBox Güncel Bölüm",
+      "name": "THE GENTLEMEN",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-gentlemen-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-gentlemen-200x290.jpg",
+      "description": "THE GENTLEMEN - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:ep:blue-murder-motel-1-sezon-4-bolum-izle",
+      "id": "dizibox:show:las-azules",
       "type": "series",
-      "name": "Blue Murder Motel 1.Sezon 4.Bölüm",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/blue-murder-motel-220x140.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/blue-murder-motel-220x140.jpg",
-      "description": "Blue Murder Motel 1.Sezon 4.Bölüm - DiziBox Güncel Bölüm",
+      "name": "LAS AZULES",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/las-azules-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/las-azules-200x290.jpg",
+      "description": "LAS AZULES - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:ep:blue-murder-motel-1-sezon-3-bolum-izle",
+      "id": "dizibox:show:last-seen",
       "type": "series",
-      "name": "Blue Murder Motel 1.Sezon 3.Bölüm",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/blue-murder-motel-220x140.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/blue-murder-motel-220x140.jpg",
-      "description": "Blue Murder Motel 1.Sezon 3.Bölüm - DiziBox Güncel Bölüm",
+      "name": "LAST SEEN",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/last-seen-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/last-seen-200x290.jpg",
+      "description": "LAST SEEN - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:ep:blue-murder-motel-1-sezon-2-bolum-izle",
+      "id": "dizibox:show:blue-murder-motel",
       "type": "series",
-      "name": "Blue Murder Motel 1.Sezon 2.Bölüm",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/blue-murder-motel-220x140.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/blue-murder-motel-220x140.jpg",
-      "description": "Blue Murder Motel 1.Sezon 2.Bölüm - DiziBox Güncel Bölüm",
+      "name": "BLUE MURDER MOTEL",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/blue-murder-motel-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/blue-murder-motel-200x290.jpg",
+      "description": "BLUE MURDER MOTEL - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:ep:blue-murder-motel-1-sezon-1-bolum-izle",
+      "id": "dizibox:show:elixer",
       "type": "series",
-      "name": "Blue Murder Motel 1.Sezon 1.Bölüm",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/blue-murder-motel-220x140.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/blue-murder-motel-220x140.jpg",
-      "description": "Blue Murder Motel 1.Sezon 1.Bölüm - DiziBox Güncel Bölüm",
+      "name": "ELIXER",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/elixer-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/elixer-200x290.jpg",
+      "description": "ELIXER - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:ep:elixer-1-sezon-8-bolum-sezon-finali-izle",
+      "id": "dizibox:show:its-always-sunny-in-philadelphia",
       "type": "series",
-      "name": "Elixer 1.Sezon 8.Bölüm Sezon Finali",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/elixer-220x140.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/elixer-220x140.jpg",
-      "description": "Elixer 1.Sezon 8.Bölüm Sezon Finali - DiziBox Güncel Bölüm",
+      "name": "IT’S ALWAYS SUNNY IN PHILADELPHIA",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/its-always-sunny-in-philadelphia-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/its-always-sunny-in-philadelphia-200x290.jpg",
+      "description": "IT’S ALWAYS SUNNY IN PHILADELPHIA - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:ep:elixer-1-sezon-7-bolum-izle",
+      "id": "dizibox:show:all-american",
       "type": "series",
-      "name": "Elixer 1.Sezon 7.Bölüm",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/elixer-220x140.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/elixer-220x140.jpg",
-      "description": "Elixer 1.Sezon 7.Bölüm - DiziBox Güncel Bölüm",
+      "name": "ALL AMERICAN",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/all-american-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/all-american-200x290.jpg",
+      "description": "ALL AMERICAN - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:ep:elixer-1-sezon-6-bolum-izle",
+      "id": "dizibox:show:badly-in-love",
       "type": "series",
-      "name": "Elixer 1.Sezon 6.Bölüm",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/elixer-220x140.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/elixer-220x140.jpg",
-      "description": "Elixer 1.Sezon 6.Bölüm - DiziBox Güncel Bölüm",
+      "name": "BADLY IN LOVE",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/badly-in-love-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/badly-in-love-200x290.jpg",
+      "description": "BADLY IN LOVE - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:ep:elixer-1-sezon-5-bolum-izle",
+      "id": "dizibox:show:dang",
       "type": "series",
-      "name": "Elixer 1.Sezon 5.Bölüm",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/elixer-220x140.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/elixer-220x140.jpg",
-      "description": "Elixer 1.Sezon 5.Bölüm - DiziBox Güncel Bölüm",
+      "name": "DANG!",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/dang-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/dang-200x290.jpg",
+      "description": "DANG! - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:ep:elixer-1-sezon-4-bolum-izle",
+      "id": "dizibox:show:marble-hall-murders",
       "type": "series",
-      "name": "Elixer 1.Sezon 4.Bölüm",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/elixer-220x140.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/elixer-220x140.jpg",
-      "description": "Elixer 1.Sezon 4.Bölüm - DiziBox Güncel Bölüm",
+      "name": "MARBLE HALL MURDERS",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/marble-hall-murders-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/marble-hall-murders-200x290.jpg",
+      "description": "MARBLE HALL MURDERS - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:ep:elixer-1-sezon-3-bolum-izle",
+      "id": "dizibox:show:futurama",
       "type": "series",
-      "name": "Elixer 1.Sezon 3.Bölüm",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/elixer-220x140.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/elixer-220x140.jpg",
-      "description": "Elixer 1.Sezon 3.Bölüm - DiziBox Güncel Bölüm",
+      "name": "FUTURAMA",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/futurama-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/futurama-200x290.jpg",
+      "description": "FUTURAMA - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:ep:elixer-1-sezon-2-bolum-izle",
+      "id": "dizibox:show:president-curtis",
       "type": "series",
-      "name": "Elixer 1.Sezon 2.Bölüm",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/elixer-220x140.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/elixer-220x140.jpg",
-      "description": "Elixer 1.Sezon 2.Bölüm - DiziBox Güncel Bölüm",
+      "name": "PRESIDENT CURTIS",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/president-curtis-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/president-curtis-200x290.jpg",
+      "description": "PRESIDENT CURTIS - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:ep:elixer-1-sezon-1-bolum-izle",
+      "id": "dizibox:show:vigil",
       "type": "series",
-      "name": "Elixer 1.Sezon 1.Bölüm",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/elixer-220x140.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/elixer-220x140.jpg",
-      "description": "Elixer 1.Sezon 1.Bölüm - DiziBox Güncel Bölüm",
+      "name": "VIGIL",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/vigil-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/vigil-200x290.jpg",
+      "description": "VIGIL - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:ep:the-ghost-in-the-shell-1-sezon-10-bolum-izle",
+      "id": "dizibox:show:sparks-of-tomorrow",
       "type": "series",
-      "name": "The Ghost in the Shell 1.Sezon 10.Bölüm Sezon Finali",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-ghost-in-the-shell-220x140.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-ghost-in-the-shell-220x140.jpg",
-      "description": "The Ghost in the Shell 1.Sezon 10.Bölüm Sezon Finali - DiziBox Güncel Bölüm",
+      "name": "SPARKS OF TOMORROW",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/sparks-of-tomorrow-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/sparks-of-tomorrow-200x290.jpg",
+      "description": "SPARKS OF TOMORROW - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:ep:its-always-sunny-in-philadelphia-18-sezon-5-bolum-izle",
+      "id": "dizibox:show:four-hands-two-sonatas",
       "type": "series",
-      "name": "It’s Always Sunny in Philadelphia 18.Sezon 5.Bölüm",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/its-always-sunny-in-philadelphia-220x140.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/its-always-sunny-in-philadelphia-220x140.jpg",
-      "description": "It’s Always Sunny in Philadelphia 18.Sezon 5.Bölüm - DiziBox Güncel Bölüm",
+      "name": "FOUR HANDS, TWO SONATAS",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/four-hands-two-sonatas-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/four-hands-two-sonatas-200x290.jpg",
+      "description": "FOUR HANDS, TWO SONATAS - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:ep:fauda-5-sezon-11-bolum-sezon-finali-izle",
+      "id": "dizibox:show:a-tale-of-two-cities",
       "type": "series",
-      "name": "Fauda 5.Sezon 11.Bölüm Sezon Finali",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/fauda-220x140.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/fauda-220x140.jpg",
-      "description": "Fauda 5.Sezon 11.Bölüm Sezon Finali - DiziBox Güncel Bölüm",
+      "name": "A TALE OF TWO CITIES",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/a-tale-of-two-cities-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/a-tale-of-two-cities-200x290.jpg",
+      "description": "A TALE OF TWO CITIES - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:ep:fauda-5-sezon-10-bolum-izle",
+      "id": "dizibox:show:jaadugar-a-witch-in-mongolia",
       "type": "series",
-      "name": "Fauda 5.Sezon 10.Bölüm",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/fauda-220x140.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/fauda-220x140.jpg",
-      "description": "Fauda 5.Sezon 10.Bölüm - DiziBox Güncel Bölüm",
+      "name": "JAADUGAR: A WITCH IN MONGOLIA",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/jaadugar-a-witch-in-mongolia-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/jaadugar-a-witch-in-mongolia-200x290.jpg",
+      "description": "JAADUGAR: A WITCH IN MONGOLIA - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:ep:fauda-5-sezon-9-bolum-izle",
+      "id": "dizibox:show:daemons-of-the-shadow-realm",
       "type": "series",
-      "name": "Fauda 5.Sezon 9.Bölüm",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/fauda-220x140.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/fauda-220x140.jpg",
-      "description": "Fauda 5.Sezon 9.Bölüm - DiziBox Güncel Bölüm",
+      "name": "DAEMONS OF THE SHADOW REALM",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/daemons-of-the-shadow-realm-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/daemons-of-the-shadow-realm-200x290.jpg",
+      "description": "DAEMONS OF THE SHADOW REALM - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:ep:fauda-5-sezon-8-bolum-izle",
+      "id": "dizibox:show:adults",
       "type": "series",
-      "name": "Fauda 5.Sezon 8.Bölüm",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/fauda-220x140.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/fauda-220x140.jpg",
-      "description": "Fauda 5.Sezon 8.Bölüm - DiziBox Güncel Bölüm",
+      "name": "ADULTS",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/adults-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/adults-200x290.jpg",
+      "description": "ADULTS - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:ep:fauda-5-sezon-7-bolum-izle",
+      "id": "dizibox:show:black-torch",
       "type": "series",
-      "name": "Fauda 5.Sezon 7.Bölüm",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/fauda-220x140.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/fauda-220x140.jpg",
-      "description": "Fauda 5.Sezon 7.Bölüm - DiziBox Güncel Bölüm",
-      "genres": [
-        "Yabancı Dizi",
-        "DiziBox"
-      ]
-    },
-    {
-      "id": "dizibox:ep:fauda-5-sezon-6-bolum-izle",
-      "type": "series",
-      "name": "Fauda 5.Sezon 6.Bölüm",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/fauda-220x140.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/fauda-220x140.jpg",
-      "description": "Fauda 5.Sezon 6.Bölüm - DiziBox Güncel Bölüm",
-      "genres": [
-        "Yabancı Dizi",
-        "DiziBox"
-      ]
-    },
-    {
-      "id": "dizibox:ep:fauda-5-sezon-5-bolum-izle",
-      "type": "series",
-      "name": "Fauda 5.Sezon 5.Bölüm",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/fauda-220x140.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/fauda-220x140.jpg",
-      "description": "Fauda 5.Sezon 5.Bölüm - DiziBox Güncel Bölüm",
-      "genres": [
-        "Yabancı Dizi",
-        "DiziBox"
-      ]
-    },
-    {
-      "id": "dizibox:ep:fauda-5-sezon-4-bolum-izle",
-      "type": "series",
-      "name": "Fauda 5.Sezon 4.Bölüm",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/fauda-220x140.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/fauda-220x140.jpg",
-      "description": "Fauda 5.Sezon 4.Bölüm - DiziBox Güncel Bölüm",
+      "name": "BLACK TORCH",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/black-torch-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/black-torch-200x290.jpg",
+      "description": "BLACK TORCH - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"

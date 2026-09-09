@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "id": "dizibox:show:last-seen",
+    "type": "series",
+    "name": "LAST SEEN",
+    "poster": "https://www.dizibox.live/wp-content/uploads/afisler/last-seen-200x290.jpg",
+    "background": "https://www.dizibox.live/wp-content/uploads/afisler/last-seen-200x290.jpg",
+    "description": "Last Seen - DiziBox Arşivi",
+    "genres": [
+      "Yabancı Dizi",
+      "DiziBox"
+    ],
+    "videos": [
+      {
+        "id": "dizibox:ep:last-seen-1-sezon-1-bolum-izle",
+        "title": "1.Sezon 1.Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "dizibox:ep:last-seen-1-sezon-2-bolum-izle",
+        "title": "1.Sezon 2.Bölüm",
+        "season": 1,
+        "episode": 2
+      }
+    ]
+  }
+}

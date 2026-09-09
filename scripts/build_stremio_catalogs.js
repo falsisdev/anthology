@@ -13,6 +13,8 @@ const stremioManifest = {
   resources: ["catalog", "meta"],
   types: ["movie", "series", "tv"],
   idPrefixes: [
+    "tv:",
+    "dizimom:",
     "ddizi:",
     "dizibox:",
     "sinewix:",
@@ -30,12 +32,17 @@ const stremioManifest = {
     {
       type: "series",
       id: "anthology_ddizi",
-      name: "DDizi — Son Eklenen Yerli Diziler"
+      name: "DDizi — Popüler Yerli Diziler"
     },
     {
       type: "series",
       id: "anthology_dizibox",
-      name: "DiziBox — Son Eklenen Yabancı Diziler"
+      name: "DiziBox — Popüler Yabancı Diziler"
+    },
+    {
+      type: "series",
+      id: "anthology_dizimom",
+      name: "DiziMom — Popüler Diziler"
     },
     {
       type: "movie",
@@ -102,6 +109,12 @@ const catalogConfigs = [
     type: "series",
     file: "providers/dizibox.js",
     args: { id: "dizibox_popular", type: "series" }
+  },
+  {
+    catId: "anthology_dizimom",
+    type: "series",
+    file: "providers/dizimom.js",
+    args: { id: "dizimom_popular", type: "series" }
   },
   {
     catId: "anthology_sinewix_movies",
@@ -196,6 +209,18 @@ function copyDirRecursive(src, dest) {
   console.log("==================================================\n");
 
   ensureDirSync(STREMIO_DIR);
+  if (fs.existsSync(path.join(STREMIO_DIR, 'catalog'))) {
+    fs.rmSync(path.join(STREMIO_DIR, 'catalog'), { recursive: true, force: true });
+  }
+  if (fs.existsSync(path.join(STREMIO_DIR, 'meta'))) {
+    fs.rmSync(path.join(STREMIO_DIR, 'meta'), { recursive: true, force: true });
+  }
+  if (fs.existsSync(path.join(PUBLIC_STREMIO_DIR, 'catalog'))) {
+    fs.rmSync(path.join(PUBLIC_STREMIO_DIR, 'catalog'), { recursive: true, force: true });
+  }
+  if (fs.existsSync(path.join(PUBLIC_STREMIO_DIR, 'meta'))) {
+    fs.rmSync(path.join(PUBLIC_STREMIO_DIR, 'meta'), { recursive: true, force: true });
+  }
 
   // 1. Write manifest.json
   writeJsonSync(path.join(STREMIO_DIR, 'manifest.json'), stremioManifest);
@@ -251,15 +276,34 @@ function copyDirRecursive(src, dest) {
         genres: item.genres
       };
 
-      if (metaData.type === 'series' || metaData.type === 'tv') {
-        metaData.videos = [
-          {
-            id: item.id,
-            title: item.name,
-            season: 1,
-            episode: 1
+      // Fetch full episodes if the provider supports getMeta and item is a series/show
+      if (typeof mod.getMeta === 'function' && (metaData.type === 'series' || metaData.type === 'tv') && !item.id.startsWith('tv:')) {
+        try {
+          const detail = await mod.getMeta({ id: item.id, type: item.type || cfg.type });
+          if (detail && detail.meta) {
+            if (Array.isArray(detail.meta.videos) && detail.meta.videos.length > 0) {
+              metaData.videos = detail.meta.videos;
+            }
+            if (detail.meta.description) metaData.description = detail.meta.description;
+            if (detail.meta.poster) metaData.poster = detail.meta.poster;
+            if (detail.meta.background) metaData.background = detail.meta.background;
           }
-        ];
+        } catch (e) {
+          console.warn(`   ⚠️ Warning: failed to fetch deep meta for ${item.id}:`, e.message);
+        }
+      }
+
+      if (!metaData.videos || metaData.videos.length === 0) {
+        if (metaData.type === 'series' || metaData.type === 'tv') {
+          metaData.videos = [
+            {
+              id: item.id,
+              title: item.name,
+              season: 1,
+              episode: 1
+            }
+          ];
+        }
       }
 
       const typesToWrite = [metaData.type];

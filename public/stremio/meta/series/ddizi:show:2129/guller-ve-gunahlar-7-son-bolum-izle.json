@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "id": "ddizi:show:2129/guller-ve-gunahlar-7-son-bolum-izle",
+    "type": "series",
+    "name": "Güller ve Günahlar",
+    "poster": "https://www.ddizi.im/diziresimleri/gullervegunahlarkapak-min.jpg",
+    "background": "https://www.ddizi.im/diziresimleri/gullervegunahlarkapak-min.jpg",
+    "description": "Güller ve Günahlar - DDizi Dizi Arşivi",
+    "genres": [
+      "Yerli Dizi",
+      "DDizi"
+    ],
+    "videos": [
+      {
+        "id": "ddizi:ep:90941/guller-ve-gunahlar-23-bolum-izle-hd.htm",
+        "title": "Güller ve Günahlar 23.Bölüm",
+        "season": 1,
+        "episode": 23
+      },
+      {
+        "id": "ddizi:ep:90989/guller-ve-gunahlar-24-bolum-izle.htm",
+        "title": "Güller ve Günahlar 24.Bölüm",
+        "season": 1,
+        "episode": 24
+      },
+      {
+        "id": "ddizi:ep:91034/guller-ve-gunahlar-25-bolum-izle-hd.htm",
+        "title": "Güller ve Günahlar 25.Bölüm",
+        "season": 1,
+        "episode": 25
+      },
+      {
+        "id": "ddizi:ep:91073/guller-ve-gunahlar-26-bolum-izle-hd.htm",
+        "title": "Güller ve Günahlar 26.Bölüm",
+        "season": 1,
+        "episode": 26
+      },
+      {
+        "id": "ddizi:ep:91113/guller-ve-gunahlar-27-bolum-izle-hd1.htm",
+        "title": "Güller ve Günahlar 27.Bölüm",
+        "season": 1,
+        "episode": 27
+      },
+      {
+        "id": "ddizi:ep:91152/guller-ve-gunahlar-28-bolum-izle-hd1.htm",
+        "title": "Güller ve Günahlar 28.Bölüm",
+        "season": 1,
+        "episode": 28
+      },
+      {
+        "id": "ddizi:ep:91192/guller-ve-gunahlar-29-bolum-izle-hd1.htm",
+        "title": "Güller ve Günahlar 29.Bölüm",
+        "season": 1,
+        "episode": 29
+      },
+      {
+        "id": "ddizi:ep:91232/guller-ve-gunahlar-30-bolum-izle-hd.htm",
+        "title": "Güller ve Günahlar 30.Bölüm",
+        "season": 1,
+        "episode": 30
+      },
+      {
+        "id": "ddizi:ep:91293/guller-ve-gunahlar-31-bolum-izle-hd.htm",
+        "title": "Güller ve Günahlar 31.Bölüm",
+        "season": 1,
+        "episode": 31
+      },
+      {
+        "id": "ddizi:ep:91325/guller-ve-gunahlar-32-bolum-izle-sezon-finali-hd3.htm",
+        "title": "Güller ve Günahlar 32.Bölüm Sezon Finali",
+        "season": 1,
+        "episode": 32
+      }
+    ]
+  }
+}

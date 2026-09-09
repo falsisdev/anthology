@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "dizibox:show:marble-hall-murders",
+    "type": "series",
+    "name": "MARBLE HALL MURDERS",
+    "poster": "https://www.dizibox.live/wp-content/uploads/afisler/marble-hall-murders-200x290.jpg",
+    "background": "https://www.dizibox.live/wp-content/uploads/afisler/marble-hall-murders-200x290.jpg",
+    "description": "Marble Hall Murders - DiziBox Arşivi",
+    "genres": [
+      "Yabancı Dizi",
+      "DiziBox"
+    ],
+    "videos": [
+      {
+        "id": "dizibox:ep:marble-hall-murders-1-sezon-1-bolum-izle",
+        "title": "1.Sezon 1.Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

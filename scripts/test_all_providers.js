@@ -27,9 +27,12 @@ const path = require("path");
       } else if (scraper.id === "cizgimax") {
         testTarget = "Avatar (246 S01E01)";
         streams = await mod.getStreams("246", "tv", 1, 1);
-      } else if (scraper.id === "AnthologyDiziM3U" || scraper.id === "anthology_yerlidizi" || scraper.id === "ddizi") {
+      } else if (scraper.id === "AnthologyDiziM3U" || scraper.id === "anthology_yerlidizi") {
         testTarget = "Bahar (245914 S01E01)";
         streams = await mod.getStreams("245914", "tv", 1, 1);
+      } else if (scraper.id === "ddizi") {
+        testTarget = "Çirkin (315179 S01E01)";
+        streams = await mod.getStreams("315179", "tv", 1, 1);
       } else if (scraper.id === "anthology_yabancidizi") {
         testTarget = "Better Call Saul (60059 S01E01)";
         streams = await mod.getStreams("60059", "tv", 1, 1);

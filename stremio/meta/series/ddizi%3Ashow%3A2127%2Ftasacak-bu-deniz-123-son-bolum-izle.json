@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "id": "ddizi:show:2127/tasacak-bu-deniz-123-son-bolum-izle",
+    "type": "series",
+    "name": "Taşacak Bu Deniz",
+    "poster": "https://www.ddizi.im/diziresimleri/tasacakbudenizkapak-min.jpg",
+    "background": "https://www.ddizi.im/diziresimleri/tasacakbudenizkapak-min.jpg",
+    "description": "Taşacak Bu Deniz - DDizi Dizi Arşivi",
+    "genres": [
+      "Yerli Dizi",
+      "DDizi"
+    ],
+    "videos": [
+      {
+        "id": "ddizi:ep:90809/tasacak-bu-deniz-22-bolum-izle-hd5.htm",
+        "title": "Taşacak Bu Deniz 22.Bölüm",
+        "season": 1,
+        "episode": 22
+      },
+      {
+        "id": "ddizi:ep:90938/tasacak-bu-deniz-23-bolum-izle-hd3.htm",
+        "title": "Taşacak Bu Deniz 23.Bölüm",
+        "season": 1,
+        "episode": 23
+      },
+      {
+        "id": "ddizi:ep:90986/tasacak-bu-deniz-24-bolum-izle-hd6.htm",
+        "title": "Taşacak Bu Deniz 24.Bölüm",
+        "season": 1,
+        "episode": 24
+      },
+      {
+        "id": "ddizi:ep:91070/tasacak-bu-deniz-25-bolum-izle-hd3.htm",
+        "title": "Taşacak Bu Deniz 25.Bölüm",
+        "season": 1,
+        "episode": 25
+      },
+      {
+        "id": "ddizi:ep:91110/tasacak-bu-deniz-26-bolum-izle-hd3.htm",
+        "title": "Taşacak Bu Deniz 26.Bölüm",
+        "season": 1,
+        "episode": 26
+      },
+      {
+        "id": "ddizi:ep:91149/tasacak-bu-deniz-27-bolum-izle-hd6.htm",
+        "title": "Taşacak Bu Deniz 27.Bölüm",
+        "season": 1,
+        "episode": 27
+      },
+      {
+        "id": "ddizi:ep:91189/tasacak-bu-deniz-28-bolum-izle-hd5.htm",
+        "title": "Taşacak Bu Deniz 28.Bölüm",
+        "season": 1,
+        "episode": 28
+      },
+      {
+        "id": "ddizi:ep:91229/tasacak-bu-deniz-29-bolum-izle-hd4.htm",
+        "title": "Taşacak Bu Deniz 29.Bölüm",
+        "season": 1,
+        "episode": 29
+      },
+      {
+        "id": "ddizi:ep:91255/tasacak-bu-deniz-30-bolum-izle-hd4.htm",
+        "title": "Taşacak Bu Deniz 30.Bölüm",
+        "season": 1,
+        "episode": 30
+      },
+      {
+        "id": "ddizi:ep:91290/tasacak-bu-deniz-31-bolum-izle-sezon-finali-hd03.htm",
+        "title": "Taşacak Bu Deniz 31.Bölüm Sezon Finali",
+        "season": 1,
+        "episode": 31
+      }
+    ]
+  }
+}

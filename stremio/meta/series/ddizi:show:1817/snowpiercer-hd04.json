@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "ddizi:show:1817/snowpiercer-hd04",
+    "type": "series",
+    "name": "Snowpiercer",
+    "poster": "https://www.ddizi.im/diziresimleri/snowpiercer-min.jpg",
+    "background": "https://www.ddizi.im/diziresimleri/snowpiercer-min.jpg",
+    "description": "Snowpiercer izle - DDizi Dizi Arşivi",
+    "genres": [
+      "Yerli Dizi",
+      "DDizi"
+    ],
+    "videos": [
+      {
+        "id": "ddizi:show:1817/snowpiercer-hd04",
+        "title": "Snowpiercer",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

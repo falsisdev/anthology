@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "ddizi:show:2179/evlilik-guzeldir-son-bolum-izle",
+    "type": "series",
+    "name": "Evlilik Güzeldir",
+    "poster": "https://www.ddizi.im/diziresimleri/evlilikguzeldirkapakmin.jpg",
+    "background": "https://www.ddizi.im/diziresimleri/evlilikguzeldirkapakmin.jpg",
+    "description": "Evlilik Güzeldir - DDizi Dizi Arşivi",
+    "genres": [
+      "Yerli Dizi",
+      "DDizi"
+    ],
+    "videos": [
+      {
+        "id": "ddizi:ep:91672/evlilik-guzeldir-1-bolum-izle-hd2.htm",
+        "title": "Evlilik Güzeldir 1.Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "ddizi:show:1813/narcos-hd",
+    "type": "series",
+    "name": "Narcos",
+    "poster": "https://www.ddizi.im/diziresimleri/narcos-min.jpg",
+    "background": "https://www.ddizi.im/diziresimleri/narcos-min.jpg",
+    "description": "Narcos izle Türkçe Dublaj Tüm Bölümler HD - DDizi Dizi Arşivi",
+    "genres": [
+      "Yerli Dizi",
+      "DDizi"
+    ],
+    "videos": [
+      {
+        "id": "ddizi:show:1813/narcos-hd",
+        "title": "Narcos",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

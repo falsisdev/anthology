@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "id": "tv:StarTV.tr",
+    "type": "tv",
+    "name": "Star TV HD",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/startv.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/startv.png",
+    "description": "Star TV HD Canlı Yayın",
+    "genres": [
+      "Ulusal"
+    ],
+    "videos": [
+      {
+        "id": "tv:StarTV.tr",
+        "title": "Star TV HD",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

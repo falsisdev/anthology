@@ -3,19 +3,25 @@
     "id": "cizgimax:show:diziler/hack-g-u-trilogy-izle",
     "type": "series",
     "name": ".hack//G.U. Trilogy",
-    "poster": "https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128",
-    "background": "https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128",
-    "description": ".hack//G.U. Trilogy - ÇizgiMax Arşivi",
+    "poster": "https://cdn.myanimelist.net/images/anime/1566/151023l.jpg",
+    "background": "https://cdn.myanimelist.net/images/anime/1566/151023l.jpg",
+    "description": ".hack//G.U. Trilogy - ÇizgiMax",
     "genres": [
       "Çizgi Dizi",
       "ÇizgiMax"
     ],
     "videos": [
       {
-        "id": "cizgimax:show:diziler/hack-g-u-trilogy-izle",
-        "title": ".hack//G.U. Trilogy",
+        "id": "cizgimax:ep:episode-35646-s1e1",
+        "title": "1. Sezon 1. Bölüm",
         "season": 1,
         "episode": 1
+      },
+      {
+        "id": "cizgimax:ep:episode-35646-s1e2",
+        "title": "1. Sezon 2. Bölüm",
+        "season": 1,
+        "episode": 2
       }
     ]
   }

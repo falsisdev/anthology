@@ -18,6 +18,18 @@ function fetchChannels() {
     if (cachedText && (now - cacheTime < 300000)) {
         return Promise.resolve(cachedText);
     }
+    if (typeof require !== 'undefined') {
+        try {
+            var path = require('path');
+            var fs = require('fs');
+            var localPath = path.resolve(__dirname, 'Liste', 'canli.m3u');
+            if (fs.existsSync(localPath)) {
+                cachedText = fs.readFileSync(localPath, 'utf8');
+                cacheTime = now;
+                return Promise.resolve(cachedText);
+            }
+        } catch (e) {}
+    }
     return fetch(M3U_URL, { headers: { 'User-Agent': 'Mozilla/5.0' } })
         .then(function(res) { return res.text(); })
         .then(function(txt) {
@@ -40,9 +52,10 @@ function getCatalog(args) {
                     var logoMatch = line.match(/tvg-logo="([^"]+)"/i);
                     var groupMatch = line.match(/group-title="([^"]+)"/i);
 
-                    var commaParts = line.split(',');
-                    var channelName = commaParts[commaParts.length - 1].trim();
-                    var channelId = tvgIdMatch && tvgIdMatch[1] ? tvgIdMatch[1].trim() : (tvgNameMatch ? tvgNameMatch[1].trim() : channelName);
+                    var nameMatch = line.match(/"\s*,\s*(.+)$/);
+                    var channelName = nameMatch ? nameMatch[1].trim() : line.split(',').pop().trim();
+                    var rawId = tvgIdMatch && tvgIdMatch[1] ? tvgIdMatch[1].trim() : (tvgNameMatch ? tvgNameMatch[1].trim() : channelName);
+                    var channelId = rawId.startsWith('tv:') ? rawId : ('tv:' + rawId);
                     var logo = logoMatch ? logoMatch[1] : "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png";
                     var genre = groupMatch ? groupMatch[1].replace(/[^\w\sğüşıöçĞÜŞİÖÇ]/gi, '').trim() : "Ulusal";
 
@@ -75,17 +88,17 @@ function getMeta(args) {
     return fetchChannels()
         .then(function(content) {
             var lines = content.split('\n');
-            var name = targetId;
+            var name = targetId.replace(/^tv:/, '');
             var logo = "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png";
-            var searchKey = cleanKey(targetId);
+            var searchKey = cleanKey(targetId.replace(/^tv:/, ''));
 
             for (var i = 0; i < lines.length; i++) {
                 var line = lines[i].trim();
                 if (line.indexOf("#EXTINF") !== -1) {
                     var tvgIdMatch = line.match(/tvg-id="([^"]+)"/i);
                     var tvgNameMatch = line.match(/tvg-name="([^"]+)"/i);
-                    var commaParts = line.split(',');
-                    var aliasName = commaParts[commaParts.length - 1].trim();
+                    var nameMatch = line.match(/"\s*,\s*(.+)$/);
+                    var aliasName = nameMatch ? nameMatch[1].trim() : line.split(',').pop().trim();
 
                     var cId = cleanKey(tvgIdMatch ? tvgIdMatch[1] : "");
                     var cName = cleanKey(tvgNameMatch ? tvgNameMatch[1] : "");
@@ -137,15 +150,15 @@ function getStreams(args) {
         .then(function(content) {
             var lines = content.split('\n');
             var streams = [];
-            var searchKey = cleanKey(targetId);
+            var searchKey = cleanKey(targetId.replace(/^tv:/, ''));
 
             for (var i = 0; i < lines.length; i++) {
                 var line = lines[i].trim();
                 if (line.indexOf("#EXTINF") !== -1) {
                     var tvgIdMatch = line.match(/tvg-id="([^"]+)"/i);
                     var tvgNameMatch = line.match(/tvg-name="([^"]+)"/i);
-                    var commaParts = line.split(',');
-                    var aliasName = commaParts[commaParts.length - 1].trim();
+                    var nameMatch = line.match(/"\s*,\s*(.+)$/);
+                    var aliasName = nameMatch ? nameMatch[1].trim() : line.split(',').pop().trim();
 
                     var cId = cleanKey(tvgIdMatch ? tvgIdMatch[1] : "");
                     var cName = cleanKey(tvgNameMatch ? tvgNameMatch[1] : "");

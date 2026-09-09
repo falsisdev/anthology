@@ -110,7 +110,7 @@ https://andro.evrenesoglu99.click/checklist/androstreamlivetrts.m3u8
 #EXTINF:-1 tvg-id="TRTSporYildiz.tr" tvg-name="TRT Spor Yıldız" tvg-logo="https://i.imgur.com/6tv0zxh.png" group-title="🇹🇷 SPOR KANALLARI",TRT Spor Yıldız HD
 https://andro.evrenesoglu99.click/checklist/androstreamlivetrtsy.m3u8
 
-#EXTINF:-1 tvg-id="TV85.tr" tvg-name="TV8,5" tvg-logo="https://i.imgur.com/QuelSsc.png" group-title="🇹🇷 SPOR KANALLARI",TV8,5 HD
+#EXTINF:-1 tvg-id="TV85.tr" tvg-name="TV8,5" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv8.png" group-title="🇹🇷 SPOR KANALLARI",TV8,5 HD
 https://andro.evrenesoglu99.click/checklist/androstreamlivetv85.m3u8
 
 #EXTINF:-1 tvg-id="beINSports1.tr" tvg-name="BeIN Sports 1" tvg-logo="https://i.imgur.com/Vtk2cGI.png" group-title="🇹🇷 SPOR KANALLARI",BeIN Sports 1 HD
@@ -233,7 +233,7 @@ https://andro.evrenesoglu99.click/checklist/androstreamlivenba.m3u8
 #EXTINF:-1 tvg-id="FBTV.tr" tvg-name="FB TV" tvg-logo="https://i.imgur.com/qBVqtYd.png" group-title="🇹🇷 SPOR KANALLARI",FB TV HD
 https://andro.evrenesoglu99.click/checklist/androstreamlivefb.m3u8
 
-#EXTINF:-1 tvg-id="GSTV.tr" tvg-name="GS TV" tvg-logo="https://i.postimg.cc/d3k5nDBJ/galatasaray-sk.png" group-title="🇹🇷 SPOR KANALLARI",GS TV HD
+#EXTINF:-1 tvg-id="GSTV.tr" tvg-name="GS TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png" group-title="🇹🇷 SPOR KANALLARI",GS TV HD
 https://andro.evrenesoglu99.click/checklist/androstreamlivegs.m3u8
 
 #EXTINF:-1 tvg-id="SportsTV.tr" tvg-name="Sports TV" tvg-logo="https://i.imgur.com/tGTVcVe.jpg" group-title="🇹🇷 SPOR KANALLARI",Sports TV HD

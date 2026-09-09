@@ -3,17 +3,17 @@
     "id": "cizgimax:show:diziler/hack-unison-izle",
     "type": "series",
     "name": ".hack//Unison",
-    "poster": "https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128",
-    "background": "https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128",
-    "description": ".hack//Unison - ÇizgiMax Arşivi",
+    "poster": "https://cdn.myanimelist.net/images/anime/2/23078l.jpg",
+    "background": "https://cdn.myanimelist.net/images/anime/2/23078l.jpg",
+    "description": ".hack//Unison - ÇizgiMax",
     "genres": [
       "Çizgi Dizi",
       "ÇizgiMax"
     ],
     "videos": [
       {
-        "id": "cizgimax:show:diziler/hack-unison-izle",
-        "title": ".hack//Unison",
+        "id": "cizgimax:ep:episode-35645-s1e1",
+        "title": "1. Sezon 1. Bölüm",
         "season": 1,
         "episode": 1
       }

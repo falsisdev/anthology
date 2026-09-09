@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "id": "tv:A2.tr",
+    "type": "tv",
+    "name": "A2 TV HD",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/a2.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/a2.png",
+    "description": "A2 TV HD Canlı Yayın",
+    "genres": [
+      "Ulusal"
+    ],
+    "videos": [
+      {
+        "id": "tv:A2.tr",
+        "title": "A2 TV HD",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

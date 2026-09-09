@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "id": "tv:HaberGlobal.tr",
+    "type": "tv",
+    "name": "Haber Global HD",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/haberglobal.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/haberglobal.png",
+    "description": "Haber Global HD Canlı Haber Yayını",
+    "genres": [
+      "Haber"
+    ],
+    "videos": [
+      {
+        "id": "tv:HaberGlobal.tr",
+        "title": "Haber Global HD",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

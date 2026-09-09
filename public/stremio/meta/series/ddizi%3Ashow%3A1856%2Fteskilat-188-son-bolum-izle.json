@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "id": "ddizi:show:1856/teskilat-188-son-bolum-izle",
+    "type": "series",
+    "name": "Teşkilat",
+    "poster": "https://www.ddizi.im/diziresimleri/teskilatkapak-min.jpg",
+    "background": "https://www.ddizi.im/diziresimleri/teskilatkapak-min.jpg",
+    "description": "Teşkilat - DDizi Dizi Arşivi",
+    "genres": [
+      "Yerli Dizi",
+      "DDizi"
+    ],
+    "videos": [
+      {
+        "id": "ddizi:ep:90816/teskilat-175-bolum-izle-hd3.htm",
+        "title": "Teşkilat 175.Bölüm",
+        "season": 1,
+        "episode": 175
+      },
+      {
+        "id": "ddizi:ep:90944/teskilat-176-bolum-izle-hd5.htm",
+        "title": "Teşkilat 176.Bölüm",
+        "season": 1,
+        "episode": 176
+      },
+      {
+        "id": "ddizi:ep:90992/teskilat-177-bolum-izle-hd5.htm",
+        "title": "Teşkilat 177.Bölüm",
+        "season": 1,
+        "episode": 177
+      },
+      {
+        "id": "ddizi:ep:91075/teskilat-178-bolum-izle-hd6.htm",
+        "title": "Teşkilat 178.Bölüm",
+        "season": 1,
+        "episode": 178
+      },
+      {
+        "id": "ddizi:ep:91115/teskilat-179-bolum-izle-hd2.htm",
+        "title": "Teşkilat 179.Bölüm",
+        "season": 1,
+        "episode": 179
+      },
+      {
+        "id": "ddizi:ep:91154/teskilat-180-bolum-izle-hd4.htm",
+        "title": "Teşkilat 180.Bölüm",
+        "season": 1,
+        "episode": 180
+      },
+      {
+        "id": "ddizi:ep:91194/teskilat-181-bolum-izle-hd5.htm",
+        "title": "Teşkilat 181.Bölüm",
+        "season": 1,
+        "episode": 181
+      },
+      {
+        "id": "ddizi:ep:91234/teskilat-182-bolum-izle-hd4.htm",
+        "title": "Teşkilat 182.Bölüm",
+        "season": 1,
+        "episode": 182
+      },
+      {
+        "id": "ddizi:ep:91259/teskilat-183-bolum-izle-hd2.htm",
+        "title": "Teşkilat 183.Bölüm",
+        "season": 1,
+        "episode": 183
+      },
+      {
+        "id": "ddizi:ep:91295/teskilat-184-bolum-izle-sezon-finali-hd02.htm",
+        "title": "Teşkilat 184.Bölüm Sezon Finali",
+        "season": 1,
+        "episode": 184
+      }
+    ]
+  }
+}

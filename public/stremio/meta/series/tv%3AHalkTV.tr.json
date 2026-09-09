@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "id": "tv:HalkTV.tr",
+    "type": "tv",
+    "name": "Halk TV HD",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/halktv.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/halktv.png",
+    "description": "Halk TV HD Canlı Haber Yayını",
+    "genres": [
+      "Haber"
+    ],
+    "videos": [
+      {
+        "id": "tv:HalkTV.tr",
+        "title": "Halk TV HD",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

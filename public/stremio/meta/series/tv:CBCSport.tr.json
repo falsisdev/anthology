@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "id": "tv:CBCSport.tr",
+    "type": "tv",
+    "name": "CBC Sport HD",
+    "poster": "https://i.imgur.com/3mEdjuq.png",
+    "background": "https://i.imgur.com/3mEdjuq.png",
+    "description": "CBC Sport HD Canlı Spor Yayını",
+    "genres": [
+      "Spor"
+    ],
+    "videos": [
+      {
+        "id": "tv:CBCSport.tr",
+        "title": "CBC Sport HD",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

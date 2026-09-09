@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "ddizi:show:1808/la-casa-de-papel-hd",
+    "type": "series",
+    "name": "La Casa De Papel",
+    "poster": "https://www.ddizi.im/diziresimleri/lacasadepapel.jpg",
+    "background": "https://www.ddizi.im/diziresimleri/lacasadepapel.jpg",
+    "description": "La Casa De Papel izle Türkçe Dublaj - DDizi Dizi Arşivi",
+    "genres": [
+      "Yerli Dizi",
+      "DDizi"
+    ],
+    "videos": [
+      {
+        "id": "ddizi:show:1808/la-casa-de-papel-hd",
+        "title": "La Casa De Papel",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

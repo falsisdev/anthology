@@ -20,6 +20,20 @@ function ultraClean(str) {
     .trim();
 }
 
+function decodeHtmlEntities(str) {
+  if (!str) return '';
+  return str.toString()
+    .replace(/&quot;/g, '"')
+    .replace(/&#039;/g, "'")
+    .replace(/&#39;/g, "'")
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&#(\d+);/g, function(match, dec) { return String.fromCharCode(dec); })
+    .trim();
+}
+
 async function resolveTmdbInfo(id, mediaType) {
   try {
     let cleanId = String(id || '').trim();
@@ -158,7 +172,9 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
     const detailUrl = matchedHref.startsWith('http') ? matchedHref : `${BASE_URL}${matchedHref}`;
     let targetPageUrl = detailUrl;
 
-    if (isTv) {
+    const isDirectEpisode = (typeof tmdbId === 'string' && tmdbId.startsWith('cizgimax:ep:')) || matchedHref.includes('/episode-');
+
+    if (isTv && !isDirectEpisode) {
       const detailRes = await fetch(detailUrl, { headers: HEADERS });
       if (!detailRes.ok) return [];
       const detailHtml = await detailRes.text();
@@ -177,8 +193,8 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
             const h = hrefMatch[1];
             candidates.push({ href: h, text });
             // Check season & episode in href or text
-            const seasonRegex = new RegExp(`[/-]${finalSeason}-sezon[-/]`, 'i');
-            const epRegex = new RegExp(`[/-]${finalEpisode}-bolum[-/]`, 'i');
+            const seasonRegex = new RegExp(`[/-]${finalSeason}-sezon[-/]|s0*${finalSeason}e`, 'i');
+            const epRegex = new RegExp(`[/-]${finalEpisode}-bolum[-/]|e0*${finalEpisode}(?:/|$)`, 'i');
             if (seasonRegex.test(h) && epRegex.test(h)) {
               epHref = h;
               break;
@@ -350,29 +366,64 @@ async function getCatalog(args) {
 
     const metas = [];
     const seen = new Set();
-    const linkRegex = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
+
+    // 1. Primary parser: parse .film-item cards with high-res poster and decoded title
+    const itemRegex = /<div class=["'][^"']*film-item[^"']*["'][\s\S]*?<\/div>\s*<\/div>/gi;
     let m;
+    while ((m = itemRegex.exec(html)) !== null) {
+      const block = m[0];
+      const hrefMatch = block.match(/href=["']([^"']+)["']/i);
+      const nameMatch = block.match(/class=["'][^"']*film-name[^"']*["'][^>]*>([\s\S]*?)<\/a>/i);
+      const imgMatch = block.match(/<img\b[^>]*src=["']([^"']+)["']/i) || block.match(/<img\b[^>]*data-src=["']([^"']+)["']/i);
+      if (hrefMatch && nameMatch) {
+        const href = hrefMatch[1];
+        const slug = href.replace(BASE_URL, '').replace(/^\//, '').replace(/\/$/, '');
+        if (!slug || seen.has(slug)) continue;
+        seen.add(slug);
 
-    while ((m = linkRegex.exec(html)) !== null) {
-      const attrs = m[1];
-      const text = m[2].replace(/<[^>]+>/g, '').trim();
-      if (/class=["'][^"']*film-name[^"']*["']/i.test(attrs)) {
-        const hrefMatch = attrs.match(/href=["']([^"']+)["']/i);
-        if (hrefMatch) {
-          const href = hrefMatch[1];
-          const slug = href.replace(BASE_URL, '').replace(/^\//, '').replace(/\/$/, '');
-          if (!slug || seen.has(slug) || text.length < 2) continue;
-          seen.add(slug);
+        const title = decodeHtmlEntities(nameMatch[1].replace(/<[^>]+>/g, '').trim());
+        let poster = imgMatch ? imgMatch[1] : '';
+        if (poster.startsWith('//')) poster = 'https:' + poster;
+        else if (poster.startsWith('/')) poster = `${BASE_URL}${poster}`;
+        if (!poster) poster = 'https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png';
 
-          metas.push({
-            id: `cizgimax:show:${slug}`,
-            type: 'tv',
-            name: text,
-            poster: 'https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128',
-            background: 'https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128',
-            genres: ['Çizgi Dizi', 'ÇizgiMax'],
-            description: `${text} - ÇizgiMax Arşivi`
-          });
+        metas.push({
+          id: `cizgimax:show:${slug}`,
+          type: 'tv',
+          name: title,
+          poster: poster,
+          background: poster,
+          genres: ['Çizgi Dizi', 'ÇizgiMax'],
+          description: `${title} - ÇizgiMax Arşivi`
+        });
+      }
+    }
+
+    // 2. Fallback parser (for search results or alternate layouts)
+    if (metas.length === 0) {
+      const linkRegex = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
+      let m2;
+      while ((m2 = linkRegex.exec(html)) !== null) {
+        const attrs = m2[1];
+        const text = decodeHtmlEntities(m2[2].replace(/<[^>]+>/g, '').trim());
+        if (/class=["'][^"']*film-name[^"']*["']/i.test(attrs)) {
+          const hrefMatch = attrs.match(/href=["']([^"']+)["']/i);
+          if (hrefMatch) {
+            const href = hrefMatch[1];
+            const slug = href.replace(BASE_URL, '').replace(/^\//, '').replace(/\/$/, '');
+            if (!slug || seen.has(slug) || text.length < 2) continue;
+            seen.add(slug);
+
+            metas.push({
+              id: `cizgimax:show:${slug}`,
+              type: 'tv',
+              name: text,
+              poster: 'https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png',
+              background: 'https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png',
+              genres: ['Çizgi Dizi', 'ÇizgiMax'],
+              description: `${text} - ÇizgiMax Arşivi`
+            });
+          }
         }
       }
     }
@@ -395,7 +446,13 @@ async function getMeta(args) {
     const html = await res.text();
 
     const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i) || html.match(/<title>([^<]+)<\/title>/i);
-    const title = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, '').trim() : 'ÇizgiMax';
+    const title = decodeHtmlEntities(titleMatch ? titleMatch[1].replace(/<[^>]+>/g, '').trim() : 'ÇizgiMax');
+
+    const ogImg = html.match(/<meta\s+(?:property|name)=["']og:image["']\s+content=["']([^"']+)["']/i);
+    let poster = ogImg ? ogImg[1] : '';
+    if (poster.startsWith('//')) poster = 'https:' + poster;
+    else if (poster.startsWith('/')) poster = `${BASE_URL}${poster}`;
+    if (!poster) poster = 'https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png';
 
     const epMatches = [...html.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/gi)];
     const videos = [];
@@ -403,22 +460,32 @@ async function getMeta(args) {
 
     for (const ep of epMatches) {
       const attrs = ep[1];
-      const epText = ep[2].replace(/<[^>]+>/g, '').trim();
-      const hrefMatch = attrs.match(/href=["']([^"']+)["']/i);
-      if (hrefMatch && hrefMatch[1].includes('-bolum-izle')) {
-        const epSlug = hrefMatch[1].replace(BASE_URL, '').replace(/^\//, '').replace(/\/$/, '');
-        if (seen.has(epSlug)) continue;
-        seen.add(epSlug);
+      const epText = decodeHtmlEntities(ep[2].replace(/<[^>]+>/g, '').trim());
+      if (/class=["'][^"']*ep-num-btn[^"']*["']/i.test(attrs)) {
+        const hrefMatch = attrs.match(/href=["']([^"']+)["']/i);
+        if (hrefMatch) {
+          const epSlug = hrefMatch[1].replace(BASE_URL, '').replace(/^https?:\/\/[^/]+/, '').replace(/^\//, '').replace(/\/$/, '');
+          if (!epSlug || seen.has(epSlug)) continue;
+          seen.add(epSlug);
 
-        const epNumMatch = epText.match(/(\d+)\s*\.?\s*bölüm/i) || epSlug.match(/-(\d+)-bolum/i);
-        const epNum = epNumMatch ? parseInt(epNumMatch[1]) : 1;
+          const seMatch = epSlug.match(/-s(\d+)e(\d+)/i);
+          let season = 1;
+          let episode = 1;
+          if (seMatch) {
+            season = parseInt(seMatch[1]);
+            episode = parseInt(seMatch[2]);
+          } else {
+            const numMatch = ep[2].match(/class=["']ep-num-label["']>(\d+)</i) || attrs.match(/title=["'](?:Bölüm\s*)?(\d+)["']/i) || epSlug.match(/-(\d+)-bolum/i);
+            episode = numMatch ? parseInt(numMatch[1]) : (videos.length + 1);
+          }
 
-        videos.push({
-          id: `cizgimax:ep:${epSlug}`,
-          title: epText || `${epNum}. Bölüm`,
-          season: 1,
-          episode: epNum
-        });
+          videos.push({
+            id: `cizgimax:ep:${epSlug}`,
+            title: `${season}. Sezon ${episode}. Bölüm`,
+            season: season,
+            episode: episode
+          });
+        }
       }
     }
 
@@ -427,8 +494,8 @@ async function getMeta(args) {
         id: rawId,
         type: 'tv',
         name: title,
-        poster: 'https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128',
-        background: 'https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128',
+        poster: poster,
+        background: poster,
         description: `${title} - ÇizgiMax`,
         genres: ['Çizgi Dizi', 'ÇizgiMax'],
         videos: videos.length > 0 ? videos : [{ id: rawId, title: `${title} 1. Bölüm`, season: 1, episode: 1 }]

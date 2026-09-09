@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "id": "ddizi:show:1952/kizilcik-serbeti-20-son-bolum-izle",
+    "type": "series",
+    "name": "Kızılcık Şerbeti",
+    "poster": "https://www.ddizi.im/diziresimleri/kizilcikserbetikapak-min.jpg",
+    "background": "https://www.ddizi.im/diziresimleri/kizilcikserbetikapak-min.jpg",
+    "description": "Kızılcık Şerbeti - DDizi Dizi Arşivi",
+    "genres": [
+      "Yerli Dizi",
+      "DDizi"
+    ],
+    "videos": [
+      {
+        "id": "ddizi:ep:90107/kizilcik-serbeti-129-bolum-hd2.htm",
+        "title": "Kızılcık Şerbeti 129.Bölüm",
+        "season": 1,
+        "episode": 129
+      },
+      {
+        "id": "ddizi:ep:90808/kizilcik-serbeti-130-bolum-izle-hd1.htm",
+        "title": "Kızılcık Şerbeti 130.Bölüm",
+        "season": 1,
+        "episode": 130
+      },
+      {
+        "id": "ddizi:ep:90937/kizilcik-serbeti-131-bolum-izle-hd2.htm",
+        "title": "Kızılcık Şerbeti 131.Bölüm",
+        "season": 1,
+        "episode": 131
+      },
+      {
+        "id": "ddizi:ep:90985/kizilcik-serbeti-132-bolum-izle-hd2.htm",
+        "title": "Kızılcık Şerbeti 132.Bölüm",
+        "season": 1,
+        "episode": 132
+      },
+      {
+        "id": "ddizi:ep:91030/kizilcik-serbeti-133-bolum-izle-hd3.htm",
+        "title": "Kızılcık Şerbeti 133.Bölüm",
+        "season": 1,
+        "episode": 133
+      },
+      {
+        "id": "ddizi:ep:91069/kizilcik-serbeti-134-bolum-izle-hd3.htm",
+        "title": "Kızılcık Şerbeti 134.Bölüm",
+        "season": 1,
+        "episode": 134
+      },
+      {
+        "id": "ddizi:ep:91109/kizilcik-serbeti-135-bolum-izle-hd3.htm",
+        "title": "Kızılcık Şerbeti 135.Bölüm",
+        "season": 1,
+        "episode": 135
+      },
+      {
+        "id": "ddizi:ep:91148/kizilcik-serbeti-136-bolum-izle-hd3.htm",
+        "title": "Kızılcık Şerbeti 136.Bölüm",
+        "season": 1,
+        "episode": 136
+      },
+      {
+        "id": "ddizi:ep:91188/kizilcik-serbeti-137-bolum-izle-hd1.htm",
+        "title": "Kızılcık Şerbeti 137.Bölüm",
+        "season": 1,
+        "episode": 137
+      },
+      {
+        "id": "ddizi:ep:91228/kizilcik-serbeti-138-bolum-izle-sezon-finali-hd2.htm",
+        "title": "Kızılcık Şerbeti 138.Bölüm Sezon Finali",
+        "season": 1,
+        "episode": 138
+      }
+    ]
+  }
+}

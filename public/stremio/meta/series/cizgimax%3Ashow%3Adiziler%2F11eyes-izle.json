@@ -3,19 +3,85 @@
     "id": "cizgimax:show:diziler/11eyes-izle",
     "type": "series",
     "name": "11eyes",
-    "poster": "https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128",
-    "background": "https://www.google.com/s2/favicons?domain=cizgimax.online&sz=128",
-    "description": "11eyes - ÇizgiMax Arşivi",
+    "poster": "https://cizgimax.online/img/locandine/11eyes-poster.webp",
+    "background": "https://cizgimax.online/img/locandine/11eyes-poster.webp",
+    "description": "11eyes - ÇizgiMax",
     "genres": [
       "Çizgi Dizi",
       "ÇizgiMax"
     ],
     "videos": [
       {
-        "id": "cizgimax:show:diziler/11eyes-izle",
-        "title": "11eyes",
+        "id": "cizgimax:ep:11eyes-1-sezon-1-bolum-izle",
+        "title": "1. Sezon 1. Bölüm",
         "season": 1,
         "episode": 1
+      },
+      {
+        "id": "cizgimax:ep:11eyes-1-sezon-2-bolum-izle",
+        "title": "1. Sezon 2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "cizgimax:ep:11eyes-1-sezon-3-bolum-izle",
+        "title": "1. Sezon 3. Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "cizgimax:ep:11eyes-1-sezon-4-bolum-izle",
+        "title": "1. Sezon 4. Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "cizgimax:ep:11eyes-1-sezon-5-bolum-izle",
+        "title": "1. Sezon 5. Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "cizgimax:ep:11eyes-1-sezon-6-bolum-izle",
+        "title": "1. Sezon 6. Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "cizgimax:ep:11eyes-1-sezon-7-bolum-izle",
+        "title": "1. Sezon 7. Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "cizgimax:ep:11eyes-1-sezon-8-bolum-izle",
+        "title": "1. Sezon 8. Bölüm",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "cizgimax:ep:11eyes-1-sezon-9-bolum-izle",
+        "title": "1. Sezon 9. Bölüm",
+        "season": 1,
+        "episode": 9
+      },
+      {
+        "id": "cizgimax:ep:11eyes-1-sezon-10-bolum-izle",
+        "title": "1. Sezon 10. Bölüm",
+        "season": 1,
+        "episode": 10
+      },
+      {
+        "id": "cizgimax:ep:11eyes-1-sezon-11-bolum-izle",
+        "title": "1. Sezon 11. Bölüm",
+        "season": 1,
+        "episode": 11
+      },
+      {
+        "id": "cizgimax:ep:11eyes-1-sezon-12-bolum-izle",
+        "title": "1. Sezon 12. Bölüm",
+        "season": 1,
+        "episode": 12
       }
     ]
   }

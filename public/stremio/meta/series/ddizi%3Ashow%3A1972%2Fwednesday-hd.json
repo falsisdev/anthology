@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "ddizi:show:1972/wednesday-hd",
+    "type": "series",
+    "name": "Wednesday",
+    "poster": "https://www.ddizi.im/diziresimleri/wedsnkapak-min.jpg",
+    "background": "https://www.ddizi.im/diziresimleri/wedsnkapak-min.jpg",
+    "description": "Wednesday izle - DDizi Dizi Arşivi",
+    "genres": [
+      "Yerli Dizi",
+      "DDizi"
+    ],
+    "videos": [
+      {
+        "id": "ddizi:show:1972/wednesday-hd",
+        "title": "Wednesday",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

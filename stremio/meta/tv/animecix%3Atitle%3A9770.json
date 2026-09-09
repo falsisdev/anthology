@@ -12,10 +12,238 @@
     ],
     "videos": [
       {
-        "id": "animecix:title:9770",
-        "title": "Hanma Baki: Son of Ogre",
+        "id": "animecix:ep:9770:1:1",
+        "title": "Hanma Baki: Son of Ogre 1. Sezon 1. Bölüm",
         "season": 1,
         "episode": 1
+      },
+      {
+        "id": "animecix:ep:9770:1:2",
+        "title": "Hanma Baki: Son of Ogre 1. Sezon 2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "animecix:ep:9770:1:3",
+        "title": "Hanma Baki: Son of Ogre 1. Sezon 3. Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "animecix:ep:9770:1:4",
+        "title": "Hanma Baki: Son of Ogre 1. Sezon 4. Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "animecix:ep:9770:1:5",
+        "title": "Hanma Baki: Son of Ogre 1. Sezon 5. Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "animecix:ep:9770:1:6",
+        "title": "Hanma Baki: Son of Ogre 1. Sezon 6. Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "animecix:ep:9770:1:7",
+        "title": "Hanma Baki: Son of Ogre 1. Sezon 7. Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "animecix:ep:9770:1:8",
+        "title": "Hanma Baki: Son of Ogre 1. Sezon 8. Bölüm",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "animecix:ep:9770:1:9",
+        "title": "Hanma Baki: Son of Ogre 1. Sezon 9. Bölüm",
+        "season": 1,
+        "episode": 9
+      },
+      {
+        "id": "animecix:ep:9770:1:10",
+        "title": "Hanma Baki: Son of Ogre 1. Sezon 10. Bölüm",
+        "season": 1,
+        "episode": 10
+      },
+      {
+        "id": "animecix:ep:9770:1:11",
+        "title": "Hanma Baki: Son of Ogre 1. Sezon 11. Bölüm",
+        "season": 1,
+        "episode": 11
+      },
+      {
+        "id": "animecix:ep:9770:1:12",
+        "title": "Hanma Baki: Son of Ogre 1. Sezon 12. Bölüm",
+        "season": 1,
+        "episode": 12
+      },
+      {
+        "id": "animecix:ep:9770:2:1",
+        "title": "Hanma Baki: Son of Ogre 2. Sezon 1. Bölüm",
+        "season": 2,
+        "episode": 1
+      },
+      {
+        "id": "animecix:ep:9770:2:2",
+        "title": "Hanma Baki: Son of Ogre 2. Sezon 2. Bölüm",
+        "season": 2,
+        "episode": 2
+      },
+      {
+        "id": "animecix:ep:9770:2:3",
+        "title": "Hanma Baki: Son of Ogre 2. Sezon 3. Bölüm",
+        "season": 2,
+        "episode": 3
+      },
+      {
+        "id": "animecix:ep:9770:2:4",
+        "title": "Hanma Baki: Son of Ogre 2. Sezon 4. Bölüm",
+        "season": 2,
+        "episode": 4
+      },
+      {
+        "id": "animecix:ep:9770:2:5",
+        "title": "Hanma Baki: Son of Ogre 2. Sezon 5. Bölüm",
+        "season": 2,
+        "episode": 5
+      },
+      {
+        "id": "animecix:ep:9770:2:6",
+        "title": "Hanma Baki: Son of Ogre 2. Sezon 6. Bölüm",
+        "season": 2,
+        "episode": 6
+      },
+      {
+        "id": "animecix:ep:9770:2:7",
+        "title": "Hanma Baki: Son of Ogre 2. Sezon 7. Bölüm",
+        "season": 2,
+        "episode": 7
+      },
+      {
+        "id": "animecix:ep:9770:2:8",
+        "title": "Hanma Baki: Son of Ogre 2. Sezon 8. Bölüm",
+        "season": 2,
+        "episode": 8
+      },
+      {
+        "id": "animecix:ep:9770:2:9",
+        "title": "Hanma Baki: Son of Ogre 2. Sezon 9. Bölüm",
+        "season": 2,
+        "episode": 9
+      },
+      {
+        "id": "animecix:ep:9770:2:10",
+        "title": "Hanma Baki: Son of Ogre 2. Sezon 10. Bölüm",
+        "season": 2,
+        "episode": 10
+      },
+      {
+        "id": "animecix:ep:9770:2:11",
+        "title": "Hanma Baki: Son of Ogre 2. Sezon 11. Bölüm",
+        "season": 2,
+        "episode": 11
+      },
+      {
+        "id": "animecix:ep:9770:2:12",
+        "title": "Hanma Baki: Son of Ogre 2. Sezon 12. Bölüm",
+        "season": 2,
+        "episode": 12
+      },
+      {
+        "id": "animecix:ep:9770:2:13",
+        "title": "Hanma Baki: Son of Ogre 2. Sezon 13. Bölüm",
+        "season": 2,
+        "episode": 13
+      },
+      {
+        "id": "animecix:ep:9770:2:14",
+        "title": "Hanma Baki: Son of Ogre 2. Sezon 14. Bölüm",
+        "season": 2,
+        "episode": 14
+      },
+      {
+        "id": "animecix:ep:9770:2:15",
+        "title": "Hanma Baki: Son of Ogre 2. Sezon 15. Bölüm",
+        "season": 2,
+        "episode": 15
+      },
+      {
+        "id": "animecix:ep:9770:2:16",
+        "title": "Hanma Baki: Son of Ogre 2. Sezon 16. Bölüm",
+        "season": 2,
+        "episode": 16
+      },
+      {
+        "id": "animecix:ep:9770:2:17",
+        "title": "Hanma Baki: Son of Ogre 2. Sezon 17. Bölüm",
+        "season": 2,
+        "episode": 17
+      },
+      {
+        "id": "animecix:ep:9770:2:18",
+        "title": "Hanma Baki: Son of Ogre 2. Sezon 18. Bölüm",
+        "season": 2,
+        "episode": 18
+      },
+      {
+        "id": "animecix:ep:9770:2:19",
+        "title": "Hanma Baki: Son of Ogre 2. Sezon 19. Bölüm",
+        "season": 2,
+        "episode": 19
+      },
+      {
+        "id": "animecix:ep:9770:2:20",
+        "title": "Hanma Baki: Son of Ogre 2. Sezon 20. Bölüm",
+        "season": 2,
+        "episode": 20
+      },
+      {
+        "id": "animecix:ep:9770:2:21",
+        "title": "Hanma Baki: Son of Ogre 2. Sezon 21. Bölüm",
+        "season": 2,
+        "episode": 21
+      },
+      {
+        "id": "animecix:ep:9770:2:22",
+        "title": "Hanma Baki: Son of Ogre 2. Sezon 22. Bölüm",
+        "season": 2,
+        "episode": 22
+      },
+      {
+        "id": "animecix:ep:9770:2:23",
+        "title": "Hanma Baki: Son of Ogre 2. Sezon 23. Bölüm",
+        "season": 2,
+        "episode": 23
+      },
+      {
+        "id": "animecix:ep:9770:2:24",
+        "title": "Hanma Baki: Son of Ogre 2. Sezon 24. Bölüm",
+        "season": 2,
+        "episode": 24
+      },
+      {
+        "id": "animecix:ep:9770:2:25",
+        "title": "Hanma Baki: Son of Ogre 2. Sezon 25. Bölüm",
+        "season": 2,
+        "episode": 25
+      },
+      {
+        "id": "animecix:ep:9770:2:26",
+        "title": "Hanma Baki: Son of Ogre 2. Sezon 26. Bölüm",
+        "season": 2,
+        "episode": 26
+      },
+      {
+        "id": "animecix:ep:9770:2:27",
+        "title": "Hanma Baki: Son of Ogre 2. Sezon 27. Bölüm",
+        "season": 2,
+        "episode": 27
       }
     ]
   }

@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "id": "tv:NBATV.tr",
+    "type": "tv",
+    "name": "NBA TV HD",
+    "poster": "https://i.imgur.com/QmSc6kh.png",
+    "background": "https://i.imgur.com/QmSc6kh.png",
+    "description": "NBA TV HD Canlı Spor Yayını",
+    "genres": [
+      "Spor"
+    ],
+    "videos": [
+      {
+        "id": "tv:NBATV.tr",
+        "title": "NBA TV HD",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

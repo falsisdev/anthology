@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "ddizi:show:1807/elite-hd",
+    "type": "series",
+    "name": "Elite",
+    "poster": "https://www.ddizi.im/diziresimleri/elite-min.jpg",
+    "background": "https://www.ddizi.im/diziresimleri/elite-min.jpg",
+    "description": "Elite izle Türkçe Dublaj - DDizi Dizi Arşivi",
+    "genres": [
+      "Yerli Dizi",
+      "DDizi"
+    ],
+    "videos": [
+      {
+        "id": "ddizi:show:1807/elite-hd",
+        "title": "Elite",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

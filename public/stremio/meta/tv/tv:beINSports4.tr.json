@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "id": "tv:beINSports4.tr",
+    "type": "tv",
+    "name": "BeIN Sports 4 HD",
+    "poster": "https://i.imgur.com/vwAgJNi.png",
+    "background": "https://i.imgur.com/vwAgJNi.png",
+    "description": "BeIN Sports 4 HD Canlı Spor Yayını",
+    "genres": [
+      "Spor"
+    ],
+    "videos": [
+      {
+        "id": "tv:beINSports4.tr",
+        "title": "BeIN Sports 4 HD",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

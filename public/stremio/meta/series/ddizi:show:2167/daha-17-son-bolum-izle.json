@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "id": "ddizi:show:2167/daha-17-son-bolum-izle",
+    "type": "series",
+    "name": "Daha 17",
+    "poster": "https://www.ddizi.im/diziresimleri/daha17kapakmin.jpg",
+    "background": "https://www.ddizi.im/diziresimleri/daha17kapakmin.jpg",
+    "description": "Daha 17 - DDizi Dizi Arşivi",
+    "genres": [
+      "Yerli Dizi",
+      "DDizi"
+    ],
+    "videos": [
+      {
+        "id": "ddizi:ep:91409/daha-17-6-bolum-izle-hd1.htm",
+        "title": "Daha 17 6.Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "ddizi:ep:91430/daha-17-7-bolum-izle-hd.htm",
+        "title": "Daha 17 7.Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "ddizi:ep:91451/daha-17-8-bolum-izle-hd.htm",
+        "title": "Daha 17 8.Bölüm",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "ddizi:ep:91472/daha-17-9-bolum-izle-hd1.htm",
+        "title": "Daha 17 9.Bölüm",
+        "season": 1,
+        "episode": 9
+      },
+      {
+        "id": "ddizi:ep:91498/daha-17-10-bolum-izle-hd.htm",
+        "title": "Daha 17 10.Bölüm",
+        "season": 1,
+        "episode": 10
+      },
+      {
+        "id": "ddizi:ep:91524/daha-17-11-bolum-izle-hd1.htm",
+        "title": "Daha 17 11.Bölüm",
+        "season": 1,
+        "episode": 11
+      },
+      {
+        "id": "ddizi:ep:91550/daha-17-12-bolum-izle-hd1.htm",
+        "title": "Daha 17 12.Bölüm",
+        "season": 1,
+        "episode": 12
+      },
+      {
+        "id": "ddizi:ep:91605/daha-17-13-bolum-izle-hd1.htm",
+        "title": "Daha 17 13.Bölüm",
+        "season": 1,
+        "episode": 13
+      },
+      {
+        "id": "ddizi:ep:91632/daha-17-14-bolum-izle-hd1.htm",
+        "title": "Daha 17 14.Bölüm",
+        "season": 1,
+        "episode": 14
+      },
+      {
+        "id": "ddizi:ep:91666/daha-17-15-bolum-izle-hd1.htm",
+        "title": "Daha 17 15.Bölüm",
+        "season": 1,
+        "episode": 15
+      }
+    ]
+  }
+}

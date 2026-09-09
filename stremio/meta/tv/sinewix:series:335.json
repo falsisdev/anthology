@@ -4,18 +4,66 @@
     "type": "series",
     "name": "She-Hulk: Attorney at Law",
     "poster": "https://image.tmdb.org/t/p/w500/hJfI6AGrmr4uSHRccfJuSsapvOb.jpg",
-    "background": "https://image.tmdb.org/t/p/w500/hJfI6AGrmr4uSHRccfJuSsapvOb.jpg",
-    "description": "She-Hulk: Attorney at Law - Anthology",
+    "background": "https://image.tmdb.org/t/p/w500/9GvhICFMiRQA82vS6ydkXxeEkrd.jpg",
+    "description": "Jennifer Walters, kaza geçirene kadar sıradan bir hayat yaşayan bir avukattır. Onun iyileşmesi için kuzeni Bruce Banner'dan kan alınır. Bu nakil Jennifer’ın, Banner'ın ikinci kişiliği Hulk'un süper güçlerini, daha hafif bir biçimde almasına neden olur. Jennifer Walters, süper gücünü bir sonraki seviyeye taşımak için zekasını, özgüvenini ve özgüvenini kullanır.",
     "genres": [
       "SineWix",
       "Popüler Dizi"
     ],
     "videos": [
       {
-        "id": "sinewix:series:335",
-        "title": "She-Hulk: Attorney at Law",
+        "id": "sinewix:ep:335:1:1",
+        "title": "Normal Derecede Öfkeli",
         "season": 1,
         "episode": 1
+      },
+      {
+        "id": "sinewix:ep:335:1:2",
+        "title": "Süperinsan Hukuku",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "sinewix:ep:335:1:3",
+        "title": "Emill Blonsky İnsanlara Karşı",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "sinewix:ep:335:1:4",
+        "title": "Bu Gerçek Sihir Değil Mi?",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "sinewix:ep:335:1:5",
+        "title": "Asi, Yeşil ve Kotla Çok Şekil",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "sinewix:ep:335:1:6",
+        "title": "Sadece Jen",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "sinewix:ep:335:1:7",
+        "title": "İnziva",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "sinewix:ep:335:1:8",
+        "title": "Sıçra ve Parçala",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "sinewix:ep:335:1:9",
+        "title": "Bu Kimin Dizisi?",
+        "season": 1,
+        "episode": 9
       }
     ]
   }

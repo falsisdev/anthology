@@ -3,8 +3,8 @@
     "id": "turkanime:anime:tenmaku-no-jaadugar",
     "type": "series",
     "name": "Tenmaku no Jaadugar",
-    "poster": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
-    "background": "https://www.google.com/s2/favicons?domain=turkanime.tv&sz=128",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/6756.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/6756.jpg",
     "description": "Tenmaku no Jaadugar - TurkAnime TV",
     "genres": [
       "Anime",
@@ -12,10 +12,70 @@
     ],
     "videos": [
       {
-        "id": "turkanime:anime:tenmaku-no-jaadugar",
-        "title": "Tenmaku no Jaadugar",
+        "id": "turkanime:ep:tenmaku-no-jadugaar-1-bolum",
+        "title": "1. Bölüm",
         "season": 1,
         "episode": 1
+      },
+      {
+        "id": "turkanime:ep:tenmaku-no-jaadugar-2-bolum",
+        "title": "2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "turkanime:ep:tenmaku-no-jaadugar-3-bolum",
+        "title": "3. Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "turkanime:ep:tenmaku-no-jaadugar-4-bolum",
+        "title": "4. Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "turkanime:ep:tenmaku-no-jaadugar-5-bolum",
+        "title": "5. Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "turkanime:ep:tenmaku-no-jaadugar-6-bolum",
+        "title": "6. Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "turkanime:ep:tenmaku-no-jaadugar-7-bolum",
+        "title": "7. Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "turkanime:ep:tenmaku-no-jaadugar-8-bolum",
+        "title": "8. Bölüm",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "turkanime:ep:tenmaku-no-jaadugar-9-bolum",
+        "title": "9. Bölüm",
+        "season": 1,
+        "episode": 9
+      },
+      {
+        "id": "turkanime:ep:tenmaku-no-jaadugar-10-bolum",
+        "title": "10. Bölüm",
+        "season": 1,
+        "episode": 10
+      },
+      {
+        "id": "turkanime:ep:tenmaku-no-jaadugar-11-bolum",
+        "title": "11. Bölüm",
+        "season": 1,
+        "episode": 11
       }
     ]
   }

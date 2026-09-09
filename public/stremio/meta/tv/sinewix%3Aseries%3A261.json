@@ -4,18 +4,48 @@
     "type": "series",
     "name": "Ms. Marvel",
     "poster": "https://image.tmdb.org/t/p/w500/cdkyMYdu8ao26XOBvilNzLneUg1.jpg",
-    "background": "https://image.tmdb.org/t/p/w500/cdkyMYdu8ao26XOBvilNzLneUg1.jpg",
-    "description": "Ms. Marvel - Anthology",
+    "background": "https://image.tmdb.org/t/p/w500/rlCRM7U5g2hcU1O8ylGcqsMYHIP.jpg",
+    "description": "Muhteşem bir öğrenci, tutkulu bir video oyuncusu ve süper kahramanlara karşı inanılmaz bir sevgisi olan Kamala Khan, bu kahramanlar içinde en çok Captain Marvel’e hayrandır. Okul ve ev hayatını yoluna sokmaya çalışan Kamala, bir gün hiç beklenmedik şekilde süper güçlere kavuşur. Hayat süper güçlerle daha kolaydır değil mi?",
     "genres": [
       "SineWix",
       "Popüler Dizi"
     ],
     "videos": [
       {
-        "id": "sinewix:series:261",
-        "title": "Ms. Marvel",
+        "id": "sinewix:ep:261:1:1",
+        "title": "1. Bölüm",
         "season": 1,
         "episode": 1
+      },
+      {
+        "id": "sinewix:ep:261:1:2",
+        "title": "2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "sinewix:ep:261:1:3",
+        "title": "3. Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "sinewix:ep:261:1:4",
+        "title": "4. Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "sinewix:ep:261:1:5",
+        "title": "5. Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "sinewix:ep:261:1:6",
+        "title": "6. Bölüm",
+        "season": 1,
+        "episode": 6
       }
     ]
   }

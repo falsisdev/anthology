@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "id": "tv:TRTMuzik.tr",
+    "type": "tv",
+    "name": "TRT Müzik HD",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtmuzik.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtmuzik.png",
+    "description": "TRT Müzik HD Canlı Yayın",
+    "genres": [
+      "SİNEMA  MÜZİK"
+    ],
+    "videos": [
+      {
+        "id": "tv:TRTMuzik.tr",
+        "title": "TRT Müzik HD",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}
