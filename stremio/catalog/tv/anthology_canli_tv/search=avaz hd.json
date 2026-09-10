@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:TRTAvaz.tr",
+      "type": "tv",
+      "name": "TRT Avaz HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtavaz.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtavaz.png",
+      "description": "TRT Avaz HD Canlı Yayın",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    }
+  ]
+}

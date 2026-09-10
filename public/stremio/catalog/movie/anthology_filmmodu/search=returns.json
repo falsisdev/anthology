@@ -1,0 +1,40 @@
+{
+  "metas": [
+    {
+      "id": "filmmodu:batman-returns-film-izle",
+      "type": "movie",
+      "name": "Batman Returns",
+      "poster": "https://cdn.filmmodu.one/uploads/movie/poster/462/thumb_ifzddUhnsTf1h6guBUKBlDwuS1t.jpg",
+      "background": "https://cdn.filmmodu.one/uploads/movie/poster/462/thumb_ifzddUhnsTf1h6guBUKBlDwuS1t.jpg",
+      "description": "Batman Returns - FilmModu HD Film",
+      "genres": [
+        "FilmModu",
+        "Film"
+      ]
+    },
+    {
+      "id": "filmmodu:batman-the-dark-knight-returns-part-2-hd-film-izle",
+      "type": "movie",
+      "name": "Batman: The Dark Knight Returns, Part 2",
+      "poster": "https://cdn.filmmodu.one/uploads/movie/poster/2776/thumb_wPeorCnD9MRR2S9Dzh4OpIgNLiv.jpg",
+      "background": "https://cdn.filmmodu.one/uploads/movie/poster/2776/thumb_wPeorCnD9MRR2S9Dzh4OpIgNLiv.jpg",
+      "description": "Batman: The Dark Knight Returns, Part 2 - FilmModu HD Film",
+      "genres": [
+        "FilmModu",
+        "Film"
+      ]
+    },
+    {
+      "id": "filmmodu:batman-the-dark-knight-returns-part-1-film-izle",
+      "type": "movie",
+      "name": "Batman: The Dark Knight Returns, Part 1",
+      "poster": "https://cdn.filmmodu.one/uploads/movie/poster/2937/thumb_mFPD2YsdaWAzjuxF7ItGmsEFpdY.jpg",
+      "background": "https://cdn.filmmodu.one/uploads/movie/poster/2937/thumb_mFPD2YsdaWAzjuxF7ItGmsEFpdY.jpg",
+      "description": "Batman: The Dark Knight Returns, Part 1 - FilmModu HD Film",
+      "genres": [
+        "FilmModu",
+        "Film"
+      ]
+    }
+  ]
+}

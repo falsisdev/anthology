@@ -1,0 +1,28 @@
+{
+  "metas": [
+    {
+      "id": "animecix:title:12100",
+      "type": "series",
+      "name": "Once Upon a Witch's Death",
+      "poster": "https://image.tmdb.org/t/p/original/5Gr2mDFSGHhiEYrNfP6vbYtuNrT.jpg",
+      "background": "https://image.tmdb.org/t/p/original/w3eNEws87fMiSDgMpq7wbbtCybm.jpg",
+      "description": "Meg Ahududu sadece 17. doğum gününü kutlayan bir çırak cadı. Yani, sihirli öğretmeni ve yedi bilginin çok yıllık cadısı Faust'a kadar aniden öleceğini açıklayana kadar. Ölüm cezası lanetini durdurmak için Meg, 1000 kişiden sevinç gözyaşları kullanarak yaşam tohumunu yaratmalıdır. Ebedi yaşam kazanmak için tanıştığı herkesten mutlu gözyaşlarını toplarken Meg'e seyahatlerine katılın!",
+      "genres": [
+        "Anime",
+        "AnimeciX"
+      ]
+    },
+    {
+      "id": "animecix:title:13108",
+      "type": "series",
+      "name": "Witch Hunter Robin",
+      "poster": "https://image.tmdb.org/t/p/original/uqsoTTEzLVKUacVR9cqtjqEYEAb.jpg",
+      "background": "https://image.tmdb.org/t/p/w1280/y9ETqHxMWc8IrDtVvRGST3IxafB.jpg",
+      "description": "Solomon, büyücülük gücünü genetik yoluyla elde etmiş olanları ve güçlerinin \"uyanması\" durumunda onları tutuklamak veya ortadan kaldırmak için geni taşıyan diğerlerini içeren bir cadı veri tabanını kullanarak büyücülüğün zararlı kullanımına karşı savaşır. Dizi, STN-J üyesi Robin Sena'ya odaklanıyor.",
+      "genres": [
+        "Anime",
+        "AnimeciX"
+      ]
+    }
+  ]
+}

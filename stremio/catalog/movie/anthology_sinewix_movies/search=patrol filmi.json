@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:711",
+      "type": "movie",
+      "name": "PAW Patrol Filmi",
+      "poster": "https://image.tmdb.org/t/p/w500/vlbFx1gPyTan7l9as168yJmNe9B.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/a17F3zXnmuwqxfiDa46mtlosjrv.jpg",
+      "description": "Paw Patrol dizisinin sinema filmi, şehrin kahraman köpekleri Ryder ve arkadaşlarının, Macera Şehri'ni kaosa sürükleyen belediye başkanı Humdinger'a karşı verdikleri mücadeleyi anlatıyor.",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    }
+  ]
+}

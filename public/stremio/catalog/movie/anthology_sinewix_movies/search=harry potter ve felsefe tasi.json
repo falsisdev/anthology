@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:387",
+      "type": "movie",
+      "name": "Harry Potter ve Felsefe Taşı",
+      "poster": "https://image.tmdb.org/t/p/w500/3mDokw9KewPQMpY1pB912Y9SVYB.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/lvOLivVeX3DVVcwfVkxKf0R22D8.jpg",
+      "description": "Harry Potter, muggle (büyücü yada cadı olmayan insanlar) amcası ve halasıyla sıradan ve zorluklarla dolu bir hayatı yaşarken, yılanlarla konuşabildiğinin, kızgınlık öfkesi sırasında eşyaları hareket ettirebildiğinin farkına varacaktır. Hogwarts Büyücülük ve Cadılık Okulu'ndan kabul edildiğini belirten mektup ise hayatının sıradanlığını değiştirecektir. Artık o bir büyücü adayıdır.",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

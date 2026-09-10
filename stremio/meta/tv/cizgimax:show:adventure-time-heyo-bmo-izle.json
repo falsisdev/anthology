@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "cizgimax:show:adventure-time-heyo-bmo-izle",
+    "type": "series",
+    "name": "Adventure Time: Heyo BMO",
+    "poster": "https://cizgimax.online/img/locandine/adventure-time-heyo-bmo-poster.webp",
+    "background": "https://cizgimax.online/img/locandine/adventure-time-heyo-bmo-poster.webp",
+    "description": "Adventure Time: Heyo BMO - ÇizgiMax",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:show:adventure-time-heyo-bmo-izle",
+        "title": "Adventure Time: Heyo BMO 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

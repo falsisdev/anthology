@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:fullmetal-alchemist-the-conqueror-of-shamballa",
+    "type": "series",
+    "name": "Fullmetal Alchemist: The Conqueror of...",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/3262.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/3262.jpg",
+    "description": "Fullmetal Alchemist: The Conqueror of Shamballa - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:fullmetal-alchemist-the-conqueror-of-shamballa",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

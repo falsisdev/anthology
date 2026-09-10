@@ -1,0 +1,40 @@
+{
+  "metas": [
+    {
+      "id": "turkanime:anime:re-zero-kara-hajimeru-isekai-seikatsu-4th-season",
+      "type": "series",
+      "name": "Re:Zero kara Hajimeru Isekai Seikatsu 4th Season",
+      "poster": "https://www.turkanime.tv/imajlar/serilerb/6666.jpg",
+      "background": "https://www.turkanime.tv/imajlar/serilerb/6666.jpg",
+      "description": "Re:Zero kara Hajimeru Isekai Seikatsu 4th Season - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:mushoku-tensei-iii-isekai-ittara-honki-dasu",
+      "type": "series",
+      "name": "Mushoku Tensei III: Isekai Ittara Honki Dasu",
+      "poster": "https://www.turkanime.tv/imajlar/serilerb/6788.jpg",
+      "background": "https://www.turkanime.tv/imajlar/serilerb/6788.jpg",
+      "description": "Mushoku Tensei III: Isekai Ittara Honki Dasu - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:gaikotsu-kishi-sama-tadaima-isekai-e-odekakechuu-ii",
+      "type": "series",
+      "name": "Gaikotsu Kishi-sama, Tadaima Isekai e Odekakechuu II",
+      "poster": "https://www.turkanime.tv/imajlar/serilerb/6787.jpg",
+      "background": "https://www.turkanime.tv/imajlar/serilerb/6787.jpg",
+      "description": "Gaikotsu Kishi-sama, Tadaima Isekai e Odekakechuu II - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    }
+  ]
+}

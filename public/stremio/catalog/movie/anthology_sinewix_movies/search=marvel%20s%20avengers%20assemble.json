@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:series:82",
+      "type": "movie",
+      "name": "Marvel's Avengers Assemble",
+      "poster": "https://image.tmdb.org/t/p/w500/aVYPq7FSvsdNQOXVIFnndXJPCXn.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/6ZqXMR9aLLdGjbxkIMo77EhZexy.jpg",
+      "description": "Iron Man, Hulk, Thor, Captain America, Hawkeye, Falcon ve Black Widow, güçlerini hiçbir kahramanın tek başına dayanamayacağı tehditlere karşı birleştirir. Avengers birleştiğinde, kötülüğün hiç şansı yoktur!",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

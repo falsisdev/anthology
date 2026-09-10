@@ -1,0 +1,37 @@
+{
+  "metas": [
+    {
+      "id": "tv:SSport.tr",
+      "type": "tv",
+      "name": "S Sport HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssport.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssport.png",
+      "description": "S Sport HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:SSport2.tr",
+      "type": "tv",
+      "name": "S Sport 2 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssport.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssport.png",
+      "description": "S Sport 2 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:SSportPlus.tr",
+      "type": "tv",
+      "name": "S Sport Plus HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssport.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssport.png",
+      "description": "S Sport Plus HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    }
+  ]
+}

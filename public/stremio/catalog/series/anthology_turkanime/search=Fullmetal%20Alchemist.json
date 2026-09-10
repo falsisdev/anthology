@@ -1,0 +1,76 @@
+{
+  "metas": [
+    {
+      "id": "turkanime:anime:fullmetal-alchemist",
+      "type": "series",
+      "name": "Fullmetal Alchemist",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Fullmetal Alchemist - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:fullmetal-alchemist-brotherhood",
+      "type": "series",
+      "name": "Fullmetal Alchemist: Brotherhood",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Fullmetal Alchemist: Brotherhood - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:fullmetal-alchemist-brotherhood-4-koma-theater",
+      "type": "series",
+      "name": "Fullmetal Alchemist: Brotherhood - 4-...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Fullmetal Alchemist: Brotherhood - 4-... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:fullmetal-alchemist-brotherhood-specials",
+      "type": "series",
+      "name": "Fullmetal Alchemist: Brotherhood Spec...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Fullmetal Alchemist: Brotherhood Spec... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:fullmetal-alchemist-the-conqueror-of-shamballa",
+      "type": "series",
+      "name": "Fullmetal Alchemist: The Conqueror of...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Fullmetal Alchemist: The Conqueror of... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:fullmetal-alchemist-the-sacred-star-of-milos",
+      "type": "series",
+      "name": "Fullmetal Alchemist: The Sacred Star ...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Fullmetal Alchemist: The Sacred Star ... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    }
+  ]
+}

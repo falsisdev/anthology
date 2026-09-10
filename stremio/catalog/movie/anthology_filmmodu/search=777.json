@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "filmmodu:777-charlie-film-izle",
+      "type": "movie",
+      "name": "777 Charlie",
+      "poster": "https://cdn.filmmodu.one/uploads/movie/poster/14933/thumb_777-charlie.jpg",
+      "background": "https://cdn.filmmodu.one/uploads/movie/poster/14933/thumb_777-charlie.jpg",
+      "description": "777 Charlie - FilmModu HD Film",
+      "genres": [
+        "FilmModu",
+        "Film"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "cizgimax:show:lego-star-wars-the-yoda-chronicles-2013-izle",
+    "type": "series",
+    "name": "LEGO Star Wars: The Yoda Chronicles",
+    "poster": "https://cizgimax.online/img/locandine/lego-star-wars-the-yoda-chronicles-2013-poster.webp",
+    "background": "https://cizgimax.online/img/locandine/lego-star-wars-the-yoda-chronicles-2013-poster.webp",
+    "description": "LEGO Star Wars: The Yoda Chronicles - ÇizgiMax",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:show:lego-star-wars-the-yoda-chronicles-2013-izle",
+        "title": "LEGO Star Wars: The Yoda Chronicles 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

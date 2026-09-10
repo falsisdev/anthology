@@ -1,0 +1,40 @@
+{
+  "metas": [
+    {
+      "id": "dizimom:show:the-darkness-izle",
+      "type": "series",
+      "name": "The Darkness",
+      "poster": "https://www.dizimom.diy/wp-content/uploads/2025/03/the-darkness.jpg",
+      "background": "https://www.dizimom.diy/wp-content/uploads/2025/03/the-darkness.jpg",
+      "description": "The Darkness - DiziMom Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziMom"
+      ]
+    },
+    {
+      "id": "dizimom:show:the-darkness-turkce-dublaj-izle",
+      "type": "series",
+      "name": "The Darkness Türkçe Dublaj",
+      "poster": "https://www.dizimom.diy/wp-content/uploads/2025/03/the-darkness.jpg",
+      "background": "https://www.dizimom.diy/wp-content/uploads/2025/03/the-darkness.jpg",
+      "description": "The Darkness Türkçe Dublaj - DiziMom Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziMom"
+      ]
+    },
+    {
+      "id": "dizimom:show:through-the-darkness-izle",
+      "type": "series",
+      "name": "Through the Darkness",
+      "poster": "https://www.dizimom.diy/wp-content/uploads/2022/12/through-the-darkness.jpg",
+      "background": "https://www.dizimom.diy/wp-content/uploads/2022/12/through-the-darkness.jpg",
+      "description": "Through the Darkness - DiziMom Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziMom"
+      ]
+    }
+  ]
+}

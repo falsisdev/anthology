@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:NOW.tr",
+      "type": "tv",
+      "name": "NOW TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/now.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/now.png",
+      "description": "NOW TV HD Canlı Yayın",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    }
+  ]
+}

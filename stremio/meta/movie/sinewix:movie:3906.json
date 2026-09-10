@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "id": "sinewix:movie:3906",
+    "type": "movie",
+    "name": "Sinbad: Yedi Denizler Efsanesi",
+    "poster": "https://image.tmdb.org/t/p/w500/fQYXQAifeMS0jjfyp8w9XdRoFsg.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/j8isWEPL3PmmVh8ap3jm75qVF4p.jpg",
+    "description": "Sinbad şöhreti uzak denizlere yayılmış çok cesur ve çılgın bir denizcidir. Tüm hayatını denizlerde bela arayarak geçmiştir. Ve sonunda aradığı belayı bulur. Hem de unutulmayacak bir şekilde... Dünyanın en paha biçilmez hazinesi sayılan Barış Kitabını çalmakla suçlanan Sinbad'ın önünde tek bir seçenek kalmıştır: Barış Kitabını çalanı bulup geri getirmek. Aksi takdirde en iyi arkadaşı Proteus ölecektir.",
+    "genres": [
+      "SineWix"
+    ]
+  }
+}

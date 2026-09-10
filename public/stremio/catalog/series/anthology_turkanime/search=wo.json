@@ -1,0 +1,40 @@
+{
+  "metas": [
+    {
+      "id": "turkanime:anime:one-piece-3d2y-ace-no-shi-wo-koete-luffy-nakama-tono-chikai",
+      "type": "series",
+      "name": "One Piece 3D2Y: Ace no shi wo Koete! ...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "One Piece 3D2Y: Ace no shi wo Koete! ... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:digimon-xros-wars-toki-wo-kakeru-shounen-hunter-tachi",
+      "type": "series",
+      "name": "Digimon Xros Wars: Toki wo Kakeru Sho...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Digimon Xros Wars: Toki wo Kakeru Sho... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:boku-no-hero-academia-the-movie-3-world-heroes-mission",
+      "type": "series",
+      "name": "Boku no Hero Academia the Movie 3: Wo...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Boku no Hero Academia the Movie 3: Wo... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    }
+  ]
+}

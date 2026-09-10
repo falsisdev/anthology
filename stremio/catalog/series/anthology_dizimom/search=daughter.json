@@ -1,0 +1,28 @@
+{
+  "metas": [
+    {
+      "id": "dizimom:show:sherlock-daughter-izle",
+      "type": "series",
+      "name": "Sherlock & Daughter",
+      "poster": "https://www.dizimom.diy/wp-content/uploads/2025/06/sherlock-daughter.jpg",
+      "background": "https://www.dizimom.diy/wp-content/uploads/2025/06/sherlock-daughter.jpg",
+      "description": "Sherlock & Daughter - DiziMom Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziMom"
+      ]
+    },
+    {
+      "id": "dizimom:show:sherlock-daughter-turkce-dublaj-izle",
+      "type": "series",
+      "name": "Sherlock & Daughter Türkçe Dublaj",
+      "poster": "https://www.dizimom.diy/wp-content/uploads/2025/06/sherlock-daughter.jpg",
+      "background": "https://www.dizimom.diy/wp-content/uploads/2025/06/sherlock-daughter.jpg",
+      "description": "Sherlock & Daughter Türkçe Dublaj - DiziMom Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziMom"
+      ]
+    }
+  ]
+}

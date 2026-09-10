@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "ddizi:show:1917/the-witcher-hd",
+      "type": "series",
+      "name": "The Witcher",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "The Witcher - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    }
+  ]
+}

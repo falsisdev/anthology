@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "id": "sinewix:movie:1795",
+    "type": "movie",
+    "name": "Animatrix",
+    "poster": "https://image.tmdb.org/t/p/w500/g52SOsTvdjzY8oPIn5znLJMzLHG.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/6EnDIsjiel1qOfsIKQInwl80Zua.jpg",
+    "description": "Animatrix, Matrix dünyasının animasyon ortamına aktarılmış öykülerinden oluşuyor. Osiris'in Son Uçuşu ise 9 kısa filmden oluşan serinin en çarpıcı örneklerinden biri. Bilgisayarlı animasyon teknolojinin ulaştığı yeri görmek açısından da önem taşıyan yapım, unutulmaz bir kılıç gösterisiyle başlıyor. Daha sonra ise bir direnişçi gemisine geçiş yapıyoruz. Zion'a doğru yolculuk yapan gemi, şehrin çevresini saran düşmanlara karşı bir mücadeleye başlar...",
+    "genres": [
+      "SineWix"
+    ]
+  }
+}

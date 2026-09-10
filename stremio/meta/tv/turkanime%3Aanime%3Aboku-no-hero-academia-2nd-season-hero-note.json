@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:boku-no-hero-academia-2nd-season-hero-note",
+    "type": "series",
+    "name": "Boku no Hero Academia 2nd Season: Her...",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/5484.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/5484.jpg",
+    "description": "Boku no Hero Academia 2nd Season: Hero Note - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:boku-no-hero-academia-2nd-season-hero-note-special",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

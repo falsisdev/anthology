@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "dizimom:show:dark-izle",
+      "type": "series",
+      "name": "Dark",
+      "poster": "https://www.dizimom.diy/wp-content/uploads/2019/07/dark-200x290.jpg",
+      "background": "https://www.dizimom.diy/wp-content/uploads/2019/07/dark-200x290.jpg",
+      "description": "Dark - DiziMom Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziMom"
+      ]
+    }
+  ]
+}

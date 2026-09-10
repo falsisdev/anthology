@@ -1,0 +1,40 @@
+{
+  "metas": [
+    {
+      "id": "cizgimax:show:film/batman-return-of-the-caped-crusaders-izle",
+      "type": "series",
+      "name": "Batman: Pelerinli Süvarilerin Dönüşü",
+      "poster": "https://cizgimax.online/img/locandine/batman-return-of-the-caped-crusaders-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/batman-return-of-the-caped-crusaders-poster.webp",
+      "description": "Batman: Pelerinli Süvarilerin Dönüşü - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:film/supermanin-olumu-ve-donusu-izle-hdf-4-izle",
+      "type": "series",
+      "name": "Superman'in Ölümü ve Dönüşü",
+      "poster": "https://cizgimax.online/img/locandine/supermanin-olumu-ve-donusu-izle-hdf-4-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/supermanin-olumu-ve-donusu-izle-hdf-4-poster.webp",
+      "description": "Superman'in Ölümü ve Dönüşü - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:film/superman-shazam-the-return-of-black-adam-izle",
+      "type": "series",
+      "name": "Süperman/Shazam!: Black Adam'ın Dönüşü",
+      "poster": "https://cizgimax.online/img/locandine/superman-shazam-the-return-of-black-adam-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/superman-shazam-the-return-of-black-adam-poster.webp",
+      "description": "Süperman/Shazam!: Black Adam'ın Dönüşü - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    }
+  ]
+}

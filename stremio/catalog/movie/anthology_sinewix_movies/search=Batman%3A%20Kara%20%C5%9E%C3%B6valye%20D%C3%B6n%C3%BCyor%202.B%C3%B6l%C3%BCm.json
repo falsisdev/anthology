@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:3345",
+      "type": "movie",
+      "name": "Batman: Kara Şövalye Dönüyor 2.Bölüm",
+      "poster": "https://image.tmdb.org/t/p/w500/arEZYd6uMOFTILne9Ux0A8qctMe.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/zHqptza1ttGa7hkYNEXP7ECIyA9.jpg",
+      "description": "Batman on yıllık aradan sonra geri geliyor. Gotham yetkilileri onu yakalamak, eski bir düşman yeniden bir araya gelmek, Federaller onu durdurmak istiyordur.",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "animecix:title:10134",
+    "type": "series",
+    "name": "Dragon Ball Z Movie 07: Kyokugen Battle!! Sandai Super Saiyajin",
+    "poster": "https://image.tmdb.org/t/p/original/uVJqC187rKxQ1sJsWlKjNfAzeTk.jpg",
+    "background": "https://image.tmdb.org/t/p/w1280/mGr18hk6oDQyGjaSpbF7o5epoJV.jpg",
+    "description": "Gero'nun Android'leri #13, #14 ve #15, laboratuvar bilgisayarları tarafından uyandırılır ve hemen Goku'nun alışveriş yaptığı alışveriş merkezine gider. Goku, Trunks ve Vegeta #14 ve #15'i yendikten sonra, #13 iç bilgisayarlarını emer ve orijinal üçünden ayrı ayrı olduğundan daha büyük bir süper varlık haline gelir. Şimdi onu durdurmak Goku'ya kalmış.",
+    "genres": [
+      "Anime",
+      "AnimeciX"
+    ],
+    "videos": [
+      {
+        "id": "animecix:ep:10134:1:1",
+        "title": "Dragon Ball Z Movie 07: Kyokugen Battle!! Sandai Super Saiyajin 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

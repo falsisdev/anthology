@@ -1,0 +1,202 @@
+{
+  "meta": {
+    "id": "turkanime:anime:shingeki-no-kyojin",
+    "type": "series",
+    "name": "Shingeki no Kyojin",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/1649.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/1649.jpg",
+    "description": "Shingeki no Kyojin - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-1-bolum",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-2-bolum",
+        "title": "2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-3-bolum",
+        "title": "3. Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-ova-3-bolum",
+        "title": "3. Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-4-bolum",
+        "title": "4. Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-ova-4-bolum-part-1-pismanlik-yok",
+        "title": "4. Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-5-bolum",
+        "title": "5. Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-13-5-bolum",
+        "title": "5. Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-ova-5-bolum-part-2-pismanlik-yok",
+        "title": "5. Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-6-bolum",
+        "title": "6. Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-7-bolum",
+        "title": "7. Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-8-bolum",
+        "title": "8. Bölüm",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-9-bolum",
+        "title": "9. Bölüm",
+        "season": 1,
+        "episode": 9
+      },
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-10-bolum",
+        "title": "10. Bölüm",
+        "season": 1,
+        "episode": 10
+      },
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-11-bolum",
+        "title": "11. Bölüm",
+        "season": 1,
+        "episode": 11
+      },
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-12-bolum",
+        "title": "12. Bölüm",
+        "season": 1,
+        "episode": 12
+      },
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-13-bolum",
+        "title": "13. Bölüm",
+        "season": 1,
+        "episode": 13
+      },
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-14-bolum",
+        "title": "14. Bölüm",
+        "season": 1,
+        "episode": 14
+      },
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-15-bolum",
+        "title": "15. Bölüm",
+        "season": 1,
+        "episode": 15
+      },
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-16-bolum",
+        "title": "16. Bölüm",
+        "season": 1,
+        "episode": 16
+      },
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-17-bolum",
+        "title": "17. Bölüm",
+        "season": 1,
+        "episode": 17
+      },
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-18-bolum",
+        "title": "18. Bölüm",
+        "season": 1,
+        "episode": 18
+      },
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-19-bolum",
+        "title": "19. Bölüm",
+        "season": 1,
+        "episode": 19
+      },
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-20-bolum",
+        "title": "20. Bölüm",
+        "season": 1,
+        "episode": 20
+      },
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-21-bolum",
+        "title": "21. Bölüm",
+        "season": 1,
+        "episode": 21
+      },
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-22-bolum",
+        "title": "22. Bölüm",
+        "season": 1,
+        "episode": 22
+      },
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-23-bolum",
+        "title": "23. Bölüm",
+        "season": 1,
+        "episode": 23
+      },
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-24-bolum",
+        "title": "24. Bölüm",
+        "season": 1,
+        "episode": 24
+      },
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-25-bolum-final",
+        "title": "25. Bölüm",
+        "season": 1,
+        "episode": 25
+      },
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-ova-ilse-nin-defteri",
+        "title": "27. Bölüm",
+        "season": 1,
+        "episode": 27
+      },
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-ova-2-104-birlik-caylaklari",
+        "title": "28. Bölüm",
+        "season": 1,
+        "episode": 28
+      }
+    ]
+  }
+}

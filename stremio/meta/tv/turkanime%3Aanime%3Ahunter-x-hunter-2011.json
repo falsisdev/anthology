@@ -1,0 +1,904 @@
+{
+  "meta": {
+    "id": "turkanime:anime:hunter-x-hunter-2011",
+    "type": "series",
+    "name": "Hunter x Hunter (2011)",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/1052.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/1052.jpg",
+    "description": "Hunter x Hunter (2011) - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-1-bolum",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-2-bolum",
+        "title": "2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-3-bolum",
+        "title": "3. Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-4-bolum",
+        "title": "4. Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-5-bolum",
+        "title": "5. Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-6-bolum",
+        "title": "6. Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-7-bolum",
+        "title": "7. Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-8-bolum",
+        "title": "8. Bölüm",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-9-bolum",
+        "title": "9. Bölüm",
+        "season": 1,
+        "episode": 9
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-10-bolum",
+        "title": "10. Bölüm",
+        "season": 1,
+        "episode": 10
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-11-bolum",
+        "title": "11. Bölüm",
+        "season": 1,
+        "episode": 11
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-12-bolum",
+        "title": "12. Bölüm",
+        "season": 1,
+        "episode": 12
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-13-bolum",
+        "title": "13. Bölüm",
+        "season": 1,
+        "episode": 13
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-14-bolum",
+        "title": "14. Bölüm",
+        "season": 1,
+        "episode": 14
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-15-bolum",
+        "title": "15. Bölüm",
+        "season": 1,
+        "episode": 15
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-16-bolum",
+        "title": "16. Bölüm",
+        "season": 1,
+        "episode": 16
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-17-bolum",
+        "title": "17. Bölüm",
+        "season": 1,
+        "episode": 17
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-18-bolum",
+        "title": "18. Bölüm",
+        "season": 1,
+        "episode": 18
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-19-bolum",
+        "title": "19. Bölüm",
+        "season": 1,
+        "episode": 19
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-20-bolum",
+        "title": "20. Bölüm",
+        "season": 1,
+        "episode": 20
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-21-bolum",
+        "title": "21. Bölüm",
+        "season": 1,
+        "episode": 21
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-22-bolum",
+        "title": "22. Bölüm",
+        "season": 1,
+        "episode": 22
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-23-bolum",
+        "title": "23. Bölüm",
+        "season": 1,
+        "episode": 23
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-24-bolum",
+        "title": "24. Bölüm",
+        "season": 1,
+        "episode": 24
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-25-bolum",
+        "title": "25. Bölüm",
+        "season": 1,
+        "episode": 25
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-26-bolum",
+        "title": "26. Bölüm",
+        "season": 1,
+        "episode": 26
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-27-bolum",
+        "title": "27. Bölüm",
+        "season": 1,
+        "episode": 27
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-28-bolum",
+        "title": "28. Bölüm",
+        "season": 1,
+        "episode": 28
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-29-bolum",
+        "title": "29. Bölüm",
+        "season": 1,
+        "episode": 29
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-30-bolum",
+        "title": "30. Bölüm",
+        "season": 1,
+        "episode": 30
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-31-bolum",
+        "title": "31. Bölüm",
+        "season": 1,
+        "episode": 31
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-32-bolum",
+        "title": "32. Bölüm",
+        "season": 1,
+        "episode": 32
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-33-bolum",
+        "title": "33. Bölüm",
+        "season": 1,
+        "episode": 33
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-34-bolum",
+        "title": "34. Bölüm",
+        "season": 1,
+        "episode": 34
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-35-bolum",
+        "title": "35. Bölüm",
+        "season": 1,
+        "episode": 35
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-36-bolum",
+        "title": "36. Bölüm",
+        "season": 1,
+        "episode": 36
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-37-bolum",
+        "title": "37. Bölüm",
+        "season": 1,
+        "episode": 37
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-38-bolum",
+        "title": "38. Bölüm",
+        "season": 1,
+        "episode": 38
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-39-bolum",
+        "title": "39. Bölüm",
+        "season": 1,
+        "episode": 39
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-40-bolum",
+        "title": "40. Bölüm",
+        "season": 1,
+        "episode": 40
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-41-bolum",
+        "title": "41. Bölüm",
+        "season": 1,
+        "episode": 41
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-42-bolum",
+        "title": "42. Bölüm",
+        "season": 1,
+        "episode": 42
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-43-bolum",
+        "title": "43. Bölüm",
+        "season": 1,
+        "episode": 43
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-44-bolum",
+        "title": "44. Bölüm",
+        "season": 1,
+        "episode": 44
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-45-bolum",
+        "title": "45. Bölüm",
+        "season": 1,
+        "episode": 45
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-46-bolum",
+        "title": "46. Bölüm",
+        "season": 1,
+        "episode": 46
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-47-bolum",
+        "title": "47. Bölüm",
+        "season": 1,
+        "episode": 47
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2012-48-bolum",
+        "title": "48. Bölüm",
+        "season": 1,
+        "episode": 48
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-49-bolum",
+        "title": "49. Bölüm",
+        "season": 1,
+        "episode": 49
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-50-bolum",
+        "title": "50. Bölüm",
+        "season": 1,
+        "episode": 50
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-51-bolum",
+        "title": "51. Bölüm",
+        "season": 1,
+        "episode": 51
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-52-bolum",
+        "title": "52. Bölüm",
+        "season": 1,
+        "episode": 52
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-53-bolum",
+        "title": "53. Bölüm",
+        "season": 1,
+        "episode": 53
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-54-bolum",
+        "title": "54. Bölüm",
+        "season": 1,
+        "episode": 54
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-55-bolum",
+        "title": "55. Bölüm",
+        "season": 1,
+        "episode": 55
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-56-bolum",
+        "title": "56. Bölüm",
+        "season": 1,
+        "episode": 56
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-57-bolum",
+        "title": "57. Bölüm",
+        "season": 1,
+        "episode": 57
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-58-bolum",
+        "title": "58. Bölüm",
+        "season": 1,
+        "episode": 58
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-59-bolum",
+        "title": "59. Bölüm",
+        "season": 1,
+        "episode": 59
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-60-bolum",
+        "title": "60. Bölüm",
+        "season": 1,
+        "episode": 60
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-61-bolum",
+        "title": "61. Bölüm",
+        "season": 1,
+        "episode": 61
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-62-bolum",
+        "title": "62. Bölüm",
+        "season": 1,
+        "episode": 62
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-63-bolum",
+        "title": "63. Bölüm",
+        "season": 1,
+        "episode": 63
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-64-bolum",
+        "title": "64. Bölüm",
+        "season": 1,
+        "episode": 64
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-65-bolum",
+        "title": "65. Bölüm",
+        "season": 1,
+        "episode": 65
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-66-bolum",
+        "title": "66. Bölüm",
+        "season": 1,
+        "episode": 66
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-67-bolum",
+        "title": "67. Bölüm",
+        "season": 1,
+        "episode": 67
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-68-bolum",
+        "title": "68. Bölüm",
+        "season": 1,
+        "episode": 68
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-69-bolum",
+        "title": "69. Bölüm",
+        "season": 1,
+        "episode": 69
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-70-bolum",
+        "title": "70. Bölüm",
+        "season": 1,
+        "episode": 70
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-71-bolum",
+        "title": "71. Bölüm",
+        "season": 1,
+        "episode": 71
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-72-bolum",
+        "title": "72. Bölüm",
+        "season": 1,
+        "episode": 72
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-73-bolum",
+        "title": "73. Bölüm",
+        "season": 1,
+        "episode": 73
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-74-bolum",
+        "title": "74. Bölüm",
+        "season": 1,
+        "episode": 74
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-75-bolum",
+        "title": "75. Bölüm",
+        "season": 1,
+        "episode": 75
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-76-bolum",
+        "title": "76. Bölüm",
+        "season": 1,
+        "episode": 76
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-77-bolum",
+        "title": "77. Bölüm",
+        "season": 1,
+        "episode": 77
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-78-bolum",
+        "title": "78. Bölüm",
+        "season": 1,
+        "episode": 78
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-79-bolum",
+        "title": "79. Bölüm",
+        "season": 1,
+        "episode": 79
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-80-bolum",
+        "title": "80. Bölüm",
+        "season": 1,
+        "episode": 80
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-81-bolum",
+        "title": "81. Bölüm",
+        "season": 1,
+        "episode": 81
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-82-bolum",
+        "title": "82. Bölüm",
+        "season": 1,
+        "episode": 82
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-83-bolum",
+        "title": "83. Bölüm",
+        "season": 1,
+        "episode": 83
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-84-bolum",
+        "title": "84. Bölüm",
+        "season": 1,
+        "episode": 84
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-85-bolum",
+        "title": "85. Bölüm",
+        "season": 1,
+        "episode": 85
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-86-bolum",
+        "title": "86. Bölüm",
+        "season": 1,
+        "episode": 86
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-87-bolum",
+        "title": "87. Bölüm",
+        "season": 1,
+        "episode": 87
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-88-bolum",
+        "title": "88. Bölüm",
+        "season": 1,
+        "episode": 88
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-89-bolum",
+        "title": "89. Bölüm",
+        "season": 1,
+        "episode": 89
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-90-bolum",
+        "title": "90. Bölüm",
+        "season": 1,
+        "episode": 90
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-91-bolum",
+        "title": "91. Bölüm",
+        "season": 1,
+        "episode": 91
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-92-bolum",
+        "title": "92. Bölüm",
+        "season": 1,
+        "episode": 92
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-93-bolum",
+        "title": "93. Bölüm",
+        "season": 1,
+        "episode": 93
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-94-bolum",
+        "title": "94. Bölüm",
+        "season": 1,
+        "episode": 94
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-95-bolum",
+        "title": "95. Bölüm",
+        "season": 1,
+        "episode": 95
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-96-bolum",
+        "title": "96. Bölüm",
+        "season": 1,
+        "episode": 96
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-97-bolum",
+        "title": "97. Bölüm",
+        "season": 1,
+        "episode": 97
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-98-bolum",
+        "title": "98. Bölüm",
+        "season": 1,
+        "episode": 98
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-99-bolum",
+        "title": "99. Bölüm",
+        "season": 1,
+        "episode": 99
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-100-bolum",
+        "title": "100. Bölüm",
+        "season": 1,
+        "episode": 100
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-101-bolum",
+        "title": "101. Bölüm",
+        "season": 1,
+        "episode": 101
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-102-bolum",
+        "title": "102. Bölüm",
+        "season": 1,
+        "episode": 102
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-103-bolum",
+        "title": "103. Bölüm",
+        "season": 1,
+        "episode": 103
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-104-bolum",
+        "title": "104. Bölüm",
+        "season": 1,
+        "episode": 104
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-105-bolum",
+        "title": "105. Bölüm",
+        "season": 1,
+        "episode": 105
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-106-bolum",
+        "title": "106. Bölüm",
+        "season": 1,
+        "episode": 106
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-107-bolum",
+        "title": "107. Bölüm",
+        "season": 1,
+        "episode": 107
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-108-bolum",
+        "title": "108. Bölüm",
+        "season": 1,
+        "episode": 108
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-109-bolum",
+        "title": "109. Bölüm",
+        "season": 1,
+        "episode": 109
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-110-bolum",
+        "title": "110. Bölüm",
+        "season": 1,
+        "episode": 110
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-111-bolum",
+        "title": "111. Bölüm",
+        "season": 1,
+        "episode": 111
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-112-bolum",
+        "title": "112. Bölüm",
+        "season": 1,
+        "episode": 112
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-113-bolum",
+        "title": "113. Bölüm",
+        "season": 1,
+        "episode": 113
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-114-bolum",
+        "title": "114. Bölüm",
+        "season": 1,
+        "episode": 114
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-115-bolum",
+        "title": "115. Bölüm",
+        "season": 1,
+        "episode": 115
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-116-bolum",
+        "title": "116. Bölüm",
+        "season": 1,
+        "episode": 116
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-117-bolum",
+        "title": "117. Bölüm",
+        "season": 1,
+        "episode": 117
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-118-bolum",
+        "title": "118. Bölüm",
+        "season": 1,
+        "episode": 118
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-119-bolum",
+        "title": "119. Bölüm",
+        "season": 1,
+        "episode": 119
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-120-bolum",
+        "title": "120. Bölüm",
+        "season": 1,
+        "episode": 120
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-121-bolum",
+        "title": "121. Bölüm",
+        "season": 1,
+        "episode": 121
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-122-bolum",
+        "title": "122. Bölüm",
+        "season": 1,
+        "episode": 122
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-123-bolum",
+        "title": "123. Bölüm",
+        "season": 1,
+        "episode": 123
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-124-bolum",
+        "title": "124. Bölüm",
+        "season": 1,
+        "episode": 124
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-125-bolum",
+        "title": "125. Bölüm",
+        "season": 1,
+        "episode": 125
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-126-bolum",
+        "title": "126. Bölüm",
+        "season": 1,
+        "episode": 126
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-127-bolum",
+        "title": "127. Bölüm",
+        "season": 1,
+        "episode": 127
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-128-bolum",
+        "title": "128. Bölüm",
+        "season": 1,
+        "episode": 128
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-129-bolum",
+        "title": "129. Bölüm",
+        "season": 1,
+        "episode": 129
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-130-bolum",
+        "title": "130. Bölüm",
+        "season": 1,
+        "episode": 130
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-131-bolum",
+        "title": "131. Bölüm",
+        "season": 1,
+        "episode": 131
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-132-bolum",
+        "title": "132. Bölüm",
+        "season": 1,
+        "episode": 132
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-133-bolum",
+        "title": "133. Bölüm",
+        "season": 1,
+        "episode": 133
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-134-bolum",
+        "title": "134. Bölüm",
+        "season": 1,
+        "episode": 134
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-135-bolum",
+        "title": "135. Bölüm",
+        "season": 1,
+        "episode": 135
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-136-bolum",
+        "title": "136. Bölüm",
+        "season": 1,
+        "episode": 136
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-137-bolum",
+        "title": "137. Bölüm",
+        "season": 1,
+        "episode": 137
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-138-bolum",
+        "title": "138. Bölüm",
+        "season": 1,
+        "episode": 138
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-139-bolum",
+        "title": "139. Bölüm",
+        "season": 1,
+        "episode": 139
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-140-bolum",
+        "title": "140. Bölüm",
+        "season": 1,
+        "episode": 140
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-141-bolum",
+        "title": "141. Bölüm",
+        "season": 1,
+        "episode": 141
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-142-bolum",
+        "title": "142. Bölüm",
+        "season": 1,
+        "episode": 142
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-143-bolum",
+        "title": "143. Bölüm",
+        "season": 1,
+        "episode": 143
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-144-bolum",
+        "title": "144. Bölüm",
+        "season": 1,
+        "episode": 144
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-145-bolum",
+        "title": "145. Bölüm",
+        "season": 1,
+        "episode": 145
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-146-bolum",
+        "title": "146. Bölüm",
+        "season": 1,
+        "episode": 146
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-147-bolum",
+        "title": "147. Bölüm",
+        "season": 1,
+        "episode": 147
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-2011-148-bolum-final",
+        "title": "148. Bölüm",
+        "season": 1,
+        "episode": 148
+      }
+    ]
+  }
+}

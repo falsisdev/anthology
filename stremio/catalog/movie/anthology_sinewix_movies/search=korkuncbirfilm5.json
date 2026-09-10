@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:553",
+      "type": "movie",
+      "name": "Korkunç Bir Film 5",
+      "poster": "https://image.tmdb.org/t/p/w500/2uXj7DCoSknaUzIHJ3F460Z7t24.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/kttkW0qMv4quwRH5a59gQMFrpl2.jpg",
+      "description": "Korkunç Bir Film 5, Paranormal Activity, Mama, Sinister, The Evil Dead, Inception, Black Swan gibi filmleri tiye alıyor. Dan ve Jody mutlu bir evlilik sürdürürken her şey Dan’in abisinin 3 yıldır tek başlarına vahşi bir yaşam süren çocuklarının eve gelmesiyle değişecektir.  Başta bunu önemsemeyen çift, bu durumun kendi iş hayatlarına da yansıması sonucunda çocukların “Mama” diye adlandırdıkları ruhun evden gönderilebilmesi için uğraşmaya karar verirler. Tanışacakları tüm sertifikalı uzman ruh çıkarıcılar ile bu ruhtan kurtulmak için ellerinden geleni yapacaklardır...",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    }
+  ]
+}

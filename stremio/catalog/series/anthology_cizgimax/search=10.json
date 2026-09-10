@@ -1,0 +1,160 @@
+{
+  "metas": [
+    {
+      "id": "cizgimax:show:ben-10-omniverse-izle",
+      "type": "series",
+      "name": "Ben 10 Omniverse",
+      "poster": "https://cizgimax.online/img/locandine/ben-10-omniverse-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/ben-10-omniverse-poster.webp",
+      "description": "Ben 10 Omniverse - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:ben-10-izle",
+      "type": "series",
+      "name": "Ben 10",
+      "poster": "https://cizgimax.online/img/locandine/ben-10-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/ben-10-poster.webp",
+      "description": "Ben 10 - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:ben-10-alien-force-izle",
+      "type": "series",
+      "name": "Ben 10 Alien Force",
+      "poster": "https://cizgimax.online/img/locandine/ben-10-alien-force-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/ben-10-alien-force-poster.webp",
+      "description": "Ben 10 Alien Force - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:ben-10-ultimate-alien-izle",
+      "type": "series",
+      "name": "Ben 10 Ultimate Alien",
+      "poster": "https://cizgimax.online/img/locandine/ben-10-ultimate-alien-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/ben-10-ultimate-alien-poster.webp",
+      "description": "Ben 10 Ultimate Alien - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:ben-10-2016-izle",
+      "type": "series",
+      "name": "Ben 10 Reboot",
+      "poster": "https://image.tmdb.org/t/p/w500/a4H0UR7aUkGZlT6Q9r9grBrjJWR.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/a4H0UR7aUkGZlT6Q9r9grBrjJWR.jpg",
+      "description": "Ben 10 Reboot - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:ben-10-ultimate-challenge-izle",
+      "type": "series",
+      "name": "Ben 10 Zorlu Mücadele",
+      "poster": "https://cizgimax.online/img/locandine/ben-10-ultimate-challenge-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/ben-10-ultimate-challenge-poster.webp",
+      "description": "Ben 10 Zorlu Mücadele - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:film/ben-10-alien-swarm-izle",
+      "type": "series",
+      "name": "Ben 10: Alien Swarm",
+      "poster": "https://cizgimax.online/img/locandine/ben-10-alien-swarm-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/ben-10-alien-swarm-poster.webp",
+      "description": "Ben 10: Alien Swarm - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:film/ben-10-vs-the-universe-the-movie-izle",
+      "type": "series",
+      "name": "Ben 10: Evrene Karşı",
+      "poster": "https://cizgimax.online/img/locandine/ben-10-vs-the-universe-the-movie-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/ben-10-vs-the-universe-the-movie-poster.webp",
+      "description": "Ben 10: Evrene Karşı - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:film/ben-10-destroy-all-aliens-izle",
+      "type": "series",
+      "name": "Ben 10: Destroy All Aliens",
+      "poster": "https://cizgimax.online/img/locandine/ben-10-destroy-all-aliens-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/ben-10-destroy-all-aliens-poster.webp",
+      "description": "Ben 10: Destroy All Aliens - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:film/ben-10-secret-of-the-omnitrix-izle",
+      "type": "series",
+      "name": "Ben 10: Omnitrix'in Sırrı",
+      "poster": "https://cizgimax.online/img/locandine/ben-10-secret-of-the-omnitrix-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/ben-10-secret-of-the-omnitrix-poster.webp",
+      "description": "Ben 10: Omnitrix'in Sırrı - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:ben-10-uzayli-gezegenleri-izle",
+      "type": "series",
+      "name": "Ben 10: Uzaylı Gezegenleri",
+      "poster": "https://cizgimax.online/img/locandine/ben-10-uzayli-gezegenleri-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/ben-10-uzayli-gezegenleri-poster.webp",
+      "description": "Ben 10: Uzaylı Gezegenleri - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:film/ben-10-race-against-time-izle",
+      "type": "series",
+      "name": "Ben 10: Zamana Karşı Yarış",
+      "poster": "https://cizgimax.online/img/locandine/ben-10-race-against-time-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/ben-10-race-against-time-poster.webp",
+      "description": "Ben 10: Zamana Karşı Yarış - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:ben-10-mucadele-zamani-izle",
+      "type": "series",
+      "name": "Ben 10: Mücadele Zamanı",
+      "poster": "https://cizgimax.online/img/locandine/ben-10-mucadele-zamani-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/ben-10-mucadele-zamani-poster.webp",
+      "description": "Ben 10: Mücadele Zamanı - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "id": "sinewix:movie:80",
+    "type": "movie",
+    "name": "Matrix",
+    "poster": "https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/waCRuAW5ocONRehP556vPexVXA9.jpg",
+    "description": "İki türlü gerçeklik vardır: biri yaşanan, öteki yaşamın ötesinde olan. Bunlardan biri rüya, öteki de Matrix'dir. Neo, umutsuz bir çaba ile Matrix hakkındaki gerçeği araştırıyor. Tam olarak kavrayamadığı şeylerin yaşamını kontrol ettiğini biliyor.Matrix Nedir? Neo, efsaneler aracılığı ile tanıdığı ve son derece tehlikeli bir adam olan Morpheus'un gerçeği bildiğine inanmaktadır.Bir gece Neo, kendisini başka bir dünyaya götürebilecek güzel yabancı Trinity ile tanışır. Bu kızın götüreceği dünyada, Morpheus'u bulacak ve Matrix hakkında bir şeyler öğrenecektir.",
+    "genres": [
+      "SineWix"
+    ]
+  }
+}

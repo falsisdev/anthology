@@ -12,9 +12,7 @@
     "videos": [
       {
         "id": "tv:TRT1.tr",
-        "title": "TRT 1 HD",
-        "season": 1,
-        "episode": 1
+        "title": "TRT 1 HD"
       }
     ]
   }

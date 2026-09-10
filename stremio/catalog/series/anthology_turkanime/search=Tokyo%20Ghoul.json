@@ -1,0 +1,76 @@
+{
+  "metas": [
+    {
+      "id": "turkanime:anime:tokyo-ghoul",
+      "type": "series",
+      "name": "Tokyo Ghoul",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Tokyo Ghoul - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:tokyo-ghoul-a",
+      "type": "series",
+      "name": "Tokyo Ghoul √A",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Tokyo Ghoul √A - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:tokyo-ghoul-jack",
+      "type": "series",
+      "name": "Tokyo Ghoul: \"Jack\"",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Tokyo Ghoul: \"Jack\" - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:tokyo-ghoul-pinto",
+      "type": "series",
+      "name": "Tokyo Ghoul: \"Pinto\"",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Tokyo Ghoul: \"Pinto\" - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:tokyo-ghoul-re",
+      "type": "series",
+      "name": "Tokyo Ghoul:re",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Tokyo Ghoul:re - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:tokyo-ghoul-re-2nd-season",
+      "type": "series",
+      "name": "Tokyo Ghoul:re 2nd Season",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Tokyo Ghoul:re 2nd Season - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    }
+  ]
+}

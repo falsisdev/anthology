@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "filmmodu:the-marksman-film-izle",
+      "type": "movie",
+      "name": "The Marksman",
+      "poster": "https://cdn.filmmodu.one/uploads/movie/poster/14935/thumb_the-marksman.jpg",
+      "background": "https://cdn.filmmodu.one/uploads/movie/poster/14935/thumb_the-marksman.jpg",
+      "description": "The Marksman - FilmModu HD Film",
+      "genres": [
+        "FilmModu",
+        "Film"
+      ]
+    }
+  ]
+}

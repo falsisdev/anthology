@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "cizgimax:show:film/all-star-superman-izle",
+    "type": "series",
+    "name": "Yıldız Superman",
+    "poster": "https://cizgimax.online/img/locandine/all-star-superman-poster.webp",
+    "background": "https://cizgimax.online/img/locandine/all-star-superman-poster.webp",
+    "description": "Yıldız Superman - ÇizgiMax Arşivi",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:show:film/all-star-superman-izle",
+        "title": "Yıldız Superman",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

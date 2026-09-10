@@ -1,0 +1,37 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:149",
+      "type": "movie",
+      "name": "Yüzüklerin Efendisi: Kralın Dönüşü",
+      "poster": "https://image.tmdb.org/t/p/w500/oh1knfZ4LLEMGt0n0rlJDSGB4dj.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/lXhgCODAbBXL5buk9yEmTpOoOgR.jpg",
+      "description": "Kıyamet günü ortamını yaşayan Orta Dünya'da, Yüzük Savaşı'nın son ve en büyük mücadelesine hoşgeldiniz. Bir yanda güvenilmez Gollum'un rehberlik ettiği yüzük taşıyıcısı Frodo ve yoldaşı Sam, Mordor'a ulaşıp Tek Yüzük'ü yokedebilecekleri tek yere götürmeye çalışıyorlar. Diğer yanda Rohan Atlıları ve Ent'lerle güç birliği yaparak Saruman'ı alt etmiş olan Gandalf, Aragorn ve diğer dostlarımız Karanlıklar Efendisi'nin tehtidi altındaki Gondor'a varıp savunmak zorundalar. Gondor'un savunması, hiç kuşkusuz Miğfer Dibi Muharebesi'nden daha kolay olmayacak. Zira Sauron'un orduları çoktan harekete geçmiş durumda. Eğer bunu başarabilirlerse Gondor'u, Isuldur'un kanından gerçek bir Kral ve Kral'ı da daha öncekilerden çok daha çetin savaşların beklediği aşikar.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3532",
+      "type": "movie",
+      "name": "Batman: Pelerinli Süvarilerin Dönüşü",
+      "poster": "https://image.tmdb.org/t/p/w500/kXV5rVxxRYWHksELUi6dxzWG7Sj.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/oBwzYKdcbT7K8CEkKDbTspPAJkG.jpg",
+      "description": "Penguen, Joker, Bulmacacı ve Kedi Kadın bir araya gelerek Gotham City'yi tehdit edince Batman ve Robin tekrar harekete geçiyorlar. Pelerinli kahramanlar, bu defa yeteneklerini ve güçlerini birleştiren dört azılı düşmanla mücadele edecekler.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3518",
+      "type": "movie",
+      "name": "Batman Beyond: Joker'in Dönüşü",
+      "poster": "https://image.tmdb.org/t/p/w500/n4SoBsYlxgeuJ5Fo0n6D3PM23qF.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/scNssnn5PN99fBODNzxF5qN4Iw8.jpg",
+      "description": "Bakımlı, yalancı ve ölümsüz gibi görünen, soytarı, suçların prensi tüm gücüyle geri döndü. Terry McGinnis. Joker'in sırlarını ortaya çıkarmaya çalışırken, gerçek Pelerinli Savaşçı'nın büyük sırrını keşfeder: Onun Joker'le dövüştüğü gece neler olduğunu. Bruce Wayne. Joker'in son saldırısında ölümden dönmesiyle, yeni Batman, ustasının öcünü almaya yemin eder ve Joker'i sonsuza kadar dinlenmeye gönderir. Kalp durdurucu bir macera ve inanılmaz görüntülere hazır olun!",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

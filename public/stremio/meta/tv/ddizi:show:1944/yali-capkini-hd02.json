@@ -1,0 +1,622 @@
+{
+  "meta": {
+    "id": "ddizi:show:1944/yali-capkini-hd02",
+    "type": "series",
+    "name": "Yalı Çapkını",
+    "poster": "https://www.ddizi.im/diziresimleri/yalicapkinikapak.jpg",
+    "background": "https://www.ddizi.im/diziresimleri/yalicapkinikapak.jpg",
+    "description": "Yalı Çapkını - DDizi Dizi Arşivi",
+    "genres": [
+      "Yerli Dizi",
+      "DDizi"
+    ],
+    "videos": [
+      {
+        "id": "ddizi:ep:78857/yali-capkini-1-bolum-hd1.htm",
+        "title": "Yalı Çapkını 1.Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "ddizi:ep:78909/yali-capkini-2-bolum-izle-hd.htm",
+        "title": "Yalı Çapkını 2.Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "ddizi:ep:78971/yali-capkini-3-bolum-izle-hd3.htm",
+        "title": "Yalı Çapkını 3.Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "ddizi:ep:79114/yali-capkini-4-bolum-izle-hd.htm",
+        "title": "Yalı Çapkını 4.Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "ddizi:ep:79189/yali-capkini-5-bolum-izle-hd1.htm",
+        "title": "Yalı Çapkını 5.Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "ddizi:ep:79252/yali-capkini-6-bolum-izle-hd1.htm",
+        "title": "Yalı Çapkını 6.Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "ddizi:ep:79335/yali-capkini-7-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 7.Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "ddizi:ep:79395/yali-capkini-8-bolum-izle-hd.htm",
+        "title": "Yalı Çapkını 8.Bölüm",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "ddizi:ep:79453/yali-capkini-9-bolum-izle-hd1.htm",
+        "title": "Yalı Çapkını 9.Bölüm",
+        "season": 1,
+        "episode": 9
+      },
+      {
+        "id": "ddizi:ep:79642/yali-capkini-10-bolum-izle-hd1.htm",
+        "title": "Yalı Çapkını 10.Bölüm",
+        "season": 1,
+        "episode": 10
+      },
+      {
+        "id": "ddizi:ep:79768/yali-capkini-11-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 11.Bölüm",
+        "season": 1,
+        "episode": 11
+      },
+      {
+        "id": "ddizi:ep:79876/yali-capkini-12-bolum-izle-hd1.htm",
+        "title": "Yalı Çapkını 12.Bölüm",
+        "season": 1,
+        "episode": 12
+      },
+      {
+        "id": "ddizi:ep:79937/yali-capkini-13-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 13.Bölüm",
+        "season": 1,
+        "episode": 13
+      },
+      {
+        "id": "ddizi:ep:80005/yali-capkini-14-bolum-izle-hd.htm",
+        "title": "Yalı Çapkını 14.Bölüm",
+        "season": 1,
+        "episode": 14
+      },
+      {
+        "id": "ddizi:ep:80072/yali-capkini-15-bolum-izle-hd1.htm",
+        "title": "Yalı Çapkını 15.Bölüm",
+        "season": 1,
+        "episode": 15
+      },
+      {
+        "id": "ddizi:ep:80128/yali-capkini-16-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 16.Bölüm",
+        "season": 1,
+        "episode": 16
+      },
+      {
+        "id": "ddizi:ep:80191/yali-capkini-17-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 17.Bölüm",
+        "season": 1,
+        "episode": 17
+      },
+      {
+        "id": "ddizi:ep:80256/yali-capkini-18-bolum-izle-hd1.htm",
+        "title": "Yalı Çapkını 18.Bölüm",
+        "season": 1,
+        "episode": 18
+      },
+      {
+        "id": "ddizi:ep:80327/yali-capkini-19-bolum-izle-hd1.htm",
+        "title": "Yalı Çapkını 19.Bölüm",
+        "season": 1,
+        "episode": 19
+      },
+      {
+        "id": "ddizi:ep:80396/yali-capkini-20-bolum-izle-hd1.htm",
+        "title": "Yalı Çapkını 20.Bölüm",
+        "season": 1,
+        "episode": 20
+      },
+      {
+        "id": "ddizi:ep:80607/yali-capkini-21-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 21.Bölüm",
+        "season": 1,
+        "episode": 21
+      },
+      {
+        "id": "ddizi:ep:80662/yali-capkini-22-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 22.Bölüm",
+        "season": 1,
+        "episode": 22
+      },
+      {
+        "id": "ddizi:ep:80722/yali-capkini-23-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 23.Bölüm",
+        "season": 1,
+        "episode": 23
+      },
+      {
+        "id": "ddizi:ep:80786/yali-capkini-24-bolum-izle-hd1.htm",
+        "title": "Yalı Çapkını 24.Bölüm",
+        "season": 1,
+        "episode": 24
+      },
+      {
+        "id": "ddizi:ep:80854/yali-capkini-25-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 25.Bölüm",
+        "season": 1,
+        "episode": 25
+      },
+      {
+        "id": "ddizi:ep:80921/yali-capkini-26-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 26.Bölüm",
+        "season": 1,
+        "episode": 26
+      },
+      {
+        "id": "ddizi:ep:80982/yali-capkini-27-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 27.Bölüm",
+        "season": 1,
+        "episode": 27
+      },
+      {
+        "id": "ddizi:ep:81042/yali-capkini-28-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 28.Bölüm",
+        "season": 1,
+        "episode": 28
+      },
+      {
+        "id": "ddizi:ep:81099/yali-capkini-29-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 29.Bölüm",
+        "season": 1,
+        "episode": 29
+      },
+      {
+        "id": "ddizi:ep:81156/yali-capkini-30-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 30.Bölüm",
+        "season": 1,
+        "episode": 30
+      },
+      {
+        "id": "ddizi:ep:81225/yali-capkini-31-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 31.Bölüm",
+        "season": 1,
+        "episode": 31
+      },
+      {
+        "id": "ddizi:ep:81313/yali-capkini-32-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 32.Bölüm",
+        "season": 1,
+        "episode": 32
+      },
+      {
+        "id": "ddizi:ep:81342/yali-capkini-33-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 33.Bölüm",
+        "season": 1,
+        "episode": 33
+      },
+      {
+        "id": "ddizi:ep:81401/yali-capkini-34-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 34.Bölüm",
+        "season": 1,
+        "episode": 34
+      },
+      {
+        "id": "ddizi:ep:81463/yali-capkini-35-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 35.Bölüm",
+        "season": 1,
+        "episode": 35
+      },
+      {
+        "id": "ddizi:ep:81527/yali-capkini-36-bolum-izle-sezon-finali-hd2.htm",
+        "title": "Yalı Çapkını 36.Bölüm Sezon Finali",
+        "season": 1,
+        "episode": 36
+      },
+      {
+        "id": "ddizi:ep:82150/yali-capkini-37-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 37.Bölüm",
+        "season": 1,
+        "episode": 37
+      },
+      {
+        "id": "ddizi:ep:82217/yali-capkini-38-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 38.Bölüm",
+        "season": 1,
+        "episode": 38
+      },
+      {
+        "id": "ddizi:ep:82275/yali-capkini-39-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 39.Bölüm",
+        "season": 1,
+        "episode": 39
+      },
+      {
+        "id": "ddizi:ep:82335/yali-capkini-40-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 40.Bölüm",
+        "season": 1,
+        "episode": 40
+      },
+      {
+        "id": "ddizi:ep:82395/yali-capkini-41-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 41.Bölüm",
+        "season": 1,
+        "episode": 41
+      },
+      {
+        "id": "ddizi:ep:82512/yali-capkini-42-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 42.Bölüm",
+        "season": 1,
+        "episode": 42
+      },
+      {
+        "id": "ddizi:ep:82521/yali-capkini-43-bolum-izle-hd1.htm",
+        "title": "Yalı Çapkını 43.Bölüm",
+        "season": 1,
+        "episode": 43
+      },
+      {
+        "id": "ddizi:ep:82583/yali-capkini-44-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 44.Bölüm",
+        "season": 1,
+        "episode": 44
+      },
+      {
+        "id": "ddizi:ep:82652/yali-capkini-45-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 45.Bölüm",
+        "season": 1,
+        "episode": 45
+      },
+      {
+        "id": "ddizi:ep:82712/yali-capkini-46-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 46.Bölüm",
+        "season": 1,
+        "episode": 46
+      },
+      {
+        "id": "ddizi:ep:82777/yali-capkini-47-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 47.Bölüm",
+        "season": 1,
+        "episode": 47
+      },
+      {
+        "id": "ddizi:ep:82835/yali-capkini-48-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 48.Bölüm",
+        "season": 1,
+        "episode": 48
+      },
+      {
+        "id": "ddizi:ep:82894/yali-capkini-49-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 49.Bölüm",
+        "season": 1,
+        "episode": 49
+      },
+      {
+        "id": "ddizi:ep:82969/yali-capkini-50-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 50.Bölüm",
+        "season": 1,
+        "episode": 50
+      },
+      {
+        "id": "ddizi:ep:83032/yali-capkini-51-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 51.Bölüm",
+        "season": 1,
+        "episode": 51
+      },
+      {
+        "id": "ddizi:ep:83092/yali-capkini-52-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 52.Bölüm",
+        "season": 1,
+        "episode": 52
+      },
+      {
+        "id": "ddizi:ep:83205/yali-capkini-53-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 53.Bölüm",
+        "season": 1,
+        "episode": 53
+      },
+      {
+        "id": "ddizi:ep:83264/yali-capkini-54-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 54.Bölüm",
+        "season": 1,
+        "episode": 54
+      },
+      {
+        "id": "ddizi:ep:83333/yali-capkini-55-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 55.Bölüm",
+        "season": 1,
+        "episode": 55
+      },
+      {
+        "id": "ddizi:ep:83395/yali-capkini-56-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 56.Bölüm",
+        "season": 1,
+        "episode": 56
+      },
+      {
+        "id": "ddizi:ep:83453/yali-capkini-57-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 57.Bölüm",
+        "season": 1,
+        "episode": 57
+      },
+      {
+        "id": "ddizi:ep:83512/yali-capkini-58-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 58.Bölüm",
+        "season": 1,
+        "episode": 58
+      },
+      {
+        "id": "ddizi:ep:83573/yali-capkini-59-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 59.Bölüm",
+        "season": 1,
+        "episode": 59
+      },
+      {
+        "id": "ddizi:ep:83633/yali-capkini-60-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 60.Bölüm",
+        "season": 1,
+        "episode": 60
+      },
+      {
+        "id": "ddizi:ep:83693/yali-capkini-61-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 61.Bölüm",
+        "season": 1,
+        "episode": 61
+      },
+      {
+        "id": "ddizi:ep:83755/yali-capkini-62-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 62.Bölüm",
+        "season": 1,
+        "episode": 62
+      },
+      {
+        "id": "ddizi:ep:83818/yali-capkini-63-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 63.Bölüm",
+        "season": 1,
+        "episode": 63
+      },
+      {
+        "id": "ddizi:ep:83884/yali-capkini-64-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 64.Bölüm",
+        "season": 1,
+        "episode": 64
+      },
+      {
+        "id": "ddizi:ep:83943/yali-capkini-65-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 65.Bölüm",
+        "season": 1,
+        "episode": 65
+      },
+      {
+        "id": "ddizi:ep:84041/yali-capkini-66-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 66.Bölüm",
+        "season": 1,
+        "episode": 66
+      },
+      {
+        "id": "ddizi:ep:84103/yali-capkini-67-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 67.Bölüm",
+        "season": 1,
+        "episode": 67
+      },
+      {
+        "id": "ddizi:ep:84164/yali-capkini-68-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 68.Bölüm",
+        "season": 1,
+        "episode": 68
+      },
+      {
+        "id": "ddizi:ep:84222/yali-capkini-69-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 69.Bölüm",
+        "season": 1,
+        "episode": 69
+      },
+      {
+        "id": "ddizi:ep:84278/yali-capkini-70-bolum-izle.htm",
+        "title": "Yalı Çapkını 70.Bölüm",
+        "season": 1,
+        "episode": 70
+      },
+      {
+        "id": "ddizi:ep:84333/yali-capkini-71-bolum-izle-hd1.htm",
+        "title": "Yalı Çapkını 71.Bölüm",
+        "season": 1,
+        "episode": 71
+      },
+      {
+        "id": "ddizi:ep:84389/yali-capkini-72-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 72.Bölüm",
+        "season": 1,
+        "episode": 72
+      },
+      {
+        "id": "ddizi:ep:84448/yali-capkini-73-bolum-izle-sezon-finali-hd1.htm",
+        "title": "Yalı Çapkını 73.Bölüm Sezon Finali",
+        "season": 1,
+        "episode": 73
+      },
+      {
+        "id": "ddizi:ep:85093/yali-capkini-74-bolum-izle-hd1.htm",
+        "title": "Yalı Çapkını 74.Bölüm",
+        "season": 1,
+        "episode": 74
+      },
+      {
+        "id": "ddizi:ep:85148/yali-capkini-75-bolum-izle-hd1.htm",
+        "title": "Yalı Çapkını 75.Bölüm",
+        "season": 1,
+        "episode": 75
+      },
+      {
+        "id": "ddizi:ep:85212/yali-capkini-76-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 76.Bölüm",
+        "season": 1,
+        "episode": 76
+      },
+      {
+        "id": "ddizi:ep:85286/yali-capkini-77-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 77.Bölüm",
+        "season": 1,
+        "episode": 77
+      },
+      {
+        "id": "ddizi:ep:85368/yali-capkini-78-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 78.Bölüm",
+        "season": 1,
+        "episode": 78
+      },
+      {
+        "id": "ddizi:ep:85442/yali-capkini-79-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 79.Bölüm",
+        "season": 1,
+        "episode": 79
+      },
+      {
+        "id": "ddizi:ep:85514/yali-capkini-80-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 80.Bölüm",
+        "season": 1,
+        "episode": 80
+      },
+      {
+        "id": "ddizi:ep:85588/yali-capkini-81-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 81.Bölüm",
+        "season": 1,
+        "episode": 81
+      },
+      {
+        "id": "ddizi:ep:85655/yali-capkini-82-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 82.Bölüm",
+        "season": 1,
+        "episode": 82
+      },
+      {
+        "id": "ddizi:ep:85723/yali-capkini-83-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 83.Bölüm",
+        "season": 1,
+        "episode": 83
+      },
+      {
+        "id": "ddizi:ep:85794/yali-capkini-84-bolum-izle-hd3.htm",
+        "title": "Yalı Çapkını 84.Bölüm",
+        "season": 1,
+        "episode": 84
+      },
+      {
+        "id": "ddizi:ep:85876/yali-capkini-85-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 85.Bölüm",
+        "season": 1,
+        "episode": 85
+      },
+      {
+        "id": "ddizi:ep:85950/yali-capkini-86-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 86.Bölüm",
+        "season": 1,
+        "episode": 86
+      },
+      {
+        "id": "ddizi:ep:86027/yali-capkini-87-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 87.Bölüm",
+        "season": 1,
+        "episode": 87
+      },
+      {
+        "id": "ddizi:ep:86099/yali-capkini-88-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 88.Bölüm",
+        "season": 1,
+        "episode": 88
+      },
+      {
+        "id": "ddizi:ep:86181/yali-capkini-89-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 89.Bölüm",
+        "season": 1,
+        "episode": 89
+      },
+      {
+        "id": "ddizi:ep:86300/yali-capkini-90-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 90.Bölüm",
+        "season": 1,
+        "episode": 90
+      },
+      {
+        "id": "ddizi:ep:86370/yali-capkini-91-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 91.Bölüm",
+        "season": 1,
+        "episode": 91
+      },
+      {
+        "id": "ddizi:ep:86500/yali-capkini-92-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 92.Bölüm",
+        "season": 1,
+        "episode": 92
+      },
+      {
+        "id": "ddizi:ep:86569/yali-capkini-93-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 93.Bölüm",
+        "season": 1,
+        "episode": 93
+      },
+      {
+        "id": "ddizi:ep:86634/yali-capkini-94-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 94.Bölüm",
+        "season": 1,
+        "episode": 94
+      },
+      {
+        "id": "ddizi:ep:86698/yali-capkini-95-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 95.Bölüm",
+        "season": 1,
+        "episode": 95
+      },
+      {
+        "id": "ddizi:ep:86773/yali-capkini-96-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 96.Bölüm",
+        "season": 1,
+        "episode": 96
+      },
+      {
+        "id": "ddizi:ep:86838/yali-capkini-97-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 97.Bölüm",
+        "season": 1,
+        "episode": 97
+      },
+      {
+        "id": "ddizi:ep:86906/yali-capkini-98-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 98.Bölüm",
+        "season": 1,
+        "episode": 98
+      },
+      {
+        "id": "ddizi:ep:86980/yali-capkini-99-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 99.Bölüm",
+        "season": 1,
+        "episode": 99
+      },
+      {
+        "id": "ddizi:ep:87041/yali-capkini-100-bolum-izle-hd2.htm",
+        "title": "Yalı Çapkını 100.Bölüm",
+        "season": 1,
+        "episode": 100
+      },
+      {
+        "id": "ddizi:ep:87085/yali-capkini-101-bolum-izle-final-hd2.htm",
+        "title": "Yalı Çapkını 101.Bölüm Final",
+        "season": 1,
+        "episode": 101
+      }
+    ]
+  }
+}

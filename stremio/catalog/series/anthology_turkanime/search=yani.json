@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "turkanime:anime:yani-neko",
+      "type": "series",
+      "name": "Yani Neko",
+      "poster": "https://www.turkanime.tv/imajlar/serilerb/6775.jpg",
+      "background": "https://www.turkanime.tv/imajlar/serilerb/6775.jpg",
+      "description": "Yani Neko - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    }
+  ]
+}

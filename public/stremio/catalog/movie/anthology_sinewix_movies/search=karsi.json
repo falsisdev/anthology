@@ -1,0 +1,26 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:1355",
+      "type": "movie",
+      "name": "Batman Robin'e Karşı",
+      "poster": "https://image.tmdb.org/t/p/w500/4d5GoTaD0Rm2ZNruKyp4q4yH594.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/4aJPdkPLnLiiCbfu6WFUQzER3u0.jpg",
+      "description": "Gotham City'nin karanlık köşeleri bir çocuğa uygun değildir ama Damian Wayne sıradan bir çocuk değil. Robin'in görevini üstlenince, dik kafalı ve bazen pervasız bir şekilde babası Batman'le çalışmaya başlar. Bir suç mahalini araştıran Robin'in tanıştığı Talon adlı esrarengiz biri, onu Gotham'ın gizli cemiyetlerinden biri olan Baykuşlar Saltanatı'nın derinliklerinde, hayatını değiştirecek bir serüvene sürükler. Bu tehlikeli yolculukta Batman ve Robin en zorlu rakipleriyle yüzleşecek: Birbirleriyle! Herkesin kaderini belirleyecek ve sonsuza dek Robin'in geleceğini şekillendirecek bu destansı çatışmaya tanık olun.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3458",
+      "type": "movie",
+      "name": "Batman Dracula'ya Karşı",
+      "poster": "https://image.tmdb.org/t/p/w500/rmIUL5BG78mbBs3d6hYbu9f7AwG.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/8Or1XOnUMtg4NIpOCDmdDqRwU4k.jpg",
+      "description": "İki efsanevi yarasa uçmaya hazırlanırken, Gotham City karanlıklar perdesi altında uyuyordu.  Biri şehri vampirler ordusu ile doldururken, diğeri elinden gelen herşey yaparak kargaşayı durdurmaya çalışıyor. Tüm yüksek teknolojik silahlar ile donatılmış olmasına arşın Kara Şovalye neticede ölümlü bir adamdır.",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

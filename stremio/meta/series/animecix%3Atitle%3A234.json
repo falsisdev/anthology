@@ -1,0 +1,322 @@
+{
+  "meta": {
+    "id": "animecix:title:234",
+    "type": "series",
+    "name": "Fullmetal Alchemist",
+    "poster": "https://image.tmdb.org/t/p/original/93h3hEqZ5iXtJyDazj80RfzOHu3.jpg",
+    "background": "https://image.tmdb.org/t/p/w1280/5ex4La3ZBYTK8RGOpmtInGPNBVm.jpg",
+    "description": "“İnsan bir şeyleri feda etmeden hiçbir şey elde edemez,\nBir şeyi elde etmek istiyorsan ona eş değerde bir şey sunmalısın,\nBu simyanın eşdeğer değiş-tokuş prensibidir.”\n\nElric kardeşler Edward ve Alphonse ölen annelerini diriltmek için simyaya başvururlar. Ama insan ruhu ile değiş-tokuş yapılacak eş değerde bir şey bulunmamaktadır. Deney sırasında büyük kardeş Edward bacağını, küçük kardeş Alphonse ise bedenini kaybeder. Edward elindeki son çareyi kullanıp Al’ın ruhunu bir zırha bağlamayı başarır ama bu esnada da kolunu kaybeder. İki kardeş annelerini diriltmenin imkansız olduğu büyük kayıplardan sonra anlar. Automail sayesinde mekanik uzuvlarına kavuşan Ed, kardeşine olanların kendi suçu olduğuna inanır. Al'ın bedenini geri almak ve simyayı daha da iyi öğrenmek için Elric kardeşler evlerini yakıp bir yolcuğa çıkarlar.",
+    "genres": [
+      "Anime",
+      "AnimeciX"
+    ],
+    "videos": [
+      {
+        "id": "animecix:ep:234:1:1",
+        "title": "Fullmetal Alchemist 1. Sezon 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "animecix:ep:234:1:2",
+        "title": "Fullmetal Alchemist 1. Sezon 2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "animecix:ep:234:1:3",
+        "title": "Fullmetal Alchemist 1. Sezon 3. Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "animecix:ep:234:1:4",
+        "title": "Fullmetal Alchemist 1. Sezon 4. Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "animecix:ep:234:1:5",
+        "title": "Fullmetal Alchemist 1. Sezon 5. Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "animecix:ep:234:1:6",
+        "title": "Fullmetal Alchemist 1. Sezon 6. Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "animecix:ep:234:1:7",
+        "title": "Fullmetal Alchemist 1. Sezon 7. Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "animecix:ep:234:1:8",
+        "title": "Fullmetal Alchemist 1. Sezon 8. Bölüm",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "animecix:ep:234:1:9",
+        "title": "Fullmetal Alchemist 1. Sezon 9. Bölüm",
+        "season": 1,
+        "episode": 9
+      },
+      {
+        "id": "animecix:ep:234:1:10",
+        "title": "Fullmetal Alchemist 1. Sezon 10. Bölüm",
+        "season": 1,
+        "episode": 10
+      },
+      {
+        "id": "animecix:ep:234:1:11",
+        "title": "Fullmetal Alchemist 1. Sezon 11. Bölüm",
+        "season": 1,
+        "episode": 11
+      },
+      {
+        "id": "animecix:ep:234:1:12",
+        "title": "Fullmetal Alchemist 1. Sezon 12. Bölüm",
+        "season": 1,
+        "episode": 12
+      },
+      {
+        "id": "animecix:ep:234:1:13",
+        "title": "Fullmetal Alchemist 1. Sezon 13. Bölüm",
+        "season": 1,
+        "episode": 13
+      },
+      {
+        "id": "animecix:ep:234:1:14",
+        "title": "Fullmetal Alchemist 1. Sezon 14. Bölüm",
+        "season": 1,
+        "episode": 14
+      },
+      {
+        "id": "animecix:ep:234:1:15",
+        "title": "Fullmetal Alchemist 1. Sezon 15. Bölüm",
+        "season": 1,
+        "episode": 15
+      },
+      {
+        "id": "animecix:ep:234:1:16",
+        "title": "Fullmetal Alchemist 1. Sezon 16. Bölüm",
+        "season": 1,
+        "episode": 16
+      },
+      {
+        "id": "animecix:ep:234:1:17",
+        "title": "Fullmetal Alchemist 1. Sezon 17. Bölüm",
+        "season": 1,
+        "episode": 17
+      },
+      {
+        "id": "animecix:ep:234:1:18",
+        "title": "Fullmetal Alchemist 1. Sezon 18. Bölüm",
+        "season": 1,
+        "episode": 18
+      },
+      {
+        "id": "animecix:ep:234:1:19",
+        "title": "Fullmetal Alchemist 1. Sezon 19. Bölüm",
+        "season": 1,
+        "episode": 19
+      },
+      {
+        "id": "animecix:ep:234:1:20",
+        "title": "Fullmetal Alchemist 1. Sezon 20. Bölüm",
+        "season": 1,
+        "episode": 20
+      },
+      {
+        "id": "animecix:ep:234:1:21",
+        "title": "Fullmetal Alchemist 1. Sezon 21. Bölüm",
+        "season": 1,
+        "episode": 21
+      },
+      {
+        "id": "animecix:ep:234:1:22",
+        "title": "Fullmetal Alchemist 1. Sezon 22. Bölüm",
+        "season": 1,
+        "episode": 22
+      },
+      {
+        "id": "animecix:ep:234:1:23",
+        "title": "Fullmetal Alchemist 1. Sezon 23. Bölüm",
+        "season": 1,
+        "episode": 23
+      },
+      {
+        "id": "animecix:ep:234:1:24",
+        "title": "Fullmetal Alchemist 1. Sezon 24. Bölüm",
+        "season": 1,
+        "episode": 24
+      },
+      {
+        "id": "animecix:ep:234:1:25",
+        "title": "Fullmetal Alchemist 1. Sezon 25. Bölüm",
+        "season": 1,
+        "episode": 25
+      },
+      {
+        "id": "animecix:ep:234:1:26",
+        "title": "Fullmetal Alchemist 1. Sezon 26. Bölüm",
+        "season": 1,
+        "episode": 26
+      },
+      {
+        "id": "animecix:ep:234:1:27",
+        "title": "Fullmetal Alchemist 1. Sezon 27. Bölüm",
+        "season": 1,
+        "episode": 27
+      },
+      {
+        "id": "animecix:ep:234:1:28",
+        "title": "Fullmetal Alchemist 1. Sezon 28. Bölüm",
+        "season": 1,
+        "episode": 28
+      },
+      {
+        "id": "animecix:ep:234:1:29",
+        "title": "Fullmetal Alchemist 1. Sezon 29. Bölüm",
+        "season": 1,
+        "episode": 29
+      },
+      {
+        "id": "animecix:ep:234:1:30",
+        "title": "Fullmetal Alchemist 1. Sezon 30. Bölüm",
+        "season": 1,
+        "episode": 30
+      },
+      {
+        "id": "animecix:ep:234:1:31",
+        "title": "Fullmetal Alchemist 1. Sezon 31. Bölüm",
+        "season": 1,
+        "episode": 31
+      },
+      {
+        "id": "animecix:ep:234:1:32",
+        "title": "Fullmetal Alchemist 1. Sezon 32. Bölüm",
+        "season": 1,
+        "episode": 32
+      },
+      {
+        "id": "animecix:ep:234:1:33",
+        "title": "Fullmetal Alchemist 1. Sezon 33. Bölüm",
+        "season": 1,
+        "episode": 33
+      },
+      {
+        "id": "animecix:ep:234:1:34",
+        "title": "Fullmetal Alchemist 1. Sezon 34. Bölüm",
+        "season": 1,
+        "episode": 34
+      },
+      {
+        "id": "animecix:ep:234:1:35",
+        "title": "Fullmetal Alchemist 1. Sezon 35. Bölüm",
+        "season": 1,
+        "episode": 35
+      },
+      {
+        "id": "animecix:ep:234:1:36",
+        "title": "Fullmetal Alchemist 1. Sezon 36. Bölüm",
+        "season": 1,
+        "episode": 36
+      },
+      {
+        "id": "animecix:ep:234:1:37",
+        "title": "Fullmetal Alchemist 1. Sezon 37. Bölüm",
+        "season": 1,
+        "episode": 37
+      },
+      {
+        "id": "animecix:ep:234:1:38",
+        "title": "Fullmetal Alchemist 1. Sezon 38. Bölüm",
+        "season": 1,
+        "episode": 38
+      },
+      {
+        "id": "animecix:ep:234:1:39",
+        "title": "Fullmetal Alchemist 1. Sezon 39. Bölüm",
+        "season": 1,
+        "episode": 39
+      },
+      {
+        "id": "animecix:ep:234:1:40",
+        "title": "Fullmetal Alchemist 1. Sezon 40. Bölüm",
+        "season": 1,
+        "episode": 40
+      },
+      {
+        "id": "animecix:ep:234:1:41",
+        "title": "Fullmetal Alchemist 1. Sezon 41. Bölüm",
+        "season": 1,
+        "episode": 41
+      },
+      {
+        "id": "animecix:ep:234:1:42",
+        "title": "Fullmetal Alchemist 1. Sezon 42. Bölüm",
+        "season": 1,
+        "episode": 42
+      },
+      {
+        "id": "animecix:ep:234:1:43",
+        "title": "Fullmetal Alchemist 1. Sezon 43. Bölüm",
+        "season": 1,
+        "episode": 43
+      },
+      {
+        "id": "animecix:ep:234:1:44",
+        "title": "Fullmetal Alchemist 1. Sezon 44. Bölüm",
+        "season": 1,
+        "episode": 44
+      },
+      {
+        "id": "animecix:ep:234:1:45",
+        "title": "Fullmetal Alchemist 1. Sezon 45. Bölüm",
+        "season": 1,
+        "episode": 45
+      },
+      {
+        "id": "animecix:ep:234:1:46",
+        "title": "Fullmetal Alchemist 1. Sezon 46. Bölüm",
+        "season": 1,
+        "episode": 46
+      },
+      {
+        "id": "animecix:ep:234:1:47",
+        "title": "Fullmetal Alchemist 1. Sezon 47. Bölüm",
+        "season": 1,
+        "episode": 47
+      },
+      {
+        "id": "animecix:ep:234:1:48",
+        "title": "Fullmetal Alchemist 1. Sezon 48. Bölüm",
+        "season": 1,
+        "episode": 48
+      },
+      {
+        "id": "animecix:ep:234:1:49",
+        "title": "Fullmetal Alchemist 1. Sezon 49. Bölüm",
+        "season": 1,
+        "episode": 49
+      },
+      {
+        "id": "animecix:ep:234:1:50",
+        "title": "Fullmetal Alchemist 1. Sezon 50. Bölüm",
+        "season": 1,
+        "episode": 50
+      },
+      {
+        "id": "animecix:ep:234:1:51",
+        "title": "Fullmetal Alchemist 1. Sezon 51. Bölüm",
+        "season": 1,
+        "episode": 51
+      }
+    ]
+  }
+}

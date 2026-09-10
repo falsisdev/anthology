@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "turkanime:anime:noroi-no-one-piece",
+      "type": "series",
+      "name": "Noroi no One Piece",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Noroi no One Piece - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    }
+  ]
+}

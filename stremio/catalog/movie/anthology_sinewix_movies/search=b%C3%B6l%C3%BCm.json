@@ -1,0 +1,38 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:65",
+      "type": "movie",
+      "name": "O Bölüm 1",
+      "poster": "https://image.tmdb.org/t/p/w500/z6BkOQlCLSoZXxxDeYKXQA6XbzD.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/tcheoA2nPATCm2vvXw2hVQoaEFD.jpg",
+      "description": "Stephen King'in romanından uyarlanan filmde, 1989 yazında Derry, Maine’de yaşayan bir grup çocuğun 27 yılda bir kasabanın çocuklarını avlayan şeytanı bir varlığı durdurmak için verdikleri mücadele anlatılmaktadır.",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3345",
+      "type": "movie",
+      "name": "Batman: Kara Şövalye Dönüyor 2.Bölüm",
+      "poster": "https://image.tmdb.org/t/p/w500/arEZYd6uMOFTILne9Ux0A8qctMe.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/zHqptza1ttGa7hkYNEXP7ECIyA9.jpg",
+      "description": "Batman on yıllık aradan sonra geri geliyor. Gotham yetkilileri onu yakalamak, eski bir düşman yeniden bir araya gelmek, Federaller onu durdurmak istiyordur.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3344",
+      "type": "movie",
+      "name": "Batman: Kara Şövalye Dönüyor 1. Bölüm",
+      "poster": "https://image.tmdb.org/t/p/w500/zOImyeUtB6cCoUwIDVeW6Iru7Op.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/bNLLjc6NT80FmFknvHn8demDHhl.jpg",
+      "description": "Bruce Wayne emekliliğe zorlanan diğer süper kahramanların çoğu gibi, üzerindeki pelerini çıkarıp atalı tam on sene oldu. Orta yaşın getirdiği olumsuzluklarla karşı karşıya kalan huzursuz Bruce Wayne öfkesini yarış arabaları ve içkiyle yatıştırmaktadır. Ancak yarasa şehrin Mutantlar diye bilinen barbar suçluların eline düştüğünü izlerken Wayne'i çağırmaya devam eder...  Harvey Dent'in “İki Yüz” olarak geri dönmesi, sonunda Wayne'in Kara Şövalye şapkasını yeniden takmasını sağlar. Kötü adamı dramatik bir şekilde yakalaması onun suçla savaşa geri dönmesine neden olur. Tabii bunun sonunda, Batman kanun yaptırımının hedefi ve perişan Gotham City'nin yeni umudu haline gelir.  Carrie isimli genç bir kız Robin'in yerine geçer ve sonunda Batman'i Mutantların liderinin korkunç saldırısından kurtarır. Yeni bir yardımcıyla güçlenen ve belirli bir amacı olduğu için yeniden enerji toplayan Kara Şövalye Gotham'ı eski ve yeni düşmanlarından korumak için geri dönmüştür...",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

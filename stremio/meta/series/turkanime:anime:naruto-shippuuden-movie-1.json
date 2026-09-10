@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:naruto-shippuuden-movie-1",
+    "type": "series",
+    "name": "Naruto: Shippuuden Movie 1",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/2631.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/2631.jpg",
+    "description": "Naruto: Shippuuden Movie 1 - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:naruto-movie-04-shippuuden-the-movie",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "turkanime:anime:hunter-x-hunter-2011",
+      "type": "series",
+      "name": "Hunter x Hunter (2011)",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Hunter x Hunter (2011) - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    }
+  ]
+}

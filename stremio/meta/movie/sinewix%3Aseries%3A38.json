@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "id": "sinewix:series:38",
+    "type": "movie",
+    "name": "Avatar",
+    "poster": "https://image.tmdb.org/t/p/w500/cHFZA8Tlv03nKTGXhLOYOLtqoSm.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/eny2MtpVhKqMLTZWCBGGofwNcfN.jpg",
+    "description": "Avatar dört elementin (su, toprak, ateş ve hava) ustası olan ve su kabileleri, toprak krallığı, ateş ulusu ve hava göçebelerinin arasında denge unsuru olan avatar ruhunun son taşıyıcısı.",
+    "genres": [
+      "SineWix"
+    ]
+  }
+}

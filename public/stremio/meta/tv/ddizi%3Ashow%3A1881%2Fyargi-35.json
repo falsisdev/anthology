@@ -1,0 +1,586 @@
+{
+  "meta": {
+    "id": "ddizi:show:1881/yargi-35",
+    "type": "series",
+    "name": "Yargı",
+    "poster": "https://www.ddizi.im/diziresimleri/yargikapak-min.jpg",
+    "background": "https://www.ddizi.im/diziresimleri/yargikapak-min.jpg",
+    "description": "Yargı - DDizi Dizi Arşivi",
+    "genres": [
+      "Yerli Dizi",
+      "DDizi"
+    ],
+    "videos": [
+      {
+        "id": "ddizi:ep:75697/yargi-1-bolum-izle.htm",
+        "title": "Yargı 1.Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "ddizi:ep:75750/yargi-2-bolum-izle-hd.htm",
+        "title": "Yargı 2.Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "ddizi:ep:75822/yargi-3-bolum-izle.htm",
+        "title": "Yargı 3.Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "ddizi:ep:75878/yargi-4-bolum-izle.htm",
+        "title": "Yargı 4.Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "ddizi:ep:75939/yargi-5-bolum-izle.htm",
+        "title": "Yargı 5.Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "ddizi:ep:75997/yargi-6-bolum-izle.htm",
+        "title": "Yargı 6.Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "ddizi:ep:76057/yargi-7-bolum-izle.htm",
+        "title": "Yargı 7.Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "ddizi:ep:76122/yargi-8-bolum-izle.htm",
+        "title": "Yargı 8.Bölüm",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "ddizi:ep:76186/yargi-9-bolum-izle.htm",
+        "title": "Yargı 9.Bölüm",
+        "season": 1,
+        "episode": 9
+      },
+      {
+        "id": "ddizi:ep:76250/yargi-10-bolum.htm",
+        "title": "Yargı 10.Bölüm",
+        "season": 1,
+        "episode": 10
+      },
+      {
+        "id": "ddizi:ep:76314/yargi-11-bolum.htm",
+        "title": "Yargı 11.Bölüm",
+        "season": 1,
+        "episode": 11
+      },
+      {
+        "id": "ddizi:ep:76383/yargi-12-bolum-izle.htm",
+        "title": "Yargı 12.Bölüm",
+        "season": 1,
+        "episode": 12
+      },
+      {
+        "id": "ddizi:ep:76447/yargi-13-bolum-izle.htm",
+        "title": "Yargı 13.Bölüm",
+        "season": 1,
+        "episode": 13
+      },
+      {
+        "id": "ddizi:ep:76508/yargi-14-bolum-izle.htm",
+        "title": "Yargı 14.Bölüm",
+        "season": 1,
+        "episode": 14
+      },
+      {
+        "id": "ddizi:ep:76674/yargi-15-bolum-hd1.htm",
+        "title": "Yargı 15.Bölüm",
+        "season": 1,
+        "episode": 15
+      },
+      {
+        "id": "ddizi:ep:76721/yargi-16-bolum.htm",
+        "title": "Yargı 16.Bölüm",
+        "season": 1,
+        "episode": 16
+      },
+      {
+        "id": "ddizi:ep:76786/yargi-17-bolum-izle.htm",
+        "title": "Yargı 17.Bölüm",
+        "season": 1,
+        "episode": 17
+      },
+      {
+        "id": "ddizi:ep:76853/yargi-18-bolum.htm",
+        "title": "Yargı 18.Bölüm",
+        "season": 1,
+        "episode": 18
+      },
+      {
+        "id": "ddizi:ep:76922/yargi-19-bolum.htm",
+        "title": "Yargı 19.Bölüm",
+        "season": 1,
+        "episode": 19
+      },
+      {
+        "id": "ddizi:ep:76985/yargi-20-bolum.htm",
+        "title": "Yargı 20.Bölüm",
+        "season": 1,
+        "episode": 20
+      },
+      {
+        "id": "ddizi:ep:77051/yargi-21-bolum-izle-hd.htm",
+        "title": "Yargı 21.Bölüm",
+        "season": 1,
+        "episode": 21
+      },
+      {
+        "id": "ddizi:ep:77120/yargi-22-bolum-izle-hd1.htm",
+        "title": "Yargı 22.Bölüm",
+        "season": 1,
+        "episode": 22
+      },
+      {
+        "id": "ddizi:ep:77195/yargi-23-bolum-izle-hd2.htm",
+        "title": "Yargı 23.Bölüm",
+        "season": 1,
+        "episode": 23
+      },
+      {
+        "id": "ddizi:ep:77260/yargi-24-bolum-izle-hd1.htm",
+        "title": "Yargı 24.Bölüm",
+        "season": 1,
+        "episode": 24
+      },
+      {
+        "id": "ddizi:ep:77324/yargi-25-bolum-izle-hd.htm",
+        "title": "Yargı 25.Bölüm",
+        "season": 1,
+        "episode": 25
+      },
+      {
+        "id": "ddizi:ep:77390/yargi-26-bolum-izle-hd.htm",
+        "title": "Yargı 26.Bölüm",
+        "season": 1,
+        "episode": 26
+      },
+      {
+        "id": "ddizi:ep:77461/yargi-27-bolum-izle-hd.htm",
+        "title": "Yargı 27.Bölüm",
+        "season": 1,
+        "episode": 27
+      },
+      {
+        "id": "ddizi:ep:77519/yargi-28-bolum-izle-hd1.htm",
+        "title": "Yargı 28.Bölüm",
+        "season": 1,
+        "episode": 28
+      },
+      {
+        "id": "ddizi:ep:77624/yargi-29-bolum-izle.htm",
+        "title": "Yargı 29.Bölüm",
+        "season": 1,
+        "episode": 29
+      },
+      {
+        "id": "ddizi:ep:77697/yargi-30-bolum-izle-hd.htm",
+        "title": "Yargı 30.Bölüm",
+        "season": 1,
+        "episode": 30
+      },
+      {
+        "id": "ddizi:ep:77803/yargi-31-bolum-izle.htm",
+        "title": "Yargı 31.Bölüm",
+        "season": 1,
+        "episode": 31
+      },
+      {
+        "id": "ddizi:ep:77880/yargi-32-bolum-izle-hd1.htm",
+        "title": "Yargı 32.Bölüm",
+        "season": 1,
+        "episode": 32
+      },
+      {
+        "id": "ddizi:ep:77948/yargi-33-bolum-izle-hd1.htm",
+        "title": "Yargı 33.Bölüm",
+        "season": 1,
+        "episode": 33
+      },
+      {
+        "id": "ddizi:ep:78016/yargi-34-bolum-sezon-finali-izle-hd1.htm",
+        "title": "Yargı 34.Bölüm Sezon Finali",
+        "season": 1,
+        "episode": 34
+      },
+      {
+        "id": "ddizi:ep:78815/yargi-35-bolum-izle-hd2.htm",
+        "title": "Yargı 35.Bölüm",
+        "season": 1,
+        "episode": 35
+      },
+      {
+        "id": "ddizi:ep:78868/yargi-36-bolum-izle-hd.htm",
+        "title": "Yargı 36.Bölüm",
+        "season": 1,
+        "episode": 36
+      },
+      {
+        "id": "ddizi:ep:78924/yargi-37-bolum-izle-hd1.htm",
+        "title": "Yargı 37.Bölüm",
+        "season": 1,
+        "episode": 37
+      },
+      {
+        "id": "ddizi:ep:78988/yargi-38-bolum-izle-hd3.htm",
+        "title": "Yargı 38.Bölüm",
+        "season": 1,
+        "episode": 38
+      },
+      {
+        "id": "ddizi:ep:79132/yargi-39-bolum-izle-hd1.htm",
+        "title": "Yargı 39.Bölüm",
+        "season": 1,
+        "episode": 39
+      },
+      {
+        "id": "ddizi:ep:79199/yargi-40-bolum-izle-hd.htm",
+        "title": "Yargı 40.Bölüm",
+        "season": 1,
+        "episode": 40
+      },
+      {
+        "id": "ddizi:ep:79286/yargi-41-bolum-izle-hd4.htm",
+        "title": "Yargı 41.Bölüm",
+        "season": 1,
+        "episode": 41
+      },
+      {
+        "id": "ddizi:ep:79346/yargi-42-bolum-izle-hd2.htm",
+        "title": "Yargı 42.Bölüm",
+        "season": 1,
+        "episode": 42
+      },
+      {
+        "id": "ddizi:ep:79406/yargi-43-bolum-izle-hd2.htm",
+        "title": "Yargı 43.Bölüm",
+        "season": 1,
+        "episode": 43
+      },
+      {
+        "id": "ddizi:ep:79465/yargi-44-bolum-izle-hd2.htm",
+        "title": "Yargı 44.Bölüm",
+        "season": 1,
+        "episode": 44
+      },
+      {
+        "id": "ddizi:ep:79649/yargi-45-bolum-izle-hd2.htm",
+        "title": "Yargı 45.Bölüm",
+        "season": 1,
+        "episode": 45
+      },
+      {
+        "id": "ddizi:ep:79825/yargi-46-bolum-izle-hd2.htm",
+        "title": "Yargı 46.Bölüm",
+        "season": 1,
+        "episode": 46
+      },
+      {
+        "id": "ddizi:ep:79884/yargi-47-bolum-izle-hd2.htm",
+        "title": "Yargı 47.Bölüm",
+        "season": 1,
+        "episode": 47
+      },
+      {
+        "id": "ddizi:ep:79949/yargi-48-bolum-izle-hd2.htm",
+        "title": "Yargı 48.Bölüm",
+        "season": 1,
+        "episode": 48
+      },
+      {
+        "id": "ddizi:ep:80017/yargi-49-bolum-izle-hd2.htm",
+        "title": "Yargı 49.Bölüm",
+        "season": 1,
+        "episode": 49
+      },
+      {
+        "id": "ddizi:ep:80201/yargi-50-bolum-izle-hd2.htm",
+        "title": "Yargı 50.Bölüm",
+        "season": 1,
+        "episode": 50
+      },
+      {
+        "id": "ddizi:ep:80275/yargi-51-bolum-izle-hd2.htm",
+        "title": "Yargı 51.Bölüm",
+        "season": 1,
+        "episode": 51
+      },
+      {
+        "id": "ddizi:ep:80337/yargi-52-bolum-izle-hd2.htm",
+        "title": "Yargı 52.Bölüm",
+        "season": 1,
+        "episode": 52
+      },
+      {
+        "id": "ddizi:ep:80405/yargi-53-bolum-izle-hd2.htm",
+        "title": "Yargı 53.Bölüm",
+        "season": 1,
+        "episode": 53
+      },
+      {
+        "id": "ddizi:ep:80613/yargi-54-bolum-izle-hd1.htm",
+        "title": "Yargı 54.Bölüm",
+        "season": 1,
+        "episode": 54
+      },
+      {
+        "id": "ddizi:ep:80672/yargi-55-bolum-izle-hd1.htm",
+        "title": "Yargı 55.Bölüm",
+        "season": 1,
+        "episode": 55
+      },
+      {
+        "id": "ddizi:ep:80734/yargi-56-bolum-izle-hd3.htm",
+        "title": "Yargı 56.Bölüm",
+        "season": 1,
+        "episode": 56
+      },
+      {
+        "id": "ddizi:ep:80800/yargi-57-bolum-izle-hd1.htm",
+        "title": "Yargı 57.Bölüm",
+        "season": 1,
+        "episode": 57
+      },
+      {
+        "id": "ddizi:ep:80872/yargi-58-bolum-izle-hd1.htm",
+        "title": "Yargı 58.Bölüm",
+        "season": 1,
+        "episode": 58
+      },
+      {
+        "id": "ddizi:ep:80932/yargi-59-bolum-izle-hd1.htm",
+        "title": "Yargı 59.Bölüm",
+        "season": 1,
+        "episode": 59
+      },
+      {
+        "id": "ddizi:ep:80992/yargi-60-bolum-izle-hd1.htm",
+        "title": "Yargı 60.Bölüm",
+        "season": 1,
+        "episode": 60
+      },
+      {
+        "id": "ddizi:ep:81052/yargi-61-bolum-izle-hd2.htm",
+        "title": "Yargı 61.Bölüm",
+        "season": 1,
+        "episode": 61
+      },
+      {
+        "id": "ddizi:ep:81170/yargi-62-bolum-izle-hd2.htm",
+        "title": "Yargı 62.Bölüm",
+        "season": 1,
+        "episode": 62
+      },
+      {
+        "id": "ddizi:ep:81238/yargi-63-bolum-izle-sezon-finali-hd1.htm",
+        "title": "Yargı 63.Bölüm Sezon Finali",
+        "season": 1,
+        "episode": 63
+      },
+      {
+        "id": "ddizi:ep:82227/yargi-64-bolum-izle-hd2.htm",
+        "title": "Yargı 64.Bölüm",
+        "season": 1,
+        "episode": 64
+      },
+      {
+        "id": "ddizi:ep:82285/yargi-65-bolum-izle-hd2.htm",
+        "title": "Yargı 65.Bölüm",
+        "season": 1,
+        "episode": 65
+      },
+      {
+        "id": "ddizi:ep:82344/yargi-66-bolum-izle-hd2.htm",
+        "title": "Yargı 66.Bölüm",
+        "season": 1,
+        "episode": 66
+      },
+      {
+        "id": "ddizi:ep:82405/yargi-67-bolum-izle-hd2.htm",
+        "title": "Yargı 67.Bölüm",
+        "season": 1,
+        "episode": 67
+      },
+      {
+        "id": "ddizi:ep:82470/yargi-68-bolum-izle-hd2.htm",
+        "title": "Yargı 68.Bölüm",
+        "season": 1,
+        "episode": 68
+      },
+      {
+        "id": "ddizi:ep:82530/yargi-69-bolum-izle-hd2.htm",
+        "title": "Yargı 69.Bölüm",
+        "season": 1,
+        "episode": 69
+      },
+      {
+        "id": "ddizi:ep:82600/yargi-70-bolum-izle-hd2.htm",
+        "title": "Yargı 70.Bölüm",
+        "season": 1,
+        "episode": 70
+      },
+      {
+        "id": "ddizi:ep:82661/yargi-71-bolum-izle-hd2.htm",
+        "title": "Yargı 71.Bölüm",
+        "season": 1,
+        "episode": 71
+      },
+      {
+        "id": "ddizi:ep:82722/yargi-72-bolum-izle-hd2.htm",
+        "title": "Yargı 72.Bölüm",
+        "season": 1,
+        "episode": 72
+      },
+      {
+        "id": "ddizi:ep:82787/yargi-73-bolum-izle-hd2.htm",
+        "title": "Yargı 73.Bölüm",
+        "season": 1,
+        "episode": 73
+      },
+      {
+        "id": "ddizi:ep:82846/yargi-74-bolum-izle-hd2.htm",
+        "title": "Yargı 74.Bölüm",
+        "season": 1,
+        "episode": 74
+      },
+      {
+        "id": "ddizi:ep:82905/yargi-75-bolum-izle-hd2.htm",
+        "title": "Yargı 75.Bölüm",
+        "season": 1,
+        "episode": 75
+      },
+      {
+        "id": "ddizi:ep:82980/yargi-76-bolum-izle-hd2.htm",
+        "title": "Yargı 76.Bölüm",
+        "season": 1,
+        "episode": 76
+      },
+      {
+        "id": "ddizi:ep:83043/yargi-77-bolum-izle-hd2.htm",
+        "title": "Yargı 77.Bölüm",
+        "season": 1,
+        "episode": 77
+      },
+      {
+        "id": "ddizi:ep:83217/yargi-78-bolum-izle-hd2.htm",
+        "title": "Yargı 78.Bölüm",
+        "season": 1,
+        "episode": 78
+      },
+      {
+        "id": "ddizi:ep:83284/yargi-79-bolum-izle-hd2.htm",
+        "title": "Yargı 79.Bölüm",
+        "season": 1,
+        "episode": 79
+      },
+      {
+        "id": "ddizi:ep:83345/yargi-80-bolum-izle-hd2.htm",
+        "title": "Yargı 80.Bölüm",
+        "season": 1,
+        "episode": 80
+      },
+      {
+        "id": "ddizi:ep:83406/yargi-81-bolum-izle-hd2.htm",
+        "title": "Yargı 81.Bölüm",
+        "season": 1,
+        "episode": 81
+      },
+      {
+        "id": "ddizi:ep:83463/yargi-82-bolum-izle-hd2.htm",
+        "title": "Yargı 82.Bölüm",
+        "season": 1,
+        "episode": 82
+      },
+      {
+        "id": "ddizi:ep:83523/yargi-83-bolum-izle-hd2.htm",
+        "title": "Yargı 83.Bölüm",
+        "season": 1,
+        "episode": 83
+      },
+      {
+        "id": "ddizi:ep:83584/yargi-84-bolum-izle-hd2.htm",
+        "title": "Yargı 84.Bölüm",
+        "season": 1,
+        "episode": 84
+      },
+      {
+        "id": "ddizi:ep:83643/yargi-85-bolum-izle-hd2.htm",
+        "title": "Yargı 85.Bölüm",
+        "season": 1,
+        "episode": 85
+      },
+      {
+        "id": "ddizi:ep:83705/yargi-86-bolum-izle-hd2.htm",
+        "title": "Yargı 86.Bölüm",
+        "season": 1,
+        "episode": 86
+      },
+      {
+        "id": "ddizi:ep:83767/yargi-87-bolum-izle-hd2.htm",
+        "title": "Yargı 87.Bölüm",
+        "season": 1,
+        "episode": 87
+      },
+      {
+        "id": "ddizi:ep:83832/yargi-88-bolum-izle-hd2.htm",
+        "title": "Yargı 88.Bölüm",
+        "season": 1,
+        "episode": 88
+      },
+      {
+        "id": "ddizi:ep:83990/yargi-89-bolum-izle-hd2.htm",
+        "title": "Yargı 89.Bölüm",
+        "season": 1,
+        "episode": 89
+      },
+      {
+        "id": "ddizi:ep:84052/yargi-90-bolum-izle-hd2.htm",
+        "title": "Yargı 90.Bölüm",
+        "season": 1,
+        "episode": 90
+      },
+      {
+        "id": "ddizi:ep:84115/yargi-91-bolum-izle-hd2.htm",
+        "title": "Yargı 91.Bölüm",
+        "season": 1,
+        "episode": 91
+      },
+      {
+        "id": "ddizi:ep:84176/yargi-92-bolum-izle-hd2.htm",
+        "title": "Yargı 92.Bölüm",
+        "season": 1,
+        "episode": 92
+      },
+      {
+        "id": "ddizi:ep:84233/yargi-93-bolum-izle-hd2.htm",
+        "title": "Yargı 93.Bölüm",
+        "season": 1,
+        "episode": 93
+      },
+      {
+        "id": "ddizi:ep:84289/yargi-94-bolum-izle-hd2.htm",
+        "title": "Yargı 94.Bölüm",
+        "season": 1,
+        "episode": 94
+      },
+      {
+        "id": "ddizi:ep:84344/yargi-95-bolum-izle-final-hd2.htm",
+        "title": "Yargı 95.Bölüm Final",
+        "season": 1,
+        "episode": 95
+      }
+    ]
+  }
+}

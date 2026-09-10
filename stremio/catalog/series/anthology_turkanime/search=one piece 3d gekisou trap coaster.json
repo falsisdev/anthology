@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "turkanime:anime:one-piece-3d-gekisou-trap-coaster",
+      "type": "series",
+      "name": "One Piece 3D: Gekisou! Trap Coaster",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "One Piece 3D: Gekisou! Trap Coaster - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    }
+  ]
+}

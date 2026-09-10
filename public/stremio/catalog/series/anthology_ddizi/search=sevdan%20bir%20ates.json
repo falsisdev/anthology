@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "ddizi:show:2182/sevdan-bir-ates-son-bolum-izle",
+      "type": "series",
+      "name": "Sevdan Bir Ateş",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Sevdan Bir Ateş - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    }
+  ]
+}

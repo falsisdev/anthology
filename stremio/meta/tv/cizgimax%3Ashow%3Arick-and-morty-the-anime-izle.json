@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "cizgimax:show:rick-and-morty-the-anime-izle",
+    "type": "series",
+    "name": "Rick and Morty: The Anime",
+    "poster": "https://image.tmdb.org/t/p/w780/kQFPw9W3EO6ZLhg3TI782edq9Fr.jpg",
+    "background": "https://image.tmdb.org/t/p/w780/kQFPw9W3EO6ZLhg3TI782edq9Fr.jpg",
+    "description": "Rick and Morty: The Anime - ÇizgiMax",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:show:rick-and-morty-the-anime-izle",
+        "title": "Rick and Morty: The Anime 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

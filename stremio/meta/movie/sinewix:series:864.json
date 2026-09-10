@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "id": "sinewix:series:864",
+    "type": "movie",
+    "name": "Yedi Dünya Bir Gezegen",
+    "poster": "https://image.tmdb.org/t/p/w500/tpXNx8j4Nr15iKSTU1NDFfr9FKy.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/5SeRUwZTHuiOnLfcxXqfew1P0Ug.jpg",
+    "description": "Milyonlarca yıl önce inanılmaz kuvvetler, her biri kendine özgü bir iklime, kendine özgü araziye ve kendine özgü hayvan yaşamına sahip olan yedi kıtamızı yaratan Dünya'nın kabuğunu parçaladı. Güney Amerika'nın renkli cennetinden Afrika'nın kavurucu sıcağına kadar Yedi Dünya: Bir Gezegen sırayla her kıtanın gerçek karakterini sergiliyor ve oradaki yaşamı nasıl şekillendirdiğini ortaya koyuyor. Beklenmedik hikayelere şaşırın. İkonik manzaralara hayret edin. Ve muhteşem vahşi yaşamın tadını çıkarın. Yedi Dünya, Bir Gezegen, bildiğini düşündüğünüz bir dünya etrafında göz alıcı bir yolculuğu sergiliyor.",
+    "genres": [
+      "SineWix"
+    ]
+  }
+}

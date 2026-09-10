@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:45",
+      "type": "movie",
+      "name": "Baba",
+      "poster": "https://image.tmdb.org/t/p/w500/obYjrjFT4iZV09YAXu53iBA51Js.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/rSPw7tgCH9c6NqICZef4kZjFOQ5.jpg",
+      "description": "Mario Puzo'nun çok satan kitabından Puzo ve yönetmen Francis Ford Coppola tarafından sinemaya uyarlanan eser, 40'lar ve 50'lerin Amerika'sında, bir İtalyan mafya ailesinin destansı öyküsünü konu alıyor. Corleone ailesi, Don Vito Corleone'nin başında olduğu, suça dayalı bir örgüt kurmuş olan İtalyan asıllı meşhur bir ailedir. Aile, New York'taki diğer dört aileyle birlikte New York'un yeraltı işlerini yönetmektedir. Ancak Corleone ailesini diğerlerinden ayıran özelliği, Don Corleone'nin cebinde bozuk para gibi taşıdığı politikacılar ve yargıçlardır. Politikacılar ve yargıçlarla olan bu yakın ilişkileri diğer ailelerin açamadığı kapıları açabilmesini sağlamaktadır.",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

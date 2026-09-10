@@ -1,0 +1,166 @@
+{
+  "meta": {
+    "id": "turkanime:anime:boku-no-hero-academia-2nd-season",
+    "type": "series",
+    "name": "Boku no Hero Academia 2nd Season",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/3210.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/3210.jpg",
+    "description": "Boku no Hero Academia 2nd Season - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:boku-no-hero-academia-2nd-season-1-bolum",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "turkanime:ep:boku-no-hero-academia-2nd-season-2-bolum",
+        "title": "2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "turkanime:ep:boku-no-hero-academia-2nd-season-3-bolum",
+        "title": "3. Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "turkanime:ep:boku-no-hero-academia-2nd-season-4-bolum",
+        "title": "4. Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "turkanime:ep:boku-no-hero-academia-2nd-season-5-bolum",
+        "title": "5. Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "turkanime:ep:boku-no-hero-academia-2nd-season-6-bolum",
+        "title": "6. Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "turkanime:ep:boku-no-hero-academia-2nd-season-7-bolum",
+        "title": "7. Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "turkanime:ep:boku-no-hero-academia-2nd-season-8-bolum",
+        "title": "8. Bölüm",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "turkanime:ep:boku-no-hero-academia-2nd-season-9-bolum",
+        "title": "9. Bölüm",
+        "season": 1,
+        "episode": 9
+      },
+      {
+        "id": "turkanime:ep:boku-no-hero-academia-2nd-season-10-bolum",
+        "title": "10. Bölüm",
+        "season": 1,
+        "episode": 10
+      },
+      {
+        "id": "turkanime:ep:boku-no-hero-academia-2nd-season-11-bolum",
+        "title": "11. Bölüm",
+        "season": 1,
+        "episode": 11
+      },
+      {
+        "id": "turkanime:ep:boku-no-hero-academia-2nd-season-12-bolum",
+        "title": "12. Bölüm",
+        "season": 1,
+        "episode": 12
+      },
+      {
+        "id": "turkanime:ep:boku-no-hero-academia-2nd-season-13-bolum",
+        "title": "13. Bölüm",
+        "season": 1,
+        "episode": 13
+      },
+      {
+        "id": "turkanime:ep:boku-no-hero-academia-2nd-season-14-bolum",
+        "title": "14. Bölüm",
+        "season": 1,
+        "episode": 14
+      },
+      {
+        "id": "turkanime:ep:boku-no-hero-academia-2nd-season-15-bolum",
+        "title": "15. Bölüm",
+        "season": 1,
+        "episode": 15
+      },
+      {
+        "id": "turkanime:ep:boku-no-hero-academia-2nd-season-16-bolum",
+        "title": "16. Bölüm",
+        "season": 1,
+        "episode": 16
+      },
+      {
+        "id": "turkanime:ep:boku-no-hero-academia-2nd-season-17-bolum",
+        "title": "17. Bölüm",
+        "season": 1,
+        "episode": 17
+      },
+      {
+        "id": "turkanime:ep:boku-no-hero-academia-2nd-season-18-bolum",
+        "title": "18. Bölüm",
+        "season": 1,
+        "episode": 18
+      },
+      {
+        "id": "turkanime:ep:boku-no-hero-academia-2nd-season-19-bolum",
+        "title": "19. Bölüm",
+        "season": 1,
+        "episode": 19
+      },
+      {
+        "id": "turkanime:ep:boku-no-hero-academia-2nd-season-20-bolum",
+        "title": "20. Bölüm",
+        "season": 1,
+        "episode": 20
+      },
+      {
+        "id": "turkanime:ep:boku-no-hero-academia-2nd-season-21-bolum",
+        "title": "21. Bölüm",
+        "season": 1,
+        "episode": 21
+      },
+      {
+        "id": "turkanime:ep:boku-no-hero-academia-2nd-season-22-bolum",
+        "title": "22. Bölüm",
+        "season": 1,
+        "episode": 22
+      },
+      {
+        "id": "turkanime:ep:boku-no-hero-academia-2nd-season-23-bolum",
+        "title": "23. Bölüm",
+        "season": 1,
+        "episode": 23
+      },
+      {
+        "id": "turkanime:ep:boku-no-hero-academia-2nd-season-24-bolum",
+        "title": "24. Bölüm",
+        "season": 1,
+        "episode": 24
+      },
+      {
+        "id": "turkanime:ep:boku-no-hero-academia-2nd-season-25-bolum-final",
+        "title": "25. Bölüm",
+        "season": 1,
+        "episode": 25
+      }
+    ]
+  }
+}

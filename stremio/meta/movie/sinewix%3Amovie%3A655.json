@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "id": "sinewix:movie:655",
+    "type": "movie",
+    "name": "Harry Potter 20th Anniversary: Return to Hogwarts",
+    "poster": "https://image.tmdb.org/t/p/w500/34Xss3gwKdwvtomCDkeC2lW4PVB.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/8rft8A9nH43IReybFtYt21ezfMK.jpg",
+    "description": "Daniel Radcliffe, Emma Watson ve Rupert Grint de olmak üzere tüm \"Harry Potter\" filmlerindan oyuncular, ilk filmin 20. yıldönümünü kutluyor! Pek çok röportajı içeren bu retrospektifte, oyuncular orijinal Hogwarts setinde bir araya gelecek. Ayrıca, geçmiş sekiz filme dair özel detaylara da yer verilecek.",
+    "genres": [
+      "SineWix"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "animecix:title:123",
+      "type": "series",
+      "name": "Sword Art Online Alternative: Gun Gale Online",
+      "poster": "https://image.tmdb.org/t/p/original/mkFSXuWzPemM1Ok0sBHl0SAsFbX.jpg",
+      "background": "https://image.tmdb.org/t/p/w1280/tJrhErpQ22XyoNQfZUGRufueEvZ.jpg",
+      "description": "Karen Kohiruimaki gerçek dünyada kendini yetersiz hisseden birisidir. Fazla kiloları sebebiyle kendi yaşıtı kızlarla arkadaş olmakta zorlanmaktadır. Gun Gale Online ile tanıştığında ise tüm bunlar değişir. GGO'da hayallerindeki gibi tatlı bir görünüşe sahip olabilecektir.",
+      "genres": [
+        "Anime",
+        "AnimeciX"
+      ]
+    }
+  ]
+}

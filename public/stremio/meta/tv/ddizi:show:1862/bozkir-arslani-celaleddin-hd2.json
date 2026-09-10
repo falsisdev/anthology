@@ -1,0 +1,58 @@
+{
+  "meta": {
+    "id": "ddizi:show:1862/bozkir-arslani-celaleddin-hd2",
+    "type": "series",
+    "name": "Bozkır Arslanı Celaleddin",
+    "poster": "https://www.ddizi.im/diziresimleri/bozkirarslanicelokapak-min.jpg",
+    "background": "https://www.ddizi.im/diziresimleri/bozkirarslanicelokapak-min.jpg",
+    "description": "Bozkır Arslanı Celaleddin - DDizi Dizi Arşivi",
+    "genres": [
+      "Yerli Dizi",
+      "DDizi"
+    ],
+    "videos": [
+      {
+        "id": "ddizi:ep:75023/bozkir-arslani-celaleddin-1-bolum-hd6.htm",
+        "title": "Bozkır Arslanı Celaleddin 1.Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "ddizi:ep:75073/bozkir-arslani-celaleddin-2-bolum-hd6.htm",
+        "title": "Bozkır Arslanı Celaleddin 2.Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "ddizi:ep:75120/bozkir-arslani-celaleddin-3-bolum-hd6.htm",
+        "title": "Bozkır Arslanı Celaleddin 3.Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "ddizi:ep:75165/bozkir-arslani-celaleddin-4-bolum-hd6.htm",
+        "title": "Bozkır Arslanı Celaleddin 4.Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "ddizi:ep:75214/bozkir-arslani-celaleddin-5-bolum-hd6.htm",
+        "title": "Bozkır Arslanı Celaleddin 5.Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "ddizi:ep:75260/bozkir-arslani-celaleddin-6-bolum-hd6.htm",
+        "title": "Bozkır Arslanı Celaleddin 6.Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "ddizi:ep:75306/bozkir-arslani-celaleddin-7-bolum-hd6.htm",
+        "title": "Bozkır Arslanı Celaleddin 7.Bölüm",
+        "season": 1,
+        "episode": 7
+      }
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "cizgimax:show:film/batman-soul-of-the-dragon-izle",
+    "type": "series",
+    "name": "Batman: Ejderha'nın Ruhu",
+    "poster": "https://cizgimax.online/img/locandine/batman-soul-of-the-dragon-poster.webp",
+    "background": "https://cizgimax.online/img/locandine/batman-soul-of-the-dragon-poster.webp",
+    "description": "Batman: Ejderha'nın Ruhu - ÇizgiMax Arşivi",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:show:film/batman-soul-of-the-dragon-izle",
+        "title": "Batman: Ejderha'nın Ruhu",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

@@ -12,9 +12,7 @@
     "videos": [
       {
         "id": "tv:TRTBelgesel.tr",
-        "title": "TRT Belgesel HD",
-        "season": 1,
-        "episode": 1
+        "title": "TRT Belgesel HD"
       }
     ]
   }

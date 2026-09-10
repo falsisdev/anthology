@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "cizgimax:show:film/phineas-and-ferb-star-wars-izle",
+    "type": "series",
+    "name": "Fineas ve Förb: Star Wars",
+    "poster": "https://cizgimax.online/img/locandine/phineas-and-ferb-star-wars-poster.webp",
+    "background": "https://cizgimax.online/img/locandine/phineas-and-ferb-star-wars-poster.webp",
+    "description": "Fineas ve Förb: Star Wars - ÇizgiMax Arşivi",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:show:film/phineas-and-ferb-star-wars-izle",
+        "title": "Fineas ve Förb: Star Wars",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

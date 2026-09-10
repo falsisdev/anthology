@@ -1,0 +1,28 @@
+{
+  "metas": [
+    {
+      "id": "animecix:title:8214",
+      "type": "series",
+      "name": "Fullmetal Alchemist: The Conqueror of Shamballa",
+      "poster": "https://image.tmdb.org/t/p/original/rcfZPWcj5pE1CHeIrcUlqFkmeOw.jpg",
+      "background": "https://image.tmdb.org/t/p/w1280/gFzBLipMi8pBn3KkoL4WSgkIUu9.jpg",
+      "description": "Munich, Germany, 1923. Two years have passed since Edward Elric was dragged from his own world to ours, leaving behind his country, his friends and his younger brother, Alphonse. Stripped of his alchemical powers, he has been all this time researching rocketry together with Alphonse Heiderich, a young man who resembles his own brother, hoping to one day find a way back home. His efforts so far had proven fruitless, but after lending a hand to a troubled gipsy girl, Edward is thrown in a series of events that can wreak havoc in both worlds. Meanwhile, at his own world, Alphonse Elric ventures deeper into the mysteries of alchemy in search for a way to reunite with his older brother.",
+      "genres": [
+        "Anime",
+        "AnimeciX"
+      ]
+    },
+    {
+      "id": "animecix:title:8215",
+      "type": "series",
+      "name": "Fullmetal Alchemist: The Sacred Star of Milos",
+      "poster": "https://image.tmdb.org/t/p/original/7RvBQOTZGhCoPvLiF3Ugp2Q94Ux.jpg",
+      "background": "https://image.tmdb.org/t/p/w1280/rFkiZNiub7Q7eGPYdM4JGRVLcCn.jpg",
+      "description": "Cezasının bitmesine birkaç hafta kala hapisten kaçan bir suçlunun peşine düşen Elric kardeşler \"Table City\" adlı şehre kadar gelirler ve burada aynı zamanda suçlunun takip ettiği Julia adlı kızı kurtarırlar.rnrnOlaylar Elric kardeşleri Julia'nın memleketi olan Milos vadisi'ne sürükler ve kardeşler, buradaki halkın özgürlük için başlattıkları ayaklanmaya karışırlar.",
+      "genres": [
+        "Anime",
+        "AnimeciX"
+      ]
+    }
+  ]
+}

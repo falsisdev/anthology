@@ -1,0 +1,28 @@
+{
+  "metas": [
+    {
+      "id": "turkanime:anime:kimetsu-no-yaiba-movie-mugen-ressha-hen",
+      "type": "series",
+      "name": "Kimetsu no Yaiba Movie: Mugen Ressha-hen",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Kimetsu no Yaiba Movie: Mugen Ressha-hen - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:kimetsu-no-yaiba-mugen-ressha-hen",
+      "type": "series",
+      "name": "Kimetsu no Yaiba: Mugen Ressha-hen",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Kimetsu no Yaiba: Mugen Ressha-hen - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    }
+  ]
+}

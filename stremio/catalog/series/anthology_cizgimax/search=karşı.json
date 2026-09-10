@@ -1,0 +1,76 @@
+{
+  "metas": [
+    {
+      "id": "cizgimax:show:film/ben-10-vs-the-universe-the-movie-izle",
+      "type": "series",
+      "name": "Ben 10: Evrene Karşı",
+      "poster": "https://cizgimax.online/img/locandine/ben-10-vs-the-universe-the-movie-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/ben-10-vs-the-universe-the-movie-poster.webp",
+      "description": "Ben 10: Evrene Karşı - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:film/ben-10-race-against-time-izle",
+      "type": "series",
+      "name": "Ben 10: Zamana Karşı Yarış",
+      "poster": "https://cizgimax.online/img/locandine/ben-10-race-against-time-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/ben-10-race-against-time-poster.webp",
+      "description": "Ben 10: Zamana Karşı Yarış - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:film/batman-vs-robin-izle",
+      "type": "series",
+      "name": "Batman Robin'e Karşı",
+      "poster": "https://cizgimax.online/img/locandine/batman-vs-robin-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/batman-vs-robin-poster.webp",
+      "description": "Batman Robin'e Karşı - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:film/the-batman-vs-dracula-izle",
+      "type": "series",
+      "name": "Batman Dracula'ya Karşı",
+      "poster": "https://cizgimax.online/img/locandine/the-batman-vs-dracula-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/the-batman-vs-dracula-poster.webp",
+      "description": "Batman Dracula'ya Karşı - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:film/superman-vs-the-elite-izle",
+      "type": "series",
+      "name": "Superman Elit Grubu'na Karşı",
+      "poster": "https://cizgimax.online/img/locandine/superman-vs-the-elite-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/superman-vs-the-elite-poster.webp",
+      "description": "Superman Elit Grubu'na Karşı - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:film/superman-brainiac-attacks-izle",
+      "type": "series",
+      "name": "Superman: Brainiac'a Karşı",
+      "poster": "https://cizgimax.online/img/locandine/superman-brainiac-attacks-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/superman-brainiac-attacks-poster.webp",
+      "description": "Superman: Brainiac'a Karşı - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    }
+  ]
+}

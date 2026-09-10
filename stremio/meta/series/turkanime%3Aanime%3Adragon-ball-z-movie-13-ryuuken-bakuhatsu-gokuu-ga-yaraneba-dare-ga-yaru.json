@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:dragon-ball-z-movie-13-ryuuken-bakuhatsu-gokuu-ga-yaraneba-dare-ga-yaru",
+    "type": "series",
+    "name": "Dragon Ball Z Movie 13: Ryuuken Bakuh...",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/5580.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/5580.jpg",
+    "description": "Dragon Ball Z Movie 13: Ryuuken Bakuhatsu!! Gokuu ga Yaraneba Dare ga Yaru - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:dragon-ball-z-ryuuken-bakuhatsu-gokuu-ga-yaraneba-dare-ga-yaru-movie-13",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

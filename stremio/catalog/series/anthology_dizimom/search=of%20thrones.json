@@ -1,0 +1,28 @@
+{
+  "metas": [
+    {
+      "id": "dizimom:show:game-of-thrones-izle-hd5-full3",
+      "type": "series",
+      "name": "Game of Thrones",
+      "poster": "https://www.dizimom.diy/wp-content/uploads/2022/06/game-of-thrones.jpg",
+      "background": "https://www.dizimom.diy/wp-content/uploads/2022/06/game-of-thrones.jpg",
+      "description": "Game of Thrones - DiziMom Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziMom"
+      ]
+    },
+    {
+      "id": "dizimom:show:game-of-thrones-turkce-dublaj-izle-hd4-full1",
+      "type": "series",
+      "name": "Game of Thrones Türkçe Dublaj",
+      "poster": "https://www.dizimom.diy/wp-content/uploads/2022/04/game-of-thrones.jpg",
+      "background": "https://www.dizimom.diy/wp-content/uploads/2022/04/game-of-thrones.jpg",
+      "description": "Game of Thrones Türkçe Dublaj - DiziMom Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziMom"
+      ]
+    }
+  ]
+}

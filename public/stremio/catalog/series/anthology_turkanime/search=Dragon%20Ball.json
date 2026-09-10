@@ -1,0 +1,340 @@
+{
+  "metas": [
+    {
+      "id": "turkanime:anime:dragon-ball",
+      "type": "series",
+      "name": "Dragon Ball",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-daima",
+      "type": "series",
+      "name": "Dragon Ball Daima",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball Daima - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-gt",
+      "type": "series",
+      "name": "Dragon Ball GT",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball GT - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-gt-movie",
+      "type": "series",
+      "name": "Dragon Ball GT : Movie",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball GT : Movie - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-kai",
+      "type": "series",
+      "name": "Dragon Ball Kai",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball Kai - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-kai-2014",
+      "type": "series",
+      "name": "Dragon Ball Kai (2014)",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball Kai (2014) - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-movie-1-shen-long-no-densetsu",
+      "type": "series",
+      "name": "Dragon Ball Movie 1: Shen Long no Den...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball Movie 1: Shen Long no Den... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-movie-2-majinjou-no-nemurihime",
+      "type": "series",
+      "name": "Dragon Ball Movie 2: Majinjou no Nemu...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball Movie 2: Majinjou no Nemu... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-movie-3-makafushigi-daibouken",
+      "type": "series",
+      "name": "Dragon Ball Movie 3: Makafushigi Daib...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball Movie 3: Makafushigi Daib... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-movie-4-saikyou-e-no-michi",
+      "type": "series",
+      "name": "Dragon Ball Movie 4: Saikyou e no Michi",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball Movie 4: Saikyou e no Michi - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-specials",
+      "type": "series",
+      "name": "Dragon Ball Specials",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball Specials - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-super",
+      "type": "series",
+      "name": "Dragon Ball Super",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball Super - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-super-movie-broly",
+      "type": "series",
+      "name": "Dragon Ball Super Movie: Broly",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball Super Movie: Broly - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-super-super-hero",
+      "type": "series",
+      "name": "Dragon Ball Super: Super Hero",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball Super: Super Hero - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-z",
+      "type": "series",
+      "name": "Dragon Ball Z",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball Z - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-z-movie-01-ora-no-gohan-wo-kaese",
+      "type": "series",
+      "name": "Dragon Ball Z Movie 01: Ora no Gohan ...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball Z Movie 01: Ora no Gohan ... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-z-movie-02-kono-yo-de-ichiban-tsuyoi-yatsu",
+      "type": "series",
+      "name": "Dragon Ball Z Movie 02: Kono Yo de Ic...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball Z Movie 02: Kono Yo de Ic... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-z-movie-03-chikyuu-marugoto-choukessen",
+      "type": "series",
+      "name": "Dragon Ball Z Movie 03: Chikyuu Marug...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball Z Movie 03: Chikyuu Marug... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-z-movie-04-super-saiyajin-da-son-gokuu",
+      "type": "series",
+      "name": "Dragon Ball Z Movie 04: Super Saiyaji...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball Z Movie 04: Super Saiyaji... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-z-movie-05-tobikkiri-no-saikyou-tai-saikyou",
+      "type": "series",
+      "name": "Dragon Ball Z Movie 05: Tobikkiri no ...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball Z Movie 05: Tobikkiri no ... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-z-movie-06-gekitotsu-100-oku-power-no-senshi-tachi",
+      "type": "series",
+      "name": "Dragon Ball Z Movie 06: Gekitotsu!! 1...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball Z Movie 06: Gekitotsu!! 1... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-z-movie-07-kyokugen-battle-sandai-super-saiyajin",
+      "type": "series",
+      "name": "Dragon Ball Z Movie 07: Kyokugen Batt...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball Z Movie 07: Kyokugen Batt... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-z-movie-08-moetsukiro-nessen-ressen-chougekisen",
+      "type": "series",
+      "name": "Dragon Ball Z Movie 08: Moetsukiro!! ...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball Z Movie 08: Moetsukiro!! ... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-z-movie-09-ginga-girigiri-bucchigiri-no-sugoi-yatsu",
+      "type": "series",
+      "name": "Dragon Ball Z Movie 09: Ginga Girigir...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball Z Movie 09: Ginga Girigir... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-z-movie-10-kiken-na-futari-super-senshi-wa-nemurenai",
+      "type": "series",
+      "name": "Dragon Ball Z Movie 10: Kiken na Futa...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball Z Movie 10: Kiken na Futa... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-z-movie-11-super-senshi-gekiha-katsu-no-wa-ore-da",
+      "type": "series",
+      "name": "Dragon Ball Z Movie 11: Super Senshi ...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball Z Movie 11: Super Senshi ... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-z-movie-12-fukkatsu-no-fusion-gokuu-to-vegeta",
+      "type": "series",
+      "name": "Dragon Ball Z Movie 12: Fukkatsu no F...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball Z Movie 12: Fukkatsu no F... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-z-movie-13-ryuuken-bakuhatsu-gokuu-ga-yaraneba-dare-ga-yaru",
+      "type": "series",
+      "name": "Dragon Ball Z Movie 13: Ryuuken Bakuh...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball Z Movie 13: Ryuuken Bakuh... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    }
+  ]
+}

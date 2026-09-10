@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:dragon-ball-gt-movie",
+    "type": "series",
+    "name": "Dragon Ball GT : Movie",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/2454.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/2454.jpg",
+    "description": "Dragon Ball GT : Movie - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:dragon-ball-gt-movie",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

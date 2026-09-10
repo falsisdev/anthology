@@ -12,9 +12,7 @@
     "videos": [
       {
         "id": "tv:NBATV.tr",
-        "title": "NBA TV HD",
-        "season": 1,
-        "episode": 1
+        "title": "NBA TV HD"
       }
     ]
   }

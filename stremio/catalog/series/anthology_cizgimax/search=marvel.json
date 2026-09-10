@@ -1,0 +1,40 @@
+{
+  "metas": [
+    {
+      "id": "cizgimax:show:marvels-spider-man-izle",
+      "type": "series",
+      "name": "Marvel's Spider-Man",
+      "poster": "https://cizgimax.online/img/locandine/marvels-spider-man-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/marvels-spider-man-poster.webp",
+      "description": "Marvel's Spider-Man - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:film/lego-marvel-spider-man-vexed-by-venom-izle",
+      "type": "series",
+      "name": "LEGO Marvel Spider-Man: Vexed by Venom",
+      "poster": "https://cizgimax.online/img/locandine/lego-marvel-spider-man-vexed-by-venom-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/lego-marvel-spider-man-vexed-by-venom-poster.webp",
+      "description": "LEGO Marvel Spider-Man: Vexed by Venom - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:marvel-orumcek-adam-izle",
+      "type": "series",
+      "name": "Marvel Örümcek Adam",
+      "poster": "https://image.tmdb.org/t/p/w500/dKdcyyHUR5WTMnrbPdYN5y9xPVp.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/dKdcyyHUR5WTMnrbPdYN5y9xPVp.jpg",
+      "description": "Marvel Örümcek Adam - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    }
+  ]
+}

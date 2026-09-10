@@ -78,7 +78,6 @@ async function getCatalog(args) {
                 if (poster && poster.includes('-220x140')) {
                     poster = poster.replace('-220x140', '-200x290');
                 }
-                if (!poster) poster = 'https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png';
                 return {
                     id: `dizibox:show:${r.post_name || r.ID}`,
                     type: 'tv',
@@ -254,31 +253,63 @@ async function extractMolystreamFromEpisodePage(epUrl) {
 
             if (!src.includes('king.php') && !src.includes('molystream')) continue;
 
-            const pRes = await fetch(src, { headers: { ...HEADERS, Referer: epUrl } });
-            if (!pRes.ok) continue;
-            const pHtml = await pRes.text();
+            try {
+                const pRes = await fetch(src, { headers: { ...HEADERS, Referer: epUrl } });
+                if (!pRes.ok) continue;
+                const pHtml = await pRes.text();
 
-            const molyMatch = pHtml.match(/https?:\/\/[^"'\s]*molystream\.org\/embed\/([a-zA-Z0-9_-]+)/);
-            if (molyMatch) {
-                const molyId = molyMatch[1];
-                const sheilaUrl = `https://dbx.molystream.org/embed/sheila/${molyId}`;
+                // Extract molyId from intermediate page
+                const molyMatch = pHtml.match(/https?:\/\/[^"'\s]*molystream\.org\/embed\/(?:sheila\/)?([a-zA-Z0-9_-]+)/);
+                if (molyMatch) {
+                    const molyId = molyMatch[1];
+                    const sheilaUrl = `https://dbx.molystream.org/embed/sheila/${molyId}`;
+                    const embedPage = `https://dbx.molystream.org/embed/${molyId}`;
 
-                // Verify sheila master playlist responds with 200
-                const sRes = await fetch(sheilaUrl, { headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': src } });
-                if (sRes.ok) {
+                    try {
+                        const sRes = await fetch(sheilaUrl, { 
+                            headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': embedPage } 
+                        });
+                        if (sRes.ok) {
+                            const sText = await sRes.text();
+                            let finalStreamUrl = `${sheilaUrl}#master.m3u8`;
+                            if (sText.trim().startsWith('#EXTM3U')) {
+                                const subLine = sText.split('\n').map(l => l.trim()).find(l => l.startsWith('http'));
+                                if (subLine) {
+                                    finalStreamUrl = `${subLine}#video.m3u8`;
+                                }
+                            }
+
+                            streams.push({
+                                name: 'DiziBox',
+                                title: '⌜ DiziBox ⌟ | Molystream (1080p HLS)',
+                                url: finalStreamUrl,
+                                quality: '1080p',
+                                provider: 'dizibox',
+                                headers: {
+                                    'User-Agent': HEADERS['User-Agent'],
+                                    'Referer': embedPage
+                                }
+                            });
+                        }
+                    } catch (e) {}
+                }
+                
+                // Also try direct m3u8/mp4 URLs in the intermediate page
+                const directMatches = [...pHtml.matchAll(/(https?:\/\/[^"'\s\\]+\.(?:m3u8|mp4)[^"'\s\\]*)/gi)];
+                for (const dm of directMatches) {
+                    const dUrl = dm[1];
+                    if (dUrl.includes('preview') || dUrl.includes('.jpg') || dUrl.includes('.png')) continue;
+                    if (streams.some(s => s.url === dUrl)) continue;
                     streams.push({
                         name: 'DiziBox',
-                        title: '⌜ DiziBox ⌟ | Molystream (1080p HLS)',
-                        url: sheilaUrl,
+                        title: `⌜ DiziBox ⌟ | Direct (${dUrl.includes('.m3u8') ? 'HLS' : 'MP4'})`,
+                        url: dUrl,
                         quality: '1080p',
                         provider: 'dizibox',
-                        headers: {
-                            'User-Agent': HEADERS['User-Agent'],
-                            'Referer': src
-                        }
+                        headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': src }
                     });
                 }
-            }
+            } catch (e) {}
         }
 
         return streams;

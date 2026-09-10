@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:naruto-shippuuden-movie-3-hi-no-ishi-wo-tsugu-mono",
+    "type": "series",
+    "name": "Naruto: Shippuuden Movie 3 - Hi no Is...",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/2633.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/2633.jpg",
+    "description": "Naruto: Shippuuden Movie 3 - Hi no Ishi wo Tsugu Mono - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:naruto-movie-06-hi-no-ishi-wo-tsugu-mono",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

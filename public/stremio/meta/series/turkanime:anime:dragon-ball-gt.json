@@ -1,0 +1,400 @@
+{
+  "meta": {
+    "id": "turkanime:anime:dragon-ball-gt",
+    "type": "series",
+    "name": "Dragon Ball GT",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/130.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/130.jpg",
+    "description": "Dragon Ball GT - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:dragon-ball-gt-1-bolum",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-2-bolum",
+        "title": "2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-3-bolum",
+        "title": "3. Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-4-bolum",
+        "title": "4. Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-5-bolum",
+        "title": "5. Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-6-bolum",
+        "title": "6. Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-7-bolum",
+        "title": "7. Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-8-bolum",
+        "title": "8. Bölüm",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-9-bolum",
+        "title": "9. Bölüm",
+        "season": 1,
+        "episode": 9
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-10-bolum",
+        "title": "10. Bölüm",
+        "season": 1,
+        "episode": 10
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-11-bolum",
+        "title": "11. Bölüm",
+        "season": 1,
+        "episode": 11
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-12-bolum",
+        "title": "12. Bölüm",
+        "season": 1,
+        "episode": 12
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-13-bolum",
+        "title": "13. Bölüm",
+        "season": 1,
+        "episode": 13
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-14-bolum",
+        "title": "14. Bölüm",
+        "season": 1,
+        "episode": 14
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-15-bolum",
+        "title": "15. Bölüm",
+        "season": 1,
+        "episode": 15
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-16-bolum",
+        "title": "16. Bölüm",
+        "season": 1,
+        "episode": 16
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-17-bolum",
+        "title": "17. Bölüm",
+        "season": 1,
+        "episode": 17
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-18-bolum",
+        "title": "18. Bölüm",
+        "season": 1,
+        "episode": 18
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-19-bolum",
+        "title": "19. Bölüm",
+        "season": 1,
+        "episode": 19
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-20-bolum",
+        "title": "20. Bölüm",
+        "season": 1,
+        "episode": 20
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-21-bolum",
+        "title": "21. Bölüm",
+        "season": 1,
+        "episode": 21
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-22-bolum",
+        "title": "22. Bölüm",
+        "season": 1,
+        "episode": 22
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-23-bolum",
+        "title": "23. Bölüm",
+        "season": 1,
+        "episode": 23
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-24-bolum",
+        "title": "24. Bölüm",
+        "season": 1,
+        "episode": 24
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-25-bolum",
+        "title": "25. Bölüm",
+        "season": 1,
+        "episode": 25
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-26-bolum",
+        "title": "26. Bölüm",
+        "season": 1,
+        "episode": 26
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-27-bolum",
+        "title": "27. Bölüm",
+        "season": 1,
+        "episode": 27
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-28-bolum",
+        "title": "28. Bölüm",
+        "season": 1,
+        "episode": 28
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-29-bolum",
+        "title": "29. Bölüm",
+        "season": 1,
+        "episode": 29
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-30-bolum",
+        "title": "30. Bölüm",
+        "season": 1,
+        "episode": 30
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-31-bolum",
+        "title": "31. Bölüm",
+        "season": 1,
+        "episode": 31
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-32-bolum",
+        "title": "32. Bölüm",
+        "season": 1,
+        "episode": 32
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-33-bolum",
+        "title": "33. Bölüm",
+        "season": 1,
+        "episode": 33
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-34-bolum",
+        "title": "34. Bölüm",
+        "season": 1,
+        "episode": 34
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-35-bolum",
+        "title": "35. Bölüm",
+        "season": 1,
+        "episode": 35
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-36-bolum",
+        "title": "36. Bölüm",
+        "season": 1,
+        "episode": 36
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-37-bolum",
+        "title": "37. Bölüm",
+        "season": 1,
+        "episode": 37
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-38-bolum",
+        "title": "38. Bölüm",
+        "season": 1,
+        "episode": 38
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-39-bolum",
+        "title": "39. Bölüm",
+        "season": 1,
+        "episode": 39
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-40-bolum",
+        "title": "40. Bölüm",
+        "season": 1,
+        "episode": 40
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-41-bolum",
+        "title": "41. Bölüm",
+        "season": 1,
+        "episode": 41
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-42-bolum",
+        "title": "42. Bölüm",
+        "season": 1,
+        "episode": 42
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-43-bolum",
+        "title": "43. Bölüm",
+        "season": 1,
+        "episode": 43
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-44-bolum",
+        "title": "44. Bölüm",
+        "season": 1,
+        "episode": 44
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-45-bolum",
+        "title": "45. Bölüm",
+        "season": 1,
+        "episode": 45
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-46-bolum",
+        "title": "46. Bölüm",
+        "season": 1,
+        "episode": 46
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-47-bolum",
+        "title": "47. Bölüm",
+        "season": 1,
+        "episode": 47
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-48-bolum",
+        "title": "48. Bölüm",
+        "season": 1,
+        "episode": 48
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-49-bolum",
+        "title": "49. Bölüm",
+        "season": 1,
+        "episode": 49
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-50-bolum",
+        "title": "50. Bölüm",
+        "season": 1,
+        "episode": 50
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-51-bolum",
+        "title": "51. Bölüm",
+        "season": 1,
+        "episode": 51
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-52-bolum",
+        "title": "52. Bölüm",
+        "season": 1,
+        "episode": 52
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-53-bolum",
+        "title": "53. Bölüm",
+        "season": 1,
+        "episode": 53
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-54-bolum",
+        "title": "54. Bölüm",
+        "season": 1,
+        "episode": 54
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-55-bolum",
+        "title": "55. Bölüm",
+        "season": 1,
+        "episode": 55
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-56-bolum",
+        "title": "56. Bölüm",
+        "season": 1,
+        "episode": 56
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-57-bolum",
+        "title": "57. Bölüm",
+        "season": 1,
+        "episode": 57
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-58-bolum",
+        "title": "58. Bölüm",
+        "season": 1,
+        "episode": 58
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-59-bolum",
+        "title": "59. Bölüm",
+        "season": 1,
+        "episode": 59
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-60-bolum",
+        "title": "60. Bölüm",
+        "season": 1,
+        "episode": 60
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-61-bolum",
+        "title": "61. Bölüm",
+        "season": 1,
+        "episode": 61
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-62-bolum",
+        "title": "62. Bölüm",
+        "season": 1,
+        "episode": 62
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-63-bolum",
+        "title": "63. Bölüm",
+        "season": 1,
+        "episode": 63
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-gt-64-bolum-final",
+        "title": "64. Bölüm",
+        "season": 1,
+        "episode": 64
+      }
+    ]
+  }
+}

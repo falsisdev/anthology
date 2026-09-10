@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "dizibox:show:last-seen",
+      "type": "series",
+      "name": "LAST SEEN",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/last-seen-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/last-seen-200x290.jpg",
+      "description": "LAST SEEN - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    }
+  ]
+}

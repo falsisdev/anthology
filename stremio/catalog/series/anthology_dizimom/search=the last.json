@@ -1,0 +1,28 @@
+{
+  "metas": [
+    {
+      "id": "dizimom:show:the-last-of-us-izle-hd7",
+      "type": "series",
+      "name": "The Last of Us",
+      "poster": "https://www.dizimom.diy/wp-content/uploads/2023/01/the-last-of-us.jpg",
+      "background": "https://www.dizimom.diy/wp-content/uploads/2023/01/the-last-of-us.jpg",
+      "description": "The Last of Us - DiziMom Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziMom"
+      ]
+    },
+    {
+      "id": "dizimom:show:the-last-of-us-turkce-dublaj-izle-hd10-full",
+      "type": "series",
+      "name": "The Last of Us Türkçe Dublaj",
+      "poster": "https://www.dizimom.diy/wp-content/uploads/2023/02/the-last-of-us.jpg",
+      "background": "https://www.dizimom.diy/wp-content/uploads/2023/02/the-last-of-us.jpg",
+      "description": "The Last of Us Türkçe Dublaj - DiziMom Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziMom"
+      ]
+    }
+  ]
+}

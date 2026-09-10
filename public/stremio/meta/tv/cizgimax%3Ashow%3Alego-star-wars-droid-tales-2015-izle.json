@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "cizgimax:show:lego-star-wars-droid-tales-2015-izle",
+    "type": "series",
+    "name": "LEGO Star Wars: Droid Tales",
+    "poster": "https://cizgimax.online/img/locandine/lego-star-wars-droid-tales-2015-poster.webp",
+    "background": "https://cizgimax.online/img/locandine/lego-star-wars-droid-tales-2015-poster.webp",
+    "description": "LEGO Star Wars: Droid Tales - ÇizgiMax",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:show:lego-star-wars-droid-tales-2015-izle",
+        "title": "LEGO Star Wars: Droid Tales 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

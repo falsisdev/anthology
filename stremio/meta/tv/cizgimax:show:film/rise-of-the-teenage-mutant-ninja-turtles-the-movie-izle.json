@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "cizgimax:show:film/rise-of-the-teenage-mutant-ninja-turtles-the-movie-izle",
+    "type": "series",
+    "name": "Ninja Kaplumbağaların Yükselişi",
+    "poster": "https://cizgimax.online/img/locandine/rise-of-the-teenage-mutant-ninja-turtles-the-movie-poster.webp",
+    "background": "https://cizgimax.online/img/locandine/rise-of-the-teenage-mutant-ninja-turtles-the-movie-poster.webp",
+    "description": "Ninja Kaplumbağaların Yükselişi - ÇizgiMax Arşivi",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:show:film/rise-of-the-teenage-mutant-ninja-turtles-the-movie-izle",
+        "title": "Ninja Kaplumbağaların Yükselişi",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

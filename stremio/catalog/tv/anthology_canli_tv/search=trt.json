@@ -1,0 +1,114 @@
+{
+  "metas": [
+    {
+      "id": "tv:TRT1.tr",
+      "type": "tv",
+      "name": "TRT 1 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt1.png",
+      "description": "TRT 1 HD Canlı Yayın",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:TRT2.tr",
+      "type": "tv",
+      "name": "TRT 2 Kültür & Sanat HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt2.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt2.png",
+      "description": "TRT 2 Kültür & Sanat HD Canlı Yayın",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:TRTAvaz.tr",
+      "type": "tv",
+      "name": "TRT Avaz HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtavaz.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtavaz.png",
+      "description": "TRT Avaz HD Canlı Yayın",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:TRTTurk.tr",
+      "type": "tv",
+      "name": "TRT Türk HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtturk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtturk.png",
+      "description": "TRT Türk HD Canlı Yayın",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:TRTHaber.tr",
+      "type": "tv",
+      "name": "TRT Haber HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trthaber.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trthaber.png",
+      "description": "TRT Haber HD Canlı Yayın",
+      "genres": [
+        "HABER KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:TRTSpor.tr",
+      "type": "tv",
+      "name": "TRT Spor HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt.png",
+      "description": "TRT Spor HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:TRTSporYildiz.tr",
+      "type": "tv",
+      "name": "TRT Spor Yıldız HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt.png",
+      "description": "TRT Spor Yıldız HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:TRTBelgesel.tr",
+      "type": "tv",
+      "name": "TRT Belgesel HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtbelgesel.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtbelgesel.png",
+      "description": "TRT Belgesel HD Canlı Yayın",
+      "genres": [
+        "BELGESEL  ÇOCUK"
+      ]
+    },
+    {
+      "id": "tv:TRTCocuk.tr",
+      "type": "tv",
+      "name": "TRT Çocuk HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtcocuk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtcocuk.png",
+      "description": "TRT Çocuk HD Canlı Yayın",
+      "genres": [
+        "BELGESEL  ÇOCUK"
+      ]
+    },
+    {
+      "id": "tv:TRTMuzik.tr",
+      "type": "tv",
+      "name": "TRT Müzik HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtmuzik.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtmuzik.png",
+      "description": "TRT Müzik HD Canlı Yayın",
+      "genres": [
+        "SİNEMA  MÜZİK"
+      ]
+    }
+  ]
+}

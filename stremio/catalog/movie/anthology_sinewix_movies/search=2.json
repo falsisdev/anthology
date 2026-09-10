@@ -1,0 +1,106 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:1976",
+      "type": "movie",
+      "name": "Angry Birds Filmi 2",
+      "poster": "https://image.tmdb.org/t/p/w500/7BIkcJvEkolTUi9e1FaIyvAzUpx.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/bo5M1dW76b3QuRFcTL8KPmN6WYj.jpg",
+      "description": "Uçamayan Kızgın Kuşlar ve entrikacı yeşil domuzcuklar çatışmalarını bir başka düzleme taşıyorlar! Hem Kuş, hem Domuz adalarını tehlikeye atan yeni bir tehdit ortaya çıktığında, Red, Chuck, Bomb ve Mighty Eagle istikrarsız bir ateşkes başlatmak ve yurtlarını kurtaracak sıra dışı bir süper takım oluşturmak için Chuck’ın kız kardeşi Silver’ı işe alır ve domuzlar Leonard, onun asistanı Courtney ve teknik uzman domuz Garry’yle işbirliği yaparlar.",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    },
+    {
+      "id": "sinewix:movie:550",
+      "type": "movie",
+      "name": "Korkunç Bir Film 2",
+      "poster": "https://image.tmdb.org/t/p/w500/7Eb1JWK0Cb0rbfsYjwfc9g0PbQH.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/tcvPFdANexMxEsIUZnzjxBJbgkb.jpg",
+      "description": "İlk filmden tanıdığımız dört genç, bir okul ödeviyle ilgili olarak öğretmenleriyle birlikte bir eve giderler. Gerçekte, öğretmenlerinin derdi tam olarak onları eğitmek değildir: Lanetlenmiş olduğu bilinen bu evde, vaktiyle bir genç kızın ruhu şeytan tarafından zaptedilmiş ve iki rahip tarafından şeytan çıkarma seansları gerçekleştirilmiştir. Gençleri peşine takan Profesör Oldman (Tim Curry) ve tuhaf assistanı Dwight (David Cross), lanetli olayla ilgili bulguların peşindedir. Aslında, Hell House (Cehennem Evi) olarak bilinen bu mekanın çok sayıda başka gizemleri de vardır. Gençler ve öğretmenleri bu sırları deşifre ettikçe, klasik korku filmlerinden kült sahnelere yapılmış nice gönderme ile karşılaşacağız... Onlar korkacak, biz güleceğiz :)",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    },
+    {
+      "id": "sinewix:movie:2339",
+      "type": "movie",
+      "name": "One Piece Film 2",
+      "poster": "https://image.tmdb.org/t/p/w500/cXHTcUfCs6LvVjmhx3EzYgQRXWU.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/qgaVJE4SK2qRtggVyRlISKQ1zBE.jpg",
+      "description": "One Piece 2.Filmidir. Diğer filmlere ulaşmak için OnePiece (boşluk olmadan) film numarasını yazarak filmlerine ulaşabilirsiniz.\n\nÖrnek OnePiece Film 3\n\nTayfa bu sefer Clockwork Adası’na gidiyor ve maceraları daha büyük bir tehlikeyle yüzleşmelerine yol açıyor.\n\nFilmin odak noktası, tayfanın Zoro’nun kılıçlarını geri alması ve adanın gizemli yapıları. Aksiyon dozu yüksek ve adanın mekanik yapıları ilginç bir atmosfer sunuyor.\n\nEğlenceli ama basit bir hikaye, fazla derinleşmeden hızlıca ilerliyor. 53. bölüm sonrasında izlenmesi tavsiye ediliyor. Bazı dövüş sahneleri oldukça etkileyici, özellikle Zoro ve Sanji’nin performansları dikkat çekici.",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    },
+    {
+      "id": "sinewix:movie:207",
+      "type": "movie",
+      "name": "Matrix 2: Reloaded",
+      "poster": "https://image.tmdb.org/t/p/w500/9TGHDvWrqKBzwDxDodHYXEmOE6J.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/tva2OlLELCagFynFibcefhn2D9i.jpg",
+      "description": "Neo ve Zion'un diğer isyancıları, Matrix'i dönüştürme çalışmalarına başlıyor. Neo'nun kendi gücünün ve misyonunun iyice farkına vardığı noktadan başlıyoruz filme. İlk filmde kendisini ve yoldaşlarını ajanların elinden kurtaran Neo, ikinci filmde bütün bir Zion şehrini ve sakinlerini kanatları altına almaya çalışacak. Bunun için de, ulaşmak son derece güç olsa da, Anahtarcı'yı bulmaları gerekiyor. Bu durum ise düşmanlarına yenilerini de katacaktır. Kendisini kopyalayıp, kopyalarından bir ordu hazırlayan Ajan Smith'e İkizler de katılır. The Matrix Reloaded'da, direnmeyi sürdüren tek insan kolonisi olan Zion'un kapıları seyircilere açılıyor. Fakat açılan kapılarından girmeye çalışan başkaları da olacaktır!..",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3345",
+      "type": "movie",
+      "name": "Batman: Kara Şövalye Dönüyor 2.Bölüm",
+      "poster": "https://image.tmdb.org/t/p/w500/arEZYd6uMOFTILne9Ux0A8qctMe.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/zHqptza1ttGa7hkYNEXP7ECIyA9.jpg",
+      "description": "Batman on yıllık aradan sonra geri geliyor. Gotham yetkilileri onu yakalamak, eski bir düşman yeniden bir araya gelmek, Federaller onu durdurmak istiyordur.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:2626",
+      "type": "movie",
+      "name": "Süper Kahramanlar 2",
+      "poster": "https://image.tmdb.org/t/p/w500/h1PKqtjuTifmTU0EqM4W0Br2pHX.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/ldxi7dKtud2KrStUr8V9P65ixNr.jpg",
+      "description": "Gizemli Wakanda, dünyanın birçok yerinde bilinmeyen, Afrika'nın en karanlık merkezinde yatıyor. Sınırların ardında saklanan, genç kralları Black Panter tarafından şiddetle korunan izole bir arazidir. Ancak acımasız yabancı işgalciler saldırıya uğradığı zaman, tehdit Kara Panter'i halkının kutsal kararlarına karşı çıkmaktan ve yabancılardan yardım istemekten başka seçeneğe sahip değil.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:175",
+      "type": "movie",
+      "name": "Demir Adam 2",
+      "poster": "https://image.tmdb.org/t/p/w500/1NHEyFPxKnsLdMuDVPy6AI7GRmE.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/7lmBufEG7P7Y1HClYK3gCxYrkgS.jpg",
+      "description": "Serinin ikinci filmin de milyarder mucit Tony Stark’ın zırhlı Süper Kahraman Iron Man olduğu tüm dünya tarafından bilinmektedir. Teknolojisini orduyla paylaşması için hükümetten, basından ve halktan baskı gören Tony, bilginin yanlış ellere geçmesinden korktuğu için Iron Man zırhının sırrını açıklamak istemez. Yanında Pepper Potts, ve James “Rhodey” Rhodes ile birlikte, Tony yeni ittifaklar kurar ve yeni büyük güçlerle yüzleşir.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:411",
+      "type": "movie",
+      "name": "Örümcek Adam 2",
+      "poster": "https://image.tmdb.org/t/p/w500/2DwuE8UwpebKgMnpII35YSL9NL1.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/6al048Lat3eLVQOuKtc9h6Tu94d.jpg",
+      "description": "Sevgilisi Mary Jane'den ayrılan Peter ona gerçek kimliğini açıklayıp açıklamamak arasında kaldığı için oldukça zor bir dönem geçirmektedir. kararsızlık içine düştüğü bu esnada Mary Jane'in, patronun oğlu John'la birlikte olmaya başlaması iyice canını sıkar. Bunlara, halasının mali sıkıntıları ve hayattaki tek dostu Harry Osborne'un, babasının ölümünden kendisini sorumlu tuttuğu için Peterdan uzaklaşması onu depresyonun eşiğine getirmiştir. Bu esnada, yeni düşmanı Doktor Ahtapot'un ortaya çıkmasıyla Peter Parker'ın hayatı içinden çıkılmaz bir hal alacaktır.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:414",
+      "type": "movie",
+      "name": "İnanılmaz Örümcek Adam 2",
+      "poster": "https://image.tmdb.org/t/p/w500/tLBUwuFqkI6zZQXcEF4eLhNPmcy.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/iWrDibFusV4JEz5Qw79RuWSGfX4.jpg",
+      "description": "Gwen Stacy'yi tehlikeli hayatının dışında bırakma sözünü tutmakta zorlanan Örümcek Adam, Rhino'ya ve güçlü Electro'ya meydan okur.",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

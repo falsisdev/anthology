@@ -12,9 +12,7 @@
     "videos": [
       {
         "id": "tv:SportsTV.tr",
-        "title": "Sports TV HD",
-        "season": 1,
-        "episode": 1
+        "title": "Sports TV HD"
       }
     ]
   }

@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "cizgimax:show:hack-unison-izle",
+    "type": "series",
+    "name": ".hack//Unison",
+    "poster": "https://cdn.myanimelist.net/images/anime/2/23078l.jpg",
+    "background": "https://cdn.myanimelist.net/images/anime/2/23078l.jpg",
+    "description": ".hack//Unison - ÇizgiMax",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:ep:episode-35645-s1e1",
+        "title": "1. Sezon 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "metas": [
+    {
+      "id": "turkanime:anime:naruto-movie-1-dai-katsugeki-yuki-hime-shinobu-houjou-dattebayo",
+      "type": "series",
+      "name": "Naruto Movie 1: Dai Katsugeki!! Yuki ...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Naruto Movie 1: Dai Katsugeki!! Yuki ... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:naruto-shippuuden-movie-1",
+      "type": "series",
+      "name": "Naruto: Shippuuden Movie 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Naruto: Shippuuden Movie 1 - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:one-piece-movie-1",
+      "type": "series",
+      "name": "One Piece Movie 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "One Piece Movie 1 - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:bleach-movie-1-memories-of-nobody",
+      "type": "series",
+      "name": "Bleach Movie 1: Memories of Nobody",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Bleach Movie 1: Memories of Nobody - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:shingeki-no-kyojin-movie-1-guren-no-yumiya",
+      "type": "series",
+      "name": "Shingeki no Kyojin Movie 1: Guren no ...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Shingeki no Kyojin Movie 1: Guren no ... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-movie-1-shen-long-no-densetsu",
+      "type": "series",
+      "name": "Dragon Ball Movie 1: Shen Long no Den...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball Movie 1: Shen Long no Den... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-z-movie-06-gekitotsu-100-oku-power-no-senshi-tachi",
+      "type": "series",
+      "name": "Dragon Ball Z Movie 06: Gekitotsu!! 1...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball Z Movie 06: Gekitotsu!! 1... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:boku-no-hero-academia-the-movie-1-futari-no-hero",
+      "type": "series",
+      "name": "Boku no Hero Academia the Movie 1: Fu...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Boku no Hero Academia the Movie 1: Fu... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    }
+  ]
+}

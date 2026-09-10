@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "turkanime:anime:one-piece",
+      "type": "series",
+      "name": "One Piece",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "One Piece - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:one-piece-movie-5-norowareta-seiken",
+    "type": "series",
+    "name": "One Piece Movie 5: Norowareta Seiken",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/3174.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/3174.jpg",
+    "description": "One Piece Movie 5: Norowareta Seiken - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:one-piece-movie-5-norowareta-seiken",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

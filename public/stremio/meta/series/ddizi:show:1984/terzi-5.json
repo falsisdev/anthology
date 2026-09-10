@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "ddizi:show:1984/terzi-5",
+    "type": "series",
+    "name": "Terzi",
+    "poster": "https://www.ddizi.im/diziresimleri/terzikapak-min.jpg",
+    "background": "https://www.ddizi.im/diziresimleri/terzikapak-min.jpg",
+    "description": "Terzi izle - DDizi Dizi Arşivi",
+    "genres": [
+      "Yerli Dizi",
+      "DDizi"
+    ],
+    "videos": [
+      {
+        "id": "ddizi:ep:81195/terzi-5-bolum-hd2.htm",
+        "title": "Terzi 5.Bölüm",
+        "season": 1,
+        "episode": 5
+      }
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "cizgimax:show:film/batman-vs-teenage-mutant-ninja-turtles-izle",
+    "type": "series",
+    "name": "Batman: Ninja Kaplumbağalar",
+    "poster": "https://cizgimax.online/img/locandine/batman-vs-teenage-mutant-ninja-turtles-poster.webp",
+    "background": "https://cizgimax.online/img/locandine/batman-vs-teenage-mutant-ninja-turtles-poster.webp",
+    "description": "Batman: Ninja Kaplumbağalar - ÇizgiMax Arşivi",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:show:film/batman-vs-teenage-mutant-ninja-turtles-izle",
+        "title": "Batman: Ninja Kaplumbağalar",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

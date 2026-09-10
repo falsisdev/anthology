@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "ddizi:show:1812/peaky-blinders-hd24",
+      "type": "series",
+      "name": "Peaky Blinders",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Peaky Blinders - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    }
+  ]
+}

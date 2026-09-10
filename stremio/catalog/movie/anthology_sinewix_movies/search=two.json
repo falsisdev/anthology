@@ -1,0 +1,26 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:3",
+      "type": "movie",
+      "name": "Batman: The Long Halloween, Part Two",
+      "poster": "https://image.tmdb.org/t/p/w500/5X1n5q08mZ7NpNpxehMFODxfNYq.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/7WuVUAsWWHt4g11R1HalX0RX2bh.jpg",
+      "description": "'Holiday' olarak bilinen bir katil, Falcone suç ailesinin peşine düşmeye devam eder. Bu sırada Gotham City'de yeni bir kostümlü suçlu sınıfı yükselir. Katilin peşine düşen Batman, araştırmasını ilerlettikçe, eski bir müttefikinin seri katil olabileceğinden şüphelenmeye başlar.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3546",
+      "type": "movie",
+      "name": "Batman vs. Two-Face",
+      "poster": "https://image.tmdb.org/t/p/w500/yTbj8Kcp4WFwMRdEejnn55KIsfH.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/4xFlvdymCBqyBN8Ab5i69Sgqk7m.jpg",
+      "description": "Batman trajik bir kaza ile kötü adamlar arasına katılan eski arkadaşı Harvey Dent'in yüzünü tedavi edip rehabilite ettirir. Topluma kazandırılmak için bölge savcısının asistanının asistanı görevi verilir... Acaba Harvey tam manası ile eski kimliğinden kurtulmuş mudur?",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "metas": [
+    {
+      "id": "dizibox:show:stranger-things-tales-from-85",
+      "type": "series",
+      "name": "Stranger Things: Tales from ’85",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/stranger-things-tales-from-85-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/stranger-things-tales-from-85-50x50.jpg",
+      "description": "Kış mevsimi. Hawkins. 1985. Sırlarla dolu bir kasabaya tekrar hoş geldiniz&#8230;.",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:tales-of-the-walking-dead",
+      "type": "series",
+      "name": "Tales of the Walking Dead",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/tales-of-the-walking-dead-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/tales-of-the-walking-dead-50x50.jpg",
+      "description": "Hem tanıdığımız hem de yeni karakterlere yakından bakıyor, kıyametin&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "metas": [
+    {
+      "id": "turkanime:anime:road-of-naruto",
+      "type": "series",
+      "name": "Road of Naruto",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Road of Naruto - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:one-piece-movie-8-episode-of-alabasta-sabaku-no-oujo-to-kaizoku-tachi",
+      "type": "series",
+      "name": "One Piece Movie 8: Episode of Alabast...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "One Piece Movie 8: Episode of Alabast... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:one-piece-movie-9-episode-of-chopper-plus-fuyu-ni-saku-kiseki-no-sakura",
+      "type": "series",
+      "name": "One Piece Movie 9: Episode of Chopper...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "One Piece Movie 9: Episode of Chopper... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:one-piece-adventure-of-nebulandia",
+      "type": "series",
+      "name": "One Piece: Adventure of Nebulandia",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "One Piece: Adventure of Nebulandia - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:bleach-movie-1-memories-of-nobody",
+      "type": "series",
+      "name": "Bleach Movie 1: Memories of Nobody",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Bleach Movie 1: Memories of Nobody - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:fullmetal-alchemist-the-conqueror-of-shamballa",
+      "type": "series",
+      "name": "Fullmetal Alchemist: The Conqueror of...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Fullmetal Alchemist: The Conqueror of... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:boku-no-hero-academia-training-of-the-dead",
+      "type": "series",
+      "name": "Boku no Hero Academia: Training of th...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Boku no Hero Academia: Training of th... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    }
+  ]
+}

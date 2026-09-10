@@ -1,0 +1,48 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:3345",
+      "type": "movie",
+      "name": "Batman: Kara Şövalye Dönüyor 2.Bölüm",
+      "poster": "https://image.tmdb.org/t/p/w500/arEZYd6uMOFTILne9Ux0A8qctMe.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/zHqptza1ttGa7hkYNEXP7ECIyA9.jpg",
+      "description": "Batman on yıllık aradan sonra geri geliyor. Gotham yetkilileri onu yakalamak, eski bir düşman yeniden bir araya gelmek, Federaller onu durdurmak istiyordur.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3344",
+      "type": "movie",
+      "name": "Batman: Kara Şövalye Dönüyor 1. Bölüm",
+      "poster": "https://image.tmdb.org/t/p/w500/zOImyeUtB6cCoUwIDVeW6Iru7Op.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/bNLLjc6NT80FmFknvHn8demDHhl.jpg",
+      "description": "Bruce Wayne emekliliğe zorlanan diğer süper kahramanların çoğu gibi, üzerindeki pelerini çıkarıp atalı tam on sene oldu. Orta yaşın getirdiği olumsuzluklarla karşı karşıya kalan huzursuz Bruce Wayne öfkesini yarış arabaları ve içkiyle yatıştırmaktadır. Ancak yarasa şehrin Mutantlar diye bilinen barbar suçluların eline düştüğünü izlerken Wayne'i çağırmaya devam eder...  Harvey Dent'in “İki Yüz” olarak geri dönmesi, sonunda Wayne'in Kara Şövalye şapkasını yeniden takmasını sağlar. Kötü adamı dramatik bir şekilde yakalaması onun suçla savaşa geri dönmesine neden olur. Tabii bunun sonunda, Batman kanun yaptırımının hedefi ve perişan Gotham City'nin yeni umudu haline gelir.  Carrie isimli genç bir kız Robin'in yerine geçer ve sonunda Batman'i Mutantların liderinin korkunç saldırısından kurtarır. Yeni bir yardımcıyla güçlenen ve belirli bir amacı olduğu için yeniden enerji toplayan Kara Şövalye Gotham'ı eski ve yeni düşmanlarından korumak için geri dönmüştür...",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:337",
+      "type": "movie",
+      "name": "Batman: Kara Şövalye Yükseliyor",
+      "poster": "https://image.tmdb.org/t/p/w500/85cWkCVftiVs0BVey6pxX8uNmLt.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/cKPfiu9IcCW0fMdKdQBXe3PRtTZ.jpg",
+      "description": "Terörist lider Bane'in yaptığı gizli planları durdurmaya bu sefer ne Bruce Wayne'nin ne de Batman'in gücü yeter. Kedikadın Selina Kyle'ı da kendi safına çeken Bane, Gotham kentini ve halkını ciddi bir tehditle karşı karşıya bırakacaktır. Ne yerel kuvvetler, ne kahraman Jim Gordon ne de ordu olacakların önüne geçemez. Batman ilk kez kendisinden daha güçlü bir rakibe karşı mücadele verecektir. Christopher Nolan’ın Batman üçlemesinin sonuncusudur.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:73",
+      "type": "movie",
+      "name": "Batman : Kara Şövalye",
+      "poster": "https://image.tmdb.org/t/p/w500/ggax1nyhiGIwbq1Ynk0otH2sD6.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/hkBaDkMWbLaf8B1lsWsKX7Ew3Xq.jpg",
+      "description": "Suç işleyenlerden arındırılan bir yer, bir zaman sonra yeniden tehdit altında kalabilir ve işte o zaman yeniden kolları sıvayacak olanların mücadelesi de daha keskin olarak hayata geçecektir. Batman, Teğmen Gordon ve Savcı Harvey Dent bir araya gelerek Gotham Sokakları’nda bu işi kotarmış olsalar da ansızın ortaya çıkan Joker, işleri fena halde bozar. Onun dehası ile baş etmek kolay olmayacaktır. Gotham eski karmaşa dolu günlerin eşiğindedir. Batman yeniden kurtarıcılığa soyunurken kendi varlığının bulduğu anlamı da sorgulamaya başlar...",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "metas": [
+    {
+      "id": "tv:ASpor.tr",
+      "type": "tv",
+      "name": "A Spor HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/aspor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/aspor.png",
+      "description": "A Spor HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:HTSpor.tr",
+      "type": "tv",
+      "name": "HT Spor HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/htspor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/htspor.png",
+      "description": "HT Spor HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:TRTSpor.tr",
+      "type": "tv",
+      "name": "TRT Spor HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt.png",
+      "description": "TRT Spor HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:TivibuSpor.tr",
+      "type": "tv",
+      "name": "Tivibu Spor HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
+      "description": "Tivibu Spor HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:TabiiSpor.tr",
+      "type": "tv",
+      "name": "Tabii Spor HD",
+      "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "background": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "description": "Tabii Spor HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    }
+  ]
+}

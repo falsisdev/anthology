@@ -1,0 +1,40 @@
+{
+  "metas": [
+    {
+      "id": "animecix:title:7394",
+      "type": "series",
+      "name": "Kimetsu no Yaiba",
+      "poster": "https://image.tmdb.org/t/p/original/xUfRZu2mi8jH6SzQEJGP6tjBuYj.jpg",
+      "background": "https://image.tmdb.org/t/p/original/3GQKYh6Trm8pxd2AypovoYQf4Ay.jpg",
+      "description": "Japonya'da Taisho Dönemi'dir (1912-1926 yılları). Geçimini sağlamak için odun kömürü satan iyi kalpli bir çocuk olan Tanjiro, ailesini bir iblis tarafından katledilmiş olarak bulur. Daha da kötüsü, hayatta kalan tek kişi olan küçük kız kardeşi Nezuko da bir iblise dönüşmüştür.\n\nBu korkunç gerçek karşısında yıkılmış olsa da Tanjiro, kız kardeşini tekrar insana dönüştürebilmek ve ailesini katleden iblisi öldürebilmek için bir “iblis avcısı” olmaya karar verir.",
+      "genres": [
+        "Anime",
+        "AnimeciX"
+      ]
+    },
+    {
+      "id": "animecix:title:7457",
+      "type": "series",
+      "name": "Kimetsu no Yaiba Movie: Mugen Ressha-hen",
+      "poster": "https://image.tmdb.org/t/p/original/h8Rb9gBr48ODIwYUttZNYeMWeUU.jpg",
+      "background": "https://image.tmdb.org/t/p/original/xPpXYnCWfjkt3zzE0dpCNME1pXF.jpg",
+      "description": "Eski çağlardan beri ormanda insan yiyen iblisler olduğu söylentisi gezmektedir. Bundan ötürü yerli halk gece vakti dışarıya çıkmayı hiç göze alamıyordu. Aynı zamanda efsaneye göre geceleri bu kana susamış iblisleri avlayan bir iblis avcısı vardır. Genç Tanjirou için bu söylentiler yakında acı gerçeklere dönüşecekti. Babasının ölümünden beri Tanjirou ailesine bakma görevini üstlenmişti. Hayatları trajedilerle karşılaşmış olsa bile mutluluğu bulmuşlardı. Ama bu mutluluk Tanjirou ailesini katledilmiş buluncaya kadardı ve hayatta kalan tek üyesi olan kız kardeşi Nezuko, bir iblise dönüşmüştü. Şaşırtıcı bir şekilde Nezuko hala insan duygularını ve düşüncelerini taşıyordu. Böylelikle Tanjirou'nun iblislerle dövüşme ve kız kardeşini tekrar insana dönüştürme görevi başladı.",
+      "genres": [
+        "Anime",
+        "AnimeciX"
+      ]
+    },
+    {
+      "id": "animecix:title:12251",
+      "type": "series",
+      "name": "Kimetsu no Yaiba: Mugen Jou-hen",
+      "poster": "https://image.tmdb.org/t/p/original/4mHLwoDXtlKNqnxANIeyjYUli96.jpg",
+      "background": "https://image.tmdb.org/t/p/original/1RgPyOhN4DRs225BGTlHJqCudII.jpg",
+      "description": "\"Kimetsu no Yaiba\" animesinin devamı olan \"Infinity Castle Arc\"ın tiyatro üçlemesi. Özet: Tanjiro ve Hashiralar, karargâha koşar ancak Muzan Kibutsuji tarafından gizemli bir alana derin bir inişe sürüklenirler. Tanjiro ve İblis Avcıları Birliği'nin düştüğü yer, iblislerin kalesi olan Sonsuzluk Kalesi'dir. Ve böylece, İblis Avcıları Birliği ile iblisler arasındaki son savaş ateşlenmiş oldu.",
+      "genres": [
+        "Anime",
+        "AnimeciX"
+      ]
+    }
+  ]
+}

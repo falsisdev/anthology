@@ -1,0 +1,37 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:3789",
+      "type": "movie",
+      "name": "Yüzüklerin Efendisi: Rohirrim'in Savaşı",
+      "poster": "https://image.tmdb.org/t/p/w500/5htr97RScFopnkxyW1eBtsMsFXb.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/ie8OSgIHEl6yQiGJ90dsyBWOpQA.jpg",
+      "description": "Film, en ünlü Rohan krallarından Miğfer Tokmakel döneminde Dunlandlılar ile yaşanan savaşı ve daha sonra Yüzüklerin Efendisi: İki Kule'de Orta Dünya'nın kaderini etkileyen Borukent Savaşı'nın geçtiği Miğfer Dibi'nin kralın ismiyle anılmasına sebep olan olayları anlatıyor.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3276",
+      "type": "movie",
+      "name": "Batman ve Süpermen: Süper Oğulların Savaşı",
+      "poster": "https://image.tmdb.org/t/p/w500/mvffaexT5kA3chOnGxwBSlRoshh.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/iQJ1gC2p6yn5wnBEklhPaEFJ3n1.jpg",
+      "description": "Güçleri olduğunu keşfettikten sonra, 11 yaşındaki Jonathan Kent ve suikastçıya dönüşen Wonder-Wonder Damian Wayne, babalarını (Süpermen ve Batman) kurtarmak ve gezegeni Starro olarak bilinen kötü niyetli uzaylı gücünden kurtarmak için güçlerini birleştirmeli.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:171",
+      "type": "movie",
+      "name": "Yenilmezler: Sonsuzluk Savaşı",
+      "poster": "https://tr.web.img2.acsta.net/pictures/18/03/16/15/01/4344531.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/lmZFxXgJE3vgrciwuDib0N8CfQo.jpg",
+      "description": "Kaptan Amerika ve Iron Man'in arasında yaşanan olayların ardından bölünen kahramanlarımız, birbirlerinden uzaklara savrulurlar. Hepsi kendi yandaşlarıyla dünyayı korumaya çalışmaktadır. Ancak dünyanın kaderi bir kez daha tehlikeye girer. Sınırsız bir güç kaynağı olan sonsuzluk taşlarının peşine düşen Thanos, dünyanın gördüğü en büyük tehdittir. İnsanlığın kaderi bir kez daha, insanlık için savaşmaya ant içmiş kahramanlarımız elindedir. Hiçbir süper kahramanın tek başına yenemeyeceği büyüklükteki bu tehdit için ekipler birleşmeli ve tehdide tüm güçleriyle karşı koymalıdır...",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

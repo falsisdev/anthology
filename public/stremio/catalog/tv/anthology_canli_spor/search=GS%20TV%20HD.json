@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:GSTV.tr",
+      "type": "tv",
+      "name": "GS TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png",
+      "description": "GS TV HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "metas": [
+    {
+      "id": "tv:FlashHaber.tr",
+      "type": "tv",
+      "name": "Flash Haber TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/flashhaber.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/flashhaber.png",
+      "description": "Flash Haber TV HD Canlı Haber Yayını",
+      "genres": [
+        "Haber"
+      ]
+    },
+    {
+      "id": "tv:LiderHaber.tr",
+      "type": "tv",
+      "name": "Lider Haber TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/liderhaber.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/liderhaber.png",
+      "description": "Lider Haber TV HD Canlı Haber Yayını",
+      "genres": [
+        "Haber"
+      ]
+    },
+    {
+      "id": "tv:TurkHaber.tr",
+      "type": "tv",
+      "name": "Türk Haber TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/turkhaber.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/turkhaber.png",
+      "description": "Türk Haber TV HD Canlı Haber Yayını",
+      "genres": [
+        "Haber"
+      ]
+    }
+  ]
+}

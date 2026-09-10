@@ -1,0 +1,40 @@
+{
+  "metas": [
+    {
+      "id": "cizgimax:show:star-wars-tales-of-the-empire-izle",
+      "type": "series",
+      "name": "Star Wars Tales of the Empire",
+      "poster": "https://cizgimax.online/img/locandine/star-wars-tales-of-the-empire-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/star-wars-tales-of-the-empire-poster.webp",
+      "description": "Star Wars Tales of the Empire - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:star-wars-tales-of-the-jedi-izle",
+      "type": "series",
+      "name": "Star Wars Tales of the Jedi",
+      "poster": "https://cizgimax.online/img/locandine/star-wars-tales-of-the-jedi-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/star-wars-tales-of-the-jedi-poster.webp",
+      "description": "Star Wars Tales of the Jedi - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:lego-star-wars-droid-tales-2015-izle",
+      "type": "series",
+      "name": "LEGO Star Wars: Droid Tales",
+      "poster": "https://cizgimax.online/img/locandine/lego-star-wars-droid-tales-2015-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/lego-star-wars-droid-tales-2015-poster.webp",
+      "description": "LEGO Star Wars: Droid Tales - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    }
+  ]
+}

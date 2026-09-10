@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:2288",
+      "type": "movie",
+      "name": "Lego Batman Filmi",
+      "poster": "https://image.tmdb.org/t/p/w500/mpTAgw8m9b3Ay7UBsKLDoe3xyQK.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/eoMushgujydxFplE9yPZ54lwOvo.jpg",
+      "description": "Sakin ve durağan bir hayat süren Batman kocaman evinde tembellik ederken, yeni yardımcıları Robin ve Batgirl'ün ortaya çıkmasıyla işler değişir. Ekip henüz birbirine alışamadan Joker'in hain bir planla Gotham'ı tehdit ettiği haberi duyulunca, taze ekip birleşmek zorunda kalacaktır.",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    }
+  ]
+}

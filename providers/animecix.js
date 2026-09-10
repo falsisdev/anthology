@@ -133,15 +133,21 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
       if (!searchRes.ok) continue;
       const sData = await searchRes.json();
       if (sData.results && sData.results.length > 0) {
-        // Find closest match or exact ID match
+        const qClean = ultraClean(q);
         for (const item of sData.results) {
+          // Exact TMDB ID match — always accept
           if (info.numericId && String(item.tmdb_id) === String(info.numericId)) {
             matchedItem = item;
             break;
           }
+          // Title similarity check — only accept if names actually match
+          const itemClean = ultraClean(item.name || '');
+          if (qClean && itemClean && (itemClean.includes(qClean) || qClean.includes(itemClean))) {
+            matchedItem = item;
+            break;
+          }
         }
-        if (!matchedItem) matchedItem = sData.results[0];
-        break;
+        if (matchedItem) break;
       }
     }
 

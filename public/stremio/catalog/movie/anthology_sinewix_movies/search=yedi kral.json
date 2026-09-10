@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:1818",
+      "type": "movie",
+      "name": "Yedi Kral Ölmeli",
+      "poster": "https://image.tmdb.org/t/p/w500/xUvSeFhdsJbKFOaHnB9TeTZpJKs.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/x4ti16EKbYqbkshO4IBWp5d6Sqh.jpg",
+      "description": "Kral Edward'ın ölümünün ardından Bebbanburglu Uhtred ve yoldaşları, parçalanmış bir krallığın dört bir yanında, İngiltere'yi birleştirme umuduyla maceralara atılır.",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

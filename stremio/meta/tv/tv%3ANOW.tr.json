@@ -12,9 +12,7 @@
     "videos": [
       {
         "id": "tv:NOW.tr",
-        "title": "NOW TV HD",
-        "season": 1,
-        "episode": 1
+        "title": "NOW TV HD"
       }
     ]
   }

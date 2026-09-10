@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:series:437",
+      "type": "movie",
+      "name": "Batman: The Brave and the Bold",
+      "poster": "https://image.tmdb.org/t/p/w500/ukXZ1N9Pd99vDNetFKYNpFYgoXF.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/gPJZKiqBU5OVPhalvNDkU6NF8jQ.jpg",
+      "description": "Batman The Brave And The Bold, ABD yapımı bir animasyon dizidir ve The Batman çizgi filminin devamıdır. İlk bölümü Rise Of The Blue Beetle 'dır. Dizi 22 dakikalık bir çizgi dizidir.",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

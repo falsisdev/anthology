@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:3294",
+      "type": "movie",
+      "name": "Çatlak Film",
+      "poster": "https://image.tmdb.org/t/p/w500/2rXHj1BZiPbfMRgNLnl1svhPZ6b.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/kjTGuAeMsTTRxiHFSzj2T1zyUwH.jpg",
+      "description": "Birbirinden bağımsız 11 kısa filmin bir araya gelmesiyle oluşan Çatlak Film / Movie 43 tam bir kolaj absürt komedi örneği.\r 11 farklı yönetmenin pek çok yıldızı bir araya getirdiği filmlerin konuları ise genelde kadın erkek ilişkileri, aşk ve tabii ki seks.\r Genç, ergen, orta yaşlı çiftlerin, sevgililerin ya da sevgili olmayı deneyen bekar insanların komik hikayelerinde neler yok ki? Çocuklarını evde yetiştirmeye çalışan ebevyenlerin başarısızlıkları, “seks satar” mottosuyla elektronik ürün tasarlayanlar, bir cüceyi hafife alınca ağzının payını alanlar, kostümlü çöpçatan partisinde yaşanan komik olaylar, liseli kız arkadaşı adet gördüğünde paniğe kapılan gençler, henüz daha ilk buluşmada “Doğruluk mu Cesaret mi?” oynayanlar…",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    }
+  ]
+}

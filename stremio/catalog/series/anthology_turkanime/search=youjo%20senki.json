@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "turkanime:anime:youjo-senki-ii",
+      "type": "series",
+      "name": "Youjo Senki II",
+      "poster": "https://www.turkanime.tv/imajlar/serilerb/6822.jpg",
+      "background": "https://www.turkanime.tv/imajlar/serilerb/6822.jpg",
+      "description": "Youjo Senki II - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    }
+  ]
+}

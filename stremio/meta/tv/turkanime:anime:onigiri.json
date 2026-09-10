@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "id": "turkanime:anime:onigiri",
+    "type": "series",
+    "name": "Onigiri",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/2813.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/2813.jpg",
+    "description": "Onigiri - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:onigiri-1-bolum",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "turkanime:ep:onigiri-2-bolum",
+        "title": "2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "turkanime:ep:onigiri-3-bolum",
+        "title": "3. Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "turkanime:ep:onigiri-4-bolum",
+        "title": "4. Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "turkanime:ep:onigiri-5-bolum",
+        "title": "5. Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "turkanime:ep:onigiri-6-bolum",
+        "title": "6. Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "turkanime:ep:onigiri-7-bolum",
+        "title": "7. Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "turkanime:ep:onigiri-8-bolum",
+        "title": "8. Bölüm",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "turkanime:ep:onigiri-9-bolum",
+        "title": "9. Bölüm",
+        "season": 1,
+        "episode": 9
+      },
+      {
+        "id": "turkanime:ep:onigiri-10-bolum",
+        "title": "10. Bölüm",
+        "season": 1,
+        "episode": 10
+      },
+      {
+        "id": "turkanime:ep:onigiri-11-bolum",
+        "title": "11. Bölüm",
+        "season": 1,
+        "episode": 11
+      },
+      {
+        "id": "turkanime:ep:onigiri-12-bolum",
+        "title": "12. Bölüm",
+        "season": 1,
+        "episode": 12
+      },
+      {
+        "id": "turkanime:ep:onigiri-13-bolum-final",
+        "title": "13. Bölüm",
+        "season": 1,
+        "episode": 13
+      }
+    ]
+  }
+}

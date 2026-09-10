@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:naruto-movie-2-dai-gekitotsu-maboroshi-no-chiteiiseki-dattebayo",
+    "type": "series",
+    "name": "Naruto Movie 2: Dai Gekitotsu! Maboro...",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/2629.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/2629.jpg",
+    "description": "Naruto Movie 2: Dai Gekitotsu! Maboroshi no Chiteiiseki Dattebayo! - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:naruto-movie-02-dai-gekitotsu-maboroshi-no-chiteiiseki-dattebayo",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

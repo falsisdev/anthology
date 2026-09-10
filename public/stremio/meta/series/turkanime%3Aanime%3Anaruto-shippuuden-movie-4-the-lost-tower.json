@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:naruto-shippuuden-movie-4-the-lost-tower",
+    "type": "series",
+    "name": "Naruto: Shippuuden Movie 4 - The Lost...",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/2635.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/2635.jpg",
+    "description": "Naruto: Shippuuden Movie 4 - The Lost Tower - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:naruto-movie-07-the-lost-tower",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

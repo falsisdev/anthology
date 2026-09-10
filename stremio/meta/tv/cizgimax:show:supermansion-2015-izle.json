@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "cizgimax:show:supermansion-2015-izle",
+    "type": "series",
+    "name": "SuperMansion",
+    "poster": "https://cizgimax.online/img/locandine/supermansion-2015-poster.webp",
+    "background": "https://cizgimax.online/img/locandine/supermansion-2015-poster.webp",
+    "description": "SuperMansion - ÇizgiMax",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:show:supermansion-2015-izle",
+        "title": "SuperMansion 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

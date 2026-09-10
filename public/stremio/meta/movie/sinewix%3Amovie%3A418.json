@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "id": "sinewix:movie:418",
+    "type": "movie",
+    "name": "Yenilmezler: Ultron Çağı",
+    "poster": "https://image.tmdb.org/t/p/w500/m4YYHOQ933Kr99AF1svF9KitgDf.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/xnqust9Li4oxfhXD5kcPi3UC8i4.jpg",
+    "description": "Iron Man Tony Stark önderliğinde bir grup süper kahraman, aktif olarak kullanılmayan bir barışı koruma programını gerçekleştirmek isterler, ancak işler çığrından çıkar ve insan yapımı bir yapay zeka olan Ultron'un eline, hain planlarını gerçekleştirme fırsatı geçer. Süper kahramanlar onu durdurabilmek için bir kez daha güç birliği yapmak zorundadır. Tüm dünyaya yayılan bir savaş başlayacaktır.  Filmde Robert Downey Jr. Scarlett Johansson, Mark Ruffalo ve daha birçok popüler aktör rol alırken, James Spader, Ultron'a sesiyle hayat veriyor.",
+    "genres": [
+      "SineWix"
+    ]
+  }
+}

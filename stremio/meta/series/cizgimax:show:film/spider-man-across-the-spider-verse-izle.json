@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "cizgimax:show:film/spider-man-across-the-spider-verse-izle",
+    "type": "series",
+    "name": "Örümcek-Adam: Örümcek-Evrenine Geçiş",
+    "poster": "https://cizgimax.online/img/locandine/spider-man-across-the-spider-verse-poster.webp",
+    "background": "https://cizgimax.online/img/locandine/spider-man-across-the-spider-verse-poster.webp",
+    "description": "Örümcek-Adam: Örümcek-Evrenine Geçiş - ÇizgiMax Arşivi",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:show:film/spider-man-across-the-spider-verse-izle",
+        "title": "Örümcek-Adam: Örümcek-Evrenine Geçiş",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

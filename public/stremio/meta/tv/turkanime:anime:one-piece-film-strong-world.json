@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:one-piece-film-strong-world",
+    "type": "series",
+    "name": "One Piece Film: Strong World",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/3180.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/3180.jpg",
+    "description": "One Piece Film: Strong World - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:one-piece-film-strong-world",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

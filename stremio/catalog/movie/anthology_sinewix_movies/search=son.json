@@ -1,0 +1,26 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:97",
+      "type": "movie",
+      "name": "Yenilmezler Son Oyun",
+      "poster": "https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg",
+      "description": "\"Avengers Infinity War\"un ardından pek çok süper kahraman küle dönüşmüştür. Doktor Strange, Gamora, Drax, Mantis, genç Örümcek Adam, Black Panther, Bucky Barnes, Groot, Scarlet Witch, Vision, Star Lord, Maria Hill, The Wasp ve Nick Fury gibi pek çok kahraman, Thanos'un Sonsuzluk Eldiveni'ni ele geçirmesi ve kendi dengesini kurması yüzünden yok olmuştur ve dünya umutsuz haldedir. Dünya üzerinde kalan Black Widow, Kaptan Amerika, Thor ve Hulk kendi yaslarını tutmaktayken, Iron ve Nebula ise kontrol edemedikleri bir uzay gemisinin içinde, uzay boşluğunda sürüklenmektedirler.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:800",
+      "type": "movie",
+      "name": "Avatar Son Hava Bükücü",
+      "poster": "https://image.tmdb.org/t/p/w500/lzZpWEaqzP0qVA5nkCc5ASbNcSy.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/u62XtaV8Iski2CgAUM8Yp0ZgKxD.jpg",
+      "description": "Avatar olarak bilinen bir çocuk, savaş hâlindeki dünyayı kurtarmak için dört element gücünde de ustalaşmalı ve onu durdurmaya kararlı olan acımasız bir düşmanla savaşmalıdır.",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

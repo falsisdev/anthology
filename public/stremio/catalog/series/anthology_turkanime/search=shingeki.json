@@ -1,0 +1,160 @@
+{
+  "metas": [
+    {
+      "id": "turkanime:anime:shingeki-no-kyojin",
+      "type": "series",
+      "name": "Shingeki no Kyojin",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Shingeki no Kyojin - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:shingeki-no-kyojin-movie-1-guren-no-yumiya",
+      "type": "series",
+      "name": "Shingeki no Kyojin Movie 1: Guren no ...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Shingeki no Kyojin Movie 1: Guren no ... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:shingeki-no-kyojin-movie-2-jiyuu-no-tsubasa",
+      "type": "series",
+      "name": "Shingeki no Kyojin Movie 2: Jiyuu no ...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Shingeki no Kyojin Movie 2: Jiyuu no ... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:shingeki-no-kyojin-movie-kanketsu-hen-the-last-attack",
+      "type": "series",
+      "name": "Shingeki no Kyojin Movie: Kanketsu-he...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Shingeki no Kyojin Movie: Kanketsu-he... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:shingeki-no-kyojin-season-2",
+      "type": "series",
+      "name": "Shingeki no Kyojin Season 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Shingeki no Kyojin Season 2 - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:shingeki-no-kyojin-season-3",
+      "type": "series",
+      "name": "Shingeki no Kyojin Season 3",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Shingeki no Kyojin Season 3 - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:shingeki-no-kyojin-season-3-part-2",
+      "type": "series",
+      "name": "Shingeki no Kyojin Season 3 Part 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Shingeki no Kyojin Season 3 Part 2 - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:shingeki-no-kyojin-chronicle",
+      "type": "series",
+      "name": "Shingeki no Kyojin: Chronicle",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Shingeki no Kyojin: Chronicle - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:shingeki-no-kyojin-lost-girls",
+      "type": "series",
+      "name": "Shingeki no Kyojin: Lost Girls",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Shingeki no Kyojin: Lost Girls - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:shingeki-no-kyojin-the-final-season",
+      "type": "series",
+      "name": "Shingeki no Kyojin: The Final Season",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Shingeki no Kyojin: The Final Season - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:shingeki-no-kyojin-the-final-season-kanketsu-hen",
+      "type": "series",
+      "name": "Shingeki no Kyojin: The Final Season ...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Shingeki no Kyojin: The Final Season ... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:shingeki-no-kyojin-the-final-season-part-2",
+      "type": "series",
+      "name": "Shingeki no Kyojin: The Final Season ...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Shingeki no Kyojin: The Final Season ... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:shingeki-kyojin-chuugakkou",
+      "type": "series",
+      "name": "Shingeki! Kyojin Chuugakkou",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Shingeki! Kyojin Chuugakkou - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    }
+  ]
+}

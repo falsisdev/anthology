@@ -1,0 +1,59 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:series:1517",
+      "type": "movie",
+      "name": "Seven Seconds",
+      "poster": "https://image.tmdb.org/t/p/w500/mexUP20U3sPzu8jfGeRIHzI3TUC.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/dhVMKKQ31LC7IxM374LCYexNyVT.jpg",
+      "description": "Jersey City’de geçen hikayede Brenton Butler ve ailesinin hayatı beklemedikleri bir şekilde değişir. Kafkasyalı beyaz bir polisin, yanlışıkla Afro Amerikan bir genci vurmasıyla gündem değişir. Gencin ağır şekilde yaralanmasıyla sonuçlanan olay yaşandıktan sonra şehirde büyük bir gerilim patlak verir. Polis ve vatandaşların arasındaki gerilim günden güne yükselirken olayın üzeri kapatılmaya çalışılır ve yüzyılın davası başlar.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:58",
+      "type": "movie",
+      "name": "Seven Deadly Sins",
+      "poster": "https://image.tmdb.org/t/p/w500/fJ0Jy7NNdqIuYcYNqeK7YJHVLL0.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/n5Ty1KJIRNCXlDHDjcPpUgp57tr.jpg",
+      "description": "Bazılarının hala canlı olduklarını iddia etmelerine rağmen Yedi Ölümcül Günah, İngiltere Krallığı'nı devirme komploları kurup, Kutsal Şövalyeler tarafından köklerinin kazındığı söylenen bir grup şeytani şövalyelerdir. 10 yıl sonra da Kutsal Şövalyeler hükümete darbe düzenlemiş, krala suikast yapmış ve krallığın yeni zalim hükümdarları olmuşlardır. Kralın tek kızı olan Elizabeth de Yedi Ölümcül Günah'ı bulup krallığı geri almak için onlardan yardım temin etmek amacıyla bir yolculuğa çıkmıştır.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:1684",
+      "type": "movie",
+      "name": "A Knight of the Seven Kingdoms",
+      "poster": "https://image.tmdb.org/t/p/w500/k8yARbD9iYn2nRX2HvsopfKDN2r.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/7mkUu1F2hVUNgz24xO8HPx0D6mK.jpg",
+      "description": "Westeros dünyasından, beklenmedik ikili şövalye Sör Duncan ve onun yaveri Egg'in maceralarına odaklanan olasılık dışı bir hikâye.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:93",
+      "type": "movie",
+      "name": "Scissor Seven",
+      "poster": "https://image.tmdb.org/t/p/w500/ppiumCPMB9ezt4oLcpKtSS5E82X.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/4sSzTvk200BQyYjRJq69mLwE9xG.jpg",
+      "description": "Makas sallayıp saç kesen beceriksiz bir sözde suikastçı, hafızasını yeniden kazanmaya çalışırken kendisini kavgalı gruplar arasındaki güç mücadelesinin ortasında bulur.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:1101",
+      "type": "movie",
+      "name": "Queen For Seven Days",
+      "poster": "https://image.tmdb.org/t/p/w500/dQStvwjNeuXE7SwxzlFBRAs3uMe.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/qJGm5lfRTC65vqcJyvAhgYnQFYy.jpg",
+      "description": "Dizi, sadece 7 gün tahtta oturabilmiş olan Kraliçe Dangyeong (Park Min-Young) ile Kral Joongjong (Yeon Woo-Jin) arasındaki aşk hikâyesini anlatmaktadır.",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

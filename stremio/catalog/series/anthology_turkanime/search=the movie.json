@@ -1,0 +1,100 @@
+{
+  "metas": [
+    {
+      "id": "turkanime:anime:boruto-naruto-the-movie",
+      "type": "series",
+      "name": "Boruto: Naruto the Movie",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Boruto: Naruto the Movie - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:boruto-naruto-the-movie-naruto-ga-hokage-ni-natta-hi",
+      "type": "series",
+      "name": "Boruto: Naruto the Movie - Naruto ga ...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Boruto: Naruto the Movie - Naruto ga ... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:the-last-naruto-the-movie",
+      "type": "series",
+      "name": "The Last: Naruto the Movie",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "The Last: Naruto the Movie - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:boku-no-hero-academia-the-movie-1-futari-no-hero",
+      "type": "series",
+      "name": "Boku no Hero Academia the Movie 1: Fu...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Boku no Hero Academia the Movie 1: Fu... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:boku-no-hero-academia-the-movie-2-heroes-rising",
+      "type": "series",
+      "name": "Boku no Hero Academia the Movie 2: He...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Boku no Hero Academia the Movie 2: He... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:boku-no-hero-academia-the-movie-3-world-heroes-mission",
+      "type": "series",
+      "name": "Boku no Hero Academia the Movie 3: Wo...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Boku no Hero Academia the Movie 3: Wo... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:boku-no-hero-academia-the-movie-4-you-re-next",
+      "type": "series",
+      "name": "Boku no Hero Academia the Movie 4: Yo...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Boku no Hero Academia the Movie 4: Yo... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:boku-no-hero-academia-the-movie-futari-no-hero-specials",
+      "type": "series",
+      "name": "Boku no Hero Academia the Movie: Futa...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Boku no Hero Academia the Movie: Futa... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    }
+  ]
+}

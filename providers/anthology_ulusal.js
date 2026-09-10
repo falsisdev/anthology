@@ -155,10 +155,13 @@ function getStreams(args) {
                 });
             }
 
+            streams.streams = streams;
             return streams;
         })
         .catch(function() {
-            return [];
+            var empty = [];
+            empty.streams = [];
+            return empty;
         });
 }
 

@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:one-piece-adventure-of-nebulandia",
+    "type": "series",
+    "name": "One Piece: Adventure of Nebulandia",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/3305.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/3305.jpg",
+    "description": "One Piece: Adventure of Nebulandia - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:one-piece-adventure-of-nebulandia",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

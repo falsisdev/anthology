@@ -1,0 +1,28 @@
+{
+  "metas": [
+    {
+      "id": "cizgimax:show:star-wars-young-jedi-adventures-izle",
+      "type": "series",
+      "name": "Star Wars Genç Jedi Maceraları",
+      "poster": "https://cizgimax.online/img/locandine/star-wars-young-jedi-adventures-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/star-wars-young-jedi-adventures-poster.webp",
+      "description": "Star Wars Genç Jedi Maceraları - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:teenage-mutant-ninja-turtles-2003-izle",
+      "type": "series",
+      "name": "Genç Mutant Ninja Kaplumbağalar",
+      "poster": "https://cizgimax.online/img/locandine/teenage-mutant-ninja-turtles-2003-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/teenage-mutant-ninja-turtles-2003-poster.webp",
+      "description": "Genç Mutant Ninja Kaplumbağalar - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    }
+  ]
+}

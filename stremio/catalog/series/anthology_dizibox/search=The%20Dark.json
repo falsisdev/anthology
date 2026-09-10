@@ -1,0 +1,40 @@
+{
+  "metas": [
+    {
+      "id": "dizibox:show:the-dark",
+      "type": "series",
+      "name": "The Dark",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-dark-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-dark-50x50.jpg",
+      "description": "İskoçya&#8217;nın vahşi doğasında bir seri katil kol gezmektedir. Bulunan genç&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:norway-the-dark-horse",
+      "type": "series",
+      "name": "Norway: The Dark Horse",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/norway-the-dark-horse-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/norway-the-dark-horse-50x50.jpg",
+      "description": "26 yıllık turnuva hasretinden sonra Norveç&#8217;in 2026 Dünya Kupası umutları&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:the-dark-wizard",
+      "type": "series",
+      "name": "The Dark Wizard",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-dark-wizard-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-dark-wizard-50x50.jpg",
+      "description": "Dünyanın en etkili ve tartışmalı tırmanışçılarından olan merhum Dean&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    }
+  ]
+}

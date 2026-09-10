@@ -1,0 +1,52 @@
+{
+  "meta": {
+    "id": "dizimom:show:tales-of-the-walking-dead-izle",
+    "type": "series",
+    "name": "Tales of the Walking Dead",
+    "poster": "https://www.dizimom.diy/wp-content/uploads/2022/09/tales-of-the-walking-dead-izle.jpg",
+    "background": "https://www.dizimom.diy/wp-content/uploads/2022/09/tales-of-the-walking-dead-izle.jpg",
+    "description": "Tales of the Walking Dead izle, 2022 Yapımı Tales of the Walking Dead dizisinin tüm bölümleri full hd tek parça olarak dizimom.diy farkıyla sizlerle",
+    "genres": [
+      "Yabancı Dizi",
+      "DiziMom"
+    ],
+    "videos": [
+      {
+        "id": "dizimom:ep:tales-of-the-walking-dead-1-sezon-1-bolum-izle",
+        "title": "1.Sezon 1.Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "dizimom:ep:tales-of-the-walking-dead-1-sezon-2-bolum-izle",
+        "title": "1.Sezon 2.Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "dizimom:ep:tales-of-the-walking-dead-1-sezon-3-bolum-izle",
+        "title": "1.Sezon 3.Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "dizimom:ep:tales-of-the-walking-dead-1-sezon-4-bolum-izle",
+        "title": "1.Sezon 4.Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "dizimom:ep:tales-of-the-walking-dead-1-sezon-5-bolum-izle",
+        "title": "1.Sezon 5.Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "dizimom:ep:tales-of-the-walking-dead-1-sezon-6-bolum-izle",
+        "title": "1.Sezon 6.Bölüm",
+        "season": 1,
+        "episode": 6
+      }
+    ]
+  }
+}

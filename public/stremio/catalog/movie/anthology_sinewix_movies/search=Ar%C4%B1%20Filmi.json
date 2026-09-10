@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:1013",
+      "type": "movie",
+      "name": "Arı Filmi",
+      "poster": "https://image.tmdb.org/t/p/w500/68mtlRVPhQtlY090CGN7Yyx8T42.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/7JzyYQnIpHdoMR3PtTwM5xaLA20.jpg",
+      "description": "Arı Barry B. Benson üniversiteden mezun olduğunda hayatı boyunca yalnızca tek bir işinin olacağını görür ve bu durum karşısında şiddetli bir hayal kırıklığına uğrar. Bal getirmekten sorumlu olan ve petekten dışarı çıkarak çiçeklerin döllenmesini sağlayan ve ancak bu yolla dış dünyayı deneyimleyen arılar ekibine katılır. Bir keresinde Manhattan’dayken çiçekçi Vanessa, onun hayatını kurtarır. Bunun üzerine Arı Barry, arılar kanunu hiçe sayarak Vanessa’ya teşekkür eder. İkisi iyi arkadaş olurlar. Bu sırada Barry, insanların, arılardan, ürettikleri balı satabilmek için faydalandıklarını keşfeder. O andan itibaren de insan ırkını, doğaya zarar verdikleri gerekçesi ile dava etmekte karar kılar.",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    }
+  ]
+}

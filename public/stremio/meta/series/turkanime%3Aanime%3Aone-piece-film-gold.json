@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:one-piece-film-gold",
+    "type": "series",
+    "name": "One Piece Film: Gold",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/3196.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/3196.jpg",
+    "description": "One Piece Film: Gold - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:one-piece-film-gold",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

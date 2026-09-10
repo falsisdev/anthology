@@ -1,0 +1,322 @@
+{
+  "meta": {
+    "id": "ddizi:show:2034/inci-taneleri-2",
+    "type": "series",
+    "name": "İnci Taneleri",
+    "poster": "https://www.ddizi.im/diziresimleri/incitanelerikapak-min.jpg",
+    "background": "https://www.ddizi.im/diziresimleri/incitanelerikapak-min.jpg",
+    "description": "İnci Taneleri - DDizi Dizi Arşivi",
+    "genres": [
+      "Yerli Dizi",
+      "DDizi"
+    ],
+    "videos": [
+      {
+        "id": "ddizi:ep:83325/inci-taneleri-1-bolum-izle-hd1.htm",
+        "title": "İnci Taneleri 1.Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "ddizi:ep:83386/inci-taneleri-2-bolum-izle-hd1.htm",
+        "title": "İnci Taneleri 2.Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "ddizi:ep:83445/inci-taneleri-3-bolum-izle-hd.htm",
+        "title": "İnci Taneleri 3.Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "ddizi:ep:83504/inci-taneleri-4-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 4.Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "ddizi:ep:83564/inci-taneleri-5-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 5.Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "ddizi:ep:83624/inci-taneleri-6-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 6.Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "ddizi:ep:83684/inci-taneleri-7-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 7.Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "ddizi:ep:83746/inci-taneleri-8-bolum-izle-hd1.htm",
+        "title": "İnci Taneleri 8.Bölüm",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "ddizi:ep:83808/inci-taneleri-9-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 9.Bölüm",
+        "season": 1,
+        "episode": 9
+      },
+      {
+        "id": "ddizi:ep:83874/inci-taneleri-10-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 10.Bölüm",
+        "season": 1,
+        "episode": 10
+      },
+      {
+        "id": "ddizi:ep:84031/inci-taneleri-11-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 11.Bölüm",
+        "season": 1,
+        "episode": 11
+      },
+      {
+        "id": "ddizi:ep:84093/inci-taneleri-12-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 12.Bölüm",
+        "season": 1,
+        "episode": 12
+      },
+      {
+        "id": "ddizi:ep:84154/inci-taneleri-13-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 13.Bölüm",
+        "season": 1,
+        "episode": 13
+      },
+      {
+        "id": "ddizi:ep:84212/inci-taneleri-14-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 14.Bölüm",
+        "season": 1,
+        "episode": 14
+      },
+      {
+        "id": "ddizi:ep:84269/inci-taneleri-15-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 15.Bölüm",
+        "season": 1,
+        "episode": 15
+      },
+      {
+        "id": "ddizi:ep:84324/inci-taneleri-16-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 16.Bölüm",
+        "season": 1,
+        "episode": 16
+      },
+      {
+        "id": "ddizi:ep:84380/inci-taneleri-17-bolum-izle-sezon-finali-hd2.htm",
+        "title": "İnci Taneleri 17.Bölüm Sezon Finali",
+        "season": 1,
+        "episode": 17
+      },
+      {
+        "id": "ddizi:ep:85348/inci-taneleri-18-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 18.Bölüm",
+        "season": 1,
+        "episode": 18
+      },
+      {
+        "id": "ddizi:ep:85430/inci-taneleri-19-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 19.Bölüm",
+        "season": 1,
+        "episode": 19
+      },
+      {
+        "id": "ddizi:ep:85575/inci-taneleri-20-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 20.Bölüm",
+        "season": 1,
+        "episode": 20
+      },
+      {
+        "id": "ddizi:ep:85643/inci-taneleri-21-bolum-izle-hd1.htm",
+        "title": "İnci Taneleri 21.Bölüm",
+        "season": 1,
+        "episode": 21
+      },
+      {
+        "id": "ddizi:ep:85712/inci-taneleri-22-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 22.Bölüm",
+        "season": 1,
+        "episode": 22
+      },
+      {
+        "id": "ddizi:ep:85780/inci-taneleri-23-bolum-izle-hd1.htm",
+        "title": "İnci Taneleri 23.Bölüm",
+        "season": 1,
+        "episode": 23
+      },
+      {
+        "id": "ddizi:ep:85857/inci-taneleri-24-bolum-izle-hd1.htm",
+        "title": "İnci Taneleri 24.Bölüm",
+        "season": 1,
+        "episode": 24
+      },
+      {
+        "id": "ddizi:ep:85937/inci-taneleri-25-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 25.Bölüm",
+        "season": 1,
+        "episode": 25
+      },
+      {
+        "id": "ddizi:ep:86013/inci-taneleri-26-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 26.Bölüm",
+        "season": 1,
+        "episode": 26
+      },
+      {
+        "id": "ddizi:ep:86086/inci-taneleri-27-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 27.Bölüm",
+        "season": 1,
+        "episode": 27
+      },
+      {
+        "id": "ddizi:ep:86160/inci-taneleri-28-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 28.Bölüm",
+        "season": 1,
+        "episode": 28
+      },
+      {
+        "id": "ddizi:ep:86351/inci-taneleri-29-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 29.Bölüm",
+        "season": 1,
+        "episode": 29
+      },
+      {
+        "id": "ddizi:ep:86487/inci-taneleri-30-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 30.Bölüm",
+        "season": 1,
+        "episode": 30
+      },
+      {
+        "id": "ddizi:ep:86556/inci-taneleri-31-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 31.Bölüm",
+        "season": 1,
+        "episode": 31
+      },
+      {
+        "id": "ddizi:ep:86623/inci-taneleri-32-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 32.Bölüm",
+        "season": 1,
+        "episode": 32
+      },
+      {
+        "id": "ddizi:ep:86687/inci-taneleri-33-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 33.Bölüm",
+        "season": 1,
+        "episode": 33
+      },
+      {
+        "id": "ddizi:ep:86758/inci-taneleri-34-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 34.Bölüm",
+        "season": 1,
+        "episode": 34
+      },
+      {
+        "id": "ddizi:ep:86827/inci-taneleri-35-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 35.Bölüm",
+        "season": 1,
+        "episode": 35
+      },
+      {
+        "id": "ddizi:ep:86895/inci-taneleri-36-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 36.Bölüm",
+        "season": 1,
+        "episode": 36
+      },
+      {
+        "id": "ddizi:ep:86961/inci-taneleri-37-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 37.Bölüm",
+        "season": 1,
+        "episode": 37
+      },
+      {
+        "id": "ddizi:ep:87031/inci-taneleri-38-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 38.Bölüm",
+        "season": 1,
+        "episode": 38
+      },
+      {
+        "id": "ddizi:ep:87129/inci-taneleri-39-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 39.Bölüm",
+        "season": 1,
+        "episode": 39
+      },
+      {
+        "id": "ddizi:ep:87192/inci-taneleri-40-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 40.Bölüm",
+        "season": 1,
+        "episode": 40
+      },
+      {
+        "id": "ddizi:ep:87257/inci-taneleri-41-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 41.Bölüm",
+        "season": 1,
+        "episode": 41
+      },
+      {
+        "id": "ddizi:ep:87315/inci-taneleri-42-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 42.Bölüm",
+        "season": 1,
+        "episode": 42
+      },
+      {
+        "id": "ddizi:ep:87367/inci-taneleri-43-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 43.Bölüm",
+        "season": 1,
+        "episode": 43
+      },
+      {
+        "id": "ddizi:ep:87412/inci-taneleri-44-bolum-izle-sezon-finali-hd2.htm",
+        "title": "İnci Taneleri 44.Bölüm Sezon Finali",
+        "season": 1,
+        "episode": 44
+      },
+      {
+        "id": "ddizi:ep:89590/inci-taneleri-45-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 45.Bölüm",
+        "season": 1,
+        "episode": 45
+      },
+      {
+        "id": "ddizi:ep:89641/inci-taneleri-46-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 46.Bölüm",
+        "season": 1,
+        "episode": 46
+      },
+      {
+        "id": "ddizi:ep:89693/inci-taneleri-47-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 47.Bölüm",
+        "season": 1,
+        "episode": 47
+      },
+      {
+        "id": "ddizi:ep:89754/inci-taneleri-48-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 48.Bölüm",
+        "season": 1,
+        "episode": 48
+      },
+      {
+        "id": "ddizi:ep:89803/inci-taneleri-49-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 49.Bölüm",
+        "season": 1,
+        "episode": 49
+      },
+      {
+        "id": "ddizi:ep:89850/inci-taneleri-50-bolum-izle-hd2.htm",
+        "title": "İnci Taneleri 50.Bölüm",
+        "season": 1,
+        "episode": 50
+      },
+      {
+        "id": "ddizi:ep:90097/inci-taneleri-51-bolum-izle-final-hd2.htm",
+        "title": "İnci Taneleri 51.Bölüm Final",
+        "season": 1,
+        "episode": 51
+      }
+    ]
+  }
+}

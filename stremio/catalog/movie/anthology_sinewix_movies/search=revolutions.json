@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:206",
+      "type": "movie",
+      "name": "Matrix 3: Revolutions",
+      "poster": "https://image.tmdb.org/t/p/w500/fgm8OZ7o4G1G1I9EeGcb85Noe6L.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/533xAMhhVyjTy8hwMUFEt5TuDfR.jpg",
+      "description": "Gerçek dünya, Matrix'in makine askerleri tarafından istila edilirken, Zion'un da yaşanabilir bir yer haline getirilme çalışmaları paralel olarak devam ediyor. Neo'nun tüm insanlığı, gerçek yaşama geri döndürüp döndüremeyeceği ve Matrix sisteminin tam anlamıyla durdurulup durdurulmayacağı, gerçek dünya ile sanal dünya Matrix'in arasında sıkışıp kalan Neo'nun kendini kurtarabilmesine bağlıdır. Aksiyon ve bilimkurgu sinemasında önemli bir dönüm noktası olan Matrix serisinin son ayağı olan Matrix Revolutions, makineler ve insanoğlunun amansız savaşına sahne oluyor.",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

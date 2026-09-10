@@ -12,9 +12,7 @@
     "videos": [
       {
         "id": "tv:ShowTV.tr",
-        "title": "Show TV HD",
-        "season": 1,
-        "episode": 1
+        "title": "Show TV HD"
       }
     ]
   }

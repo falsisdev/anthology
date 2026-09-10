@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "cizgimax:show:hack-intermezzo-izle",
+    "type": "series",
+    "name": ".hack//Intermezzo",
+    "poster": "https://cdn.myanimelist.net/images/anime/1844/131542l.jpg",
+    "background": "https://cdn.myanimelist.net/images/anime/1844/131542l.jpg",
+    "description": ".hack//Intermezzo - ÇizgiMax",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:ep:episode-35643-s1e1",
+        "title": "1. Sezon 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

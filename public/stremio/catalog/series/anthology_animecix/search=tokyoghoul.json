@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "animecix:title:17",
+      "type": "series",
+      "name": "Tokyo Ghoul",
+      "poster": "https://image.tmdb.org/t/p/original/1m4RlC9BTCbyY549TOdVQ5NRPcR.jpg",
+      "background": "https://image.tmdb.org/t/p/original/yOarY3Yo0NMkuTuft87M5oAZa3C.jpg",
+      "description": "Tokyo'da insanları yiyen gizemli hortlakların neden olduğu gerilim dolu bir korku hikayesi başlar. Bu gizemli hortlakların verdiği korku tüm insanları etkisi altına almıştır. Sıradan bir üniversite öğrencisi olan Kaneki, tıpkı kendisi gibi bir kitap kurdu olan Rize'yle Café Anteiku'da karşılaşır. Kaneki, kaderinin bir gecede değişeceğinin farkında değildir.",
+      "genres": [
+        "Anime",
+        "AnimeciX"
+      ]
+    }
+  ]
+}

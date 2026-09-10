@@ -1,0 +1,52 @@
+{
+  "metas": [
+    {
+      "id": "cizgimax:show:my-adventures-with-superman-izle",
+      "type": "series",
+      "name": "My Adventures with Superman",
+      "poster": "https://cizgimax.online/img/locandine/my-adventures-with-superman-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/my-adventures-with-superman-poster.webp",
+      "description": "My Adventures with Superman - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:lois-clark-the-new-adventures-of-superman-izle",
+      "type": "series",
+      "name": "Lois & Clark: The New Adventures of Superman",
+      "poster": "https://image.tmdb.org/t/p/w500/veNiZIiBsSWSAfVcJzudcuD7N0e.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/veNiZIiBsSWSAfVcJzudcuD7N0e.jpg",
+      "description": "Lois & Clark: The New Adventures of Superman - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:lego-star-wars-freemaker-adventures-izle",
+      "type": "series",
+      "name": "Lego Star Wars: Freemaker Adventures",
+      "poster": "https://cizgimax.online/img/locandine/lego-star-wars-freemaker-adventures-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/lego-star-wars-freemaker-adventures-poster.webp",
+      "description": "Lego Star Wars: Freemaker Adventures - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:star-wars-galaxy-of-adventures-2018-izle",
+      "type": "series",
+      "name": "Star Wars Galaxy of Adventures",
+      "poster": "https://cizgimax.online/img/locandine/star-wars-galaxy-of-adventures-2018-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/star-wars-galaxy-of-adventures-2018-poster.webp",
+      "description": "Star Wars Galaxy of Adventures - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    }
+  ]
+}

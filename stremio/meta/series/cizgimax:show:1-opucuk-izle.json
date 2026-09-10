@@ -1,0 +1,46 @@
+{
+  "meta": {
+    "id": "cizgimax:show:1-opucuk-izle",
+    "type": "series",
+    "name": "1. Öpücük",
+    "poster": "https://asyaanimeleri.top/wp-content/uploads/2023/11/1699440442-8198-139298.jpg",
+    "background": "https://asyaanimeleri.top/wp-content/uploads/2023/11/1699440442-8198-139298.jpg",
+    "description": "1. Öpücük - ÇizgiMax",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:ep:1-opucuk-1-bolum-izle",
+        "title": "1. Sezon 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "cizgimax:ep:1-opucuk-2-bolum-izle",
+        "title": "1. Sezon 2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "cizgimax:ep:1-opucuk-3-5-bolum-izle",
+        "title": "1. Sezon 3. Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "cizgimax:ep:1-opucuk-6-8-bolum-izle",
+        "title": "1. Sezon 6. Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "cizgimax:ep:1-opucuk-13-16-bolum-izle",
+        "title": "1. Sezon 13. Bölüm",
+        "season": 1,
+        "episode": 13
+      }
+    ]
+  }
+}

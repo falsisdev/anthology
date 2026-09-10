@@ -1,0 +1,26 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:series:82",
+      "type": "movie",
+      "name": "Marvel's Avengers Assemble",
+      "poster": "https://image.tmdb.org/t/p/w500/aVYPq7FSvsdNQOXVIFnndXJPCXn.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/6ZqXMR9aLLdGjbxkIMo77EhZexy.jpg",
+      "description": "Iron Man, Hulk, Thor, Captain America, Hawkeye, Falcon ve Black Widow, güçlerini hiçbir kahramanın tek başına dayanamayacağı tehditlere karşı birleştirir. Avengers birleştiğinde, kötülüğün hiç şansı yoktur!",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:1905",
+      "type": "movie",
+      "name": "LEGO Marvel Spider-Man: Vexed by Venom",
+      "poster": "https://image.tmdb.org/t/p/w500/gTo2r8nNU3ZYAS6DqdeSp1VEqkq.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/EXJrCRBYAPffNuMQbX7irsbrRn.jpg",
+      "description": "Green Goblin ve Venom sayesinde, teknoloji hırsızlığı artık tüm zamanların en yüksek seviyesinde. Örümcek Adamımız, New York'un tamamı yok edilmeden önce gizemli kötülük işlerine son verebilecek mi?",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

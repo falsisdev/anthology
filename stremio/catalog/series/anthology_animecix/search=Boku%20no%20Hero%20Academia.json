@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "animecix:title:90",
+      "type": "series",
+      "name": "Boku no Hero Academia",
+      "poster": "https://image.tmdb.org/t/p/original/phuYuzqWW9ru8EA3HVjE9W2Rr3M.jpg",
+      "background": "https://image.tmdb.org/t/p/original/6wSSyRNeF9vBJ1h29nuw3vG9hZI.jpg",
+      "description": "Nüfusun yüzde 80'i dört yaşında “Quirks” adı verilen olağanüstü süper güçler sergileseydi dünya nasıl bir yer olurdu? Kahramanlar ve kötü adamlar her yerde savaşırlardı! Kahraman olmak, gücünüzü kullanmayı öğrenmek anlamına gelirdi, ama bunu nerede öğrenirdiniz? Tabii ki U.A. Lisesi'nin Kahraman Programı'nda! Peki, Quirks'sız doğan yüzde 20'lik kesimin bir parçası olsaydınız ne yapardınız?\n\nOrtaokul öğrencisi Izuku Midoriya her şeyden çok kahraman olmak istiyor, ama içinde zerre kadar güç yok. Yeni kahramanlar için prestijli U.A. Lisesi'ne girme şansı olmadığı için, hayatı giderek daha çok çıkmaz bir yol gibi görünüyor. Sonra, en büyük kahraman All Might ile karşılaşması, ona kaderini değiştirme şansı verir...",
+      "genres": [
+        "Anime",
+        "AnimeciX"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "metas": [
+    {
+      "id": "dizibox:show:from-old-country-bumpkin-to-master-swordsman",
+      "type": "series",
+      "name": "FROM OLD COUNTRY BUMPKIN TO MASTER SWORDSMAN",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/from-old-country-bumpkin-to-master-swordsman-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/from-old-country-bumpkin-to-master-swordsman-200x290.jpg",
+      "description": "FROM OLD COUNTRY BUMPKIN TO MASTER SWORDSMAN - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:stranger-things-tales-from-85",
+      "type": "series",
+      "name": "Stranger Things: Tales from ’85",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/stranger-things-tales-from-85-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/stranger-things-tales-from-85-50x50.jpg",
+      "description": "Kış mevsimi. Hawkins. 1985. Sırlarla dolu bir kasabaya tekrar hoş geldiniz&#8230;.",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    }
+  ]
+}

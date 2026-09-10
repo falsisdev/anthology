@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:beINSports4.tr",
+      "type": "tv",
+      "name": "BeIN Sports 4 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
+      "description": "BeIN Sports 4 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    }
+  ]
+}

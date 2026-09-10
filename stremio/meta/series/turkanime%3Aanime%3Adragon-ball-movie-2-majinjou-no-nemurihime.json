@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:dragon-ball-movie-2-majinjou-no-nemurihime",
+    "type": "series",
+    "name": "Dragon Ball Movie 2: Majinjou no Nemu...",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/5565.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/5565.jpg",
+    "description": "Dragon Ball Movie 2: Majinjou no Nemurihime - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:dragon-ball-majinjou-no-nemurihime-movie-2",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

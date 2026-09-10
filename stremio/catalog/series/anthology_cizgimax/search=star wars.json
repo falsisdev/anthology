@@ -1,0 +1,352 @@
+{
+  "metas": [
+    {
+      "id": "cizgimax:show:star-wars-the-clone-wars-izle",
+      "type": "series",
+      "name": "Star Wars Klon Savaşları",
+      "poster": "https://cizgimax.online/img/locandine/star-wars-the-clone-wars-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/star-wars-the-clone-wars-poster.webp",
+      "description": "Star Wars Klon Savaşları - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:star-wars-visions-izle",
+      "type": "series",
+      "name": "Star Wars: Visions",
+      "poster": "https://cizgimax.online/img/locandine/star-wars-visions-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/star-wars-visions-poster.webp",
+      "description": "Star Wars: Visions - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:star-wars-rebels-izle",
+      "type": "series",
+      "name": "Star Wars Rebels",
+      "poster": "https://cizgimax.online/img/locandine/star-wars-rebels-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/star-wars-rebels-poster.webp",
+      "description": "Star Wars Rebels - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:lego-star-wars-droid-hikayeleri-izle",
+      "type": "series",
+      "name": "Lego Star Wars: Droid Hikâyeleri",
+      "poster": "https://cizgimax.online/img/locandine/lego-star-wars-droid-hikayeleri-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/lego-star-wars-droid-hikayeleri-poster.webp",
+      "description": "Lego Star Wars: Droid Hikâyeleri - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:film/lego-star-wars-terrifying-tales-izle",
+      "type": "series",
+      "name": "Lego Star Wars Korkunç Hikayeler",
+      "poster": "https://cizgimax.online/img/locandine/lego-star-wars-terrifying-tales-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/lego-star-wars-terrifying-tales-poster.webp",
+      "description": "Lego Star Wars Korkunç Hikayeler - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:lego-star-wars-all-stars-izle",
+      "type": "series",
+      "name": "Lego Star Wars: All Stars",
+      "poster": "https://cizgimax.online/img/locandine/lego-star-wars-all-stars-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/lego-star-wars-all-stars-poster.webp",
+      "description": "Lego Star Wars: All Stars - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:film/lego-star-wars-summer-vacation-izle",
+      "type": "series",
+      "name": "LEGO Star Wars Summer Vacation",
+      "poster": "https://cizgimax.online/img/locandine/lego-star-wars-summer-vacation-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/lego-star-wars-summer-vacation-poster.webp",
+      "description": "LEGO Star Wars Summer Vacation - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:lego-star-wars-freemaker-adventures-izle",
+      "type": "series",
+      "name": "Lego Star Wars: Freemaker Adventures",
+      "poster": "https://cizgimax.online/img/locandine/lego-star-wars-freemaker-adventures-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/lego-star-wars-freemaker-adventures-poster.webp",
+      "description": "Lego Star Wars: Freemaker Adventures - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:lego-star-wars-galaksiyi-yeniden-insa-et-gecmisin-parcalari-izle",
+      "type": "series",
+      "name": "Lego Star Wars: Galaksiyi Yeniden İnşa Et: Geçmişin Parçaları",
+      "poster": "https://cizgimax.online/img/locandine/lego-star-wars-galaksiyi-yeniden-insa-et-gecmisin-parcalari-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/lego-star-wars-galaksiyi-yeniden-insa-et-gecmisin-parcalari-poster.webp",
+      "description": "Lego Star Wars: Galaksiyi Yeniden İnşa Et: Geçmişin Parçaları - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:star-wars-tales-of-the-empire-izle",
+      "type": "series",
+      "name": "Star Wars Tales of the Empire",
+      "poster": "https://cizgimax.online/img/locandine/star-wars-tales-of-the-empire-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/star-wars-tales-of-the-empire-poster.webp",
+      "description": "Star Wars Tales of the Empire - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:film/star-wars-the-clone-wars-2-izle",
+      "type": "series",
+      "name": "Star Wars: Klon Savaşları",
+      "poster": "https://cizgimax.online/img/locandine/star-wars-the-clone-wars-2-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/star-wars-the-clone-wars-2-poster.webp",
+      "description": "Star Wars: Klon Savaşları - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:star-wars-clone-wars-2003-izle",
+      "type": "series",
+      "name": "Star Wars: Clone Wars",
+      "poster": "https://cizgimax.online/img/locandine/star-wars-clone-wars-2003-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/star-wars-clone-wars-2003-poster.webp",
+      "description": "Star Wars: Clone Wars - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:star-wars-tales-of-the-jedi-izle",
+      "type": "series",
+      "name": "Star Wars Tales of the Jedi",
+      "poster": "https://cizgimax.online/img/locandine/star-wars-tales-of-the-jedi-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/star-wars-tales-of-the-jedi-poster.webp",
+      "description": "Star Wars Tales of the Jedi - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:star-wars-kotuler-timi-izle",
+      "type": "series",
+      "name": "Star Wars: Kötüler Timi",
+      "poster": "https://cizgimax.online/img/locandine/star-wars-kotuler-timi-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/star-wars-kotuler-timi-poster.webp",
+      "description": "Star Wars: Kötüler Timi - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:star-wars-maul-shadow-lord-izle",
+      "type": "series",
+      "name": "Star Wars: Maul - Shadow Lord",
+      "poster": "https://cizgimax.online/img/locandine/star-wars-maul-shadow-lord-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/star-wars-maul-shadow-lord-poster.webp",
+      "description": "Star Wars: Maul - Shadow Lord - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:film/lego-star-wars-holiday-special-izle",
+      "type": "series",
+      "name": "LEGO Star Wars Holiday Special",
+      "poster": "https://cizgimax.online/img/locandine/lego-star-wars-holiday-special-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/lego-star-wars-holiday-special-poster.webp",
+      "description": "LEGO Star Wars Holiday Special - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:star-wars-resistance-izle",
+      "type": "series",
+      "name": "Star Wars Resistance",
+      "poster": "https://cizgimax.online/img/locandine/star-wars-resistance-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/star-wars-resistance-poster.webp",
+      "description": "Star Wars Resistance - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:star-wars-droids-izle",
+      "type": "series",
+      "name": "Star Wars: Droids",
+      "poster": "https://cizgimax.online/img/locandine/star-wars-droids-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/star-wars-droids-poster.webp",
+      "description": "Star Wars: Droids - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:lego-star-wars-galaksiyi-yeniden-insa-et-izle",
+      "type": "series",
+      "name": "Lego Star Wars: Galaksiyi Yeniden İnşa et",
+      "poster": "https://cizgimax.online/img/locandine/lego-star-wars-galaksiyi-yeniden-insa-et-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/lego-star-wars-galaksiyi-yeniden-insa-et-poster.webp",
+      "description": "Lego Star Wars: Galaksiyi Yeniden İnşa et - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:star-wars-yeralti-hikayaleri-izle",
+      "type": "series",
+      "name": "Star Wars: Yeraltı Hikayeleri",
+      "poster": "https://cizgimax.online/img/locandine/star-wars-yeralti-hikayaleri-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/star-wars-yeralti-hikayaleri-poster.webp",
+      "description": "Star Wars: Yeraltı Hikayeleri - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:film/phineas-and-ferb-star-wars-izle",
+      "type": "series",
+      "name": "Fineas ve Förb: Star Wars",
+      "poster": "https://cizgimax.online/img/locandine/phineas-and-ferb-star-wars-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/phineas-and-ferb-star-wars-poster.webp",
+      "description": "Fineas ve Förb: Star Wars - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:star-wars-young-jedi-adventures-izle",
+      "type": "series",
+      "name": "Star Wars Genç Jedi Maceraları",
+      "poster": "https://cizgimax.online/img/locandine/star-wars-young-jedi-adventures-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/star-wars-young-jedi-adventures-poster.webp",
+      "description": "Star Wars Genç Jedi Maceraları - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:star-wars-forces-of-destiny-2017-izle",
+      "type": "series",
+      "name": "Star Wars: Forces of Destiny",
+      "poster": "https://cizgimax.online/img/locandine/star-wars-forces-of-destiny-2017-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/star-wars-forces-of-destiny-2017-poster.webp",
+      "description": "Star Wars: Forces of Destiny - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:star-wars-galaxy-of-adventures-2018-izle",
+      "type": "series",
+      "name": "Star Wars Galaxy of Adventures",
+      "poster": "https://cizgimax.online/img/locandine/star-wars-galaxy-of-adventures-2018-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/star-wars-galaxy-of-adventures-2018-poster.webp",
+      "description": "Star Wars Galaxy of Adventures - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:lego-star-wars-droid-tales-2015-izle",
+      "type": "series",
+      "name": "LEGO Star Wars: Droid Tales",
+      "poster": "https://cizgimax.online/img/locandine/lego-star-wars-droid-tales-2015-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/lego-star-wars-droid-tales-2015-poster.webp",
+      "description": "LEGO Star Wars: Droid Tales - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:lego-star-wars-the-yoda-chronicles-2013-izle",
+      "type": "series",
+      "name": "LEGO Star Wars: The Yoda Chronicles",
+      "poster": "https://cizgimax.online/img/locandine/lego-star-wars-the-yoda-chronicles-2013-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/lego-star-wars-the-yoda-chronicles-2013-poster.webp",
+      "description": "LEGO Star Wars: The Yoda Chronicles - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:star-wars-blips-2017-izle",
+      "type": "series",
+      "name": "Star Wars Blips",
+      "poster": "https://cizgimax.online/img/locandine/star-wars-blips-2017-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/star-wars-blips-2017-poster.webp",
+      "description": "Star Wars Blips - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:lego-star-wars-the-resistance-rises-2016-izle",
+      "type": "series",
+      "name": "LEGO Star Wars: The Resistance Rises",
+      "poster": "https://cizgimax.online/img/locandine/lego-star-wars-the-resistance-rises-2016-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/lego-star-wars-the-resistance-rises-2016-poster.webp",
+      "description": "LEGO Star Wars: The Resistance Rises - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:star-wars-visions-volume-izle",
+      "type": "series",
+      "name": "Star Wars: Visions Volume 3",
+      "poster": "https://cdn.myanimelist.net/images/anime/1007/151669l.jpg",
+      "background": "https://cdn.myanimelist.net/images/anime/1007/151669l.jpg",
+      "description": "Star Wars: Visions Volume 3 - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    }
+  ]
+}

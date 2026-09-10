@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "id": "ddizi:show:2032/gaddar",
+    "type": "series",
+    "name": "Gaddar",
+    "poster": "https://www.ddizi.im/diziresimleri/gaddarkaoak-min.jpg",
+    "background": "https://www.ddizi.im/diziresimleri/gaddarkaoak-min.jpg",
+    "description": "Gaddar - DDizi Dizi Arşivi",
+    "genres": [
+      "Yerli Dizi",
+      "DDizi"
+    ],
+    "videos": [
+      {
+        "id": "ddizi:ep:83265/gaddar-1-bolum-izle-hd2.htm",
+        "title": "Gaddar 1.Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "ddizi:ep:83334/gaddar-2-bolum-izle-hd2.htm",
+        "title": "Gaddar 2.Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "ddizi:ep:83396/gaddar-3-bolum-izle-hd1.htm",
+        "title": "Gaddar 3.Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "ddizi:ep:83454/gaddar-4-bolum-izle-hd1.htm",
+        "title": "Gaddar 4.Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "ddizi:ep:83513/gaddar-5-bolum-izle-hd1.htm",
+        "title": "Gaddar 5.Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "ddizi:ep:83574/gaddar-6-bolum-izle-hd1.htm",
+        "title": "Gaddar 6.Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "ddizi:ep:83634/gaddar-7-bolum-izle-hd1.htm",
+        "title": "Gaddar 7.Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "ddizi:ep:83694/gaddar-8-bolum-izle-hd1.htm",
+        "title": "Gaddar 8.Bölüm",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "ddizi:ep:83756/gaddar-9-bolum-izle-hd1.htm",
+        "title": "Gaddar 9.Bölüm",
+        "season": 1,
+        "episode": 9
+      },
+      {
+        "id": "ddizi:ep:83819/gaddar-10-bolum-izle-hd1.htm",
+        "title": "Gaddar 10.Bölüm",
+        "season": 1,
+        "episode": 10
+      },
+      {
+        "id": "ddizi:ep:83885/gaddar-11-bolum-izle-hd1.htm",
+        "title": "Gaddar 11.Bölüm",
+        "season": 1,
+        "episode": 11
+      },
+      {
+        "id": "ddizi:ep:83944/gaddar-12-bolum-izle-hd1.htm",
+        "title": "Gaddar 12.Bölüm",
+        "season": 1,
+        "episode": 12
+      },
+      {
+        "id": "ddizi:ep:84042/gaddar-13-bolum-izle-hd1.htm",
+        "title": "Gaddar 13.Bölüm",
+        "season": 1,
+        "episode": 13
+      },
+      {
+        "id": "ddizi:ep:84104/gaddar-14-bolum-izle-hd1.htm",
+        "title": "Gaddar 14.Bölüm",
+        "season": 1,
+        "episode": 14
+      },
+      {
+        "id": "ddizi:ep:84165/gaddar-15-bolum-izle-hd.htm",
+        "title": "Gaddar 15.Bölüm",
+        "season": 1,
+        "episode": 15
+      },
+      {
+        "id": "ddizi:ep:84223/gaddar-16-bolum-izle-hd1.htm",
+        "title": "Gaddar 16.Bölüm",
+        "season": 1,
+        "episode": 16
+      },
+      {
+        "id": "ddizi:ep:84279/gaddar-17-bolum-izle-hd1.htm",
+        "title": "Gaddar 17.Bölüm",
+        "season": 1,
+        "episode": 17
+      },
+      {
+        "id": "ddizi:ep:84334/gaddar-18-bolum-izle-hd1.htm",
+        "title": "Gaddar 18.Bölüm",
+        "season": 1,
+        "episode": 18
+      },
+      {
+        "id": "ddizi:ep:84390/gaddar-19-bolum-izle-hd1.htm",
+        "title": "Gaddar 19.Bölüm",
+        "season": 1,
+        "episode": 19
+      },
+      {
+        "id": "ddizi:ep:84449/gaddar-20-bolum-izle-final-hd1.htm",
+        "title": "Gaddar 20.Bölüm Final",
+        "season": 1,
+        "episode": 20
+      }
+    ]
+  }
+}

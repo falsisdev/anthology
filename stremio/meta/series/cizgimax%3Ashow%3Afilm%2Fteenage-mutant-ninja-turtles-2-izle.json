@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "cizgimax:show:film/teenage-mutant-ninja-turtles-2-izle",
+    "type": "series",
+    "name": "Ninja Kaplumbağalar",
+    "poster": "https://cizgimax.online/img/locandine/teenage-mutant-ninja-turtles-2-poster.webp",
+    "background": "https://cizgimax.online/img/locandine/teenage-mutant-ninja-turtles-2-poster.webp",
+    "description": "Ninja Kaplumbağalar - ÇizgiMax Arşivi",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:show:film/teenage-mutant-ninja-turtles-2-izle",
+        "title": "Ninja Kaplumbağalar",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

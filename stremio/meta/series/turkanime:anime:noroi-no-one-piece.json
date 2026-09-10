@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "id": "turkanime:anime:noroi-no-one-piece",
+    "type": "series",
+    "name": "Noroi no One Piece",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/4418.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/4418.jpg",
+    "description": "Noroi no One Piece - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:noroi-no-one-piece-1-bolum",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "turkanime:ep:noroi-no-one-piece-2-bolum",
+        "title": "2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "turkanime:ep:noroi-no-one-piece-3-bolum-final",
+        "title": "3. Bölüm",
+        "season": 1,
+        "episode": 3
+      }
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "cizgimax:show:film/batman-the-long-halloween-part-one-izle",
+    "type": "series",
+    "name": "Batman: The Long Halloween, Part One",
+    "poster": "https://cizgimax.online/img/locandine/batman-the-long-halloween-part-one-poster.webp",
+    "background": "https://cizgimax.online/img/locandine/batman-the-long-halloween-part-one-poster.webp",
+    "description": "Batman: The Long Halloween, Part One - ÇizgiMax Arşivi",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:show:film/batman-the-long-halloween-part-one-izle",
+        "title": "Batman: The Long Halloween, Part One",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

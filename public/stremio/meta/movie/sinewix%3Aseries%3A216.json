@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "id": "sinewix:series:216",
+    "type": "movie",
+    "name": "Spider-Man: The New Animated Series",
+    "poster": "https://image.tmdb.org/t/p/w500/oAMMVcyCxRiTaz35sYeCPyyjco9.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/zw3IQw3bQp90XaN8IYM84wtjC6Y.jpg",
+    "description": "Spider-Man: The New Animated Series - Anthology",
+    "genres": [
+      "SineWix"
+    ]
+  }
+}

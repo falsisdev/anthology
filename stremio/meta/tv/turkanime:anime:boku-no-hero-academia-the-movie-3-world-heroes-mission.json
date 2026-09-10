@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:boku-no-hero-academia-the-movie-3-world-heroes-mission",
+    "type": "series",
+    "name": "Boku no Hero Academia the Movie 3: Wo...",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/5361.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/5361.jpg",
+    "description": "Boku no Hero Academia the Movie 3: World Heroes&#039; Mission - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:boku-no-hero-academia-world-heroes-mission-movie-3",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:series:290",
+      "type": "movie",
+      "name": "Scavengers Reign",
+      "poster": "https://image.tmdb.org/t/p/w500/bFlVZV8TQbs8hcIY7PVYonYFMgK.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/rTViEeltl4rO974PmkUAdhQqW2R.jpg",
+      "description": "Hasar görmüş bir yıldızlararası yük gemisinin geri kalan mürettebatı, kendilerini güzel ama affetmeyen bir uzaylı gezegeninde mahsur kalmış halde bulur. Burada kaçmak ya da kurtarılmak için yeterince uzun süre hayatta kalmaları gerekir. Ancak hayatta kalanlar, düşen gemilerini ve kayıp mürettebat arkadaşlarını bulmaya çalışırken, yeni evleri, insan müdahalesi olmadan gelişmesine izin verilen düşmanca bir dünyayı ortaya çıkarır.",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

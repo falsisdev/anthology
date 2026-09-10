@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:410",
+      "type": "movie",
+      "name": "Örümcek Adam",
+      "poster": "https://image.tmdb.org/t/p/w500/5WdFGuPhkj8q6jJfgCUq7fp3mIt.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/sWvxBXNtCOaGdtpKNLiOqmwb10N.jpg",
+      "description": "Sıradan bir lise öğrencisi olan Peter Parker'ın hayatı bir gün bir örümcek tarafından ısırılmasıyla tamamen değişir. Çünkü bu örümcek sıradan bir örümcek değildir, genetik olarak özelikle geliştirilmiş, bilimsel amaçlarla kullanılan bir denektir. Öte yandan olan olmuştur ve Parker'da tuhaf değişiklikler başgöstermektedir.",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:boku-no-hero-academia-training-of-the-dead",
+    "type": "series",
+    "name": "Boku no Hero Academia: Training of th...",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/5482.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/5482.jpg",
+    "description": "Boku no Hero Academia: Training of the Dead - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:boku-no-hero-academia-training-of-the-dead-ova",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:series:864",
+      "type": "movie",
+      "name": "Yedi Dünya Bir Gezegen",
+      "poster": "https://image.tmdb.org/t/p/w500/tpXNx8j4Nr15iKSTU1NDFfr9FKy.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/5SeRUwZTHuiOnLfcxXqfew1P0Ug.jpg",
+      "description": "Milyonlarca yıl önce inanılmaz kuvvetler, her biri kendine özgü bir iklime, kendine özgü araziye ve kendine özgü hayvan yaşamına sahip olan yedi kıtamızı yaratan Dünya'nın kabuğunu parçaladı. Güney Amerika'nın renkli cennetinden Afrika'nın kavurucu sıcağına kadar Yedi Dünya: Bir Gezegen sırayla her kıtanın gerçek karakterini sergiliyor ve oradaki yaşamı nasıl şekillendirdiğini ortaya koyuyor. Beklenmedik hikayelere şaşırın. İkonik manzaralara hayret edin. Ve muhteşem vahşi yaşamın tadını çıkarın. Yedi Dünya, Bir Gezegen, bildiğini düşündüğünüz bir dünya etrafında göz alıcı bir yolculuğu sergiliyor.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:2736",
+      "type": "movie",
+      "name": "Tibet'te Yedi Yıl",
+      "poster": "https://image.tmdb.org/t/p/w500/kPPDFm2glqGVc4aijRTOjO2IHu1.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/dgiOBykxfUAtb01VUnkHsTCwfsG.jpg",
+      "description": "Avusturyalı Heinrich Harrer, II. Dünya Savaşı yıllarında ülkesinden uzaklaşarak Himalayalar'a gider. Tibet yakınlarındaki yasak bölge Lhasa'ya ulaşan Harrer'ın aklı henüz hiç görmediği çocuğundadır. Tibet'e kaçan Harrer, burada çocuk yaştaki kutsal lider Dalai Lama'yla tanışır ve Tibet halkının Çin'den gördüğü zulme tanık olur. Dalai Lama ise halkının onurunu düşünmekte ve Harrer'ın da yardımıyla sürekli kendisini eğitme ve geliştirme çabasındadır.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:101",
+      "type": "movie",
+      "name": "Yedi Samuray",
+      "poster": "https://image.tmdb.org/t/p/w500/dCLodUvnee3dxXZRS63dAYfmsJV.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/qvZ91FwMq6O47VViAr8vZNQz3WI.jpg",
+      "description": "Usta Samurai Kambei'nin cesareti ve fedakarlığına şahit olan bir grup köylü ondan sürekli olarak haydutların baskınlarına uğrayan köylerini korumasını isterler. Kambei bu isteği herhangi bir çıkarı olmamasına rağmen kabul eder ve ilk olarak kısa süre sonra müridi olan genç samurai Katsushiro'yu, ardından da güç kullanmaya meraklı bir samurai olarak görünen, fakat sonradan bir çiftçinin oğlu olduğu ortaya çıkan Kikuchiyo'yu yanına alır.  Takımına dört yeni samurai daha ekleyerek köyü savunmaya girişen Kambei köylüler tarafından sevinçle karşılanır ve herkesin sevgisini kazanır; bir süre sonra onlara kendilerini savunmayı öğretmeye başlar. Bu arada haydutlar köyün sınırlarında dolaşmakta ve yeni saldırıları için uygun bir zaman kollamaktadırlar...",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:1818",
+      "type": "movie",
+      "name": "Yedi Kral Ölmeli",
+      "poster": "https://image.tmdb.org/t/p/w500/xUvSeFhdsJbKFOaHnB9TeTZpJKs.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/x4ti16EKbYqbkshO4IBWp5d6Sqh.jpg",
+      "description": "Kral Edward'ın ölümünün ardından Bebbanburglu Uhtred ve yoldaşları, parçalanmış bir krallığın dört bir yanında, İngiltere'yi birleştirme umuduyla maceralara atılır.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3906",
+      "type": "movie",
+      "name": "Sinbad: Yedi Denizler Efsanesi",
+      "poster": "https://image.tmdb.org/t/p/w500/fQYXQAifeMS0jjfyp8w9XdRoFsg.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/j8isWEPL3PmmVh8ap3jm75qVF4p.jpg",
+      "description": "Sinbad şöhreti uzak denizlere yayılmış çok cesur ve çılgın bir denizcidir. Tüm hayatını denizlerde bela arayarak geçmiştir. Ve sonunda aradığı belayı bulur. Hem de unutulmayacak bir şekilde... Dünyanın en paha biçilmez hazinesi sayılan Barış Kitabını çalmakla suçlanan Sinbad'ın önünde tek bir seçenek kalmıştır: Barış Kitabını çalanı bulup geri getirmek. Aksi takdirde en iyi arkadaşı Proteus ölecektir.",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "cizgimax:show:ben-10-mucadele-zamani-izle",
+    "type": "series",
+    "name": "Ben 10: Mücadele Zamanı",
+    "poster": "https://cizgimax.online/img/locandine/ben-10-mucadele-zamani-poster.webp",
+    "background": "https://cizgimax.online/img/locandine/ben-10-mucadele-zamani-poster.webp",
+    "description": "Ben 10: Mücadele Zamanı - ÇizgiMax Arşivi",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:show:ben-10-mucadele-zamani-izle",
+        "title": "Ben 10: Mücadele Zamanı",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:TV360.tr",
+      "type": "tv",
+      "name": "360 TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv360.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv360.png",
+      "description": "360 TV HD Canlı Yayın",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "metas": [
+    {
+      "id": "animecix:title:82",
+      "type": "series",
+      "name": "Bleach",
+      "poster": "https://image.tmdb.org/t/p/original/2EewmxXe72ogD0EaWM8gqa0ccIw.jpg",
+      "background": "https://image.tmdb.org/t/p/original/qtfMr08KQsWXnCHY0a96N8NpQ2l.jpg",
+      "description": "Kurosaki Ichigo 15 yaşında normal bir öğrencidir, ancak ölülerle iletişim kurma becerisine sahiptir. Ichigo'nun babası ve kardeşleri aileye ait bir klinik işletmektedirler.\r\n\r\nBirgün, shinigami(ölüm tanrısı) olan Kuchiki Rukia, Ichigo'nun odasına camdan girer ve Ichigo'nun onu görebildiğine çok şaşırır. O anın kargaşasında çevreye gelen hollow(kötü ruh) ile dövüşürlerken, Rukia güçlerini Ichigo'ya geçirir. Shinigami güçlerini alan Ichigo, Rukia ile beraber hollow'ları yok etmeye başlar.",
+      "genres": [
+        "Anime",
+        "AnimeciX"
+      ]
+    },
+    {
+      "id": "animecix:title:7558",
+      "type": "series",
+      "name": "Bleach Movie 4: Jigoku-hen",
+      "poster": "https://image.tmdb.org/t/p/original/pd7V5iCB19VBPJkihxFXFwSRW2M.jpg",
+      "background": "https://image.tmdb.org/t/p/w1280/rUYPBaQqtpt2IdvzHdIrsYn29mk.jpg",
+      "description": "Hell – A place where beings that have committed mortal sins during their lifetime are sent. It is a realm where even Soul Reapers are forbidden to interfere. When a group of vicious Sinners plot to escape from this eternal prison, they discover that Substitute Soul Reaper Ichigo Kurosaki is the key to their freedom. The Sinners launch an attack and in the process kidnap Ichigo's younger sister Yuzu and take her to Hell. With the help of a mysterious man named Kokuto, Ichigo and his friends must now travel into the depths of Hell to stop the Sinners and save Yuzu, unaware that their actions could bring Hell to the World of the Living.",
+      "genres": [
+        "Anime",
+        "AnimeciX"
+      ]
+    },
+    {
+      "id": "animecix:title:7951",
+      "type": "series",
+      "name": "Bleach Movie 1: Memories of Nobody",
+      "poster": "https://image.tmdb.org/t/p/original/1QXGWJ0bsmbMUDBXXfS1RnFadkS.jpg",
+      "background": "https://image.tmdb.org/t/p/w1280/w8nkwwwNrV433PCkIiE2tP1ARtm.jpg",
+      "description": "In Karakura Town, unidentifiable spirits begin appearing en mases. While attempting to deal with these strange souls, Ichigo Kurosaki and Rukia Kuchiki meet Senna, a mysterious shinigami who wipes out most of them. Senna refuses to answer any questions, so Ichigo is forced to follow her while Rukia tries to find out what's going on.",
+      "genres": [
+        "Anime",
+        "AnimeciX"
+      ]
+    },
+    {
+      "id": "animecix:title:8120",
+      "type": "series",
+      "name": "Bleach Movie 2: The DiamondDust Rebellion - Mou Hitotsu no Hyourinmaru",
+      "poster": "https://image.tmdb.org/t/p/original/1PV8OKvHSYvgmdVnU2wcuzQGthP.jpg",
+      "background": "https://image.tmdb.org/t/p/w1280/vTTTVK44UVpi2HtE1DbKkgiMpAk.jpg",
+      "description": "When an artifact known as the \"King's Seal\" is stolen during transport from Soul Society, Hitsugaya Toushirou is assigned to retrieve it. Toushirou goes missing after a battle with the thieves, leading Seireitei to suspect him of treachery. They order his immediate capture and execution. Unwilling to believe him capable of such a crime, Ichigo, Rangiku, Rukia, and Renji set out to find Toushirou.",
+      "genres": [
+        "Anime",
+        "AnimeciX"
+      ]
+    },
+    {
+      "id": "animecix:title:8523",
+      "type": "series",
+      "name": "Bleach Movie 3: Fade to Black - Kimi no Na wo Yobu",
+      "poster": "https://image.tmdb.org/t/p/original/IfR2DrWLb26AAdQFwGkhvPTflX.jpg",
+      "background": "https://image.tmdb.org/t/p/w1280/xZYPpL6uYy5KUK85HgqA9PuXuID.jpg",
+      "description": "A mysterious reiatsu (spiritual particle) explosion occurs in the center of Seireitei in Soul Society, causing it to be destroyed. At the exact same time, a major change overwhelms Kuchiki Rukia, which leaves her losing something important inside. Urahara Kisuke sends Kurosaki Ichigo to Soul Society to investigate the disturbance. Upon reaching Seireitei, Ichigo is attacked by his ally shinigamis",
+      "genres": [
+        "Anime",
+        "AnimeciX"
+      ]
+    }
+  ]
+}

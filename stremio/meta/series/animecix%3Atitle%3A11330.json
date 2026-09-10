@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "animecix:title:11330",
+    "type": "series",
+    "name": "Dragon Ball Movie 1: Shen Long no Densetsu",
+    "poster": "https://image.tmdb.org/t/p/original/dZCWRFJnwyxYOhzAhf7Xyru4moB.jpg",
+    "background": "https://image.tmdb.org/t/p/w1280/8gc00CJuQKNToUJq1cAmTtb4zmc.jpg",
+    "description": "Ejder Topu: Şenlong Söylencesi. Ejder Topu'nun kökenlerinin yeniden anlatıldığı ve Goku, Bulma, Ulong ve Yamuça'nın buluşmasının farklı bir sürümüdür. Bu filmde Ejder Toplarını arayan Gokularla kötü kral Gurmes'in yolları kesişmektedir.",
+    "genres": [
+      "Anime",
+      "AnimeciX"
+    ],
+    "videos": [
+      {
+        "id": "animecix:ep:11330:1:1",
+        "title": "Dragon Ball Movie 1: Shen Long no Densetsu 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

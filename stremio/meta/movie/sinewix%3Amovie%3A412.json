@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "id": "sinewix:movie:412",
+    "type": "movie",
+    "name": "Örümcek Adam 3",
+    "poster": "https://image.tmdb.org/t/p/w500/gnjSgZuTUfuuGRZ46qNc9LUNdDy.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/6MQmtWk4cFwSDyNvIgoJRBIHUT3.jpg",
+    "description": "Efsanevi Marvel Comics dizisine dayanan filmde, Peter Parker nihayet Mary Jane'e duyduğu tutku ile süper kahramanlık görevleri arasındaki dengeyi kurar. Ancak, ufukta belirmeye başlayan bir fırtına vardır. Peter'ın Örümcek Adam kostümü birden bire değişip siyaha dönüşerek güçlerini pekiştirmeye başlayınca, Peter da değişmeye başlar. Kostümün etkisi altındaki Peter, kibirli ve kendine aşırı güvenli biri olur; en değer verdiği kişileri ihmal etmeye başlar. Bugüne dek en korkulan iki kötü kahraman Kumadam ve Venom benzersiz güçler edinip, intikam ateşiyle yanarken, Peter en büyük savaşını kendi içinde yapmaktadır. Örümcek Adam'ın onu o yapan, onu bir kahraman yapan özelliğini, yani şefkati yeniden keşfetmesi gerekecektir.",
+    "genres": [
+      "SineWix"
+    ]
+  }
+}
