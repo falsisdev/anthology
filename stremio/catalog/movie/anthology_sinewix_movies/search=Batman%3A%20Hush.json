@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:1354",
+      "type": "movie",
+      "name": "Batman: Hush",
+      "poster": "https://image.tmdb.org/t/p/w500/eiVQORVyVuNNZHPAELuWtlXoQsD.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/eevJuYAitUe6VwFN29aFwzeyeTr.jpg",
+      "description": "Gotham bir suç salgınının etkisi altında kaldı ve bütün düşmanları Batman'in hayatını mutlak kaosa sürüklemek için ortaya çıktılar. Ama pek farkında olmadıkları şeyse, kendilerinin, hain Hush'ın Bruce Wayne'den intikam alabilmek için oynadığı ayrıntılı oyundaki piyonlar oldukları. Kırılma noktasının ötesine kadar zorlanan Batman, geç olmadan bu gizemli suç dehasının gerçek kimliğini keşfedebilmek için, dünyanın en iyi dedektifinin yeteneklerinden çok daha fazlasını kullanmak zorunda kalacak.",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

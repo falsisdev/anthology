@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "id": "turkanime:anime:shingeki-no-kyojin-lost-girls",
+    "type": "series",
+    "name": "Shingeki no Kyojin: Lost Girls",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/3561.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/3561.jpg",
+    "description": "Shingeki no Kyojin: Lost Girls - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-lost-girls-1-bolum",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-lost-girls-2-bolum",
+        "title": "2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-lost-girls-3-bolum-final",
+        "title": "3. Bölüm",
+        "season": 1,
+        "episode": 3
+      }
+    ]
+  }
+}

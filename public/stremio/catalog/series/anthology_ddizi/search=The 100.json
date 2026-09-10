@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "ddizi:show:1814/the-100",
+      "type": "series",
+      "name": "The 100",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "The 100 - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    }
+  ]
+}

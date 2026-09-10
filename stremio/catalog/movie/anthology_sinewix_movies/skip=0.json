@@ -479,6 +479,1271 @@
         "SineWix",
         "Film"
       ]
+    },
+    {
+      "id": "sinewix:movie:57",
+      "type": "movie",
+      "name": "Dövüş Kulübü",
+      "poster": "https://image.tmdb.org/t/p/w500/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/hZkgoQYus5vegHoetLkCJzb17zJ.jpg",
+      "description": "Dövüş kulübünün ilk kuralı, dövüş kulübü hakkında konuşmamaktır. Dövüş kulübünün ikinci kuralı da, kulüp hakkında konuşmamaktır... Filmin baş kişisi, sıradan hayatının girdaplarında bunalımlar geçiren bir sigorta müfettişi olan Jack, Kanserli olmadığı halde, uykusuzluğunu yenmek ve hayatına anlam katmak adına, kanserlilere moral destek sağlayan terapi gruplarına katılır. Orada, Marla Singer adlı bir kızla garip bir yakınlık kurar. Bir iş gezisi dönüşü ise, Tyler Durden adlı egzantrik karakterle tanışır. Durden, Jack'in olmak isteyip de olamadığı adam gibidir. Tyler'ın girişimleriyle bir yeraltı faaliyeti olarak başlayan dövüş kulübü, Jack'e hayatında yepyeni kapılar açacaktır... Ve tabii, bu kapılardan ister istemez Marla geçecektir... Fakat... Tyler Durden gerçekte kimdir?",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:589",
+      "type": "movie",
+      "name": "Godfather of Harlem",
+      "poster": "https://image.tmdb.org/t/p/w500/t2LLLdpsz7RdXNog0nnVFWrMYxB.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/8SC24iAMhPUjymFmUqWstOtpwNl.jpg",
+      "description": "70’li yıllarda geçen dizi, dönemin en güçlü mafya liderlerinden Bumpy Johnson’ı takip ediyor. 60’larda hapse giren Bumpy Johnson, 10 yıl sonra özgürlüğüne yeniden kavuştuğunda, bir dönem hükmettiği mahallenin geçirdiği dönüşümü görür. Bölge bir süre önce İtalyan mafyası tarafından ele geçirilmiştir. Bumpy kontrolü yeniden kazanmak için Genovese ailesine savaş açar. Bu süreçte en büyük yardımı radikal papaz Malcolm X’ten alacaktır...",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:1088",
+      "type": "movie",
+      "name": "Baba III",
+      "poster": "https://image.tmdb.org/t/p/w500/gy6fk1Af2pgdzxt8NcfPwpPVoQj.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/9jzcBj3K3sOJe1yF73JEFPISIHE.jpg",
+      "description": "Sinema tarihinin başyapıtlarından biri olan Baba serisinin üçüncü ve son filmi. Ailenin lideri olan Michael Corleone artık 60'ına geldiği için kendisine yeni bir varis aramaktadır. Kendisi yeraltı dünyasından çekilecek ve ailesinin suç dünyasıyla ile olan bağlarını da koparacaktır. Varis olarak gözünü kestirdiği kişi ise Vincent'dır. Fakat olaylar Michael'ın umduğu gibi gitmez ve yeni hesaplaşmalar ve oyunlar baş gösterir...90 yılı yapım, daha az aksiyon içerdiği için kimileri tarafından en zayıf bölüm olarak kabul edilir, ama yine de serinin önceki filmlerine göre yavaş olan rtimi sonlara doğru yükselir ve unutulmaz bir finale ulaşır.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:74",
+      "type": "movie",
+      "name": "Baba II",
+      "poster": "https://image.tmdb.org/t/p/w500/sSuQTCZwqKrNBNIsksO9IAUoWP9.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/3ggZWEoa2aegF6AYyjyNRm8noM5.jpg",
+      "description": "Genç Vito Corleone, Amerika'ya yeni gelmiştir. 1917 yılında, New York şehri'nin yerel mafyalarından birinin liderini öldürünce saygınlık kazanır ve korkulan biri haline gelir.Bu arada, 50 yıl sonra, Michael Corleone, Washington'da senato komitesine aile işleriyle ilgili ifade vermektedir.1972 yapımı ilk filmin devamı niteliğinde, yine yazar Mario Puzo ve yönetmen Francis Ford Coppola'nın yaratıcı ellerinden çıkmış usta işi bir yapım. Eleştirmenler tarafından, önceki filmden daha başarılı bulunan az sayıdaki devam filminden biri olarak kabul ediliyor.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:45",
+      "type": "movie",
+      "name": "Baba",
+      "poster": "https://image.tmdb.org/t/p/w500/obYjrjFT4iZV09YAXu53iBA51Js.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/rSPw7tgCH9c6NqICZef4kZjFOQ5.jpg",
+      "description": "Mario Puzo'nun çok satan kitabından Puzo ve yönetmen Francis Ford Coppola tarafından sinemaya uyarlanan eser, 40'lar ve 50'lerin Amerika'sında, bir İtalyan mafya ailesinin destansı öyküsünü konu alıyor. Corleone ailesi, Don Vito Corleone'nin başında olduğu, suça dayalı bir örgüt kurmuş olan İtalyan asıllı meşhur bir ailedir. Aile, New York'taki diğer dört aileyle birlikte New York'un yeraltı işlerini yönetmektedir. Ancak Corleone ailesini diğerlerinden ayıran özelliği, Don Corleone'nin cebinde bozuk para gibi taşıdığı politikacılar ve yargıçlardır. Politikacılar ve yargıçlarla olan bu yakın ilişkileri diğer ailelerin açamadığı kapıları açabilmesini sağlamaktadır.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:80",
+      "type": "movie",
+      "name": "Matrix",
+      "poster": "https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/waCRuAW5ocONRehP556vPexVXA9.jpg",
+      "description": "İki türlü gerçeklik vardır: biri yaşanan, öteki yaşamın ötesinde olan. Bunlardan biri rüya, öteki de Matrix'dir. Neo, umutsuz bir çaba ile Matrix hakkındaki gerçeği araştırıyor. Tam olarak kavrayamadığı şeylerin yaşamını kontrol ettiğini biliyor.Matrix Nedir? Neo, efsaneler aracılığı ile tanıdığı ve son derece tehlikeli bir adam olan Morpheus'un gerçeği bildiğine inanmaktadır.Bir gece Neo, kendisini başka bir dünyaya götürebilecek güzel yabancı Trinity ile tanışır. Bu kızın götüreceği dünyada, Morpheus'u bulacak ve Matrix hakkında bir şeyler öğrenecektir.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:737",
+      "type": "movie",
+      "name": "Matrix Resurrections",
+      "poster": "https://image.tmdb.org/t/p/w500/tBA09E7q4iKGgWoFWh1QaD227kQ.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/k0Cuybu9ECuc47ODlHcIP8TJCZi.jpg",
+      "description": "Tuhaf anılarla boğuşan Neo, kendisini tekrar Matrix'in içinde bulmasıyla kaynağa beklenmedik bir dönüş yapar.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:206",
+      "type": "movie",
+      "name": "Matrix 3: Revolutions",
+      "poster": "https://image.tmdb.org/t/p/w500/fgm8OZ7o4G1G1I9EeGcb85Noe6L.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/533xAMhhVyjTy8hwMUFEt5TuDfR.jpg",
+      "description": "Gerçek dünya, Matrix'in makine askerleri tarafından istila edilirken, Zion'un da yaşanabilir bir yer haline getirilme çalışmaları paralel olarak devam ediyor. Neo'nun tüm insanlığı, gerçek yaşama geri döndürüp döndüremeyeceği ve Matrix sisteminin tam anlamıyla durdurulup durdurulmayacağı, gerçek dünya ile sanal dünya Matrix'in arasında sıkışıp kalan Neo'nun kendini kurtarabilmesine bağlıdır. Aksiyon ve bilimkurgu sinemasında önemli bir dönüm noktası olan Matrix serisinin son ayağı olan Matrix Revolutions, makineler ve insanoğlunun amansız savaşına sahne oluyor.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:207",
+      "type": "movie",
+      "name": "Matrix 2: Reloaded",
+      "poster": "https://image.tmdb.org/t/p/w500/9TGHDvWrqKBzwDxDodHYXEmOE6J.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/tva2OlLELCagFynFibcefhn2D9i.jpg",
+      "description": "Neo ve Zion'un diğer isyancıları, Matrix'i dönüştürme çalışmalarına başlıyor. Neo'nun kendi gücünün ve misyonunun iyice farkına vardığı noktadan başlıyoruz filme. İlk filmde kendisini ve yoldaşlarını ajanların elinden kurtaran Neo, ikinci filmde bütün bir Zion şehrini ve sakinlerini kanatları altına almaya çalışacak. Bunun için de, ulaşmak son derece güç olsa da, Anahtarcı'yı bulmaları gerekiyor. Bu durum ise düşmanlarına yenilerini de katacaktır. Kendisini kopyalayıp, kopyalarından bir ordu hazırlayan Ajan Smith'e İkizler de katılır. The Matrix Reloaded'da, direnmeyi sürdüren tek insan kolonisi olan Zion'un kapıları seyircilere açılıyor. Fakat açılan kapılarından girmeye çalışan başkaları da olacaktır!..",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:1795",
+      "type": "movie",
+      "name": "Animatrix",
+      "poster": "https://image.tmdb.org/t/p/w500/g52SOsTvdjzY8oPIn5znLJMzLHG.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/6EnDIsjiel1qOfsIKQInwl80Zua.jpg",
+      "description": "Animatrix, Matrix dünyasının animasyon ortamına aktarılmış öykülerinden oluşuyor. Osiris'in Son Uçuşu ise 9 kısa filmden oluşan serinin en çarpıcı örneklerinden biri. Bilgisayarlı animasyon teknolojinin ulaştığı yeri görmek açısından da önem taşıyan yapım, unutulmaz bir kılıç gösterisiyle başlıyor. Daha sonra ise bir direnişçi gemisine geçiş yapıyoruz. Zion'a doğru yolculuk yapan gemi, şehrin çevresini saran düşmanlara karşı bir mücadeleye başlar...",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:54",
+      "type": "movie",
+      "name": "Yıldızlararası",
+      "poster": "https://image.tmdb.org/t/p/w500/y1TKElkgWOl90iFik3GHlgJdphm.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg",
+      "description": "Teknik bilgisi ve becerisi yüksek olan Cooper, geniş mısır tarlalarında çiftçilik yaparak geçinmektedir; amacı iki çocuğuna güvenli bir hayat sunmaktır. Onlarla yaşayan Büyükbaba Donald çocuklara göz kulak olurken, henüz 10 yaşındaki kızı Murph şaşırtıcı bir zekaya sahiptir. Geçmişte bıraktığı biliminsanı kariyerini özleyen Cooper'un karşısına bir gün beklenmedik bir teklif çıkar ve ailesinin, dahası insanlığın güvenliği için zorlu bir karar alması gerekir...",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:50",
+      "type": "movie",
+      "name": "Başlangıç",
+      "poster": "https://image.tmdb.org/t/p/w500/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/s3TBrRGB1iav7gFOCNx3H31MoES.jpg",
+      "description": "Uzmanlık alanı, zihnin en savunmasız olduğu rüya görme anında, bilinçaltının derinliklerindeki değerli sırları çekip çıkarmak ve onları çalmak olan Dom Cobb çok yetenekli bir hırsızdır. Cobb’un bu ender mahareti, onu kurumsal casusluğun tehlikeli yeni dünyasında aranan bir oyuncu yapmıştır. Ancak, aynı zamanda bu durum onu uluslararası bir kaçak yapmış ve sevdiği herşeye malolmuştur. Cobb’a içinde bulunduğu durumdan kurtulmasını sağlayacak bir fırsat sunulur. Ona hayatını geri verebilecek son bir iş; tabi eğer imkansız “başlangıç”ı tamamlayabilirse. Mükemmel soygun yerine, Cobb ve takımındaki profesyoneller bu sefer tam tersini yapmak zorundadır; görevleri bir fikri çalmak değil onu yerleştirmektir. Eğer başarırlarsa, mükemmel suç bu olacaktır.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:2893",
+      "type": "movie",
+      "name": "Oppenheimer",
+      "poster": "https://image.tmdb.org/t/p/w500/r4JdkyE7AMJA8xODOfCC20pWvtU.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/nb3xI8XI3w4pMVZ38VijbsyBqP4.jpg",
+      "description": "Amerikalı fizikçi Julius Robert Oppenheimer'ın hayatına odaklanılan filmde, Julius Robert Oppenheimer’ın, İkinci Dünya Savaşı sırasında atom bombasının geliştirilme sürecindeki rolü gözler önüne seriliyor.  Fizikçi Julius Robert Oppenheimer'a 2. Dünya Savaşı sırasında Manhattan Projesi'nin bilimsel liderliği verildiğinde, o ve eşi Kitty, Oppenheimer'ın çalışmasının sadece kendi hayatları üzerinde değil, tüm dünya üzerinde bu kadar etki edeceğini hayal edemezdi.  Ancak ölümcül icadının Hiroşima ve Nagazaki'de kullanılacak olması, Oppenheimer'ın kendisini projeden uzaklaştırmasına neden olur. Savaş sona ermek üzereyken, Lewis Strauss'un ortak kurduğu ABD Atom Enerjisi Ajansı'nın danışmanı olan Robert Oppenheimer, nükleer enerjinin uluslararası kontrolüne ve nükleer silahlanma yarışına karşı olduğunu savunur ve bu nedenle ABD tarafından hedef haline gelir.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:2212",
+      "type": "movie",
+      "name": "Barbie: Big City, Big Dreams",
+      "poster": "https://image.tmdb.org/t/p/w500/jeggetf6lrd0dhtcbqJH75Sik4K.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/rnSn1m7na0AkvVelLVR7y9B85jV.jpg",
+      "description": "Barbie, yaz Gösteri Sanatları programına katılmak için New York'a gider. Orada başka bir Barbie Roberts ile tanışır. Hızlı arkadaşlıklarına rağmen, ikisi Times Meydanı'ndaki Spotlight Solo için rekabet etmek zorunda.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:236",
+      "type": "movie",
+      "name": "Dune (1984)",
+      "poster": "https://image.tmdb.org/t/p/w500/ckL8dcFg2UAvLGqtNReWdobn6yd.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/5wJ2tckpvwcxGCAgZiccodwEJpf.jpg",
+      "description": "Frank Herbert'in ünlü bilimkurgu klasiği romanından uyarlanan film, çöl gezegeni Dune'u kontolü altına almak isteyen 3 ırkın savaşını ve gezegen halkının beklediği Mesih'in gelişini anlatıyor.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:2737",
+      "type": "movie",
+      "name": "Kumların Kadını",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/f0JpsMQ9oEjKBD66Ky3qK3z7LGT.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/oOM2JzhVBjWyZFHW2iBQQ8A3znY.jpg",
+      "description": "Böceklerle ilgili araştırmalar yapan bir etimoloğun yolu çöle düşer. Çölde büyük kum tepeleri ve çukurları vardır. Adamımız bir geceliğine köylüler tarafından çukurdaki bir evde misafir edilir. Evdeki yalnız, genç kadın basit bir hayat yaşamakta ve geceleri nemlenen kumu kürekle kovalara doldurup, yukarıya yollamaktadır. Ertesi gün adamımız çukurdaki evi terkedip işine koyulmak ister, ancak aşağıya inmekte kullandığı ip merdiven ortada yoktur... Etimolog birkaç panik ataktan sonra, çukurdan dışarı çıkmak için kafayı çalıştırmaya başlar... * Bu basit yüzeyin altında, bir çeşit sisyphos masalıdır bu film. Hayat, aile, varoluş, konformizm düşündürdükçe düşündürür insanı * Japon edebiyatının usta yazarı Kobo Abe'nin -Kafka, Sartre, Camus, Beckett gibi yazarların eserleriyle kıyaslanan ve dünya çapında tanınmasını sağlayan- muhteşem romanından uyarlanan eşsiz sinema eseri * bittiği an sakat kalmayan var mı merak ediyorum",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:132",
+      "type": "movie",
+      "name": "Gladyatör",
+      "poster": "https://image.tmdb.org/t/p/w500/rotQFyaeNQivUJOm3J3M7YqPNMx.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/aZtwH3RQ0L8jbInxr7OSc9tlGMJ.jpg",
+      "description": "Roma İmparatorluğu'na en parlak dönemi yaşatan General Maximus, girdiği bir meydan savaşından daha zaferle çıkar, artık tek hayali bir an önce evine dönerek karısı ve ailesine kavuşmaktır.\r Fakat, zamanın Roma İmparatoru Marcus Aurelius, Maximus'a önemli bir görev verir ve iktidara sahip çıkmasını ister. Bunun üzerine imparatorun oğlu olan Commodus, iktidarın elinden alınacağını anlayınca general ve ailesini öldürme emri verir. Maximus ölümden zor kurtulur ve gladyatörler arenasına sürgün edilir. Yıllar sonra Roma'ya geri dönen güçlü gladyatör Maximus'un tek amacı Commodus'u öldürerek karısı ve oğlunun katledilmesinin intikamını almaktır.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3116",
+      "type": "movie",
+      "name": "Gladyatör II",
+      "poster": "https://image.tmdb.org/t/p/w500/dARTCpnHY0R0B28j5q5ynq7erua.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/euYIwmwkmz95mnXvufEmbL6ovhZ.jpg",
+      "description": "Gladyatör Maximus Decimus Meridius’un ölümünden 15 yıl sonrasıdır. Kana susamış kalabalıklar yarı deli ikiz imparatorları zalimliğin yeni zirvelerine iterken Kolezyum’daki savaşlar çok daha ölümcül ve görkemli hâle gelmiştir. Roma İmparatorluğu sınırlarını genişleterek, yoluna çıkan her kültürü yağmalayarak ve hayatta kalanları ringde yaşamları için savaşmaya zorlayarak yeryüzündeki yürüyüşünü sürdürmektedir.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:629",
+      "type": "movie",
+      "name": "Kas ve Kaos",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNjEwNTNjZTAtZGM4Mi00ZWM3LTk2YWUtYjlkM2ZjNDE3Y2FjXkEyXkFqcGdeQXVyMTk5NjUzMDY@._V1_FMjpg_UX1000_.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/Psb9fJLktfNPHXMs8gqR7wnpL7.jpg",
+      "description": "Kas ve Kaos - Anthology",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3789",
+      "type": "movie",
+      "name": "Yüzüklerin Efendisi: Rohirrim'in Savaşı",
+      "poster": "https://image.tmdb.org/t/p/w500/5htr97RScFopnkxyW1eBtsMsFXb.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/ie8OSgIHEl6yQiGJ90dsyBWOpQA.jpg",
+      "description": "Film, en ünlü Rohan krallarından Miğfer Tokmakel döneminde Dunlandlılar ile yaşanan savaşı ve daha sonra Yüzüklerin Efendisi: İki Kule'de Orta Dünya'nın kaderini etkileyen Borukent Savaşı'nın geçtiği Miğfer Dibi'nin kralın ismiyle anılmasına sebep olan olayları anlatıyor.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:149",
+      "type": "movie",
+      "name": "Yüzüklerin Efendisi: Kralın Dönüşü",
+      "poster": "https://image.tmdb.org/t/p/w500/oh1knfZ4LLEMGt0n0rlJDSGB4dj.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/lXhgCODAbBXL5buk9yEmTpOoOgR.jpg",
+      "description": "Kıyamet günü ortamını yaşayan Orta Dünya'da, Yüzük Savaşı'nın son ve en büyük mücadelesine hoşgeldiniz. Bir yanda güvenilmez Gollum'un rehberlik ettiği yüzük taşıyıcısı Frodo ve yoldaşı Sam, Mordor'a ulaşıp Tek Yüzük'ü yokedebilecekleri tek yere götürmeye çalışıyorlar. Diğer yanda Rohan Atlıları ve Ent'lerle güç birliği yaparak Saruman'ı alt etmiş olan Gandalf, Aragorn ve diğer dostlarımız Karanlıklar Efendisi'nin tehtidi altındaki Gondor'a varıp savunmak zorundalar. Gondor'un savunması, hiç kuşkusuz Miğfer Dibi Muharebesi'nden daha kolay olmayacak. Zira Sauron'un orduları çoktan harekete geçmiş durumda. Eğer bunu başarabilirlerse Gondor'u, Isuldur'un kanından gerçek bir Kral ve Kral'ı da daha öncekilerden çok daha çetin savaşların beklediği aşikar.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:148",
+      "type": "movie",
+      "name": "Yüzüklerin Efendisi: İki Kule",
+      "poster": "https://image.tmdb.org/t/p/w500/eX1Yl1h9iVusGiqIrUA3cI16AbA.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/nS4picOwj15APKzJeBCk6EBcMG5.jpg",
+      "description": "Yüzük Kardeşliği üyelerinin her birinin, kardeşlik bozulduktan sonra başlarına gelenler anlatılıyor. Kahramanlarımız, gruplar halinde Orta Dünya'nın en tehlikeli yerlerinde maceralar yaşayacaklar, yeni kavimler ve çoktan unutulmuş medeniyetlerle tanışacaklar.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:144",
+      "type": "movie",
+      "name": "Yüzüklerin Efendisi: Yüzük Kardeşliği",
+      "poster": "https://image.tmdb.org/t/p/w500/l2rv8rLUlo2zMWd20JLtW6bZUsK.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/vRQnzOn4HjIMX4LBq9nHhFXbsSu.jpg",
+      "description": "İyiyle kötü arasındaki mücadelenin epik bir anlatımı olan filmde, muazzam bir sorumluluğu üstlenmek zorunda kalan ve barışçı bir Hobbit olan Frodo Baggins'in destansı serüveni işleniyor. Frodo'nun yapması gereken, Kıyamet'in Çatlakları olarak anılan diyara dalarak epik bir mücadeleye girişmek ve bu yüzüğü ebediyen ortadan kaldırmaktır. Neyse ki yalnız çıkmayacaktır bu zorlu yolculuğa: Gandalf'ın yanısıra, bir elf olan Legolas, cüce Gimli; izci Aragorn, savaşçı Boromir ve Frodo'nun kendisi gibi Hobbit olan üç arkadaşı Merry, Pippin ve Samwise da onunla gelirler. Dağlar, ormanlar, kar, kaleler, nehirler ve ovalar boyunca, karşılarına çıkan şeytani güçlere karşı savaşarak ilerler bu grup. Yüzüğü yoketme görevini yerine getirerek, Karanlık Lordlar hükümranlığını içinde bulundukları gerçeklikten silmektir amaçları... tam turkce Dublaj olsa harika olur",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:655",
+      "type": "movie",
+      "name": "Harry Potter 20th Anniversary: Return to Hogwarts",
+      "poster": "https://image.tmdb.org/t/p/w500/34Xss3gwKdwvtomCDkeC2lW4PVB.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/8rft8A9nH43IReybFtYt21ezfMK.jpg",
+      "description": "Daniel Radcliffe, Emma Watson ve Rupert Grint de olmak üzere tüm \"Harry Potter\" filmlerindan oyuncular, ilk filmin 20. yıldönümünü kutluyor! Pek çok röportajı içeren bu retrospektifte, oyuncular orijinal Hogwarts setinde bir araya gelecek. Ayrıca, geçmiş sekiz filme dair özel detaylara da yer verilecek.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:392",
+      "type": "movie",
+      "name": "Harry Potter ve Melez Prens",
+      "poster": "https://image.tmdb.org/t/p/w500/g9Qh2VU3Tt5ZyQzXUWKj8PRjBIo.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/kT8bDEAgEYBKhRJtqM97qTw6uRW.jpg",
+      "description": "Voldemort hem Muggle hem de büyücüler dünyasındaki kıskacını daraltmaktadır ve Hogwarts artık bir zamanlar olduğu güvenli liman değildir. Harry tehlikenin kalenin içinde bile olabileceğinden şüphelenirken, Dumbledore da Harry’yi hızla yaklaşmakta olduğunu bildiği nihai savaşa hazırlamaya her zamankinden kararlıdır. Birlikte, Voldemort’un savunma hattını kırmanın yollarını ararlar. Bu amaçla, Dumbledore eski bir dostu ve meslektaşı olan, çok önemli bilgilere sahip olduğunu düşündüğü Profesör Horace Slughorn’u görevlendirir. Profesör iyi bağlantıları olan, iyi yaşamayı seven, saf bir insandır.Bu arada, öğrenciler bambaşka bir rakibin kuşatması altındadırlar: Gençlik hormonları zirveye tırmanmaktadır.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:391",
+      "type": "movie",
+      "name": "Harry Potter ve Zümrüdüanka Yoldaşlığı",
+      "poster": "https://image.tmdb.org/t/p/w500/ApQzJBQA7KZluqVYai5csBljLNu.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/bsaA9qtIR6VTDQykXdBzJc8V5rS.jpg",
+      "description": "5. öğretim yılı için Hogwarts’a dönen Harry, büyücü camiasının büyük çoğunluğunun onun kötü Lord Voldemort’la karşılaştığını inkar ederek, Lord Voldemort’un döndüğü haberine kulak tıkamayı tercih ettiklerini görür. Sihir Bakanı Cornelius Fudge, Dumbledore ve Hogwarts öğrencilerinin hareketlerinden haberdar olabilmek için okula yeni bir Karanlık Sanatlara Karşı Savunma öğretmeni atar. Ama Profesör Dolores Umbridge’in Bakanlıktan onaylı savunma büyüsü dersi onları ve tüm büyücü camiasını kendilerini tehdit eden karanlık güçlere karşı ne yazık ki savunmasız bırakır; bu yüzden, arkadaşları Hermione ve Ron’un teşviki üzerine, Harry konuya el atar. Kendilerine “Dumbledore’un Ordusu” adını veren küçük grupla buluşan Harry, onlara Karanlık Güçlere karşı nasıl savunacaklarını öğreterek, bu genç ve cesur büyücüleri kendilerini bekleyen olağanüstü savaşa hazırlar.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:389",
+      "type": "movie",
+      "name": "Harry Potter ve Azkaban Tutsağı",
+      "poster": "https://image.tmdb.org/t/p/w500/coCb3waXEuzdAtlxpftXhSFt6VT.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/obKmfNexgL4ZP5cAmzdL4KbHHYX.jpg",
+      "description": "Harry Potter, akrabaları ile zor zamanlar geçirmektedir. Ailesine kötü davranan, Vernon Amca’nın kız kardeşi Marge’a büyü yapıp kaçar. Okul dışında büyü yaptığı için korksa da cezalandırılmadığını fark edince çok şaşırır. Ancak çok geçmeden, tehlikeli bir suçlu olan Lord Voldemort’un yardımcısı Sirius Black’in Azkaban hapishanesinden kaçtığını öğrenir. Dark Lord’un intikamını almak için Harry’i öldürmek istemektedir. Hapishanedeki büyük suçlulardan sorumlu, Ruh Emiciler etrafa huzursuzluk saçmaktadırlar. Öte yandan Lupin’in de sakladığı bir sır var gibi görünmektedir...",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:388",
+      "type": "movie",
+      "name": "Harry Potter ve Sırlar Odası",
+      "poster": "https://image.tmdb.org/t/p/w500/tWhPZYRvf3iRO9rEqk4wZyWjmIt.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/1stUIsjawROZxjiCMtqqXqgfZWC.jpg",
+      "description": "Hogwarts Cadılık ve Büyücülük okulundaki ikinci yılına başlarken Harry Potter ,ev cini Dobby tarafından okula dönmesinin kendisi için tehlikeli olacağı konusunda uyarılır. Bunun yanında Profesör Snape ondan halen hoşlanmamaktadır, Draco Malfoy da ondan hala nefret eder. Bu ortamda Harry en iyi arkadaşları Ron ve Hermione ile birlikte yeni bir okul yılına başlar. Ünlü yazar Gilderoy Lockhart da bu yıl Hogwarts'a katılmıştır. Ancak Hogwarts öğrencileri garip bir şekilde taşa dönüşmektedirler. Bunu kimin yaptığıysa gizemini korumaktadır.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:387",
+      "type": "movie",
+      "name": "Harry Potter ve Felsefe Taşı",
+      "poster": "https://image.tmdb.org/t/p/w500/3mDokw9KewPQMpY1pB912Y9SVYB.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/lvOLivVeX3DVVcwfVkxKf0R22D8.jpg",
+      "description": "Harry Potter, muggle (büyücü yada cadı olmayan insanlar) amcası ve halasıyla sıradan ve zorluklarla dolu bir hayatı yaşarken, yılanlarla konuşabildiğinin, kızgınlık öfkesi sırasında eşyaları hareket ettirebildiğinin farkına varacaktır. Hogwarts Büyücülük ve Cadılık Okulu'ndan kabul edildiğini belirten mektup ise hayatının sıradanlığını değiştirecektir. Artık o bir büyücü adayıdır.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:1796",
+      "type": "movie",
+      "name": "Batman",
+      "poster": "https://image.tmdb.org/t/p/w500/cij4dd21v2Rk2YtUQbV5kW69WB2.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/yHfezFdN9kNf2KvyUcZfEhtnFMP.jpg",
+      "description": "Gotham Şehri, karanlık, tehlikeli ve gotik! Tek koruyucusu ise çoğunluğu çürümüş durumdaki Polis departmanı. Savcı Harvey Dent ile komiser Gordon’un tüm çabalarına karşın, şehir giderek daha güvensiz bir hale gelmektedir... ta ki Kara Şovalye ortaya çıkana dek.Suçlular çoğunlukla batıl inanç sahibidir, ve korkak... bu yüzden kendisine onların yüreğine korku salacak bir gizli kimlik seçmiştir. O bir yarasadır. Yarasa-adam, Batman!Ödüllü bir gazeteci olan genç ve güzel Vicky Vale, esrarengiz yarasa-adamın sırrını çözmeye kararlıdır. Öte yandan Jack Napier, yanlışlıkla asit kazanına düştükten sonra şehrin psikopat palyaço suç kıralına, Batman’in azılı düşmanı sinirbozucu Joker’e dönüşür.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3462",
+      "type": "movie",
+      "name": "Batman",
+      "poster": "https://image.tmdb.org/t/p/w500/zzoPxWHnPa0eyfkMLgwbNvdEcVF.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/nOWOU0bdX76iF9XA1YPlInLbI4Y.jpg",
+      "description": "Gotham City'nin dört kötü adamı Penguen, Joker, Riddler ve Kedikadın güçlerini birleştirir. Penguen'in kişisel denizaltısında üslenen eksantrik kötüler bu kez tüm dünyayı tehdit etmektedir. Ellerinde bulunan De-Hydrator isimli cihaz canlıların vücudundaki nemi kurutup korkunç sonuçlara sebep olabilecek bir silahtır. Batman ve Robin harekete geçer.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:4164",
+      "type": "movie",
+      "name": "Batman: Knightfall Part 1: Knightfall",
+      "poster": "https://image.tmdb.org/t/p/w500/360qdtu2hLnqMu8SVHMywn420w1.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/caBIySpwuFi2i7ynvHIlnxJLOdN.jpg",
+      "description": "Arkham Akıl Hastanesi yerle bir olmuş ve içindeki tüm mahkumlar Gotham’a salınmıştır. Batman, en zorlu düşmanlarını toparlamak için mücadele ederken hem zihinsel hem de fiziksel olarak sınırlarını zorlar. Yeni bir tehlike: Bane adlı adamla yüzleşir.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:379",
+      "type": "movie",
+      "name": "Batman: Pelerinli Savaşçı",
+      "poster": "https://image.tmdb.org/t/p/w500/3h1nDGIcmj5cRynFi3Hdc2AzC1Z.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/vTqkpDUe1DUUPcHDpcf0RT0gIQ0.jpg",
+      "description": "Trajediyle şekillenmiş milyarder Bruce Wayne, bir insandan hem daha ötesi hem de daha azıdır, o Batman’dir. Her gece büyük zorluklarla karşılaşarak suça karşı tek kişilik savaşını durmaksızın sürdürür.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3387",
+      "type": "movie",
+      "name": "Batman: Gotham'a Gelen Kıyamet",
+      "poster": "https://image.tmdb.org/t/p/w500/sKWN5ZzDxnfVixUavs09HfBCCA3.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/7eccX0xay9pDj6ZQvU4cu3whw18.jpg",
+      "description": "Mike Mignola, Richard Pace ve Troy Nixey'in çizgi roman serilerinden esinlenen Batman: The Doom That Came to Gotham, kaşif Bruce Wayne'in yanlışlıkla eski bir kötülüğü serbest bıraktığını ve yirmi yıllık bir aradan sonra Gotham City'ye dönüşünü hızlandırdığını gösteren 1920'lere dayanan bir hikayedir. Mantık / bilim güdümlü Batman, Gotham'ın varlığını tehdit eden Lovecraftçı doğaüstü güçlerle savaşmalı, bu arada Green Arrow, Ra's al Ghul, Mr. Freeze, Killer Croc, Two-Face, James Gordon ve Bruce'un sevgili koğuşları da dahil olmak üzere tanınmış müttefiklerinin ve düşmanlarının yeniden tasarlanmış versiyonlarıyla yardım etmeli ve yüzleşmelidir. Diğerlerinden farklı olarak mistik, genellikle korkutucu bir Batman macerasına hazırlanın.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3276",
+      "type": "movie",
+      "name": "Batman ve Süpermen: Süper Oğulların Savaşı",
+      "poster": "https://image.tmdb.org/t/p/w500/mvffaexT5kA3chOnGxwBSlRoshh.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/iQJ1gC2p6yn5wnBEklhPaEFJ3n1.jpg",
+      "description": "Güçleri olduğunu keşfettikten sonra, 11 yaşındaki Jonathan Kent ve suikastçıya dönüşen Wonder-Wonder Damian Wayne, babalarını (Süpermen ve Batman) kurtarmak ve gezegeni Starro olarak bilinen kötü niyetli uzaylı gücünden kurtarmak için güçlerini birleştirmeli.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3",
+      "type": "movie",
+      "name": "Batman: The Long Halloween, Part Two",
+      "poster": "https://image.tmdb.org/t/p/w500/5X1n5q08mZ7NpNpxehMFODxfNYq.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/7WuVUAsWWHt4g11R1HalX0RX2bh.jpg",
+      "description": "'Holiday' olarak bilinen bir katil, Falcone suç ailesinin peşine düşmeye devam eder. Bu sırada Gotham City'de yeni bir kostümlü suçlu sınıfı yükselir. Katilin peşine düşen Batman, araştırmasını ilerlettikçe, eski bir müttefikinin seri katil olabileceğinden şüphelenmeye başlar.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:1378",
+      "type": "movie",
+      "name": "Batman: The Long Halloween, Part One",
+      "poster": "https://image.tmdb.org/t/p/w500/sR7gppb0YGjwLvE6Vnj6wYv5MnW.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/uS9apevOgs2fuYghf9szOoK1u63.jpg",
+      "description": "Batman'in aynı isimli kült çizgi romanından uyarlanan bu yapımda Batman, sadece tatil günlerinde cinayet işleyen bir seri katilin gizemini çözmeye çalışıyor. Bu gizemde Catwoman ve Jim Gordon ile birlikte çalışan Batman'in yolu en azılı düşmanlarıyla da kesişmeye devam ediyor. İki parça halinde izleyici karşısına çıkacak bu yapımın ikinci kısmı Ağustos ayında yayınlanacak.\n\nBakalım katil Batman'in sayısız düşmanlarından hangisi? Ya da hiç ummadığımız biri mi?",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3485",
+      "type": "movie",
+      "name": "Batman: Ejderha'nın Ruhu",
+      "poster": "https://image.tmdb.org/t/p/w500/uDhnTtSxU5a8DtZdbbin3aZmkmU.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/jvRewPpawHAfBW38EzHoFdTVEez.jpg",
+      "description": "Bruce Wayne, üç eski sınıf arkadaşının yardımıyla geçmişinden ölümcül bir tehditle karşı karşıya: dünyaca ünlü dövüş sanatçıları Richard Dragon, Ben Turner ve Lady Shiva.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:1354",
+      "type": "movie",
+      "name": "Batman: Hush",
+      "poster": "https://image.tmdb.org/t/p/w500/eiVQORVyVuNNZHPAELuWtlXoQsD.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/eevJuYAitUe6VwFN29aFwzeyeTr.jpg",
+      "description": "Gotham bir suç salgınının etkisi altında kaldı ve bütün düşmanları Batman'in hayatını mutlak kaosa sürüklemek için ortaya çıktılar. Ama pek farkında olmadıkları şeyse, kendilerinin, hain Hush'ın Bruce Wayne'den intikam alabilmek için oynadığı ayrıntılı oyundaki piyonlar oldukları. Kırılma noktasının ötesine kadar zorlanan Batman, geç olmadan bu gizemli suç dehasının gerçek kimliğini keşfedebilmek için, dünyanın en iyi dedektifinin yeteneklerinden çok daha fazlasını kullanmak zorunda kalacak.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:1943",
+      "type": "movie",
+      "name": "Batman Ninja Kaplumbağalar",
+      "poster": "https://image.tmdb.org/t/p/w500/yP3h0Pu8htyb9450mWJ9Vu1rU.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/sA50fD5aLbYPRU0fMCHIZ88gc5g.jpg",
+      "description": "Batman ve Robin'e bu maceralarında Ninja Kaplumbağalar'ın da katılmasıyla kalabalıklaşan kahramanlarımız, kendilerinden daha kalabalık bir ekiple mücadele ediyor. Gotham'a Ra's Al Ghul ve onun Suikastçılar Birliği ile iş birliği yapmaya gelen Shredder ve Ayak Takımı'nı durdurmaya çalışacak olan Batman ve yeni arkadaşlarının yoluna Joker, Harley Quinn, Mr, Freeze ve Bane gibi kötüler de çıkıyor. Daha önce farklı yapımlarda Batman ve Joker'in sesi olan Troy Baker, bu kez hem Batman'i hem de Joker'i seslendirerek bir ilke imza atıyor.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3330",
+      "type": "movie",
+      "name": "Batman Ninja",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/5xSB0Npkc9Fd9kahKBsq9P4Cdzp.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/geeAPcb9iBEWfft6uRnL8aCwBmF.jpg",
+      "description": "Batman kendisini bir anda Japonya’da hem de Orta Çağ’da bulur. Joker ve diğerlerinin Japonya’nın tarihini yeniden yazmaya çalıştıklarını fark eder. Batman’in Feodal Japonya’da mücadeleye girmesini izleyeceğiz.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3058",
+      "type": "movie",
+      "name": "Batman: Gotham’ın Gaz Lambaları",
+      "poster": "https://image.tmdb.org/t/p/w500/7souLi5zqQCnpZVghaXv0Wowi0y.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/7d7h5ATx9eUD98O0UpxICz93mNC.jpg",
+      "description": "Mike Mignola ve Brian Augustyn ikilisinin ellerinden çıkan Gotham By Gaslight, farklı bir zaman veya evrende geçen Batman çizgi romanları arasında en çok beğeni toplayan çalışmalardan biri olarak hatırlanıyor. 19. yüzyılda geçen ve Viyana, Londra gibi Avrupa kentlerini de gördüğümüz Gotham By Gaslight‘ta Batman’in ana düşmanı Jack The Ripper. Batman çizgi romanlarında sıklıkla gördüğümüz Alfred Pennyworth, James Gordon ve Joker gibi karakterlerin de söz konusu dönemde karşımıza çıktığı çizgi romanda Sigmund Freud ve Prince Albert Victor gibi tarihten önemli figürler de bulunuyor.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3546",
+      "type": "movie",
+      "name": "Batman vs. Two-Face",
+      "poster": "https://image.tmdb.org/t/p/w500/yTbj8Kcp4WFwMRdEejnn55KIsfH.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/4xFlvdymCBqyBN8Ab5i69Sgqk7m.jpg",
+      "description": "Batman trajik bir kaza ile kötü adamlar arasına katılan eski arkadaşı Harvey Dent'in yüzünü tedavi edip rehabilite ettirir. Topluma kazandırılmak için bölge savcısının asistanının asistanı görevi verilir... Acaba Harvey tam manası ile eski kimliğinden kurtulmuş mudur?",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3716",
+      "type": "movie",
+      "name": "Batman ve Harley Quinn",
+      "poster": "https://image.tmdb.org/t/p/w500/xAP0aqAMlsNN3NEvikRkjaTlmjw.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/2JVnUtyUKbQm165cXUF9r5iVPDo.jpg",
+      "description": "Batman ve Nightwing bu defa ki macerada dünyayı kurtarmak için Poison Ivy ve Jason Woodrue ile savaşmak zorundadır. Poison Ivy ve Jason Woodrue dünyada bir bitki-hibrit türü başlatmak istemektelerdir. Ancak Batman bu tehlikeli ikilinin yapacakları en ufak bir hata da bile tüm gezegendeki yaşamı yok edebileceklerini anlamıştır. Bu yüzden Batman hiç istemese de aklı gel git olan ve Joker'in eski sevgilisi olan Harley Quinn ile iş birliği yapmak zorundadır. Fakat Batman'in Harley Quinn'e güvenmeye hiç niyeti yoktur. Buna rağmen Harley Quinn Batman'a yardım edeceğine ve Ivy'i dünyayı yok etmekten vazgeçireceğine söz vermiştir.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3532",
+      "type": "movie",
+      "name": "Batman: Pelerinli Süvarilerin Dönüşü",
+      "poster": "https://image.tmdb.org/t/p/w500/kXV5rVxxRYWHksELUi6dxzWG7Sj.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/oBwzYKdcbT7K8CEkKDbTspPAJkG.jpg",
+      "description": "Penguen, Joker, Bulmacacı ve Kedi Kadın bir araya gelerek Gotham City'yi tehdit edince Batman ve Robin tekrar harekete geçiyorlar. Pelerinli kahramanlar, bu defa yeteneklerini ve güçlerini birleştiren dört azılı düşmanla mücadele edecekler.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:2351",
+      "type": "movie",
+      "name": "Batman Büyük Öfke",
+      "poster": "https://image.tmdb.org/t/p/w500/wPc6JiLDFvkLfzRlFm4lk28o8kj.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/nwfpBjtMNFwrGjW2o9HBhMEYCpM.jpg",
+      "description": "Bruce Wayne kayıptır ve Alfred bunu gizlemeye çalışmaktadır. Robin ise Gotham şehrini gözetlemeye devam etmektedir. Tüm bunlar yaşanırken Yarasa Kadın Batman'in ortadan kayboluşunu araştırmaktadır.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:2250",
+      "type": "movie",
+      "name": "Batman: Öldüren Şaka",
+      "poster": "https://image.tmdb.org/t/p/w500/fBLmJARsC0sbZie9gYELY9QPJ2i.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/2toE0K6Zgz5kLqWLo4m5bP4YQIG.jpg",
+      "description": "Joker, Gordon ailesine saldırır. Batman, akıl hastanesinden kaçan Joker’in peşine düşer.  Sam Liu yönetimindeki animasyon filmde Mark Hamill Joker’i,  Kevin Conroy ise Batman’i seslendiriyor. Bu animasyon filmin yapımcılığını Warner Bros. Şirketi üstleniyor.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:1472",
+      "type": "movie",
+      "name": "Batman ve Superman: Adaletin Şafağı",
+      "poster": "https://image.tmdb.org/t/p/w500/hePGzjKsUfusCrqN2dKbnZVH3Q2.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/mX3WOJPBzzl4kj4xU5lL7qfD6C3.jpg",
+      "description": "Beraberinde getirdiği umut ile dünyada tanrılaşan Superman neden olduğu savaş ve yıkım ile birlikte insanlık için tehdit unsuru oluşturmaya başlar. Dünya gerçekte ne tür bir kahramana ihitiyaç duyduğuna karar vermek için çabalarken, kontrolsüz hareketleri süren Süper Kahraman’ın insanlığın yanında mı karşısında mı olacağı merak edilirken Gotham Şehrinin koruyucusu Batman'e karşı giriştiği mücadele yeni bir savaşa davetiye çıkaracaktır.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:1355",
+      "type": "movie",
+      "name": "Batman Robin'e Karşı",
+      "poster": "https://image.tmdb.org/t/p/w500/4d5GoTaD0Rm2ZNruKyp4q4yH594.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/4aJPdkPLnLiiCbfu6WFUQzER3u0.jpg",
+      "description": "Gotham City'nin karanlık köşeleri bir çocuğa uygun değildir ama Damian Wayne sıradan bir çocuk değil. Robin'in görevini üstlenince, dik kafalı ve bazen pervasız bir şekilde babası Batman'le çalışmaya başlar. Bir suç mahalini araştıran Robin'in tanıştığı Talon adlı esrarengiz biri, onu Gotham'ın gizli cemiyetlerinden biri olan Baykuşlar Saltanatı'nın derinliklerinde, hayatını değiştirecek bir serüvene sürükler. Bu tehlikeli yolculukta Batman ve Robin en zorlu rakipleriyle yüzleşecek: Birbirleriyle! Herkesin kaderini belirleyecek ve sonsuza dek Robin'in geleceğini şekillendirecek bu destansı çatışmaya tanık olun.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:1398",
+      "type": "movie",
+      "name": "Batman : Arkham'a Saldırı",
+      "poster": "https://image.tmdb.org/t/p/w500/mmQZekxr9gJ7c0Grkx6xgKvrpDy.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/bAM1hVZEQRo1ZujryQ47bOtxEe8.jpg",
+      "description": "Çok beğenilen oyun serisinden uyarlanan filmde Batman hem Joker tarafından kurulan bombayı kurmalı hemde yeni kurulan mistik takımla uğraşmalıdır; İntihar Takımı.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:2231",
+      "type": "movie",
+      "name": "Batmanin Oğlu",
+      "poster": "https://image.tmdb.org/t/p/w500/4XRkA1qJd3yteJlxR51A4eqerzW.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/jYqOnJDPI7QD9cGbE6CwDTp1tID.jpg",
+      "description": "Yarasa Adam, oğlunun Suikastçılar Birliği tarafından gizlice büyütüldüğünü öğrenir...",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3345",
+      "type": "movie",
+      "name": "Batman: Kara Şövalye Dönüyor 2.Bölüm",
+      "poster": "https://image.tmdb.org/t/p/w500/arEZYd6uMOFTILne9Ux0A8qctMe.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/zHqptza1ttGa7hkYNEXP7ECIyA9.jpg",
+      "description": "Batman on yıllık aradan sonra geri geliyor. Gotham yetkilileri onu yakalamak, eski bir düşman yeniden bir araya gelmek, Federaller onu durdurmak istiyordur.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3344",
+      "type": "movie",
+      "name": "Batman: Kara Şövalye Dönüyor 1. Bölüm",
+      "poster": "https://image.tmdb.org/t/p/w500/zOImyeUtB6cCoUwIDVeW6Iru7Op.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/bNLLjc6NT80FmFknvHn8demDHhl.jpg",
+      "description": "Bruce Wayne emekliliğe zorlanan diğer süper kahramanların çoğu gibi, üzerindeki pelerini çıkarıp atalı tam on sene oldu. Orta yaşın getirdiği olumsuzluklarla karşı karşıya kalan huzursuz Bruce Wayne öfkesini yarış arabaları ve içkiyle yatıştırmaktadır. Ancak yarasa şehrin Mutantlar diye bilinen barbar suçluların eline düştüğünü izlerken Wayne'i çağırmaya devam eder...  Harvey Dent'in “İki Yüz” olarak geri dönmesi, sonunda Wayne'in Kara Şövalye şapkasını yeniden takmasını sağlar. Kötü adamı dramatik bir şekilde yakalaması onun suçla savaşa geri dönmesine neden olur. Tabii bunun sonunda, Batman kanun yaptırımının hedefi ve perişan Gotham City'nin yeni umudu haline gelir.  Carrie isimli genç bir kız Robin'in yerine geçer ve sonunda Batman'i Mutantların liderinin korkunç saldırısından kurtarır. Yeni bir yardımcıyla güçlenen ve belirli bir amacı olduğu için yeniden enerji toplayan Kara Şövalye Gotham'ı eski ve yeni düşmanlarından korumak için geri dönmüştür...",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:337",
+      "type": "movie",
+      "name": "Batman: Kara Şövalye Yükseliyor",
+      "poster": "https://image.tmdb.org/t/p/w500/85cWkCVftiVs0BVey6pxX8uNmLt.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/cKPfiu9IcCW0fMdKdQBXe3PRtTZ.jpg",
+      "description": "Terörist lider Bane'in yaptığı gizli planları durdurmaya bu sefer ne Bruce Wayne'nin ne de Batman'in gücü yeter. Kedikadın Selina Kyle'ı da kendi safına çeken Bane, Gotham kentini ve halkını ciddi bir tehditle karşı karşıya bırakacaktır. Ne yerel kuvvetler, ne kahraman Jim Gordon ne de ordu olacakların önüne geçemez. Batman ilk kez kendisinden daha güçlü bir rakibe karşı mücadele verecektir. Christopher Nolan’ın Batman üçlemesinin sonuncusudur.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3231",
+      "type": "movie",
+      "name": "Batman: İlk Yıl",
+      "poster": "https://image.tmdb.org/t/p/w500/1Lrl3ORYR57DxwlllxsbWey3BBx.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/bNMw3onveTYU7PpLQRK0HQK8JRb.jpg",
+      "description": "Zengin Bir Playboy ve Chicago Polisi Hayatları Beklenmedik Şekilde Gotham City de Kesişir .Hem de kesin bir Dönüş Yaparak...Batman ilk yılını Gordon'ın gözünden anlatıyor...Nasıl karar verdi? Neler yaptı? İnsanlara kendisini kabul ettirmeyi nasıl başardı? Ve ilk arkadaşları...",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:1397",
+      "type": "movie",
+      "name": "Batman: Kırmızı Başlığın Altında",
+      "poster": "https://image.tmdb.org/t/p/w500/bDDUUJ5w5VA7JdxFPUiE6iC1qiT.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/3xnfbtgJmVotajqM57iKib3ftnT.jpg",
+      "description": "Joker tarafından tutsak edilip öldürülen Robin, buna sebep olan Ra's al Ghul tarafından hayata döndürülüyor. Ancak Robin ölümden zarar görmüş bir ruh haliyle geriye dönüyor ve Red Hood adı altında Batman'e rakip olarak Gotham kentine gelip kendi tarzında suçlularla mücadeleye başlıyor. Uyguladığı yöntemlerle Batman'i karşısında bulunca, karşı karşıya geliyorlar. Red Hood hakkında derin bir araştırma yürüten dedektif Batman, dramatik bir şekilde rakibinin öldüğünü sandığı Robin olduğunu öğreniyor. Karanlık Şövalye'nin en zor mücadelelerinden birisine şahit olacağımız 'Under the red hood' izleyiciye üst seviyede görsellik, aksiyon ve dramatik anlatım sunuyor.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:437",
+      "type": "movie",
+      "name": "Batman: The Brave and the Bold",
+      "poster": "https://image.tmdb.org/t/p/w500/ukXZ1N9Pd99vDNetFKYNpFYgoXF.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/gPJZKiqBU5OVPhalvNDkU6NF8jQ.jpg",
+      "description": "Batman The Brave And The Bold, ABD yapımı bir animasyon dizidir ve The Batman çizgi filminin devamıdır. İlk bölümü Rise Of The Blue Beetle 'dır. Dizi 22 dakikalık bir çizgi dizidir.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:73",
+      "type": "movie",
+      "name": "Batman : Kara Şövalye",
+      "poster": "https://image.tmdb.org/t/p/w500/ggax1nyhiGIwbq1Ynk0otH2sD6.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/hkBaDkMWbLaf8B1lsWsKX7Ew3Xq.jpg",
+      "description": "Suç işleyenlerden arındırılan bir yer, bir zaman sonra yeniden tehdit altında kalabilir ve işte o zaman yeniden kolları sıvayacak olanların mücadelesi de daha keskin olarak hayata geçecektir. Batman, Teğmen Gordon ve Savcı Harvey Dent bir araya gelerek Gotham Sokakları’nda bu işi kotarmış olsalar da ansızın ortaya çıkan Joker, işleri fena halde bozar. Onun dehası ile baş etmek kolay olmayacaktır. Gotham eski karmaşa dolu günlerin eşiğindedir. Batman yeniden kurtarıcılığa soyunurken kendi varlığının bulduğu anlamı da sorgulamaya başlar...",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3592",
+      "type": "movie",
+      "name": "Batman: Gotham'ın Şövalyesi",
+      "poster": "https://image.tmdb.org/t/p/w500/6ZJCFDyERfDZDNUogmap6zdWNG2.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/niRgVCgvDVxD67u6gjKZnkBO1AD.jpg",
+      "description": "Yarasa Adam Başlıyor ve Kara Şövalye filmleri arasında geçen olayları anlatan 6 kısa animasyon bölümünden oluşan bir animasyon eğer batman hayranıysanız mutlaka izlemelisiniz.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3458",
+      "type": "movie",
+      "name": "Batman Dracula'ya Karşı",
+      "poster": "https://image.tmdb.org/t/p/w500/rmIUL5BG78mbBs3d6hYbu9f7AwG.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/8Or1XOnUMtg4NIpOCDmdDqRwU4k.jpg",
+      "description": "İki efsanevi yarasa uçmaya hazırlanırken, Gotham City karanlıklar perdesi altında uyuyordu.  Biri şehri vampirler ordusu ile doldururken, diğeri elinden gelen herşey yaparak kargaşayı durdurmaya çalışıyor. Tüm yüksek teknolojik silahlar ile donatılmış olmasına arşın Kara Şovalye neticede ölümlü bir adamdır.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:336",
+      "type": "movie",
+      "name": "Batman Batman Başlıyor",
+      "poster": "https://image.tmdb.org/t/p/w500/q7OK13aqXAwppQAF6yT6wZeKtc6.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/y9AuabF1SXnn3xZ0tAJLLhv33Uj.jpg",
+      "description": "Ailesi öldürülen playboy Bruce Wayne, Henri Ducard ve Ra’s Al Ghul’ın yol göstericiliğinde Asya’ya taşınır. Gotham adeta şeytanlarla, kötü hesapların peşinde olan adamlarla kuşatılmış bir yerdir. Suç olayları bitmek bilmez. Bruce Wayne’in amacı bu şehre adaleti getirerek insanların ruhundaki korkuları ortadan kaldırmak ve onları huzurlu kılmaktır.Yol göstericisi Ra’s Al Ghul her ne kadar ona çok şey öğreten insan olsa da bir başka açıdan yoluna engel de teşkil etmektedir. Christopher Nolan’dan gelen bir Batman üçlemesinin ilk filmidir.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3518",
+      "type": "movie",
+      "name": "Batman Beyond: Joker'in Dönüşü",
+      "poster": "https://image.tmdb.org/t/p/w500/n4SoBsYlxgeuJ5Fo0n6D3PM23qF.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/scNssnn5PN99fBODNzxF5qN4Iw8.jpg",
+      "description": "Bakımlı, yalancı ve ölümsüz gibi görünen, soytarı, suçların prensi tüm gücüyle geri döndü. Terry McGinnis. Joker'in sırlarını ortaya çıkarmaya çalışırken, gerçek Pelerinli Savaşçı'nın büyük sırrını keşfeder: Onun Joker'le dövüştüğü gece neler olduğunu. Bruce Wayne. Joker'in son saldırısında ölümden dönmesiyle, yeni Batman, ustasının öcünü almaya yemin eder ve Joker'i sonsuza kadar dinlenmeye gönderir. Kalp durdurucu bir macera ve inanılmaz görüntülere hazır olun!",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:471",
+      "type": "movie",
+      "name": "Batman Beyond",
+      "poster": "https://image.tmdb.org/t/p/w500/ix6nlIjaHjPnIHwpyHEr38FmXIQ.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/A8We2BSM6hJ1VWzncssnU2fFsft.jpg",
+      "description": "Bruce Wayne'in Batman olarak emekli olmasından on yıllar sonra, bir çocuk kendi babasının cinayetinin intikamını almak için bu kimliğe bürünür.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:1799",
+      "type": "movie",
+      "name": "Batman ve Robin",
+      "poster": "https://image.tmdb.org/t/p/w500/r6TZjc1c0S2k5KTamL66Q2OuyoJ.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/m4UT6yKXhXgbzxpeV35L4jLoJoP.jpg",
+      "description": "Batman ve Robin, Gotham şehrinin kötü adamlarını durdurmak için tekrar birlikte çalışmaya başlamışlardır. Ancak aralarında bazı sorunlar oluşur. Kendisine zehirli sarmaşık (Poision İvy) denilen ve istediği herkesi kendisine aşık edebilme yeteneğine sahip olan kadın ve amacına ulaşabilmek için dokunduğu her şeyi dondurabilmesiyle bilinen Mr. Freeze, bu macera boyunca ikilinin mücadele edeceği kötü karakterlerdir.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:1798",
+      "type": "movie",
+      "name": "Batman Daima",
+      "poster": "https://image.tmdb.org/t/p/w500/jyL0z3s86OIOrX1YAQqcs845TZv.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/snlu32RmjldF9b068UURJg8sQtn.jpg",
+      "description": "Gotham Şehri'nin Karanlık Şövalyesi, bu macerada Two Face ve Riddler adlı iki korkunç süper-suçlu'ya karşı savaşıyor. Bir yandan şehri bu iki caninin elinden kurtarmaya çalışırken bir yandan da güzel doktor Chase Meridian'a kalbini kaptırmıştır. Kötülere karşı zorlu savaşında yeni ortağı ise harika çocuk Robin'dir.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:1471",
+      "type": "movie",
+      "name": "Batman: Hayaletin Maskesi",
+      "poster": "https://image.tmdb.org/t/p/w500/iim4OL93OkjudiVWYRQiwmREbhU.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/9BtUWZhigispqSUYhrS6cJHpvwx.jpg",
+      "description": "Bruce Wayne'nin nasıl Batman olmak için karar verdiğinin arada flashbacklerle anlatıldığı, Andrea Beaumont'un Bruce'un kararındaki rolünü ve joker ile ilgili güzel bir süprizi içeren bir Batman animasyon filmi. Ayrıca Batman'in motorsikletli göründüğü ender sahnelerden birine sahiptir.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:273",
+      "type": "movie",
+      "name": "Batman Animasyon Serisi",
+      "poster": "https://image.tmdb.org/t/p/w500/lBomQFW1vlm1yUYMNSbFZ45R4Ox.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/2Eib5rvQXl2TTp4GBLgTnvAQNUL.jpg",
+      "description": "Ebeveynlerinin öldürülmesinin intikamını almaya söz veren Bruce Wayne, maskeli kanunsuz \"Batman\" olarak hayatını Gotham Şehrindeki suçları ortadan kaldırmaya adar.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:1797",
+      "type": "movie",
+      "name": "Batman Dönüyor",
+      "poster": "https://3.bp.blogspot.com/-pIhHTdpMk-w/WgcQDDTvlUI/AAAAAAAAFrA/uksbuVVXuAwgsV7LSx6ORouM-SE28h4hACLcBGAs/w680/1200x630bb.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/3WP0RObZ2t7ShHfqQpKPljF9B22.jpg",
+      "description": "İlk filmde karanlığın dozunu arttıran Burton başından sonuna kadar kötücül ve gerilim dolu bir film çıkardı ortaya bu kez Batman' in karşısında Kedi Kadın ve Penguen var...",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3077",
+      "type": "movie",
+      "name": "Küçük Batman'ın Noeli",
+      "poster": "https://image.tmdb.org/t/p/w500/qpjrjMw0SbUG8AP8nvHQzQZw8jv.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/a21obwG9qMSf1qa6oG4ZgpOyMaA.jpg",
+      "description": "Bu Noel'de Damian Wayne, babası gibi tek Batman olan bir süper kahraman olmak istiyor. Batman, Noel arifesinde Gotham'ın en kötü süper kötüleriyle karşı karşıya gelirken Damian evde yalnız kalınca, Noel'i çalmaya yönelik hain bir komployla karşılaşır ve günü kurtarma şansını yakalar.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:97",
+      "type": "movie",
+      "name": "Yenilmezler Son Oyun",
+      "poster": "https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg",
+      "description": "\"Avengers Infinity War\"un ardından pek çok süper kahraman küle dönüşmüştür. Doktor Strange, Gamora, Drax, Mantis, genç Örümcek Adam, Black Panther, Bucky Barnes, Groot, Scarlet Witch, Vision, Star Lord, Maria Hill, The Wasp ve Nick Fury gibi pek çok kahraman, Thanos'un Sonsuzluk Eldiveni'ni ele geçirmesi ve kendi dengesini kurması yüzünden yok olmuştur ve dünya umutsuz haldedir. Dünya üzerinde kalan Black Widow, Kaptan Amerika, Thor ve Hulk kendi yaslarını tutmaktayken, Iron ve Nebula ise kontrol edemedikleri bir uzay gemisinin içinde, uzay boşluğunda sürüklenmektedirler.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:171",
+      "type": "movie",
+      "name": "Yenilmezler: Sonsuzluk Savaşı",
+      "poster": "https://tr.web.img2.acsta.net/pictures/18/03/16/15/01/4344531.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/lmZFxXgJE3vgrciwuDib0N8CfQo.jpg",
+      "description": "Kaptan Amerika ve Iron Man'in arasında yaşanan olayların ardından bölünen kahramanlarımız, birbirlerinden uzaklara savrulurlar. Hepsi kendi yandaşlarıyla dünyayı korumaya çalışmaktadır. Ancak dünyanın kaderi bir kez daha tehlikeye girer. Sınırsız bir güç kaynağı olan sonsuzluk taşlarının peşine düşen Thanos, dünyanın gördüğü en büyük tehdittir. İnsanlığın kaderi bir kez daha, insanlık için savaşmaya ant içmiş kahramanlarımız elindedir. Hiçbir süper kahramanın tek başına yenemeyeceği büyüklükteki bu tehdit için ekipler birleşmeli ve tehdide tüm güçleriyle karşı koymalıdır...",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:418",
+      "type": "movie",
+      "name": "Yenilmezler: Ultron Çağı",
+      "poster": "https://image.tmdb.org/t/p/w500/m4YYHOQ933Kr99AF1svF9KitgDf.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/xnqust9Li4oxfhXD5kcPi3UC8i4.jpg",
+      "description": "Iron Man Tony Stark önderliğinde bir grup süper kahraman, aktif olarak kullanılmayan bir barışı koruma programını gerçekleştirmek isterler, ancak işler çığrından çıkar ve insan yapımı bir yapay zeka olan Ultron'un eline, hain planlarını gerçekleştirme fırsatı geçer. Süper kahramanlar onu durdurabilmek için bir kez daha güç birliği yapmak zorundadır. Tüm dünyaya yayılan bir savaş başlayacaktır.  Filmde Robert Downey Jr. Scarlett Johansson, Mark Ruffalo ve daha birçok popüler aktör rol alırken, James Spader, Ultron'a sesiyle hayat veriyor.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:290",
+      "type": "movie",
+      "name": "Scavengers Reign",
+      "poster": "https://image.tmdb.org/t/p/w500/bFlVZV8TQbs8hcIY7PVYonYFMgK.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/rTViEeltl4rO974PmkUAdhQqW2R.jpg",
+      "description": "Hasar görmüş bir yıldızlararası yük gemisinin geri kalan mürettebatı, kendilerini güzel ama affetmeyen bir uzaylı gezegeninde mahsur kalmış halde bulur. Burada kaçmak ya da kurtarılmak için yeterince uzun süre hayatta kalmaları gerekir. Ancak hayatta kalanlar, düşen gemilerini ve kayıp mürettebat arkadaşlarını bulmaya çalışırken, yeni evleri, insan müdahalesi olmadan gelişmesine izin verilen düşmanca bir dünyayı ortaya çıkarır.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:82",
+      "type": "movie",
+      "name": "Marvel's Avengers Assemble",
+      "poster": "https://image.tmdb.org/t/p/w500/aVYPq7FSvsdNQOXVIFnndXJPCXn.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/6ZqXMR9aLLdGjbxkIMo77EhZexy.jpg",
+      "description": "Iron Man, Hulk, Thor, Captain America, Hawkeye, Falcon ve Black Widow, güçlerini hiçbir kahramanın tek başına dayanamayacağı tehditlere karşı birleştirir. Avengers birleştiğinde, kötülüğün hiç şansı yoktur!",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:5",
+      "type": "movie",
+      "name": "Yenilmezler",
+      "poster": "https://image.tmdb.org/t/p/w500/zM4ulQLKxBpmzanvPQNkj3VV4a5.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/nNmJRkg8wWnRmzQDe2FwKbPIsJV.jpg",
+      "description": "SHIELD adıyla tanınan uluslararası barış örgütünün başındaki isim Nick Fury, tüm dünyanın güvenliğine karşı büyük bir tehdit oluşturan düşmanla karşı karşıya kalır.Fury, dünyayı yaklaşan bu felaketten kurtarmak için en cesur ve en 'süper' kahramanlardan oluşan bir ekip kurmak zorundadır...",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:490",
+      "type": "movie",
+      "name": "The Avengers: Earth's Mightiest Heroes",
+      "poster": "https://image.tmdb.org/t/p/w500/r1JDhMrqCOZKh7lc0vQlRYQ46cE.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/vgPDKfOerEyF260CvozVEWj9T8n.jpg",
+      "description": "Kaosa sürüklenen bir dünyada kahramanlar, kötü adamların yüksek güvenlikli hapishanelerden toplu kaçışına karşı birleşerek barışı ve düzeni yeniden tesis etmeyi amaçlıyor.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:2626",
+      "type": "movie",
+      "name": "Süper Kahramanlar 2",
+      "poster": "https://image.tmdb.org/t/p/w500/h1PKqtjuTifmTU0EqM4W0Br2pHX.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/ldxi7dKtud2KrStUr8V9P65ixNr.jpg",
+      "description": "Gizemli Wakanda, dünyanın birçok yerinde bilinmeyen, Afrika'nın en karanlık merkezinde yatıyor. Sınırların ardında saklanan, genç kralları Black Panter tarafından şiddetle korunan izole bir arazidir. Ancak acımasız yabancı işgalciler saldırıya uğradığı zaman, tehdit Kara Panter'i halkının kutsal kararlarına karşı çıkmaktan ve yabancılardan yardım istemekten başka seçeneğe sahip değil.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:2625",
+      "type": "movie",
+      "name": "Süper Kahramanlar",
+      "poster": "https://image.tmdb.org/t/p/w500/fKQqZEDmvKMCXEQztvMJHGou9dO.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/9tjIgkkbajG2zMI4Yk21hpttXv0.jpg",
+      "description": "Tek başlarına “Süper Kahramanlar”; Birlikte ise bir takımdırlar.Dünya da büyük bir kaos hüküm sürmekte, eski düşmanlar yeniden saldırma planları yapmaktadırlar. Süper Kahramanların dünyanın tek kurtarıcısı olan Kaptan Amerika’nın liderliğinde bir araya gelme zamanı gelmiştir. Ancak, Kaptan Amerika 60 yıldan fazla bir süredir bir buzun içine hapsolmuştur…",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:174",
+      "type": "movie",
+      "name": "Demir Adam",
+      "poster": "https://image.tmdb.org/t/p/w500/2j5Hga4ArYaSslbWL0hfLerZ6pQ.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/8EgxSaVRZwcm3pWChyW4j7yPplq.jpg",
+      "description": "“Iron Man – Demir Adam” karakterinin, çizgi roman tutkunlarıyla ilk tanışması 1962 yılında oldu. Kısa sürede geniş kitlelerin severek okuduğu çizgi romana dönüşen “Iron Man – Demir Adam”da Çin ordusu için silah yaratmak zorunda bırakılan milyoner sanayici Tony Stark, istemeden yaptığı bu çalışma sırasında kendisi için de gizlice zırh üretiyordu. Böylece Çinliler’in kontrolünden çıkarak onları durdurabileceğine inanıyordu. Çin’den kaçıp ABD’ye geri döndüğünde tehlikeli bir komplonun varlığını keşfedince durdurabilmek için de Demir Adam’a dönüşüyordu.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:484",
+      "type": "movie",
+      "name": "Iron Man",
+      "poster": "https://image.tmdb.org/t/p/w500/nTQWWH6CFtl37x1nPx8HRwbwvGn.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/1TEtxOmlYQ5zvwyZrDWjSred89P.jpg",
+      "description": "Zengin bir mucit, dünyayı tehdit eden kötü adamlara karşı savaşta süper kahramanlardan oluşan bir ekibe liderlik etmek için gelişmiş kıyafetini kullanarak bir kahraman olur.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:176",
+      "type": "movie",
+      "name": "Demir Adam 3",
+      "poster": "https://image.tmdb.org/t/p/w500/mt6ppX4nzTMU0e7lpixawyVK500.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/tKa1gmGKAUVYnflYcadipeL3d9h.jpg",
+      "description": "Milyarder iş adamı, kahraman ve mucit Tony Stark, bu sefer gücü ondan çok daha fazla, hatta sınırsız bir düşmanla karşı karşıya kalıyor. Üstelik bu düşman, o çok sinirlendirecek bir hamle yaparak özel hayatını yok ediyor. Stark şimdi bu olayların kaynağını araştıracağını zorlu bir mücadeleye giriyor. Fakat en yakınlarını korumak için zekasının ve cesaretinin yanı sıra içgüdülerine de ihtiyacı var. Stark'ın bu savaşında kafasında dönüp duran soru ise belki de tüm olayların en can alıcı yanı: Adam mıdır kıyafeti kıyafet yapan yoksa kıyafet midir adamı adam yapan?\r Yarattığı alaycı karakterlerle hayran kitlesini geliştiren Robert Downey Jr.'ı dördüncü kez Tony Stark olarak izleyeceğimiz filmin yönetmenliğini ise Shane Black üstleniyor.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:175",
+      "type": "movie",
+      "name": "Demir Adam 2",
+      "poster": "https://image.tmdb.org/t/p/w500/1NHEyFPxKnsLdMuDVPy6AI7GRmE.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/7lmBufEG7P7Y1HClYK3gCxYrkgS.jpg",
+      "description": "Serinin ikinci filmin de milyarder mucit Tony Stark’ın zırhlı Süper Kahraman Iron Man olduğu tüm dünya tarafından bilinmektedir. Teknolojisini orduyla paylaşması için hükümetten, basından ve halktan baskı gören Tony, bilginin yanlış ellere geçmesinden korktuğu için Iron Man zırhının sırrını açıklamak istemez. Yanında Pepper Potts, ve James “Rhodey” Rhodes ile birlikte, Tony yeni ittifaklar kurar ve yeni büyük güçlerle yüzleşir.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:522",
+      "type": "movie",
+      "name": "Örümcek Adam Eve Dönüş Yok",
+      "poster": "https://image.tmdb.org/t/p/w500/kWehgvKLoJECYnpYUbKGsaN0POo.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/VlHt27nCqOuTnuX6bku8QZapzO.jpg",
+      "description": "Örümcek Adam'ın sinema tarihinde ilk kez, dost canlısı mahalle kahramanımız maskesizdir ve artık normal hayatıyla süper kahraman olmanın yüksek risklerini birbirinden ayıramıyordur. Doktor Strange'den yardım istediğinde, riskler daha da tehlikeli hale gelir ve onu Örümcek Adam olmanın gerçekte ne anlama geldiğini keşfetmeye zorlar.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:412",
+      "type": "movie",
+      "name": "Örümcek Adam 3",
+      "poster": "https://image.tmdb.org/t/p/w500/gnjSgZuTUfuuGRZ46qNc9LUNdDy.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/6MQmtWk4cFwSDyNvIgoJRBIHUT3.jpg",
+      "description": "Efsanevi Marvel Comics dizisine dayanan filmde, Peter Parker nihayet Mary Jane'e duyduğu tutku ile süper kahramanlık görevleri arasındaki dengeyi kurar. Ancak, ufukta belirmeye başlayan bir fırtına vardır. Peter'ın Örümcek Adam kostümü birden bire değişip siyaha dönüşerek güçlerini pekiştirmeye başlayınca, Peter da değişmeye başlar. Kostümün etkisi altındaki Peter, kibirli ve kendine aşırı güvenli biri olur; en değer verdiği kişileri ihmal etmeye başlar. Bugüne dek en korkulan iki kötü kahraman Kumadam ve Venom benzersiz güçler edinip, intikam ateşiyle yanarken, Peter en büyük savaşını kendi içinde yapmaktadır. Örümcek Adam'ın onu o yapan, onu bir kahraman yapan özelliğini, yani şefkati yeniden keşfetmesi gerekecektir.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:411",
+      "type": "movie",
+      "name": "Örümcek Adam 2",
+      "poster": "https://image.tmdb.org/t/p/w500/2DwuE8UwpebKgMnpII35YSL9NL1.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/6al048Lat3eLVQOuKtc9h6Tu94d.jpg",
+      "description": "Sevgilisi Mary Jane'den ayrılan Peter ona gerçek kimliğini açıklayıp açıklamamak arasında kaldığı için oldukça zor bir dönem geçirmektedir. kararsızlık içine düştüğü bu esnada Mary Jane'in, patronun oğlu John'la birlikte olmaya başlaması iyice canını sıkar. Bunlara, halasının mali sıkıntıları ve hayattaki tek dostu Harry Osborne'un, babasının ölümünden kendisini sorumlu tuttuğu için Peterdan uzaklaşması onu depresyonun eşiğine getirmiştir. Bu esnada, yeni düşmanı Doktor Ahtapot'un ortaya çıkmasıyla Peter Parker'ın hayatı içinden çıkılmaz bir hal alacaktır.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:216",
+      "type": "movie",
+      "name": "Spider-Man: The New Animated Series",
+      "poster": "https://image.tmdb.org/t/p/w500/oAMMVcyCxRiTaz35sYeCPyyjco9.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/zw3IQw3bQp90XaN8IYM84wtjC6Y.jpg",
+      "description": "Spider-Man: The New Animated Series - Anthology",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:410",
+      "type": "movie",
+      "name": "Örümcek Adam",
+      "poster": "https://image.tmdb.org/t/p/w500/5WdFGuPhkj8q6jJfgCUq7fp3mIt.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/sWvxBXNtCOaGdtpKNLiOqmwb10N.jpg",
+      "description": "Sıradan bir lise öğrencisi olan Peter Parker'ın hayatı bir gün bir örümcek tarafından ısırılmasıyla tamamen değişir. Çünkü bu örümcek sıradan bir örümcek değildir, genetik olarak özelikle geliştirilmiş, bilimsel amaçlarla kullanılan bir denektir. Öte yandan olan olmuştur ve Parker'da tuhaf değişiklikler başgöstermektedir.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:398",
+      "type": "movie",
+      "name": "Your Friendly Neighborhood Spider-Man",
+      "poster": "https://image.tmdb.org/t/p/w500/kjcsNeqF52YUQ2rUBGLMHwLkxvR.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/7CaXcLBWf41nHyX33DmpIpcOSg4.jpg",
+      "description": "Peter Parker kahraman olma yolundadır ama bu yol hiç sıradan değildir.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:2412",
+      "type": "movie",
+      "name": "Vjeran Tomic: Tablo Hırsızı Örümcek Adam",
+      "poster": "https://image.tmdb.org/t/p/w500/ypq9yEIQUpekdhFq4x8xIDbMmwB.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/8YTbDLjcIpCvBjiUa1yYFFUhwGX.jpg",
+      "description": "2010 Paris Modern Sanat Müzesi soygununun ardındaki isim, Fransa tarihindeki en büyük sanat hırsızlığına nasıl imza attığını kendi sözleriyle anlatıyor.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:1905",
+      "type": "movie",
+      "name": "LEGO Marvel Spider-Man: Vexed by Venom",
+      "poster": "https://image.tmdb.org/t/p/w500/gTo2r8nNU3ZYAS6DqdeSp1VEqkq.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/EXJrCRBYAPffNuMQbX7irsbrRn.jpg",
+      "description": "Green Goblin ve Venom sayesinde, teknoloji hırsızlığı artık tüm zamanların en yüksek seviyesinde. Örümcek Adamımız, New York'un tamamı yok edilmeden önce gizemli kötülük işlerine son verebilecek mi?",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:414",
+      "type": "movie",
+      "name": "İnanılmaz Örümcek Adam 2",
+      "poster": "https://image.tmdb.org/t/p/w500/tLBUwuFqkI6zZQXcEF4eLhNPmcy.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/iWrDibFusV4JEz5Qw79RuWSGfX4.jpg",
+      "description": "Gwen Stacy'yi tehlikeli hayatının dışında bırakma sözünü tutmakta zorlanan Örümcek Adam, Rhino'ya ve güçlü Electro'ya meydan okur.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:413",
+      "type": "movie",
+      "name": "İnanılmaz Örümcek Adam",
+      "poster": "https://image.tmdb.org/t/p/w500/7DtKzBQYXgmy7TIQ3STcsw9XK1k.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/sLWUtbrpiLp23a0XDSiUiltdFPJ.jpg",
+      "description": "Süper kahraman serisinin yeniden çekilen bu filminde, lise öğrencisi Peter Parker, baş düşmanı Kertenkele'yle karşılaşırken yeni güçlerini ustaca kullanmayı öğrenir.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:195",
+      "type": "movie",
+      "name": "The Spectacular Spider-Man",
+      "poster": "https://image.tmdb.org/t/p/w500/dCNxOhXT7c4lqYuRpdM3m8s9XDp.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/6rzoUOEkOVxB6EXHp0EgeNd4tke.jpg",
+      "description": "Örümcek Adam çizgi dizisinin her bölümünde yeni ve ayrı bir macera yer alacak. Amcası ile yaşayan, ders dışında pek başarılı olamayan Peter Parker günün birinde radyoaktif bir örümcek tarafından ısırılır. Günler geçtikçe kendinde sıradışı güçler olduğunu keşfetmeye başlar. Artık duvarlarda yürüyebilmekte, elleriyle ağ fırlatabilmektedir. İlk başlarda bu yeteneklerini eğlenmek için kullanır. Fakat kısa bir süre sonra bu güçlerini New York şehrini kötülerden korumak için kullanacaktır.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:60",
+      "type": "movie",
+      "name": "Avatar",
+      "poster": "https://image.tmdb.org/t/p/w500/9n3OpN5VkRx7uo6EiDMEo7Mdb7t.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/jlQJDD0L5ZojjlS0KYnApdO0n19.jpg",
+      "description": "Bir hırsızlık olayında ağabeyi ölen yarı felçli Jake Sully (Sam Worthington), Pandora adındaki uzak bir gezegende görevinin başına geçmeye karar verir. Bu yerde Na’vi adında giderek tükenmekte olan bir halk yaşamaktadır. Askeri bir şirket, söz konusu yeri ve oradaki kaynakları mercek altına almak üzere Avatar adında bir program oluşturmuştur. Bu program insanları kısmen insan kısmen de Na’vi haline büründürerek misyon amaçlı Pandora’ya göndermektedir. Bu sisteme gönüllü dahil olan Botanist Dr. Grace Augustine (Sigourney Weaver) ve Jake Sully için başka bir yaşam var olacaktır. Sully, Pandora’ya geçtiği anda felçli bedeni değişime uğrayarak işlevsel hale gelir. Bu sırada Na’vi halkından Prenses Neytiri (Zoe Saldana) ile karşı karşıya gelen Jake, ansızın bir farkındalık yaşar ve bir araştırma misyonu ile gönderildiği bu gezegeni, kendi dünyalısından korumaya karar verir.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:38",
+      "type": "movie",
+      "name": "Avatar",
+      "poster": "https://image.tmdb.org/t/p/w500/cHFZA8Tlv03nKTGXhLOYOLtqoSm.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/eny2MtpVhKqMLTZWCBGGofwNcfN.jpg",
+      "description": "Avatar dört elementin (su, toprak, ateş ve hava) ustası olan ve su kabileleri, toprak krallığı, ateş ulusu ve hava göçebelerinin arasında denge unsuru olan avatar ruhunun son taşıyıcısı.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:4080",
+      "type": "movie",
+      "name": "Avatar: Ateş ve Kül",
+      "poster": "https://image.tmdb.org/t/p/w500/8kknNk7PbOcDUXynUZYZ7EHnKAA.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/u8DU5fkLoM5tTRukzPC31oGPxaQ.jpg",
+      "description": "Pandora gezegeninde geçen destansı macera devam ediyor. Jake Sully ve Neytiri'nin ailesi, Pandora'nın ateş kabilesiyle tanışır ve yeni tehditlerle yüzleşirler. İnsanlar, Pandora'nın kaynaklarını sömürmeye devam ederken, Na'vi halkı doğayla uyum içinde yaşamaya çalışır. Jake ve Neytiri, ailelerini korumak ve Pandora'yı savunmak için büyük bir mücadeleye girişirler.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:800",
+      "type": "movie",
+      "name": "Avatar Son Hava Bükücü",
+      "poster": "https://image.tmdb.org/t/p/w500/lzZpWEaqzP0qVA5nkCc5ASbNcSy.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/u62XtaV8Iski2CgAUM8Yp0ZgKxD.jpg",
+      "description": "Avatar olarak bilinen bir çocuk, savaş hâlindeki dünyayı kurtarmak için dört element gücünde de ustalaşmalı ve onu durdurmaya kararlı olan acımasız bir düşmanla savaşmalıdır.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:1736",
+      "type": "movie",
+      "name": "Avatar Suyun Yolu",
+      "poster": "https://image.tmdb.org/t/p/w500/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/ovM06PdF3M8wvKb06i4sjW3xoww.jpg",
+      "description": "Set more than a decade after the events of the first film, learn the story of the Sully family (Jake, Neytiri, and their kids), the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, and the tragedies they endure.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:91",
+      "type": "movie",
+      "name": "Avatar: The Legend of Korra",
+      "poster": "https://image.tmdb.org/t/p/w500/nhP0VGO2GSZbL4PUgmA6Vja48aM.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/hmrNfrUl3FFaymDj6Iw5oKQjIs2.jpg",
+      "description": "Sürekli olarak geleneğe meydan okuyan ve geleneğe meydan okuyan güçlü, asi, inatçı, genç bir kadın olan Avatar Korra, tamamen gerçek bir Avatar olma arayışı içinde. Bu hikayede, Avatar kendi içinde dengeyi bulmak için mücadele eder.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:307",
+      "type": "movie",
+      "name": "Quanzhi Gaoshou",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/aXWmkDgM3Aq2SFCc2qNJlEZQSo2.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/u60TgdPLhfhGT94Xm3es2urm052.jpg",
+      "description": "Glory isimli online oyunda Ye Xiu profesyonel oyuncular arasındadır. Ne var ki çeşitli sebeplerden ötürü takımdan atılır. Profesyonel oyuncular sahnesinden inmesinden sonra ise internet kafede bir iş bulur. Glory oyununun 10. sunucusu açıldığı vakit kendisini bir kez daha oyuna atar. 10 yıllık tecrübe ve yaşadıkları ile zirveye giden yolu tekrar adımlıyordur.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:55",
+      "type": "movie",
+      "name": "Ucuz Roman",
+      "poster": "https://image.tmdb.org/t/p/w500/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/suaEOtk1N1sgg2MTM7oZd2cfVp3.jpg",
+      "description": "Gangsterler camiasına içerden, unutulmaz bir bakış. Quentin Tarantino'yu her ne kadar önceki filmi Rezervuar Köpekleri ile çok övgü aldıysa da, kitlelere asıl tanıtan film. Ödül avcısı Butch Coolidge şeytanla yaptığı bir anlaşmada ödemeyi durdurmaya karar verir. Honey Bunny ve Pumpkin, hayatlarına biraz hareket katmak isteyen genç ve birbirine aşık bir çift küçük soyguncudur. Öteyandan, iki kaşarlanmış gangster, Vincent Vega ve Jules, günlük işlerinden biri olarak, patronlarına ödemeyi geciktiren bir kaç sahetekar genci vurmaya giderler. Vincent patronun güzel ve genç karısına bebek bakıcılığı yapmakla da görevlendirilirken ortağı suç yaşamına son vermeye karar verir. Cesur bir boksör ise para karşılığı hile yapmayı reddederek şehirden kaçar. Kader bu aykırı tipleri muhteşem bir şekilde bir araya getirecek, yollarını kesiştirecektir.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:56",
+      "type": "movie",
+      "name": "Forrest Gump",
+      "poster": "https://image.tmdb.org/t/p/w500/saHP97rTPS5eLmrLQEcANmKrsFl.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/qdIMHd4sEfJSckfVJfKQvisL02a.jpg",
+      "description": "Forrest Gump, zeka seviyesi 75 olan bir erkeğin hayatını ele alıyor. Zeka seviyesi nedeni ile devlet okullarına girmekte bile zorlanan Forrest Gump zamanla akla mantığa uymayan başarılara imza atıyor. Her ne kadar zeka seviyesi düşük olsa da fiziksel olarak son derece sağlam olan Forrest Gump, zamanla gelişen olaylar zincirinde bizi hayal edemeyeceğimiz bir dünyaya götürüyor.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:864",
+      "type": "movie",
+      "name": "Yedi Dünya Bir Gezegen",
+      "poster": "https://image.tmdb.org/t/p/w500/tpXNx8j4Nr15iKSTU1NDFfr9FKy.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/5SeRUwZTHuiOnLfcxXqfew1P0Ug.jpg",
+      "description": "Milyonlarca yıl önce inanılmaz kuvvetler, her biri kendine özgü bir iklime, kendine özgü araziye ve kendine özgü hayvan yaşamına sahip olan yedi kıtamızı yaratan Dünya'nın kabuğunu parçaladı. Güney Amerika'nın renkli cennetinden Afrika'nın kavurucu sıcağına kadar Yedi Dünya: Bir Gezegen sırayla her kıtanın gerçek karakterini sergiliyor ve oradaki yaşamı nasıl şekillendirdiğini ortaya koyuyor. Beklenmedik hikayelere şaşırın. İkonik manzaralara hayret edin. Ve muhteşem vahşi yaşamın tadını çıkarın. Yedi Dünya, Bir Gezegen, bildiğini düşündüğünüz bir dünya etrafında göz alıcı bir yolculuğu sergiliyor.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:1517",
+      "type": "movie",
+      "name": "Seven Seconds",
+      "poster": "https://image.tmdb.org/t/p/w500/mexUP20U3sPzu8jfGeRIHzI3TUC.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/dhVMKKQ31LC7IxM374LCYexNyVT.jpg",
+      "description": "Jersey City’de geçen hikayede Brenton Butler ve ailesinin hayatı beklemedikleri bir şekilde değişir. Kafkasyalı beyaz bir polisin, yanlışıkla Afro Amerikan bir genci vurmasıyla gündem değişir. Gencin ağır şekilde yaralanmasıyla sonuçlanan olay yaşandıktan sonra şehirde büyük bir gerilim patlak verir. Polis ve vatandaşların arasındaki gerilim günden güne yükselirken olayın üzeri kapatılmaya çalışılır ve yüzyılın davası başlar.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3041",
+      "type": "movie",
+      "name": "Yedinci Oğul",
+      "poster": "https://image.tmdb.org/t/p/w500/AfB32rzm1JNA5chX73oJnts8bnn.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/wPZPiHsd7Oz3vg3IuVRtSHBY9iU.jpg",
+      "description": "18. yüzyılda geçen hikayede, genç Thomas yerel halkın içerisinde olan Spook isimli öğretmeninden eğitim alarak, kötü ruhlara karşı savaşmayı öğrenmesi gerekmektedir. İlk büyük sınavını ise Spook kasabadan uzaktayken güçlü Anne Malki’nin hapsolduğu yerden kaçmasıyla verir.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:58",
+      "type": "movie",
+      "name": "Seven Deadly Sins",
+      "poster": "https://image.tmdb.org/t/p/w500/fJ0Jy7NNdqIuYcYNqeK7YJHVLL0.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/n5Ty1KJIRNCXlDHDjcPpUgp57tr.jpg",
+      "description": "Bazılarının hala canlı olduklarını iddia etmelerine rağmen Yedi Ölümcül Günah, İngiltere Krallığı'nı devirme komploları kurup, Kutsal Şövalyeler tarafından köklerinin kazındığı söylenen bir grup şeytani şövalyelerdir. 10 yıl sonra da Kutsal Şövalyeler hükümete darbe düzenlemiş, krala suikast yapmış ve krallığın yeni zalim hükümdarları olmuşlardır. Kralın tek kızı olan Elizabeth de Yedi Ölümcül Günah'ı bulup krallığı geri almak için onlardan yardım temin etmek amacıyla bir yolculuğa çıkmıştır.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:2736",
+      "type": "movie",
+      "name": "Tibet'te Yedi Yıl",
+      "poster": "https://image.tmdb.org/t/p/w500/kPPDFm2glqGVc4aijRTOjO2IHu1.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/dgiOBykxfUAtb01VUnkHsTCwfsG.jpg",
+      "description": "Avusturyalı Heinrich Harrer, II. Dünya Savaşı yıllarında ülkesinden uzaklaşarak Himalayalar'a gider. Tibet yakınlarındaki yasak bölge Lhasa'ya ulaşan Harrer'ın aklı henüz hiç görmediği çocuğundadır. Tibet'e kaçan Harrer, burada çocuk yaştaki kutsal lider Dalai Lama'yla tanışır ve Tibet halkının Çin'den gördüğü zulme tanık olur. Dalai Lama ise halkının onurunu düşünmekte ve Harrer'ın da yardımıyla sürekli kendisini eğitme ve geliştirme çabasındadır.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:101",
+      "type": "movie",
+      "name": "Yedi Samuray",
+      "poster": "https://image.tmdb.org/t/p/w500/dCLodUvnee3dxXZRS63dAYfmsJV.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/qvZ91FwMq6O47VViAr8vZNQz3WI.jpg",
+      "description": "Usta Samurai Kambei'nin cesareti ve fedakarlığına şahit olan bir grup köylü ondan sürekli olarak haydutların baskınlarına uğrayan köylerini korumasını isterler. Kambei bu isteği herhangi bir çıkarı olmamasına rağmen kabul eder ve ilk olarak kısa süre sonra müridi olan genç samurai Katsushiro'yu, ardından da güç kullanmaya meraklı bir samurai olarak görünen, fakat sonradan bir çiftçinin oğlu olduğu ortaya çıkan Kikuchiyo'yu yanına alır.  Takımına dört yeni samurai daha ekleyerek köyü savunmaya girişen Kambei köylüler tarafından sevinçle karşılanır ve herkesin sevgisini kazanır; bir süre sonra onlara kendilerini savunmayı öğretmeye başlar. Bu arada haydutlar köyün sınırlarında dolaşmakta ve yeni saldırıları için uygun bir zaman kollamaktadırlar...",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:1684",
+      "type": "movie",
+      "name": "A Knight of the Seven Kingdoms",
+      "poster": "https://image.tmdb.org/t/p/w500/k8yARbD9iYn2nRX2HvsopfKDN2r.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/7mkUu1F2hVUNgz24xO8HPx0D6mK.jpg",
+      "description": "Westeros dünyasından, beklenmedik ikili şövalye Sör Duncan ve onun yaveri Egg'in maceralarına odaklanan olasılık dışı bir hikâye.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:1818",
+      "type": "movie",
+      "name": "Yedi Kral Ölmeli",
+      "poster": "https://image.tmdb.org/t/p/w500/xUvSeFhdsJbKFOaHnB9TeTZpJKs.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/x4ti16EKbYqbkshO4IBWp5d6Sqh.jpg",
+      "description": "Kral Edward'ın ölümünün ardından Bebbanburglu Uhtred ve yoldaşları, parçalanmış bir krallığın dört bir yanında, İngiltere'yi birleştirme umuduyla maceralara atılır.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:93",
+      "type": "movie",
+      "name": "Scissor Seven",
+      "poster": "https://image.tmdb.org/t/p/w500/ppiumCPMB9ezt4oLcpKtSS5E82X.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/4sSzTvk200BQyYjRJq69mLwE9xG.jpg",
+      "description": "Makas sallayıp saç kesen beceriksiz bir sözde suikastçı, hafızasını yeniden kazanmaya çalışırken kendisini kavgalı gruplar arasındaki güç mücadelesinin ortasında bulur.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:1101",
+      "type": "movie",
+      "name": "Queen For Seven Days",
+      "poster": "https://image.tmdb.org/t/p/w500/dQStvwjNeuXE7SwxzlFBRAs3uMe.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/qJGm5lfRTC65vqcJyvAhgYnQFYy.jpg",
+      "description": "Dizi, sadece 7 gün tahtta oturabilmiş olan Kraliçe Dangyeong (Park Min-Young) ile Kral Joongjong (Yeon Woo-Jin) arasındaki aşk hikâyesini anlatmaktadır.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:811",
+      "type": "movie",
+      "name": "Muhteşem Yedili",
+      "poster": "https://image.tmdb.org/t/p/w500/wd2F5AodSpRSeJeh6J4G0kloKYr.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/8GXri7UnwE7dVNfUAZVDn7Z8UBZ.jpg",
+      "description": "Rose Creek adlı küçük bir kasabanın halkı, kasabayı yöneten Bartholomew Bogue (Peter Sarsgaard) adlı sanayicinin insanlık dışı uygulamalarından usanmıştır. Onları bu zor durumdan kurtarmak için bir araya gelen, farklı yeteneklere ve karakterlere sahip, aralarında ödül avcılarının, kanun kaçaklarının, kumarbazların da bulunduğu 7 silahlı adam ortak bir amaç uğruna güçlerini birleştirirler.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3906",
+      "type": "movie",
+      "name": "Sinbad: Yedi Denizler Efsanesi",
+      "poster": "https://image.tmdb.org/t/p/w500/fQYXQAifeMS0jjfyp8w9XdRoFsg.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/j8isWEPL3PmmVh8ap3jm75qVF4p.jpg",
+      "description": "Sinbad şöhreti uzak denizlere yayılmış çok cesur ve çılgın bir denizcidir. Tüm hayatını denizlerde bela arayarak geçmiştir. Ve sonunda aradığı belayı bulur. Hem de unutulmayacak bir şekilde... Dünyanın en paha biçilmez hazinesi sayılan Barış Kitabını çalmakla suçlanan Sinbad'ın önünde tek bir seçenek kalmıştır: Barış Kitabını çalanı bulup geri getirmek. Aksi takdirde en iyi arkadaşı Proteus ölecektir.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:478",
+      "type": "movie",
+      "name": "Muhteşem Yedili",
+      "poster": "https://image.tmdb.org/t/p/w500/6rVIjriV3Sv1B9INrzGRXW8Q7aY.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/2aC3284N1p86o6S4Uyj9AaryYeR.jpg",
+      "description": "Filmde Meksika'daki bir köyün ahalisinin düzenli olarak ürünlerini yağmalayan haydutlardan korunmak için Amerikalı bir grup silahşörü kiralamaları ve onlarla birlikte haydutlara karşı verdikleri mücadele anlatılmaktadır. Filmin tanıtım sloganı aynı zamanda filmin de bir özeti gibidir; \"Yedi kişiydiler ama yediyüz kişi gibi dövüştüler\".Tüm zamanların en popüler westernlerinden biri olan Muhteşem Yedili'nin senaryosunu Kurosawa'nın Yedi Samuray filminden William Roberts uyarladı...",
+      "genres": [
+        "SineWix"
+      ]
     }
   ]
 }

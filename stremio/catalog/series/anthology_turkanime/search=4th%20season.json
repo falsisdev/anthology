@@ -1,0 +1,40 @@
+{
+  "metas": [
+    {
+      "id": "turkanime:anime:re-zero-kara-hajimeru-isekai-seikatsu-4th-season",
+      "type": "series",
+      "name": "Re:Zero kara Hajimeru Isekai Seikatsu 4th Season",
+      "poster": "https://www.turkanime.tv/imajlar/serilerb/6666.jpg",
+      "background": "https://www.turkanime.tv/imajlar/serilerb/6666.jpg",
+      "description": "Re:Zero kara Hajimeru Isekai Seikatsu 4th Season - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:tensei-shitara-slime-datta-ken-4th-season",
+      "type": "series",
+      "name": "Tensei shitara Slime Datta Ken 4th Season",
+      "poster": "https://www.turkanime.tv/imajlar/serilerb/6656.jpg",
+      "background": "https://www.turkanime.tv/imajlar/serilerb/6656.jpg",
+      "description": "Tensei shitara Slime Datta Ken 4th Season - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:boku-no-hero-academia-4th-season",
+      "type": "series",
+      "name": "Boku no Hero Academia 4th Season",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Boku no Hero Academia 4th Season - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    }
+  ]
+}

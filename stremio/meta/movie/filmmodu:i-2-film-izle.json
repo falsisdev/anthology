@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "id": "filmmodu:i-2-film-izle",
+    "type": "movie",
+    "name": "Iron Man 2",
+    "poster": "https://cdn.filmmodu.one/uploads/movie/poster/1481/thumb_xRVGlNzHXjWp3DHkggvHodXOwxq.jpg",
+    "background": "https://cdn.filmmodu.one/uploads/movie/poster/1481/thumb_xRVGlNzHXjWp3DHkggvHodXOwxq.jpg",
+    "description": "Iron Man 2 - FilmModu HD Film",
+    "genres": [
+      "FilmModu",
+      "Film"
+    ]
+  }
+}

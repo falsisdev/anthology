@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "id": "sinewix:series:93",
+    "type": "movie",
+    "name": "Scissor Seven",
+    "poster": "https://image.tmdb.org/t/p/w500/ppiumCPMB9ezt4oLcpKtSS5E82X.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/4sSzTvk200BQyYjRJq69mLwE9xG.jpg",
+    "description": "Makas sallayıp saç kesen beceriksiz bir sözde suikastçı, hafızasını yeniden kazanmaya çalışırken kendisini kavgalı gruplar arasındaki güç mücadelesinin ortasında bulur.",
+    "genres": [
+      "SineWix"
+    ]
+  }
+}

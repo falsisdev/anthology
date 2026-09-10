@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:1099",
+      "type": "movie",
+      "name": "Emoji Filmi",
+      "poster": "https://image.tmdb.org/t/p/w500/5YSESQ2qApL9rzGQXjZdYF8AEiO.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/kTrgxhRSj2sun89bDbnGCPBiey6.jpg",
+      "description": "Telefon kullanıcılarının bildiği bütün emojiler mesajlaşma uygulaması olan Textopolis'te yaşamaktadır. Telefonun kullanıcısı tarafından seçilecekleri zamanı bekleyerek zaman geçiren emojilerin hepsinin tek bir yüz ifadesi vardır ve bu ifadeyi değiştiremezler. Ancak Gene filtresiz doğmuştur ve birden fazla yüz ifadesi sergilemektedir. Diğer emojiler gibi \"normal\" olmak isteyen Gene çözüm yolu bulabilmek için en yakın arkadaşı emoji Hi-5 ve usta kod kırıcı emoji Jailbreak ile güçlerini birleştirir. Gene'i düzeltmek için aplikasyondan aplikasyona bir yolculuk başlar. Ancak bildikleri dünya tehdit altına girdiğinde bütün emojilerin kaderi bu üçlünün ellerinde olacaktır...",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    }
+  ]
+}

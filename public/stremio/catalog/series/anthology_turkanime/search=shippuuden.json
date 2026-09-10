@@ -1,0 +1,100 @@
+{
+  "metas": [
+    {
+      "id": "turkanime:anime:naruto-shippuuden-sunny-side-battle",
+      "type": "series",
+      "name": "Naruto Shippuuden: Sunny Side Battle",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Naruto Shippuuden: Sunny Side Battle - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:naruto-shippuuden",
+      "type": "series",
+      "name": "Naruto: Shippuuden",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Naruto: Shippuuden - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:naruto-shippuuden-movie-1",
+      "type": "series",
+      "name": "Naruto: Shippuuden Movie 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Naruto: Shippuuden Movie 1 - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:naruto-shippuuden-movie-2-kizuna",
+      "type": "series",
+      "name": "Naruto: Shippuuden Movie 2 - Kizuna",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Naruto: Shippuuden Movie 2 - Kizuna - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:naruto-shippuuden-movie-3-hi-no-ishi-wo-tsugu-mono",
+      "type": "series",
+      "name": "Naruto: Shippuuden Movie 3 - Hi no Is...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Naruto: Shippuuden Movie 3 - Hi no Is... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:naruto-shippuuden-movie-4-the-lost-tower",
+      "type": "series",
+      "name": "Naruto: Shippuuden Movie 4 - The Lost...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Naruto: Shippuuden Movie 4 - The Lost... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:naruto-shippuuden-movie-5-blood-prison",
+      "type": "series",
+      "name": "Naruto: Shippuuden Movie 5 - Blood Pr...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Naruto: Shippuuden Movie 5 - Blood Pr... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:naruto-shippuuden-movie-6-road-to-ninja",
+      "type": "series",
+      "name": "Naruto: Shippuuden Movie 6 - Road to ...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Naruto: Shippuuden Movie 6 - Road to ... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:ASpor.tr",
+      "type": "tv",
+      "name": "A Spor HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/aspor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/aspor.png",
+      "description": "A Spor HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    }
+  ]
+}

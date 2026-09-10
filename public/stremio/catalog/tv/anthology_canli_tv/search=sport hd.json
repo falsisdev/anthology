@@ -1,0 +1,26 @@
+{
+  "metas": [
+    {
+      "id": "tv:SSport.tr",
+      "type": "tv",
+      "name": "S Sport HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssport.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssport.png",
+      "description": "S Sport HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:CBCSport.tr",
+      "type": "tv",
+      "name": "CBC Sport HD",
+      "poster": "https://i.imgur.com/3mEdjuq.png",
+      "background": "https://i.imgur.com/3mEdjuq.png",
+      "description": "CBC Sport HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    }
+  ]
+}

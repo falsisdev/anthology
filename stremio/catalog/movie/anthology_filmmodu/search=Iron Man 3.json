@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "filmmodu:iman3-film-izle",
+      "type": "movie",
+      "name": "Iron Man 3",
+      "poster": "https://cdn.filmmodu.one/uploads/movie/poster/3225/thumb_ooIm1xJPHCwXQsxMXhdmflNsXEw.jpg",
+      "background": "https://cdn.filmmodu.one/uploads/movie/poster/3225/thumb_ooIm1xJPHCwXQsxMXhdmflNsXEw.jpg",
+      "description": "Iron Man 3 - FilmModu HD Film",
+      "genres": [
+        "FilmModu",
+        "Film"
+      ]
+    }
+  ]
+}

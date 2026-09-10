@@ -350,16 +350,54 @@ async function extractStreamsFromEpisodePage(epUrl) {
                 }
             }
 
-            // Type 3: Official YouTube player
+            // Type 3: Official YouTube player — extract direct stream via Invidious
             if (src.includes('youtube.php') || src.includes('/player/telif/') || src.includes('youtube.com') || src.includes('youtu.be')) {
                 const ytMatch = src.match(/(?:youtube\.php\?id=|v=|youtu\.be\/|\/embed\/)([a-zA-Z0-9_-]{11})/);
                 if (ytMatch) {
-                    streams.push({
-                        name: 'DDizi',
-                        title: '⌜ DDizi ⌟ | YouTube (Resmi Yayın)',
-                        ytId: ytMatch[1],
-                        provider: 'ddizi'
-                    });
+                    const ytId = ytMatch[1];
+                    // Try Invidious API for direct MP4 URLs
+                    const invInstances = [
+                        'https://inv.nadeko.net',
+                        'https://invidious.nerdvpn.de',
+                        'https://vid.puffyan.us'
+                    ];
+                    let ytResolved = false;
+                    for (const inst of invInstances) {
+                        try {
+                            const invRes = await fetch(`${inst}/api/v1/videos/${ytId}?fields=formatStreams,adaptiveFormats,title`, {
+                                headers: { 'User-Agent': HEADERS['User-Agent'] }
+                            });
+                            if (!invRes.ok) continue;
+                            const invData = await invRes.json();
+                            const formats = (invData.formatStreams || []).concat(invData.adaptiveFormats || []);
+                            const mp4s = formats.filter(f => f.url && f.container === 'mp4' && f.type && f.type.includes('video'));
+                            if (mp4s.length > 0) {
+                                // Sort by quality (highest first)
+                                mp4s.sort((a, b) => (parseInt(b.quality) || 0) - (parseInt(a.quality) || 0));
+                                for (const fmt of mp4s.slice(0, 3)) {
+                                    streams.push({
+                                        name: 'DDizi',
+                                        title: `⌜ DDizi ⌟ | YouTube (${fmt.qualityLabel || fmt.quality || 'HD'})`,
+                                        url: fmt.url,
+                                        quality: fmt.qualityLabel || '720p',
+                                        provider: 'ddizi',
+                                        headers: { 'User-Agent': HEADERS['User-Agent'] }
+                                    });
+                                }
+                                ytResolved = true;
+                                break;
+                            }
+                        } catch (e) {}
+                    }
+                    // Fallback: embed URL (Nuvio WebView might handle it)
+                    if (!ytResolved) {
+                        streams.push({
+                            name: 'DDizi',
+                            title: '⌜ DDizi ⌟ | YouTube (Resmi Yayın)',
+                            url: `https://www.youtube.com/embed/${ytId}`,
+                            provider: 'ddizi'
+                        });
+                    }
                 }
             }
         }

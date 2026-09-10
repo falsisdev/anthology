@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "id": "sinewix:movie:2412",
+    "type": "movie",
+    "name": "Vjeran Tomic: Tablo Hırsızı Örümcek Adam",
+    "poster": "https://image.tmdb.org/t/p/w500/ypq9yEIQUpekdhFq4x8xIDbMmwB.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/8YTbDLjcIpCvBjiUa1yYFFUhwGX.jpg",
+    "description": "2010 Paris Modern Sanat Müzesi soygununun ardındaki isim, Fransa tarihindeki en büyük sanat hırsızlığına nasıl imza attığını kendi sözleriyle anlatıyor.",
+    "genres": [
+      "SineWix"
+    ]
+  }
+}

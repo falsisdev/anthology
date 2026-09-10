@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "id": "cizgimax:show:lego-star-wars-galaksiyi-yeniden-insa-et-gecmisin-parcalari-izle",
+    "type": "series",
+    "name": "Lego Star Wars: Galaksiyi Yeniden İnşa Et: Geçmişin Parçaları",
+    "poster": "https://cizgimax.online/img/locandine/lego-star-wars-galaksiyi-yeniden-insa-et-gecmisin-parcalari-poster.webp",
+    "background": "https://cizgimax.online/img/locandine/lego-star-wars-galaksiyi-yeniden-insa-et-gecmisin-parcalari-poster.webp",
+    "description": "Lego Star Wars: Galaksiyi Yeniden İnşa Et: Geçmişin Parçaları - ÇizgiMax",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:ep:lego-star-wars-galaksiyi-yeniden-insa-et-gecmisin-parcalari-1-sezon-1-bolum-izle",
+        "title": "1. Sezon 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "cizgimax:ep:lego-star-wars-galaksiyi-yeniden-insa-et-gecmisin-parcalari-1-sezon-2-bolum-izle",
+        "title": "1. Sezon 2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "cizgimax:ep:lego-star-wars-galaksiyi-yeniden-insa-et-gecmisin-parcalari-1-sezon-3-bolum-izle",
+        "title": "1. Sezon 3. Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "cizgimax:ep:lego-star-wars-galaksiyi-yeniden-insa-et-gecmisin-parcalari-1-sezon-4-bolum-izle",
+        "title": "1. Sezon 4. Bölüm",
+        "season": 1,
+        "episode": 4
+      }
+    ]
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:60",
+      "type": "movie",
+      "name": "Avatar",
+      "poster": "https://image.tmdb.org/t/p/w500/9n3OpN5VkRx7uo6EiDMEo7Mdb7t.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/jlQJDD0L5ZojjlS0KYnApdO0n19.jpg",
+      "description": "Bir hırsızlık olayında ağabeyi ölen yarı felçli Jake Sully (Sam Worthington), Pandora adındaki uzak bir gezegende görevinin başına geçmeye karar verir. Bu yerde Na’vi adında giderek tükenmekte olan bir halk yaşamaktadır. Askeri bir şirket, söz konusu yeri ve oradaki kaynakları mercek altına almak üzere Avatar adında bir program oluşturmuştur. Bu program insanları kısmen insan kısmen de Na’vi haline büründürerek misyon amaçlı Pandora’ya göndermektedir. Bu sisteme gönüllü dahil olan Botanist Dr. Grace Augustine (Sigourney Weaver) ve Jake Sully için başka bir yaşam var olacaktır. Sully, Pandora’ya geçtiği anda felçli bedeni değişime uğrayarak işlevsel hale gelir. Bu sırada Na’vi halkından Prenses Neytiri (Zoe Saldana) ile karşı karşıya gelen Jake, ansızın bir farkındalık yaşar ve bir araştırma misyonu ile gönderildiği bu gezegeni, kendi dünyalısından korumaya karar verir.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:38",
+      "type": "movie",
+      "name": "Avatar",
+      "poster": "https://image.tmdb.org/t/p/w500/cHFZA8Tlv03nKTGXhLOYOLtqoSm.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/eny2MtpVhKqMLTZWCBGGofwNcfN.jpg",
+      "description": "Avatar dört elementin (su, toprak, ateş ve hava) ustası olan ve su kabileleri, toprak krallığı, ateş ulusu ve hava göçebelerinin arasında denge unsuru olan avatar ruhunun son taşıyıcısı.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:4080",
+      "type": "movie",
+      "name": "Avatar: Ateş ve Kül",
+      "poster": "https://image.tmdb.org/t/p/w500/8kknNk7PbOcDUXynUZYZ7EHnKAA.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/u8DU5fkLoM5tTRukzPC31oGPxaQ.jpg",
+      "description": "Pandora gezegeninde geçen destansı macera devam ediyor. Jake Sully ve Neytiri'nin ailesi, Pandora'nın ateş kabilesiyle tanışır ve yeni tehditlerle yüzleşirler. İnsanlar, Pandora'nın kaynaklarını sömürmeye devam ederken, Na'vi halkı doğayla uyum içinde yaşamaya çalışır. Jake ve Neytiri, ailelerini korumak ve Pandora'yı savunmak için büyük bir mücadeleye girişirler.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:800",
+      "type": "movie",
+      "name": "Avatar Son Hava Bükücü",
+      "poster": "https://image.tmdb.org/t/p/w500/lzZpWEaqzP0qVA5nkCc5ASbNcSy.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/u62XtaV8Iski2CgAUM8Yp0ZgKxD.jpg",
+      "description": "Avatar olarak bilinen bir çocuk, savaş hâlindeki dünyayı kurtarmak için dört element gücünde de ustalaşmalı ve onu durdurmaya kararlı olan acımasız bir düşmanla savaşmalıdır.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:1736",
+      "type": "movie",
+      "name": "Avatar Suyun Yolu",
+      "poster": "https://image.tmdb.org/t/p/w500/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/ovM06PdF3M8wvKb06i4sjW3xoww.jpg",
+      "description": "Set more than a decade after the events of the first film, learn the story of the Sully family (Jake, Neytiri, and their kids), the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, and the tragedies they endure.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:91",
+      "type": "movie",
+      "name": "Avatar: The Legend of Korra",
+      "poster": "https://image.tmdb.org/t/p/w500/nhP0VGO2GSZbL4PUgmA6Vja48aM.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/hmrNfrUl3FFaymDj6Iw5oKQjIs2.jpg",
+      "description": "Sürekli olarak geleneğe meydan okuyan ve geleneğe meydan okuyan güçlü, asi, inatçı, genç bir kadın olan Avatar Korra, tamamen gerçek bir Avatar olma arayışı içinde. Bu hikayede, Avatar kendi içinde dengeyi bulmak için mücadele eder.",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

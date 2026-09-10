@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "animecix:title:359",
+    "type": "series",
+    "name": "Dragon Ball Z: The Real 4-D",
+    "poster": "https://image.tmdb.org/t/p/original/bsML7r1iijCiGjowbcUfsgtrUWH.jpg",
+    "background": "https://image.tmdb.org/t/p/w1280/n6rv1hySg2Ie0UyJENwnnJWb3no.jpg",
+    "description": "Ejder Topu Z: Gerçek 4 Boyutlu. 4 boyut platformuna özel hazırlanan bu bölümde Goku ve Friza'nın dövüşü gösterilmektedir.",
+    "genres": [
+      "Anime",
+      "AnimeciX"
+    ],
+    "videos": [
+      {
+        "id": "animecix:ep:359:1:1",
+        "title": "Dragon Ball Z: The Real 4-D 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

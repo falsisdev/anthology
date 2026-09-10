@@ -1,0 +1,26 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:132",
+      "type": "movie",
+      "name": "Gladyatör",
+      "poster": "https://image.tmdb.org/t/p/w500/rotQFyaeNQivUJOm3J3M7YqPNMx.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/aZtwH3RQ0L8jbInxr7OSc9tlGMJ.jpg",
+      "description": "Roma İmparatorluğu'na en parlak dönemi yaşatan General Maximus, girdiği bir meydan savaşından daha zaferle çıkar, artık tek hayali bir an önce evine dönerek karısı ve ailesine kavuşmaktır.\r Fakat, zamanın Roma İmparatoru Marcus Aurelius, Maximus'a önemli bir görev verir ve iktidara sahip çıkmasını ister. Bunun üzerine imparatorun oğlu olan Commodus, iktidarın elinden alınacağını anlayınca general ve ailesini öldürme emri verir. Maximus ölümden zor kurtulur ve gladyatörler arenasına sürgün edilir. Yıllar sonra Roma'ya geri dönen güçlü gladyatör Maximus'un tek amacı Commodus'u öldürerek karısı ve oğlunun katledilmesinin intikamını almaktır.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3116",
+      "type": "movie",
+      "name": "Gladyatör II",
+      "poster": "https://image.tmdb.org/t/p/w500/dARTCpnHY0R0B28j5q5ynq7erua.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/euYIwmwkmz95mnXvufEmbL6ovhZ.jpg",
+      "description": "Gladyatör Maximus Decimus Meridius’un ölümünden 15 yıl sonrasıdır. Kana susamış kalabalıklar yarı deli ikiz imparatorları zalimliğin yeni zirvelerine iterken Kolezyum’daki savaşlar çok daha ölümcül ve görkemli hâle gelmiştir. Roma İmparatorluğu sınırlarını genişleterek, yoluna çıkan her kültürü yağmalayarak ve hayatta kalanları ringde yaşamları için savaşmaya zorlayarak yeryüzündeki yürüyüşünü sürdürmektedir.",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

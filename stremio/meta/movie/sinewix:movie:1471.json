@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "id": "sinewix:movie:1471",
+    "type": "movie",
+    "name": "Batman: Hayaletin Maskesi",
+    "poster": "https://image.tmdb.org/t/p/w500/iim4OL93OkjudiVWYRQiwmREbhU.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/9BtUWZhigispqSUYhrS6cJHpvwx.jpg",
+    "description": "Bruce Wayne'nin nasıl Batman olmak için karar verdiğinin arada flashbacklerle anlatıldığı, Andrea Beaumont'un Bruce'un kararındaki rolünü ve joker ile ilgili güzel bir süprizi içeren bir Batman animasyon filmi. Ayrıca Batman'in motorsikletli göründüğü ender sahnelerden birine sahiptir.",
+    "genres": [
+      "SineWix"
+    ]
+  }
+}

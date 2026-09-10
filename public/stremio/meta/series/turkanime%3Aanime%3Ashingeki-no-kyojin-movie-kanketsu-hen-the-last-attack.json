@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:shingeki-no-kyojin-movie-kanketsu-hen-the-last-attack",
+    "type": "series",
+    "name": "Shingeki no Kyojin Movie: Kanketsu-he...",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/6379.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/6379.jpg",
+    "description": "Shingeki no Kyojin Movie: Kanketsu-hen - The Last Attack - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-kanketsu-hen-the-last-attack-movie",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

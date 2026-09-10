@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:2347",
+      "type": "movie",
+      "name": "One Piece Film 10",
+      "poster": "https://image.tmdb.org/t/p/w500/s5UuGv4LxDNkfVm3dG6GEIyGNFE.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/fgcSkuv3otR5iz2VzzFnh3QOI49.jpg",
+      "description": "Impel Down'dan kaçtıktan 20 yıl sonra, efsanevi korsan Shiki, Altın Aslan, Deniz Kuvvetlerine karşı büyük bir karışıklığa neden oluyor. Uzun süren istilası sırasında, Dünya Hükümeti'ni dizlerine getirmek için bir plan hazırlamayı başardı. Planı yürütme yolunda Shiki, Hasır Şapkalı Korsanlar ile yolları kesiyor ve Nami'nin meteoroloji bilgisinden çok etkileniyor ve onu zorla askere aldırmak için kaçırıyor. Luffy ve çeteler, umutsuzca Shiki ve Nami'yi ararken korkunç canavarlarla dolu tuhaf bir ülkeye dönüştüler.",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    }
+  ]
+}

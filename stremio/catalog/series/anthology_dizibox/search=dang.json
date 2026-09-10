@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "dizibox:show:dang",
+      "type": "series",
+      "name": "DANG!",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/dang-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/dang-200x290.jpg",
+      "description": "DANG! - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    }
+  ]
+}

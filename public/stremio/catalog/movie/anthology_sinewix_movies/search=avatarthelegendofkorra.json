@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:series:91",
+      "type": "movie",
+      "name": "Avatar: The Legend of Korra",
+      "poster": "https://image.tmdb.org/t/p/w500/nhP0VGO2GSZbL4PUgmA6Vja48aM.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/hmrNfrUl3FFaymDj6Iw5oKQjIs2.jpg",
+      "description": "Sürekli olarak geleneğe meydan okuyan ve geleneğe meydan okuyan güçlü, asi, inatçı, genç bir kadın olan Avatar Korra, tamamen gerçek bir Avatar olma arayışı içinde. Bu hikayede, Avatar kendi içinde dengeyi bulmak için mücadele eder.",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

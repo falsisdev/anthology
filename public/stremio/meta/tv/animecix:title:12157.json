@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "animecix:title:12157",
+    "type": "series",
+    "name": "Jujutsu Kaisen: Kaigyoku / Gyokusetsu",
+    "poster": "https://image.tmdb.org/t/p/original/kZkyr1sRzarENrxjtltPvmHRrTk.jpg",
+    "background": "https://image.tmdb.org/t/p/original/cSRirhKn3QPs3oUezioaM5EES7T.jpg",
+    "description": "Jujutsu Kaisen'in 2.Sezonu'nun “Kaigyoku・Gyokusetsu” (Gizli Envanter / Erken Ölüm) kısmının (ilk 5 bölüm) yeniden derlenmiş filmi, okul anılarını, yeni görüntülerle birlikte gösteriyor.",
+    "genres": [
+      "Anime",
+      "AnimeciX"
+    ],
+    "videos": [
+      {
+        "id": "animecix:ep:12157:1:1",
+        "title": "Jujutsu Kaisen: Kaigyoku / Gyokusetsu 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "cizgimax:show:film/batman-mystery-of-the-batwoman-izle",
+    "type": "series",
+    "name": "Batman: Yarasa Kadının Gizemi",
+    "poster": "https://cizgimax.online/img/locandine/batman-mystery-of-the-batwoman-poster.webp",
+    "background": "https://cizgimax.online/img/locandine/batman-mystery-of-the-batwoman-poster.webp",
+    "description": "Batman: Yarasa Kadının Gizemi - ÇizgiMax Arşivi",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:show:film/batman-mystery-of-the-batwoman-izle",
+        "title": "Batman: Yarasa Kadının Gizemi",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

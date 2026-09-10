@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:dragon-ball-super-movie-broly",
+    "type": "series",
+    "name": "Dragon Ball Super Movie: Broly",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/3885.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/3885.jpg",
+    "description": "Dragon Ball Super Movie: Broly - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:dragon-ball-super-movie-broly",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

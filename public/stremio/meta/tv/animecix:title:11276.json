@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "id": "animecix:title:11276",
+    "type": "series",
+    "name": "The Demon Prince of Momochi House",
+    "poster": "https://image.tmdb.org/t/p/original/963GYlakUDBxnfMx2WINXcFKJgC.jpg",
+    "background": "https://image.tmdb.org/t/p/w1280/t8cAnsJATqol08i9kyKsXFy7PYH.jpg",
+    "description": "Himari'nin 16. doğum günü asla unutamayacağı bir doğum günü olacak. Beklenmedik bir şekilde, gizemli bir mülkün mirasının ayrıntılarını içeren bir vasiyetname alır: Momochi Evi. Oraya vardığında evin insan dünyası ile manevi dünya arasındaki dönüm noktasında inşa edildiğini keşfeder. Orada Yukari, Ise ve belirsiz bir sır saklıyormuş gibi görünen Aoi adında tuhaf bir çocukla karşılaşır.",
+    "genres": [
+      "Anime",
+      "AnimeciX"
+    ],
+    "videos": [
+      {
+        "id": "animecix:ep:11276:1:1",
+        "title": "The Demon Prince of Momochi House 1. Sezon 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "animecix:ep:11276:1:2",
+        "title": "The Demon Prince of Momochi House 1. Sezon 2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "animecix:ep:11276:1:3",
+        "title": "The Demon Prince of Momochi House 1. Sezon 3. Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "animecix:ep:11276:1:4",
+        "title": "The Demon Prince of Momochi House 1. Sezon 4. Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "animecix:ep:11276:1:5",
+        "title": "The Demon Prince of Momochi House 1. Sezon 5. Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "animecix:ep:11276:1:6",
+        "title": "The Demon Prince of Momochi House 1. Sezon 6. Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "animecix:ep:11276:1:7",
+        "title": "The Demon Prince of Momochi House 1. Sezon 7. Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "animecix:ep:11276:1:8",
+        "title": "The Demon Prince of Momochi House 1. Sezon 8. Bölüm",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "animecix:ep:11276:1:9",
+        "title": "The Demon Prince of Momochi House 1. Sezon 9. Bölüm",
+        "season": 1,
+        "episode": 9
+      },
+      {
+        "id": "animecix:ep:11276:1:10",
+        "title": "The Demon Prince of Momochi House 1. Sezon 10. Bölüm",
+        "season": 1,
+        "episode": 10
+      },
+      {
+        "id": "animecix:ep:11276:1:11",
+        "title": "The Demon Prince of Momochi House 1. Sezon 11. Bölüm",
+        "season": 1,
+        "episode": 11
+      },
+      {
+        "id": "animecix:ep:11276:1:12",
+        "title": "The Demon Prince of Momochi House 1. Sezon 12. Bölüm",
+        "season": 1,
+        "episode": 12
+      }
+    ]
+  }
+}

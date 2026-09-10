@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:dragon-ball-z-movie-08-moetsukiro-nessen-ressen-chougekisen",
+    "type": "series",
+    "name": "Dragon Ball Z Movie 08: Moetsukiro!! ...",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/5575.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/5575.jpg",
+    "description": "Dragon Ball Z Movie 08: Moetsukiro!! Nessen, Ressen, Chougekisen - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:dragon-ball-z-moetsukiro-nessen-ressen-chougekisen-movie-08",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

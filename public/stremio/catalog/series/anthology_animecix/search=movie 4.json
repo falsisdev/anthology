@@ -1,0 +1,28 @@
+{
+  "metas": [
+    {
+      "id": "animecix:title:7558",
+      "type": "series",
+      "name": "Bleach Movie 4: Jigoku-hen",
+      "poster": "https://image.tmdb.org/t/p/original/pd7V5iCB19VBPJkihxFXFwSRW2M.jpg",
+      "background": "https://image.tmdb.org/t/p/w1280/rUYPBaQqtpt2IdvzHdIrsYn29mk.jpg",
+      "description": "Hell – A place where beings that have committed mortal sins during their lifetime are sent. It is a realm where even Soul Reapers are forbidden to interfere. When a group of vicious Sinners plot to escape from this eternal prison, they discover that Substitute Soul Reaper Ichigo Kurosaki is the key to their freedom. The Sinners launch an attack and in the process kidnap Ichigo's younger sister Yuzu and take her to Hell. With the help of a mysterious man named Kokuto, Ichigo and his friends must now travel into the depths of Hell to stop the Sinners and save Yuzu, unaware that their actions could bring Hell to the World of the Living.",
+      "genres": [
+        "Anime",
+        "AnimeciX"
+      ]
+    },
+    {
+      "id": "animecix:title:11793",
+      "type": "series",
+      "name": "Boku no Hero Academia the Movie 4: You're Next",
+      "poster": "https://image.tmdb.org/t/p/original/8rdB1wkheEMMqcY8qLAKjCMPcnZ.jpg",
+      "background": "https://image.tmdb.org/t/p/original/hd1TvTUGjkoYoqvXYfSBpI5Ri9B.jpg",
+      "description": "Kahramanlar ve kötü adamlar arasındaki topyekün savaşın etkisiyle harap olan bir toplumda, gizemli dev bir kale aniden ortaya çıkar ve kasabaları ve insanları birbiri ardına yutar. Ardından 'barışın simgesi' All Might'ı anımsatan bir adam, İzuku ve arkadaşlarının karşısına çıkar...",
+      "genres": [
+        "Anime",
+        "AnimeciX"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "metas": [
+    {
+      "id": "tv:ExxenSports6.tr",
+      "type": "tv",
+      "name": "Exxen Sports 6 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
+      "description": "Exxen Sports 6 HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:TabiiSpor6.tr",
+      "type": "tv",
+      "name": "Tabii Spor 6 HD",
+      "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "background": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "description": "Tabii Spor 6 HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    }
+  ]
+}

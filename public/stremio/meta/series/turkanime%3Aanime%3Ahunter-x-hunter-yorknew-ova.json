@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "id": "turkanime:anime:hunter-x-hunter-yorknew-ova",
+    "type": "series",
+    "name": "Hunter x Hunter : Yorknew OVA",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/5025.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/5025.jpg",
+    "description": "Hunter x Hunter : Yorknew OVA - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:hunter-x-hunter-yorknew-ova-1-bolum",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-yorknew-ova-2-bolum",
+        "title": "2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-yorknew-ova-3-bolum",
+        "title": "3. Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-yorknew-ova-4-bolum",
+        "title": "4. Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-yorknew-ova-5-bolum",
+        "title": "5. Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-yorknew-ova-6-bolum",
+        "title": "6. Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-yorknew-ova-7-bolum",
+        "title": "7. Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "turkanime:ep:hunter-x-hunter-yorknew-ova-8-bolum-final",
+        "title": "8. Bölüm",
+        "season": 1,
+        "episode": 8
+      }
+    ]
+  }
+}

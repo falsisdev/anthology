@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "id": "sinewix:movie:3458",
+    "type": "movie",
+    "name": "Batman Dracula'ya Karşı",
+    "poster": "https://image.tmdb.org/t/p/w500/rmIUL5BG78mbBs3d6hYbu9f7AwG.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/8Or1XOnUMtg4NIpOCDmdDqRwU4k.jpg",
+    "description": "İki efsanevi yarasa uçmaya hazırlanırken, Gotham City karanlıklar perdesi altında uyuyordu.  Biri şehri vampirler ordusu ile doldururken, diğeri elinden gelen herşey yaparak kargaşayı durdurmaya çalışıyor. Tüm yüksek teknolojik silahlar ile donatılmış olmasına arşın Kara Şovalye neticede ölümlü bir adamdır.",
+    "genres": [
+      "SineWix"
+    ]
+  }
+}

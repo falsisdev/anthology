@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:3592",
+      "type": "movie",
+      "name": "Batman: Gotham'ın Şövalyesi",
+      "poster": "https://image.tmdb.org/t/p/w500/6ZJCFDyERfDZDNUogmap6zdWNG2.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/niRgVCgvDVxD67u6gjKZnkBO1AD.jpg",
+      "description": "Yarasa Adam Başlıyor ve Kara Şövalye filmleri arasında geçen olayları anlatan 6 kısa animasyon bölümünden oluşan bir animasyon eğer batman hayranıysanız mutlaka izlemelisiniz.",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

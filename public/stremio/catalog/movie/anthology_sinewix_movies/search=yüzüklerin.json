@@ -1,0 +1,48 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:3789",
+      "type": "movie",
+      "name": "Yüzüklerin Efendisi: Rohirrim'in Savaşı",
+      "poster": "https://image.tmdb.org/t/p/w500/5htr97RScFopnkxyW1eBtsMsFXb.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/ie8OSgIHEl6yQiGJ90dsyBWOpQA.jpg",
+      "description": "Film, en ünlü Rohan krallarından Miğfer Tokmakel döneminde Dunlandlılar ile yaşanan savaşı ve daha sonra Yüzüklerin Efendisi: İki Kule'de Orta Dünya'nın kaderini etkileyen Borukent Savaşı'nın geçtiği Miğfer Dibi'nin kralın ismiyle anılmasına sebep olan olayları anlatıyor.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:149",
+      "type": "movie",
+      "name": "Yüzüklerin Efendisi: Kralın Dönüşü",
+      "poster": "https://image.tmdb.org/t/p/w500/oh1knfZ4LLEMGt0n0rlJDSGB4dj.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/lXhgCODAbBXL5buk9yEmTpOoOgR.jpg",
+      "description": "Kıyamet günü ortamını yaşayan Orta Dünya'da, Yüzük Savaşı'nın son ve en büyük mücadelesine hoşgeldiniz. Bir yanda güvenilmez Gollum'un rehberlik ettiği yüzük taşıyıcısı Frodo ve yoldaşı Sam, Mordor'a ulaşıp Tek Yüzük'ü yokedebilecekleri tek yere götürmeye çalışıyorlar. Diğer yanda Rohan Atlıları ve Ent'lerle güç birliği yaparak Saruman'ı alt etmiş olan Gandalf, Aragorn ve diğer dostlarımız Karanlıklar Efendisi'nin tehtidi altındaki Gondor'a varıp savunmak zorundalar. Gondor'un savunması, hiç kuşkusuz Miğfer Dibi Muharebesi'nden daha kolay olmayacak. Zira Sauron'un orduları çoktan harekete geçmiş durumda. Eğer bunu başarabilirlerse Gondor'u, Isuldur'un kanından gerçek bir Kral ve Kral'ı da daha öncekilerden çok daha çetin savaşların beklediği aşikar.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:148",
+      "type": "movie",
+      "name": "Yüzüklerin Efendisi: İki Kule",
+      "poster": "https://image.tmdb.org/t/p/w500/eX1Yl1h9iVusGiqIrUA3cI16AbA.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/nS4picOwj15APKzJeBCk6EBcMG5.jpg",
+      "description": "Yüzük Kardeşliği üyelerinin her birinin, kardeşlik bozulduktan sonra başlarına gelenler anlatılıyor. Kahramanlarımız, gruplar halinde Orta Dünya'nın en tehlikeli yerlerinde maceralar yaşayacaklar, yeni kavimler ve çoktan unutulmuş medeniyetlerle tanışacaklar.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:144",
+      "type": "movie",
+      "name": "Yüzüklerin Efendisi: Yüzük Kardeşliği",
+      "poster": "https://image.tmdb.org/t/p/w500/l2rv8rLUlo2zMWd20JLtW6bZUsK.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/vRQnzOn4HjIMX4LBq9nHhFXbsSu.jpg",
+      "description": "İyiyle kötü arasındaki mücadelenin epik bir anlatımı olan filmde, muazzam bir sorumluluğu üstlenmek zorunda kalan ve barışçı bir Hobbit olan Frodo Baggins'in destansı serüveni işleniyor. Frodo'nun yapması gereken, Kıyamet'in Çatlakları olarak anılan diyara dalarak epik bir mücadeleye girişmek ve bu yüzüğü ebediyen ortadan kaldırmaktır. Neyse ki yalnız çıkmayacaktır bu zorlu yolculuğa: Gandalf'ın yanısıra, bir elf olan Legolas, cüce Gimli; izci Aragorn, savaşçı Boromir ve Frodo'nun kendisi gibi Hobbit olan üç arkadaşı Merry, Pippin ve Samwise da onunla gelirler. Dağlar, ormanlar, kar, kaleler, nehirler ve ovalar boyunca, karşılarına çıkan şeytani güçlere karşı savaşarak ilerler bu grup. Yüzüğü yoketme görevini yerine getirerek, Karanlık Lordlar hükümranlığını içinde bulundukları gerçeklikten silmektir amaçları... tam turkce Dublaj olsa harika olur",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

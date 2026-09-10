@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "animecix:title:7684",
+    "type": "series",
+    "name": "Shingeki no Kyojin Movie 1: Guren no Yumiya",
+    "poster": "https://image.tmdb.org/t/p/original/9apWovky45Kn4nW1bqm8eJEGFQ8.jpg",
+    "background": "https://image.tmdb.org/t/p/original/1cCvaXweHBEmUjV5BQ4hR1gWr9X.jpg",
+    "description": "Shingeki no Kyojin serisinin ilk 13 bölümünü konu alan filmdir.",
+    "genres": [
+      "Anime",
+      "AnimeciX"
+    ],
+    "videos": [
+      {
+        "id": "animecix:ep:7684:1:1",
+        "title": "Shingeki no Kyojin Movie 1: Guren no Yumiya 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

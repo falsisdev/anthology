@@ -1,0 +1,28 @@
+{
+  "metas": [
+    {
+      "id": "turkanime:anime:dragon-ball-gt",
+      "type": "series",
+      "name": "Dragon Ball GT",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball GT - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-gt-movie",
+      "type": "series",
+      "name": "Dragon Ball GT : Movie",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball GT : Movie - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    }
+  ]
+}

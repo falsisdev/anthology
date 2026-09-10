@@ -1,0 +1,28 @@
+{
+  "metas": [
+    {
+      "id": "turkanime:anime:shingeki-no-kyojin-the-final-season-kanketsu-hen",
+      "type": "series",
+      "name": "Shingeki no Kyojin: The Final Season ...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Shingeki no Kyojin: The Final Season ... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:shingeki-no-kyojin-the-final-season-part-2",
+      "type": "series",
+      "name": "Shingeki no Kyojin: The Final Season ...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Shingeki no Kyojin: The Final Season ... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:dragon-ball-z-movie-11-super-senshi-gekiha-katsu-no-wa-ore-da",
+    "type": "series",
+    "name": "Dragon Ball Z Movie 11: Super Senshi ...",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/5578.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/5578.jpg",
+    "description": "Dragon Ball Z Movie 11: Super Senshi Gekiha!! Katsu no wa Ore da - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:dragon-ball-z-super-senshi-gekiha-katsu-no-wa-ore-da-movie-11",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

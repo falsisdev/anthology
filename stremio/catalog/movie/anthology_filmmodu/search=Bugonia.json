@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "filmmodu:bugonia-film-izle",
+      "type": "movie",
+      "name": "Bugonia",
+      "poster": "https://cdn.filmmodu.one/uploads/movie/poster/14916/thumb_bugonia.jpg",
+      "background": "https://cdn.filmmodu.one/uploads/movie/poster/14916/thumb_bugonia.jpg",
+      "description": "Bugonia - FilmModu HD Film",
+      "genres": [
+        "FilmModu",
+        "Film"
+      ]
+    }
+  ]
+}

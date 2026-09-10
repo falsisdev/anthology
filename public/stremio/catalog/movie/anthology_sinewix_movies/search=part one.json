@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:1378",
+      "type": "movie",
+      "name": "Batman: The Long Halloween, Part One",
+      "poster": "https://image.tmdb.org/t/p/w500/sR7gppb0YGjwLvE6Vnj6wYv5MnW.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/uS9apevOgs2fuYghf9szOoK1u63.jpg",
+      "description": "Batman'in aynı isimli kült çizgi romanından uyarlanan bu yapımda Batman, sadece tatil günlerinde cinayet işleyen bir seri katilin gizemini çözmeye çalışıyor. Bu gizemde Catwoman ve Jim Gordon ile birlikte çalışan Batman'in yolu en azılı düşmanlarıyla da kesişmeye devam ediyor. İki parça halinde izleyici karşısına çıkacak bu yapımın ikinci kısmı Ağustos ayında yayınlanacak.\n\nBakalım katil Batman'in sayısız düşmanlarından hangisi? Ya da hiç ummadığımız biri mi?",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "metas": [
+    {
+      "id": "tv:TivibuSpor2.tr",
+      "type": "tv",
+      "name": "Tivibu Spor 2 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
+      "description": "Tivibu Spor 2 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:SmartSpor2.tr",
+      "type": "tv",
+      "name": "Smart Spor 2 HD",
+      "poster": "https://i.imgur.com/qyUKCUa.png",
+      "background": "https://i.imgur.com/qyUKCUa.png",
+      "description": "Smart Spor 2 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:TabiiSpor2.tr",
+      "type": "tv",
+      "name": "Tabii Spor 2 HD",
+      "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "background": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "description": "Tabii Spor 2 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    }
+  ]
+}

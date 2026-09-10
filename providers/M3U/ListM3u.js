@@ -144,7 +144,11 @@ function getMeta(args) {
 
 function getStreams(args) {
     var targetId = (typeof args === 'string') ? args : (args ? args.id : "");
-    if (!targetId) return Promise.resolve({ streams: [] });
+    if (!targetId) {
+        var empty = [];
+        empty.streams = [];
+        return Promise.resolve(empty);
+    }
 
     return fetchChannels()
         .then(function(content) {
@@ -184,10 +188,13 @@ function getStreams(args) {
                 if (streams.length > 0) break;
             }
 
-            return { streams: streams };
+            streams.streams = streams;
+            return streams;
         })
         .catch(function() {
-            return { streams: [] };
+            var empty = [];
+            empty.streams = [];
+            return empty;
         });
 }
 

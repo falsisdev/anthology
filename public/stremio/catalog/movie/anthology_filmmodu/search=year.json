@@ -1,0 +1,28 @@
+{
+  "metas": [
+    {
+      "id": "filmmodu:batman-year-one-film-izle",
+      "type": "movie",
+      "name": "Batman: Year One",
+      "poster": "https://cdn.filmmodu.one/uploads/movie/poster/2409/thumb_bI1YVuhBN6Vws1GP9Mf01DyhC2s.jpg",
+      "background": "https://cdn.filmmodu.one/uploads/movie/poster/2409/thumb_bI1YVuhBN6Vws1GP9Mf01DyhC2s.jpg",
+      "description": "Batman: Year One - FilmModu HD Film",
+      "genres": [
+        "FilmModu",
+        "Film"
+      ]
+    },
+    {
+      "id": "filmmodu:the-seven-year-itch-film-izle",
+      "type": "movie",
+      "name": "The Seven Year Itch",
+      "poster": "https://cdn.filmmodu.one/uploads/movie/poster/4124/thumb_4oLqx0QbjWFzWtkxRmDLGH47CUJ.jpg",
+      "background": "https://cdn.filmmodu.one/uploads/movie/poster/4124/thumb_4oLqx0QbjWFzWtkxRmDLGH47CUJ.jpg",
+      "description": "The Seven Year Itch - FilmModu HD Film",
+      "genres": [
+        "FilmModu",
+        "Film"
+      ]
+    }
+  ]
+}

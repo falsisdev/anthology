@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "animecix:title:84",
+      "type": "series",
+      "name": "Dragon Ball",
+      "poster": "https://image.tmdb.org/t/p/original/onCLyCOgszTIyyVs2XKYSkKPOPG.jpg",
+      "background": "https://image.tmdb.org/t/p/w1280/nokCMxb0u5YtLsu7RGs4oUiA8DK.jpg",
+      "description": "Goku, ormanda ufak bir kulübede, ölmüş büyük babası Son Gohan'nın ona bıraktığı dört yıldızlı Ejder Topu'yla yaşamaktadır. \r\nGoku, bu Ejder Topu'nu, büyük babası zannetmektedir. Bir gün bu ejder toplarını arayan Bulma adında bir kız gelir ve Goku'ye Ejder Toplarının büyüsünü anlatır;\r\n\"Yedi tane Ejder Topu varmış. Bunların içindeki yıldızlar sayesinde parıl parıl parlıyorlarmış. \r\nBir taneden yedi taneye kadar hepsini toplarsan ve doğru ilahiyi söylersen, Ejder Shenlong, gelip senin herhangi bir isteğini yerine getirirmiş. \r\nAma yalnızca bir tanesini!!\"\r\nBunun üzerine Goku ve Bulma bol aksiyon ve komedili uzun bir maceraya atılırlar ve Ejder Toplarını aramaya başlarlar.",
+      "genres": [
+        "Anime",
+        "AnimeciX"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "metas": [
+    {
+      "id": "turkanime:anime:boruto-naruto-next-generations",
+      "type": "series",
+      "name": "Boruto: Naruto Next Generations",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Boruto: Naruto Next Generations - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:boruto-naruto-the-movie",
+      "type": "series",
+      "name": "Boruto: Naruto the Movie",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Boruto: Naruto the Movie - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:boruto-naruto-the-movie-naruto-ga-hokage-ni-natta-hi",
+      "type": "series",
+      "name": "Boruto: Naruto the Movie - Naruto ga ...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Boruto: Naruto the Movie - Naruto ga ... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    }
+  ]
+}

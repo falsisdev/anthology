@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "dizibox:show:all-american",
+      "type": "series",
+      "name": "ALL AMERICAN",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/all-american-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/all-american-200x290.jpg",
+      "description": "ALL AMERICAN - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    }
+  ]
+}

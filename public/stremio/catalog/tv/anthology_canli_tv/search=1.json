@@ -1,0 +1,103 @@
+{
+  "metas": [
+    {
+      "id": "tv:TRT1.tr",
+      "type": "tv",
+      "name": "TRT 1 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt1.png",
+      "description": "TRT 1 HD Canlı Yayın",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:Tele1.tr",
+      "type": "tv",
+      "name": "Tele 1 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tele1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tele1.png",
+      "description": "Tele 1 HD Canlı Yayın",
+      "genres": [
+        "HABER KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:beINSports1.tr",
+      "type": "tv",
+      "name": "BeIN Sports 1 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
+      "description": "BeIN Sports 1 HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:beINSportsMax1.tr",
+      "type": "tv",
+      "name": "BeIN Sports Max 1 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
+      "description": "BeIN Sports Max 1 HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:TivibuSpor1.tr",
+      "type": "tv",
+      "name": "Tivibu Spor 1 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
+      "description": "Tivibu Spor 1 HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:SmartSpor1.tr",
+      "type": "tv",
+      "name": "Smart Spor 1 HD",
+      "poster": "https://i.imgur.com/blu6v6P.png",
+      "background": "https://i.imgur.com/blu6v6P.png",
+      "description": "Smart Spor 1 HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:EuroSport1.tr",
+      "type": "tv",
+      "name": "Euro Sport 1 HD",
+      "poster": "https://i.imgur.com/olQJgm7.png",
+      "background": "https://i.imgur.com/olQJgm7.png",
+      "description": "Euro Sport 1 HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:ExxenSports1.tr",
+      "type": "tv",
+      "name": "Exxen Sports 1 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
+      "description": "Exxen Sports 1 HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:TabiiSpor1.tr",
+      "type": "tv",
+      "name": "Tabii Spor 1 HD",
+      "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "background": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "description": "Tabii Spor 1 HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    }
+  ]
+}

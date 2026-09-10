@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "id": "sinewix:movie:3058",
+    "type": "movie",
+    "name": "Batman: Gotham’ın Gaz Lambaları",
+    "poster": "https://image.tmdb.org/t/p/w500/7souLi5zqQCnpZVghaXv0Wowi0y.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/7d7h5ATx9eUD98O0UpxICz93mNC.jpg",
+    "description": "Mike Mignola ve Brian Augustyn ikilisinin ellerinden çıkan Gotham By Gaslight, farklı bir zaman veya evrende geçen Batman çizgi romanları arasında en çok beğeni toplayan çalışmalardan biri olarak hatırlanıyor. 19. yüzyılda geçen ve Viyana, Londra gibi Avrupa kentlerini de gördüğümüz Gotham By Gaslight‘ta Batman’in ana düşmanı Jack The Ripper. Batman çizgi romanlarında sıklıkla gördüğümüz Alfred Pennyworth, James Gordon ve Joker gibi karakterlerin de söz konusu dönemde karşımıza çıktığı çizgi romanda Sigmund Freud ve Prince Albert Victor gibi tarihten önemli figürler de bulunuyor.",
+    "genres": [
+      "SineWix"
+    ]
+  }
+}

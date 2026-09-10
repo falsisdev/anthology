@@ -118,25 +118,29 @@ const catalogConfigs = [
     catId: "anthology_ddizi",
     type: "series",
     file: "providers/ddizi.js",
-    args: { id: "ddizi_popular", type: "series" }
+    args: { id: "ddizi_popular", type: "series" },
+    popularSearches: ["kizilcik", "kızılcık", "bahar", "yali capkini", "inci taneleri", "gaddar", "kurulus", "yargi", "hudutsuz", "teskilat", "arka sokaklar", "gonul dagi", "sandik kokusu", "sahane hayat", "ataturk", "prens", "gibi", "kulup", "terzi", "bozkir", "magarsus", "kus ucusu", "saygi", "fatma"]
   },
   {
     catId: "anthology_dizibox",
     type: "series",
     file: "providers/dizibox.js",
-    args: { id: "dizibox_popular", type: "series" }
+    args: { id: "dizibox_popular", type: "series" },
+    popularSearches: ["breaking bad", "game of thrones", "the boys", "stranger things", "dexter", "sherlock", "dark", "chernobyl", "fargo", "true detective", "sopranos", "peaky blinders", "vikings", "the walking dead", "lost", "prison break", "house of the dragon", "better call saul", "the last of us", "the bear", "fallout"]
   },
   {
     catId: "anthology_dizimom",
     type: "series",
     file: "providers/dizimom.js",
-    args: { id: "dizimom_popular", type: "series" }
+    args: { id: "dizimom_popular", type: "series" },
+    popularSearches: ["fatma", "bahar", "breaking bad", "game of thrones", "the boys", "stranger things", "dexter", "sherlock", "dark", "chernobyl", "fargo", "true detective", "sopranos", "peaky blinders", "vikings", "the walking dead", "house of the dragon", "better call saul", "the last of us", "the bear", "fallout"]
   },
   {
     catId: "anthology_sinewix_movies",
     type: "movie",
     file: "providers/sinewix.js",
-    args: { id: "sinewix_movies", type: "movie" }
+    args: { id: "sinewix_movies", type: "movie" },
+    popularSearches: ["fight club", "godfather", "matrix", "interstellar", "inception", "oppenheimer", "barbie", "dune", "gladiator", "lord of the rings", "harry potter", "batman", "dark knight", "avengers", "iron man", "spider-man", "avatar", "pulp fiction", "forrest gump", "seven"]
   },
   {
     catId: "anthology_sinewix_series",
@@ -148,25 +152,29 @@ const catalogConfigs = [
     catId: "anthology_filmmodu",
     type: "movie",
     file: "providers/filmmodu.js",
-    args: { id: "filmmodu_movies", type: "movie" }
+    args: { id: "filmmodu_movies", type: "movie" },
+    popularSearches: ["fight club", "godfather", "matrix", "interstellar", "inception", "oppenheimer", "barbie", "dune", "gladiator", "lord of the rings", "harry potter", "batman", "dark knight", "avengers", "iron man", "spider-man", "avatar", "pulp fiction", "forrest gump", "seven"]
   },
   {
     catId: "anthology_animecix",
     type: "series",
     file: "providers/animecix.js",
-    args: { id: "animecix_popular", type: "series" }
+    args: { id: "animecix_popular", type: "series" },
+    popularSearches: ["naruto", "one piece", "bleach", "attack on titan", "death note", "jujutsu kaisen", "demon slayer", "dragon ball", "hunter x hunter", "fullmetal", "my hero academia", "tokyo ghoul", "sword art online", "chainsaw man", "solo leveling"]
   },
   {
     catId: "anthology_turkanime",
     type: "series",
     file: "providers/turkanime.js",
-    args: { id: "turkanime_popular", type: "series" }
+    args: { id: "turkanime_popular", type: "series" },
+    popularSearches: ["naruto", "one piece", "bleach", "attack on titan", "death note", "jujutsu kaisen", "demon slayer", "dragon ball", "hunter x hunter", "fullmetal", "my hero academia", "tokyo ghoul", "sword art online", "chainsaw man", "solo leveling"]
   },
   {
     catId: "anthology_cizgimax",
     type: "series",
     file: "providers/cizgimax.js",
-    args: { id: "cizgimax_popular", type: "series" }
+    args: { id: "cizgimax_popular", type: "series" },
+    popularSearches: ["avatar", "ben 10", "esrarengiz kasaba", "regular show", "surekli dizi", "adventure time", "samurai jack", "rick and morty", "south park", "simpsons", "sponge bob", "spider-man", "batman", "superman", "x-men", "star wars", "gumball", "ninja kaplumbagalar"]
   },
   {
     catId: "anthology_canli_tv",
@@ -226,6 +234,58 @@ function withTimeout(promise, ms = 8000) {
   ]);
 }
 
+function generateSearchTerms(title) {
+  const terms = new Set();
+  if (!title) return [];
+  const raw = title.trim();
+  const lower = raw.toLowerCase();
+  const trLower = raw.toLocaleLowerCase('tr-TR');
+  
+  terms.add(raw);
+  terms.add(lower);
+  terms.add(trLower);
+
+  const clean = lower.replace(/[^\w\sğüşıöçĞÜŞİÖÇ]/gi, ' ').replace(/\s+/g, ' ').trim();
+  if (clean) terms.add(clean);
+
+  // Normalize Turkish characters to ASCII
+  const normalized = lower
+    .replace(/[ıİ]/g, 'i').replace(/[üÜ]/g, 'u').replace(/[öÖ]/g, 'o')
+    .replace(/[şŞ]/g, 's').replace(/[ğĞ]/g, 'g').replace(/[çÇ]/g, 'c')
+    .replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
+  if (normalized) terms.add(normalized);
+
+  // Individual words and numbers
+  const words = clean.split(' ').filter(w => w.length >= 1);
+  for (const w of words) {
+    if (w.length >= 2 || /^\d+$/.test(w)) {
+      terms.add(w);
+      const normW = w
+        .replace(/[ıİ]/g, 'i').replace(/[üÜ]/g, 'u').replace(/[öÖ]/g, 'o')
+        .replace(/[şŞ]/g, 's').replace(/[ğĞ]/g, 'g').replace(/[çÇ]/g, 'c');
+      terms.add(normW);
+    }
+  }
+
+  // Word pairs (bigrams)
+  for (let i = 0; i < words.length - 1; i++) {
+    const pair = words[i] + ' ' + words[i + 1];
+    terms.add(pair);
+    const normPair = pair
+      .replace(/[ıİ]/g, 'i').replace(/[üÜ]/g, 'u').replace(/[öÖ]/g, 'o')
+      .replace(/[şŞ]/g, 's').replace(/[ğĞ]/g, 'g').replace(/[çÇ]/g, 'c');
+    terms.add(normPair);
+  }
+
+  // Alphanumeric compact (e.g. "trt1", "tv85", "kizilcikserbeti")
+  const compact = normalized.replace(/\s+/g, '');
+  if (compact.length >= 2) {
+    terms.add(compact);
+  }
+
+  return [...terms].filter(t => t.length >= 1);
+}
+
 (async () => {
   console.log("==================================================");
   console.log("Building Static Stremio Addon (Catalogs & Metas)");
@@ -280,12 +340,77 @@ function withTimeout(promise, ms = 8000) {
       };
     });
 
+    // Discover additional content via popular queries
+    if (cfg.popularSearches && Array.isArray(cfg.popularSearches) && typeof mod.getCatalog === 'function') {
+      process.stdout.write(`   Querying ${cfg.popularSearches.length} popular searches for [${cfg.catId}]... `);
+      let discoveredCount = 0;
+      for (const q of cfg.popularSearches) {
+        try {
+          const sRes = await withTimeout(mod.getCatalog({ search: q }), 4000);
+          if (sRes && Array.isArray(sRes.metas) && sRes.metas.length > 0) {
+            for (const sItem of sRes.metas) {
+              if (!sItem || !sItem.id || !sItem.name) continue;
+              if (!normalizedMetas.some(m => m.id === sItem.id)) {
+                const sType = (cfg.type === "movie") ? "movie" : (cfg.type === "series" ? "series" : (sItem.type || cfg.type));
+                normalizedMetas.push({
+                  id: sItem.id,
+                  type: sType,
+                  name: sItem.name,
+                  poster: sItem.poster || "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+                  background: sItem.background || sItem.poster || "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+                  description: sItem.description || `${sItem.name} - Anthology`,
+                  genres: sItem.genres || [sType]
+                });
+                discoveredCount++;
+              }
+            }
+          }
+        } catch (e) {}
+      }
+      console.log(`+${discoveredCount} new items discovered.`);
+      totalCatalogItems += discoveredCount;
+    }
+
     // Write catalog files:
     const catPath = path.join(STREMIO_DIR, 'catalog', cfg.type, `${cfg.catId}.json`);
     writeJsonSync(catPath, { metas: normalizedMetas });
 
     const skipPath = path.join(STREMIO_DIR, 'catalog', cfg.type, cfg.catId, 'skip=0.json');
     writeJsonSync(skipPath, { metas: normalizedMetas });
+
+    // Generate static search files for Nuvio/Stremio search endpoint:
+    // GET /catalog/{type}/{catId}/search={query}.json
+    const catalogDir = path.join(STREMIO_DIR, 'catalog', cfg.type, cfg.catId);
+    ensureDirSync(catalogDir);
+
+    const searchIndex = new Map();
+    for (const item of normalizedMetas) {
+      const terms = generateSearchTerms(item.name);
+      for (const t of terms) {
+        if (!searchIndex.has(t)) searchIndex.set(t, []);
+        const list = searchIndex.get(t);
+        if (!list.some(existing => existing.id === item.id)) {
+          list.push(item);
+        }
+      }
+    }
+
+    // Empty search query fallback: search=.json
+    writeJsonSync(path.join(catalogDir, 'search=.json'), { metas: normalizedMetas });
+
+    let searchFilesCount = 0;
+    for (const [term, matchingItems] of searchIndex.entries()) {
+      const searchFileName = `search=${term}.json`;
+      writeJsonSync(path.join(catalogDir, searchFileName), { metas: matchingItems });
+      searchFilesCount++;
+
+      const encodedTerm = encodeURIComponent(term);
+      if (encodedTerm !== term) {
+        const encodedFileName = `search=${encodedTerm}.json`;
+        writeJsonSync(path.join(catalogDir, encodedFileName), { metas: matchingItems });
+      }
+    }
+    console.log(`   Generated ${searchFilesCount} static search query files for [${cfg.catId}].`);
 
     // 2. Generate Meta for each item directly from normalized metadata
     for (const item of normalizedMetas) {
@@ -317,7 +442,10 @@ function withTimeout(promise, ms = 8000) {
       }
 
       if (!metaData.videos || metaData.videos.length === 0) {
-        if (metaData.type === 'series' || metaData.type === 'tv') {
+        if (item.id.startsWith('tv:')) {
+          // Canlı TV — season/episode YOK (S1B1 sorunu fix)
+          metaData.videos = [{ id: item.id, title: metaData.name || item.name }];
+        } else if (metaData.type === 'series') {
           metaData.videos = [
             {
               id: item.id,

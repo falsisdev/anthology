@@ -1,0 +1,736 @@
+{
+  "meta": {
+    "id": "ddizi:show:2023/bahar-yeli",
+    "type": "series",
+    "name": "Bahar Yeli",
+    "poster": "https://www.ddizi.im/diziresimleri/baharyelikapak-min.jpg",
+    "background": "https://www.ddizi.im/diziresimleri/baharyelikapak-min.jpg",
+    "description": "Bahar Yeli - DDizi Dizi Arşivi",
+    "genres": [
+      "Yerli Dizi",
+      "DDizi"
+    ],
+    "videos": [
+      {
+        "id": "ddizi:ep:82866/bahar-yeli-1-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 1.Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "ddizi:ep:82876/bahar-yeli-2-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 2.Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "ddizi:ep:82887/bahar-yeli-3-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 3.Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "ddizi:ep:82908/bahar-yeli-4-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 4.Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "ddizi:ep:82934/bahar-yeli-5-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 5.Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "ddizi:ep:82943/bahar-yeli-6-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 6.Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "ddizi:ep:82952/bahar-yeli-7-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 7.Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "ddizi:ep:82962/bahar-yeli-8-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 8.Bölüm",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "ddizi:ep:82982/bahar-yeli-9-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 9.Bölüm",
+        "season": 1,
+        "episode": 9
+      },
+      {
+        "id": "ddizi:ep:82993/bahar-yeli-10-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 10.Bölüm",
+        "season": 1,
+        "episode": 10
+      },
+      {
+        "id": "ddizi:ep:83003/bahar-yeli-11-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 11.Bölüm",
+        "season": 1,
+        "episode": 11
+      },
+      {
+        "id": "ddizi:ep:83014/bahar-yeli-12-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 12.Bölüm",
+        "season": 1,
+        "episode": 12
+      },
+      {
+        "id": "ddizi:ep:83025/bahar-yeli-13-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 13.Bölüm",
+        "season": 1,
+        "episode": 13
+      },
+      {
+        "id": "ddizi:ep:83045/bahar-yeli-14-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 14.Bölüm",
+        "season": 1,
+        "episode": 14
+      },
+      {
+        "id": "ddizi:ep:83056/bahar-yeli-15-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 15.Bölüm",
+        "season": 1,
+        "episode": 15
+      },
+      {
+        "id": "ddizi:ep:83066/bahar-yeli-16-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 16.Bölüm",
+        "season": 1,
+        "episode": 16
+      },
+      {
+        "id": "ddizi:ep:83076/bahar-yeli-17-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 17.Bölüm",
+        "season": 1,
+        "episode": 17
+      },
+      {
+        "id": "ddizi:ep:83086/bahar-yeli-18-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 18.Bölüm",
+        "season": 1,
+        "episode": 18
+      },
+      {
+        "id": "ddizi:ep:83102/bahar-yeli-19-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 19.Bölüm",
+        "season": 1,
+        "episode": 19
+      },
+      {
+        "id": "ddizi:ep:83118/bahar-yeli-20-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 20.Bölüm",
+        "season": 1,
+        "episode": 20
+      },
+      {
+        "id": "ddizi:ep:83124/bahar-yeli-21-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 21.Bölüm",
+        "season": 1,
+        "episode": 21
+      },
+      {
+        "id": "ddizi:ep:83131/bahar-yeli-22-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 22.Bölüm",
+        "season": 1,
+        "episode": 22
+      },
+      {
+        "id": "ddizi:ep:83141/bahar-yeli-23-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 23.Bölüm",
+        "season": 1,
+        "episode": 23
+      },
+      {
+        "id": "ddizi:ep:83158/bahar-yeli-24-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 24.Bölüm",
+        "season": 1,
+        "episode": 24
+      },
+      {
+        "id": "ddizi:ep:83168/bahar-yeli-25-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 25.Bölüm",
+        "season": 1,
+        "episode": 25
+      },
+      {
+        "id": "ddizi:ep:83178/bahar-yeli-26-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 26.Bölüm",
+        "season": 1,
+        "episode": 26
+      },
+      {
+        "id": "ddizi:ep:83188/bahar-yeli-27-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 27.Bölüm",
+        "season": 1,
+        "episode": 27
+      },
+      {
+        "id": "ddizi:ep:83198/bahar-yeli-28-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 28.Bölüm",
+        "season": 1,
+        "episode": 28
+      },
+      {
+        "id": "ddizi:ep:83219/bahar-yeli-29-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 29.Bölüm",
+        "season": 1,
+        "episode": 29
+      },
+      {
+        "id": "ddizi:ep:83228/bahar-yeli-30-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 30.Bölüm",
+        "season": 1,
+        "episode": 30
+      },
+      {
+        "id": "ddizi:ep:83238/bahar-yeli-31-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 31.Bölüm",
+        "season": 1,
+        "episode": 31
+      },
+      {
+        "id": "ddizi:ep:83248/bahar-yeli-32-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 32.Bölüm",
+        "season": 1,
+        "episode": 32
+      },
+      {
+        "id": "ddizi:ep:83258/bahar-yeli-33-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 33.Bölüm",
+        "season": 1,
+        "episode": 33
+      },
+      {
+        "id": "ddizi:ep:83286/bahar-yeli-34-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 34.Bölüm",
+        "season": 1,
+        "episode": 34
+      },
+      {
+        "id": "ddizi:ep:83296/bahar-yeli-35-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 35.Bölüm",
+        "season": 1,
+        "episode": 35
+      },
+      {
+        "id": "ddizi:ep:83306/bahar-yeli-36-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 36.Bölüm",
+        "season": 1,
+        "episode": 36
+      },
+      {
+        "id": "ddizi:ep:83316/bahar-yeli-37-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 37.Bölüm",
+        "season": 1,
+        "episode": 37
+      },
+      {
+        "id": "ddizi:ep:83327/bahar-yeli-38-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 38.Bölüm",
+        "season": 1,
+        "episode": 38
+      },
+      {
+        "id": "ddizi:ep:83347/bahar-yeli-39-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 39.Bölüm",
+        "season": 1,
+        "episode": 39
+      },
+      {
+        "id": "ddizi:ep:83357/bahar-yeli-40-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 40.Bölüm",
+        "season": 1,
+        "episode": 40
+      },
+      {
+        "id": "ddizi:ep:83367/bahar-yeli-41-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 41.Bölüm",
+        "season": 1,
+        "episode": 41
+      },
+      {
+        "id": "ddizi:ep:83377/bahar-yeli-42-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 42.Bölüm",
+        "season": 1,
+        "episode": 42
+      },
+      {
+        "id": "ddizi:ep:83388/bahar-yeli-43-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 43.Bölüm",
+        "season": 1,
+        "episode": 43
+      },
+      {
+        "id": "ddizi:ep:83408/bahar-yeli-44-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 44.Bölüm",
+        "season": 1,
+        "episode": 44
+      },
+      {
+        "id": "ddizi:ep:83418/bahar-yeli-45-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 45.Bölüm",
+        "season": 1,
+        "episode": 45
+      },
+      {
+        "id": "ddizi:ep:83427/bahar-yeli-46-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 46.Bölüm",
+        "season": 1,
+        "episode": 46
+      },
+      {
+        "id": "ddizi:ep:83437/bahar-yeli-47-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 47.Bölüm",
+        "season": 1,
+        "episode": 47
+      },
+      {
+        "id": "ddizi:ep:83447/bahar-yeli-48-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 48.Bölüm",
+        "season": 1,
+        "episode": 48
+      },
+      {
+        "id": "ddizi:ep:83465/bahar-yeli-49-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 49.Bölüm",
+        "season": 1,
+        "episode": 49
+      },
+      {
+        "id": "ddizi:ep:83475/bahar-yeli-50-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 50.Bölüm",
+        "season": 1,
+        "episode": 50
+      },
+      {
+        "id": "ddizi:ep:83485/bahar-yeli-51-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 51.Bölüm",
+        "season": 1,
+        "episode": 51
+      },
+      {
+        "id": "ddizi:ep:83495/bahar-yeli-52-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 52.Bölüm",
+        "season": 1,
+        "episode": 52
+      },
+      {
+        "id": "ddizi:ep:83506/bahar-yeli-53-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 53.Bölüm",
+        "season": 1,
+        "episode": 53
+      },
+      {
+        "id": "ddizi:ep:83525/bahar-yeli-54-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 54.Bölüm",
+        "season": 1,
+        "episode": 54
+      },
+      {
+        "id": "ddizi:ep:83535/bahar-yeli-55-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 55.Bölüm",
+        "season": 1,
+        "episode": 55
+      },
+      {
+        "id": "ddizi:ep:83545/bahar-yeli-56-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 56.Bölüm",
+        "season": 1,
+        "episode": 56
+      },
+      {
+        "id": "ddizi:ep:83555/bahar-yeli-57-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 57.Bölüm",
+        "season": 1,
+        "episode": 57
+      },
+      {
+        "id": "ddizi:ep:83566/bahar-yeli-58-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 58.Bölüm",
+        "season": 1,
+        "episode": 58
+      },
+      {
+        "id": "ddizi:ep:83586/bahar-yeli-59-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 59.Bölüm",
+        "season": 1,
+        "episode": 59
+      },
+      {
+        "id": "ddizi:ep:83596/bahar-yeli-60-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 60.Bölüm",
+        "season": 1,
+        "episode": 60
+      },
+      {
+        "id": "ddizi:ep:83606/bahar-yeli-61-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 61.Bölüm",
+        "season": 1,
+        "episode": 61
+      },
+      {
+        "id": "ddizi:ep:83617/bahar-yeli-62-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 62.Bölüm",
+        "season": 1,
+        "episode": 62
+      },
+      {
+        "id": "ddizi:ep:83626/bahar-yeli-63-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 63.Bölüm",
+        "season": 1,
+        "episode": 63
+      },
+      {
+        "id": "ddizi:ep:83645/bahar-yeli-64-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 64.Bölüm",
+        "season": 1,
+        "episode": 64
+      },
+      {
+        "id": "ddizi:ep:83654/bahar-yeli-65-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 65.Bölüm",
+        "season": 1,
+        "episode": 65
+      },
+      {
+        "id": "ddizi:ep:83664/bahar-yeli-66-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 66.Bölüm",
+        "season": 1,
+        "episode": 66
+      },
+      {
+        "id": "ddizi:ep:83675/bahar-yeli-67-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 67.Bölüm",
+        "season": 1,
+        "episode": 67
+      },
+      {
+        "id": "ddizi:ep:83686/bahar-yeli-68-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 68.Bölüm",
+        "season": 1,
+        "episode": 68
+      },
+      {
+        "id": "ddizi:ep:83707/bahar-yeli-69-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 69.Bölüm",
+        "season": 1,
+        "episode": 69
+      },
+      {
+        "id": "ddizi:ep:83716/bahar-yeli-70-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 70.Bölüm",
+        "season": 1,
+        "episode": 70
+      },
+      {
+        "id": "ddizi:ep:83726/bahar-yeli-71-bolum-izle-hd.htm",
+        "title": "Bahar Yeli 71.Bölüm",
+        "season": 1,
+        "episode": 71
+      },
+      {
+        "id": "ddizi:ep:83737/bahar-yeli-72-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 72.Bölüm",
+        "season": 1,
+        "episode": 72
+      },
+      {
+        "id": "ddizi:ep:83748/bahar-yeli-73-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 73.Bölüm",
+        "season": 1,
+        "episode": 73
+      },
+      {
+        "id": "ddizi:ep:83769/bahar-yeli-74-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 74.Bölüm",
+        "season": 1,
+        "episode": 74
+      },
+      {
+        "id": "ddizi:ep:83778/bahar-yeli-75-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 75.Bölüm",
+        "season": 1,
+        "episode": 75
+      },
+      {
+        "id": "ddizi:ep:83788/bahar-yeli-76-bolum-izle-hd.htm",
+        "title": "Bahar Yeli 76.Bölüm",
+        "season": 1,
+        "episode": 76
+      },
+      {
+        "id": "ddizi:ep:83799/bahar-yeli-77-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 77.Bölüm",
+        "season": 1,
+        "episode": 77
+      },
+      {
+        "id": "ddizi:ep:83810/bahar-yeli-78-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 78.Bölüm",
+        "season": 1,
+        "episode": 78
+      },
+      {
+        "id": "ddizi:ep:83834/bahar-yeli-79-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 79.Bölüm",
+        "season": 1,
+        "episode": 79
+      },
+      {
+        "id": "ddizi:ep:83844/bahar-yeli-80-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 80.Bölüm",
+        "season": 1,
+        "episode": 80
+      },
+      {
+        "id": "ddizi:ep:83854/bahar-yeli-81-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 81.Bölüm",
+        "season": 1,
+        "episode": 81
+      },
+      {
+        "id": "ddizi:ep:83865/bahar-yeli-82-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 82.Bölüm",
+        "season": 1,
+        "episode": 82
+      },
+      {
+        "id": "ddizi:ep:83876/bahar-yeli-83-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 83.Bölüm",
+        "season": 1,
+        "episode": 83
+      },
+      {
+        "id": "ddizi:ep:83894/bahar-yeli-84-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 84.Bölüm",
+        "season": 1,
+        "episode": 84
+      },
+      {
+        "id": "ddizi:ep:83904/bahar-yeli-85-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 85.Bölüm",
+        "season": 1,
+        "episode": 85
+      },
+      {
+        "id": "ddizi:ep:83914/bahar-yeli-86-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 86.Bölüm",
+        "season": 1,
+        "episode": 86
+      },
+      {
+        "id": "ddizi:ep:83925/bahar-yeli-87-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 87.Bölüm",
+        "season": 1,
+        "episode": 87
+      },
+      {
+        "id": "ddizi:ep:83935/bahar-yeli-88-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 88.Bölüm",
+        "season": 1,
+        "episode": 88
+      },
+      {
+        "id": "ddizi:ep:83955/bahar-yeli-89-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 89.Bölüm",
+        "season": 1,
+        "episode": 89
+      },
+      {
+        "id": "ddizi:ep:83963/bahar-yeli-90-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 90.Bölüm",
+        "season": 1,
+        "episode": 90
+      },
+      {
+        "id": "ddizi:ep:83968/bahar-yeli-91-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 91.Bölüm",
+        "season": 1,
+        "episode": 91
+      },
+      {
+        "id": "ddizi:ep:83973/bahar-yeli-92-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 92.Bölüm",
+        "season": 1,
+        "episode": 92
+      },
+      {
+        "id": "ddizi:ep:83978/bahar-yeli-93-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 93.Bölüm",
+        "season": 1,
+        "episode": 93
+      },
+      {
+        "id": "ddizi:ep:83992/bahar-yeli-94-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 94.Bölüm",
+        "season": 1,
+        "episode": 94
+      },
+      {
+        "id": "ddizi:ep:84001/bahar-yeli-95-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 95.Bölüm",
+        "season": 1,
+        "episode": 95
+      },
+      {
+        "id": "ddizi:ep:84011/bahar-yeli-96-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 96.Bölüm",
+        "season": 1,
+        "episode": 96
+      },
+      {
+        "id": "ddizi:ep:84022/bahar-yeli-97-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 97.Bölüm",
+        "season": 1,
+        "episode": 97
+      },
+      {
+        "id": "ddizi:ep:84033/bahar-yeli-98-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 98.Bölüm",
+        "season": 1,
+        "episode": 98
+      },
+      {
+        "id": "ddizi:ep:84055/bahar-yeli-99-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 99.Bölüm",
+        "season": 1,
+        "episode": 99
+      },
+      {
+        "id": "ddizi:ep:84064/bahar-yeli-100-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 100.Bölüm",
+        "season": 1,
+        "episode": 100
+      },
+      {
+        "id": "ddizi:ep:84073/bahar-yeli-101-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 101.Bölüm",
+        "season": 1,
+        "episode": 101
+      },
+      {
+        "id": "ddizi:ep:84084/bahar-yeli-102-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 102.Bölüm",
+        "season": 1,
+        "episode": 102
+      },
+      {
+        "id": "ddizi:ep:84095/bahar-yeli-103-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 103.Bölüm",
+        "season": 1,
+        "episode": 103
+      },
+      {
+        "id": "ddizi:ep:84117/bahar-yeli-104-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 104.Bölüm",
+        "season": 1,
+        "episode": 104
+      },
+      {
+        "id": "ddizi:ep:84126/bahar-yeli-105-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 105.Bölüm",
+        "season": 1,
+        "episode": 105
+      },
+      {
+        "id": "ddizi:ep:84135/bahar-yeli-106-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 106.Bölüm",
+        "season": 1,
+        "episode": 106
+      },
+      {
+        "id": "ddizi:ep:84145/bahar-yeli-107-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 107.Bölüm",
+        "season": 1,
+        "episode": 107
+      },
+      {
+        "id": "ddizi:ep:84156/bahar-yeli-108-bolum-izle-hd1.htm",
+        "title": "Bahar Yeli 108.Bölüm",
+        "season": 1,
+        "episode": 108
+      },
+      {
+        "id": "ddizi:ep:84178/bahar-yeli-109-bolum-izle-hd2.htm",
+        "title": "Bahar Yeli 109.Bölüm",
+        "season": 1,
+        "episode": 109
+      },
+      {
+        "id": "ddizi:ep:84187/bahar-yeli-110-bolum-izle-hd2.htm",
+        "title": "Bahar Yeli 110.Bölüm",
+        "season": 1,
+        "episode": 110
+      },
+      {
+        "id": "ddizi:ep:84194/bahar-yeli-111-bolum-izle-hd2.htm",
+        "title": "Bahar Yeli 111.Bölüm",
+        "season": 1,
+        "episode": 111
+      },
+      {
+        "id": "ddizi:ep:84205/bahar-yeli-112-bolum-izle-hd2.htm",
+        "title": "Bahar Yeli 112.Bölüm",
+        "season": 1,
+        "episode": 112
+      },
+      {
+        "id": "ddizi:ep:84214/bahar-yeli-113-bolum-izle-hd2.htm",
+        "title": "Bahar Yeli 113.Bölüm",
+        "season": 1,
+        "episode": 113
+      },
+      {
+        "id": "ddizi:ep:84235/bahar-yeli-114-bolum-izle-hd2.htm",
+        "title": "Bahar Yeli 114.Bölüm",
+        "season": 1,
+        "episode": 114
+      },
+      {
+        "id": "ddizi:ep:84243/bahar-yeli-115-bolum-izle-hd2.htm",
+        "title": "Bahar Yeli 115.Bölüm",
+        "season": 1,
+        "episode": 115
+      },
+      {
+        "id": "ddizi:ep:84252/bahar-yeli-116-bolum-izle-hd2.htm",
+        "title": "Bahar Yeli 116.Bölüm",
+        "season": 1,
+        "episode": 116
+      },
+      {
+        "id": "ddizi:ep:84262/bahar-yeli-117-bolum-izle-hd2.htm",
+        "title": "Bahar Yeli 117.Bölüm",
+        "season": 1,
+        "episode": 117
+      },
+      {
+        "id": "ddizi:ep:84271/bahar-yeli-118-bolum-izle-hd2.htm",
+        "title": "Bahar Yeli 118.Bölüm",
+        "season": 1,
+        "episode": 118
+      },
+      {
+        "id": "ddizi:ep:84291/bahar-yeli-119-bolum-izle-hd2.htm",
+        "title": "Bahar Yeli 119.Bölüm",
+        "season": 1,
+        "episode": 119
+      },
+      {
+        "id": "ddizi:ep:84299/bahar-yeli-120-bolum-izle-final-hd2.htm",
+        "title": "Bahar Yeli 120.Bölüm Final",
+        "season": 1,
+        "episode": 120
+      }
+    ]
+  }
+}

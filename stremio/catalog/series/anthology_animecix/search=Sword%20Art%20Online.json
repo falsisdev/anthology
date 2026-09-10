@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "animecix:title:60",
+      "type": "series",
+      "name": "Sword Art Online",
+      "poster": "https://image.tmdb.org/t/p/original/mK9zGGk90VmHLOnK79sqlGFjZjW.jpg",
+      "background": "https://image.tmdb.org/t/p/w1280/5PUo6C8LAzcTzkuPKgLXuUFjafi.jpg",
+      "description": "2022 yılında piyasaya sürülen Sword Art Online MMORPG oyunu, başa takılan bir alet aracılığıyla oyuncuları kendi dünyasına götürerek gerçek bir Role-Playing oyunu sunmaktadır.\r\nOyuna katılan 10.000 oyuncu arasında olan Kirito da SAO dünyasına giriş yapmıştır. Fakat kısa sürede bütün oyuncular oyundan çıkış olmadığını fark ederler ve herkes bir anda geniş bir alana ışınlanır.\r\nOyunun yapımcısının burada yaptığı açıklamaya göre oyundan çıkmanın tek yolu 100 katlı SAO dünyasını temizlemektir. Her katta bir boss bulunmaktadır ve 100. kattaki boss'u öldürebilen oyundan çıkabilecektir.\r\nFakat oyunda sağlığı biten kişi gerçek hayatta da ölecek, ayrıca dışarıdan biri oyuncuların başındaki aleti çıkarmak isterse alet oyuncuları öldürecektir.\r\nBütün oyuncular şaşkınlık içerisindeyken oyunlar konusunda tecrübeli olan Kirito oyunu kazanmayı kafasına koymuştur.",
+      "genres": [
+        "Anime",
+        "AnimeciX"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:dragon-ball-z-movie-10-kiken-na-futari-super-senshi-wa-nemurenai",
+    "type": "series",
+    "name": "Dragon Ball Z Movie 10: Kiken na Futa...",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/5577.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/5577.jpg",
+    "description": "Dragon Ball Z Movie 10: Kiken na Futari! Super Senshi wa Nemurenai - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:dragon-ball-z-kiken-na-futari-super-senshi-wa-nemurenai-movie-10",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

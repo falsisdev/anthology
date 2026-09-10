@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "animecix:title:7683",
+    "type": "series",
+    "name": "Shingeki no Kyojin Movie 2: Jiyuu no Tsubasa",
+    "poster": "https://image.tmdb.org/t/p/original/vMoqVBW3LN5EnA9A3zA91tt0oY.jpg",
+    "background": "https://image.tmdb.org/t/p/original/hqpWdfqeH8oEpxAWXdKKNyMpoLv.jpg",
+    "description": "Shingeki no Kyojin serisinin 14-25 bölümlerini konu alan filmdir.",
+    "genres": [
+      "Anime",
+      "AnimeciX"
+    ],
+    "videos": [
+      {
+        "id": "animecix:ep:7683:1:1",
+        "title": "Shingeki no Kyojin Movie 2: Jiyuu no Tsubasa 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

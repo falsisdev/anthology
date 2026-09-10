@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:one-piece-movie-6-omatsuri-danshaku-to-himitsu-no-shima",
+    "type": "series",
+    "name": "One Piece Movie 6: Omatsuri Danshaku ...",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/3175.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/3175.jpg",
+    "description": "One Piece Movie 6: Omatsuri Danshaku to Himitsu no Shima - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:One Piece Movie 6: Omatsuri Danshaku to Himitsu no Shima",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

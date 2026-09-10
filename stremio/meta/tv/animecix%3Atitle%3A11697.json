@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "animecix:title:11697",
+    "type": "series",
+    "name": "Vampire Hunter D",
+    "poster": "https://image.tmdb.org/t/p/original/xS4WXii5OUKXIkVtObnVciRT8dt.jpg",
+    "background": "https://image.tmdb.org/t/p/w1280/1zs8iKZMKrtIh2MulIwwU6Gs9EK.jpg",
+    "description": "Doğaüstü güçlerin hüküm sürdüğü uzak bir gelecekte, genç bir kız, kendisini ısıran vampiri öldürmek ve böylece kendisinin de vampir olmasını engellemek için bir vampir avcısından yardım ister.",
+    "genres": [
+      "Anime",
+      "AnimeciX"
+    ],
+    "videos": [
+      {
+        "id": "animecix:ep:11697:1:1",
+        "title": "Vampire Hunter D 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

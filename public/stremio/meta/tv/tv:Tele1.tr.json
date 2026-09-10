@@ -12,9 +12,7 @@
     "videos": [
       {
         "id": "tv:Tele1.tr",
-        "title": "Tele 1 HD",
-        "season": 1,
-        "episode": 1
+        "title": "Tele 1 HD"
       }
     ]
   }

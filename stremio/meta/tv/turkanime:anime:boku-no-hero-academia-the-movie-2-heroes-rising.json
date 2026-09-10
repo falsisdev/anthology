@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:boku-no-hero-academia-the-movie-2-heroes-rising",
+    "type": "series",
+    "name": "Boku no Hero Academia the Movie 2: He...",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/4577.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/4577.jpg",
+    "description": "Boku no Hero Academia the Movie 2: Heroes:Rising - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:boku-no-hero-academia-movie-2-heroes-rising",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

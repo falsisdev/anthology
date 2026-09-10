@@ -1,0 +1,856 @@
+{
+  "meta": {
+    "id": "animecix:title:9151",
+    "type": "series",
+    "name": "City Hunter",
+    "poster": "https://image.tmdb.org/t/p/original/4BA0FDKiJD0N4ljYhlwOVjQKszR.jpg",
+    "background": "https://image.tmdb.org/t/p/w1280/saZTZ8t7rgC5OysidZoUCqMVS4o.jpg",
+    "description": "Ryo Saeba works the streets of Tokyo as the City Hunter. He's a \"sweeper\" and with his sidekick Kaori Makimura, he keeps the city clean. People hire the City Hunter to solve their dangerous problems, which he does with a Colt Python. When Ryo's not working on a case, he's working on getting the ladies, and Kaori must keep him in check with her trusty 10 kg hammer.",
+    "genres": [
+      "Anime",
+      "AnimeciX"
+    ],
+    "videos": [
+      {
+        "id": "animecix:ep:9151:1:1",
+        "title": "City Hunter 1. Sezon 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "animecix:ep:9151:1:2",
+        "title": "City Hunter 1. Sezon 2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "animecix:ep:9151:1:3",
+        "title": "City Hunter 1. Sezon 3. Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "animecix:ep:9151:1:4",
+        "title": "City Hunter 1. Sezon 4. Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "animecix:ep:9151:1:5",
+        "title": "City Hunter 1. Sezon 5. Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "animecix:ep:9151:1:6",
+        "title": "City Hunter 1. Sezon 6. Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "animecix:ep:9151:1:7",
+        "title": "City Hunter 1. Sezon 7. Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "animecix:ep:9151:1:8",
+        "title": "City Hunter 1. Sezon 8. Bölüm",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "animecix:ep:9151:1:9",
+        "title": "City Hunter 1. Sezon 9. Bölüm",
+        "season": 1,
+        "episode": 9
+      },
+      {
+        "id": "animecix:ep:9151:1:10",
+        "title": "City Hunter 1. Sezon 10. Bölüm",
+        "season": 1,
+        "episode": 10
+      },
+      {
+        "id": "animecix:ep:9151:1:11",
+        "title": "City Hunter 1. Sezon 11. Bölüm",
+        "season": 1,
+        "episode": 11
+      },
+      {
+        "id": "animecix:ep:9151:1:12",
+        "title": "City Hunter 1. Sezon 12. Bölüm",
+        "season": 1,
+        "episode": 12
+      },
+      {
+        "id": "animecix:ep:9151:1:13",
+        "title": "City Hunter 1. Sezon 13. Bölüm",
+        "season": 1,
+        "episode": 13
+      },
+      {
+        "id": "animecix:ep:9151:1:14",
+        "title": "City Hunter 1. Sezon 14. Bölüm",
+        "season": 1,
+        "episode": 14
+      },
+      {
+        "id": "animecix:ep:9151:1:15",
+        "title": "City Hunter 1. Sezon 15. Bölüm",
+        "season": 1,
+        "episode": 15
+      },
+      {
+        "id": "animecix:ep:9151:1:16",
+        "title": "City Hunter 1. Sezon 16. Bölüm",
+        "season": 1,
+        "episode": 16
+      },
+      {
+        "id": "animecix:ep:9151:1:17",
+        "title": "City Hunter 1. Sezon 17. Bölüm",
+        "season": 1,
+        "episode": 17
+      },
+      {
+        "id": "animecix:ep:9151:1:18",
+        "title": "City Hunter 1. Sezon 18. Bölüm",
+        "season": 1,
+        "episode": 18
+      },
+      {
+        "id": "animecix:ep:9151:1:19",
+        "title": "City Hunter 1. Sezon 19. Bölüm",
+        "season": 1,
+        "episode": 19
+      },
+      {
+        "id": "animecix:ep:9151:1:20",
+        "title": "City Hunter 1. Sezon 20. Bölüm",
+        "season": 1,
+        "episode": 20
+      },
+      {
+        "id": "animecix:ep:9151:1:21",
+        "title": "City Hunter 1. Sezon 21. Bölüm",
+        "season": 1,
+        "episode": 21
+      },
+      {
+        "id": "animecix:ep:9151:1:22",
+        "title": "City Hunter 1. Sezon 22. Bölüm",
+        "season": 1,
+        "episode": 22
+      },
+      {
+        "id": "animecix:ep:9151:1:23",
+        "title": "City Hunter 1. Sezon 23. Bölüm",
+        "season": 1,
+        "episode": 23
+      },
+      {
+        "id": "animecix:ep:9151:1:24",
+        "title": "City Hunter 1. Sezon 24. Bölüm",
+        "season": 1,
+        "episode": 24
+      },
+      {
+        "id": "animecix:ep:9151:1:25",
+        "title": "City Hunter 1. Sezon 25. Bölüm",
+        "season": 1,
+        "episode": 25
+      },
+      {
+        "id": "animecix:ep:9151:1:26",
+        "title": "City Hunter 1. Sezon 26. Bölüm",
+        "season": 1,
+        "episode": 26
+      },
+      {
+        "id": "animecix:ep:9151:1:27",
+        "title": "City Hunter 1. Sezon 27. Bölüm",
+        "season": 1,
+        "episode": 27
+      },
+      {
+        "id": "animecix:ep:9151:1:28",
+        "title": "City Hunter 1. Sezon 28. Bölüm",
+        "season": 1,
+        "episode": 28
+      },
+      {
+        "id": "animecix:ep:9151:1:29",
+        "title": "City Hunter 1. Sezon 29. Bölüm",
+        "season": 1,
+        "episode": 29
+      },
+      {
+        "id": "animecix:ep:9151:1:30",
+        "title": "City Hunter 1. Sezon 30. Bölüm",
+        "season": 1,
+        "episode": 30
+      },
+      {
+        "id": "animecix:ep:9151:1:31",
+        "title": "City Hunter 1. Sezon 31. Bölüm",
+        "season": 1,
+        "episode": 31
+      },
+      {
+        "id": "animecix:ep:9151:1:32",
+        "title": "City Hunter 1. Sezon 32. Bölüm",
+        "season": 1,
+        "episode": 32
+      },
+      {
+        "id": "animecix:ep:9151:1:33",
+        "title": "City Hunter 1. Sezon 33. Bölüm",
+        "season": 1,
+        "episode": 33
+      },
+      {
+        "id": "animecix:ep:9151:1:34",
+        "title": "City Hunter 1. Sezon 34. Bölüm",
+        "season": 1,
+        "episode": 34
+      },
+      {
+        "id": "animecix:ep:9151:1:35",
+        "title": "City Hunter 1. Sezon 35. Bölüm",
+        "season": 1,
+        "episode": 35
+      },
+      {
+        "id": "animecix:ep:9151:1:36",
+        "title": "City Hunter 1. Sezon 36. Bölüm",
+        "season": 1,
+        "episode": 36
+      },
+      {
+        "id": "animecix:ep:9151:1:37",
+        "title": "City Hunter 1. Sezon 37. Bölüm",
+        "season": 1,
+        "episode": 37
+      },
+      {
+        "id": "animecix:ep:9151:1:38",
+        "title": "City Hunter 1. Sezon 38. Bölüm",
+        "season": 1,
+        "episode": 38
+      },
+      {
+        "id": "animecix:ep:9151:1:39",
+        "title": "City Hunter 1. Sezon 39. Bölüm",
+        "season": 1,
+        "episode": 39
+      },
+      {
+        "id": "animecix:ep:9151:1:40",
+        "title": "City Hunter 1. Sezon 40. Bölüm",
+        "season": 1,
+        "episode": 40
+      },
+      {
+        "id": "animecix:ep:9151:1:41",
+        "title": "City Hunter 1. Sezon 41. Bölüm",
+        "season": 1,
+        "episode": 41
+      },
+      {
+        "id": "animecix:ep:9151:1:42",
+        "title": "City Hunter 1. Sezon 42. Bölüm",
+        "season": 1,
+        "episode": 42
+      },
+      {
+        "id": "animecix:ep:9151:1:43",
+        "title": "City Hunter 1. Sezon 43. Bölüm",
+        "season": 1,
+        "episode": 43
+      },
+      {
+        "id": "animecix:ep:9151:1:44",
+        "title": "City Hunter 1. Sezon 44. Bölüm",
+        "season": 1,
+        "episode": 44
+      },
+      {
+        "id": "animecix:ep:9151:1:45",
+        "title": "City Hunter 1. Sezon 45. Bölüm",
+        "season": 1,
+        "episode": 45
+      },
+      {
+        "id": "animecix:ep:9151:1:46",
+        "title": "City Hunter 1. Sezon 46. Bölüm",
+        "season": 1,
+        "episode": 46
+      },
+      {
+        "id": "animecix:ep:9151:1:47",
+        "title": "City Hunter 1. Sezon 47. Bölüm",
+        "season": 1,
+        "episode": 47
+      },
+      {
+        "id": "animecix:ep:9151:1:48",
+        "title": "City Hunter 1. Sezon 48. Bölüm",
+        "season": 1,
+        "episode": 48
+      },
+      {
+        "id": "animecix:ep:9151:1:49",
+        "title": "City Hunter 1. Sezon 49. Bölüm",
+        "season": 1,
+        "episode": 49
+      },
+      {
+        "id": "animecix:ep:9151:1:50",
+        "title": "City Hunter 1. Sezon 50. Bölüm",
+        "season": 1,
+        "episode": 50
+      },
+      {
+        "id": "animecix:ep:9151:1:51",
+        "title": "City Hunter 1. Sezon 51. Bölüm",
+        "season": 1,
+        "episode": 51
+      },
+      {
+        "id": "animecix:ep:9151:2:1",
+        "title": "City Hunter 2. Sezon 1. Bölüm",
+        "season": 2,
+        "episode": 1
+      },
+      {
+        "id": "animecix:ep:9151:2:2",
+        "title": "City Hunter 2. Sezon 2. Bölüm",
+        "season": 2,
+        "episode": 2
+      },
+      {
+        "id": "animecix:ep:9151:2:3",
+        "title": "City Hunter 2. Sezon 3. Bölüm",
+        "season": 2,
+        "episode": 3
+      },
+      {
+        "id": "animecix:ep:9151:2:4",
+        "title": "City Hunter 2. Sezon 4. Bölüm",
+        "season": 2,
+        "episode": 4
+      },
+      {
+        "id": "animecix:ep:9151:2:5",
+        "title": "City Hunter 2. Sezon 5. Bölüm",
+        "season": 2,
+        "episode": 5
+      },
+      {
+        "id": "animecix:ep:9151:2:6",
+        "title": "City Hunter 2. Sezon 6. Bölüm",
+        "season": 2,
+        "episode": 6
+      },
+      {
+        "id": "animecix:ep:9151:2:7",
+        "title": "City Hunter 2. Sezon 7. Bölüm",
+        "season": 2,
+        "episode": 7
+      },
+      {
+        "id": "animecix:ep:9151:2:8",
+        "title": "City Hunter 2. Sezon 8. Bölüm",
+        "season": 2,
+        "episode": 8
+      },
+      {
+        "id": "animecix:ep:9151:2:9",
+        "title": "City Hunter 2. Sezon 9. Bölüm",
+        "season": 2,
+        "episode": 9
+      },
+      {
+        "id": "animecix:ep:9151:2:10",
+        "title": "City Hunter 2. Sezon 10. Bölüm",
+        "season": 2,
+        "episode": 10
+      },
+      {
+        "id": "animecix:ep:9151:2:11",
+        "title": "City Hunter 2. Sezon 11. Bölüm",
+        "season": 2,
+        "episode": 11
+      },
+      {
+        "id": "animecix:ep:9151:2:12",
+        "title": "City Hunter 2. Sezon 12. Bölüm",
+        "season": 2,
+        "episode": 12
+      },
+      {
+        "id": "animecix:ep:9151:2:13",
+        "title": "City Hunter 2. Sezon 13. Bölüm",
+        "season": 2,
+        "episode": 13
+      },
+      {
+        "id": "animecix:ep:9151:2:14",
+        "title": "City Hunter 2. Sezon 14. Bölüm",
+        "season": 2,
+        "episode": 14
+      },
+      {
+        "id": "animecix:ep:9151:2:15",
+        "title": "City Hunter 2. Sezon 15. Bölüm",
+        "season": 2,
+        "episode": 15
+      },
+      {
+        "id": "animecix:ep:9151:2:16",
+        "title": "City Hunter 2. Sezon 16. Bölüm",
+        "season": 2,
+        "episode": 16
+      },
+      {
+        "id": "animecix:ep:9151:2:17",
+        "title": "City Hunter 2. Sezon 17. Bölüm",
+        "season": 2,
+        "episode": 17
+      },
+      {
+        "id": "animecix:ep:9151:2:18",
+        "title": "City Hunter 2. Sezon 18. Bölüm",
+        "season": 2,
+        "episode": 18
+      },
+      {
+        "id": "animecix:ep:9151:2:19",
+        "title": "City Hunter 2. Sezon 19. Bölüm",
+        "season": 2,
+        "episode": 19
+      },
+      {
+        "id": "animecix:ep:9151:2:20",
+        "title": "City Hunter 2. Sezon 20. Bölüm",
+        "season": 2,
+        "episode": 20
+      },
+      {
+        "id": "animecix:ep:9151:2:21",
+        "title": "City Hunter 2. Sezon 21. Bölüm",
+        "season": 2,
+        "episode": 21
+      },
+      {
+        "id": "animecix:ep:9151:2:22",
+        "title": "City Hunter 2. Sezon 22. Bölüm",
+        "season": 2,
+        "episode": 22
+      },
+      {
+        "id": "animecix:ep:9151:2:23",
+        "title": "City Hunter 2. Sezon 23. Bölüm",
+        "season": 2,
+        "episode": 23
+      },
+      {
+        "id": "animecix:ep:9151:2:24",
+        "title": "City Hunter 2. Sezon 24. Bölüm",
+        "season": 2,
+        "episode": 24
+      },
+      {
+        "id": "animecix:ep:9151:2:25",
+        "title": "City Hunter 2. Sezon 25. Bölüm",
+        "season": 2,
+        "episode": 25
+      },
+      {
+        "id": "animecix:ep:9151:2:26",
+        "title": "City Hunter 2. Sezon 26. Bölüm",
+        "season": 2,
+        "episode": 26
+      },
+      {
+        "id": "animecix:ep:9151:2:27",
+        "title": "City Hunter 2. Sezon 27. Bölüm",
+        "season": 2,
+        "episode": 27
+      },
+      {
+        "id": "animecix:ep:9151:2:28",
+        "title": "City Hunter 2. Sezon 28. Bölüm",
+        "season": 2,
+        "episode": 28
+      },
+      {
+        "id": "animecix:ep:9151:2:29",
+        "title": "City Hunter 2. Sezon 29. Bölüm",
+        "season": 2,
+        "episode": 29
+      },
+      {
+        "id": "animecix:ep:9151:2:30",
+        "title": "City Hunter 2. Sezon 30. Bölüm",
+        "season": 2,
+        "episode": 30
+      },
+      {
+        "id": "animecix:ep:9151:2:31",
+        "title": "City Hunter 2. Sezon 31. Bölüm",
+        "season": 2,
+        "episode": 31
+      },
+      {
+        "id": "animecix:ep:9151:2:32",
+        "title": "City Hunter 2. Sezon 32. Bölüm",
+        "season": 2,
+        "episode": 32
+      },
+      {
+        "id": "animecix:ep:9151:2:33",
+        "title": "City Hunter 2. Sezon 33. Bölüm",
+        "season": 2,
+        "episode": 33
+      },
+      {
+        "id": "animecix:ep:9151:2:34",
+        "title": "City Hunter 2. Sezon 34. Bölüm",
+        "season": 2,
+        "episode": 34
+      },
+      {
+        "id": "animecix:ep:9151:2:35",
+        "title": "City Hunter 2. Sezon 35. Bölüm",
+        "season": 2,
+        "episode": 35
+      },
+      {
+        "id": "animecix:ep:9151:2:36",
+        "title": "City Hunter 2. Sezon 36. Bölüm",
+        "season": 2,
+        "episode": 36
+      },
+      {
+        "id": "animecix:ep:9151:2:37",
+        "title": "City Hunter 2. Sezon 37. Bölüm",
+        "season": 2,
+        "episode": 37
+      },
+      {
+        "id": "animecix:ep:9151:2:38",
+        "title": "City Hunter 2. Sezon 38. Bölüm",
+        "season": 2,
+        "episode": 38
+      },
+      {
+        "id": "animecix:ep:9151:2:39",
+        "title": "City Hunter 2. Sezon 39. Bölüm",
+        "season": 2,
+        "episode": 39
+      },
+      {
+        "id": "animecix:ep:9151:2:40",
+        "title": "City Hunter 2. Sezon 40. Bölüm",
+        "season": 2,
+        "episode": 40
+      },
+      {
+        "id": "animecix:ep:9151:2:41",
+        "title": "City Hunter 2. Sezon 41. Bölüm",
+        "season": 2,
+        "episode": 41
+      },
+      {
+        "id": "animecix:ep:9151:2:42",
+        "title": "City Hunter 2. Sezon 42. Bölüm",
+        "season": 2,
+        "episode": 42
+      },
+      {
+        "id": "animecix:ep:9151:2:43",
+        "title": "City Hunter 2. Sezon 43. Bölüm",
+        "season": 2,
+        "episode": 43
+      },
+      {
+        "id": "animecix:ep:9151:2:44",
+        "title": "City Hunter 2. Sezon 44. Bölüm",
+        "season": 2,
+        "episode": 44
+      },
+      {
+        "id": "animecix:ep:9151:2:45",
+        "title": "City Hunter 2. Sezon 45. Bölüm",
+        "season": 2,
+        "episode": 45
+      },
+      {
+        "id": "animecix:ep:9151:2:46",
+        "title": "City Hunter 2. Sezon 46. Bölüm",
+        "season": 2,
+        "episode": 46
+      },
+      {
+        "id": "animecix:ep:9151:2:47",
+        "title": "City Hunter 2. Sezon 47. Bölüm",
+        "season": 2,
+        "episode": 47
+      },
+      {
+        "id": "animecix:ep:9151:2:48",
+        "title": "City Hunter 2. Sezon 48. Bölüm",
+        "season": 2,
+        "episode": 48
+      },
+      {
+        "id": "animecix:ep:9151:2:49",
+        "title": "City Hunter 2. Sezon 49. Bölüm",
+        "season": 2,
+        "episode": 49
+      },
+      {
+        "id": "animecix:ep:9151:2:50",
+        "title": "City Hunter 2. Sezon 50. Bölüm",
+        "season": 2,
+        "episode": 50
+      },
+      {
+        "id": "animecix:ep:9151:2:51",
+        "title": "City Hunter 2. Sezon 51. Bölüm",
+        "season": 2,
+        "episode": 51
+      },
+      {
+        "id": "animecix:ep:9151:2:52",
+        "title": "City Hunter 2. Sezon 52. Bölüm",
+        "season": 2,
+        "episode": 52
+      },
+      {
+        "id": "animecix:ep:9151:2:53",
+        "title": "City Hunter 2. Sezon 53. Bölüm",
+        "season": 2,
+        "episode": 53
+      },
+      {
+        "id": "animecix:ep:9151:2:54",
+        "title": "City Hunter 2. Sezon 54. Bölüm",
+        "season": 2,
+        "episode": 54
+      },
+      {
+        "id": "animecix:ep:9151:2:55",
+        "title": "City Hunter 2. Sezon 55. Bölüm",
+        "season": 2,
+        "episode": 55
+      },
+      {
+        "id": "animecix:ep:9151:2:56",
+        "title": "City Hunter 2. Sezon 56. Bölüm",
+        "season": 2,
+        "episode": 56
+      },
+      {
+        "id": "animecix:ep:9151:2:57",
+        "title": "City Hunter 2. Sezon 57. Bölüm",
+        "season": 2,
+        "episode": 57
+      },
+      {
+        "id": "animecix:ep:9151:2:58",
+        "title": "City Hunter 2. Sezon 58. Bölüm",
+        "season": 2,
+        "episode": 58
+      },
+      {
+        "id": "animecix:ep:9151:2:59",
+        "title": "City Hunter 2. Sezon 59. Bölüm",
+        "season": 2,
+        "episode": 59
+      },
+      {
+        "id": "animecix:ep:9151:2:60",
+        "title": "City Hunter 2. Sezon 60. Bölüm",
+        "season": 2,
+        "episode": 60
+      },
+      {
+        "id": "animecix:ep:9151:2:61",
+        "title": "City Hunter 2. Sezon 61. Bölüm",
+        "season": 2,
+        "episode": 61
+      },
+      {
+        "id": "animecix:ep:9151:2:62",
+        "title": "City Hunter 2. Sezon 62. Bölüm",
+        "season": 2,
+        "episode": 62
+      },
+      {
+        "id": "animecix:ep:9151:2:63",
+        "title": "City Hunter 2. Sezon 63. Bölüm",
+        "season": 2,
+        "episode": 63
+      },
+      {
+        "id": "animecix:ep:9151:3:1",
+        "title": "City Hunter 3. Sezon 1. Bölüm",
+        "season": 3,
+        "episode": 1
+      },
+      {
+        "id": "animecix:ep:9151:3:2",
+        "title": "City Hunter 3. Sezon 2. Bölüm",
+        "season": 3,
+        "episode": 2
+      },
+      {
+        "id": "animecix:ep:9151:3:3",
+        "title": "City Hunter 3. Sezon 3. Bölüm",
+        "season": 3,
+        "episode": 3
+      },
+      {
+        "id": "animecix:ep:9151:3:4",
+        "title": "City Hunter 3. Sezon 4. Bölüm",
+        "season": 3,
+        "episode": 4
+      },
+      {
+        "id": "animecix:ep:9151:3:5",
+        "title": "City Hunter 3. Sezon 5. Bölüm",
+        "season": 3,
+        "episode": 5
+      },
+      {
+        "id": "animecix:ep:9151:3:6",
+        "title": "City Hunter 3. Sezon 6. Bölüm",
+        "season": 3,
+        "episode": 6
+      },
+      {
+        "id": "animecix:ep:9151:3:7",
+        "title": "City Hunter 3. Sezon 7. Bölüm",
+        "season": 3,
+        "episode": 7
+      },
+      {
+        "id": "animecix:ep:9151:3:8",
+        "title": "City Hunter 3. Sezon 8. Bölüm",
+        "season": 3,
+        "episode": 8
+      },
+      {
+        "id": "animecix:ep:9151:3:9",
+        "title": "City Hunter 3. Sezon 9. Bölüm",
+        "season": 3,
+        "episode": 9
+      },
+      {
+        "id": "animecix:ep:9151:3:10",
+        "title": "City Hunter 3. Sezon 10. Bölüm",
+        "season": 3,
+        "episode": 10
+      },
+      {
+        "id": "animecix:ep:9151:3:11",
+        "title": "City Hunter 3. Sezon 11. Bölüm",
+        "season": 3,
+        "episode": 11
+      },
+      {
+        "id": "animecix:ep:9151:3:12",
+        "title": "City Hunter 3. Sezon 12. Bölüm",
+        "season": 3,
+        "episode": 12
+      },
+      {
+        "id": "animecix:ep:9151:3:13",
+        "title": "City Hunter 3. Sezon 13. Bölüm",
+        "season": 3,
+        "episode": 13
+      },
+      {
+        "id": "animecix:ep:9151:4:1",
+        "title": "City Hunter 4. Sezon 1. Bölüm",
+        "season": 4,
+        "episode": 1
+      },
+      {
+        "id": "animecix:ep:9151:4:2",
+        "title": "City Hunter 4. Sezon 2. Bölüm",
+        "season": 4,
+        "episode": 2
+      },
+      {
+        "id": "animecix:ep:9151:4:3",
+        "title": "City Hunter 4. Sezon 3. Bölüm",
+        "season": 4,
+        "episode": 3
+      },
+      {
+        "id": "animecix:ep:9151:4:4",
+        "title": "City Hunter 4. Sezon 4. Bölüm",
+        "season": 4,
+        "episode": 4
+      },
+      {
+        "id": "animecix:ep:9151:4:5",
+        "title": "City Hunter 4. Sezon 5. Bölüm",
+        "season": 4,
+        "episode": 5
+      },
+      {
+        "id": "animecix:ep:9151:4:6",
+        "title": "City Hunter 4. Sezon 6. Bölüm",
+        "season": 4,
+        "episode": 6
+      },
+      {
+        "id": "animecix:ep:9151:4:7",
+        "title": "City Hunter 4. Sezon 7. Bölüm",
+        "season": 4,
+        "episode": 7
+      },
+      {
+        "id": "animecix:ep:9151:4:8",
+        "title": "City Hunter 4. Sezon 8. Bölüm",
+        "season": 4,
+        "episode": 8
+      },
+      {
+        "id": "animecix:ep:9151:4:9",
+        "title": "City Hunter 4. Sezon 9. Bölüm",
+        "season": 4,
+        "episode": 9
+      },
+      {
+        "id": "animecix:ep:9151:4:10",
+        "title": "City Hunter 4. Sezon 10. Bölüm",
+        "season": 4,
+        "episode": 10
+      },
+      {
+        "id": "animecix:ep:9151:4:11",
+        "title": "City Hunter 4. Sezon 11. Bölüm",
+        "season": 4,
+        "episode": 11
+      },
+      {
+        "id": "animecix:ep:9151:4:12",
+        "title": "City Hunter 4. Sezon 12. Bölüm",
+        "season": 4,
+        "episode": 12
+      },
+      {
+        "id": "animecix:ep:9151:4:13",
+        "title": "City Hunter 4. Sezon 13. Bölüm",
+        "season": 4,
+        "episode": 13
+      }
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:dragon-ball-z-movie-12-fukkatsu-no-fusion-gokuu-to-vegeta",
+    "type": "series",
+    "name": "Dragon Ball Z Movie 12: Fukkatsu no F...",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/5579.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/5579.jpg",
+    "description": "Dragon Ball Z Movie 12: Fukkatsu no Fusion!! Gokuu to Vegeta - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:dragon-ball-z-fukkatsu-no-fusion-gokuu-to-vegeta-movie-12",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

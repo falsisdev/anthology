@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:3937",
+      "type": "movie",
+      "name": "One Piece Film 14",
+      "poster": "https://image.tmdb.org/t/p/w500/84dIS4eSm2Fnl15ZHiXvoklGy5b.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/55NKqRgstL3u1Oxe2gAAJUtx3jM.jpg",
+      "description": "Korsanlara yönelik dünyanın en büyük korsan festivali 20 yılın ardından geri döner! Festivalde vaat edilen hazine, Korsanlar Kralı Gol D. Roger'ın hazinesidir. Hasır Şapkalı tayfası tası tarağı toplayıp bu festivale katılır! Acaba Korsanlar Kralı Gol D. Roger'ın hazinesinin içinde ne vardır?",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    }
+  ]
+}

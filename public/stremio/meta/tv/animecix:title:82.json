@@ -1,0 +1,2470 @@
+{
+  "meta": {
+    "id": "animecix:title:82",
+    "type": "series",
+    "name": "Bleach",
+    "poster": "https://image.tmdb.org/t/p/original/2EewmxXe72ogD0EaWM8gqa0ccIw.jpg",
+    "background": "https://image.tmdb.org/t/p/original/qtfMr08KQsWXnCHY0a96N8NpQ2l.jpg",
+    "description": "Kurosaki Ichigo 15 yaşında normal bir öğrencidir, ancak ölülerle iletişim kurma becerisine sahiptir. Ichigo'nun babası ve kardeşleri aileye ait bir klinik işletmektedirler.\r\n\r\nBirgün, shinigami(ölüm tanrısı) olan Kuchiki Rukia, Ichigo'nun odasına camdan girer ve Ichigo'nun onu görebildiğine çok şaşırır. O anın kargaşasında çevreye gelen hollow(kötü ruh) ile dövüşürlerken, Rukia güçlerini Ichigo'ya geçirir. Shinigami güçlerini alan Ichigo, Rukia ile beraber hollow'ları yok etmeye başlar.",
+    "genres": [
+      "Anime",
+      "AnimeciX"
+    ],
+    "videos": [
+      {
+        "id": "animecix:ep:82:1:1",
+        "title": "Bleach 1. Sezon 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "animecix:ep:82:1:2",
+        "title": "Bleach 1. Sezon 2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "animecix:ep:82:1:3",
+        "title": "Bleach 1. Sezon 3. Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "animecix:ep:82:1:4",
+        "title": "Bleach 1. Sezon 4. Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "animecix:ep:82:1:5",
+        "title": "Bleach 1. Sezon 5. Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "animecix:ep:82:1:6",
+        "title": "Bleach 1. Sezon 6. Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "animecix:ep:82:1:7",
+        "title": "Bleach 1. Sezon 7. Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "animecix:ep:82:1:8",
+        "title": "Bleach 1. Sezon 8. Bölüm",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "animecix:ep:82:1:9",
+        "title": "Bleach 1. Sezon 9. Bölüm",
+        "season": 1,
+        "episode": 9
+      },
+      {
+        "id": "animecix:ep:82:1:10",
+        "title": "Bleach 1. Sezon 10. Bölüm",
+        "season": 1,
+        "episode": 10
+      },
+      {
+        "id": "animecix:ep:82:1:11",
+        "title": "Bleach 1. Sezon 11. Bölüm",
+        "season": 1,
+        "episode": 11
+      },
+      {
+        "id": "animecix:ep:82:1:12",
+        "title": "Bleach 1. Sezon 12. Bölüm",
+        "season": 1,
+        "episode": 12
+      },
+      {
+        "id": "animecix:ep:82:1:13",
+        "title": "Bleach 1. Sezon 13. Bölüm",
+        "season": 1,
+        "episode": 13
+      },
+      {
+        "id": "animecix:ep:82:1:14",
+        "title": "Bleach 1. Sezon 14. Bölüm",
+        "season": 1,
+        "episode": 14
+      },
+      {
+        "id": "animecix:ep:82:1:15",
+        "title": "Bleach 1. Sezon 15. Bölüm",
+        "season": 1,
+        "episode": 15
+      },
+      {
+        "id": "animecix:ep:82:1:16",
+        "title": "Bleach 1. Sezon 16. Bölüm",
+        "season": 1,
+        "episode": 16
+      },
+      {
+        "id": "animecix:ep:82:1:17",
+        "title": "Bleach 1. Sezon 17. Bölüm",
+        "season": 1,
+        "episode": 17
+      },
+      {
+        "id": "animecix:ep:82:1:18",
+        "title": "Bleach 1. Sezon 18. Bölüm",
+        "season": 1,
+        "episode": 18
+      },
+      {
+        "id": "animecix:ep:82:1:19",
+        "title": "Bleach 1. Sezon 19. Bölüm",
+        "season": 1,
+        "episode": 19
+      },
+      {
+        "id": "animecix:ep:82:1:20",
+        "title": "Bleach 1. Sezon 20. Bölüm",
+        "season": 1,
+        "episode": 20
+      },
+      {
+        "id": "animecix:ep:82:1:21",
+        "title": "Bleach 1. Sezon 21. Bölüm",
+        "season": 1,
+        "episode": 21
+      },
+      {
+        "id": "animecix:ep:82:1:22",
+        "title": "Bleach 1. Sezon 22. Bölüm",
+        "season": 1,
+        "episode": 22
+      },
+      {
+        "id": "animecix:ep:82:1:23",
+        "title": "Bleach 1. Sezon 23. Bölüm",
+        "season": 1,
+        "episode": 23
+      },
+      {
+        "id": "animecix:ep:82:1:24",
+        "title": "Bleach 1. Sezon 24. Bölüm",
+        "season": 1,
+        "episode": 24
+      },
+      {
+        "id": "animecix:ep:82:1:25",
+        "title": "Bleach 1. Sezon 25. Bölüm",
+        "season": 1,
+        "episode": 25
+      },
+      {
+        "id": "animecix:ep:82:1:26",
+        "title": "Bleach 1. Sezon 26. Bölüm",
+        "season": 1,
+        "episode": 26
+      },
+      {
+        "id": "animecix:ep:82:1:27",
+        "title": "Bleach 1. Sezon 27. Bölüm",
+        "season": 1,
+        "episode": 27
+      },
+      {
+        "id": "animecix:ep:82:1:28",
+        "title": "Bleach 1. Sezon 28. Bölüm",
+        "season": 1,
+        "episode": 28
+      },
+      {
+        "id": "animecix:ep:82:1:29",
+        "title": "Bleach 1. Sezon 29. Bölüm",
+        "season": 1,
+        "episode": 29
+      },
+      {
+        "id": "animecix:ep:82:1:30",
+        "title": "Bleach 1. Sezon 30. Bölüm",
+        "season": 1,
+        "episode": 30
+      },
+      {
+        "id": "animecix:ep:82:1:31",
+        "title": "Bleach 1. Sezon 31. Bölüm",
+        "season": 1,
+        "episode": 31
+      },
+      {
+        "id": "animecix:ep:82:1:32",
+        "title": "Bleach 1. Sezon 32. Bölüm",
+        "season": 1,
+        "episode": 32
+      },
+      {
+        "id": "animecix:ep:82:1:33",
+        "title": "Bleach 1. Sezon 33. Bölüm",
+        "season": 1,
+        "episode": 33
+      },
+      {
+        "id": "animecix:ep:82:1:34",
+        "title": "Bleach 1. Sezon 34. Bölüm",
+        "season": 1,
+        "episode": 34
+      },
+      {
+        "id": "animecix:ep:82:1:35",
+        "title": "Bleach 1. Sezon 35. Bölüm",
+        "season": 1,
+        "episode": 35
+      },
+      {
+        "id": "animecix:ep:82:1:36",
+        "title": "Bleach 1. Sezon 36. Bölüm",
+        "season": 1,
+        "episode": 36
+      },
+      {
+        "id": "animecix:ep:82:1:37",
+        "title": "Bleach 1. Sezon 37. Bölüm",
+        "season": 1,
+        "episode": 37
+      },
+      {
+        "id": "animecix:ep:82:1:38",
+        "title": "Bleach 1. Sezon 38. Bölüm",
+        "season": 1,
+        "episode": 38
+      },
+      {
+        "id": "animecix:ep:82:1:39",
+        "title": "Bleach 1. Sezon 39. Bölüm",
+        "season": 1,
+        "episode": 39
+      },
+      {
+        "id": "animecix:ep:82:1:40",
+        "title": "Bleach 1. Sezon 40. Bölüm",
+        "season": 1,
+        "episode": 40
+      },
+      {
+        "id": "animecix:ep:82:1:41",
+        "title": "Bleach 1. Sezon 41. Bölüm",
+        "season": 1,
+        "episode": 41
+      },
+      {
+        "id": "animecix:ep:82:1:42",
+        "title": "Bleach 1. Sezon 42. Bölüm",
+        "season": 1,
+        "episode": 42
+      },
+      {
+        "id": "animecix:ep:82:1:43",
+        "title": "Bleach 1. Sezon 43. Bölüm",
+        "season": 1,
+        "episode": 43
+      },
+      {
+        "id": "animecix:ep:82:1:44",
+        "title": "Bleach 1. Sezon 44. Bölüm",
+        "season": 1,
+        "episode": 44
+      },
+      {
+        "id": "animecix:ep:82:1:45",
+        "title": "Bleach 1. Sezon 45. Bölüm",
+        "season": 1,
+        "episode": 45
+      },
+      {
+        "id": "animecix:ep:82:1:46",
+        "title": "Bleach 1. Sezon 46. Bölüm",
+        "season": 1,
+        "episode": 46
+      },
+      {
+        "id": "animecix:ep:82:1:47",
+        "title": "Bleach 1. Sezon 47. Bölüm",
+        "season": 1,
+        "episode": 47
+      },
+      {
+        "id": "animecix:ep:82:1:48",
+        "title": "Bleach 1. Sezon 48. Bölüm",
+        "season": 1,
+        "episode": 48
+      },
+      {
+        "id": "animecix:ep:82:1:49",
+        "title": "Bleach 1. Sezon 49. Bölüm",
+        "season": 1,
+        "episode": 49
+      },
+      {
+        "id": "animecix:ep:82:1:50",
+        "title": "Bleach 1. Sezon 50. Bölüm",
+        "season": 1,
+        "episode": 50
+      },
+      {
+        "id": "animecix:ep:82:1:51",
+        "title": "Bleach 1. Sezon 51. Bölüm",
+        "season": 1,
+        "episode": 51
+      },
+      {
+        "id": "animecix:ep:82:1:52",
+        "title": "Bleach 1. Sezon 52. Bölüm",
+        "season": 1,
+        "episode": 52
+      },
+      {
+        "id": "animecix:ep:82:1:53",
+        "title": "Bleach 1. Sezon 53. Bölüm",
+        "season": 1,
+        "episode": 53
+      },
+      {
+        "id": "animecix:ep:82:1:54",
+        "title": "Bleach 1. Sezon 54. Bölüm",
+        "season": 1,
+        "episode": 54
+      },
+      {
+        "id": "animecix:ep:82:1:55",
+        "title": "Bleach 1. Sezon 55. Bölüm",
+        "season": 1,
+        "episode": 55
+      },
+      {
+        "id": "animecix:ep:82:1:56",
+        "title": "Bleach 1. Sezon 56. Bölüm",
+        "season": 1,
+        "episode": 56
+      },
+      {
+        "id": "animecix:ep:82:1:57",
+        "title": "Bleach 1. Sezon 57. Bölüm",
+        "season": 1,
+        "episode": 57
+      },
+      {
+        "id": "animecix:ep:82:1:58",
+        "title": "Bleach 1. Sezon 58. Bölüm",
+        "season": 1,
+        "episode": 58
+      },
+      {
+        "id": "animecix:ep:82:1:59",
+        "title": "Bleach 1. Sezon 59. Bölüm",
+        "season": 1,
+        "episode": 59
+      },
+      {
+        "id": "animecix:ep:82:1:60",
+        "title": "Bleach 1. Sezon 60. Bölüm",
+        "season": 1,
+        "episode": 60
+      },
+      {
+        "id": "animecix:ep:82:1:61",
+        "title": "Bleach 1. Sezon 61. Bölüm",
+        "season": 1,
+        "episode": 61
+      },
+      {
+        "id": "animecix:ep:82:1:62",
+        "title": "Bleach 1. Sezon 62. Bölüm",
+        "season": 1,
+        "episode": 62
+      },
+      {
+        "id": "animecix:ep:82:1:63",
+        "title": "Bleach 1. Sezon 63. Bölüm",
+        "season": 1,
+        "episode": 63
+      },
+      {
+        "id": "animecix:ep:82:1:64",
+        "title": "Bleach 1. Sezon 64. Bölüm",
+        "season": 1,
+        "episode": 64
+      },
+      {
+        "id": "animecix:ep:82:1:65",
+        "title": "Bleach 1. Sezon 65. Bölüm",
+        "season": 1,
+        "episode": 65
+      },
+      {
+        "id": "animecix:ep:82:1:66",
+        "title": "Bleach 1. Sezon 66. Bölüm",
+        "season": 1,
+        "episode": 66
+      },
+      {
+        "id": "animecix:ep:82:1:67",
+        "title": "Bleach 1. Sezon 67. Bölüm",
+        "season": 1,
+        "episode": 67
+      },
+      {
+        "id": "animecix:ep:82:1:68",
+        "title": "Bleach 1. Sezon 68. Bölüm",
+        "season": 1,
+        "episode": 68
+      },
+      {
+        "id": "animecix:ep:82:1:69",
+        "title": "Bleach 1. Sezon 69. Bölüm",
+        "season": 1,
+        "episode": 69
+      },
+      {
+        "id": "animecix:ep:82:1:70",
+        "title": "Bleach 1. Sezon 70. Bölüm",
+        "season": 1,
+        "episode": 70
+      },
+      {
+        "id": "animecix:ep:82:1:71",
+        "title": "Bleach 1. Sezon 71. Bölüm",
+        "season": 1,
+        "episode": 71
+      },
+      {
+        "id": "animecix:ep:82:1:72",
+        "title": "Bleach 1. Sezon 72. Bölüm",
+        "season": 1,
+        "episode": 72
+      },
+      {
+        "id": "animecix:ep:82:1:73",
+        "title": "Bleach 1. Sezon 73. Bölüm",
+        "season": 1,
+        "episode": 73
+      },
+      {
+        "id": "animecix:ep:82:1:74",
+        "title": "Bleach 1. Sezon 74. Bölüm",
+        "season": 1,
+        "episode": 74
+      },
+      {
+        "id": "animecix:ep:82:1:75",
+        "title": "Bleach 1. Sezon 75. Bölüm",
+        "season": 1,
+        "episode": 75
+      },
+      {
+        "id": "animecix:ep:82:1:76",
+        "title": "Bleach 1. Sezon 76. Bölüm",
+        "season": 1,
+        "episode": 76
+      },
+      {
+        "id": "animecix:ep:82:1:77",
+        "title": "Bleach 1. Sezon 77. Bölüm",
+        "season": 1,
+        "episode": 77
+      },
+      {
+        "id": "animecix:ep:82:1:78",
+        "title": "Bleach 1. Sezon 78. Bölüm",
+        "season": 1,
+        "episode": 78
+      },
+      {
+        "id": "animecix:ep:82:1:79",
+        "title": "Bleach 1. Sezon 79. Bölüm",
+        "season": 1,
+        "episode": 79
+      },
+      {
+        "id": "animecix:ep:82:1:80",
+        "title": "Bleach 1. Sezon 80. Bölüm",
+        "season": 1,
+        "episode": 80
+      },
+      {
+        "id": "animecix:ep:82:1:81",
+        "title": "Bleach 1. Sezon 81. Bölüm",
+        "season": 1,
+        "episode": 81
+      },
+      {
+        "id": "animecix:ep:82:1:82",
+        "title": "Bleach 1. Sezon 82. Bölüm",
+        "season": 1,
+        "episode": 82
+      },
+      {
+        "id": "animecix:ep:82:1:83",
+        "title": "Bleach 1. Sezon 83. Bölüm",
+        "season": 1,
+        "episode": 83
+      },
+      {
+        "id": "animecix:ep:82:1:84",
+        "title": "Bleach 1. Sezon 84. Bölüm",
+        "season": 1,
+        "episode": 84
+      },
+      {
+        "id": "animecix:ep:82:1:85",
+        "title": "Bleach 1. Sezon 85. Bölüm",
+        "season": 1,
+        "episode": 85
+      },
+      {
+        "id": "animecix:ep:82:1:86",
+        "title": "Bleach 1. Sezon 86. Bölüm",
+        "season": 1,
+        "episode": 86
+      },
+      {
+        "id": "animecix:ep:82:1:87",
+        "title": "Bleach 1. Sezon 87. Bölüm",
+        "season": 1,
+        "episode": 87
+      },
+      {
+        "id": "animecix:ep:82:1:88",
+        "title": "Bleach 1. Sezon 88. Bölüm",
+        "season": 1,
+        "episode": 88
+      },
+      {
+        "id": "animecix:ep:82:1:89",
+        "title": "Bleach 1. Sezon 89. Bölüm",
+        "season": 1,
+        "episode": 89
+      },
+      {
+        "id": "animecix:ep:82:1:90",
+        "title": "Bleach 1. Sezon 90. Bölüm",
+        "season": 1,
+        "episode": 90
+      },
+      {
+        "id": "animecix:ep:82:1:91",
+        "title": "Bleach 1. Sezon 91. Bölüm",
+        "season": 1,
+        "episode": 91
+      },
+      {
+        "id": "animecix:ep:82:1:92",
+        "title": "Bleach 1. Sezon 92. Bölüm",
+        "season": 1,
+        "episode": 92
+      },
+      {
+        "id": "animecix:ep:82:1:93",
+        "title": "Bleach 1. Sezon 93. Bölüm",
+        "season": 1,
+        "episode": 93
+      },
+      {
+        "id": "animecix:ep:82:1:94",
+        "title": "Bleach 1. Sezon 94. Bölüm",
+        "season": 1,
+        "episode": 94
+      },
+      {
+        "id": "animecix:ep:82:1:95",
+        "title": "Bleach 1. Sezon 95. Bölüm",
+        "season": 1,
+        "episode": 95
+      },
+      {
+        "id": "animecix:ep:82:1:96",
+        "title": "Bleach 1. Sezon 96. Bölüm",
+        "season": 1,
+        "episode": 96
+      },
+      {
+        "id": "animecix:ep:82:1:97",
+        "title": "Bleach 1. Sezon 97. Bölüm",
+        "season": 1,
+        "episode": 97
+      },
+      {
+        "id": "animecix:ep:82:1:98",
+        "title": "Bleach 1. Sezon 98. Bölüm",
+        "season": 1,
+        "episode": 98
+      },
+      {
+        "id": "animecix:ep:82:1:99",
+        "title": "Bleach 1. Sezon 99. Bölüm",
+        "season": 1,
+        "episode": 99
+      },
+      {
+        "id": "animecix:ep:82:1:100",
+        "title": "Bleach 1. Sezon 100. Bölüm",
+        "season": 1,
+        "episode": 100
+      },
+      {
+        "id": "animecix:ep:82:1:101",
+        "title": "Bleach 1. Sezon 101. Bölüm",
+        "season": 1,
+        "episode": 101
+      },
+      {
+        "id": "animecix:ep:82:1:102",
+        "title": "Bleach 1. Sezon 102. Bölüm",
+        "season": 1,
+        "episode": 102
+      },
+      {
+        "id": "animecix:ep:82:1:103",
+        "title": "Bleach 1. Sezon 103. Bölüm",
+        "season": 1,
+        "episode": 103
+      },
+      {
+        "id": "animecix:ep:82:1:104",
+        "title": "Bleach 1. Sezon 104. Bölüm",
+        "season": 1,
+        "episode": 104
+      },
+      {
+        "id": "animecix:ep:82:1:105",
+        "title": "Bleach 1. Sezon 105. Bölüm",
+        "season": 1,
+        "episode": 105
+      },
+      {
+        "id": "animecix:ep:82:1:106",
+        "title": "Bleach 1. Sezon 106. Bölüm",
+        "season": 1,
+        "episode": 106
+      },
+      {
+        "id": "animecix:ep:82:1:107",
+        "title": "Bleach 1. Sezon 107. Bölüm",
+        "season": 1,
+        "episode": 107
+      },
+      {
+        "id": "animecix:ep:82:1:108",
+        "title": "Bleach 1. Sezon 108. Bölüm",
+        "season": 1,
+        "episode": 108
+      },
+      {
+        "id": "animecix:ep:82:1:109",
+        "title": "Bleach 1. Sezon 109. Bölüm",
+        "season": 1,
+        "episode": 109
+      },
+      {
+        "id": "animecix:ep:82:1:110",
+        "title": "Bleach 1. Sezon 110. Bölüm",
+        "season": 1,
+        "episode": 110
+      },
+      {
+        "id": "animecix:ep:82:1:111",
+        "title": "Bleach 1. Sezon 111. Bölüm",
+        "season": 1,
+        "episode": 111
+      },
+      {
+        "id": "animecix:ep:82:1:112",
+        "title": "Bleach 1. Sezon 112. Bölüm",
+        "season": 1,
+        "episode": 112
+      },
+      {
+        "id": "animecix:ep:82:1:113",
+        "title": "Bleach 1. Sezon 113. Bölüm",
+        "season": 1,
+        "episode": 113
+      },
+      {
+        "id": "animecix:ep:82:1:114",
+        "title": "Bleach 1. Sezon 114. Bölüm",
+        "season": 1,
+        "episode": 114
+      },
+      {
+        "id": "animecix:ep:82:1:115",
+        "title": "Bleach 1. Sezon 115. Bölüm",
+        "season": 1,
+        "episode": 115
+      },
+      {
+        "id": "animecix:ep:82:1:116",
+        "title": "Bleach 1. Sezon 116. Bölüm",
+        "season": 1,
+        "episode": 116
+      },
+      {
+        "id": "animecix:ep:82:1:117",
+        "title": "Bleach 1. Sezon 117. Bölüm",
+        "season": 1,
+        "episode": 117
+      },
+      {
+        "id": "animecix:ep:82:1:118",
+        "title": "Bleach 1. Sezon 118. Bölüm",
+        "season": 1,
+        "episode": 118
+      },
+      {
+        "id": "animecix:ep:82:1:119",
+        "title": "Bleach 1. Sezon 119. Bölüm",
+        "season": 1,
+        "episode": 119
+      },
+      {
+        "id": "animecix:ep:82:1:120",
+        "title": "Bleach 1. Sezon 120. Bölüm",
+        "season": 1,
+        "episode": 120
+      },
+      {
+        "id": "animecix:ep:82:1:121",
+        "title": "Bleach 1. Sezon 121. Bölüm",
+        "season": 1,
+        "episode": 121
+      },
+      {
+        "id": "animecix:ep:82:1:122",
+        "title": "Bleach 1. Sezon 122. Bölüm",
+        "season": 1,
+        "episode": 122
+      },
+      {
+        "id": "animecix:ep:82:1:123",
+        "title": "Bleach 1. Sezon 123. Bölüm",
+        "season": 1,
+        "episode": 123
+      },
+      {
+        "id": "animecix:ep:82:1:124",
+        "title": "Bleach 1. Sezon 124. Bölüm",
+        "season": 1,
+        "episode": 124
+      },
+      {
+        "id": "animecix:ep:82:1:125",
+        "title": "Bleach 1. Sezon 125. Bölüm",
+        "season": 1,
+        "episode": 125
+      },
+      {
+        "id": "animecix:ep:82:1:126",
+        "title": "Bleach 1. Sezon 126. Bölüm",
+        "season": 1,
+        "episode": 126
+      },
+      {
+        "id": "animecix:ep:82:1:127",
+        "title": "Bleach 1. Sezon 127. Bölüm",
+        "season": 1,
+        "episode": 127
+      },
+      {
+        "id": "animecix:ep:82:1:128",
+        "title": "Bleach 1. Sezon 128. Bölüm",
+        "season": 1,
+        "episode": 128
+      },
+      {
+        "id": "animecix:ep:82:1:129",
+        "title": "Bleach 1. Sezon 129. Bölüm",
+        "season": 1,
+        "episode": 129
+      },
+      {
+        "id": "animecix:ep:82:1:130",
+        "title": "Bleach 1. Sezon 130. Bölüm",
+        "season": 1,
+        "episode": 130
+      },
+      {
+        "id": "animecix:ep:82:1:131",
+        "title": "Bleach 1. Sezon 131. Bölüm",
+        "season": 1,
+        "episode": 131
+      },
+      {
+        "id": "animecix:ep:82:1:132",
+        "title": "Bleach 1. Sezon 132. Bölüm",
+        "season": 1,
+        "episode": 132
+      },
+      {
+        "id": "animecix:ep:82:1:133",
+        "title": "Bleach 1. Sezon 133. Bölüm",
+        "season": 1,
+        "episode": 133
+      },
+      {
+        "id": "animecix:ep:82:1:134",
+        "title": "Bleach 1. Sezon 134. Bölüm",
+        "season": 1,
+        "episode": 134
+      },
+      {
+        "id": "animecix:ep:82:1:135",
+        "title": "Bleach 1. Sezon 135. Bölüm",
+        "season": 1,
+        "episode": 135
+      },
+      {
+        "id": "animecix:ep:82:1:136",
+        "title": "Bleach 1. Sezon 136. Bölüm",
+        "season": 1,
+        "episode": 136
+      },
+      {
+        "id": "animecix:ep:82:1:137",
+        "title": "Bleach 1. Sezon 137. Bölüm",
+        "season": 1,
+        "episode": 137
+      },
+      {
+        "id": "animecix:ep:82:1:138",
+        "title": "Bleach 1. Sezon 138. Bölüm",
+        "season": 1,
+        "episode": 138
+      },
+      {
+        "id": "animecix:ep:82:1:139",
+        "title": "Bleach 1. Sezon 139. Bölüm",
+        "season": 1,
+        "episode": 139
+      },
+      {
+        "id": "animecix:ep:82:1:140",
+        "title": "Bleach 1. Sezon 140. Bölüm",
+        "season": 1,
+        "episode": 140
+      },
+      {
+        "id": "animecix:ep:82:1:141",
+        "title": "Bleach 1. Sezon 141. Bölüm",
+        "season": 1,
+        "episode": 141
+      },
+      {
+        "id": "animecix:ep:82:1:142",
+        "title": "Bleach 1. Sezon 142. Bölüm",
+        "season": 1,
+        "episode": 142
+      },
+      {
+        "id": "animecix:ep:82:1:143",
+        "title": "Bleach 1. Sezon 143. Bölüm",
+        "season": 1,
+        "episode": 143
+      },
+      {
+        "id": "animecix:ep:82:1:144",
+        "title": "Bleach 1. Sezon 144. Bölüm",
+        "season": 1,
+        "episode": 144
+      },
+      {
+        "id": "animecix:ep:82:1:145",
+        "title": "Bleach 1. Sezon 145. Bölüm",
+        "season": 1,
+        "episode": 145
+      },
+      {
+        "id": "animecix:ep:82:1:146",
+        "title": "Bleach 1. Sezon 146. Bölüm",
+        "season": 1,
+        "episode": 146
+      },
+      {
+        "id": "animecix:ep:82:1:147",
+        "title": "Bleach 1. Sezon 147. Bölüm",
+        "season": 1,
+        "episode": 147
+      },
+      {
+        "id": "animecix:ep:82:1:148",
+        "title": "Bleach 1. Sezon 148. Bölüm",
+        "season": 1,
+        "episode": 148
+      },
+      {
+        "id": "animecix:ep:82:1:149",
+        "title": "Bleach 1. Sezon 149. Bölüm",
+        "season": 1,
+        "episode": 149
+      },
+      {
+        "id": "animecix:ep:82:1:150",
+        "title": "Bleach 1. Sezon 150. Bölüm",
+        "season": 1,
+        "episode": 150
+      },
+      {
+        "id": "animecix:ep:82:1:151",
+        "title": "Bleach 1. Sezon 151. Bölüm",
+        "season": 1,
+        "episode": 151
+      },
+      {
+        "id": "animecix:ep:82:1:152",
+        "title": "Bleach 1. Sezon 152. Bölüm",
+        "season": 1,
+        "episode": 152
+      },
+      {
+        "id": "animecix:ep:82:1:153",
+        "title": "Bleach 1. Sezon 153. Bölüm",
+        "season": 1,
+        "episode": 153
+      },
+      {
+        "id": "animecix:ep:82:1:154",
+        "title": "Bleach 1. Sezon 154. Bölüm",
+        "season": 1,
+        "episode": 154
+      },
+      {
+        "id": "animecix:ep:82:1:155",
+        "title": "Bleach 1. Sezon 155. Bölüm",
+        "season": 1,
+        "episode": 155
+      },
+      {
+        "id": "animecix:ep:82:1:156",
+        "title": "Bleach 1. Sezon 156. Bölüm",
+        "season": 1,
+        "episode": 156
+      },
+      {
+        "id": "animecix:ep:82:1:157",
+        "title": "Bleach 1. Sezon 157. Bölüm",
+        "season": 1,
+        "episode": 157
+      },
+      {
+        "id": "animecix:ep:82:1:158",
+        "title": "Bleach 1. Sezon 158. Bölüm",
+        "season": 1,
+        "episode": 158
+      },
+      {
+        "id": "animecix:ep:82:1:159",
+        "title": "Bleach 1. Sezon 159. Bölüm",
+        "season": 1,
+        "episode": 159
+      },
+      {
+        "id": "animecix:ep:82:1:160",
+        "title": "Bleach 1. Sezon 160. Bölüm",
+        "season": 1,
+        "episode": 160
+      },
+      {
+        "id": "animecix:ep:82:1:161",
+        "title": "Bleach 1. Sezon 161. Bölüm",
+        "season": 1,
+        "episode": 161
+      },
+      {
+        "id": "animecix:ep:82:1:162",
+        "title": "Bleach 1. Sezon 162. Bölüm",
+        "season": 1,
+        "episode": 162
+      },
+      {
+        "id": "animecix:ep:82:1:163",
+        "title": "Bleach 1. Sezon 163. Bölüm",
+        "season": 1,
+        "episode": 163
+      },
+      {
+        "id": "animecix:ep:82:1:164",
+        "title": "Bleach 1. Sezon 164. Bölüm",
+        "season": 1,
+        "episode": 164
+      },
+      {
+        "id": "animecix:ep:82:1:165",
+        "title": "Bleach 1. Sezon 165. Bölüm",
+        "season": 1,
+        "episode": 165
+      },
+      {
+        "id": "animecix:ep:82:1:166",
+        "title": "Bleach 1. Sezon 166. Bölüm",
+        "season": 1,
+        "episode": 166
+      },
+      {
+        "id": "animecix:ep:82:1:167",
+        "title": "Bleach 1. Sezon 167. Bölüm",
+        "season": 1,
+        "episode": 167
+      },
+      {
+        "id": "animecix:ep:82:1:168",
+        "title": "Bleach 1. Sezon 168. Bölüm",
+        "season": 1,
+        "episode": 168
+      },
+      {
+        "id": "animecix:ep:82:1:169",
+        "title": "Bleach 1. Sezon 169. Bölüm",
+        "season": 1,
+        "episode": 169
+      },
+      {
+        "id": "animecix:ep:82:1:170",
+        "title": "Bleach 1. Sezon 170. Bölüm",
+        "season": 1,
+        "episode": 170
+      },
+      {
+        "id": "animecix:ep:82:1:171",
+        "title": "Bleach 1. Sezon 171. Bölüm",
+        "season": 1,
+        "episode": 171
+      },
+      {
+        "id": "animecix:ep:82:1:172",
+        "title": "Bleach 1. Sezon 172. Bölüm",
+        "season": 1,
+        "episode": 172
+      },
+      {
+        "id": "animecix:ep:82:1:173",
+        "title": "Bleach 1. Sezon 173. Bölüm",
+        "season": 1,
+        "episode": 173
+      },
+      {
+        "id": "animecix:ep:82:1:174",
+        "title": "Bleach 1. Sezon 174. Bölüm",
+        "season": 1,
+        "episode": 174
+      },
+      {
+        "id": "animecix:ep:82:1:175",
+        "title": "Bleach 1. Sezon 175. Bölüm",
+        "season": 1,
+        "episode": 175
+      },
+      {
+        "id": "animecix:ep:82:1:176",
+        "title": "Bleach 1. Sezon 176. Bölüm",
+        "season": 1,
+        "episode": 176
+      },
+      {
+        "id": "animecix:ep:82:1:177",
+        "title": "Bleach 1. Sezon 177. Bölüm",
+        "season": 1,
+        "episode": 177
+      },
+      {
+        "id": "animecix:ep:82:1:178",
+        "title": "Bleach 1. Sezon 178. Bölüm",
+        "season": 1,
+        "episode": 178
+      },
+      {
+        "id": "animecix:ep:82:1:179",
+        "title": "Bleach 1. Sezon 179. Bölüm",
+        "season": 1,
+        "episode": 179
+      },
+      {
+        "id": "animecix:ep:82:1:180",
+        "title": "Bleach 1. Sezon 180. Bölüm",
+        "season": 1,
+        "episode": 180
+      },
+      {
+        "id": "animecix:ep:82:1:181",
+        "title": "Bleach 1. Sezon 181. Bölüm",
+        "season": 1,
+        "episode": 181
+      },
+      {
+        "id": "animecix:ep:82:1:182",
+        "title": "Bleach 1. Sezon 182. Bölüm",
+        "season": 1,
+        "episode": 182
+      },
+      {
+        "id": "animecix:ep:82:1:183",
+        "title": "Bleach 1. Sezon 183. Bölüm",
+        "season": 1,
+        "episode": 183
+      },
+      {
+        "id": "animecix:ep:82:1:184",
+        "title": "Bleach 1. Sezon 184. Bölüm",
+        "season": 1,
+        "episode": 184
+      },
+      {
+        "id": "animecix:ep:82:1:185",
+        "title": "Bleach 1. Sezon 185. Bölüm",
+        "season": 1,
+        "episode": 185
+      },
+      {
+        "id": "animecix:ep:82:1:186",
+        "title": "Bleach 1. Sezon 186. Bölüm",
+        "season": 1,
+        "episode": 186
+      },
+      {
+        "id": "animecix:ep:82:1:187",
+        "title": "Bleach 1. Sezon 187. Bölüm",
+        "season": 1,
+        "episode": 187
+      },
+      {
+        "id": "animecix:ep:82:1:188",
+        "title": "Bleach 1. Sezon 188. Bölüm",
+        "season": 1,
+        "episode": 188
+      },
+      {
+        "id": "animecix:ep:82:1:189",
+        "title": "Bleach 1. Sezon 189. Bölüm",
+        "season": 1,
+        "episode": 189
+      },
+      {
+        "id": "animecix:ep:82:1:190",
+        "title": "Bleach 1. Sezon 190. Bölüm",
+        "season": 1,
+        "episode": 190
+      },
+      {
+        "id": "animecix:ep:82:1:191",
+        "title": "Bleach 1. Sezon 191. Bölüm",
+        "season": 1,
+        "episode": 191
+      },
+      {
+        "id": "animecix:ep:82:1:192",
+        "title": "Bleach 1. Sezon 192. Bölüm",
+        "season": 1,
+        "episode": 192
+      },
+      {
+        "id": "animecix:ep:82:1:193",
+        "title": "Bleach 1. Sezon 193. Bölüm",
+        "season": 1,
+        "episode": 193
+      },
+      {
+        "id": "animecix:ep:82:1:194",
+        "title": "Bleach 1. Sezon 194. Bölüm",
+        "season": 1,
+        "episode": 194
+      },
+      {
+        "id": "animecix:ep:82:1:195",
+        "title": "Bleach 1. Sezon 195. Bölüm",
+        "season": 1,
+        "episode": 195
+      },
+      {
+        "id": "animecix:ep:82:1:196",
+        "title": "Bleach 1. Sezon 196. Bölüm",
+        "season": 1,
+        "episode": 196
+      },
+      {
+        "id": "animecix:ep:82:1:197",
+        "title": "Bleach 1. Sezon 197. Bölüm",
+        "season": 1,
+        "episode": 197
+      },
+      {
+        "id": "animecix:ep:82:1:198",
+        "title": "Bleach 1. Sezon 198. Bölüm",
+        "season": 1,
+        "episode": 198
+      },
+      {
+        "id": "animecix:ep:82:1:199",
+        "title": "Bleach 1. Sezon 199. Bölüm",
+        "season": 1,
+        "episode": 199
+      },
+      {
+        "id": "animecix:ep:82:1:200",
+        "title": "Bleach 1. Sezon 200. Bölüm",
+        "season": 1,
+        "episode": 200
+      },
+      {
+        "id": "animecix:ep:82:1:201",
+        "title": "Bleach 1. Sezon 201. Bölüm",
+        "season": 1,
+        "episode": 201
+      },
+      {
+        "id": "animecix:ep:82:1:202",
+        "title": "Bleach 1. Sezon 202. Bölüm",
+        "season": 1,
+        "episode": 202
+      },
+      {
+        "id": "animecix:ep:82:1:203",
+        "title": "Bleach 1. Sezon 203. Bölüm",
+        "season": 1,
+        "episode": 203
+      },
+      {
+        "id": "animecix:ep:82:1:204",
+        "title": "Bleach 1. Sezon 204. Bölüm",
+        "season": 1,
+        "episode": 204
+      },
+      {
+        "id": "animecix:ep:82:1:205",
+        "title": "Bleach 1. Sezon 205. Bölüm",
+        "season": 1,
+        "episode": 205
+      },
+      {
+        "id": "animecix:ep:82:1:206",
+        "title": "Bleach 1. Sezon 206. Bölüm",
+        "season": 1,
+        "episode": 206
+      },
+      {
+        "id": "animecix:ep:82:1:207",
+        "title": "Bleach 1. Sezon 207. Bölüm",
+        "season": 1,
+        "episode": 207
+      },
+      {
+        "id": "animecix:ep:82:1:208",
+        "title": "Bleach 1. Sezon 208. Bölüm",
+        "season": 1,
+        "episode": 208
+      },
+      {
+        "id": "animecix:ep:82:1:209",
+        "title": "Bleach 1. Sezon 209. Bölüm",
+        "season": 1,
+        "episode": 209
+      },
+      {
+        "id": "animecix:ep:82:1:210",
+        "title": "Bleach 1. Sezon 210. Bölüm",
+        "season": 1,
+        "episode": 210
+      },
+      {
+        "id": "animecix:ep:82:1:211",
+        "title": "Bleach 1. Sezon 211. Bölüm",
+        "season": 1,
+        "episode": 211
+      },
+      {
+        "id": "animecix:ep:82:1:212",
+        "title": "Bleach 1. Sezon 212. Bölüm",
+        "season": 1,
+        "episode": 212
+      },
+      {
+        "id": "animecix:ep:82:1:213",
+        "title": "Bleach 1. Sezon 213. Bölüm",
+        "season": 1,
+        "episode": 213
+      },
+      {
+        "id": "animecix:ep:82:1:214",
+        "title": "Bleach 1. Sezon 214. Bölüm",
+        "season": 1,
+        "episode": 214
+      },
+      {
+        "id": "animecix:ep:82:1:215",
+        "title": "Bleach 1. Sezon 215. Bölüm",
+        "season": 1,
+        "episode": 215
+      },
+      {
+        "id": "animecix:ep:82:1:216",
+        "title": "Bleach 1. Sezon 216. Bölüm",
+        "season": 1,
+        "episode": 216
+      },
+      {
+        "id": "animecix:ep:82:1:217",
+        "title": "Bleach 1. Sezon 217. Bölüm",
+        "season": 1,
+        "episode": 217
+      },
+      {
+        "id": "animecix:ep:82:1:218",
+        "title": "Bleach 1. Sezon 218. Bölüm",
+        "season": 1,
+        "episode": 218
+      },
+      {
+        "id": "animecix:ep:82:1:219",
+        "title": "Bleach 1. Sezon 219. Bölüm",
+        "season": 1,
+        "episode": 219
+      },
+      {
+        "id": "animecix:ep:82:1:220",
+        "title": "Bleach 1. Sezon 220. Bölüm",
+        "season": 1,
+        "episode": 220
+      },
+      {
+        "id": "animecix:ep:82:1:221",
+        "title": "Bleach 1. Sezon 221. Bölüm",
+        "season": 1,
+        "episode": 221
+      },
+      {
+        "id": "animecix:ep:82:1:222",
+        "title": "Bleach 1. Sezon 222. Bölüm",
+        "season": 1,
+        "episode": 222
+      },
+      {
+        "id": "animecix:ep:82:1:223",
+        "title": "Bleach 1. Sezon 223. Bölüm",
+        "season": 1,
+        "episode": 223
+      },
+      {
+        "id": "animecix:ep:82:1:224",
+        "title": "Bleach 1. Sezon 224. Bölüm",
+        "season": 1,
+        "episode": 224
+      },
+      {
+        "id": "animecix:ep:82:1:225",
+        "title": "Bleach 1. Sezon 225. Bölüm",
+        "season": 1,
+        "episode": 225
+      },
+      {
+        "id": "animecix:ep:82:1:226",
+        "title": "Bleach 1. Sezon 226. Bölüm",
+        "season": 1,
+        "episode": 226
+      },
+      {
+        "id": "animecix:ep:82:1:227",
+        "title": "Bleach 1. Sezon 227. Bölüm",
+        "season": 1,
+        "episode": 227
+      },
+      {
+        "id": "animecix:ep:82:1:228",
+        "title": "Bleach 1. Sezon 228. Bölüm",
+        "season": 1,
+        "episode": 228
+      },
+      {
+        "id": "animecix:ep:82:1:229",
+        "title": "Bleach 1. Sezon 229. Bölüm",
+        "season": 1,
+        "episode": 229
+      },
+      {
+        "id": "animecix:ep:82:1:230",
+        "title": "Bleach 1. Sezon 230. Bölüm",
+        "season": 1,
+        "episode": 230
+      },
+      {
+        "id": "animecix:ep:82:1:231",
+        "title": "Bleach 1. Sezon 231. Bölüm",
+        "season": 1,
+        "episode": 231
+      },
+      {
+        "id": "animecix:ep:82:1:232",
+        "title": "Bleach 1. Sezon 232. Bölüm",
+        "season": 1,
+        "episode": 232
+      },
+      {
+        "id": "animecix:ep:82:1:233",
+        "title": "Bleach 1. Sezon 233. Bölüm",
+        "season": 1,
+        "episode": 233
+      },
+      {
+        "id": "animecix:ep:82:1:234",
+        "title": "Bleach 1. Sezon 234. Bölüm",
+        "season": 1,
+        "episode": 234
+      },
+      {
+        "id": "animecix:ep:82:1:235",
+        "title": "Bleach 1. Sezon 235. Bölüm",
+        "season": 1,
+        "episode": 235
+      },
+      {
+        "id": "animecix:ep:82:1:236",
+        "title": "Bleach 1. Sezon 236. Bölüm",
+        "season": 1,
+        "episode": 236
+      },
+      {
+        "id": "animecix:ep:82:1:237",
+        "title": "Bleach 1. Sezon 237. Bölüm",
+        "season": 1,
+        "episode": 237
+      },
+      {
+        "id": "animecix:ep:82:1:238",
+        "title": "Bleach 1. Sezon 238. Bölüm",
+        "season": 1,
+        "episode": 238
+      },
+      {
+        "id": "animecix:ep:82:1:239",
+        "title": "Bleach 1. Sezon 239. Bölüm",
+        "season": 1,
+        "episode": 239
+      },
+      {
+        "id": "animecix:ep:82:1:240",
+        "title": "Bleach 1. Sezon 240. Bölüm",
+        "season": 1,
+        "episode": 240
+      },
+      {
+        "id": "animecix:ep:82:1:241",
+        "title": "Bleach 1. Sezon 241. Bölüm",
+        "season": 1,
+        "episode": 241
+      },
+      {
+        "id": "animecix:ep:82:1:242",
+        "title": "Bleach 1. Sezon 242. Bölüm",
+        "season": 1,
+        "episode": 242
+      },
+      {
+        "id": "animecix:ep:82:1:243",
+        "title": "Bleach 1. Sezon 243. Bölüm",
+        "season": 1,
+        "episode": 243
+      },
+      {
+        "id": "animecix:ep:82:1:244",
+        "title": "Bleach 1. Sezon 244. Bölüm",
+        "season": 1,
+        "episode": 244
+      },
+      {
+        "id": "animecix:ep:82:1:245",
+        "title": "Bleach 1. Sezon 245. Bölüm",
+        "season": 1,
+        "episode": 245
+      },
+      {
+        "id": "animecix:ep:82:1:246",
+        "title": "Bleach 1. Sezon 246. Bölüm",
+        "season": 1,
+        "episode": 246
+      },
+      {
+        "id": "animecix:ep:82:1:247",
+        "title": "Bleach 1. Sezon 247. Bölüm",
+        "season": 1,
+        "episode": 247
+      },
+      {
+        "id": "animecix:ep:82:1:248",
+        "title": "Bleach 1. Sezon 248. Bölüm",
+        "season": 1,
+        "episode": 248
+      },
+      {
+        "id": "animecix:ep:82:1:249",
+        "title": "Bleach 1. Sezon 249. Bölüm",
+        "season": 1,
+        "episode": 249
+      },
+      {
+        "id": "animecix:ep:82:1:250",
+        "title": "Bleach 1. Sezon 250. Bölüm",
+        "season": 1,
+        "episode": 250
+      },
+      {
+        "id": "animecix:ep:82:1:251",
+        "title": "Bleach 1. Sezon 251. Bölüm",
+        "season": 1,
+        "episode": 251
+      },
+      {
+        "id": "animecix:ep:82:1:252",
+        "title": "Bleach 1. Sezon 252. Bölüm",
+        "season": 1,
+        "episode": 252
+      },
+      {
+        "id": "animecix:ep:82:1:253",
+        "title": "Bleach 1. Sezon 253. Bölüm",
+        "season": 1,
+        "episode": 253
+      },
+      {
+        "id": "animecix:ep:82:1:254",
+        "title": "Bleach 1. Sezon 254. Bölüm",
+        "season": 1,
+        "episode": 254
+      },
+      {
+        "id": "animecix:ep:82:1:255",
+        "title": "Bleach 1. Sezon 255. Bölüm",
+        "season": 1,
+        "episode": 255
+      },
+      {
+        "id": "animecix:ep:82:1:256",
+        "title": "Bleach 1. Sezon 256. Bölüm",
+        "season": 1,
+        "episode": 256
+      },
+      {
+        "id": "animecix:ep:82:1:257",
+        "title": "Bleach 1. Sezon 257. Bölüm",
+        "season": 1,
+        "episode": 257
+      },
+      {
+        "id": "animecix:ep:82:1:258",
+        "title": "Bleach 1. Sezon 258. Bölüm",
+        "season": 1,
+        "episode": 258
+      },
+      {
+        "id": "animecix:ep:82:1:259",
+        "title": "Bleach 1. Sezon 259. Bölüm",
+        "season": 1,
+        "episode": 259
+      },
+      {
+        "id": "animecix:ep:82:1:260",
+        "title": "Bleach 1. Sezon 260. Bölüm",
+        "season": 1,
+        "episode": 260
+      },
+      {
+        "id": "animecix:ep:82:1:261",
+        "title": "Bleach 1. Sezon 261. Bölüm",
+        "season": 1,
+        "episode": 261
+      },
+      {
+        "id": "animecix:ep:82:1:262",
+        "title": "Bleach 1. Sezon 262. Bölüm",
+        "season": 1,
+        "episode": 262
+      },
+      {
+        "id": "animecix:ep:82:1:263",
+        "title": "Bleach 1. Sezon 263. Bölüm",
+        "season": 1,
+        "episode": 263
+      },
+      {
+        "id": "animecix:ep:82:1:264",
+        "title": "Bleach 1. Sezon 264. Bölüm",
+        "season": 1,
+        "episode": 264
+      },
+      {
+        "id": "animecix:ep:82:1:265",
+        "title": "Bleach 1. Sezon 265. Bölüm",
+        "season": 1,
+        "episode": 265
+      },
+      {
+        "id": "animecix:ep:82:1:266",
+        "title": "Bleach 1. Sezon 266. Bölüm",
+        "season": 1,
+        "episode": 266
+      },
+      {
+        "id": "animecix:ep:82:1:267",
+        "title": "Bleach 1. Sezon 267. Bölüm",
+        "season": 1,
+        "episode": 267
+      },
+      {
+        "id": "animecix:ep:82:1:268",
+        "title": "Bleach 1. Sezon 268. Bölüm",
+        "season": 1,
+        "episode": 268
+      },
+      {
+        "id": "animecix:ep:82:1:269",
+        "title": "Bleach 1. Sezon 269. Bölüm",
+        "season": 1,
+        "episode": 269
+      },
+      {
+        "id": "animecix:ep:82:1:270",
+        "title": "Bleach 1. Sezon 270. Bölüm",
+        "season": 1,
+        "episode": 270
+      },
+      {
+        "id": "animecix:ep:82:1:271",
+        "title": "Bleach 1. Sezon 271. Bölüm",
+        "season": 1,
+        "episode": 271
+      },
+      {
+        "id": "animecix:ep:82:1:272",
+        "title": "Bleach 1. Sezon 272. Bölüm",
+        "season": 1,
+        "episode": 272
+      },
+      {
+        "id": "animecix:ep:82:1:273",
+        "title": "Bleach 1. Sezon 273. Bölüm",
+        "season": 1,
+        "episode": 273
+      },
+      {
+        "id": "animecix:ep:82:1:274",
+        "title": "Bleach 1. Sezon 274. Bölüm",
+        "season": 1,
+        "episode": 274
+      },
+      {
+        "id": "animecix:ep:82:1:275",
+        "title": "Bleach 1. Sezon 275. Bölüm",
+        "season": 1,
+        "episode": 275
+      },
+      {
+        "id": "animecix:ep:82:1:276",
+        "title": "Bleach 1. Sezon 276. Bölüm",
+        "season": 1,
+        "episode": 276
+      },
+      {
+        "id": "animecix:ep:82:1:277",
+        "title": "Bleach 1. Sezon 277. Bölüm",
+        "season": 1,
+        "episode": 277
+      },
+      {
+        "id": "animecix:ep:82:1:278",
+        "title": "Bleach 1. Sezon 278. Bölüm",
+        "season": 1,
+        "episode": 278
+      },
+      {
+        "id": "animecix:ep:82:1:279",
+        "title": "Bleach 1. Sezon 279. Bölüm",
+        "season": 1,
+        "episode": 279
+      },
+      {
+        "id": "animecix:ep:82:1:280",
+        "title": "Bleach 1. Sezon 280. Bölüm",
+        "season": 1,
+        "episode": 280
+      },
+      {
+        "id": "animecix:ep:82:1:281",
+        "title": "Bleach 1. Sezon 281. Bölüm",
+        "season": 1,
+        "episode": 281
+      },
+      {
+        "id": "animecix:ep:82:1:282",
+        "title": "Bleach 1. Sezon 282. Bölüm",
+        "season": 1,
+        "episode": 282
+      },
+      {
+        "id": "animecix:ep:82:1:283",
+        "title": "Bleach 1. Sezon 283. Bölüm",
+        "season": 1,
+        "episode": 283
+      },
+      {
+        "id": "animecix:ep:82:1:284",
+        "title": "Bleach 1. Sezon 284. Bölüm",
+        "season": 1,
+        "episode": 284
+      },
+      {
+        "id": "animecix:ep:82:1:285",
+        "title": "Bleach 1. Sezon 285. Bölüm",
+        "season": 1,
+        "episode": 285
+      },
+      {
+        "id": "animecix:ep:82:1:286",
+        "title": "Bleach 1. Sezon 286. Bölüm",
+        "season": 1,
+        "episode": 286
+      },
+      {
+        "id": "animecix:ep:82:1:287",
+        "title": "Bleach 1. Sezon 287. Bölüm",
+        "season": 1,
+        "episode": 287
+      },
+      {
+        "id": "animecix:ep:82:1:288",
+        "title": "Bleach 1. Sezon 288. Bölüm",
+        "season": 1,
+        "episode": 288
+      },
+      {
+        "id": "animecix:ep:82:1:289",
+        "title": "Bleach 1. Sezon 289. Bölüm",
+        "season": 1,
+        "episode": 289
+      },
+      {
+        "id": "animecix:ep:82:1:290",
+        "title": "Bleach 1. Sezon 290. Bölüm",
+        "season": 1,
+        "episode": 290
+      },
+      {
+        "id": "animecix:ep:82:1:291",
+        "title": "Bleach 1. Sezon 291. Bölüm",
+        "season": 1,
+        "episode": 291
+      },
+      {
+        "id": "animecix:ep:82:1:292",
+        "title": "Bleach 1. Sezon 292. Bölüm",
+        "season": 1,
+        "episode": 292
+      },
+      {
+        "id": "animecix:ep:82:1:293",
+        "title": "Bleach 1. Sezon 293. Bölüm",
+        "season": 1,
+        "episode": 293
+      },
+      {
+        "id": "animecix:ep:82:1:294",
+        "title": "Bleach 1. Sezon 294. Bölüm",
+        "season": 1,
+        "episode": 294
+      },
+      {
+        "id": "animecix:ep:82:1:295",
+        "title": "Bleach 1. Sezon 295. Bölüm",
+        "season": 1,
+        "episode": 295
+      },
+      {
+        "id": "animecix:ep:82:1:296",
+        "title": "Bleach 1. Sezon 296. Bölüm",
+        "season": 1,
+        "episode": 296
+      },
+      {
+        "id": "animecix:ep:82:1:297",
+        "title": "Bleach 1. Sezon 297. Bölüm",
+        "season": 1,
+        "episode": 297
+      },
+      {
+        "id": "animecix:ep:82:1:298",
+        "title": "Bleach 1. Sezon 298. Bölüm",
+        "season": 1,
+        "episode": 298
+      },
+      {
+        "id": "animecix:ep:82:1:299",
+        "title": "Bleach 1. Sezon 299. Bölüm",
+        "season": 1,
+        "episode": 299
+      },
+      {
+        "id": "animecix:ep:82:1:300",
+        "title": "Bleach 1. Sezon 300. Bölüm",
+        "season": 1,
+        "episode": 300
+      },
+      {
+        "id": "animecix:ep:82:1:301",
+        "title": "Bleach 1. Sezon 301. Bölüm",
+        "season": 1,
+        "episode": 301
+      },
+      {
+        "id": "animecix:ep:82:1:302",
+        "title": "Bleach 1. Sezon 302. Bölüm",
+        "season": 1,
+        "episode": 302
+      },
+      {
+        "id": "animecix:ep:82:1:303",
+        "title": "Bleach 1. Sezon 303. Bölüm",
+        "season": 1,
+        "episode": 303
+      },
+      {
+        "id": "animecix:ep:82:1:304",
+        "title": "Bleach 1. Sezon 304. Bölüm",
+        "season": 1,
+        "episode": 304
+      },
+      {
+        "id": "animecix:ep:82:1:305",
+        "title": "Bleach 1. Sezon 305. Bölüm",
+        "season": 1,
+        "episode": 305
+      },
+      {
+        "id": "animecix:ep:82:1:306",
+        "title": "Bleach 1. Sezon 306. Bölüm",
+        "season": 1,
+        "episode": 306
+      },
+      {
+        "id": "animecix:ep:82:1:307",
+        "title": "Bleach 1. Sezon 307. Bölüm",
+        "season": 1,
+        "episode": 307
+      },
+      {
+        "id": "animecix:ep:82:1:308",
+        "title": "Bleach 1. Sezon 308. Bölüm",
+        "season": 1,
+        "episode": 308
+      },
+      {
+        "id": "animecix:ep:82:1:309",
+        "title": "Bleach 1. Sezon 309. Bölüm",
+        "season": 1,
+        "episode": 309
+      },
+      {
+        "id": "animecix:ep:82:1:310",
+        "title": "Bleach 1. Sezon 310. Bölüm",
+        "season": 1,
+        "episode": 310
+      },
+      {
+        "id": "animecix:ep:82:1:311",
+        "title": "Bleach 1. Sezon 311. Bölüm",
+        "season": 1,
+        "episode": 311
+      },
+      {
+        "id": "animecix:ep:82:1:312",
+        "title": "Bleach 1. Sezon 312. Bölüm",
+        "season": 1,
+        "episode": 312
+      },
+      {
+        "id": "animecix:ep:82:1:313",
+        "title": "Bleach 1. Sezon 313. Bölüm",
+        "season": 1,
+        "episode": 313
+      },
+      {
+        "id": "animecix:ep:82:1:314",
+        "title": "Bleach 1. Sezon 314. Bölüm",
+        "season": 1,
+        "episode": 314
+      },
+      {
+        "id": "animecix:ep:82:1:315",
+        "title": "Bleach 1. Sezon 315. Bölüm",
+        "season": 1,
+        "episode": 315
+      },
+      {
+        "id": "animecix:ep:82:1:316",
+        "title": "Bleach 1. Sezon 316. Bölüm",
+        "season": 1,
+        "episode": 316
+      },
+      {
+        "id": "animecix:ep:82:1:317",
+        "title": "Bleach 1. Sezon 317. Bölüm",
+        "season": 1,
+        "episode": 317
+      },
+      {
+        "id": "animecix:ep:82:1:318",
+        "title": "Bleach 1. Sezon 318. Bölüm",
+        "season": 1,
+        "episode": 318
+      },
+      {
+        "id": "animecix:ep:82:1:319",
+        "title": "Bleach 1. Sezon 319. Bölüm",
+        "season": 1,
+        "episode": 319
+      },
+      {
+        "id": "animecix:ep:82:1:320",
+        "title": "Bleach 1. Sezon 320. Bölüm",
+        "season": 1,
+        "episode": 320
+      },
+      {
+        "id": "animecix:ep:82:1:321",
+        "title": "Bleach 1. Sezon 321. Bölüm",
+        "season": 1,
+        "episode": 321
+      },
+      {
+        "id": "animecix:ep:82:1:322",
+        "title": "Bleach 1. Sezon 322. Bölüm",
+        "season": 1,
+        "episode": 322
+      },
+      {
+        "id": "animecix:ep:82:1:323",
+        "title": "Bleach 1. Sezon 323. Bölüm",
+        "season": 1,
+        "episode": 323
+      },
+      {
+        "id": "animecix:ep:82:1:324",
+        "title": "Bleach 1. Sezon 324. Bölüm",
+        "season": 1,
+        "episode": 324
+      },
+      {
+        "id": "animecix:ep:82:1:325",
+        "title": "Bleach 1. Sezon 325. Bölüm",
+        "season": 1,
+        "episode": 325
+      },
+      {
+        "id": "animecix:ep:82:1:326",
+        "title": "Bleach 1. Sezon 326. Bölüm",
+        "season": 1,
+        "episode": 326
+      },
+      {
+        "id": "animecix:ep:82:1:327",
+        "title": "Bleach 1. Sezon 327. Bölüm",
+        "season": 1,
+        "episode": 327
+      },
+      {
+        "id": "animecix:ep:82:1:328",
+        "title": "Bleach 1. Sezon 328. Bölüm",
+        "season": 1,
+        "episode": 328
+      },
+      {
+        "id": "animecix:ep:82:1:329",
+        "title": "Bleach 1. Sezon 329. Bölüm",
+        "season": 1,
+        "episode": 329
+      },
+      {
+        "id": "animecix:ep:82:1:330",
+        "title": "Bleach 1. Sezon 330. Bölüm",
+        "season": 1,
+        "episode": 330
+      },
+      {
+        "id": "animecix:ep:82:1:331",
+        "title": "Bleach 1. Sezon 331. Bölüm",
+        "season": 1,
+        "episode": 331
+      },
+      {
+        "id": "animecix:ep:82:1:332",
+        "title": "Bleach 1. Sezon 332. Bölüm",
+        "season": 1,
+        "episode": 332
+      },
+      {
+        "id": "animecix:ep:82:1:333",
+        "title": "Bleach 1. Sezon 333. Bölüm",
+        "season": 1,
+        "episode": 333
+      },
+      {
+        "id": "animecix:ep:82:1:334",
+        "title": "Bleach 1. Sezon 334. Bölüm",
+        "season": 1,
+        "episode": 334
+      },
+      {
+        "id": "animecix:ep:82:1:335",
+        "title": "Bleach 1. Sezon 335. Bölüm",
+        "season": 1,
+        "episode": 335
+      },
+      {
+        "id": "animecix:ep:82:1:336",
+        "title": "Bleach 1. Sezon 336. Bölüm",
+        "season": 1,
+        "episode": 336
+      },
+      {
+        "id": "animecix:ep:82:1:337",
+        "title": "Bleach 1. Sezon 337. Bölüm",
+        "season": 1,
+        "episode": 337
+      },
+      {
+        "id": "animecix:ep:82:1:338",
+        "title": "Bleach 1. Sezon 338. Bölüm",
+        "season": 1,
+        "episode": 338
+      },
+      {
+        "id": "animecix:ep:82:1:339",
+        "title": "Bleach 1. Sezon 339. Bölüm",
+        "season": 1,
+        "episode": 339
+      },
+      {
+        "id": "animecix:ep:82:1:340",
+        "title": "Bleach 1. Sezon 340. Bölüm",
+        "season": 1,
+        "episode": 340
+      },
+      {
+        "id": "animecix:ep:82:1:341",
+        "title": "Bleach 1. Sezon 341. Bölüm",
+        "season": 1,
+        "episode": 341
+      },
+      {
+        "id": "animecix:ep:82:1:342",
+        "title": "Bleach 1. Sezon 342. Bölüm",
+        "season": 1,
+        "episode": 342
+      },
+      {
+        "id": "animecix:ep:82:1:343",
+        "title": "Bleach 1. Sezon 343. Bölüm",
+        "season": 1,
+        "episode": 343
+      },
+      {
+        "id": "animecix:ep:82:1:344",
+        "title": "Bleach 1. Sezon 344. Bölüm",
+        "season": 1,
+        "episode": 344
+      },
+      {
+        "id": "animecix:ep:82:1:345",
+        "title": "Bleach 1. Sezon 345. Bölüm",
+        "season": 1,
+        "episode": 345
+      },
+      {
+        "id": "animecix:ep:82:1:346",
+        "title": "Bleach 1. Sezon 346. Bölüm",
+        "season": 1,
+        "episode": 346
+      },
+      {
+        "id": "animecix:ep:82:1:347",
+        "title": "Bleach 1. Sezon 347. Bölüm",
+        "season": 1,
+        "episode": 347
+      },
+      {
+        "id": "animecix:ep:82:1:348",
+        "title": "Bleach 1. Sezon 348. Bölüm",
+        "season": 1,
+        "episode": 348
+      },
+      {
+        "id": "animecix:ep:82:1:349",
+        "title": "Bleach 1. Sezon 349. Bölüm",
+        "season": 1,
+        "episode": 349
+      },
+      {
+        "id": "animecix:ep:82:1:350",
+        "title": "Bleach 1. Sezon 350. Bölüm",
+        "season": 1,
+        "episode": 350
+      },
+      {
+        "id": "animecix:ep:82:1:351",
+        "title": "Bleach 1. Sezon 351. Bölüm",
+        "season": 1,
+        "episode": 351
+      },
+      {
+        "id": "animecix:ep:82:1:352",
+        "title": "Bleach 1. Sezon 352. Bölüm",
+        "season": 1,
+        "episode": 352
+      },
+      {
+        "id": "animecix:ep:82:1:353",
+        "title": "Bleach 1. Sezon 353. Bölüm",
+        "season": 1,
+        "episode": 353
+      },
+      {
+        "id": "animecix:ep:82:1:354",
+        "title": "Bleach 1. Sezon 354. Bölüm",
+        "season": 1,
+        "episode": 354
+      },
+      {
+        "id": "animecix:ep:82:1:355",
+        "title": "Bleach 1. Sezon 355. Bölüm",
+        "season": 1,
+        "episode": 355
+      },
+      {
+        "id": "animecix:ep:82:1:356",
+        "title": "Bleach 1. Sezon 356. Bölüm",
+        "season": 1,
+        "episode": 356
+      },
+      {
+        "id": "animecix:ep:82:1:357",
+        "title": "Bleach 1. Sezon 357. Bölüm",
+        "season": 1,
+        "episode": 357
+      },
+      {
+        "id": "animecix:ep:82:1:358",
+        "title": "Bleach 1. Sezon 358. Bölüm",
+        "season": 1,
+        "episode": 358
+      },
+      {
+        "id": "animecix:ep:82:1:359",
+        "title": "Bleach 1. Sezon 359. Bölüm",
+        "season": 1,
+        "episode": 359
+      },
+      {
+        "id": "animecix:ep:82:1:360",
+        "title": "Bleach 1. Sezon 360. Bölüm",
+        "season": 1,
+        "episode": 360
+      },
+      {
+        "id": "animecix:ep:82:1:361",
+        "title": "Bleach 1. Sezon 361. Bölüm",
+        "season": 1,
+        "episode": 361
+      },
+      {
+        "id": "animecix:ep:82:1:362",
+        "title": "Bleach 1. Sezon 362. Bölüm",
+        "season": 1,
+        "episode": 362
+      },
+      {
+        "id": "animecix:ep:82:2:1",
+        "title": "Bleach 2. Sezon 1. Bölüm",
+        "season": 2,
+        "episode": 1
+      },
+      {
+        "id": "animecix:ep:82:2:2",
+        "title": "Bleach 2. Sezon 2. Bölüm",
+        "season": 2,
+        "episode": 2
+      },
+      {
+        "id": "animecix:ep:82:2:3",
+        "title": "Bleach 2. Sezon 3. Bölüm",
+        "season": 2,
+        "episode": 3
+      },
+      {
+        "id": "animecix:ep:82:2:4",
+        "title": "Bleach 2. Sezon 4. Bölüm",
+        "season": 2,
+        "episode": 4
+      },
+      {
+        "id": "animecix:ep:82:2:5",
+        "title": "Bleach 2. Sezon 5. Bölüm",
+        "season": 2,
+        "episode": 5
+      },
+      {
+        "id": "animecix:ep:82:2:6",
+        "title": "Bleach 2. Sezon 6. Bölüm",
+        "season": 2,
+        "episode": 6
+      },
+      {
+        "id": "animecix:ep:82:2:7",
+        "title": "Bleach 2. Sezon 7. Bölüm",
+        "season": 2,
+        "episode": 7
+      },
+      {
+        "id": "animecix:ep:82:2:8",
+        "title": "Bleach 2. Sezon 8. Bölüm",
+        "season": 2,
+        "episode": 8
+      },
+      {
+        "id": "animecix:ep:82:2:9",
+        "title": "Bleach 2. Sezon 9. Bölüm",
+        "season": 2,
+        "episode": 9
+      },
+      {
+        "id": "animecix:ep:82:2:10",
+        "title": "Bleach 2. Sezon 10. Bölüm",
+        "season": 2,
+        "episode": 10
+      },
+      {
+        "id": "animecix:ep:82:2:11",
+        "title": "Bleach 2. Sezon 11. Bölüm",
+        "season": 2,
+        "episode": 11
+      },
+      {
+        "id": "animecix:ep:82:2:12",
+        "title": "Bleach 2. Sezon 12. Bölüm",
+        "season": 2,
+        "episode": 12
+      },
+      {
+        "id": "animecix:ep:82:2:13",
+        "title": "Bleach 2. Sezon 13. Bölüm",
+        "season": 2,
+        "episode": 13
+      },
+      {
+        "id": "animecix:ep:82:2:14",
+        "title": "Bleach 2. Sezon 14. Bölüm",
+        "season": 2,
+        "episode": 14
+      },
+      {
+        "id": "animecix:ep:82:2:15",
+        "title": "Bleach 2. Sezon 15. Bölüm",
+        "season": 2,
+        "episode": 15
+      },
+      {
+        "id": "animecix:ep:82:2:16",
+        "title": "Bleach 2. Sezon 16. Bölüm",
+        "season": 2,
+        "episode": 16
+      },
+      {
+        "id": "animecix:ep:82:2:17",
+        "title": "Bleach 2. Sezon 17. Bölüm",
+        "season": 2,
+        "episode": 17
+      },
+      {
+        "id": "animecix:ep:82:2:18",
+        "title": "Bleach 2. Sezon 18. Bölüm",
+        "season": 2,
+        "episode": 18
+      },
+      {
+        "id": "animecix:ep:82:2:19",
+        "title": "Bleach 2. Sezon 19. Bölüm",
+        "season": 2,
+        "episode": 19
+      },
+      {
+        "id": "animecix:ep:82:2:20",
+        "title": "Bleach 2. Sezon 20. Bölüm",
+        "season": 2,
+        "episode": 20
+      },
+      {
+        "id": "animecix:ep:82:2:21",
+        "title": "Bleach 2. Sezon 21. Bölüm",
+        "season": 2,
+        "episode": 21
+      },
+      {
+        "id": "animecix:ep:82:2:22",
+        "title": "Bleach 2. Sezon 22. Bölüm",
+        "season": 2,
+        "episode": 22
+      },
+      {
+        "id": "animecix:ep:82:2:23",
+        "title": "Bleach 2. Sezon 23. Bölüm",
+        "season": 2,
+        "episode": 23
+      },
+      {
+        "id": "animecix:ep:82:2:24",
+        "title": "Bleach 2. Sezon 24. Bölüm",
+        "season": 2,
+        "episode": 24
+      },
+      {
+        "id": "animecix:ep:82:2:25",
+        "title": "Bleach 2. Sezon 25. Bölüm",
+        "season": 2,
+        "episode": 25
+      },
+      {
+        "id": "animecix:ep:82:2:26",
+        "title": "Bleach 2. Sezon 26. Bölüm",
+        "season": 2,
+        "episode": 26
+      },
+      {
+        "id": "animecix:ep:82:2:27",
+        "title": "Bleach 2. Sezon 27. Bölüm",
+        "season": 2,
+        "episode": 27
+      },
+      {
+        "id": "animecix:ep:82:2:28",
+        "title": "Bleach 2. Sezon 28. Bölüm",
+        "season": 2,
+        "episode": 28
+      },
+      {
+        "id": "animecix:ep:82:2:29",
+        "title": "Bleach 2. Sezon 29. Bölüm",
+        "season": 2,
+        "episode": 29
+      },
+      {
+        "id": "animecix:ep:82:2:30",
+        "title": "Bleach 2. Sezon 30. Bölüm",
+        "season": 2,
+        "episode": 30
+      },
+      {
+        "id": "animecix:ep:82:2:31",
+        "title": "Bleach 2. Sezon 31. Bölüm",
+        "season": 2,
+        "episode": 31
+      },
+      {
+        "id": "animecix:ep:82:2:32",
+        "title": "Bleach 2. Sezon 32. Bölüm",
+        "season": 2,
+        "episode": 32
+      },
+      {
+        "id": "animecix:ep:82:2:33",
+        "title": "Bleach 2. Sezon 33. Bölüm",
+        "season": 2,
+        "episode": 33
+      },
+      {
+        "id": "animecix:ep:82:2:34",
+        "title": "Bleach 2. Sezon 34. Bölüm",
+        "season": 2,
+        "episode": 34
+      },
+      {
+        "id": "animecix:ep:82:2:35",
+        "title": "Bleach 2. Sezon 35. Bölüm",
+        "season": 2,
+        "episode": 35
+      },
+      {
+        "id": "animecix:ep:82:2:36",
+        "title": "Bleach 2. Sezon 36. Bölüm",
+        "season": 2,
+        "episode": 36
+      },
+      {
+        "id": "animecix:ep:82:2:37",
+        "title": "Bleach 2. Sezon 37. Bölüm",
+        "season": 2,
+        "episode": 37
+      },
+      {
+        "id": "animecix:ep:82:2:38",
+        "title": "Bleach 2. Sezon 38. Bölüm",
+        "season": 2,
+        "episode": 38
+      },
+      {
+        "id": "animecix:ep:82:2:39",
+        "title": "Bleach 2. Sezon 39. Bölüm",
+        "season": 2,
+        "episode": 39
+      },
+      {
+        "id": "animecix:ep:82:2:40",
+        "title": "Bleach 2. Sezon 40. Bölüm",
+        "season": 2,
+        "episode": 40
+      },
+      {
+        "id": "animecix:ep:82:2:41",
+        "title": "Bleach 2. Sezon 41. Bölüm",
+        "season": 2,
+        "episode": 41
+      },
+      {
+        "id": "animecix:ep:82:2:42",
+        "title": "Bleach 2. Sezon 42. Bölüm",
+        "season": 2,
+        "episode": 42
+      },
+      {
+        "id": "animecix:ep:82:2:43",
+        "title": "Bleach 2. Sezon 43. Bölüm",
+        "season": 2,
+        "episode": 43
+      },
+      {
+        "id": "animecix:ep:82:2:44",
+        "title": "Bleach 2. Sezon 44. Bölüm",
+        "season": 2,
+        "episode": 44
+      },
+      {
+        "id": "animecix:ep:82:2:45",
+        "title": "Bleach 2. Sezon 45. Bölüm",
+        "season": 2,
+        "episode": 45
+      },
+      {
+        "id": "animecix:ep:82:2:46",
+        "title": "Bleach 2. Sezon 46. Bölüm",
+        "season": 2,
+        "episode": 46
+      },
+      {
+        "id": "animecix:ep:82:2:47",
+        "title": "Bleach 2. Sezon 47. Bölüm",
+        "season": 2,
+        "episode": 47
+      }
+    ]
+  }
+}

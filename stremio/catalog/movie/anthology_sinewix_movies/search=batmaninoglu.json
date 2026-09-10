@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:2231",
+      "type": "movie",
+      "name": "Batmanin Oğlu",
+      "poster": "https://image.tmdb.org/t/p/w500/4XRkA1qJd3yteJlxR51A4eqerzW.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/jYqOnJDPI7QD9cGbE6CwDTp1tID.jpg",
+      "description": "Yarasa Adam, oğlunun Suikastçılar Birliği tarafından gizlice büyütüldüğünü öğrenir...",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

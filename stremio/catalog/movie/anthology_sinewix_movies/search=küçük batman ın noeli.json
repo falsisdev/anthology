@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:3077",
+      "type": "movie",
+      "name": "Küçük Batman'ın Noeli",
+      "poster": "https://image.tmdb.org/t/p/w500/qpjrjMw0SbUG8AP8nvHQzQZw8jv.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/a21obwG9qMSf1qa6oG4ZgpOyMaA.jpg",
+      "description": "Bu Noel'de Damian Wayne, babası gibi tek Batman olan bir süper kahraman olmak istiyor. Batman, Noel arifesinde Gotham'ın en kötü süper kötüleriyle karşı karşıya gelirken Damian evde yalnız kalınca, Noel'i çalmaya yönelik hain bir komployla karşılaşır ve günü kurtarma şansını yakalar.",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

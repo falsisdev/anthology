@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "animecix:title:10583",
+    "type": "series",
+    "name": "Gyo",
+    "poster": "https://image.tmdb.org/t/p/original/7MUHxk2UicWtCLcfdPPLgxmUrDv.jpg",
+    "background": "https://image.tmdb.org/t/p/w1280/1HR5r53QFBMcqofbQ9VJAbGL0bA.jpg",
+    "description": "Kaori, üniversite mezuniyetlerini kutlamak için arkadaşları Erika ve Aki ile birlikte Okinawa'ya tatile gider. Kaldıkları ev ise Kaori'nin nişanlısı Tadashi'nin amcasının evidir. Bir gün eve geldiklerinde korkunç bir koku hissederler ve evin içinde garip bir yaratık görürler ve zor da olsa onu öldürdükten sonra gördükleri şey karşısında şaşırırlar. Bu yaratık bir balığa benzediği gibi ayakları da vardır ve tuhaf bir koku yayıyordur. Bu olayın ertesi sabahı ise Okinawa sahilinden itibaren nedeni bilinmeyen bir şekilde bütün balıklar ayaklanarak şehre akın etmeye başlar. Kaori ise nişanlısı Tadashi ile telefonda haberleşmesinden sonra onun tehlikede olduğunu düşünerek Tokyo'ya gitmeye karar verir. Bu akılalmaz tehlikeli yolculukta olayların arkasındaki gerçeği araştıran bir kameraman olan Shirakawa'da ona eşlik eder.",
+    "genres": [
+      "Anime",
+      "AnimeciX"
+    ],
+    "videos": [
+      {
+        "id": "animecix:ep:10583:1:1",
+        "title": "Gyo 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

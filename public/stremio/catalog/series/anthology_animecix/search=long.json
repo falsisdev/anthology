@@ -1,0 +1,28 @@
+{
+  "metas": [
+    {
+      "id": "animecix:title:11330",
+      "type": "series",
+      "name": "Dragon Ball Movie 1: Shen Long no Densetsu",
+      "poster": "https://image.tmdb.org/t/p/original/dZCWRFJnwyxYOhzAhf7Xyru4moB.jpg",
+      "background": "https://image.tmdb.org/t/p/w1280/8gc00CJuQKNToUJq1cAmTtb4zmc.jpg",
+      "description": "Ejder Topu: Şenlong Söylencesi. Ejder Topu'nun kökenlerinin yeniden anlatıldığı ve Goku, Bulma, Ulong ve Yamuça'nın buluşmasının farklı bir sürümüdür. Bu filmde Ejder Toplarını arayan Gokularla kötü kral Gurmes'in yolları kesişmektedir.",
+      "genres": [
+        "Anime",
+        "AnimeciX"
+      ]
+    },
+    {
+      "id": "animecix:title:12200",
+      "type": "series",
+      "name": "My Daddy Long Legs",
+      "poster": "https://image.tmdb.org/t/p/original/eZuyNToQ8ri5eAcJzHIp0FwDZiG.jpg",
+      "background": "https://image.tmdb.org/t/p/w1280/yTA6UaUZklSzNvKQEvo9qpOPB6H.jpg",
+      "description": "Judy Abbott, New York'ta yaşayan bir yetimdir ve 17 yaşındayken kendisini gizemli bir hayırseverden üniversite bursu ve aylık harçlık alırken bulur. Velinimeti, bir yazar olarak büyük bir potansiyele sahip olduğuna inanıyor ve başarılı olmasını istiyor. Karşılığında istediği tek ödeme, kadının ona her ay \"Bay John Smith\" takma adına bir mektup yazması ve asla yanıt vermemesi şartıyla olmasıdır.",
+      "genres": [
+        "Anime",
+        "AnimeciX"
+      ]
+    }
+  ]
+}

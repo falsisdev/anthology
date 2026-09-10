@@ -12,9 +12,7 @@
     "videos": [
       {
         "id": "tv:TurkHaber.tr",
-        "title": "Türk Haber TV HD",
-        "season": 1,
-        "episode": 1
+        "title": "Türk Haber TV HD"
       }
     ]
   }

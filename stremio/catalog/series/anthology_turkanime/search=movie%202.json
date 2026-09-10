@@ -1,0 +1,88 @@
+{
+  "metas": [
+    {
+      "id": "turkanime:anime:naruto-movie-2-dai-gekitotsu-maboroshi-no-chiteiiseki-dattebayo",
+      "type": "series",
+      "name": "Naruto Movie 2: Dai Gekitotsu! Maboro...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Naruto Movie 2: Dai Gekitotsu! Maboro... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:naruto-shippuuden-movie-2-kizuna",
+      "type": "series",
+      "name": "Naruto: Shippuuden Movie 2 - Kizuna",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Naruto: Shippuuden Movie 2 - Kizuna - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:one-piece-movie-2-nejimaki-jima-no-daibouken",
+      "type": "series",
+      "name": "One Piece Movie 2: Nejimaki-jima no D...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "One Piece Movie 2: Nejimaki-jima no D... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:bleach-movie-2-the-diamonddust-rebellion-mou-hitotsu-no-hyourinmaru",
+      "type": "series",
+      "name": "Bleach Movie 2: The DiamondDust Rebel...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Bleach Movie 2: The DiamondDust Rebel... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:shingeki-no-kyojin-movie-2-jiyuu-no-tsubasa",
+      "type": "series",
+      "name": "Shingeki no Kyojin Movie 2: Jiyuu no ...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Shingeki no Kyojin Movie 2: Jiyuu no ... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-movie-2-majinjou-no-nemurihime",
+      "type": "series",
+      "name": "Dragon Ball Movie 2: Majinjou no Nemu...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball Movie 2: Majinjou no Nemu... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:boku-no-hero-academia-the-movie-2-heroes-rising",
+      "type": "series",
+      "name": "Boku no Hero Academia the Movie 2: He...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Boku no Hero Academia the Movie 2: He... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    }
+  ]
+}

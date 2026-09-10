@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "ddizi:show:1808/la-casa-de-papel-hd",
+      "type": "series",
+      "name": "La Casa De Papel",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "La Casa De Papel - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    }
+  ]
+}

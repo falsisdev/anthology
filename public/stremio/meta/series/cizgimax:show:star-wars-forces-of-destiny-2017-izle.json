@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "cizgimax:show:star-wars-forces-of-destiny-2017-izle",
+    "type": "series",
+    "name": "Star Wars: Forces of Destiny",
+    "poster": "https://cizgimax.online/img/locandine/star-wars-forces-of-destiny-2017-poster.webp",
+    "background": "https://cizgimax.online/img/locandine/star-wars-forces-of-destiny-2017-poster.webp",
+    "description": "Star Wars: Forces of Destiny - ÇizgiMax",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:show:star-wars-forces-of-destiny-2017-izle",
+        "title": "Star Wars: Forces of Destiny 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

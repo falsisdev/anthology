@@ -1,0 +1,224 @@
+{
+  "metas": [
+    {
+      "id": "tv:ShowTV.tr",
+      "type": "tv",
+      "name": "Show TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/showtv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/showtv.png",
+      "description": "Show TV HD Canlı Yayın",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:StarTV.tr",
+      "type": "tv",
+      "name": "Star TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/startv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/startv.png",
+      "description": "Star TV HD Canlı Yayın",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:NOW.tr",
+      "type": "tv",
+      "name": "NOW TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/now.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/now.png",
+      "description": "NOW TV HD Canlı Yayın",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:BeyazTV.tr",
+      "type": "tv",
+      "name": "Beyaz TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beyaztv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beyaztv.png",
+      "description": "Beyaz TV HD Canlı Yayın",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:A2.tr",
+      "type": "tv",
+      "name": "A2 TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/a2.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/a2.png",
+      "description": "A2 TV HD Canlı Yayın",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:TV360.tr",
+      "type": "tv",
+      "name": "360 TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv360.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv360.png",
+      "description": "360 TV HD Canlı Yayın",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:HaberTurk.tr",
+      "type": "tv",
+      "name": "Habertürk TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/haberturk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/haberturk.png",
+      "description": "Habertürk TV HD Canlı Yayın",
+      "genres": [
+        "HABER KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:HalkTV.tr",
+      "type": "tv",
+      "name": "Halk TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/halktv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/halktv.png",
+      "description": "Halk TV HD Canlı Yayın",
+      "genres": [
+        "HABER KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:Kanal24.tr",
+      "type": "tv",
+      "name": "24 TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/24tv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/24tv.png",
+      "description": "24 TV HD Canlı Yayın",
+      "genres": [
+        "HABER KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:BenguTurk.tr",
+      "type": "tv",
+      "name": "Bengü Türk TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/benguturk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/benguturk.png",
+      "description": "Bengü Türk TV HD Canlı Yayın",
+      "genres": [
+        "HABER KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:FlashHaber.tr",
+      "type": "tv",
+      "name": "Flash Haber TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/flashhaber.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/flashhaber.png",
+      "description": "Flash Haber TV HD Canlı Yayın",
+      "genres": [
+        "HABER KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:LiderHaber.tr",
+      "type": "tv",
+      "name": "Lider Haber TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/liderhaber.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/liderhaber.png",
+      "description": "Lider Haber TV HD Canlı Yayın",
+      "genres": [
+        "HABER KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:TurkHaber.tr",
+      "type": "tv",
+      "name": "Türk Haber TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/turkhaber.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/turkhaber.png",
+      "description": "Türk Haber TV HD Canlı Yayın",
+      "genres": [
+        "HABER KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:ExxenTV.tr",
+      "type": "tv",
+      "name": "Exxen TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
+      "description": "Exxen TV HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:TJKTV.tr",
+      "type": "tv",
+      "name": "TJK TV HD",
+      "poster": "https://i.imgur.com/3zHdkYG.png",
+      "background": "https://i.imgur.com/3zHdkYG.png",
+      "description": "TJK TV HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:NBATV.tr",
+      "type": "tv",
+      "name": "NBA TV HD",
+      "poster": "https://i.imgur.com/QmSc6kh.png",
+      "background": "https://i.imgur.com/QmSc6kh.png",
+      "description": "NBA TV HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:FBTV.tr",
+      "type": "tv",
+      "name": "FB TV HD",
+      "poster": "https://i.imgur.com/qBVqtYd.png",
+      "background": "https://i.imgur.com/qBVqtYd.png",
+      "description": "FB TV HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:GSTV.tr",
+      "type": "tv",
+      "name": "GS TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png",
+      "description": "GS TV HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:SportsTV.tr",
+      "type": "tv",
+      "name": "Sports TV HD",
+      "poster": "https://i.imgur.com/tGTVcVe.jpg",
+      "background": "https://i.imgur.com/tGTVcVe.jpg",
+      "description": "Sports TV HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:IdmanTV.tr",
+      "type": "tv",
+      "name": "iDMAN Tv HD",
+      "poster": "https://i.imgur.com/fM9FOrZ.png",
+      "background": "https://i.imgur.com/fM9FOrZ.png",
+      "description": "iDMAN Tv HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "metas": [
+    {
+      "id": "turkanime:anime:mushoku-tensei-iii-isekai-ittara-honki-dasu",
+      "type": "series",
+      "name": "Mushoku Tensei III: Isekai Ittara Honki Dasu",
+      "poster": "https://www.turkanime.tv/imajlar/serilerb/6788.jpg",
+      "background": "https://www.turkanime.tv/imajlar/serilerb/6788.jpg",
+      "description": "Mushoku Tensei III: Isekai Ittara Honki Dasu - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:tensei-shitara-slime-datta-ken-4th-season",
+      "type": "series",
+      "name": "Tensei shitara Slime Datta Ken 4th Season",
+      "poster": "https://www.turkanime.tv/imajlar/serilerb/6656.jpg",
+      "background": "https://www.turkanime.tv/imajlar/serilerb/6656.jpg",
+      "description": "Tensei shitara Slime Datta Ken 4th Season - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    }
+  ]
+}

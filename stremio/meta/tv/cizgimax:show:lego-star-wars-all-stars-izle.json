@@ -1,0 +1,46 @@
+{
+  "meta": {
+    "id": "cizgimax:show:lego-star-wars-all-stars-izle",
+    "type": "series",
+    "name": "Lego Star Wars: All Stars",
+    "poster": "https://cizgimax.online/img/locandine/lego-star-wars-all-stars-poster.webp",
+    "background": "https://cizgimax.online/img/locandine/lego-star-wars-all-stars-poster.webp",
+    "description": "Lego Star Wars: All Stars - ÇizgiMax",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:ep:lego-star-wars-all-stars-1-sezon-1-bolum-izle",
+        "title": "1. Sezon 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "cizgimax:ep:lego-star-wars-all-stars-1-sezon-2-bolum-izle",
+        "title": "1. Sezon 2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "cizgimax:ep:lego-star-wars-all-stars-1-sezon-3-bolum-izle",
+        "title": "1. Sezon 3. Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "cizgimax:ep:lego-star-wars-all-stars-1-sezon-4-bolum-izle",
+        "title": "1. Sezon 4. Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "cizgimax:ep:lego-star-wars-all-stars-1-sezon-5-bolum-izle",
+        "title": "1. Sezon 5. Bölüm",
+        "season": 1,
+        "episode": 5
+      }
+    ]
+  }
+}

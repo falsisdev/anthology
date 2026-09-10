@@ -1,0 +1,26 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:2626",
+      "type": "movie",
+      "name": "Süper Kahramanlar 2",
+      "poster": "https://image.tmdb.org/t/p/w500/h1PKqtjuTifmTU0EqM4W0Br2pHX.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/ldxi7dKtud2KrStUr8V9P65ixNr.jpg",
+      "description": "Gizemli Wakanda, dünyanın birçok yerinde bilinmeyen, Afrika'nın en karanlık merkezinde yatıyor. Sınırların ardında saklanan, genç kralları Black Panter tarafından şiddetle korunan izole bir arazidir. Ancak acımasız yabancı işgalciler saldırıya uğradığı zaman, tehdit Kara Panter'i halkının kutsal kararlarına karşı çıkmaktan ve yabancılardan yardım istemekten başka seçeneğe sahip değil.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:2625",
+      "type": "movie",
+      "name": "Süper Kahramanlar",
+      "poster": "https://image.tmdb.org/t/p/w500/fKQqZEDmvKMCXEQztvMJHGou9dO.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/9tjIgkkbajG2zMI4Yk21hpttXv0.jpg",
+      "description": "Tek başlarına “Süper Kahramanlar”; Birlikte ise bir takımdırlar.Dünya da büyük bir kaos hüküm sürmekte, eski düşmanlar yeniden saldırma planları yapmaktadırlar. Süper Kahramanların dünyanın tek kurtarıcısı olan Kaptan Amerika’nın liderliğinde bir araya gelme zamanı gelmiştir. Ancak, Kaptan Amerika 60 yıldan fazla bir süredir bir buzun içine hapsolmuştur…",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "id": "sinewix:movie:5",
+    "type": "movie",
+    "name": "Yenilmezler",
+    "poster": "https://image.tmdb.org/t/p/w500/zM4ulQLKxBpmzanvPQNkj3VV4a5.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/nNmJRkg8wWnRmzQDe2FwKbPIsJV.jpg",
+    "description": "SHIELD adıyla tanınan uluslararası barış örgütünün başındaki isim Nick Fury, tüm dünyanın güvenliğine karşı büyük bir tehdit oluşturan düşmanla karşı karşıya kalır.Fury, dünyayı yaklaşan bu felaketten kurtarmak için en cesur ve en 'süper' kahramanlardan oluşan bir ekip kurmak zorundadır...",
+    "genres": [
+      "SineWix"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:naruto-movie-1-dai-katsugeki-yuki-hime-shinobu-houjou-dattebayo",
+    "type": "series",
+    "name": "Naruto Movie 1: Dai Katsugeki!! Yuki ...",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/2628.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/2628.jpg",
+    "description": "Naruto Movie 1: Dai Katsugeki!! Yuki Hime Shinobu Houjou Dattebayo! - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:naruto-movie-01-dai-katsugeki-yuki-hime-shinobu-houjou-dattebayo",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

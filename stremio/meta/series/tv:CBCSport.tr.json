@@ -12,9 +12,7 @@
     "videos": [
       {
         "id": "tv:CBCSport.tr",
-        "title": "CBC Sport HD",
-        "season": 1,
-        "episode": 1
+        "title": "CBC Sport HD"
       }
     ]
   }

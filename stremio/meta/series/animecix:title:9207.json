@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "animecix:title:9207",
+    "type": "series",
+    "name": "Naruto x UT",
+    "poster": "https://image.tmdb.org/t/p/original/5ds86rcR01tHvgsNimlQoIFFlqB.jpg",
+    "background": "https://image.tmdb.org/t/p/w1280/6kzjvVkb5WoeTetupYzxQnacie.jpg",
+    "description": "Naruto x UT is the eighth Naruto OVA. Approximately 200,000 copies of this OVA were distributed by Uniqlo to promote a line of Naruto-themed shirts designed by Masashi Kishimoto in conjunction with Studio Pierrot. It shows the aftermath between a fight between Naruto and Sasuke and shows clips of their times together and the story so far.",
+    "genres": [
+      "Anime",
+      "AnimeciX"
+    ],
+    "videos": [
+      {
+        "id": "animecix:ep:9207:1:1",
+        "title": "Naruto x UT 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

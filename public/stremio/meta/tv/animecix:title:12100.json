@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "id": "animecix:title:12100",
+    "type": "series",
+    "name": "Once Upon a Witch's Death",
+    "poster": "https://image.tmdb.org/t/p/original/5Gr2mDFSGHhiEYrNfP6vbYtuNrT.jpg",
+    "background": "https://image.tmdb.org/t/p/original/w3eNEws87fMiSDgMpq7wbbtCybm.jpg",
+    "description": "Meg Ahududu sadece 17. doğum gününü kutlayan bir çırak cadı. Yani, sihirli öğretmeni ve yedi bilginin çok yıllık cadısı Faust'a kadar aniden öleceğini açıklayana kadar. Ölüm cezası lanetini durdurmak için Meg, 1000 kişiden sevinç gözyaşları kullanarak yaşam tohumunu yaratmalıdır. Ebedi yaşam kazanmak için tanıştığı herkesten mutlu gözyaşlarını toplarken Meg'e seyahatlerine katılın!",
+    "genres": [
+      "Anime",
+      "AnimeciX"
+    ],
+    "videos": [
+      {
+        "id": "animecix:ep:12100:1:1",
+        "title": "Once Upon a Witch's Death 1. Sezon 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "animecix:ep:12100:1:2",
+        "title": "Once Upon a Witch's Death 1. Sezon 2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "animecix:ep:12100:1:3",
+        "title": "Once Upon a Witch's Death 1. Sezon 3. Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "animecix:ep:12100:1:4",
+        "title": "Once Upon a Witch's Death 1. Sezon 4. Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "animecix:ep:12100:1:5",
+        "title": "Once Upon a Witch's Death 1. Sezon 5. Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "animecix:ep:12100:1:6",
+        "title": "Once Upon a Witch's Death 1. Sezon 6. Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "animecix:ep:12100:1:7",
+        "title": "Once Upon a Witch's Death 1. Sezon 7. Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "animecix:ep:12100:1:8",
+        "title": "Once Upon a Witch's Death 1. Sezon 8. Bölüm",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "animecix:ep:12100:1:9",
+        "title": "Once Upon a Witch's Death 1. Sezon 9. Bölüm",
+        "season": 1,
+        "episode": 9
+      },
+      {
+        "id": "animecix:ep:12100:1:10",
+        "title": "Once Upon a Witch's Death 1. Sezon 10. Bölüm",
+        "season": 1,
+        "episode": 10
+      },
+      {
+        "id": "animecix:ep:12100:1:11",
+        "title": "Once Upon a Witch's Death 1. Sezon 11. Bölüm",
+        "season": 1,
+        "episode": 11
+      },
+      {
+        "id": "animecix:ep:12100:1:12",
+        "title": "Once Upon a Witch's Death 1. Sezon 12. Bölüm",
+        "season": 1,
+        "episode": 12
+      }
+    ]
+  }
+}

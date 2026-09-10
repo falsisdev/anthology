@@ -1,0 +1,46 @@
+{
+  "meta": {
+    "id": "turkanime:anime:koisuru-one-piece",
+    "type": "series",
+    "name": "Koisuru One Piece",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/6362.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/6362.jpg",
+    "description": "Koisuru One Piece - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:koisuru-one-piece-1-bolum",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "turkanime:ep:koisuru-one-piece-2-bolum",
+        "title": "2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "turkanime:ep:koisuru-one-piece-3-bolum",
+        "title": "3. Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "turkanime:ep:koisuru-one-piece-4-bolum",
+        "title": "4. Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "turkanime:ep:koisuru-one-piece-5-bolum-final",
+        "title": "5. Bölüm",
+        "season": 1,
+        "episode": 5
+      }
+    ]
+  }
+}

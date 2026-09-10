@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "dizimom:show:bahar-izle",
+    "type": "series",
+    "name": "Bahar",
+    "poster": "https://www.dizimom.diy/wp-content/uploads/2024/02/bahar-izle.jpg",
+    "background": "https://www.dizimom.diy/wp-content/uploads/2024/02/bahar-izle.jpg",
+    "description": "Bahar izle, Bahar son bölüm izle, 2024 Showtv Yapımı Bahar dizisinin tüm bölümleri full hd tek parça olarak dizimom.diy farkıyla sizlerle",
+    "genres": [
+      "Yabancı Dizi",
+      "DiziMom"
+    ],
+    "videos": [
+      {
+        "id": "dizimom:show:bahar-izle",
+        "title": "Bahar",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

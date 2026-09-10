@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:174",
+      "type": "movie",
+      "name": "Demir Adam",
+      "poster": "https://image.tmdb.org/t/p/w500/2j5Hga4ArYaSslbWL0hfLerZ6pQ.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/8EgxSaVRZwcm3pWChyW4j7yPplq.jpg",
+      "description": "“Iron Man – Demir Adam” karakterinin, çizgi roman tutkunlarıyla ilk tanışması 1962 yılında oldu. Kısa sürede geniş kitlelerin severek okuduğu çizgi romana dönüşen “Iron Man – Demir Adam”da Çin ordusu için silah yaratmak zorunda bırakılan milyoner sanayici Tony Stark, istemeden yaptığı bu çalışma sırasında kendisi için de gizlice zırh üretiyordu. Böylece Çinliler’in kontrolünden çıkarak onları durdurabileceğine inanıyordu. Çin’den kaçıp ABD’ye geri döndüğünde tehlikeli bir komplonun varlığını keşfedince durdurabilmek için de Demir Adam’a dönüşüyordu.",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

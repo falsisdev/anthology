@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:TJKTV.tr",
+      "type": "tv",
+      "name": "TJK TV HD",
+      "poster": "https://i.imgur.com/3zHdkYG.png",
+      "background": "https://i.imgur.com/3zHdkYG.png",
+      "description": "TJK TV HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    }
+  ]
+}

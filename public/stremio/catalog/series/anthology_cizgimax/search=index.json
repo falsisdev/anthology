@@ -1,0 +1,28 @@
+{
+  "metas": [
+    {
+      "id": "cizgimax:show:a-certain-magical-index-izle",
+      "type": "series",
+      "name": "A Certain Magical Index",
+      "poster": "https://cizgimax.online/img/locandine/a-certain-magical-index-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/a-certain-magical-index-poster.webp",
+      "description": "A Certain Magical Index - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:toaru-majutsu-no-index-izle",
+      "type": "series",
+      "name": "A Certain Magical Index III",
+      "poster": "https://cdn.myanimelist.net/images/anime/1583/93857l.jpg",
+      "background": "https://cdn.myanimelist.net/images/anime/1583/93857l.jpg",
+      "description": "A Certain Magical Index III - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    }
+  ]
+}

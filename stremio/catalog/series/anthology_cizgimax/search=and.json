@@ -1,0 +1,52 @@
+{
+  "metas": [
+    {
+      "id": "cizgimax:show:yume-oukoku-to-nemureru-100-nin-no-ou-izle",
+      "type": "series",
+      "name": "100 Sleeping Princes and the Kingdom of Dreams",
+      "poster": "https://cdn.myanimelist.net/images/anime/1526/95041l.jpg",
+      "background": "https://cdn.myanimelist.net/images/anime/1526/95041l.jpg",
+      "description": "100 Sleeping Princes and the Kingdom of Dreams - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:rick-and-morty-izle",
+      "type": "series",
+      "name": "Rick and Morty",
+      "poster": "https://cizgimax.online/img/locandine/rick-and-morty-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/rick-and-morty-poster.webp",
+      "description": "Rick and Morty - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:rick-and-morty-the-anime-izle",
+      "type": "series",
+      "name": "Rick and Morty: The Anime",
+      "poster": "https://image.tmdb.org/t/p/w500/kQFPw9W3EO6ZLhg3TI782edq9Fr.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/kQFPw9W3EO6ZLhg3TI782edq9Fr.jpg",
+      "description": "Rick and Morty: The Anime - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:wolverine-and-the-x-men-izle",
+      "type": "series",
+      "name": "Wolverine and the X-Men",
+      "poster": "https://cizgimax.online/img/locandine/wolverine-and-the-x-men-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/wolverine-and-the-x-men-poster.webp",
+      "description": "Wolverine and the X-Men - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    }
+  ]
+}

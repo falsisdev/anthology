@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "cizgimax:show:film/batman-assault-on-arkham-izle",
+    "type": "series",
+    "name": "Batman: Arkham'a Saldırı",
+    "poster": "https://cizgimax.online/img/locandine/batman-assault-on-arkham-poster.webp",
+    "background": "https://cizgimax.online/img/locandine/batman-assault-on-arkham-poster.webp",
+    "description": "Batman: Arkham'a Saldırı - ÇizgiMax Arşivi",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:show:film/batman-assault-on-arkham-izle",
+        "title": "Batman: Arkham'a Saldırı",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

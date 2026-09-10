@@ -1,0 +1,27 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:3876",
+      "type": "movie",
+      "name": "HOMECOMING: A film by Beyoncé",
+      "poster": "https://image.tmdb.org/t/p/w500/nKdP4K3Bj3qnjtDCq9lTg7UOHVy.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/rfqUYH6gav0P2uwvSSwjahAwzwk.jpg",
+      "description": "Beyoncé'nin muhteşem 2018 Coachella performansına yakından bir bakış sunan bu film, yaratıcı kavramlardan kültürel hareketlere giden duygusal yolu gözler önüne seriyor.",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    },
+    {
+      "id": "sinewix:movie:1905",
+      "type": "movie",
+      "name": "LEGO Marvel Spider-Man: Vexed by Venom",
+      "poster": "https://image.tmdb.org/t/p/w500/gTo2r8nNU3ZYAS6DqdeSp1VEqkq.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/EXJrCRBYAPffNuMQbX7irsbrRn.jpg",
+      "description": "Green Goblin ve Venom sayesinde, teknoloji hırsızlığı artık tüm zamanların en yüksek seviyesinde. Örümcek Adamımız, New York'un tamamı yok edilmeden önce gizemli kötülük işlerine son verebilecek mi?",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

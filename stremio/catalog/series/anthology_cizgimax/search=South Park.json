@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "cizgimax:show:south-park-izle",
+      "type": "series",
+      "name": "South Park",
+      "poster": "https://cizgimax.online/img/locandine/south-park-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/south-park-poster.webp",
+      "description": "South Park - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    }
+  ]
+}

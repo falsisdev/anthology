@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:hunter-x-hunter-movie-the-last-mission",
+    "type": "series",
+    "name": "Hunter x Hunter Movie: The Last Mission",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/2174.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/2174.jpg",
+    "description": "Hunter x Hunter Movie: The Last Mission - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:hunter-x-hunter-the-last-mission",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "animecix:title:7590",
+    "type": "series",
+    "name": "Boku no Hero Academia the Movie 2: Heroes Rising",
+    "poster": "https://image.tmdb.org/t/p/original/zGVbrulkupqpbwgiNedkJPyQum4.jpg",
+    "background": "https://image.tmdb.org/t/p/w1280/9guoVF7zayiiUq5ulKQpt375VIy.jpg",
+    "description": "İngilizceden çevrilmiştir-My Hero Academia: Heroes Rising, bir 2019 Japon animasyon süper kahraman filmi ve Kōhei Horikoshi'nin My Hero Academia mangasına dayanan ikinci film.\n\nKaynak: Wikipedia",
+    "genres": [
+      "Anime",
+      "AnimeciX"
+    ],
+    "videos": [
+      {
+        "id": "animecix:ep:7590:1:1",
+        "title": "Boku no Hero Academia the Movie 2: Heroes Rising 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

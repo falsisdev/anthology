@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "cizgimax:show:film/batman-bad-blood-izle",
+    "type": "series",
+    "name": "Batman: Kötü Kan",
+    "poster": "https://cizgimax.online/img/locandine/batman-bad-blood-poster.webp",
+    "background": "https://cizgimax.online/img/locandine/batman-bad-blood-poster.webp",
+    "description": "Batman: Kötü Kan - ÇizgiMax Arşivi",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:show:film/batman-bad-blood-izle",
+        "title": "Batman: Kötü Kan",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

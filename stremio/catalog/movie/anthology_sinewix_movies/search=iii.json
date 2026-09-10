@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:1088",
+      "type": "movie",
+      "name": "Baba III",
+      "poster": "https://image.tmdb.org/t/p/w500/gy6fk1Af2pgdzxt8NcfPwpPVoQj.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/9jzcBj3K3sOJe1yF73JEFPISIHE.jpg",
+      "description": "Sinema tarihinin başyapıtlarından biri olan Baba serisinin üçüncü ve son filmi. Ailenin lideri olan Michael Corleone artık 60'ına geldiği için kendisine yeni bir varis aramaktadır. Kendisi yeraltı dünyasından çekilecek ve ailesinin suç dünyasıyla ile olan bağlarını da koparacaktır. Varis olarak gözünü kestirdiği kişi ise Vincent'dır. Fakat olaylar Michael'ın umduğu gibi gitmez ve yeni hesaplaşmalar ve oyunlar baş gösterir...90 yılı yapım, daha az aksiyon içerdiği için kimileri tarafından en zayıf bölüm olarak kabul edilir, ama yine de serinin önceki filmlerine göre yavaş olan rtimi sonlara doğru yükselir ve unutulmaz bir finale ulaşır.",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

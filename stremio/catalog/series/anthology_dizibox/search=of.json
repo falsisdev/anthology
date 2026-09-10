@@ -1,0 +1,52 @@
+{
+  "metas": [
+    {
+      "id": "dizibox:show:son-of-a-critch",
+      "type": "series",
+      "name": "SON OF A CRITCH",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/son-of-a-critch-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/son-of-a-critch-200x290.jpg",
+      "description": "SON OF A CRITCH - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:cocaine-cowboys-the-kings-of-miami",
+      "type": "series",
+      "name": "Cocaine Cowboys: The Kings of Miami",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/cocaine-cowboys-the-kings-of-miami-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/cocaine-cowboys-the-kings-of-miami-50x50.jpg",
+      "description": "Onlarca yıllık bir süreci konu alan bu gerçek suç öyküsünde liseyi&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:tales-of-the-walking-dead",
+      "type": "series",
+      "name": "Tales of the Walking Dead",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/tales-of-the-walking-dead-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/tales-of-the-walking-dead-50x50.jpg",
+      "description": "Hem tanıdığımız hem de yeni karakterlere yakından bakıyor, kıyametin&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:the-lost-flowers-of-alice-hart-hd-3",
+      "type": "series",
+      "name": "The Lost Flowers of Alice Hart",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-lost-flowers-of-alice-hart-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-lost-flowers-of-alice-hart-50x50.jpg",
+      "description": "Ebeveynini gizemli bir yangında kaybeden 9 yaşındaki Alice Hart&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    }
+  ]
+}

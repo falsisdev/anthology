@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "cizgimax:show:lego-star-wars-the-resistance-rises-2016-izle",
+    "type": "series",
+    "name": "LEGO Star Wars: The Resistance Rises",
+    "poster": "https://cizgimax.online/img/locandine/lego-star-wars-the-resistance-rises-2016-poster.webp",
+    "background": "https://cizgimax.online/img/locandine/lego-star-wars-the-resistance-rises-2016-poster.webp",
+    "description": "LEGO Star Wars: The Resistance Rises - ÇizgiMax",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:show:lego-star-wars-the-resistance-rises-2016-izle",
+        "title": "LEGO Star Wars: The Resistance Rises 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

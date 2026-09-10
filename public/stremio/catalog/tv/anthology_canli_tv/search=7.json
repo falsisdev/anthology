@@ -1,0 +1,48 @@
+{
+  "metas": [
+    {
+      "id": "tv:Kanal7.tr",
+      "type": "tv",
+      "name": "Kanal 7 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png",
+      "description": "Kanal 7 HD Canlı Yayın",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:Kanal7Avrupa.tr",
+      "type": "tv",
+      "name": "Kanal 7 Avrupa",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png",
+      "description": "Kanal 7 Avrupa Canlı Yayın",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:ExxenSports7.tr",
+      "type": "tv",
+      "name": "Exxen Sports 7 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
+      "description": "Exxen Sports 7 HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:TabiiSpor7.tr",
+      "type": "tv",
+      "name": "Tabii Spor 7 HD",
+      "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "background": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "description": "Tabii Spor 7 HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    }
+  ]
+}

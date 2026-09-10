@@ -1,6 +1,18 @@
 {
   "metas": [
     {
+      "id": "dizibox:show:the-shards",
+      "type": "series",
+      "name": "THE SHARDS",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-shards-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-shards-200x290.jpg",
+      "description": "THE SHARDS - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
       "id": "dizibox:show:made-in-korea",
       "type": "series",
       "name": "MADE IN KOREA",
@@ -103,6 +115,66 @@
       "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-gentlemen-200x290.jpg",
       "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-gentlemen-200x290.jpg",
       "description": "THE GENTLEMEN - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:thunder-3",
+      "type": "series",
+      "name": "THUNDER 3",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/thunder-3-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/thunder-3-200x290.jpg",
+      "description": "THUNDER 3 - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:from-old-country-bumpkin-to-master-swordsman",
+      "type": "series",
+      "name": "FROM OLD COUNTRY BUMPKIN TO MASTER SWORDSMAN",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/from-old-country-bumpkin-to-master-swordsman-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/from-old-country-bumpkin-to-master-swordsman-200x290.jpg",
+      "description": "FROM OLD COUNTRY BUMPKIN TO MASTER SWORDSMAN - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:the-paper-2025",
+      "type": "series",
+      "name": "THE PAPER 2025",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-paper-2025-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-paper-2025-200x290.jpg",
+      "description": "THE PAPER 2025 - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:the-game",
+      "type": "series",
+      "name": "THE GAME",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-game-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-game-200x290.jpg",
+      "description": "THE GAME - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:son-of-a-critch",
+      "type": "series",
+      "name": "SON OF A CRITCH",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/son-of-a-critch-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/son-of-a-critch-200x290.jpg",
+      "description": "SON OF A CRITCH - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
@@ -241,72 +313,444 @@
       ]
     },
     {
-      "id": "dizibox:show:futurama",
+      "id": "dizibox:show:breaking-bad-izle-2",
       "type": "series",
-      "name": "FUTURAMA",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/futurama-200x290.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/futurama-200x290.jpg",
-      "description": "FUTURAMA - DiziBox Yabancı Dizi Arşivi",
+      "name": "Breaking Bad",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/breaking-bad-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/breaking-bad-50x50.jpg",
+      "description": "50 yaşında lisede kimya öğretmenliği yapan Walter White evini&#8230;",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:show:president-curtis",
+      "id": "dizibox:show:the-boys-presents-diabolical-hd-2",
       "type": "series",
-      "name": "PRESIDENT CURTIS",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/president-curtis-200x290.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/president-curtis-200x290.jpg",
-      "description": "PRESIDENT CURTIS - DiziBox Yabancı Dizi Arşivi",
+      "name": "The Boys Presents: Diabolical",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-boys-presents-diabolical-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-boys-presents-diabolical-50x50.jpg",
+      "description": "Sekiz bölümlük animasyon antoloji dizisi Şeytani&#8217;yle The Boys Evreni&#8217;nin&#8230;",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:show:vigil",
+      "id": "dizibox:show:americas-team-the-gambler-and-his-cowboys",
       "type": "series",
-      "name": "VIGIL",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/vigil-200x290.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/vigil-200x290.jpg",
-      "description": "VIGIL - DiziBox Yabancı Dizi Arşivi",
+      "name": "America’s Team: The Gambler and His Cowboys",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/americas-team-the-gambler-and-his-cowboys-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/americas-team-the-gambler-and-his-cowboys-50x50.jpg",
+      "description": "Bu belgesel dizisi, 90&#8217;ların Dallas Cowboys hanedanlığının üç Super Bowl&#8230;",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:show:sparks-of-tomorrow",
+      "id": "dizibox:show:americas-sweethearts-dallas-cowboys-cheerleaders",
       "type": "series",
-      "name": "SPARKS OF TOMORROW",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/sparks-of-tomorrow-200x290.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/sparks-of-tomorrow-200x290.jpg",
-      "description": "SPARKS OF TOMORROW - DiziBox Yabancı Dizi Arşivi",
+      "name": "AMERICA’S SWEETHEARTS: Dallas Cowboys Cheerleaders",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/americas-sweethearts-dallas-cowboys-cheerleaders-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/americas-sweethearts-dallas-cowboys-cheerleaders-50x50.jpg",
+      "description": "Seçmelerden eğitim kampına ve NFL sezonuna kadar, takımda yer alma&#8230;",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:show:four-hands-two-sonatas",
+      "id": "dizibox:show:my-life-with-the-walter-boys",
       "type": "series",
-      "name": "FOUR HANDS, TWO SONATAS",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/four-hands-two-sonatas-200x290.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/four-hands-two-sonatas-200x290.jpg",
-      "description": "FOUR HANDS, TWO SONATAS - DiziBox Yabancı Dizi Arşivi",
+      "name": "My Life with the Walter Boys",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/my-life-with-the-walter-boys-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/my-life-with-the-walter-boys-50x50.jpg",
+      "description": "Bir trajediyle hayatı altüst olan bir genç kız, küçük kasabada yaşayan&#8230;",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:show:a-tale-of-two-cities",
+      "id": "dizibox:show:cocaine-cowboys-the-kings-of-miami",
       "type": "series",
-      "name": "A TALE OF TWO CITIES",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/a-tale-of-two-cities-200x290.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/a-tale-of-two-cities-200x290.jpg",
-      "description": "A TALE OF TWO CITIES - DiziBox Yabancı Dizi Arşivi",
+      "name": "Cocaine Cowboys: The Kings of Miami",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/cocaine-cowboys-the-kings-of-miami-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/cocaine-cowboys-the-kings-of-miami-50x50.jpg",
+      "description": "Onlarca yıllık bir süreci konu alan bu gerçek suç öyküsünde liseyi&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:stranger-things-tales-from-85",
+      "type": "series",
+      "name": "Stranger Things: Tales from ’85",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/stranger-things-tales-from-85-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/stranger-things-tales-from-85-50x50.jpg",
+      "description": "Kış mevsimi. Hawkins. 1985. Sırlarla dolu bir kasabaya tekrar hoş geldiniz&#8230;.",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:beyond-stranger-things",
+      "type": "series",
+      "name": "Beyond Stranger Things",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/beyond-stranger-things-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/beyond-stranger-things-50x50.jpg",
+      "description": "Sunucu Jim Rash, oyuncular ve konuklar dizinin son yayınlanan bölümlerini&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:stranger-things-izle-23",
+      "type": "series",
+      "name": "Stranger Things",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/stranger-things-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/stranger-things-50x50.jpg",
+      "description": "Dizi 1980&#8217;li yıllarda New York eyaletine bağlı bir liman kasabası olan&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:dexter-resurrection-hd",
+      "type": "series",
+      "name": "Dexter: Resurrection",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/dexter-resurrection-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/dexter-resurrection-50x50.jpg",
+      "description": "Dexter: Resurrection, 2021&#8217;de çıkan ve Michael C. Hall&#8217;un 2013&#8217;teki &#8220;Dexter&#8221;&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:dexter-original-sin-hd-1",
+      "type": "series",
+      "name": "Dexter: Original Sin",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/dexter-original-sin-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/dexter-original-sin-50x50.jpg",
+      "description": "1991 Miami&#8217;sinde geçen Dexter: Original Sin, öğrencilikten intikamcı seri&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:dexter-new-blood-izle",
+      "type": "series",
+      "name": "Dexter: New Blood",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/dexter-new-blood-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/dexter-new-blood-50x50.jpg",
+      "description": "Dexter&#8217;ın kasırgada kayıplara karışmasının ardından 10 yıl&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:dexter-izle-2",
+      "type": "series",
+      "name": "Dexter",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/dexter-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/dexter-50x50.jpg",
+      "description": "DEXTER&#8217;LA TANIŞIN&#8230; KARANLIK DÜŞLERİNE ŞAHİT OLUN.\nGündüzleri adli&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:blind-sherlock",
+      "type": "series",
+      "name": "Blind Sherlock",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/blind-sherlock-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/blind-sherlock-50x50.jpg",
+      "description": "Olağanüstü işitme yeteneğine sahip olan görme engelli Roman Mertens,&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:sherlock-daughter",
+      "type": "series",
+      "name": "Sherlock & Daughter",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/sherlock-daughter-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/sherlock-daughter-50x50.jpg",
+      "description": "Sherlock Holmes, baş düşmanı Prof. Moriarty&#8217;nin de dahil olduğu kötü&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:sherlock-izle-1",
+      "type": "series",
+      "name": "Sherlock",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/sherlock-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/sherlock-50x50.jpg",
+      "description": "Sherlock&#8217;u hiç böyle görmediniz! Sör Conan Doyle&#8217;un kahramanını&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:the-dark",
+      "type": "series",
+      "name": "The Dark",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-dark-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-dark-50x50.jpg",
+      "description": "İskoçya&#8217;nın vahşi doğasında bir seri katil kol gezmektedir. Bulunan genç&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:norway-the-dark-horse",
+      "type": "series",
+      "name": "Norway: The Dark Horse",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/norway-the-dark-horse-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/norway-the-dark-horse-50x50.jpg",
+      "description": "26 yıllık turnuva hasretinden sonra Norveç&#8217;in 2026 Dünya Kupası umutları&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:the-dark-wizard",
+      "type": "series",
+      "name": "The Dark Wizard",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-dark-wizard-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-dark-wizard-50x50.jpg",
+      "description": "Dünyanın en etkili ve tartışmalı tırmanışçılarından olan merhum Dean&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:the-terminal-list-dark-wolf-hd-1",
+      "type": "series",
+      "name": "The Terminal List: Dark Wolf",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-terminal-list-dark-wolf-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-terminal-list-dark-wolf-50x50.jpg",
+      "description": "İnfaz Listesi&#8217;ndeki olaylardan birkaç yıl önce donanma SEAL&#8217;ları Ben&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:sneaky-links-dating-after-dark",
+      "type": "series",
+      "name": "Sneaky Links: Dating After Dark",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/sneaky-links-dating-after-dark-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/sneaky-links-dating-after-dark-50x50.jpg",
+      "description": "Altı bekâr, aşkı bulma umuduyla bir motelde buluşuyor ama işin içinde&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:chernobyl-hd",
+      "type": "series",
+      "name": "Chernobyl",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/chernobyl-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/chernobyl-50x50.jpg",
+      "description": "1986 yılında, SSCB&#8217;ye bağlı Çernobil&#8217;deki bir nükleer enerji santralinde&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:peaky-blinders-izle-2",
+      "type": "series",
+      "name": "Peaky Blinders",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/peaky-blinders-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/peaky-blinders-50x50.jpg",
+      "description": "The Dark Knight (Kara Şövalye), Inception (Başlangıç) ve The Dark Knight&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:vikings-valhalla-izle-3",
+      "type": "series",
+      "name": "Vikings: Valhalla",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/vikings-valhalla-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/vikings-valhalla-50x50.jpg",
+      "description": "İlk dizinin bitiminin 100 yıl sonrasını anlatan ve gelmiş geçmiş en&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:vikings-dizi-x6",
+      "type": "series",
+      "name": "Vikings",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/vikings-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/vikings-50x50.jpg",
+      "description": "Vikings dizisi; Fransa ve Britanya&#8217;ya kadar uzanan saldırılarla tarihte&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:tales-of-the-walking-dead",
+      "type": "series",
+      "name": "Tales of the Walking Dead",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/tales-of-the-walking-dead-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/tales-of-the-walking-dead-50x50.jpg",
+      "description": "Hem tanıdığımız hem de yeni karakterlere yakından bakıyor, kıyametin&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:fear-the-walking-dead-dead-in-the-water",
+      "type": "series",
+      "name": "Fear the Walking Dead: Dead in the Water",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/fear-the-walking-dead-dead-in-the-water-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/fear-the-walking-dead-dead-in-the-water-50x50.jpg",
+      "description": "USS Pennsylvania denizaltında hayatta kalan Riley ve mürettebatının&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:the-walking-dead-origins",
+      "type": "series",
+      "name": "The Walking Dead: Origins",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-walking-dead-origins-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-walking-dead-origins-50x50.jpg",
+      "description": "En sevilen karakterlerin yolculuklarını keşfe&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:the-walking-dead-world-beyond",
+      "type": "series",
+      "name": "The Walking Dead: World Beyond",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-walking-dead-world-beyond-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-walking-dead-world-beyond-50x50.jpg",
+      "description": "Kıyamet sonrası dünyanın hayatta kalan bir medeniyetinde ortaya çıkan ilk&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:fear-the-walking-dead-flight-462",
+      "type": "series",
+      "name": "Fear the Walking Dead: Flight 462",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/fear-the-walking-dead-flight-462-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/fear-the-walking-dead-flight-462-50x50.jpg",
+      "description": "Series based in the same universe as The Walking Dead (2015), and Fear The&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:lost-boys-fairies",
+      "type": "series",
+      "name": "Lost Boys & Fairies",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/lost-boys-fairies-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/lost-boys-fairies-50x50.jpg",
+      "description": "Gabriel ve partneri Andy, bir çocuğu evlat edinir. Ancak 7 yaşındaki Jake&#8217;e&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:the-lost-flowers-of-alice-hart-hd-3",
+      "type": "series",
+      "name": "The Lost Flowers of Alice Hart",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-lost-flowers-of-alice-hart-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-lost-flowers-of-alice-hart-50x50.jpg",
+      "description": "Ebeveynini gizemli bir yangında kaybeden 9 yaşındaki Alice Hart&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:lost-ollie",
+      "type": "series",
+      "name": "Lost Ollie",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/lost-ollie-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/lost-ollie-50x50.jpg",
+      "description": "Yamalı bir oyuncak tavşan, sarkık kulakları ve bölük pörçük&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:the-lost-symbol-izle",
+      "type": "series",
+      "name": "The Lost Symbol",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-lost-symbol-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-lost-symbol-50x50.jpg",
+      "description": "The Lost Symbol, kaçırılan akıl hocasını kurtarmak ve tüyler ürpertici&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:the-lost-pirate-kingdom",
+      "type": "series",
+      "name": "The Lost Pirate Kingdom",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-lost-pirate-kingdom-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-lost-pirate-kingdom-50x50.jpg",
+      "description": "Bu belgesel dizisi, dünyanın zenginliklerini acımasızca yağmalarken&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:prison-break",
+      "type": "series",
+      "name": "Prison Break",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/prison-break-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/prison-break-50x50.jpg",
+      "description": "Abisi cinayetten haksız yere suçlu bulununca bir yapı mühendisi, kardeşini&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:better-call-saul-izle-1",
+      "type": "series",
+      "name": "Better Call Saul",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/better-call-saul-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/better-call-saul-50x50.jpg",
+      "description": "Breaking Bad spin-off’u. Breaking Bad’te Walter White ve Jesse’nin&#8230;",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"

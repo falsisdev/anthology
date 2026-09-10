@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:EuroSport1.tr",
+      "type": "tv",
+      "name": "Euro Sport 1 HD",
+      "poster": "https://i.imgur.com/olQJgm7.png",
+      "background": "https://i.imgur.com/olQJgm7.png",
+      "description": "Euro Sport 1 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    }
+  ]
+}

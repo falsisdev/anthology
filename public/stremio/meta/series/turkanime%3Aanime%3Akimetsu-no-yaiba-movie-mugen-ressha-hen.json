@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:kimetsu-no-yaiba-movie-mugen-ressha-hen",
+    "type": "series",
+    "name": "Kimetsu no Yaiba Movie: Mugen Ressha-hen",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/4835.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/4835.jpg",
+    "description": "Kimetsu no Yaiba Movie: Mugen Ressha-hen - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:kimetsu-no-yaiba-movie-mugen-ressha-hen",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

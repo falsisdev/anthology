@@ -108,19 +108,49 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
     let finalSeason = parseInt(seasonNum) || 1;
     let finalEpisode = parseInt(episodeNum) || 1;
 
-    if (typeof tmdbId === 'string' && tmdbId.includes(':')) {
-      const parts = tmdbId.split(':');
-      if (parts.length >= 3) {
-        finalSeason = parseInt(parts[1]) || finalSeason;
-        finalEpisode = parseInt(parts[2]) || finalEpisode;
+    // cizgimax:ep:slug:season:episode veya cizgimax:show:slug formatı
+    if (typeof tmdbId === 'string' && tmdbId.startsWith('cizgimax:ep:')) {
+      const rest = tmdbId.replace('cizgimax:ep:', '');
+      // Son iki segment :season:episode olabilir
+      const lastColonIdx2 = rest.lastIndexOf(':');
+      if (lastColonIdx2 > 0) {
+        const maybeEp = parseInt(rest.substring(lastColonIdx2 + 1));
+        const beforeEp = rest.substring(0, lastColonIdx2);
+        const lastColonIdx1 = beforeEp.lastIndexOf(':');
+        if (lastColonIdx1 > 0 && !isNaN(maybeEp)) {
+          const maybeSeason = parseInt(beforeEp.substring(lastColonIdx1 + 1));
+          if (!isNaN(maybeSeason)) {
+            finalSeason = maybeSeason;
+            finalEpisode = maybeEp;
+          }
+        }
+      }
+    } else if (typeof tmdbId === 'string' && !tmdbId.startsWith('cizgimax:')) {
+      // TMDB/IMDb ID — season:episode positional parse
+      if (typeof tmdbId === 'string' && tmdbId.includes(':')) {
+        const parts = tmdbId.split(':');
+        if (parts.length >= 3) {
+          const s = parseInt(parts[parts.length - 2]);
+          const e = parseInt(parts[parts.length - 1]);
+          if (!isNaN(s)) finalSeason = s;
+          if (!isNaN(e)) finalEpisode = e;
+        }
+      }
+    }
+
+    // cizgimax:show: fallback — resolve episode 1 via getMeta
+    if (typeof tmdbId === 'string' && tmdbId.startsWith('cizgimax:show:')) {
+      const showMeta = await getMeta(tmdbId);
+      if (showMeta && showMeta.meta && Array.isArray(showMeta.meta.videos) && showMeta.meta.videos.length > 0) {
+        return await getStreams(showMeta.meta.videos[0].id, mediaType, seasonNum, episodeNum);
       }
     }
 
     let matchedHref = null;
 
     if (typeof tmdbId === 'string' && tmdbId.startsWith('cizgimax:')) {
-      const slug = tmdbId.replace(/^cizgimax:(?:show:|ep:)?/, '');
-      matchedHref = `/${slug.replace(/^\//, '')}`;
+      const slug = tmdbId.replace(/^cizgimax:(?:show:|ep:)?/, '').replace(/^diziler\//, '');
+      matchedHref = tmdbId.startsWith('cizgimax:ep:') ? `/${slug.replace(/^\//, '')}` : `/diziler/${slug.replace(/^\//, '')}`;
     } else {
       const info = await resolveTmdbInfo(tmdbId, mediaType);
       const queries = [info.title, info.origTitle].filter(Boolean);
@@ -160,10 +190,6 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
       }
 
       if (matchedHref) break;
-      if (!matchedHref && items.length > 0) {
-        matchedHref = items[0].href;
-        break;
-      }
     }
   }
 
@@ -375,7 +401,7 @@ async function getCatalog(args) {
       const imgMatch = block.match(/<img\b[^>]*src=["']([^"']+)["']/i) || block.match(/<img\b[^>]*data-src=["']([^"']+)["']/i);
       if (hrefMatch && nameMatch) {
         const href = hrefMatch[1];
-        const slug = href.replace(BASE_URL, '').replace(/^\//, '').replace(/\/$/, '');
+        const slug = href.replace(BASE_URL, '').replace(/^\//, '').replace(/\/$/, '').replace(/^diziler\//, '');
         if (!slug || seen.has(slug)) continue;
         seen.add(slug);
 
@@ -408,7 +434,7 @@ async function getCatalog(args) {
           const hrefMatch = attrs.match(/href=["']([^"']+)["']/i);
           if (hrefMatch) {
             const href = hrefMatch[1];
-            const slug = href.replace(BASE_URL, '').replace(/^\//, '').replace(/\/$/, '');
+            const slug = href.replace(BASE_URL, '').replace(/^\//, '').replace(/\/$/, '').replace(/^diziler\//, '');
             if (!slug || seen.has(slug) || text.length < 2) continue;
             seen.add(slug);
 
@@ -437,8 +463,8 @@ async function getMeta(args) {
     const rawId = (typeof args === 'string') ? args : (args && args.id ? args.id : '');
     if (!rawId || !rawId.startsWith('cizgimax:')) return { meta: null };
 
-    const slug = rawId.replace(/^cizgimax:(?:show:|ep:)?/, '');
-    const showUrl = `${BASE_URL}/${slug}/`;
+    const slug = rawId.replace(/^cizgimax:(?:show:|ep:)?/, '').replace(/^diziler\//, '');
+    const showUrl = `${BASE_URL}/diziler/${slug}/`;
     const res = await fetch(showUrl, { headers: HEADERS });
     if (!res.ok) return { meta: null };
     const html = await res.text();

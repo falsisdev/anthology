@@ -1,0 +1,28 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:1976",
+      "type": "movie",
+      "name": "Angry Birds Filmi 2",
+      "poster": "https://image.tmdb.org/t/p/w500/7BIkcJvEkolTUi9e1FaIyvAzUpx.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/bo5M1dW76b3QuRFcTL8KPmN6WYj.jpg",
+      "description": "Uçamayan Kızgın Kuşlar ve entrikacı yeşil domuzcuklar çatışmalarını bir başka düzleme taşıyorlar! Hem Kuş, hem Domuz adalarını tehlikeye atan yeni bir tehdit ortaya çıktığında, Red, Chuck, Bomb ve Mighty Eagle istikrarsız bir ateşkes başlatmak ve yurtlarını kurtaracak sıra dışı bir süper takım oluşturmak için Chuck’ın kız kardeşi Silver’ı işe alır ve domuzlar Leonard, onun asistanı Courtney ve teknik uzman domuz Garry’yle işbirliği yaparlar.",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    },
+    {
+      "id": "sinewix:movie:1975",
+      "type": "movie",
+      "name": "Angry Birds Film",
+      "poster": "https://image.tmdb.org/t/p/w500/fBio6dU6doJIgsDia1ssT4qNd6.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/o4mhrLxv6I70kvYA42qANGUF7ya.jpg",
+      "description": "Uçma yetileri olmayan kuşların barış içinde yaşadıkları cennet vari bir adada  öfke problemini bir türlü yenemeyen Red, arkadaşları Bomba ve Chuck diğer kuşlar tarafından dışlanmıştır. Bir gün gemi dolusu domuzlar çıkagelir. Adada yaşayan diğer kuşlara dostça davranan domuzlar kısa sürede ada halkının güvenini kazanır. Red, ada halkını domuzlar konusunda defalarca uyarır ve güvenmemelerini ister. Domuzlar bir gece adadaki tüm yumurtaları çalar ve kaçarlar. Yumurtaları çalınan kuşlar ne yapacaklarını bilemezler. Çaresiz kalan kuşlar uyarılarına kulak asmadıkları öfkeli kuş Red'den yardım talep ederler.",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    }
+  ]
+}

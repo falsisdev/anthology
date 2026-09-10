@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "id": "sinewix:movie:389",
+    "type": "movie",
+    "name": "Harry Potter ve Azkaban Tutsağı",
+    "poster": "https://image.tmdb.org/t/p/w500/coCb3waXEuzdAtlxpftXhSFt6VT.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/obKmfNexgL4ZP5cAmzdL4KbHHYX.jpg",
+    "description": "Harry Potter, akrabaları ile zor zamanlar geçirmektedir. Ailesine kötü davranan, Vernon Amca’nın kız kardeşi Marge’a büyü yapıp kaçar. Okul dışında büyü yaptığı için korksa da cezalandırılmadığını fark edince çok şaşırır. Ancak çok geçmeden, tehlikeli bir suçlu olan Lord Voldemort’un yardımcısı Sirius Black’in Azkaban hapishanesinden kaçtığını öğrenir. Dark Lord’un intikamını almak için Harry’i öldürmek istemektedir. Hapishanedeki büyük suçlulardan sorumlu, Ruh Emiciler etrafa huzursuzluk saçmaktadırlar. Öte yandan Lupin’in de sakladığı bir sır var gibi görünmektedir...",
+    "genres": [
+      "SineWix"
+    ]
+  }
+}

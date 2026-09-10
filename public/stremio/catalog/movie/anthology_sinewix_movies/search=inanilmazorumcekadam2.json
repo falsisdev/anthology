@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:414",
+      "type": "movie",
+      "name": "İnanılmaz Örümcek Adam 2",
+      "poster": "https://image.tmdb.org/t/p/w500/tLBUwuFqkI6zZQXcEF4eLhNPmcy.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/iWrDibFusV4JEz5Qw79RuWSGfX4.jpg",
+      "description": "Gwen Stacy'yi tehlikeli hayatının dışında bırakma sözünü tutmakta zorlanan Örümcek Adam, Rhino'ya ve güçlü Electro'ya meydan okur.",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

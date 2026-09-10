@@ -1,0 +1,28 @@
+{
+  "metas": [
+    {
+      "id": "cizgimax:show:lego-star-wars-galaksiyi-yeniden-insa-et-gecmisin-parcalari-izle",
+      "type": "series",
+      "name": "Lego Star Wars: Galaksiyi Yeniden İnşa Et: Geçmişin Parçaları",
+      "poster": "https://cizgimax.online/img/locandine/lego-star-wars-galaksiyi-yeniden-insa-et-gecmisin-parcalari-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/lego-star-wars-galaksiyi-yeniden-insa-et-gecmisin-parcalari-poster.webp",
+      "description": "Lego Star Wars: Galaksiyi Yeniden İnşa Et: Geçmişin Parçaları - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:lego-star-wars-galaksiyi-yeniden-insa-et-izle",
+      "type": "series",
+      "name": "Lego Star Wars: Galaksiyi Yeniden İnşa et",
+      "poster": "https://cizgimax.online/img/locandine/lego-star-wars-galaksiyi-yeniden-insa-et-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/lego-star-wars-galaksiyi-yeniden-insa-et-poster.webp",
+      "description": "Lego Star Wars: Galaksiyi Yeniden İnşa et - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    }
+  ]
+}

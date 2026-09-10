@@ -1,0 +1,28 @@
+{
+  "metas": [
+    {
+      "id": "cizgimax:show:film/batman-return-of-the-caped-crusaders-izle",
+      "type": "series",
+      "name": "Batman: Pelerinli Süvarilerin Dönüşü",
+      "poster": "https://cizgimax.online/img/locandine/batman-return-of-the-caped-crusaders-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/batman-return-of-the-caped-crusaders-poster.webp",
+      "description": "Batman: Pelerinli Süvarilerin Dönüşü - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:batman-pelerinli-savasci-izle",
+      "type": "series",
+      "name": "Batman: Pelerinli Savaşçı",
+      "poster": "https://cizgimax.online/img/locandine/batman-pelerinli-savasci-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/batman-pelerinli-savasci-poster.webp",
+      "description": "Batman: Pelerinli Savaşçı - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    }
+  ]
+}

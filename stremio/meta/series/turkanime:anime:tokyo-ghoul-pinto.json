@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:tokyo-ghoul-pinto",
+    "type": "series",
+    "name": "Tokyo Ghoul: \"Pinto\"",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/5234.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/5234.jpg",
+    "description": "Tokyo Ghoul: &quot;Pinto&quot; - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:tokyo-ghoul-pinto-ova",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

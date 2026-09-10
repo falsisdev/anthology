@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "id": "sinewix:movie:811",
+    "type": "movie",
+    "name": "Muhteşem Yedili",
+    "poster": "https://image.tmdb.org/t/p/w500/wd2F5AodSpRSeJeh6J4G0kloKYr.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/8GXri7UnwE7dVNfUAZVDn7Z8UBZ.jpg",
+    "description": "Rose Creek adlı küçük bir kasabanın halkı, kasabayı yöneten Bartholomew Bogue (Peter Sarsgaard) adlı sanayicinin insanlık dışı uygulamalarından usanmıştır. Onları bu zor durumdan kurtarmak için bir araya gelen, farklı yeteneklere ve karakterlere sahip, aralarında ödül avcılarının, kanun kaçaklarının, kumarbazların da bulunduğu 7 silahlı adam ortak bir amaç uğruna güçlerini birleştirirler.",
+    "genres": [
+      "SineWix"
+    ]
+  }
+}

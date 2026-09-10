@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:ATV.tr",
+      "type": "tv",
+      "name": "ATV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/atv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/atv.png",
+      "description": "ATV HD Canlı Yayın",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    }
+  ]
+}

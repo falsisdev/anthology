@@ -1,0 +1,28 @@
+{
+  "metas": [
+    {
+      "id": "animecix:title:7951",
+      "type": "series",
+      "name": "Bleach Movie 1: Memories of Nobody",
+      "poster": "https://image.tmdb.org/t/p/original/1QXGWJ0bsmbMUDBXXfS1RnFadkS.jpg",
+      "background": "https://image.tmdb.org/t/p/w1280/w8nkwwwNrV433PCkIiE2tP1ARtm.jpg",
+      "description": "In Karakura Town, unidentifiable spirits begin appearing en mases. While attempting to deal with these strange souls, Ichigo Kurosaki and Rukia Kuchiki meet Senna, a mysterious shinigami who wipes out most of them. Senna refuses to answer any questions, so Ichigo is forced to follow her while Rukia tries to find out what's going on.",
+      "genres": [
+        "Anime",
+        "AnimeciX"
+      ]
+    },
+    {
+      "id": "animecix:title:11426",
+      "type": "series",
+      "name": "Boku no Hero Academia: Memories",
+      "poster": "https://image.tmdb.org/t/p/original/AsgZZ8vgPmzFuprMCc2NJyP2Zh9.jpg",
+      "background": "https://image.tmdb.org/t/p/original/6GzMoXo3MPN6tIppwQ3F18dsiBP.jpg",
+      "description": "\"Boku no Hero Academia\" animesinin ilk 6 Sezonunun özeti.",
+      "genres": [
+        "Anime",
+        "AnimeciX"
+      ]
+    }
+  ]
+}

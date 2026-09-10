@@ -12,9 +12,7 @@
     "videos": [
       {
         "id": "tv:TRTSpor.tr",
-        "title": "TRT Spor HD",
-        "season": 1,
-        "episode": 1
+        "title": "TRT Spor HD"
       }
     ]
   }

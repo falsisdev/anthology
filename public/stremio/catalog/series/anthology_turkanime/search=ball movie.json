@@ -1,0 +1,52 @@
+{
+  "metas": [
+    {
+      "id": "turkanime:anime:dragon-ball-movie-1-shen-long-no-densetsu",
+      "type": "series",
+      "name": "Dragon Ball Movie 1: Shen Long no Den...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball Movie 1: Shen Long no Den... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-movie-2-majinjou-no-nemurihime",
+      "type": "series",
+      "name": "Dragon Ball Movie 2: Majinjou no Nemu...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball Movie 2: Majinjou no Nemu... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-movie-3-makafushigi-daibouken",
+      "type": "series",
+      "name": "Dragon Ball Movie 3: Makafushigi Daib...",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball Movie 3: Makafushigi Daib... - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    },
+    {
+      "id": "turkanime:anime:dragon-ball-movie-4-saikyou-e-no-michi",
+      "type": "series",
+      "name": "Dragon Ball Movie 4: Saikyou e no Michi",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "description": "Dragon Ball Movie 4: Saikyou e no Michi - TurkAnime TV",
+      "genres": [
+        "Anime",
+        "TurkAnime"
+      ]
+    }
+  ]
+}

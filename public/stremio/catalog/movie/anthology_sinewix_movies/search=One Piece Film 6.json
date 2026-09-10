@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:2343",
+      "type": "movie",
+      "name": "One Piece Film 6",
+      "poster": "https://image.tmdb.org/t/p/w500/dK7ZNywrl6ouuNGeLaTHNYel4iX.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/xGJBLsiY0quc2pOcCH1MdnF5P8.jpg",
+      "description": "Luffy, suda yüzen cam bir şişe bulur ve şişenin içinden ise 100,000,000 korsan arasından seçilerek Omatsuri adasına davet edildiğini söyleyen bir yazı ile harita çıkar. Bütün Strawhat tayfası buradaki şüpheli durumu fark etse de, Luffy her zamanki gibi macera fırsatını kaçırmak istemez.Adaya vardıklarında özel hiçbir şey göremedikleri için hayal kırıklığına uğramaya başladıkları sırada önlerine bir eğlence parkı çıkar ve onları karşılayan bir geçit töreni başlar. Bu adada ne tür sırlar ve tehlikeler onları beklemektedir?\n\nDiğer filmlere ulaşmak için OnePiece (boşluk olmadan) film numarasını yazarak filmlerine ulaşabilirsiniz.\n\nÖrnek OnePiece Film 3",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    }
+  ]
+}

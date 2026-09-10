@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:series:740",
+      "type": "series",
+      "name": "Doctor Who",
+      "poster": "https://image.tmdb.org/t/p/w500/4edFyasCrkH4MKs6H4mHqlrxA6b.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/4edFyasCrkH4MKs6H4mHqlrxA6b.jpg",
+      "description": "Doctor Who - Anthology",
+      "genres": [
+        "SineWix",
+        "Popüler Dizi"
+      ]
+    }
+  ]
+}

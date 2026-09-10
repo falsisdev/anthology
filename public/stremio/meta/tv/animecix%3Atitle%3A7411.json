@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "animecix:title:7411",
+    "type": "series",
+    "name": "One Piece Film: Strong World",
+    "poster": "https://image.tmdb.org/t/p/original/z9S39hH4IOX9Hmtn3zho3Wdqem8.jpg",
+    "background": "https://image.tmdb.org/t/p/w1280/fgcSkuv3otR5iz2VzzFnh3QOI49.jpg",
+    "description": "Efsanevi korsan Shiki, Altın Aslan, Impel Down'dan kaçışından 20 yıl sonra yeniden ortaya çıkar ve Deniz Piyadelerinde büyük bir karışıklığa neden olur.  Uzun inzivası sırasında, Dünya Hükümeti'ne diz çöktürmek için bir plan yapmayı başardı.  Shiki, planı uygulamaya giderken Hasır Şapka Korsanları ile yolları kesişir ve Nami'nin meteoroloji bilgisinden o kadar etkilenir ki, onu zorla mürettebatına almak için kaçırır.  Luffy ve ekibi, çaresizce Shiki ve Nami'yi ararken kendilerini canavar yaratıkların yaşadığı garip bir diyarda bulurlar.",
+    "genres": [
+      "Anime",
+      "AnimeciX"
+    ],
+    "videos": [
+      {
+        "id": "animecix:ep:7411:1:1",
+        "title": "One Piece Film: Strong World 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

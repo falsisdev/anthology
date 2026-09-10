@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "cizgimax:show:film/ben-10-race-against-time-izle",
+    "type": "series",
+    "name": "Ben 10: Zamana Karşı Yarış",
+    "poster": "https://cizgimax.online/img/locandine/ben-10-race-against-time-poster.webp",
+    "background": "https://cizgimax.online/img/locandine/ben-10-race-against-time-poster.webp",
+    "description": "Ben 10: Zamana Karşı Yarış - ÇizgiMax Arşivi",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:show:film/ben-10-race-against-time-izle",
+        "title": "Ben 10: Zamana Karşı Yarış",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "metas": [
+    {
+      "id": "cizgimax:show:toaru-kagaku-no-railgun-s-daiji-na-k-izle",
+      "type": "series",
+      "name": "A Certain Scientific Railgun S: All the Important Things I Learned in a Bathhouse",
+      "poster": "https://cdn.myanimelist.net/images/anime/2/76119l.jpg",
+      "background": "https://cdn.myanimelist.net/images/anime/2/76119l.jpg",
+      "description": "A Certain Scientific Railgun S: All the Important Things I Learned in a Bathhouse - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:film/ben-10-destroy-all-aliens-izle",
+      "type": "series",
+      "name": "Ben 10: Destroy All Aliens",
+      "poster": "https://cizgimax.online/img/locandine/ben-10-destroy-all-aliens-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/ben-10-destroy-all-aliens-poster.webp",
+      "description": "Ben 10: Destroy All Aliens - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:lego-star-wars-all-stars-izle",
+      "type": "series",
+      "name": "Lego Star Wars: All Stars",
+      "poster": "https://cizgimax.online/img/locandine/lego-star-wars-all-stars-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/lego-star-wars-all-stars-poster.webp",
+      "description": "Lego Star Wars: All Stars - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "animecix:title:10128",
+    "type": "series",
+    "name": "Dragon Ball Z Movie 06: Gekitotsu!! 100-oku Power no Senshi-tachi",
+    "poster": "https://image.tmdb.org/t/p/original/zJn14ySh0NTZCOIReQZiWE1fkje.jpg",
+    "background": "https://image.tmdb.org/t/p/w1280/l1H7adqYhxBrBK45aKAzqm6nIVC.jpg",
+    "description": "Cooler kendini bir robot olarak diriltti ve New Namek halkını köleleştiriyor. Goku ve çete yardım etmelidir.",
+    "genres": [
+      "Anime",
+      "AnimeciX"
+    ],
+    "videos": [
+      {
+        "id": "animecix:ep:10128:1:1",
+        "title": "Dragon Ball Z Movie 06: Gekitotsu!! 100-oku Power no Senshi-tachi 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

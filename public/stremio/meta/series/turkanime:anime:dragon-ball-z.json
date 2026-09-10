@@ -1,0 +1,1762 @@
+{
+  "meta": {
+    "id": "turkanime:anime:dragon-ball-z",
+    "type": "series",
+    "name": "Dragon Ball Z",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/514.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/514.jpg",
+    "description": "Dragon Ball Z - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:dragon-ball-z-1-bolum",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-2-bolum",
+        "title": "2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-3-bolum",
+        "title": "3. Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-4-bolum",
+        "title": "4. Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-5-bolum",
+        "title": "5. Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-6-bolum",
+        "title": "6. Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-7-bolum",
+        "title": "7. Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-8-bolum",
+        "title": "8. Bölüm",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-9-bolum",
+        "title": "9. Bölüm",
+        "season": 1,
+        "episode": 9
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-10-bolum",
+        "title": "10. Bölüm",
+        "season": 1,
+        "episode": 10
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-11-bolum",
+        "title": "11. Bölüm",
+        "season": 1,
+        "episode": 11
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-12-bolum",
+        "title": "12. Bölüm",
+        "season": 1,
+        "episode": 12
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-13-bolum",
+        "title": "13. Bölüm",
+        "season": 1,
+        "episode": 13
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-14-bolum",
+        "title": "14. Bölüm",
+        "season": 1,
+        "episode": 14
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-15-bolum",
+        "title": "15. Bölüm",
+        "season": 1,
+        "episode": 15
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-16-bolum",
+        "title": "16. Bölüm",
+        "season": 1,
+        "episode": 16
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-17-bolum",
+        "title": "17. Bölüm",
+        "season": 1,
+        "episode": 17
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-18-bolum",
+        "title": "18. Bölüm",
+        "season": 1,
+        "episode": 18
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-19-bolum",
+        "title": "19. Bölüm",
+        "season": 1,
+        "episode": 19
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-20-bolum",
+        "title": "20. Bölüm",
+        "season": 1,
+        "episode": 20
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-21-bolum",
+        "title": "21. Bölüm",
+        "season": 1,
+        "episode": 21
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-22-bolum",
+        "title": "22. Bölüm",
+        "season": 1,
+        "episode": 22
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-23-bolum",
+        "title": "23. Bölüm",
+        "season": 1,
+        "episode": 23
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-24-bolum",
+        "title": "24. Bölüm",
+        "season": 1,
+        "episode": 24
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-25-bolum",
+        "title": "25. Bölüm",
+        "season": 1,
+        "episode": 25
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-26-bolum",
+        "title": "26. Bölüm",
+        "season": 1,
+        "episode": 26
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-27-bolum",
+        "title": "27. Bölüm",
+        "season": 1,
+        "episode": 27
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-28-bolum",
+        "title": "28. Bölüm",
+        "season": 1,
+        "episode": 28
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-29-bolum",
+        "title": "29. Bölüm",
+        "season": 1,
+        "episode": 29
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-30-bolum",
+        "title": "30. Bölüm",
+        "season": 1,
+        "episode": 30
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-31-bolum",
+        "title": "31. Bölüm",
+        "season": 1,
+        "episode": 31
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-32-bolum",
+        "title": "32. Bölüm",
+        "season": 1,
+        "episode": 32
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-33-bolum",
+        "title": "33. Bölüm",
+        "season": 1,
+        "episode": 33
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-34-bolum",
+        "title": "34. Bölüm",
+        "season": 1,
+        "episode": 34
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-35-bolum",
+        "title": "35. Bölüm",
+        "season": 1,
+        "episode": 35
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-36-bolum",
+        "title": "36. Bölüm",
+        "season": 1,
+        "episode": 36
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-37-bolum",
+        "title": "37. Bölüm",
+        "season": 1,
+        "episode": 37
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-38-bolum",
+        "title": "38. Bölüm",
+        "season": 1,
+        "episode": 38
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-39-bolum",
+        "title": "39. Bölüm",
+        "season": 1,
+        "episode": 39
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-40-bolum",
+        "title": "40. Bölüm",
+        "season": 1,
+        "episode": 40
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-41-bolum",
+        "title": "41. Bölüm",
+        "season": 1,
+        "episode": 41
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-42-bolum",
+        "title": "42. Bölüm",
+        "season": 1,
+        "episode": 42
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-43-bolum",
+        "title": "43. Bölüm",
+        "season": 1,
+        "episode": 43
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-44-bolum",
+        "title": "44. Bölüm",
+        "season": 1,
+        "episode": 44
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-45-bolum",
+        "title": "45. Bölüm",
+        "season": 1,
+        "episode": 45
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-46-bolum",
+        "title": "46. Bölüm",
+        "season": 1,
+        "episode": 46
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-47-bolum",
+        "title": "47. Bölüm",
+        "season": 1,
+        "episode": 47
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-48-bolum",
+        "title": "48. Bölüm",
+        "season": 1,
+        "episode": 48
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-49-bolum",
+        "title": "49. Bölüm",
+        "season": 1,
+        "episode": 49
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-50-bolum",
+        "title": "50. Bölüm",
+        "season": 1,
+        "episode": 50
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-51-bolum",
+        "title": "51. Bölüm",
+        "season": 1,
+        "episode": 51
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-52-bolum",
+        "title": "52. Bölüm",
+        "season": 1,
+        "episode": 52
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-53-bolum",
+        "title": "53. Bölüm",
+        "season": 1,
+        "episode": 53
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-54-bolum",
+        "title": "54. Bölüm",
+        "season": 1,
+        "episode": 54
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-55-bolum",
+        "title": "55. Bölüm",
+        "season": 1,
+        "episode": 55
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-56-bolum",
+        "title": "56. Bölüm",
+        "season": 1,
+        "episode": 56
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-57-bolum",
+        "title": "57. Bölüm",
+        "season": 1,
+        "episode": 57
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-58-bolum",
+        "title": "58. Bölüm",
+        "season": 1,
+        "episode": 58
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-59-bolum",
+        "title": "59. Bölüm",
+        "season": 1,
+        "episode": 59
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-60-bolum",
+        "title": "60. Bölüm",
+        "season": 1,
+        "episode": 60
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-61-bolum",
+        "title": "61. Bölüm",
+        "season": 1,
+        "episode": 61
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-62-bolum",
+        "title": "62. Bölüm",
+        "season": 1,
+        "episode": 62
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-63-bolum",
+        "title": "63. Bölüm",
+        "season": 1,
+        "episode": 63
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-64-bolum",
+        "title": "64. Bölüm",
+        "season": 1,
+        "episode": 64
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-65-bolum",
+        "title": "65. Bölüm",
+        "season": 1,
+        "episode": 65
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-66-bolum",
+        "title": "66. Bölüm",
+        "season": 1,
+        "episode": 66
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-67-bolum",
+        "title": "67. Bölüm",
+        "season": 1,
+        "episode": 67
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-68-bolum",
+        "title": "68. Bölüm",
+        "season": 1,
+        "episode": 68
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-69-bolum",
+        "title": "69. Bölüm",
+        "season": 1,
+        "episode": 69
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-70-bolum",
+        "title": "70. Bölüm",
+        "season": 1,
+        "episode": 70
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-71-bolum",
+        "title": "71. Bölüm",
+        "season": 1,
+        "episode": 71
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-72-bolum",
+        "title": "72. Bölüm",
+        "season": 1,
+        "episode": 72
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-73-bolum",
+        "title": "73. Bölüm",
+        "season": 1,
+        "episode": 73
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-74-bolum",
+        "title": "74. Bölüm",
+        "season": 1,
+        "episode": 74
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-75-bolum",
+        "title": "75. Bölüm",
+        "season": 1,
+        "episode": 75
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-76-bolum",
+        "title": "76. Bölüm",
+        "season": 1,
+        "episode": 76
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-77-bolum",
+        "title": "77. Bölüm",
+        "season": 1,
+        "episode": 77
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-78-bolum",
+        "title": "78. Bölüm",
+        "season": 1,
+        "episode": 78
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-79-bolum",
+        "title": "79. Bölüm",
+        "season": 1,
+        "episode": 79
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-80-bolum",
+        "title": "80. Bölüm",
+        "season": 1,
+        "episode": 80
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-81-bolum",
+        "title": "81. Bölüm",
+        "season": 1,
+        "episode": 81
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-82-bolum",
+        "title": "82. Bölüm",
+        "season": 1,
+        "episode": 82
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-83-bolum",
+        "title": "83. Bölüm",
+        "season": 1,
+        "episode": 83
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-84-bolum",
+        "title": "84. Bölüm",
+        "season": 1,
+        "episode": 84
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-85-bolum",
+        "title": "85. Bölüm",
+        "season": 1,
+        "episode": 85
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-86-bolum",
+        "title": "86. Bölüm",
+        "season": 1,
+        "episode": 86
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-87-bolum",
+        "title": "87. Bölüm",
+        "season": 1,
+        "episode": 87
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-88-bolum",
+        "title": "88. Bölüm",
+        "season": 1,
+        "episode": 88
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-89-bolum",
+        "title": "89. Bölüm",
+        "season": 1,
+        "episode": 89
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-90-bolum",
+        "title": "90. Bölüm",
+        "season": 1,
+        "episode": 90
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-91-bolum",
+        "title": "91. Bölüm",
+        "season": 1,
+        "episode": 91
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-92-bolum",
+        "title": "92. Bölüm",
+        "season": 1,
+        "episode": 92
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-93-bolum",
+        "title": "93. Bölüm",
+        "season": 1,
+        "episode": 93
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-94-bolum",
+        "title": "94. Bölüm",
+        "season": 1,
+        "episode": 94
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-95-bolum",
+        "title": "95. Bölüm",
+        "season": 1,
+        "episode": 95
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-96-bolum",
+        "title": "96. Bölüm",
+        "season": 1,
+        "episode": 96
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-97-bolum",
+        "title": "97. Bölüm",
+        "season": 1,
+        "episode": 97
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-98-bolum",
+        "title": "98. Bölüm",
+        "season": 1,
+        "episode": 98
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-99-bolum",
+        "title": "99. Bölüm",
+        "season": 1,
+        "episode": 99
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-100-bolum",
+        "title": "100. Bölüm",
+        "season": 1,
+        "episode": 100
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-101-bolum",
+        "title": "101. Bölüm",
+        "season": 1,
+        "episode": 101
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-102-bolum",
+        "title": "102. Bölüm",
+        "season": 1,
+        "episode": 102
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-103-bolum",
+        "title": "103. Bölüm",
+        "season": 1,
+        "episode": 103
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-104-bolum",
+        "title": "104. Bölüm",
+        "season": 1,
+        "episode": 104
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-105-bolum",
+        "title": "105. Bölüm",
+        "season": 1,
+        "episode": 105
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-106-bolum",
+        "title": "106. Bölüm",
+        "season": 1,
+        "episode": 106
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-107-bolum",
+        "title": "107. Bölüm",
+        "season": 1,
+        "episode": 107
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-108-bolum",
+        "title": "108. Bölüm",
+        "season": 1,
+        "episode": 108
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-109-bolum",
+        "title": "109. Bölüm",
+        "season": 1,
+        "episode": 109
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-110-bolum",
+        "title": "110. Bölüm",
+        "season": 1,
+        "episode": 110
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-111-bolum",
+        "title": "111. Bölüm",
+        "season": 1,
+        "episode": 111
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-112-bolum",
+        "title": "112. Bölüm",
+        "season": 1,
+        "episode": 112
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-113-bolum",
+        "title": "113. Bölüm",
+        "season": 1,
+        "episode": 113
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-114-bolum",
+        "title": "114. Bölüm",
+        "season": 1,
+        "episode": 114
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-115-bolum",
+        "title": "115. Bölüm",
+        "season": 1,
+        "episode": 115
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-116-bolum",
+        "title": "116. Bölüm",
+        "season": 1,
+        "episode": 116
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-117-bolum",
+        "title": "117. Bölüm",
+        "season": 1,
+        "episode": 117
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-118-bolum",
+        "title": "118. Bölüm",
+        "season": 1,
+        "episode": 118
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-119-bolum",
+        "title": "119. Bölüm",
+        "season": 1,
+        "episode": 119
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-120-bolum",
+        "title": "120. Bölüm",
+        "season": 1,
+        "episode": 120
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-121-bolum",
+        "title": "121. Bölüm",
+        "season": 1,
+        "episode": 121
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-122-bolum",
+        "title": "122. Bölüm",
+        "season": 1,
+        "episode": 122
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-123-bolum",
+        "title": "123. Bölüm",
+        "season": 1,
+        "episode": 123
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-124-bolum",
+        "title": "124. Bölüm",
+        "season": 1,
+        "episode": 124
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-125-bolum",
+        "title": "125. Bölüm",
+        "season": 1,
+        "episode": 125
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-126-bolum",
+        "title": "126. Bölüm",
+        "season": 1,
+        "episode": 126
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-127-bolum",
+        "title": "127. Bölüm",
+        "season": 1,
+        "episode": 127
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-128-bolum",
+        "title": "128. Bölüm",
+        "season": 1,
+        "episode": 128
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-129-bolum",
+        "title": "129. Bölüm",
+        "season": 1,
+        "episode": 129
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-130-bolum",
+        "title": "130. Bölüm",
+        "season": 1,
+        "episode": 130
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-131-bolum",
+        "title": "131. Bölüm",
+        "season": 1,
+        "episode": 131
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-132-bolum",
+        "title": "132. Bölüm",
+        "season": 1,
+        "episode": 132
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-133-bolum",
+        "title": "133. Bölüm",
+        "season": 1,
+        "episode": 133
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-134-bolum",
+        "title": "134. Bölüm",
+        "season": 1,
+        "episode": 134
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-135-bolum",
+        "title": "135. Bölüm",
+        "season": 1,
+        "episode": 135
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-136-bolum",
+        "title": "136. Bölüm",
+        "season": 1,
+        "episode": 136
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-137-bolum",
+        "title": "137. Bölüm",
+        "season": 1,
+        "episode": 137
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-138-bolum",
+        "title": "138. Bölüm",
+        "season": 1,
+        "episode": 138
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-139-bolum",
+        "title": "139. Bölüm",
+        "season": 1,
+        "episode": 139
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-140-bolum",
+        "title": "140. Bölüm",
+        "season": 1,
+        "episode": 140
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-141-bolum",
+        "title": "141. Bölüm",
+        "season": 1,
+        "episode": 141
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-142-bolum",
+        "title": "142. Bölüm",
+        "season": 1,
+        "episode": 142
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-143-bolum",
+        "title": "143. Bölüm",
+        "season": 1,
+        "episode": 143
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-144-bolum",
+        "title": "144. Bölüm",
+        "season": 1,
+        "episode": 144
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-145-bolum",
+        "title": "145. Bölüm",
+        "season": 1,
+        "episode": 145
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-146-bolum",
+        "title": "146. Bölüm",
+        "season": 1,
+        "episode": 146
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-147-bolum",
+        "title": "147. Bölüm",
+        "season": 1,
+        "episode": 147
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-148-bolum",
+        "title": "148. Bölüm",
+        "season": 1,
+        "episode": 148
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-149-bolum",
+        "title": "149. Bölüm",
+        "season": 1,
+        "episode": 149
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-150-bolum",
+        "title": "150. Bölüm",
+        "season": 1,
+        "episode": 150
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-151-bolum",
+        "title": "151. Bölüm",
+        "season": 1,
+        "episode": 151
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-152-bolum",
+        "title": "152. Bölüm",
+        "season": 1,
+        "episode": 152
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-153-bolum",
+        "title": "153. Bölüm",
+        "season": 1,
+        "episode": 153
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-154-bolum",
+        "title": "154. Bölüm",
+        "season": 1,
+        "episode": 154
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-155-bolum",
+        "title": "155. Bölüm",
+        "season": 1,
+        "episode": 155
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-156-bolum",
+        "title": "156. Bölüm",
+        "season": 1,
+        "episode": 156
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-157-bolum",
+        "title": "157. Bölüm",
+        "season": 1,
+        "episode": 157
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-158-bolum",
+        "title": "158. Bölüm",
+        "season": 1,
+        "episode": 158
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-159-bolum",
+        "title": "159. Bölüm",
+        "season": 1,
+        "episode": 159
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-160-bolum",
+        "title": "160. Bölüm",
+        "season": 1,
+        "episode": 160
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-161-bolum",
+        "title": "161. Bölüm",
+        "season": 1,
+        "episode": 161
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-162-bolum",
+        "title": "162. Bölüm",
+        "season": 1,
+        "episode": 162
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-163-bolum",
+        "title": "163. Bölüm",
+        "season": 1,
+        "episode": 163
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-164-bolum",
+        "title": "164. Bölüm",
+        "season": 1,
+        "episode": 164
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-165-bolum",
+        "title": "165. Bölüm",
+        "season": 1,
+        "episode": 165
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-166-bolum",
+        "title": "166. Bölüm",
+        "season": 1,
+        "episode": 166
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-167-bolum",
+        "title": "167. Bölüm",
+        "season": 1,
+        "episode": 167
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-168-bolum",
+        "title": "168. Bölüm",
+        "season": 1,
+        "episode": 168
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-169-bolum",
+        "title": "169. Bölüm",
+        "season": 1,
+        "episode": 169
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-170-bolum",
+        "title": "170. Bölüm",
+        "season": 1,
+        "episode": 170
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-171-bolum",
+        "title": "171. Bölüm",
+        "season": 1,
+        "episode": 171
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-172-bolum",
+        "title": "172. Bölüm",
+        "season": 1,
+        "episode": 172
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-173-bolum",
+        "title": "173. Bölüm",
+        "season": 1,
+        "episode": 173
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-174-bolum",
+        "title": "174. Bölüm",
+        "season": 1,
+        "episode": 174
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-175-bolum",
+        "title": "175. Bölüm",
+        "season": 1,
+        "episode": 175
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-176-bolum",
+        "title": "176. Bölüm",
+        "season": 1,
+        "episode": 176
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-177-bolum",
+        "title": "177. Bölüm",
+        "season": 1,
+        "episode": 177
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-178-bolum",
+        "title": "178. Bölüm",
+        "season": 1,
+        "episode": 178
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-179-bolum",
+        "title": "179. Bölüm",
+        "season": 1,
+        "episode": 179
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-180-bolum",
+        "title": "180. Bölüm",
+        "season": 1,
+        "episode": 180
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-181-bolum",
+        "title": "181. Bölüm",
+        "season": 1,
+        "episode": 181
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-182-bolum",
+        "title": "182. Bölüm",
+        "season": 1,
+        "episode": 182
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-183-bolum",
+        "title": "183. Bölüm",
+        "season": 1,
+        "episode": 183
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-184-bolum",
+        "title": "184. Bölüm",
+        "season": 1,
+        "episode": 184
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-185-bolum",
+        "title": "185. Bölüm",
+        "season": 1,
+        "episode": 185
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-186-bolum",
+        "title": "186. Bölüm",
+        "season": 1,
+        "episode": 186
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-187-bolum",
+        "title": "187. Bölüm",
+        "season": 1,
+        "episode": 187
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-188-bolum",
+        "title": "188. Bölüm",
+        "season": 1,
+        "episode": 188
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-189-bolum",
+        "title": "189. Bölüm",
+        "season": 1,
+        "episode": 189
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-190-bolum",
+        "title": "190. Bölüm",
+        "season": 1,
+        "episode": 190
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-191-bolum",
+        "title": "191. Bölüm",
+        "season": 1,
+        "episode": 191
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-192-bolum",
+        "title": "192. Bölüm",
+        "season": 1,
+        "episode": 192
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-193-bolum",
+        "title": "193. Bölüm",
+        "season": 1,
+        "episode": 193
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-194-bolum",
+        "title": "194. Bölüm",
+        "season": 1,
+        "episode": 194
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-195-bolum",
+        "title": "195. Bölüm",
+        "season": 1,
+        "episode": 195
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-196-bolum",
+        "title": "196. Bölüm",
+        "season": 1,
+        "episode": 196
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-197-bolum",
+        "title": "197. Bölüm",
+        "season": 1,
+        "episode": 197
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-198-bolum",
+        "title": "198. Bölüm",
+        "season": 1,
+        "episode": 198
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-199-bolum",
+        "title": "199. Bölüm",
+        "season": 1,
+        "episode": 199
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-200-bolum",
+        "title": "200. Bölüm",
+        "season": 1,
+        "episode": 200
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-201-bolum",
+        "title": "201. Bölüm",
+        "season": 1,
+        "episode": 201
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-202-bolum",
+        "title": "202. Bölüm",
+        "season": 1,
+        "episode": 202
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-203-bolum",
+        "title": "203. Bölüm",
+        "season": 1,
+        "episode": 203
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-204-bolum",
+        "title": "204. Bölüm",
+        "season": 1,
+        "episode": 204
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-205-bolum",
+        "title": "205. Bölüm",
+        "season": 1,
+        "episode": 205
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-206-bolum",
+        "title": "206. Bölüm",
+        "season": 1,
+        "episode": 206
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-207-bolum",
+        "title": "207. Bölüm",
+        "season": 1,
+        "episode": 207
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-208-bolum",
+        "title": "208. Bölüm",
+        "season": 1,
+        "episode": 208
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-209-bolum",
+        "title": "209. Bölüm",
+        "season": 1,
+        "episode": 209
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-210-bolum",
+        "title": "210. Bölüm",
+        "season": 1,
+        "episode": 210
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-211-bolum",
+        "title": "211. Bölüm",
+        "season": 1,
+        "episode": 211
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-212-bolum",
+        "title": "212. Bölüm",
+        "season": 1,
+        "episode": 212
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-213-bolum",
+        "title": "213. Bölüm",
+        "season": 1,
+        "episode": 213
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-214-bolum",
+        "title": "214. Bölüm",
+        "season": 1,
+        "episode": 214
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-215-bolum",
+        "title": "215. Bölüm",
+        "season": 1,
+        "episode": 215
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-216-bolum",
+        "title": "216. Bölüm",
+        "season": 1,
+        "episode": 216
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-217-bolum",
+        "title": "217. Bölüm",
+        "season": 1,
+        "episode": 217
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-218-bolum",
+        "title": "218. Bölüm",
+        "season": 1,
+        "episode": 218
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-219-bolum",
+        "title": "219. Bölüm",
+        "season": 1,
+        "episode": 219
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-220-bolum",
+        "title": "220. Bölüm",
+        "season": 1,
+        "episode": 220
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-221-bolum",
+        "title": "221. Bölüm",
+        "season": 1,
+        "episode": 221
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-222-bolum",
+        "title": "222. Bölüm",
+        "season": 1,
+        "episode": 222
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-223-bolum",
+        "title": "223. Bölüm",
+        "season": 1,
+        "episode": 223
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-224-bolum",
+        "title": "224. Bölüm",
+        "season": 1,
+        "episode": 224
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-225-bolum",
+        "title": "225. Bölüm",
+        "season": 1,
+        "episode": 225
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-226-bolum",
+        "title": "226. Bölüm",
+        "season": 1,
+        "episode": 226
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-227-bolum",
+        "title": "227. Bölüm",
+        "season": 1,
+        "episode": 227
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-228-bolum",
+        "title": "228. Bölüm",
+        "season": 1,
+        "episode": 228
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-229-bolum",
+        "title": "229. Bölüm",
+        "season": 1,
+        "episode": 229
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-230-bolum",
+        "title": "230. Bölüm",
+        "season": 1,
+        "episode": 230
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-231-bolum",
+        "title": "231. Bölüm",
+        "season": 1,
+        "episode": 231
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-232-bolum",
+        "title": "232. Bölüm",
+        "season": 1,
+        "episode": 232
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-233-bolum",
+        "title": "233. Bölüm",
+        "season": 1,
+        "episode": 233
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-234-bolum",
+        "title": "234. Bölüm",
+        "season": 1,
+        "episode": 234
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-235-bolum",
+        "title": "235. Bölüm",
+        "season": 1,
+        "episode": 235
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-236-bolum",
+        "title": "236. Bölüm",
+        "season": 1,
+        "episode": 236
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-237-bolum",
+        "title": "237. Bölüm",
+        "season": 1,
+        "episode": 237
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-238-bolum",
+        "title": "238. Bölüm",
+        "season": 1,
+        "episode": 238
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-239-bolum",
+        "title": "239. Bölüm",
+        "season": 1,
+        "episode": 239
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-240-bolum",
+        "title": "240. Bölüm",
+        "season": 1,
+        "episode": 240
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-241-bolum",
+        "title": "241. Bölüm",
+        "season": 1,
+        "episode": 241
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-242-bolum",
+        "title": "242. Bölüm",
+        "season": 1,
+        "episode": 242
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-243-bolum",
+        "title": "243. Bölüm",
+        "season": 1,
+        "episode": 243
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-244-bolum",
+        "title": "244. Bölüm",
+        "season": 1,
+        "episode": 244
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-245-bolum",
+        "title": "245. Bölüm",
+        "season": 1,
+        "episode": 245
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-246-bolum",
+        "title": "246. Bölüm",
+        "season": 1,
+        "episode": 246
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-247-bolum",
+        "title": "247. Bölüm",
+        "season": 1,
+        "episode": 247
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-248-bolum",
+        "title": "248. Bölüm",
+        "season": 1,
+        "episode": 248
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-249-bolum",
+        "title": "249. Bölüm",
+        "season": 1,
+        "episode": 249
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-250-bolum",
+        "title": "250. Bölüm",
+        "season": 1,
+        "episode": 250
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-251-bolum",
+        "title": "251. Bölüm",
+        "season": 1,
+        "episode": 251
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-252-bolum",
+        "title": "252. Bölüm",
+        "season": 1,
+        "episode": 252
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-253-bolum",
+        "title": "253. Bölüm",
+        "season": 1,
+        "episode": 253
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-254-bolum",
+        "title": "254. Bölüm",
+        "season": 1,
+        "episode": 254
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-255-bolum",
+        "title": "255. Bölüm",
+        "season": 1,
+        "episode": 255
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-256-bolum",
+        "title": "256. Bölüm",
+        "season": 1,
+        "episode": 256
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-257-bolum",
+        "title": "257. Bölüm",
+        "season": 1,
+        "episode": 257
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-258-bolum",
+        "title": "258. Bölüm",
+        "season": 1,
+        "episode": 258
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-259-bolum",
+        "title": "259. Bölüm",
+        "season": 1,
+        "episode": 259
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-260-bolum",
+        "title": "260. Bölüm",
+        "season": 1,
+        "episode": 260
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-261-bolum",
+        "title": "261. Bölüm",
+        "season": 1,
+        "episode": 261
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-262-bolum",
+        "title": "262. Bölüm",
+        "season": 1,
+        "episode": 262
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-263-bolum",
+        "title": "263. Bölüm",
+        "season": 1,
+        "episode": 263
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-264-bolum",
+        "title": "264. Bölüm",
+        "season": 1,
+        "episode": 264
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-265-bolum",
+        "title": "265. Bölüm",
+        "season": 1,
+        "episode": 265
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-266-bolum",
+        "title": "266. Bölüm",
+        "season": 1,
+        "episode": 266
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-267-bolum",
+        "title": "267. Bölüm",
+        "season": 1,
+        "episode": 267
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-268-bolum",
+        "title": "268. Bölüm",
+        "season": 1,
+        "episode": 268
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-269-bolum",
+        "title": "269. Bölüm",
+        "season": 1,
+        "episode": 269
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-270-bolum",
+        "title": "270. Bölüm",
+        "season": 1,
+        "episode": 270
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-271-bolum",
+        "title": "271. Bölüm",
+        "season": 1,
+        "episode": 271
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-272-bolum",
+        "title": "272. Bölüm",
+        "season": 1,
+        "episode": 272
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-273-bolum",
+        "title": "273. Bölüm",
+        "season": 1,
+        "episode": 273
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-274-bolum",
+        "title": "274. Bölüm",
+        "season": 1,
+        "episode": 274
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-275-bolum",
+        "title": "275. Bölüm",
+        "season": 1,
+        "episode": 275
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-276-bolum",
+        "title": "276. Bölüm",
+        "season": 1,
+        "episode": 276
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-277-bolum",
+        "title": "277. Bölüm",
+        "season": 1,
+        "episode": 277
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-278-bolum",
+        "title": "278. Bölüm",
+        "season": 1,
+        "episode": 278
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-279-bolum",
+        "title": "279. Bölüm",
+        "season": 1,
+        "episode": 279
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-280-bolum",
+        "title": "280. Bölüm",
+        "season": 1,
+        "episode": 280
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-281-bolum",
+        "title": "281. Bölüm",
+        "season": 1,
+        "episode": 281
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-282-bolum",
+        "title": "282. Bölüm",
+        "season": 1,
+        "episode": 282
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-283-bolum",
+        "title": "283. Bölüm",
+        "season": 1,
+        "episode": 283
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-284-bolum",
+        "title": "284. Bölüm",
+        "season": 1,
+        "episode": 284
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-285-bolum",
+        "title": "285. Bölüm",
+        "season": 1,
+        "episode": 285
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-286-bolum",
+        "title": "286. Bölüm",
+        "season": 1,
+        "episode": 286
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-287-bolum",
+        "title": "287. Bölüm",
+        "season": 1,
+        "episode": 287
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-288-bolum",
+        "title": "288. Bölüm",
+        "season": 1,
+        "episode": 288
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-289-bolum",
+        "title": "289. Bölüm",
+        "season": 1,
+        "episode": 289
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-290-bolum",
+        "title": "290. Bölüm",
+        "season": 1,
+        "episode": 290
+      },
+      {
+        "id": "turkanime:ep:dragon-ball-z-291-bolum-final",
+        "title": "291. Bölüm",
+        "season": 1,
+        "episode": 291
+      }
+    ]
+  }
+}

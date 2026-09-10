@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "ddizi:show:1881/yargi-35",
+      "type": "series",
+      "name": "Yargı",
+      "poster": "https://www.ddizi.im/diziresimleri/yargikapak-min.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/yargikapak-min.jpg",
+      "description": "Yargı - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    }
+  ]
+}

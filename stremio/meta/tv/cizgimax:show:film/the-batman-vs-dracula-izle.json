@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "cizgimax:show:film/the-batman-vs-dracula-izle",
+    "type": "series",
+    "name": "Batman Dracula'ya Karşı",
+    "poster": "https://cizgimax.online/img/locandine/the-batman-vs-dracula-poster.webp",
+    "background": "https://cizgimax.online/img/locandine/the-batman-vs-dracula-poster.webp",
+    "description": "Batman Dracula'ya Karşı - ÇizgiMax Arşivi",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:show:film/the-batman-vs-dracula-izle",
+        "title": "Batman Dracula'ya Karşı",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

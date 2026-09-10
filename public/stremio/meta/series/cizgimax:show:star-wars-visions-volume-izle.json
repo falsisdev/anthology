@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "id": "cizgimax:show:star-wars-visions-volume-izle",
+    "type": "series",
+    "name": "Star Wars: Visions Volume 3",
+    "poster": "https://cdn.myanimelist.net/images/anime/1007/151669l.jpg",
+    "background": "https://cdn.myanimelist.net/images/anime/1007/151669l.jpg",
+    "description": "Star Wars: Visions Volume 3 - ÇizgiMax",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:ep:episode-38158-s3e1",
+        "title": "3. Sezon 1. Bölüm",
+        "season": 3,
+        "episode": 1
+      },
+      {
+        "id": "cizgimax:ep:episode-38158-s3e2",
+        "title": "3. Sezon 2. Bölüm",
+        "season": 3,
+        "episode": 2
+      },
+      {
+        "id": "cizgimax:ep:episode-38158-s3e3",
+        "title": "3. Sezon 3. Bölüm",
+        "season": 3,
+        "episode": 3
+      },
+      {
+        "id": "cizgimax:ep:episode-38158-s3e4",
+        "title": "3. Sezon 4. Bölüm",
+        "season": 3,
+        "episode": 4
+      },
+      {
+        "id": "cizgimax:ep:episode-38158-s3e5",
+        "title": "3. Sezon 5. Bölüm",
+        "season": 3,
+        "episode": 5
+      },
+      {
+        "id": "cizgimax:ep:episode-38158-s3e6",
+        "title": "3. Sezon 6. Bölüm",
+        "season": 3,
+        "episode": 6
+      },
+      {
+        "id": "cizgimax:ep:episode-38158-s3e7",
+        "title": "3. Sezon 7. Bölüm",
+        "season": 3,
+        "episode": 7
+      },
+      {
+        "id": "cizgimax:ep:episode-38158-s3e8",
+        "title": "3. Sezon 8. Bölüm",
+        "season": 3,
+        "episode": 8
+      },
+      {
+        "id": "cizgimax:ep:episode-38158-s3e9",
+        "title": "3. Sezon 9. Bölüm",
+        "season": 3,
+        "episode": 9
+      }
+    ]
+  }
+}

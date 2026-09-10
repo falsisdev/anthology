@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "animecix:title:7589",
+    "type": "series",
+    "name": "Boku no Hero Academia the Movie 1: Two Heroes",
+    "poster": "https://image.tmdb.org/t/p/original/hC4nTxdhXqFWzgqynGvvXVMiMNp.jpg",
+    "background": "https://image.tmdb.org/t/p/w1280/uicia399gyMGE1smatJ41M0CtFx.jpg",
+    "description": "İlk dönem biter ve U.A. yaz eğitim kapına hazırlanır. Midoriya ve All Might, denizaşırı, hareketli, dev yapay yer olan I Adası'na davet edilirler. Dünyanın dört bir yanından gelen bilim insanlarının bilgilerini toplayan \"Bilim Hollywood\"u olan bu ada, Özgünlük ve kahraman araştırmasının sonuçlarını sergilemek üzere I-Expo denilen bir sergi düzenler. Tam bu arada, Midoriya, ona Özgünlüksüz geçmişini hatırlatan, Özgünlüksüz bir kız olan Melissa ile tanışır. Birden bire, bu adanın dayanıklı güvenlik sistemi kötü adamlar tarafından ele geçirilir ve adadaki tüm insanlar rehin alınır! Kahraman toplumunu sarsacak plan harekete geçirilir! Anahtarı elinde tutan adam ise Barış Sembolü ve bir numaralı kahraman All Might'tır.",
+    "genres": [
+      "Anime",
+      "AnimeciX"
+    ],
+    "videos": [
+      {
+        "id": "animecix:ep:7589:1:1",
+        "title": "Boku no Hero Academia the Movie 1: Two Heroes 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

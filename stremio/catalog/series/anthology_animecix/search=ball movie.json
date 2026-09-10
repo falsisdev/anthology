@@ -1,0 +1,28 @@
+{
+  "metas": [
+    {
+      "id": "animecix:title:10834",
+      "type": "series",
+      "name": "Dragon Ball Movie 3: Makafushigi Daibouken",
+      "poster": "https://image.tmdb.org/t/p/original/a2oMo9y1WtJsM0EUytKRtZlREE3.jpg",
+      "background": "https://image.tmdb.org/t/p/w1280/3ZY64lwscB6OlqEFObuvPi3dRZY.jpg",
+      "description": "Master Roshi has succeeded at the one mission he valued most: to train Goku and Krillin to become ultimate fighters. So, he arranges for them to test their mettle at a competition hosted by Emperor Chiaotzu. Not everyone's playing by the rules, however, as a member of the ruler's household schemes to use the Dragonballs to extort money and power from the royal.",
+      "genres": [
+        "Anime",
+        "AnimeciX"
+      ]
+    },
+    {
+      "id": "animecix:title:11330",
+      "type": "series",
+      "name": "Dragon Ball Movie 1: Shen Long no Densetsu",
+      "poster": "https://image.tmdb.org/t/p/original/dZCWRFJnwyxYOhzAhf7Xyru4moB.jpg",
+      "background": "https://image.tmdb.org/t/p/w1280/8gc00CJuQKNToUJq1cAmTtb4zmc.jpg",
+      "description": "Ejder Topu: Şenlong Söylencesi. Ejder Topu'nun kökenlerinin yeniden anlatıldığı ve Goku, Bulma, Ulong ve Yamuça'nın buluşmasının farklı bir sürümüdür. Bu filmde Ejder Toplarını arayan Gokularla kötü kral Gurmes'in yolları kesişmektedir.",
+      "genres": [
+        "Anime",
+        "AnimeciX"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "metas": [
+    {
+      "id": "cizgimax:show:superman-and-lois-izle",
+      "type": "series",
+      "name": "Superman & Lois",
+      "poster": "https://cizgimax.online/img/locandine/superman-and-lois-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/superman-and-lois-poster.webp",
+      "description": "Superman & Lois - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:lois-clark-the-new-adventures-of-superman-izle",
+      "type": "series",
+      "name": "Lois & Clark: The New Adventures of Superman",
+      "poster": "https://image.tmdb.org/t/p/w500/veNiZIiBsSWSAfVcJzudcuD7N0e.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/veNiZIiBsSWSAfVcJzudcuD7N0e.jpg",
+      "description": "Lois & Clark: The New Adventures of Superman - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    }
+  ]
+}

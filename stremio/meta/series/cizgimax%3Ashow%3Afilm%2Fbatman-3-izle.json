@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "cizgimax:show:film/batman-3-izle",
+    "type": "series",
+    "name": "Batman",
+    "poster": "https://cizgimax.online/img/locandine/batman-3-poster.webp",
+    "background": "https://cizgimax.online/img/locandine/batman-3-poster.webp",
+    "description": "Batman - ÇizgiMax Arşivi",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:show:film/batman-3-izle",
+        "title": "Batman",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

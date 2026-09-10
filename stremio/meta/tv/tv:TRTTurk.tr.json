@@ -12,9 +12,7 @@
     "videos": [
       {
         "id": "tv:TRTTurk.tr",
-        "title": "TRT Türk HD",
-        "season": 1,
-        "episode": 1
+        "title": "TRT Türk HD"
       }
     ]
   }

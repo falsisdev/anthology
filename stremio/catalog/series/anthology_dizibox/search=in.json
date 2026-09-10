@@ -1,0 +1,64 @@
+{
+  "metas": [
+    {
+      "id": "dizibox:show:made-in-korea",
+      "type": "series",
+      "name": "MADE IN KOREA",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/made-in-korea-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/made-in-korea-200x290.jpg",
+      "description": "MADE IN KOREA - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:the-ghost-in-the-shell",
+      "type": "series",
+      "name": "THE GHOST IN THE SHELL",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-ghost-in-the-shell-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-ghost-in-the-shell-200x290.jpg",
+      "description": "THE GHOST IN THE SHELL - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:its-always-sunny-in-philadelphia",
+      "type": "series",
+      "name": "IT’S ALWAYS SUNNY IN PHILADELPHIA",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/its-always-sunny-in-philadelphia-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/its-always-sunny-in-philadelphia-200x290.jpg",
+      "description": "IT’S ALWAYS SUNNY IN PHILADELPHIA - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:badly-in-love",
+      "type": "series",
+      "name": "BADLY IN LOVE",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/badly-in-love-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/badly-in-love-200x290.jpg",
+      "description": "BADLY IN LOVE - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:fear-the-walking-dead-dead-in-the-water",
+      "type": "series",
+      "name": "Fear the Walking Dead: Dead in the Water",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/fear-the-walking-dead-dead-in-the-water-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/fear-the-walking-dead-dead-in-the-water-50x50.jpg",
+      "description": "USS Pennsylvania denizaltında hayatta kalan Riley ve mürettebatının&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    }
+  ]
+}

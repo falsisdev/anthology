@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:FBTV.tr",
+      "type": "tv",
+      "name": "FB TV HD",
+      "poster": "https://i.imgur.com/qBVqtYd.png",
+      "background": "https://i.imgur.com/qBVqtYd.png",
+      "description": "FB TV HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:naruto-shippuuden-movie-6-road-to-ninja",
+    "type": "series",
+    "name": "Naruto: Shippuuden Movie 6 - Road to ...",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/2637.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/2637.jpg",
+    "description": "Naruto: Shippuuden Movie 6 - Road to Ninja - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:naruto-movie-09-road-to-ninja",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

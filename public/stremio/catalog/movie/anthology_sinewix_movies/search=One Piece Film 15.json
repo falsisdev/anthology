@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:2002",
+      "type": "movie",
+      "name": "One Piece Film 15",
+      "poster": "https://image.tmdb.org/t/p/w500/gpzMYQQrDLSihHmCLHAKT8h30Oc.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/ixrYaoKtLO6HpciDbb4QGj3D3tT.jpg",
+      "description": "Müzik adası Elegia’da, dünyanın en iyi sanatçısı olarak bilinen ama daha önce yüzü hiç görülmemiş olan Uta, ilk canlı konserini verecek ve hayranlarına kendini gösterecektir. Dünyanın dört bir yanından konsere gelen hayranların arasında Luffy ve Hasır Şapka Korsanları da vardır. Ancak etkinlikler başladığında Uta’yla ilgili onları şok edecek bir gerçek öğrenirler.",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    }
+  ]
+}

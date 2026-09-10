@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:337",
+      "type": "movie",
+      "name": "Batman: Kara Şövalye Yükseliyor",
+      "poster": "https://image.tmdb.org/t/p/w500/85cWkCVftiVs0BVey6pxX8uNmLt.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/cKPfiu9IcCW0fMdKdQBXe3PRtTZ.jpg",
+      "description": "Terörist lider Bane'in yaptığı gizli planları durdurmaya bu sefer ne Bruce Wayne'nin ne de Batman'in gücü yeter. Kedikadın Selina Kyle'ı da kendi safına çeken Bane, Gotham kentini ve halkını ciddi bir tehditle karşı karşıya bırakacaktır. Ne yerel kuvvetler, ne kahraman Jim Gordon ne de ordu olacakların önüne geçemez. Batman ilk kez kendisinden daha güçlü bir rakibe karşı mücadele verecektir. Christopher Nolan’ın Batman üçlemesinin sonuncusudur.",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

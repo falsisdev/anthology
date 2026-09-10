@@ -1,0 +1,92 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:3",
+      "type": "movie",
+      "name": "Batman: The Long Halloween, Part Two",
+      "poster": "https://image.tmdb.org/t/p/w500/5X1n5q08mZ7NpNpxehMFODxfNYq.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/7WuVUAsWWHt4g11R1HalX0RX2bh.jpg",
+      "description": "'Holiday' olarak bilinen bir katil, Falcone suç ailesinin peşine düşmeye devam eder. Bu sırada Gotham City'de yeni bir kostümlü suçlu sınıfı yükselir. Katilin peşine düşen Batman, araştırmasını ilerlettikçe, eski bir müttefikinin seri katil olabileceğinden şüphelenmeye başlar.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:1378",
+      "type": "movie",
+      "name": "Batman: The Long Halloween, Part One",
+      "poster": "https://image.tmdb.org/t/p/w500/sR7gppb0YGjwLvE6Vnj6wYv5MnW.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/uS9apevOgs2fuYghf9szOoK1u63.jpg",
+      "description": "Batman'in aynı isimli kült çizgi romanından uyarlanan bu yapımda Batman, sadece tatil günlerinde cinayet işleyen bir seri katilin gizemini çözmeye çalışıyor. Bu gizemde Catwoman ve Jim Gordon ile birlikte çalışan Batman'in yolu en azılı düşmanlarıyla da kesişmeye devam ediyor. İki parça halinde izleyici karşısına çıkacak bu yapımın ikinci kısmı Ağustos ayında yayınlanacak.\n\nBakalım katil Batman'in sayısız düşmanlarından hangisi? Ya da hiç ummadığımız biri mi?",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:437",
+      "type": "movie",
+      "name": "Batman: The Brave and the Bold",
+      "poster": "https://image.tmdb.org/t/p/w500/ukXZ1N9Pd99vDNetFKYNpFYgoXF.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/gPJZKiqBU5OVPhalvNDkU6NF8jQ.jpg",
+      "description": "Batman The Brave And The Bold, ABD yapımı bir animasyon dizidir ve The Batman çizgi filminin devamıdır. İlk bölümü Rise Of The Blue Beetle 'dır. Dizi 22 dakikalık bir çizgi dizidir.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:490",
+      "type": "movie",
+      "name": "The Avengers: Earth's Mightiest Heroes",
+      "poster": "https://image.tmdb.org/t/p/w500/r1JDhMrqCOZKh7lc0vQlRYQ46cE.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/vgPDKfOerEyF260CvozVEWj9T8n.jpg",
+      "description": "Kaosa sürüklenen bir dünyada kahramanlar, kötü adamların yüksek güvenlikli hapishanelerden toplu kaçışına karşı birleşerek barışı ve düzeni yeniden tesis etmeyi amaçlıyor.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:216",
+      "type": "movie",
+      "name": "Spider-Man: The New Animated Series",
+      "poster": "https://image.tmdb.org/t/p/w500/oAMMVcyCxRiTaz35sYeCPyyjco9.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/zw3IQw3bQp90XaN8IYM84wtjC6Y.jpg",
+      "description": "Spider-Man: The New Animated Series - Anthology",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:195",
+      "type": "movie",
+      "name": "The Spectacular Spider-Man",
+      "poster": "https://image.tmdb.org/t/p/w500/dCNxOhXT7c4lqYuRpdM3m8s9XDp.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/6rzoUOEkOVxB6EXHp0EgeNd4tke.jpg",
+      "description": "Örümcek Adam çizgi dizisinin her bölümünde yeni ve ayrı bir macera yer alacak. Amcası ile yaşayan, ders dışında pek başarılı olamayan Peter Parker günün birinde radyoaktif bir örümcek tarafından ısırılır. Günler geçtikçe kendinde sıradışı güçler olduğunu keşfetmeye başlar. Artık duvarlarda yürüyebilmekte, elleriyle ağ fırlatabilmektedir. İlk başlarda bu yeteneklerini eğlenmek için kullanır. Fakat kısa bir süre sonra bu güçlerini New York şehrini kötülerden korumak için kullanacaktır.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:91",
+      "type": "movie",
+      "name": "Avatar: The Legend of Korra",
+      "poster": "https://image.tmdb.org/t/p/w500/nhP0VGO2GSZbL4PUgmA6Vja48aM.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/hmrNfrUl3FFaymDj6Iw5oKQjIs2.jpg",
+      "description": "Sürekli olarak geleneğe meydan okuyan ve geleneğe meydan okuyan güçlü, asi, inatçı, genç bir kadın olan Avatar Korra, tamamen gerçek bir Avatar olma arayışı içinde. Bu hikayede, Avatar kendi içinde dengeyi bulmak için mücadele eder.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:series:1684",
+      "type": "movie",
+      "name": "A Knight of the Seven Kingdoms",
+      "poster": "https://image.tmdb.org/t/p/w500/k8yARbD9iYn2nRX2HvsopfKDN2r.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/7mkUu1F2hVUNgz24xO8HPx0D6mK.jpg",
+      "description": "Westeros dünyasından, beklenmedik ikili şövalye Sör Duncan ve onun yaveri Egg'in maceralarına odaklanan olasılık dışı bir hikâye.",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

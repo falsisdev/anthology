@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:one-piece-film-z",
+    "type": "series",
+    "name": "One Piece Film: Z",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/3183.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/3183.jpg",
+    "description": "One Piece Film: Z - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:one-piece-film-z",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

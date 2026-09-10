@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "cizgimax:show:ben-10-izle",
+      "type": "series",
+      "name": "Ben 10",
+      "poster": "https://cizgimax.online/img/locandine/ben-10-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/ben-10-poster.webp",
+      "description": "Ben 10 - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    }
+  ]
+}

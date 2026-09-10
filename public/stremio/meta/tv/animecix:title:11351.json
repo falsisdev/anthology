@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "id": "animecix:title:11351",
+    "type": "series",
+    "name": "Shingeki no Kyojin Picture Drama",
+    "poster": "https://image.tmdb.org/t/p/original/wyFtcneTysf7dd3ZqFnDPL0EZYN.jpg",
+    "background": "https://image.tmdb.org/t/p/original/wyFtcneTysf7dd3ZqFnDPL0EZYN.jpg",
+    "description": "Shingeki No Kyojin serisinin (chibi) special bölümleridir.",
+    "genres": [
+      "Anime",
+      "AnimeciX"
+    ],
+    "videos": [
+      {
+        "id": "animecix:ep:11351:1:1",
+        "title": "Shingeki no Kyojin Picture Drama 1. Sezon 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "animecix:ep:11351:1:2",
+        "title": "Shingeki no Kyojin Picture Drama 1. Sezon 2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "animecix:ep:11351:1:3",
+        "title": "Shingeki no Kyojin Picture Drama 1. Sezon 3. Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "animecix:ep:11351:1:4",
+        "title": "Shingeki no Kyojin Picture Drama 1. Sezon 4. Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "animecix:ep:11351:1:5",
+        "title": "Shingeki no Kyojin Picture Drama 1. Sezon 5. Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "animecix:ep:11351:1:6",
+        "title": "Shingeki no Kyojin Picture Drama 1. Sezon 6. Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "animecix:ep:11351:1:7",
+        "title": "Shingeki no Kyojin Picture Drama 1. Sezon 7. Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "animecix:ep:11351:1:8",
+        "title": "Shingeki no Kyojin Picture Drama 1. Sezon 8. Bölüm",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "animecix:ep:11351:1:9",
+        "title": "Shingeki no Kyojin Picture Drama 1. Sezon 9. Bölüm",
+        "season": 1,
+        "episode": 9
+      }
+    ]
+  }
+}

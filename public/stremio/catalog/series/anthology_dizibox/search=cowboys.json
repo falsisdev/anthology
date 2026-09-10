@@ -1,0 +1,40 @@
+{
+  "metas": [
+    {
+      "id": "dizibox:show:americas-team-the-gambler-and-his-cowboys",
+      "type": "series",
+      "name": "America’s Team: The Gambler and His Cowboys",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/americas-team-the-gambler-and-his-cowboys-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/americas-team-the-gambler-and-his-cowboys-50x50.jpg",
+      "description": "Bu belgesel dizisi, 90&#8217;ların Dallas Cowboys hanedanlığının üç Super Bowl&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:americas-sweethearts-dallas-cowboys-cheerleaders",
+      "type": "series",
+      "name": "AMERICA’S SWEETHEARTS: Dallas Cowboys Cheerleaders",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/americas-sweethearts-dallas-cowboys-cheerleaders-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/americas-sweethearts-dallas-cowboys-cheerleaders-50x50.jpg",
+      "description": "Seçmelerden eğitim kampına ve NFL sezonuna kadar, takımda yer alma&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:cocaine-cowboys-the-kings-of-miami",
+      "type": "series",
+      "name": "Cocaine Cowboys: The Kings of Miami",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/cocaine-cowboys-the-kings-of-miami-50x50.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/cocaine-cowboys-the-kings-of-miami-50x50.jpg",
+      "description": "Onlarca yıllık bir süreci konu alan bu gerçek suç öyküsünde liseyi&#8230;",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    }
+  ]
+}

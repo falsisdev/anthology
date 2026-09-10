@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:shingeki-no-kyojin-chronicle",
+    "type": "series",
+    "name": "Shingeki no Kyojin: Chronicle",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/4713.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/4713.jpg",
+    "description": "Shingeki no Kyojin: Chronicle - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:shingeki-no-kyojin-chronicle-movie",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

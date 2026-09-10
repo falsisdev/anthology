@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "cizgimax:show:film/batman-vs-two-face-izle",
+    "type": "series",
+    "name": "Batman vs. Two-Face",
+    "poster": "https://cizgimax.online/img/locandine/batman-vs-two-face-poster.webp",
+    "background": "https://cizgimax.online/img/locandine/batman-vs-two-face-poster.webp",
+    "description": "Batman vs. Two-Face - ÇizgiMax Arşivi",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:show:film/batman-vs-two-face-izle",
+        "title": "Batman vs. Two-Face",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

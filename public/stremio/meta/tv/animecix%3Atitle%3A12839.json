@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "animecix:title:12839",
+    "type": "series",
+    "name": "Jujutsu Kaisen: Execution",
+    "poster": "https://image.tmdb.org/t/p/original/tc7RrVW5FGvyO2tsgW6LIN1esHI.jpg",
+    "background": "https://image.tmdb.org/t/p/original/n72SP7mF6VMYB00mtSBWB2XAw4r.jpg",
+    "description": "Jujutsu Kaisen animesinin 2.Sezonundaki Shibuya Vakası Arkı ve 3.Sezonun ilk 2 bölümündeki İtlaf Oyunu Arkı'nın film derlemesi. Cadılar Bayramı kalabalığının ortasında, hareketli Shibuya bölgesinin üzerine aniden bir perde iner ve sayısız sivili içeride mahsur bırakır. En güçlü jujutsu büyücüsü Satoru Gojo, kaosun içine adım atar. Ancak onu hapsetmek için komplo kuran lanet kullanıcıları ve ruhlar onu beklemektedir. Yuji Itadori, sınıf arkadaşları ve diğer üst düzey jujutsu büyücüleri ile birlikte, eşi benzeri görülmemiş bir lanet çatışması olan Shibuya Olayı'na girer. Sonrasında, Noritoshi Kamo'nun planladığı bir komplo ile Japonya'daki on koloni lanet yuvasına dönüşür. Ölümcül Culling Game başlarken, Özel Sınıf büyücü Yuta Okkotsu, Yuji'nin işlediği suçlar nedeniyle idamını gerçekleştirmekle görevlendirilir. Eleme Oyunu arcının ilk iki bölümünü içeren Shibuya Olayı'nın derleme filmi.",
+    "genres": [
+      "Anime",
+      "AnimeciX"
+    ],
+    "videos": [
+      {
+        "id": "animecix:ep:12839:1:1",
+        "title": "Jujutsu Kaisen: Execution 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "metas": [
+    {
+      "id": "tv:TRT2.tr",
+      "type": "tv",
+      "name": "TRT 2 Kültür & Sanat HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt2.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt2.png",
+      "description": "TRT 2 Kültür & Sanat HD Canlı Yayın",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:beINSports2.tr",
+      "type": "tv",
+      "name": "BeIN Sports 2 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
+      "description": "BeIN Sports 2 HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:beINSportsMax2.tr",
+      "type": "tv",
+      "name": "BeIN Sports Max 2 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
+      "description": "BeIN Sports Max 2 HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:SSport2.tr",
+      "type": "tv",
+      "name": "S Sport 2 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssport.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssport.png",
+      "description": "S Sport 2 HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:TivibuSpor2.tr",
+      "type": "tv",
+      "name": "Tivibu Spor 2 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
+      "description": "Tivibu Spor 2 HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:SmartSpor2.tr",
+      "type": "tv",
+      "name": "Smart Spor 2 HD",
+      "poster": "https://i.imgur.com/qyUKCUa.png",
+      "background": "https://i.imgur.com/qyUKCUa.png",
+      "description": "Smart Spor 2 HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:EuroSport2.tr",
+      "type": "tv",
+      "name": "Euro Sport 2 HD",
+      "poster": "https://i.imgur.com/f56dHgR.png",
+      "background": "https://i.imgur.com/f56dHgR.png",
+      "description": "Euro Sport 2 HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:ExxenSports2.tr",
+      "type": "tv",
+      "name": "Exxen Sports 2 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
+      "description": "Exxen Sports 2 HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:TabiiSpor2.tr",
+      "type": "tv",
+      "name": "Tabii Spor 2 HD",
+      "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "background": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "description": "Tabii Spor 2 HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    }
+  ]
+}

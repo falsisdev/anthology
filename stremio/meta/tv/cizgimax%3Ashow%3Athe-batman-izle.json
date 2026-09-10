@@ -1,0 +1,406 @@
+{
+  "meta": {
+    "id": "cizgimax:show:the-batman-izle",
+    "type": "series",
+    "name": "Batman",
+    "poster": "https://cizgimax.online/img/locandine/the-batman-poster.webp",
+    "background": "https://cizgimax.online/img/locandine/the-batman-poster.webp",
+    "description": "Batman - ÇizgiMax",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:ep:the-batman-1-sezon-1-bolum-izle",
+        "title": "1. Sezon 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "cizgimax:ep:the-batman-1-sezon-2-bolum-izle",
+        "title": "1. Sezon 2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "cizgimax:ep:the-batman-1-sezon-3-bolum-izle",
+        "title": "1. Sezon 3. Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "cizgimax:ep:the-batman-1-sezon-4-bolum-izle",
+        "title": "1. Sezon 4. Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "cizgimax:ep:the-batman-1-sezon-5-bolum-izle",
+        "title": "1. Sezon 5. Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "cizgimax:ep:the-batman-1-sezon-6-bolum-izle",
+        "title": "1. Sezon 6. Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "cizgimax:ep:the-batman-1-sezon-7-bolum-izle",
+        "title": "1. Sezon 7. Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "cizgimax:ep:the-batman-1-sezon-8-bolum-izle",
+        "title": "1. Sezon 8. Bölüm",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "cizgimax:ep:the-batman-1-sezon-9-bolum-izle",
+        "title": "1. Sezon 9. Bölüm",
+        "season": 1,
+        "episode": 9
+      },
+      {
+        "id": "cizgimax:ep:the-batman-1-sezon-10-bolum-izle",
+        "title": "1. Sezon 10. Bölüm",
+        "season": 1,
+        "episode": 10
+      },
+      {
+        "id": "cizgimax:ep:the-batman-1-sezon-11-bolum-izle",
+        "title": "1. Sezon 11. Bölüm",
+        "season": 1,
+        "episode": 11
+      },
+      {
+        "id": "cizgimax:ep:the-batman-1-sezon-12-bolum-izle",
+        "title": "1. Sezon 12. Bölüm",
+        "season": 1,
+        "episode": 12
+      },
+      {
+        "id": "cizgimax:ep:the-batman-1-sezon-13-bolum-izle",
+        "title": "1. Sezon 13. Bölüm",
+        "season": 1,
+        "episode": 13
+      },
+      {
+        "id": "cizgimax:ep:the-batman-2-sezon-1-bolum-izle",
+        "title": "2. Sezon 1. Bölüm",
+        "season": 2,
+        "episode": 1
+      },
+      {
+        "id": "cizgimax:ep:the-batman-2-sezon-2-bolum-izle",
+        "title": "2. Sezon 2. Bölüm",
+        "season": 2,
+        "episode": 2
+      },
+      {
+        "id": "cizgimax:ep:the-batman-2-sezon-3-bolum-izle",
+        "title": "2. Sezon 3. Bölüm",
+        "season": 2,
+        "episode": 3
+      },
+      {
+        "id": "cizgimax:ep:the-batman-2-sezon-4-bolum-izle",
+        "title": "2. Sezon 4. Bölüm",
+        "season": 2,
+        "episode": 4
+      },
+      {
+        "id": "cizgimax:ep:the-batman-2-sezon-5-bolum-izle",
+        "title": "2. Sezon 5. Bölüm",
+        "season": 2,
+        "episode": 5
+      },
+      {
+        "id": "cizgimax:ep:the-batman-2-sezon-6-bolum-izle",
+        "title": "2. Sezon 6. Bölüm",
+        "season": 2,
+        "episode": 6
+      },
+      {
+        "id": "cizgimax:ep:the-batman-2-sezon-7-bolum-izle",
+        "title": "2. Sezon 7. Bölüm",
+        "season": 2,
+        "episode": 7
+      },
+      {
+        "id": "cizgimax:ep:the-batman-2-sezon-8-bolum-izle",
+        "title": "2. Sezon 8. Bölüm",
+        "season": 2,
+        "episode": 8
+      },
+      {
+        "id": "cizgimax:ep:the-batman-2-sezon-9-bolum-izle",
+        "title": "2. Sezon 9. Bölüm",
+        "season": 2,
+        "episode": 9
+      },
+      {
+        "id": "cizgimax:ep:the-batman-2-sezon-10-bolum-izle",
+        "title": "2. Sezon 10. Bölüm",
+        "season": 2,
+        "episode": 10
+      },
+      {
+        "id": "cizgimax:ep:the-batman-2-sezon-11-bolum-izle",
+        "title": "2. Sezon 11. Bölüm",
+        "season": 2,
+        "episode": 11
+      },
+      {
+        "id": "cizgimax:ep:the-batman-2-sezon-12-bolum-izle",
+        "title": "2. Sezon 12. Bölüm",
+        "season": 2,
+        "episode": 12
+      },
+      {
+        "id": "cizgimax:ep:the-batman-2-sezon-13-bolum-izle",
+        "title": "2. Sezon 13. Bölüm",
+        "season": 2,
+        "episode": 13
+      },
+      {
+        "id": "cizgimax:ep:the-batman-3-sezon-1-bolum-izle",
+        "title": "3. Sezon 1. Bölüm",
+        "season": 3,
+        "episode": 1
+      },
+      {
+        "id": "cizgimax:ep:the-batman-3-sezon-2-bolum-izle",
+        "title": "3. Sezon 2. Bölüm",
+        "season": 3,
+        "episode": 2
+      },
+      {
+        "id": "cizgimax:ep:the-batman-3-sezon-3-bolum-izle",
+        "title": "3. Sezon 3. Bölüm",
+        "season": 3,
+        "episode": 3
+      },
+      {
+        "id": "cizgimax:ep:the-batman-3-sezon-4-bolum-izle",
+        "title": "3. Sezon 4. Bölüm",
+        "season": 3,
+        "episode": 4
+      },
+      {
+        "id": "cizgimax:ep:the-batman-3-sezon-5-bolum-izle",
+        "title": "3. Sezon 5. Bölüm",
+        "season": 3,
+        "episode": 5
+      },
+      {
+        "id": "cizgimax:ep:the-batman-3-sezon-6-bolum-izle",
+        "title": "3. Sezon 6. Bölüm",
+        "season": 3,
+        "episode": 6
+      },
+      {
+        "id": "cizgimax:ep:the-batman-3-sezon-7-bolum-izle",
+        "title": "3. Sezon 7. Bölüm",
+        "season": 3,
+        "episode": 7
+      },
+      {
+        "id": "cizgimax:ep:the-batman-3-sezon-8-bolum-izle",
+        "title": "3. Sezon 8. Bölüm",
+        "season": 3,
+        "episode": 8
+      },
+      {
+        "id": "cizgimax:ep:the-batman-3-sezon-9-bolum-izle",
+        "title": "3. Sezon 9. Bölüm",
+        "season": 3,
+        "episode": 9
+      },
+      {
+        "id": "cizgimax:ep:the-batman-3-sezon-10-bolum-izle",
+        "title": "3. Sezon 10. Bölüm",
+        "season": 3,
+        "episode": 10
+      },
+      {
+        "id": "cizgimax:ep:the-batman-3-sezon-11-bolum-izle",
+        "title": "3. Sezon 11. Bölüm",
+        "season": 3,
+        "episode": 11
+      },
+      {
+        "id": "cizgimax:ep:the-batman-3-sezon-12-bolum-izle",
+        "title": "3. Sezon 12. Bölüm",
+        "season": 3,
+        "episode": 12
+      },
+      {
+        "id": "cizgimax:ep:the-batman-3-sezon-13-bolum-izle",
+        "title": "3. Sezon 13. Bölüm",
+        "season": 3,
+        "episode": 13
+      },
+      {
+        "id": "cizgimax:ep:the-batman-4-sezon-1-bolum-izle",
+        "title": "4. Sezon 1. Bölüm",
+        "season": 4,
+        "episode": 1
+      },
+      {
+        "id": "cizgimax:ep:the-batman-4-sezon-2-bolum-izle",
+        "title": "4. Sezon 2. Bölüm",
+        "season": 4,
+        "episode": 2
+      },
+      {
+        "id": "cizgimax:ep:the-batman-4-sezon-3-bolum-izle",
+        "title": "4. Sezon 3. Bölüm",
+        "season": 4,
+        "episode": 3
+      },
+      {
+        "id": "cizgimax:ep:the-batman-4-sezon-4-bolum-izle",
+        "title": "4. Sezon 4. Bölüm",
+        "season": 4,
+        "episode": 4
+      },
+      {
+        "id": "cizgimax:ep:the-batman-4-sezon-5-bolum-izle",
+        "title": "4. Sezon 5. Bölüm",
+        "season": 4,
+        "episode": 5
+      },
+      {
+        "id": "cizgimax:ep:the-batman-4-sezon-6-bolum-izle",
+        "title": "4. Sezon 6. Bölüm",
+        "season": 4,
+        "episode": 6
+      },
+      {
+        "id": "cizgimax:ep:the-batman-4-sezon-7-bolum-izle",
+        "title": "4. Sezon 7. Bölüm",
+        "season": 4,
+        "episode": 7
+      },
+      {
+        "id": "cizgimax:ep:the-batman-4-sezon-8-bolum-izle",
+        "title": "4. Sezon 8. Bölüm",
+        "season": 4,
+        "episode": 8
+      },
+      {
+        "id": "cizgimax:ep:the-batman-4-sezon-9-bolum-izle",
+        "title": "4. Sezon 9. Bölüm",
+        "season": 4,
+        "episode": 9
+      },
+      {
+        "id": "cizgimax:ep:the-batman-4-sezon-10-bolum-izle",
+        "title": "4. Sezon 10. Bölüm",
+        "season": 4,
+        "episode": 10
+      },
+      {
+        "id": "cizgimax:ep:the-batman-4-sezon-11-bolum-izle",
+        "title": "4. Sezon 11. Bölüm",
+        "season": 4,
+        "episode": 11
+      },
+      {
+        "id": "cizgimax:ep:the-batman-4-sezon-12-bolum-izle",
+        "title": "4. Sezon 12. Bölüm",
+        "season": 4,
+        "episode": 12
+      },
+      {
+        "id": "cizgimax:ep:the-batman-4-sezon-13-bolum-izle",
+        "title": "4. Sezon 13. Bölüm",
+        "season": 4,
+        "episode": 13
+      },
+      {
+        "id": "cizgimax:ep:the-batman-5-sezon-1-bolum-izle",
+        "title": "5. Sezon 1. Bölüm",
+        "season": 5,
+        "episode": 1
+      },
+      {
+        "id": "cizgimax:ep:the-batman-5-sezon-2-bolum-izle",
+        "title": "5. Sezon 2. Bölüm",
+        "season": 5,
+        "episode": 2
+      },
+      {
+        "id": "cizgimax:ep:the-batman-5-sezon-3-bolum-izle",
+        "title": "5. Sezon 3. Bölüm",
+        "season": 5,
+        "episode": 3
+      },
+      {
+        "id": "cizgimax:ep:the-batman-5-sezon-4-bolum-izle",
+        "title": "5. Sezon 4. Bölüm",
+        "season": 5,
+        "episode": 4
+      },
+      {
+        "id": "cizgimax:ep:the-batman-5-sezon-5-bolum-izle",
+        "title": "5. Sezon 5. Bölüm",
+        "season": 5,
+        "episode": 5
+      },
+      {
+        "id": "cizgimax:ep:the-batman-5-sezon-6-bolum-izle",
+        "title": "5. Sezon 6. Bölüm",
+        "season": 5,
+        "episode": 6
+      },
+      {
+        "id": "cizgimax:ep:the-batman-5-sezon-7-bolum-izle",
+        "title": "5. Sezon 7. Bölüm",
+        "season": 5,
+        "episode": 7
+      },
+      {
+        "id": "cizgimax:ep:the-batman-5-sezon-8-bolum-izle",
+        "title": "5. Sezon 8. Bölüm",
+        "season": 5,
+        "episode": 8
+      },
+      {
+        "id": "cizgimax:ep:the-batman-5-sezon-9-bolum-izle",
+        "title": "5. Sezon 9. Bölüm",
+        "season": 5,
+        "episode": 9
+      },
+      {
+        "id": "cizgimax:ep:the-batman-5-sezon-10-bolum-izle",
+        "title": "5. Sezon 10. Bölüm",
+        "season": 5,
+        "episode": 10
+      },
+      {
+        "id": "cizgimax:ep:the-batman-5-sezon-11-bolum-izle",
+        "title": "5. Sezon 11. Bölüm",
+        "season": 5,
+        "episode": 11
+      },
+      {
+        "id": "cizgimax:ep:the-batman-5-sezon-12-bolum-izle",
+        "title": "5. Sezon 12. Bölüm",
+        "season": 5,
+        "episode": 12
+      },
+      {
+        "id": "cizgimax:ep:the-batman-5-sezon-13-bolum-izle",
+        "title": "5. Sezon 13. Bölüm",
+        "season": 5,
+        "episode": 13
+      }
+    ]
+  }
+}

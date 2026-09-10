@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:one-piece-film-red",
+    "type": "series",
+    "name": "One Piece Film: Red",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/5810.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/5810.jpg",
+    "description": "One Piece Film: Red - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:one-piece-film-red-movie",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

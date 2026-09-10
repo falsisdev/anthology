@@ -7,12 +7,17 @@ const TMDB_API_KEY = "68e094699525b18a70bab2f86b1fa706";
 const ENC_DEC_API = "https://enc-dec.app/api";
 const VIDLINK_API = "https://vidlink.pro/api/b";
 
-// Required headers for Vidlink requests
+// Required headers for Vidlink API requests
 const VIDLINK_HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
     "Connection": "keep-alive",
     "Referer": "https://vidlink.pro/",
     "Origin": "https://vidlink.pro"
+};
+
+// Clean headers for video playback (CDN blocks requests with Referer: https://vidlink.pro/ with 429)
+const STREAM_HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
 };
 
 // Helper function to make HTTP requests with default headers
@@ -122,7 +127,7 @@ function fetchAndParseM3U8(playlistUrl, mediaInfo) {
                     url: playlistUrl,
                     quality: 'Auto',
                     size: 'ALTYAZILI',    //'Unknown',
-                    headers: VIDLINK_HEADERS,
+                    headers: STREAM_HEADERS,
                     provider: 'vidlink'
                 }];
             }
@@ -138,7 +143,7 @@ function fetchAndParseM3U8(playlistUrl, mediaInfo) {
                     url: stream.url,
                     quality: quality,
                     size: 'ALTYAZILI',    //'Unknown',
-                    headers: VIDLINK_HEADERS,
+                    headers: STREAM_HEADERS,
                     provider: 'vidlink'
                 };
             });
@@ -154,7 +159,7 @@ function fetchAndParseM3U8(playlistUrl, mediaInfo) {
                 url: playlistUrl,
                 quality: 'Auto',
                 size: 'ALTYAZILI',    //'Unknown',
-                headers: VIDLINK_HEADERS,
+                headers: STREAM_HEADERS,
                 provider: 'vidlink'
             }];
         });
@@ -294,7 +299,7 @@ function processVidlinkResponse(data, mediaInfo) {
                         url: qualityData.url,
                         quality: `${quality} [${lang}]`, // KALİTE + DİL
                         size: 'ALTYAZILI',    //'Unknown',
-                        headers: VIDLINK_HEADERS,
+                        headers: STREAM_HEADERS,
                         provider: 'vidlink'
                     });
                 }
@@ -346,7 +351,7 @@ function processVidlinkResponse(data, mediaInfo) {
                 url: data.url,
                 quality: `${quality} [${lang}]`,
                size: 'ALTYAZILI',    //'Unknown',
-                headers: VIDLINK_HEADERS,
+                headers: STREAM_HEADERS,
                 provider: 'vidlink'
             });
         }
@@ -368,7 +373,7 @@ function processVidlinkResponse(data, mediaInfo) {
                         url: stream.url,
                         quality: `${quality} [${lang}]`,
                         size: stream.size || 'ALTYAZILI',    //'Unknown',
-                        headers: VIDLINK_HEADERS,
+                        headers: STREAM_HEADERS,
                         provider: 'vidlink'
                     });
                 }

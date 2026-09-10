@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:one-piece-movie-2-nejimaki-jima-no-daibouken",
+    "type": "series",
+    "name": "One Piece Movie 2: Nejimaki-jima no D...",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/3169.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/3169.jpg",
+    "description": "One Piece Movie 2: Nejimaki-jima no Daibouken - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:one-piece-movie-2-nejimaki-jima-no-daibouken",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

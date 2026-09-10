@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:148",
+      "type": "movie",
+      "name": "Yüzüklerin Efendisi: İki Kule",
+      "poster": "https://image.tmdb.org/t/p/w500/eX1Yl1h9iVusGiqIrUA3cI16AbA.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/nS4picOwj15APKzJeBCk6EBcMG5.jpg",
+      "description": "Yüzük Kardeşliği üyelerinin her birinin, kardeşlik bozulduktan sonra başlarına gelenler anlatılıyor. Kahramanlarımız, gruplar halinde Orta Dünya'nın en tehlikeli yerlerinde maceralar yaşayacaklar, yeni kavimler ve çoktan unutulmuş medeniyetlerle tanışacaklar.",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

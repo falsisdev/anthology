@@ -1,0 +1,183 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:2002",
+      "type": "movie",
+      "name": "One Piece Film 15",
+      "poster": "https://image.tmdb.org/t/p/w500/gpzMYQQrDLSihHmCLHAKT8h30Oc.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/ixrYaoKtLO6HpciDbb4QGj3D3tT.jpg",
+      "description": "Müzik adası Elegia’da, dünyanın en iyi sanatçısı olarak bilinen ama daha önce yüzü hiç görülmemiş olan Uta, ilk canlı konserini verecek ve hayranlarına kendini gösterecektir. Dünyanın dört bir yanından konsere gelen hayranların arasında Luffy ve Hasır Şapka Korsanları da vardır. Ancak etkinlikler başladığında Uta’yla ilgili onları şok edecek bir gerçek öğrenirler.",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3937",
+      "type": "movie",
+      "name": "One Piece Film 14",
+      "poster": "https://image.tmdb.org/t/p/w500/84dIS4eSm2Fnl15ZHiXvoklGy5b.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/55NKqRgstL3u1Oxe2gAAJUtx3jM.jpg",
+      "description": "Korsanlara yönelik dünyanın en büyük korsan festivali 20 yılın ardından geri döner! Festivalde vaat edilen hazine, Korsanlar Kralı Gol D. Roger'ın hazinesidir. Hasır Şapkalı tayfası tası tarağı toplayıp bu festivale katılır! Acaba Korsanlar Kralı Gol D. Roger'ın hazinesinin içinde ne vardır?",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    },
+    {
+      "id": "sinewix:movie:2350",
+      "type": "movie",
+      "name": "One Piece Film 13",
+      "poster": "https://image.tmdb.org/t/p/w500/jXL61GC8DzVJCK6gFSPpBmdSbFn.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/jlsJGNXRGx6d06osRbjwxoVEVXV.jpg",
+      "description": "Hasır Şapka Tayfasının, dünyanın en zengin adamlarından biri olan Gild Tesoro ile karşılaşmasını konu alır.",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    },
+    {
+      "id": "sinewix:movie:2349",
+      "type": "movie",
+      "name": "One Piece Film 12",
+      "poster": "https://image.tmdb.org/t/p/w500/guzIZgMMUp11qDA22clAdVXRids.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/59M1aPwmaVvzZ5KR6dagkC3pUb7.jpg",
+      "description": "Hasır Şapka Korsanları, Korsanlar Kralı Gol D. Roger'ın gizli hazinelerinin arayışında sert denizlere girer. Yolculukları esnasında, korkutucu ve güçlü bir adam olan eski Denizci Amirali Z ile karşılaşırlar.\r Z, Yeni Dünya'yı yerinden oynatabilecek güce sahip olduğuna inanılan \"Dyna Taşları'nı\" çalmış olmaktan suçludur. Denizci Karargahı, Z'nin, Korsan Çağı'nı sonlandırması için taşları kullanacağının yanı sıra birçok masum insanın hayatına da son vereceğine inanmaktadır. Böylesine büyük bir olayın korkusuyla denizciler, eski amirallerine karşı harekete geçer.\r Bu, denizciler ve donanmayla karşılaşmak anlamına gelse de, Hasır Şapka Korsanları, Z'yi takip etmeye ve onun katliam çıkarmasını engellemeye karar verir. Korsanlar maceralarına devam ettikçe, yeni veya aşina oldukları kişilere rastlarlar.",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    },
+    {
+      "id": "sinewix:movie:2348",
+      "type": "movie",
+      "name": "One Piece Film 11",
+      "poster": "https://image.tmdb.org/t/p/w500/dvW1MjHXWAhaU5PR6wW80zVSgs1.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/dpwfPVCD2eQgEWY7GtCYAyRaVAP.jpg",
+      "description": "Luffy uyandığında önemli hasır şapkasının kaybolduğunu fark eder ve tüm Hasır Şapka ekibi onu aramaya başlar. Bu sırada, boş görünen bir gemiyi keşfe çıkan Usopp ve Chopper, hasta bir korsan bulurlar ve Thousand Sunny'lerine götürerek onu tedavi etmeye karar verirler. Kısa bir süre sonra, Luffy'nin şapkasını tutan bir kuş görürler ve ekip, bir yandan beklemedikleri anda ortaya çıkan Deniz Kuvvetleri ve Denizin Kralları ile başa çıkmaya çalışırken bir yandan da kuşu takip etmeye başlarlar.",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    },
+    {
+      "id": "sinewix:movie:2347",
+      "type": "movie",
+      "name": "One Piece Film 10",
+      "poster": "https://image.tmdb.org/t/p/w500/s5UuGv4LxDNkfVm3dG6GEIyGNFE.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/fgcSkuv3otR5iz2VzzFnh3QOI49.jpg",
+      "description": "Impel Down'dan kaçtıktan 20 yıl sonra, efsanevi korsan Shiki, Altın Aslan, Deniz Kuvvetlerine karşı büyük bir karışıklığa neden oluyor. Uzun süren istilası sırasında, Dünya Hükümeti'ni dizlerine getirmek için bir plan hazırlamayı başardı. Planı yürütme yolunda Shiki, Hasır Şapkalı Korsanlar ile yolları kesiyor ve Nami'nin meteoroloji bilgisinden çok etkileniyor ve onu zorla askere aldırmak için kaçırıyor. Luffy ve çeteler, umutsuzca Shiki ve Nami'yi ararken korkunç canavarlarla dolu tuhaf bir ülkeye dönüştüler.",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    },
+    {
+      "id": "sinewix:movie:2346",
+      "type": "movie",
+      "name": "One Piece Film 9",
+      "poster": "https://image.tmdb.org/t/p/w500/jpPCv8rO4DjeUkdh6CQGc7ws2pD.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/yJetT9PknmMbgwPdhrpxVU8tDKk.jpg",
+      "description": "One Piece serisinin 9. filmidir. Serideki Drum Island hikâyesinin olduğu bölümlerin özetidir.\n\nDiğer filmlere ulaşmak için OnePiece (boşluk olmadan) film numarasını yazarak filmlerine ulaşabilirsiniz.\n\nÖrnek OnePiece Film 3\n\nChopper’ın hikayesi, bu filmde yeniden anlatılıyor, ancak bazı değişikliklerle. Hikaye kışın geçiyor ve duygusal anlar barındırıyor.\n\nChopper’ın geçmişi ve doktorluk arayışı filme derinlik katıyor. Kış manzarası, animeye görsel bir güzellik katıyor.\n\n325. bölüm sonrasında izlenebilir. Chopper hayranları için oldukça dokunaklı bir yapım.",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    },
+    {
+      "id": "sinewix:movie:2345",
+      "type": "movie",
+      "name": "One Piece Film 8",
+      "poster": "https://image.tmdb.org/t/p/w500/xdUr3hCslqkgqsgahpnXbIynOBe.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/bK4VigqGwROMnFRNT9gudON6C5b.jpg",
+      "description": "Diğer filmlere ulaşmak için OnePiece (boşluk olmadan) film numarasını yazarak filmlerine ulaşabilirsiniz.\n\nÖrnek OnePiece Film 3\n\nAlabasta hikayesini kısaca özetleyen bu film, serinin en önemli arklarından biri olan Crocodile ile savaşlarını yeniden gösteriyor.\n\nLuffy ve tayfası, Vivi’nin krallığını kurtarmak için Alabasta’da büyük bir mücadele veriyor. Crocodile’ın planlarını bozmaya çalışırken, tayfanın güçlerinin sınırları zorlanıyor. Seriyi tekrar izlemek isteyenler için iyi bir hatırlatma.\n\n312. bölüm sonrasında izlenebilir. Bu film, One Piece’in en dramatik ve aksiyon dolu anlarından birini yeniden yaşatıyor.",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    },
+    {
+      "id": "sinewix:movie:2344",
+      "type": "movie",
+      "name": "One Piece Film 7",
+      "poster": "https://image.tmdb.org/t/p/w500/8x92ekqR0bR9qBIJLpr7xX7yCBi.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/4NyJEGke7B5bZcRaImkTFc5FcZE.jpg",
+      "description": "\"Grand Line\"daki firtına sırasında, Luffy ve tayfası, batmakta olan bir gemide, büyük bir hazine sandığı bulurlar. İştahla sandığı açarlar ama içinde hazine yerine altın dişi olan yaşlı bir kadın çıkar. Yaşlı kadın, gemi batarken sandığın içine saklanmıştır. Yaşlı kadın, eğer onu yaşadığı adaya götürürlerse, onlara efsanevi hazine; Golden Crown'u vereceğini söyler. Teklifi düşünürler ve bu yeni hazineyi elde etmek için adaya doğru yola çıkarlar. Oraya vardıklarında, birinin söylediği şarkıyı duyarlar “Denizlerin Kralı, The Golden Crown...” bu sırada adanın isminin “Mecha Adası” ve ilerde duran yapının da Mecha Şatosu olduğunu öğrenirler.\n\nDiğer filmlere ulaşmak için OnePiece (boşluk olmadan) film numarasını yazarak filmlerine ulaşabilirsiniz.\n\nÖrnek OnePiece Film 3",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    },
+    {
+      "id": "sinewix:movie:2343",
+      "type": "movie",
+      "name": "One Piece Film 6",
+      "poster": "https://image.tmdb.org/t/p/w500/dK7ZNywrl6ouuNGeLaTHNYel4iX.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/xGJBLsiY0quc2pOcCH1MdnF5P8.jpg",
+      "description": "Luffy, suda yüzen cam bir şişe bulur ve şişenin içinden ise 100,000,000 korsan arasından seçilerek Omatsuri adasına davet edildiğini söyleyen bir yazı ile harita çıkar. Bütün Strawhat tayfası buradaki şüpheli durumu fark etse de, Luffy her zamanki gibi macera fırsatını kaçırmak istemez.Adaya vardıklarında özel hiçbir şey göremedikleri için hayal kırıklığına uğramaya başladıkları sırada önlerine bir eğlence parkı çıkar ve onları karşılayan bir geçit töreni başlar. Bu adada ne tür sırlar ve tehlikeler onları beklemektedir?\n\nDiğer filmlere ulaşmak için OnePiece (boşluk olmadan) film numarasını yazarak filmlerine ulaşabilirsiniz.\n\nÖrnek OnePiece Film 3",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    },
+    {
+      "id": "sinewix:movie:2342",
+      "type": "movie",
+      "name": "One Piece Film 5",
+      "poster": "https://image.tmdb.org/t/p/w500/h5gbvY5DFAxah8l0JalpmV2qLcM.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/sL92Cyf8oeIGm76FEsRZMj7FtzT.jpg",
+      "description": "Luffy ve tayfası, Dünya’daki en pahalı kılıç olduğu söylenen efsanevi kılıcı bulmak için bir adaya giderler. Ancak kısa süre içinde kendilerine saldıran denizciler ve güzel kızlar tayfayı ayırır. Zoro eski bir dostuna yardım etmek için gruptan koparken, Luffy ile Usopp bir mağaraya girer ve tayfanın geri kalanı köye denizcilerle olan savaşlarında yardım ederler. Sanji’yi yenen Zoro, Dünya’yı karanlığa boğacak şeytani kılıca karşı tek savunmaları olan kutsal incileri ele geçirir.\n\nDiğer filmlere ulaşmak için OnePiece (boşluk olmadan) film numarasını yazarak filmlerine ulaşabilirsiniz.\n\nÖrnek OnePiece Film 3",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    },
+    {
+      "id": "sinewix:movie:2341",
+      "type": "movie",
+      "name": "One Piece Film 4",
+      "poster": "https://image.tmdb.org/t/p/w500/5FI9ljoXUiqNBWypkFxFzft8w1Z.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/41e5H3UhT7D8VYBh4rdGy5fB0lv.jpg",
+      "description": "Luffy ve tayfası Anabaru limanında varırlar. Yerel kumarhane, bitiş çizgisine ilk ulaşanın yüklü miktarda parayla ödüllendirileceği bir yarışma düzenlemektedir. Bu habere en çok sevinen kişi olan Nami, yarışa katılmaya karar verir. Ancak yarışın arka planında bir komplo vardır ve bu komplonun başı, eski askeri bir kumandan olan Gasparde’dir. Planı, bütün korsanları askeri üsse çekmek ve ölümlerine yollamaktır. Luffy ve arkadaşları çıkmaz sonu olan bu macerayı tamamlayabilmek için yol boyunca onlarca testin ve sıkıntının üstesinden gelmek zorundadır.\n\nDiğer filmlere ulaşmak için OnePiece (boşluk olmadan) film numarasını yazarak filmlerine ulaşabilirsiniz.\n\nÖrnek OnePiece Film 3",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    },
+    {
+      "id": "sinewix:movie:2340",
+      "type": "movie",
+      "name": "One Piece Film 3",
+      "poster": "https://image.tmdb.org/t/p/w500/8uzFccR8F3h7tC9zfIOT063r91N.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/A9Yy4ZRJgTXlKa1KOV92YLTCppn.jpg",
+      "description": "Luffy ve tayfası bu sefer hayvanların konuşabildiği bir ada olan Crown Island'a (Taç Adası) gelirler. Adada yaşayan hayvanlar Chopper'ı gördükleri anda yeni kralları yaparlar. Adadaki insan avcılarda efsanevi boynuzları aramaktadır. Bu işin arkasındaki gerçek ise tayfayı yepyeni bir maceranın içerisine çekecektir.\n\nDiğer filmlere ulaşmak için OnePiece (boşluk olmadan) film numarasını yazarak filmlerine ulaşabilirsiniz.\n\nÖrnek OnePiece Film 3",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    },
+    {
+      "id": "sinewix:movie:2339",
+      "type": "movie",
+      "name": "One Piece Film 2",
+      "poster": "https://image.tmdb.org/t/p/w500/cXHTcUfCs6LvVjmhx3EzYgQRXWU.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/qgaVJE4SK2qRtggVyRlISKQ1zBE.jpg",
+      "description": "One Piece 2.Filmidir. Diğer filmlere ulaşmak için OnePiece (boşluk olmadan) film numarasını yazarak filmlerine ulaşabilirsiniz.\n\nÖrnek OnePiece Film 3\n\nTayfa bu sefer Clockwork Adası’na gidiyor ve maceraları daha büyük bir tehlikeyle yüzleşmelerine yol açıyor.\n\nFilmin odak noktası, tayfanın Zoro’nun kılıçlarını geri alması ve adanın gizemli yapıları. Aksiyon dozu yüksek ve adanın mekanik yapıları ilginç bir atmosfer sunuyor.\n\nEğlenceli ama basit bir hikaye, fazla derinleşmeden hızlıca ilerliyor. 53. bölüm sonrasında izlenmesi tavsiye ediliyor. Bazı dövüş sahneleri oldukça etkileyici, özellikle Zoro ve Sanji’nin performansları dikkat çekici.",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    },
+    {
+      "id": "sinewix:movie:1378",
+      "type": "movie",
+      "name": "Batman: The Long Halloween, Part One",
+      "poster": "https://image.tmdb.org/t/p/w500/sR7gppb0YGjwLvE6Vnj6wYv5MnW.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/uS9apevOgs2fuYghf9szOoK1u63.jpg",
+      "description": "Batman'in aynı isimli kült çizgi romanından uyarlanan bu yapımda Batman, sadece tatil günlerinde cinayet işleyen bir seri katilin gizemini çözmeye çalışıyor. Bu gizemde Catwoman ve Jim Gordon ile birlikte çalışan Batman'in yolu en azılı düşmanlarıyla da kesişmeye devam ediyor. İki parça halinde izleyici karşısına çıkacak bu yapımın ikinci kısmı Ağustos ayında yayınlanacak.\n\nBakalım katil Batman'in sayısız düşmanlarından hangisi? Ya da hiç ummadığımız biri mi?",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

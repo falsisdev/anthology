@@ -1,0 +1,26 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:series:379",
+      "type": "movie",
+      "name": "Batman: Pelerinli Savaşçı",
+      "poster": "https://image.tmdb.org/t/p/w500/3h1nDGIcmj5cRynFi3Hdc2AzC1Z.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/vTqkpDUe1DUUPcHDpcf0RT0gIQ0.jpg",
+      "description": "Trajediyle şekillenmiş milyarder Bruce Wayne, bir insandan hem daha ötesi hem de daha azıdır, o Batman’dir. Her gece büyük zorluklarla karşılaşarak suça karşı tek kişilik savaşını durmaksızın sürdürür.",
+      "genres": [
+        "SineWix"
+      ]
+    },
+    {
+      "id": "sinewix:movie:3532",
+      "type": "movie",
+      "name": "Batman: Pelerinli Süvarilerin Dönüşü",
+      "poster": "https://image.tmdb.org/t/p/w500/kXV5rVxxRYWHksELUi6dxzWG7Sj.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/oBwzYKdcbT7K8CEkKDbTspPAJkG.jpg",
+      "description": "Penguen, Joker, Bulmacacı ve Kedi Kadın bir araya gelerek Gotham City'yi tehdit edince Batman ve Robin tekrar harekete geçiyorlar. Pelerinli kahramanlar, bu defa yeteneklerini ve güçlerini birleştiren dört azılı düşmanla mücadele edecekler.",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

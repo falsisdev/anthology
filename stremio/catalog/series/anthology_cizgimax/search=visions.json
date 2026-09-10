@@ -1,0 +1,28 @@
+{
+  "metas": [
+    {
+      "id": "cizgimax:show:star-wars-visions-izle",
+      "type": "series",
+      "name": "Star Wars: Visions",
+      "poster": "https://cizgimax.online/img/locandine/star-wars-visions-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/star-wars-visions-poster.webp",
+      "description": "Star Wars: Visions - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:star-wars-visions-volume-izle",
+      "type": "series",
+      "name": "Star Wars: Visions Volume 3",
+      "poster": "https://cdn.myanimelist.net/images/anime/1007/151669l.jpg",
+      "background": "https://cdn.myanimelist.net/images/anime/1007/151669l.jpg",
+      "description": "Star Wars: Visions Volume 3 - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    }
+  ]
+}

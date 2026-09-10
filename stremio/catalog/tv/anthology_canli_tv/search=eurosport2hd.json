@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:EuroSport2.tr",
+      "type": "tv",
+      "name": "Euro Sport 2 HD",
+      "poster": "https://i.imgur.com/f56dHgR.png",
+      "background": "https://i.imgur.com/f56dHgR.png",
+      "description": "Euro Sport 2 HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    }
+  ]
+}

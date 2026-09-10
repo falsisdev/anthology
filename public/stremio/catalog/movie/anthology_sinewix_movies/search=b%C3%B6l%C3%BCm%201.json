@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:65",
+      "type": "movie",
+      "name": "O Bölüm 1",
+      "poster": "https://image.tmdb.org/t/p/w500/z6BkOQlCLSoZXxxDeYKXQA6XbzD.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/tcheoA2nPATCm2vvXw2hVQoaEFD.jpg",
+      "description": "Stephen King'in romanından uyarlanan filmde, 1989 yazında Derry, Maine’de yaşayan bir grup çocuğun 27 yılda bir kasabanın çocuklarını avlayan şeytanı bir varlığı durdurmak için verdikleri mücadele anlatılmaktadır.",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    }
+  ]
+}

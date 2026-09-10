@@ -1,0 +1,28 @@
+{
+  "metas": [
+    {
+      "id": "animecix:title:12136",
+      "type": "series",
+      "name": "My Hero Academia: Vigilantes",
+      "poster": "https://image.tmdb.org/t/p/original/iv0cXt6uJGlTryWZNQMGyum4Pme.jpg",
+      "background": "https://image.tmdb.org/t/p/w1280/baZ0pGbBGjCBhIqsFyOSTpJyUnQ.jpg",
+      "description": "Hayatını değiştiren bir olayın ardından çekingen üniversite öğrencisi Koichi Haimawari, saygın kanun kaçağı Knuckleduster'ın himayesi altında eğitim alma teklifini kabul eder.",
+      "genres": [
+        "Anime",
+        "AnimeciX"
+      ]
+    },
+    {
+      "id": "animecix:title:7540",
+      "type": "series",
+      "name": "Hitorijime My Hero",
+      "poster": "https://image.tmdb.org/t/p/original/5glvkwxDpXiFkqni2IzDT40MGRH.jpg",
+      "background": "https://image.tmdb.org/t/p/w1280/ccdNmBwqethpd75ySImC0Ru6MsQ.jpg",
+      "description": "Hikaye Hitorijime Boyfriend'deki Kensuke'nin erkek kardeşi Ooshiba Kousuke ve arkadaşı Setagawa Masashiro'yu konu alır.",
+      "genres": [
+        "Anime",
+        "AnimeciX"
+      ]
+    }
+  ]
+}

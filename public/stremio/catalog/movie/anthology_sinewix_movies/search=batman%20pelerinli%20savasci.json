@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:series:379",
+      "type": "movie",
+      "name": "Batman: Pelerinli Savaşçı",
+      "poster": "https://image.tmdb.org/t/p/w500/3h1nDGIcmj5cRynFi3Hdc2AzC1Z.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/vTqkpDUe1DUUPcHDpcf0RT0gIQ0.jpg",
+      "description": "Trajediyle şekillenmiş milyarder Bruce Wayne, bir insandan hem daha ötesi hem de daha azıdır, o Batman’dir. Her gece büyük zorluklarla karşılaşarak suça karşı tek kişilik savaşını durmaksızın sürdürür.",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

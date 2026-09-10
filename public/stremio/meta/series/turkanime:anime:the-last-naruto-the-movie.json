@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:the-last-naruto-the-movie",
+    "type": "series",
+    "name": "The Last: Naruto the Movie",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/2638.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/2638.jpg",
+    "description": "The Last: Naruto the Movie - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:naruto-movie-10-the-last",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

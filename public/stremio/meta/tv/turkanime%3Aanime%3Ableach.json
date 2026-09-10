@@ -1,0 +1,2176 @@
+{
+  "meta": {
+    "id": "turkanime:anime:bleach",
+    "type": "series",
+    "name": "Bleach",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/20.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/20.jpg",
+    "description": "Bleach - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:bleach-1-bolum",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "turkanime:ep:bleach-2-bolum",
+        "title": "2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "turkanime:ep:bleach-3-bolum",
+        "title": "3. Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "turkanime:ep:bleach-4-bolum",
+        "title": "4. Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "turkanime:ep:bleach-5-bolum",
+        "title": "5. Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "turkanime:ep:bleach-6-bolum",
+        "title": "6. Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "turkanime:ep:bleach-7-bolum",
+        "title": "7. Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "turkanime:ep:bleach-8-bolum",
+        "title": "8. Bölüm",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "turkanime:ep:bleach-9-bolum",
+        "title": "9. Bölüm",
+        "season": 1,
+        "episode": 9
+      },
+      {
+        "id": "turkanime:ep:bleach-10-bolum",
+        "title": "10. Bölüm",
+        "season": 1,
+        "episode": 10
+      },
+      {
+        "id": "turkanime:ep:bleach-11-bolum",
+        "title": "11. Bölüm",
+        "season": 1,
+        "episode": 11
+      },
+      {
+        "id": "turkanime:ep:bleach-12-bolum",
+        "title": "12. Bölüm",
+        "season": 1,
+        "episode": 12
+      },
+      {
+        "id": "turkanime:ep:bleach-13-bolum",
+        "title": "13. Bölüm",
+        "season": 1,
+        "episode": 13
+      },
+      {
+        "id": "turkanime:ep:bleach-14-bolum",
+        "title": "14. Bölüm",
+        "season": 1,
+        "episode": 14
+      },
+      {
+        "id": "turkanime:ep:bleach-15-bolum",
+        "title": "15. Bölüm",
+        "season": 1,
+        "episode": 15
+      },
+      {
+        "id": "turkanime:ep:bleach-16-bolum",
+        "title": "16. Bölüm",
+        "season": 1,
+        "episode": 16
+      },
+      {
+        "id": "turkanime:ep:bleach-17-bolum",
+        "title": "17. Bölüm",
+        "season": 1,
+        "episode": 17
+      },
+      {
+        "id": "turkanime:ep:bleach-18-bolum",
+        "title": "18. Bölüm",
+        "season": 1,
+        "episode": 18
+      },
+      {
+        "id": "turkanime:ep:bleach-19-bolum",
+        "title": "19. Bölüm",
+        "season": 1,
+        "episode": 19
+      },
+      {
+        "id": "turkanime:ep:bleach-20-bolum",
+        "title": "20. Bölüm",
+        "season": 1,
+        "episode": 20
+      },
+      {
+        "id": "turkanime:ep:bleach-21-bolum",
+        "title": "21. Bölüm",
+        "season": 1,
+        "episode": 21
+      },
+      {
+        "id": "turkanime:ep:bleach-22-bolum",
+        "title": "22. Bölüm",
+        "season": 1,
+        "episode": 22
+      },
+      {
+        "id": "turkanime:ep:bleach-23-bolum",
+        "title": "23. Bölüm",
+        "season": 1,
+        "episode": 23
+      },
+      {
+        "id": "turkanime:ep:bleach-24-bolum",
+        "title": "24. Bölüm",
+        "season": 1,
+        "episode": 24
+      },
+      {
+        "id": "turkanime:ep:bleach-25-bolum",
+        "title": "25. Bölüm",
+        "season": 1,
+        "episode": 25
+      },
+      {
+        "id": "turkanime:ep:bleach-26-bolum",
+        "title": "26. Bölüm",
+        "season": 1,
+        "episode": 26
+      },
+      {
+        "id": "turkanime:ep:bleach-27-bolum",
+        "title": "27. Bölüm",
+        "season": 1,
+        "episode": 27
+      },
+      {
+        "id": "turkanime:ep:bleach-28-bolum",
+        "title": "28. Bölüm",
+        "season": 1,
+        "episode": 28
+      },
+      {
+        "id": "turkanime:ep:bleach-29-bolum",
+        "title": "29. Bölüm",
+        "season": 1,
+        "episode": 29
+      },
+      {
+        "id": "turkanime:ep:bleach-30-bolum",
+        "title": "30. Bölüm",
+        "season": 1,
+        "episode": 30
+      },
+      {
+        "id": "turkanime:ep:bleach-31-bolum",
+        "title": "31. Bölüm",
+        "season": 1,
+        "episode": 31
+      },
+      {
+        "id": "turkanime:ep:bleach-32-bolum",
+        "title": "32. Bölüm",
+        "season": 1,
+        "episode": 32
+      },
+      {
+        "id": "turkanime:ep:bleach-33-bolum",
+        "title": "33. Bölüm",
+        "season": 1,
+        "episode": 33
+      },
+      {
+        "id": "turkanime:ep:bleach-34-bolum",
+        "title": "34. Bölüm",
+        "season": 1,
+        "episode": 34
+      },
+      {
+        "id": "turkanime:ep:bleach-35-bolum",
+        "title": "35. Bölüm",
+        "season": 1,
+        "episode": 35
+      },
+      {
+        "id": "turkanime:ep:bleach-36-bolum",
+        "title": "36. Bölüm",
+        "season": 1,
+        "episode": 36
+      },
+      {
+        "id": "turkanime:ep:bleach-37-bolum",
+        "title": "37. Bölüm",
+        "season": 1,
+        "episode": 37
+      },
+      {
+        "id": "turkanime:ep:bleach-38-bolum",
+        "title": "38. Bölüm",
+        "season": 1,
+        "episode": 38
+      },
+      {
+        "id": "turkanime:ep:bleach-39-bolum",
+        "title": "39. Bölüm",
+        "season": 1,
+        "episode": 39
+      },
+      {
+        "id": "turkanime:ep:bleach-40-bolum",
+        "title": "40. Bölüm",
+        "season": 1,
+        "episode": 40
+      },
+      {
+        "id": "turkanime:ep:bleach-41-bolum",
+        "title": "41. Bölüm",
+        "season": 1,
+        "episode": 41
+      },
+      {
+        "id": "turkanime:ep:bleach-42-bolum",
+        "title": "42. Bölüm",
+        "season": 1,
+        "episode": 42
+      },
+      {
+        "id": "turkanime:ep:bleach-43-bolum",
+        "title": "43. Bölüm",
+        "season": 1,
+        "episode": 43
+      },
+      {
+        "id": "turkanime:ep:bleach-44-bolum",
+        "title": "44. Bölüm",
+        "season": 1,
+        "episode": 44
+      },
+      {
+        "id": "turkanime:ep:bleach-45-bolum",
+        "title": "45. Bölüm",
+        "season": 1,
+        "episode": 45
+      },
+      {
+        "id": "turkanime:ep:bleach-46-bolum",
+        "title": "46. Bölüm",
+        "season": 1,
+        "episode": 46
+      },
+      {
+        "id": "turkanime:ep:bleach-47-bolum",
+        "title": "47. Bölüm",
+        "season": 1,
+        "episode": 47
+      },
+      {
+        "id": "turkanime:ep:bleach-48-bolum",
+        "title": "48. Bölüm",
+        "season": 1,
+        "episode": 48
+      },
+      {
+        "id": "turkanime:ep:bleach-49-bolum",
+        "title": "49. Bölüm",
+        "season": 1,
+        "episode": 49
+      },
+      {
+        "id": "turkanime:ep:bleach-50-bolum",
+        "title": "50. Bölüm",
+        "season": 1,
+        "episode": 50
+      },
+      {
+        "id": "turkanime:ep:bleach-51-bolum",
+        "title": "51. Bölüm",
+        "season": 1,
+        "episode": 51
+      },
+      {
+        "id": "turkanime:ep:bleach-52-53-bolum",
+        "title": "53. Bölüm",
+        "season": 1,
+        "episode": 53
+      },
+      {
+        "id": "turkanime:ep:bleach-54-bolum",
+        "title": "54. Bölüm",
+        "season": 1,
+        "episode": 54
+      },
+      {
+        "id": "turkanime:ep:bleach-55-bolum",
+        "title": "55. Bölüm",
+        "season": 1,
+        "episode": 55
+      },
+      {
+        "id": "turkanime:ep:bleach-56-bolum",
+        "title": "56. Bölüm",
+        "season": 1,
+        "episode": 56
+      },
+      {
+        "id": "turkanime:ep:bleach-57-bolum",
+        "title": "57. Bölüm",
+        "season": 1,
+        "episode": 57
+      },
+      {
+        "id": "turkanime:ep:bleach-58-bolum",
+        "title": "58. Bölüm",
+        "season": 1,
+        "episode": 58
+      },
+      {
+        "id": "turkanime:ep:bleach-59-bolum",
+        "title": "59. Bölüm",
+        "season": 1,
+        "episode": 59
+      },
+      {
+        "id": "turkanime:ep:bleach-60-bolum",
+        "title": "60. Bölüm",
+        "season": 1,
+        "episode": 60
+      },
+      {
+        "id": "turkanime:ep:bleach-61-bolum",
+        "title": "61. Bölüm",
+        "season": 1,
+        "episode": 61
+      },
+      {
+        "id": "turkanime:ep:bleach-62-bolum",
+        "title": "62. Bölüm",
+        "season": 1,
+        "episode": 62
+      },
+      {
+        "id": "turkanime:ep:bleach-63-bolum",
+        "title": "63. Bölüm",
+        "season": 1,
+        "episode": 63
+      },
+      {
+        "id": "turkanime:ep:bleach-64-bolum",
+        "title": "64. Bölüm",
+        "season": 1,
+        "episode": 64
+      },
+      {
+        "id": "turkanime:ep:bleach-65-bolum",
+        "title": "65. Bölüm",
+        "season": 1,
+        "episode": 65
+      },
+      {
+        "id": "turkanime:ep:bleach-66-bolum",
+        "title": "66. Bölüm",
+        "season": 1,
+        "episode": 66
+      },
+      {
+        "id": "turkanime:ep:bleach-67-bolum",
+        "title": "67. Bölüm",
+        "season": 1,
+        "episode": 67
+      },
+      {
+        "id": "turkanime:ep:bleach-68-69-bolum",
+        "title": "69. Bölüm",
+        "season": 1,
+        "episode": 69
+      },
+      {
+        "id": "turkanime:ep:bleach-70-bolum",
+        "title": "70. Bölüm",
+        "season": 1,
+        "episode": 70
+      },
+      {
+        "id": "turkanime:ep:bleach-71-bolum",
+        "title": "71. Bölüm",
+        "season": 1,
+        "episode": 71
+      },
+      {
+        "id": "turkanime:ep:bleach-72-bolum",
+        "title": "72. Bölüm",
+        "season": 1,
+        "episode": 72
+      },
+      {
+        "id": "turkanime:ep:bleach-73-74-bolum",
+        "title": "74. Bölüm",
+        "season": 1,
+        "episode": 74
+      },
+      {
+        "id": "turkanime:ep:bleach-75-76-bolum",
+        "title": "76. Bölüm",
+        "season": 1,
+        "episode": 76
+      },
+      {
+        "id": "turkanime:ep:bleach-77-bolum",
+        "title": "77. Bölüm",
+        "season": 1,
+        "episode": 77
+      },
+      {
+        "id": "turkanime:ep:bleach-78-bolum",
+        "title": "78. Bölüm",
+        "season": 1,
+        "episode": 78
+      },
+      {
+        "id": "turkanime:ep:bleach-79-bolum",
+        "title": "79. Bölüm",
+        "season": 1,
+        "episode": 79
+      },
+      {
+        "id": "turkanime:ep:bleach-80-bolum",
+        "title": "80. Bölüm",
+        "season": 1,
+        "episode": 80
+      },
+      {
+        "id": "turkanime:ep:bleach-81-bolum",
+        "title": "81. Bölüm",
+        "season": 1,
+        "episode": 81
+      },
+      {
+        "id": "turkanime:ep:bleach-82-bolum",
+        "title": "82. Bölüm",
+        "season": 1,
+        "episode": 82
+      },
+      {
+        "id": "turkanime:ep:bleach-83-bolum",
+        "title": "83. Bölüm",
+        "season": 1,
+        "episode": 83
+      },
+      {
+        "id": "turkanime:ep:bleach-84-85-bolum",
+        "title": "85. Bölüm",
+        "season": 1,
+        "episode": 85
+      },
+      {
+        "id": "turkanime:ep:bleach-86-bolum",
+        "title": "86. Bölüm",
+        "season": 1,
+        "episode": 86
+      },
+      {
+        "id": "turkanime:ep:bleach-87-bolum",
+        "title": "87. Bölüm",
+        "season": 1,
+        "episode": 87
+      },
+      {
+        "id": "turkanime:ep:bleach-88-bolum",
+        "title": "88. Bölüm",
+        "season": 1,
+        "episode": 88
+      },
+      {
+        "id": "turkanime:ep:bleach-89-bolum",
+        "title": "89. Bölüm",
+        "season": 1,
+        "episode": 89
+      },
+      {
+        "id": "turkanime:ep:bleach-90-bolum",
+        "title": "90. Bölüm",
+        "season": 1,
+        "episode": 90
+      },
+      {
+        "id": "turkanime:ep:bleach-91-bolum",
+        "title": "91. Bölüm",
+        "season": 1,
+        "episode": 91
+      },
+      {
+        "id": "turkanime:ep:bleach-92-bolum",
+        "title": "92. Bölüm",
+        "season": 1,
+        "episode": 92
+      },
+      {
+        "id": "turkanime:ep:bleach-93-bolum",
+        "title": "93. Bölüm",
+        "season": 1,
+        "episode": 93
+      },
+      {
+        "id": "turkanime:ep:bleach-94-bolum",
+        "title": "94. Bölüm",
+        "season": 1,
+        "episode": 94
+      },
+      {
+        "id": "turkanime:ep:bleach-95-bolum",
+        "title": "95. Bölüm",
+        "season": 1,
+        "episode": 95
+      },
+      {
+        "id": "turkanime:ep:bleach-96-bolum",
+        "title": "96. Bölüm",
+        "season": 1,
+        "episode": 96
+      },
+      {
+        "id": "turkanime:ep:bleach-97-bolum",
+        "title": "97. Bölüm",
+        "season": 1,
+        "episode": 97
+      },
+      {
+        "id": "turkanime:ep:bleach-98-bolum",
+        "title": "98. Bölüm",
+        "season": 1,
+        "episode": 98
+      },
+      {
+        "id": "turkanime:ep:bleach-99-bolum",
+        "title": "99. Bölüm",
+        "season": 1,
+        "episode": 99
+      },
+      {
+        "id": "turkanime:ep:bleach-100-bolum",
+        "title": "100. Bölüm",
+        "season": 1,
+        "episode": 100
+      },
+      {
+        "id": "turkanime:ep:bleach-101-bolum",
+        "title": "101. Bölüm",
+        "season": 1,
+        "episode": 101
+      },
+      {
+        "id": "turkanime:ep:bleach-102-bolum",
+        "title": "102. Bölüm",
+        "season": 1,
+        "episode": 102
+      },
+      {
+        "id": "turkanime:ep:bleach-103-bolum",
+        "title": "103. Bölüm",
+        "season": 1,
+        "episode": 103
+      },
+      {
+        "id": "turkanime:ep:bleach-104-bolum",
+        "title": "104. Bölüm",
+        "season": 1,
+        "episode": 104
+      },
+      {
+        "id": "turkanime:ep:bleach-105-bolum",
+        "title": "105. Bölüm",
+        "season": 1,
+        "episode": 105
+      },
+      {
+        "id": "turkanime:ep:bleach-106-bolum",
+        "title": "106. Bölüm",
+        "season": 1,
+        "episode": 106
+      },
+      {
+        "id": "turkanime:ep:bleach-107-bolum",
+        "title": "107. Bölüm",
+        "season": 1,
+        "episode": 107
+      },
+      {
+        "id": "turkanime:ep:bleach-108-bolum",
+        "title": "108. Bölüm",
+        "season": 1,
+        "episode": 108
+      },
+      {
+        "id": "turkanime:ep:bleach-109-bolum",
+        "title": "109. Bölüm",
+        "season": 1,
+        "episode": 109
+      },
+      {
+        "id": "turkanime:ep:bleach-110-bolum",
+        "title": "110. Bölüm",
+        "season": 1,
+        "episode": 110
+      },
+      {
+        "id": "turkanime:ep:bleach-111-bolum",
+        "title": "111. Bölüm",
+        "season": 1,
+        "episode": 111
+      },
+      {
+        "id": "turkanime:ep:bleach-112-bolum",
+        "title": "112. Bölüm",
+        "season": 1,
+        "episode": 112
+      },
+      {
+        "id": "turkanime:ep:bleach-113-bolum",
+        "title": "113. Bölüm",
+        "season": 1,
+        "episode": 113
+      },
+      {
+        "id": "turkanime:ep:bleach-114-bolum",
+        "title": "114. Bölüm",
+        "season": 1,
+        "episode": 114
+      },
+      {
+        "id": "turkanime:ep:bleach-115-bolum",
+        "title": "115. Bölüm",
+        "season": 1,
+        "episode": 115
+      },
+      {
+        "id": "turkanime:ep:bleach-116-bolum",
+        "title": "116. Bölüm",
+        "season": 1,
+        "episode": 116
+      },
+      {
+        "id": "turkanime:ep:bleach-117-bolum",
+        "title": "117. Bölüm",
+        "season": 1,
+        "episode": 117
+      },
+      {
+        "id": "turkanime:ep:bleach-118-bolum",
+        "title": "118. Bölüm",
+        "season": 1,
+        "episode": 118
+      },
+      {
+        "id": "turkanime:ep:bleach-119-bolum",
+        "title": "119. Bölüm",
+        "season": 1,
+        "episode": 119
+      },
+      {
+        "id": "turkanime:ep:bleach-120-bolum",
+        "title": "120. Bölüm",
+        "season": 1,
+        "episode": 120
+      },
+      {
+        "id": "turkanime:ep:bleach-121-bolum",
+        "title": "121. Bölüm",
+        "season": 1,
+        "episode": 121
+      },
+      {
+        "id": "turkanime:ep:bleach-122-bolum",
+        "title": "122. Bölüm",
+        "season": 1,
+        "episode": 122
+      },
+      {
+        "id": "turkanime:ep:bleach-123-bolum",
+        "title": "123. Bölüm",
+        "season": 1,
+        "episode": 123
+      },
+      {
+        "id": "turkanime:ep:bleach-124-bolum",
+        "title": "124. Bölüm",
+        "season": 1,
+        "episode": 124
+      },
+      {
+        "id": "turkanime:ep:bleach-125-bolum",
+        "title": "125. Bölüm",
+        "season": 1,
+        "episode": 125
+      },
+      {
+        "id": "turkanime:ep:bleach-126-bolum",
+        "title": "126. Bölüm",
+        "season": 1,
+        "episode": 126
+      },
+      {
+        "id": "turkanime:ep:bleach-127-bolum",
+        "title": "127. Bölüm",
+        "season": 1,
+        "episode": 127
+      },
+      {
+        "id": "turkanime:ep:bleach-128-bolum",
+        "title": "128. Bölüm",
+        "season": 1,
+        "episode": 128
+      },
+      {
+        "id": "turkanime:ep:bleach-129-bolum",
+        "title": "129. Bölüm",
+        "season": 1,
+        "episode": 129
+      },
+      {
+        "id": "turkanime:ep:bleach-130-bolum",
+        "title": "130. Bölüm",
+        "season": 1,
+        "episode": 130
+      },
+      {
+        "id": "turkanime:ep:bleach-131-bolum",
+        "title": "131. Bölüm",
+        "season": 1,
+        "episode": 131
+      },
+      {
+        "id": "turkanime:ep:bleach-132-bolum",
+        "title": "132. Bölüm",
+        "season": 1,
+        "episode": 132
+      },
+      {
+        "id": "turkanime:ep:bleach-133-bolum",
+        "title": "133. Bölüm",
+        "season": 1,
+        "episode": 133
+      },
+      {
+        "id": "turkanime:ep:bleach-134-bolum",
+        "title": "134. Bölüm",
+        "season": 1,
+        "episode": 134
+      },
+      {
+        "id": "turkanime:ep:bleach-135-bolum",
+        "title": "135. Bölüm",
+        "season": 1,
+        "episode": 135
+      },
+      {
+        "id": "turkanime:ep:bleach-136-bolum",
+        "title": "136. Bölüm",
+        "season": 1,
+        "episode": 136
+      },
+      {
+        "id": "turkanime:ep:bleach-137-bolum",
+        "title": "137. Bölüm",
+        "season": 1,
+        "episode": 137
+      },
+      {
+        "id": "turkanime:ep:bleach-138-bolum",
+        "title": "138. Bölüm",
+        "season": 1,
+        "episode": 138
+      },
+      {
+        "id": "turkanime:ep:bleach-139-bolum",
+        "title": "139. Bölüm",
+        "season": 1,
+        "episode": 139
+      },
+      {
+        "id": "turkanime:ep:bleach-140-bolum",
+        "title": "140. Bölüm",
+        "season": 1,
+        "episode": 140
+      },
+      {
+        "id": "turkanime:ep:bleach-141-bolum",
+        "title": "141. Bölüm",
+        "season": 1,
+        "episode": 141
+      },
+      {
+        "id": "turkanime:ep:bleach-142-bolum",
+        "title": "142. Bölüm",
+        "season": 1,
+        "episode": 142
+      },
+      {
+        "id": "turkanime:ep:bleach-143-bolum",
+        "title": "143. Bölüm",
+        "season": 1,
+        "episode": 143
+      },
+      {
+        "id": "turkanime:ep:bleach-144-bolum",
+        "title": "144. Bölüm",
+        "season": 1,
+        "episode": 144
+      },
+      {
+        "id": "turkanime:ep:bleach-145-bolum",
+        "title": "145. Bölüm",
+        "season": 1,
+        "episode": 145
+      },
+      {
+        "id": "turkanime:ep:bleach-146-bolum",
+        "title": "146. Bölüm",
+        "season": 1,
+        "episode": 146
+      },
+      {
+        "id": "turkanime:ep:bleach-147-bolum",
+        "title": "147. Bölüm",
+        "season": 1,
+        "episode": 147
+      },
+      {
+        "id": "turkanime:ep:bleach-148-bolum",
+        "title": "148. Bölüm",
+        "season": 1,
+        "episode": 148
+      },
+      {
+        "id": "turkanime:ep:bleach-149-bolum",
+        "title": "149. Bölüm",
+        "season": 1,
+        "episode": 149
+      },
+      {
+        "id": "turkanime:ep:bleach-150-bolum",
+        "title": "150. Bölüm",
+        "season": 1,
+        "episode": 150
+      },
+      {
+        "id": "turkanime:ep:bleach-151-bolum",
+        "title": "151. Bölüm",
+        "season": 1,
+        "episode": 151
+      },
+      {
+        "id": "turkanime:ep:bleach-152-bolum",
+        "title": "152. Bölüm",
+        "season": 1,
+        "episode": 152
+      },
+      {
+        "id": "turkanime:ep:bleach-153-bolum",
+        "title": "153. Bölüm",
+        "season": 1,
+        "episode": 153
+      },
+      {
+        "id": "turkanime:ep:bleach-154-bolum",
+        "title": "154. Bölüm",
+        "season": 1,
+        "episode": 154
+      },
+      {
+        "id": "turkanime:ep:bleach-155-bolum",
+        "title": "155. Bölüm",
+        "season": 1,
+        "episode": 155
+      },
+      {
+        "id": "turkanime:ep:bleach-156-bolum",
+        "title": "156. Bölüm",
+        "season": 1,
+        "episode": 156
+      },
+      {
+        "id": "turkanime:ep:bleach-157-bolum",
+        "title": "157. Bölüm",
+        "season": 1,
+        "episode": 157
+      },
+      {
+        "id": "turkanime:ep:bleach-158-bolum",
+        "title": "158. Bölüm",
+        "season": 1,
+        "episode": 158
+      },
+      {
+        "id": "turkanime:ep:bleach-159-bolum",
+        "title": "159. Bölüm",
+        "season": 1,
+        "episode": 159
+      },
+      {
+        "id": "turkanime:ep:bleach-160-bolum",
+        "title": "160. Bölüm",
+        "season": 1,
+        "episode": 160
+      },
+      {
+        "id": "turkanime:ep:bleach-161-bolum",
+        "title": "161. Bölüm",
+        "season": 1,
+        "episode": 161
+      },
+      {
+        "id": "turkanime:ep:bleach-162-bolum",
+        "title": "162. Bölüm",
+        "season": 1,
+        "episode": 162
+      },
+      {
+        "id": "turkanime:ep:bleach-163-bolum",
+        "title": "163. Bölüm",
+        "season": 1,
+        "episode": 163
+      },
+      {
+        "id": "turkanime:ep:bleach-164-bolum",
+        "title": "164. Bölüm",
+        "season": 1,
+        "episode": 164
+      },
+      {
+        "id": "turkanime:ep:bleach-165-bolum",
+        "title": "165. Bölüm",
+        "season": 1,
+        "episode": 165
+      },
+      {
+        "id": "turkanime:ep:bleach-166-bolum",
+        "title": "166. Bölüm",
+        "season": 1,
+        "episode": 166
+      },
+      {
+        "id": "turkanime:ep:bleach-167-bolum",
+        "title": "167. Bölüm",
+        "season": 1,
+        "episode": 167
+      },
+      {
+        "id": "turkanime:ep:bleach-168-bolum",
+        "title": "168. Bölüm",
+        "season": 1,
+        "episode": 168
+      },
+      {
+        "id": "turkanime:ep:bleach-169-bolum",
+        "title": "169. Bölüm",
+        "season": 1,
+        "episode": 169
+      },
+      {
+        "id": "turkanime:ep:bleach-170-bolum",
+        "title": "170. Bölüm",
+        "season": 1,
+        "episode": 170
+      },
+      {
+        "id": "turkanime:ep:bleach-171-bolum",
+        "title": "171. Bölüm",
+        "season": 1,
+        "episode": 171
+      },
+      {
+        "id": "turkanime:ep:bleach-172-bolum",
+        "title": "172. Bölüm",
+        "season": 1,
+        "episode": 172
+      },
+      {
+        "id": "turkanime:ep:bleach-173-bolum",
+        "title": "173. Bölüm",
+        "season": 1,
+        "episode": 173
+      },
+      {
+        "id": "turkanime:ep:bleach-174-bolum",
+        "title": "174. Bölüm",
+        "season": 1,
+        "episode": 174
+      },
+      {
+        "id": "turkanime:ep:bleach-175-bolum",
+        "title": "175. Bölüm",
+        "season": 1,
+        "episode": 175
+      },
+      {
+        "id": "turkanime:ep:bleach-176-177-bolum",
+        "title": "177. Bölüm",
+        "season": 1,
+        "episode": 177
+      },
+      {
+        "id": "turkanime:ep:bleach-178-bolum",
+        "title": "178. Bölüm",
+        "season": 1,
+        "episode": 178
+      },
+      {
+        "id": "turkanime:ep:bleach-179-bolum",
+        "title": "179. Bölüm",
+        "season": 1,
+        "episode": 179
+      },
+      {
+        "id": "turkanime:ep:bleach-180-bolum",
+        "title": "180. Bölüm",
+        "season": 1,
+        "episode": 180
+      },
+      {
+        "id": "turkanime:ep:bleach-181-bolum",
+        "title": "181. Bölüm",
+        "season": 1,
+        "episode": 181
+      },
+      {
+        "id": "turkanime:ep:bleach-182-bolum",
+        "title": "182. Bölüm",
+        "season": 1,
+        "episode": 182
+      },
+      {
+        "id": "turkanime:ep:bleach-183-bolum",
+        "title": "183. Bölüm",
+        "season": 1,
+        "episode": 183
+      },
+      {
+        "id": "turkanime:ep:bleach-184-bolum",
+        "title": "184. Bölüm",
+        "season": 1,
+        "episode": 184
+      },
+      {
+        "id": "turkanime:ep:bleach-185-bolum",
+        "title": "185. Bölüm",
+        "season": 1,
+        "episode": 185
+      },
+      {
+        "id": "turkanime:ep:bleach-186-bolum",
+        "title": "186. Bölüm",
+        "season": 1,
+        "episode": 186
+      },
+      {
+        "id": "turkanime:ep:bleach-187-bolum",
+        "title": "187. Bölüm",
+        "season": 1,
+        "episode": 187
+      },
+      {
+        "id": "turkanime:ep:bleach-188-bolum",
+        "title": "188. Bölüm",
+        "season": 1,
+        "episode": 188
+      },
+      {
+        "id": "turkanime:ep:bleach-189-bolum",
+        "title": "189. Bölüm",
+        "season": 1,
+        "episode": 189
+      },
+      {
+        "id": "turkanime:ep:bleach-190-bolum",
+        "title": "190. Bölüm",
+        "season": 1,
+        "episode": 190
+      },
+      {
+        "id": "turkanime:ep:bleach-191-bolum",
+        "title": "191. Bölüm",
+        "season": 1,
+        "episode": 191
+      },
+      {
+        "id": "turkanime:ep:bleach-192-bolum",
+        "title": "192. Bölüm",
+        "season": 1,
+        "episode": 192
+      },
+      {
+        "id": "turkanime:ep:bleach-193-bolum",
+        "title": "193. Bölüm",
+        "season": 1,
+        "episode": 193
+      },
+      {
+        "id": "turkanime:ep:bleach-194-bolum",
+        "title": "194. Bölüm",
+        "season": 1,
+        "episode": 194
+      },
+      {
+        "id": "turkanime:ep:bleach-195-bolum",
+        "title": "195. Bölüm",
+        "season": 1,
+        "episode": 195
+      },
+      {
+        "id": "turkanime:ep:bleach-196-bolum",
+        "title": "196. Bölüm",
+        "season": 1,
+        "episode": 196
+      },
+      {
+        "id": "turkanime:ep:bleach-197-bolum",
+        "title": "197. Bölüm",
+        "season": 1,
+        "episode": 197
+      },
+      {
+        "id": "turkanime:ep:bleach-198-bolum",
+        "title": "198. Bölüm",
+        "season": 1,
+        "episode": 198
+      },
+      {
+        "id": "turkanime:ep:bleach-199-bolum",
+        "title": "199. Bölüm",
+        "season": 1,
+        "episode": 199
+      },
+      {
+        "id": "turkanime:ep:bleach-200-bolum",
+        "title": "200. Bölüm",
+        "season": 1,
+        "episode": 200
+      },
+      {
+        "id": "turkanime:ep:bleach-201-bolum",
+        "title": "201. Bölüm",
+        "season": 1,
+        "episode": 201
+      },
+      {
+        "id": "turkanime:ep:bleach-202-bolum",
+        "title": "202. Bölüm",
+        "season": 1,
+        "episode": 202
+      },
+      {
+        "id": "turkanime:ep:bleach-203-bolum",
+        "title": "203. Bölüm",
+        "season": 1,
+        "episode": 203
+      },
+      {
+        "id": "turkanime:ep:bleach-204-bolum",
+        "title": "204. Bölüm",
+        "season": 1,
+        "episode": 204
+      },
+      {
+        "id": "turkanime:ep:bleach-205-bolum",
+        "title": "205. Bölüm",
+        "season": 1,
+        "episode": 205
+      },
+      {
+        "id": "turkanime:ep:bleach-206-bolum",
+        "title": "206. Bölüm",
+        "season": 1,
+        "episode": 206
+      },
+      {
+        "id": "turkanime:ep:bleach-207-bolum",
+        "title": "207. Bölüm",
+        "season": 1,
+        "episode": 207
+      },
+      {
+        "id": "turkanime:ep:bleach-208-bolum",
+        "title": "208. Bölüm",
+        "season": 1,
+        "episode": 208
+      },
+      {
+        "id": "turkanime:ep:bleach-209-bolum",
+        "title": "209. Bölüm",
+        "season": 1,
+        "episode": 209
+      },
+      {
+        "id": "turkanime:ep:bleach-210-bolum",
+        "title": "210. Bölüm",
+        "season": 1,
+        "episode": 210
+      },
+      {
+        "id": "turkanime:ep:bleach-211-bolum",
+        "title": "211. Bölüm",
+        "season": 1,
+        "episode": 211
+      },
+      {
+        "id": "turkanime:ep:bleach-212-bolum",
+        "title": "212. Bölüm",
+        "season": 1,
+        "episode": 212
+      },
+      {
+        "id": "turkanime:ep:bleach-213-bolum",
+        "title": "213. Bölüm",
+        "season": 1,
+        "episode": 213
+      },
+      {
+        "id": "turkanime:ep:bleach-214-bolum",
+        "title": "214. Bölüm",
+        "season": 1,
+        "episode": 214
+      },
+      {
+        "id": "turkanime:ep:bleach-215-bolum",
+        "title": "215. Bölüm",
+        "season": 1,
+        "episode": 215
+      },
+      {
+        "id": "turkanime:ep:bleach-216-bolum",
+        "title": "216. Bölüm",
+        "season": 1,
+        "episode": 216
+      },
+      {
+        "id": "turkanime:ep:bleach-217-bolum",
+        "title": "217. Bölüm",
+        "season": 1,
+        "episode": 217
+      },
+      {
+        "id": "turkanime:ep:bleach-218-bolum",
+        "title": "218. Bölüm",
+        "season": 1,
+        "episode": 218
+      },
+      {
+        "id": "turkanime:ep:bleach-219-bolum",
+        "title": "219. Bölüm",
+        "season": 1,
+        "episode": 219
+      },
+      {
+        "id": "turkanime:ep:bleach-220-bolum",
+        "title": "220. Bölüm",
+        "season": 1,
+        "episode": 220
+      },
+      {
+        "id": "turkanime:ep:bleach-221-bolum",
+        "title": "221. Bölüm",
+        "season": 1,
+        "episode": 221
+      },
+      {
+        "id": "turkanime:ep:bleach-222-bolum",
+        "title": "222. Bölüm",
+        "season": 1,
+        "episode": 222
+      },
+      {
+        "id": "turkanime:ep:bleach-223-bolum",
+        "title": "223. Bölüm",
+        "season": 1,
+        "episode": 223
+      },
+      {
+        "id": "turkanime:ep:bleach-224-bolum",
+        "title": "224. Bölüm",
+        "season": 1,
+        "episode": 224
+      },
+      {
+        "id": "turkanime:ep:bleach-225-bolum",
+        "title": "225. Bölüm",
+        "season": 1,
+        "episode": 225
+      },
+      {
+        "id": "turkanime:ep:bleach-226-bolum",
+        "title": "226. Bölüm",
+        "season": 1,
+        "episode": 226
+      },
+      {
+        "id": "turkanime:ep:bleach-227-bolum",
+        "title": "227. Bölüm",
+        "season": 1,
+        "episode": 227
+      },
+      {
+        "id": "turkanime:ep:bleach-228-bolum",
+        "title": "228. Bölüm",
+        "season": 1,
+        "episode": 228
+      },
+      {
+        "id": "turkanime:ep:bleach-229-bolum",
+        "title": "229. Bölüm",
+        "season": 1,
+        "episode": 229
+      },
+      {
+        "id": "turkanime:ep:bleach-230-bolum",
+        "title": "230. Bölüm",
+        "season": 1,
+        "episode": 230
+      },
+      {
+        "id": "turkanime:ep:bleach-231-bolum",
+        "title": "231. Bölüm",
+        "season": 1,
+        "episode": 231
+      },
+      {
+        "id": "turkanime:ep:bleach-232-bolum",
+        "title": "232. Bölüm",
+        "season": 1,
+        "episode": 232
+      },
+      {
+        "id": "turkanime:ep:bleach-233-bolum",
+        "title": "233. Bölüm",
+        "season": 1,
+        "episode": 233
+      },
+      {
+        "id": "turkanime:ep:bleach-234-bolum",
+        "title": "234. Bölüm",
+        "season": 1,
+        "episode": 234
+      },
+      {
+        "id": "turkanime:ep:bleach-235-bolum",
+        "title": "235. Bölüm",
+        "season": 1,
+        "episode": 235
+      },
+      {
+        "id": "turkanime:ep:bleach-236-bolum",
+        "title": "236. Bölüm",
+        "season": 1,
+        "episode": 236
+      },
+      {
+        "id": "turkanime:ep:bleach-237-bolum",
+        "title": "237. Bölüm",
+        "season": 1,
+        "episode": 237
+      },
+      {
+        "id": "turkanime:ep:bleach-238-bolum",
+        "title": "238. Bölüm",
+        "season": 1,
+        "episode": 238
+      },
+      {
+        "id": "turkanime:ep:bleach-239-bolum",
+        "title": "239. Bölüm",
+        "season": 1,
+        "episode": 239
+      },
+      {
+        "id": "turkanime:ep:bleach-240-bolum",
+        "title": "240. Bölüm",
+        "season": 1,
+        "episode": 240
+      },
+      {
+        "id": "turkanime:ep:bleach-241-bolum",
+        "title": "241. Bölüm",
+        "season": 1,
+        "episode": 241
+      },
+      {
+        "id": "turkanime:ep:bleach-242-bolum",
+        "title": "242. Bölüm",
+        "season": 1,
+        "episode": 242
+      },
+      {
+        "id": "turkanime:ep:bleach-243-bolum",
+        "title": "243. Bölüm",
+        "season": 1,
+        "episode": 243
+      },
+      {
+        "id": "turkanime:ep:bleach-244-bolum",
+        "title": "244. Bölüm",
+        "season": 1,
+        "episode": 244
+      },
+      {
+        "id": "turkanime:ep:bleach-245-bolum",
+        "title": "245. Bölüm",
+        "season": 1,
+        "episode": 245
+      },
+      {
+        "id": "turkanime:ep:bleach-246-bolum",
+        "title": "246. Bölüm",
+        "season": 1,
+        "episode": 246
+      },
+      {
+        "id": "turkanime:ep:bleach-247-bolum",
+        "title": "247. Bölüm",
+        "season": 1,
+        "episode": 247
+      },
+      {
+        "id": "turkanime:ep:bleach-248-bolum",
+        "title": "248. Bölüm",
+        "season": 1,
+        "episode": 248
+      },
+      {
+        "id": "turkanime:ep:bleach-249-bolum",
+        "title": "249. Bölüm",
+        "season": 1,
+        "episode": 249
+      },
+      {
+        "id": "turkanime:ep:bleach-250-bolum",
+        "title": "250. Bölüm",
+        "season": 1,
+        "episode": 250
+      },
+      {
+        "id": "turkanime:ep:bleach-251-bolum",
+        "title": "251. Bölüm",
+        "season": 1,
+        "episode": 251
+      },
+      {
+        "id": "turkanime:ep:bleach-252-bolum",
+        "title": "252. Bölüm",
+        "season": 1,
+        "episode": 252
+      },
+      {
+        "id": "turkanime:ep:bleach-253-bolum",
+        "title": "253. Bölüm",
+        "season": 1,
+        "episode": 253
+      },
+      {
+        "id": "turkanime:ep:bleach-254-bolum",
+        "title": "254. Bölüm",
+        "season": 1,
+        "episode": 254
+      },
+      {
+        "id": "turkanime:ep:bleach-255-bolum",
+        "title": "255. Bölüm",
+        "season": 1,
+        "episode": 255
+      },
+      {
+        "id": "turkanime:ep:bleach-256-bolum",
+        "title": "256. Bölüm",
+        "season": 1,
+        "episode": 256
+      },
+      {
+        "id": "turkanime:ep:bleach-257-bolum",
+        "title": "257. Bölüm",
+        "season": 1,
+        "episode": 257
+      },
+      {
+        "id": "turkanime:ep:bleach-258-bolum",
+        "title": "258. Bölüm",
+        "season": 1,
+        "episode": 258
+      },
+      {
+        "id": "turkanime:ep:bleach-259-bolum",
+        "title": "259. Bölüm",
+        "season": 1,
+        "episode": 259
+      },
+      {
+        "id": "turkanime:ep:bleach-260-bolum",
+        "title": "260. Bölüm",
+        "season": 1,
+        "episode": 260
+      },
+      {
+        "id": "turkanime:ep:bleach-261-bolum",
+        "title": "261. Bölüm",
+        "season": 1,
+        "episode": 261
+      },
+      {
+        "id": "turkanime:ep:bleach-262-bolum",
+        "title": "262. Bölüm",
+        "season": 1,
+        "episode": 262
+      },
+      {
+        "id": "turkanime:ep:bleach-263-bolum",
+        "title": "263. Bölüm",
+        "season": 1,
+        "episode": 263
+      },
+      {
+        "id": "turkanime:ep:bleach-264-bolum",
+        "title": "264. Bölüm",
+        "season": 1,
+        "episode": 264
+      },
+      {
+        "id": "turkanime:ep:bleach-265-bolum",
+        "title": "265. Bölüm",
+        "season": 1,
+        "episode": 265
+      },
+      {
+        "id": "turkanime:ep:bleach-266-bolum",
+        "title": "266. Bölüm",
+        "season": 1,
+        "episode": 266
+      },
+      {
+        "id": "turkanime:ep:bleach-267-bolum",
+        "title": "267. Bölüm",
+        "season": 1,
+        "episode": 267
+      },
+      {
+        "id": "turkanime:ep:bleach-268-bolum",
+        "title": "268. Bölüm",
+        "season": 1,
+        "episode": 268
+      },
+      {
+        "id": "turkanime:ep:bleach-269-bolum",
+        "title": "269. Bölüm",
+        "season": 1,
+        "episode": 269
+      },
+      {
+        "id": "turkanime:ep:bleach-270-bolum",
+        "title": "270. Bölüm",
+        "season": 1,
+        "episode": 270
+      },
+      {
+        "id": "turkanime:ep:bleach-271-bolum",
+        "title": "271. Bölüm",
+        "season": 1,
+        "episode": 271
+      },
+      {
+        "id": "turkanime:ep:bleach-272-bolum",
+        "title": "272. Bölüm",
+        "season": 1,
+        "episode": 272
+      },
+      {
+        "id": "turkanime:ep:bleach-273-bolum",
+        "title": "273. Bölüm",
+        "season": 1,
+        "episode": 273
+      },
+      {
+        "id": "turkanime:ep:bleach-274-bolum",
+        "title": "274. Bölüm",
+        "season": 1,
+        "episode": 274
+      },
+      {
+        "id": "turkanime:ep:bleach-275-bolum",
+        "title": "275. Bölüm",
+        "season": 1,
+        "episode": 275
+      },
+      {
+        "id": "turkanime:ep:bleach-276-bolum",
+        "title": "276. Bölüm",
+        "season": 1,
+        "episode": 276
+      },
+      {
+        "id": "turkanime:ep:bleach-277-bolum",
+        "title": "277. Bölüm",
+        "season": 1,
+        "episode": 277
+      },
+      {
+        "id": "turkanime:ep:bleach-278-bolum",
+        "title": "278. Bölüm",
+        "season": 1,
+        "episode": 278
+      },
+      {
+        "id": "turkanime:ep:bleach-279-bolum",
+        "title": "279. Bölüm",
+        "season": 1,
+        "episode": 279
+      },
+      {
+        "id": "turkanime:ep:bleach-280-bolum",
+        "title": "280. Bölüm",
+        "season": 1,
+        "episode": 280
+      },
+      {
+        "id": "turkanime:ep:bleach-281-bolum",
+        "title": "281. Bölüm",
+        "season": 1,
+        "episode": 281
+      },
+      {
+        "id": "turkanime:ep:bleach-282-bolum",
+        "title": "282. Bölüm",
+        "season": 1,
+        "episode": 282
+      },
+      {
+        "id": "turkanime:ep:bleach-283-bolum",
+        "title": "283. Bölüm",
+        "season": 1,
+        "episode": 283
+      },
+      {
+        "id": "turkanime:ep:bleach-284-bolum",
+        "title": "284. Bölüm",
+        "season": 1,
+        "episode": 284
+      },
+      {
+        "id": "turkanime:ep:bleach-285-bolum",
+        "title": "285. Bölüm",
+        "season": 1,
+        "episode": 285
+      },
+      {
+        "id": "turkanime:ep:bleach-286-bolum",
+        "title": "286. Bölüm",
+        "season": 1,
+        "episode": 286
+      },
+      {
+        "id": "turkanime:ep:bleach-287-bolum",
+        "title": "287. Bölüm",
+        "season": 1,
+        "episode": 287
+      },
+      {
+        "id": "turkanime:ep:bleach-288-bolum",
+        "title": "288. Bölüm",
+        "season": 1,
+        "episode": 288
+      },
+      {
+        "id": "turkanime:ep:bleach-289-bolum",
+        "title": "289. Bölüm",
+        "season": 1,
+        "episode": 289
+      },
+      {
+        "id": "turkanime:ep:bleach-290-bolum",
+        "title": "290. Bölüm",
+        "season": 1,
+        "episode": 290
+      },
+      {
+        "id": "turkanime:ep:bleach-291-bolum",
+        "title": "291. Bölüm",
+        "season": 1,
+        "episode": 291
+      },
+      {
+        "id": "turkanime:ep:bleach-292-bolum",
+        "title": "292. Bölüm",
+        "season": 1,
+        "episode": 292
+      },
+      {
+        "id": "turkanime:ep:bleach-293-bolum",
+        "title": "293. Bölüm",
+        "season": 1,
+        "episode": 293
+      },
+      {
+        "id": "turkanime:ep:bleach-294-bolum",
+        "title": "294. Bölüm",
+        "season": 1,
+        "episode": 294
+      },
+      {
+        "id": "turkanime:ep:bleach-295-bolum",
+        "title": "295. Bölüm",
+        "season": 1,
+        "episode": 295
+      },
+      {
+        "id": "turkanime:ep:bleach-296-bolum",
+        "title": "296. Bölüm",
+        "season": 1,
+        "episode": 296
+      },
+      {
+        "id": "turkanime:ep:bleach-297-bolum",
+        "title": "297. Bölüm",
+        "season": 1,
+        "episode": 297
+      },
+      {
+        "id": "turkanime:ep:bleach-298-bolum",
+        "title": "298. Bölüm",
+        "season": 1,
+        "episode": 298
+      },
+      {
+        "id": "turkanime:ep:bleach-299-bolum",
+        "title": "299. Bölüm",
+        "season": 1,
+        "episode": 299
+      },
+      {
+        "id": "turkanime:ep:bleach-300-bolum",
+        "title": "300. Bölüm",
+        "season": 1,
+        "episode": 300
+      },
+      {
+        "id": "turkanime:ep:bleach-301-bolum",
+        "title": "301. Bölüm",
+        "season": 1,
+        "episode": 301
+      },
+      {
+        "id": "turkanime:ep:bleach-302-bolum",
+        "title": "302. Bölüm",
+        "season": 1,
+        "episode": 302
+      },
+      {
+        "id": "turkanime:ep:bleach-303-bolum",
+        "title": "303. Bölüm",
+        "season": 1,
+        "episode": 303
+      },
+      {
+        "id": "turkanime:ep:bleach-304-bolum",
+        "title": "304. Bölüm",
+        "season": 1,
+        "episode": 304
+      },
+      {
+        "id": "turkanime:ep:bleach-305-bolum",
+        "title": "305. Bölüm",
+        "season": 1,
+        "episode": 305
+      },
+      {
+        "id": "turkanime:ep:bleach-306-bolum",
+        "title": "306. Bölüm",
+        "season": 1,
+        "episode": 306
+      },
+      {
+        "id": "turkanime:ep:bleach-307-bolum",
+        "title": "307. Bölüm",
+        "season": 1,
+        "episode": 307
+      },
+      {
+        "id": "turkanime:ep:bleach-308-bolum",
+        "title": "308. Bölüm",
+        "season": 1,
+        "episode": 308
+      },
+      {
+        "id": "turkanime:ep:bleach-309-bolum",
+        "title": "309. Bölüm",
+        "season": 1,
+        "episode": 309
+      },
+      {
+        "id": "turkanime:ep:bleach-310-bolum",
+        "title": "310. Bölüm",
+        "season": 1,
+        "episode": 310
+      },
+      {
+        "id": "turkanime:ep:bleach-311-bolum",
+        "title": "311. Bölüm",
+        "season": 1,
+        "episode": 311
+      },
+      {
+        "id": "turkanime:ep:bleach-312-bolum",
+        "title": "312. Bölüm",
+        "season": 1,
+        "episode": 312
+      },
+      {
+        "id": "turkanime:ep:bleach-313-bolum",
+        "title": "313. Bölüm",
+        "season": 1,
+        "episode": 313
+      },
+      {
+        "id": "turkanime:ep:bleach-314-bolum",
+        "title": "314. Bölüm",
+        "season": 1,
+        "episode": 314
+      },
+      {
+        "id": "turkanime:ep:bleach-315-bolum",
+        "title": "315. Bölüm",
+        "season": 1,
+        "episode": 315
+      },
+      {
+        "id": "turkanime:ep:bleach-316-bolum",
+        "title": "316. Bölüm",
+        "season": 1,
+        "episode": 316
+      },
+      {
+        "id": "turkanime:ep:bleach-317-bolum",
+        "title": "317. Bölüm",
+        "season": 1,
+        "episode": 317
+      },
+      {
+        "id": "turkanime:ep:bleach-318-bolum",
+        "title": "318. Bölüm",
+        "season": 1,
+        "episode": 318
+      },
+      {
+        "id": "turkanime:ep:bleach-319-bolum",
+        "title": "319. Bölüm",
+        "season": 1,
+        "episode": 319
+      },
+      {
+        "id": "turkanime:ep:bleach-320-bolum",
+        "title": "320. Bölüm",
+        "season": 1,
+        "episode": 320
+      },
+      {
+        "id": "turkanime:ep:bleach-321-bolum",
+        "title": "321. Bölüm",
+        "season": 1,
+        "episode": 321
+      },
+      {
+        "id": "turkanime:ep:bleach-322-bolum",
+        "title": "322. Bölüm",
+        "season": 1,
+        "episode": 322
+      },
+      {
+        "id": "turkanime:ep:bleach-323-bolum",
+        "title": "323. Bölüm",
+        "season": 1,
+        "episode": 323
+      },
+      {
+        "id": "turkanime:ep:bleach-324-bolum",
+        "title": "324. Bölüm",
+        "season": 1,
+        "episode": 324
+      },
+      {
+        "id": "turkanime:ep:bleach-325-bolum",
+        "title": "325. Bölüm",
+        "season": 1,
+        "episode": 325
+      },
+      {
+        "id": "turkanime:ep:bleach-326-bolum",
+        "title": "326. Bölüm",
+        "season": 1,
+        "episode": 326
+      },
+      {
+        "id": "turkanime:ep:bleach-327-bolum",
+        "title": "327. Bölüm",
+        "season": 1,
+        "episode": 327
+      },
+      {
+        "id": "turkanime:ep:bleach-328-bolum",
+        "title": "328. Bölüm",
+        "season": 1,
+        "episode": 328
+      },
+      {
+        "id": "turkanime:ep:bleach-329-bolum",
+        "title": "329. Bölüm",
+        "season": 1,
+        "episode": 329
+      },
+      {
+        "id": "turkanime:ep:bleach-330-bolum",
+        "title": "330. Bölüm",
+        "season": 1,
+        "episode": 330
+      },
+      {
+        "id": "turkanime:ep:bleach-331-bolum",
+        "title": "331. Bölüm",
+        "season": 1,
+        "episode": 331
+      },
+      {
+        "id": "turkanime:ep:bleach-332-bolum",
+        "title": "332. Bölüm",
+        "season": 1,
+        "episode": 332
+      },
+      {
+        "id": "turkanime:ep:bleach-333-bolum",
+        "title": "333. Bölüm",
+        "season": 1,
+        "episode": 333
+      },
+      {
+        "id": "turkanime:ep:bleach-334-bolum",
+        "title": "334. Bölüm",
+        "season": 1,
+        "episode": 334
+      },
+      {
+        "id": "turkanime:ep:bleach-335-bolum",
+        "title": "335. Bölüm",
+        "season": 1,
+        "episode": 335
+      },
+      {
+        "id": "turkanime:ep:bleach-336-bolum",
+        "title": "336. Bölüm",
+        "season": 1,
+        "episode": 336
+      },
+      {
+        "id": "turkanime:ep:bleach-337-bolum",
+        "title": "337. Bölüm",
+        "season": 1,
+        "episode": 337
+      },
+      {
+        "id": "turkanime:ep:bleach-338-bolum",
+        "title": "338. Bölüm",
+        "season": 1,
+        "episode": 338
+      },
+      {
+        "id": "turkanime:ep:bleach-339-bolum",
+        "title": "339. Bölüm",
+        "season": 1,
+        "episode": 339
+      },
+      {
+        "id": "turkanime:ep:bleach-340-bolum",
+        "title": "340. Bölüm",
+        "season": 1,
+        "episode": 340
+      },
+      {
+        "id": "turkanime:ep:bleach-341-bolum",
+        "title": "341. Bölüm",
+        "season": 1,
+        "episode": 341
+      },
+      {
+        "id": "turkanime:ep:bleach-342-bolum",
+        "title": "342. Bölüm",
+        "season": 1,
+        "episode": 342
+      },
+      {
+        "id": "turkanime:ep:bleach-343-bolum",
+        "title": "343. Bölüm",
+        "season": 1,
+        "episode": 343
+      },
+      {
+        "id": "turkanime:ep:bleach-344-bolum",
+        "title": "344. Bölüm",
+        "season": 1,
+        "episode": 344
+      },
+      {
+        "id": "turkanime:ep:bleach-345-bolum",
+        "title": "345. Bölüm",
+        "season": 1,
+        "episode": 345
+      },
+      {
+        "id": "turkanime:ep:bleach-346-bolum",
+        "title": "346. Bölüm",
+        "season": 1,
+        "episode": 346
+      },
+      {
+        "id": "turkanime:ep:bleach-347-bolum",
+        "title": "347. Bölüm",
+        "season": 1,
+        "episode": 347
+      },
+      {
+        "id": "turkanime:ep:bleach-348-bolum",
+        "title": "348. Bölüm",
+        "season": 1,
+        "episode": 348
+      },
+      {
+        "id": "turkanime:ep:bleach-349-bolum",
+        "title": "349. Bölüm",
+        "season": 1,
+        "episode": 349
+      },
+      {
+        "id": "turkanime:ep:bleach-350-bolum",
+        "title": "350. Bölüm",
+        "season": 1,
+        "episode": 350
+      },
+      {
+        "id": "turkanime:ep:bleach-351-bolum",
+        "title": "351. Bölüm",
+        "season": 1,
+        "episode": 351
+      },
+      {
+        "id": "turkanime:ep:bleach-352-bolum",
+        "title": "352. Bölüm",
+        "season": 1,
+        "episode": 352
+      },
+      {
+        "id": "turkanime:ep:bleach-353-bolum",
+        "title": "353. Bölüm",
+        "season": 1,
+        "episode": 353
+      },
+      {
+        "id": "turkanime:ep:bleach-354-bolum",
+        "title": "354. Bölüm",
+        "season": 1,
+        "episode": 354
+      },
+      {
+        "id": "turkanime:ep:bleach-355-bolum",
+        "title": "355. Bölüm",
+        "season": 1,
+        "episode": 355
+      },
+      {
+        "id": "turkanime:ep:bleach-356-bolum",
+        "title": "356. Bölüm",
+        "season": 1,
+        "episode": 356
+      },
+      {
+        "id": "turkanime:ep:bleach-357-bolum",
+        "title": "357. Bölüm",
+        "season": 1,
+        "episode": 357
+      },
+      {
+        "id": "turkanime:ep:bleach-358-bolum",
+        "title": "358. Bölüm",
+        "season": 1,
+        "episode": 358
+      },
+      {
+        "id": "turkanime:ep:bleach-359-bolum",
+        "title": "359. Bölüm",
+        "season": 1,
+        "episode": 359
+      },
+      {
+        "id": "turkanime:ep:bleach-360-bolum",
+        "title": "360. Bölüm",
+        "season": 1,
+        "episode": 360
+      },
+      {
+        "id": "turkanime:ep:bleach-361-bolum",
+        "title": "361. Bölüm",
+        "season": 1,
+        "episode": 361
+      },
+      {
+        "id": "turkanime:ep:bleach-362-bolum",
+        "title": "362. Bölüm",
+        "season": 1,
+        "episode": 362
+      },
+      {
+        "id": "turkanime:ep:bleach-363-bolum",
+        "title": "363. Bölüm",
+        "season": 1,
+        "episode": 363
+      },
+      {
+        "id": "turkanime:ep:bleach-364-bolum",
+        "title": "364. Bölüm",
+        "season": 1,
+        "episode": 364
+      },
+      {
+        "id": "turkanime:ep:bleach-365-bolum",
+        "title": "365. Bölüm",
+        "season": 1,
+        "episode": 365
+      },
+      {
+        "id": "turkanime:ep:bleach-366-bolum-final",
+        "title": "366. Bölüm",
+        "season": 1,
+        "episode": 366
+      }
+    ]
+  }
+}

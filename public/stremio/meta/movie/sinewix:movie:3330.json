@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "id": "sinewix:movie:3330",
+    "type": "movie",
+    "name": "Batman Ninja",
+    "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/5xSB0Npkc9Fd9kahKBsq9P4Cdzp.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/geeAPcb9iBEWfft6uRnL8aCwBmF.jpg",
+    "description": "Batman kendisini bir anda Japonya’da hem de Orta Çağ’da bulur. Joker ve diğerlerinin Japonya’nın tarihini yeniden yazmaya çalıştıklarını fark eder. Batman’in Feodal Japonya’da mücadeleye girmesini izleyeceğiz.",
+    "genres": [
+      "SineWix"
+    ]
+  }
+}

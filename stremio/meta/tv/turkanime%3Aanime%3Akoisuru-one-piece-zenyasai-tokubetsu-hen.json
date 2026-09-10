@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:koisuru-one-piece-zenyasai-tokubetsu-hen",
+    "type": "series",
+    "name": "Koisuru One Piece Zenyasai Tokubetsu-hen",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/6449.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/6449.jpg",
+    "description": "Koisuru One Piece Zenyasai Tokubetsu-hen - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:koisuru-one-piece-zenyasai-tokubetsu-hen-ona",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

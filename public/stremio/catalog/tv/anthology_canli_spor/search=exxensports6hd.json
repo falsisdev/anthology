@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:ExxenSports6.tr",
+      "type": "tv",
+      "name": "Exxen Sports 6 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
+      "description": "Exxen Sports 6 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    }
+  ]
+}

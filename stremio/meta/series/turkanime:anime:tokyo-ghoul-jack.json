@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:tokyo-ghoul-jack",
+    "type": "series",
+    "name": "Tokyo Ghoul: \"Jack\"",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/5233.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/5233.jpg",
+    "description": "Tokyo Ghoul: &quot;Jack&quot; - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:tokyo-ghoul-jack-ova",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

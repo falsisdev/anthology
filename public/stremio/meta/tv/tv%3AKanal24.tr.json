@@ -12,9 +12,7 @@
     "videos": [
       {
         "id": "tv:Kanal24.tr",
-        "title": "24 TV HD",
-        "season": 1,
-        "episode": 1
+        "title": "24 TV HD"
       }
     ]
   }

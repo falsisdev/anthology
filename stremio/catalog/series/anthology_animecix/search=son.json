@@ -1,0 +1,28 @@
+{
+  "metas": [
+    {
+      "id": "animecix:title:9770",
+      "type": "series",
+      "name": "Hanma Baki: Son of Ogre",
+      "poster": "https://image.tmdb.org/t/p/original/x145FSI9xJ6UbkxfabUsY2SFbu3.jpg",
+      "background": "https://image.tmdb.org/t/p/w1280/wFOKJucNqGSFh77KlV9fwxZNf6n.jpg",
+      "description": "Baki, güçlü babasını geride bırakmak için ihtiyaç duyduğu becerileri kazanmak için Arizona Eyalet Hapishanesine girerek Bay Zincirsiz olarak bilinen kötü şöhretli mahkumu alt eder. ",
+      "genres": [
+        "Anime",
+        "AnimeciX"
+      ]
+    },
+    {
+      "id": "animecix:title:10127",
+      "type": "series",
+      "name": "Dragon Ball Z Movie 04: Super Saiyajin da Son Gokuu",
+      "poster": "https://image.tmdb.org/t/p/original/1lmwZTsqwTtvd3m60pyQfhGM2Ut.jpg",
+      "background": "https://image.tmdb.org/t/p/w1280/cyQK5IzMXDUS8o84HYbSIFQt1Vy.jpg",
+      "description": "Slug adında bir Süper Namekyalı Dünya'yı istila etmeye gelir. Ancak Z Warriors, Slug ve çetesini durdurmak için ellerinden geleni yapar.",
+      "genres": [
+        "Anime",
+        "AnimeciX"
+      ]
+    }
+  ]
+}

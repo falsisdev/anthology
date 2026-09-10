@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:bleach-movie-2-the-diamonddust-rebellion-mou-hitotsu-no-hyourinmaru",
+    "type": "series",
+    "name": "Bleach Movie 2: The DiamondDust Rebel...",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/2644.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/2644.jpg",
+    "description": "Bleach Movie 2: The DiamondDust Rebellion - Mou Hitotsu no Hyourinmaru - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:bleach-movie-02-the-diamonddust-rebellion",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

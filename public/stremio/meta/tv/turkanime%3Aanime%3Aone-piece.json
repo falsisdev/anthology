@@ -1,0 +1,7012 @@
+{
+  "meta": {
+    "id": "turkanime:anime:one-piece",
+    "type": "series",
+    "name": "One Piece",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/81.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/81.jpg",
+    "description": "One Piece - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:one-piece-1-bolum",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "turkanime:ep:one-piece-2-bolum",
+        "title": "2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "turkanime:ep:one-piece-3-bolum",
+        "title": "3. Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "turkanime:ep:one-piece-4-bolum",
+        "title": "4. Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "turkanime:ep:one-piece-5-bolum",
+        "title": "5. Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "turkanime:ep:one-piece-6-bolum",
+        "title": "6. Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "turkanime:ep:one-piece-7-bolum",
+        "title": "7. Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "turkanime:ep:one-piece-8-bolum",
+        "title": "8. Bölüm",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "turkanime:ep:one-piece-9-bolum",
+        "title": "9. Bölüm",
+        "season": 1,
+        "episode": 9
+      },
+      {
+        "id": "turkanime:ep:one-piece-10-bolum",
+        "title": "10. Bölüm",
+        "season": 1,
+        "episode": 10
+      },
+      {
+        "id": "turkanime:ep:one-piece-11-bolum",
+        "title": "11. Bölüm",
+        "season": 1,
+        "episode": 11
+      },
+      {
+        "id": "turkanime:ep:one-piece-12-bolum",
+        "title": "12. Bölüm",
+        "season": 1,
+        "episode": 12
+      },
+      {
+        "id": "turkanime:ep:one-piece-13-bolum",
+        "title": "13. Bölüm",
+        "season": 1,
+        "episode": 13
+      },
+      {
+        "id": "turkanime:ep:one-piece-14-bolum",
+        "title": "14. Bölüm",
+        "season": 1,
+        "episode": 14
+      },
+      {
+        "id": "turkanime:ep:one-piece-15-bolum",
+        "title": "15. Bölüm",
+        "season": 1,
+        "episode": 15
+      },
+      {
+        "id": "turkanime:ep:one-piece-16-bolum",
+        "title": "16. Bölüm",
+        "season": 1,
+        "episode": 16
+      },
+      {
+        "id": "turkanime:ep:one-piece-17-bolum",
+        "title": "17. Bölüm",
+        "season": 1,
+        "episode": 17
+      },
+      {
+        "id": "turkanime:ep:one-piece-18-bolum",
+        "title": "18. Bölüm",
+        "season": 1,
+        "episode": 18
+      },
+      {
+        "id": "turkanime:ep:one-piece-19-bolum",
+        "title": "19. Bölüm",
+        "season": 1,
+        "episode": 19
+      },
+      {
+        "id": "turkanime:ep:one-piece-20-bolum",
+        "title": "20. Bölüm",
+        "season": 1,
+        "episode": 20
+      },
+      {
+        "id": "turkanime:ep:one-piece-21-bolum",
+        "title": "21. Bölüm",
+        "season": 1,
+        "episode": 21
+      },
+      {
+        "id": "turkanime:ep:one-piece-22-bolum",
+        "title": "22. Bölüm",
+        "season": 1,
+        "episode": 22
+      },
+      {
+        "id": "turkanime:ep:one-piece-23-bolum",
+        "title": "23. Bölüm",
+        "season": 1,
+        "episode": 23
+      },
+      {
+        "id": "turkanime:ep:one-piece-24-bolum",
+        "title": "24. Bölüm",
+        "season": 1,
+        "episode": 24
+      },
+      {
+        "id": "turkanime:ep:one-piece-25-bolum",
+        "title": "25. Bölüm",
+        "season": 1,
+        "episode": 25
+      },
+      {
+        "id": "turkanime:ep:one-piece-26-bolum",
+        "title": "26. Bölüm",
+        "season": 1,
+        "episode": 26
+      },
+      {
+        "id": "turkanime:ep:one-piece-27-bolum",
+        "title": "27. Bölüm",
+        "season": 1,
+        "episode": 27
+      },
+      {
+        "id": "turkanime:ep:one-piece-28-bolum",
+        "title": "28. Bölüm",
+        "season": 1,
+        "episode": 28
+      },
+      {
+        "id": "turkanime:ep:one-piece-29-bolum",
+        "title": "29. Bölüm",
+        "season": 1,
+        "episode": 29
+      },
+      {
+        "id": "turkanime:ep:one-piece-30-bolum",
+        "title": "30. Bölüm",
+        "season": 1,
+        "episode": 30
+      },
+      {
+        "id": "turkanime:ep:one-piece-31-bolum",
+        "title": "31. Bölüm",
+        "season": 1,
+        "episode": 31
+      },
+      {
+        "id": "turkanime:ep:one-piece-32-bolum",
+        "title": "32. Bölüm",
+        "season": 1,
+        "episode": 32
+      },
+      {
+        "id": "turkanime:ep:one-piece-33-bolum",
+        "title": "33. Bölüm",
+        "season": 1,
+        "episode": 33
+      },
+      {
+        "id": "turkanime:ep:one-piece-34-bolum",
+        "title": "34. Bölüm",
+        "season": 1,
+        "episode": 34
+      },
+      {
+        "id": "turkanime:ep:one-piece-35-bolum",
+        "title": "35. Bölüm",
+        "season": 1,
+        "episode": 35
+      },
+      {
+        "id": "turkanime:ep:one-piece-36-bolum",
+        "title": "36. Bölüm",
+        "season": 1,
+        "episode": 36
+      },
+      {
+        "id": "turkanime:ep:one-piece-37-bolum",
+        "title": "37. Bölüm",
+        "season": 1,
+        "episode": 37
+      },
+      {
+        "id": "turkanime:ep:one-piece-38-bolum",
+        "title": "38. Bölüm",
+        "season": 1,
+        "episode": 38
+      },
+      {
+        "id": "turkanime:ep:one-piece-39-bolum",
+        "title": "39. Bölüm",
+        "season": 1,
+        "episode": 39
+      },
+      {
+        "id": "turkanime:ep:one-piece-40-bolum",
+        "title": "40. Bölüm",
+        "season": 1,
+        "episode": 40
+      },
+      {
+        "id": "turkanime:ep:one-piece-41-bolum",
+        "title": "41. Bölüm",
+        "season": 1,
+        "episode": 41
+      },
+      {
+        "id": "turkanime:ep:one-piece-42-bolum",
+        "title": "42. Bölüm",
+        "season": 1,
+        "episode": 42
+      },
+      {
+        "id": "turkanime:ep:one-piece-43-bolum",
+        "title": "43. Bölüm",
+        "season": 1,
+        "episode": 43
+      },
+      {
+        "id": "turkanime:ep:one-piece-44-bolum",
+        "title": "44. Bölüm",
+        "season": 1,
+        "episode": 44
+      },
+      {
+        "id": "turkanime:ep:one-piece-45-bolum",
+        "title": "45. Bölüm",
+        "season": 1,
+        "episode": 45
+      },
+      {
+        "id": "turkanime:ep:one-piece-46-bolum",
+        "title": "46. Bölüm",
+        "season": 1,
+        "episode": 46
+      },
+      {
+        "id": "turkanime:ep:one-piece-47-bolum",
+        "title": "47. Bölüm",
+        "season": 1,
+        "episode": 47
+      },
+      {
+        "id": "turkanime:ep:one-piece-48-bolum",
+        "title": "48. Bölüm",
+        "season": 1,
+        "episode": 48
+      },
+      {
+        "id": "turkanime:ep:one-piece-49-bolum",
+        "title": "49. Bölüm",
+        "season": 1,
+        "episode": 49
+      },
+      {
+        "id": "turkanime:ep:one-piece-50-bolum",
+        "title": "50. Bölüm",
+        "season": 1,
+        "episode": 50
+      },
+      {
+        "id": "turkanime:ep:one-piece-51-bolum",
+        "title": "51. Bölüm",
+        "season": 1,
+        "episode": 51
+      },
+      {
+        "id": "turkanime:ep:one-piece-52-bolum",
+        "title": "52. Bölüm",
+        "season": 1,
+        "episode": 52
+      },
+      {
+        "id": "turkanime:ep:one-piece-53-bolum",
+        "title": "53. Bölüm",
+        "season": 1,
+        "episode": 53
+      },
+      {
+        "id": "turkanime:ep:one-piece-54-bolum",
+        "title": "54. Bölüm",
+        "season": 1,
+        "episode": 54
+      },
+      {
+        "id": "turkanime:ep:one-piece-55-bolum",
+        "title": "55. Bölüm",
+        "season": 1,
+        "episode": 55
+      },
+      {
+        "id": "turkanime:ep:one-piece-56-bolum",
+        "title": "56. Bölüm",
+        "season": 1,
+        "episode": 56
+      },
+      {
+        "id": "turkanime:ep:one-piece-57-bolum",
+        "title": "57. Bölüm",
+        "season": 1,
+        "episode": 57
+      },
+      {
+        "id": "turkanime:ep:one-piece-58-bolum",
+        "title": "58. Bölüm",
+        "season": 1,
+        "episode": 58
+      },
+      {
+        "id": "turkanime:ep:one-piece-59-bolum",
+        "title": "59. Bölüm",
+        "season": 1,
+        "episode": 59
+      },
+      {
+        "id": "turkanime:ep:one-piece-60-bolum",
+        "title": "60. Bölüm",
+        "season": 1,
+        "episode": 60
+      },
+      {
+        "id": "turkanime:ep:one-piece-61-bolum",
+        "title": "61. Bölüm",
+        "season": 1,
+        "episode": 61
+      },
+      {
+        "id": "turkanime:ep:one-piece-62-bolum",
+        "title": "62. Bölüm",
+        "season": 1,
+        "episode": 62
+      },
+      {
+        "id": "turkanime:ep:one-piece-63-bolum",
+        "title": "63. Bölüm",
+        "season": 1,
+        "episode": 63
+      },
+      {
+        "id": "turkanime:ep:one-piece-64-bolum",
+        "title": "64. Bölüm",
+        "season": 1,
+        "episode": 64
+      },
+      {
+        "id": "turkanime:ep:one-piece-65-bolum",
+        "title": "65. Bölüm",
+        "season": 1,
+        "episode": 65
+      },
+      {
+        "id": "turkanime:ep:one-piece-66-bolum",
+        "title": "66. Bölüm",
+        "season": 1,
+        "episode": 66
+      },
+      {
+        "id": "turkanime:ep:one-piece-67-bolum",
+        "title": "67. Bölüm",
+        "season": 1,
+        "episode": 67
+      },
+      {
+        "id": "turkanime:ep:one-piece-68-bolum",
+        "title": "68. Bölüm",
+        "season": 1,
+        "episode": 68
+      },
+      {
+        "id": "turkanime:ep:one-piece-69-bolum",
+        "title": "69. Bölüm",
+        "season": 1,
+        "episode": 69
+      },
+      {
+        "id": "turkanime:ep:one-piece-70-bolum",
+        "title": "70. Bölüm",
+        "season": 1,
+        "episode": 70
+      },
+      {
+        "id": "turkanime:ep:one-piece-71-bolum",
+        "title": "71. Bölüm",
+        "season": 1,
+        "episode": 71
+      },
+      {
+        "id": "turkanime:ep:one-piece-72-bolum",
+        "title": "72. Bölüm",
+        "season": 1,
+        "episode": 72
+      },
+      {
+        "id": "turkanime:ep:one-piece-73-bolum",
+        "title": "73. Bölüm",
+        "season": 1,
+        "episode": 73
+      },
+      {
+        "id": "turkanime:ep:one-piece-74-bolum",
+        "title": "74. Bölüm",
+        "season": 1,
+        "episode": 74
+      },
+      {
+        "id": "turkanime:ep:one-piece-75-bolum",
+        "title": "75. Bölüm",
+        "season": 1,
+        "episode": 75
+      },
+      {
+        "id": "turkanime:ep:one-piece-76-bolum",
+        "title": "76. Bölüm",
+        "season": 1,
+        "episode": 76
+      },
+      {
+        "id": "turkanime:ep:one-piece-77-bolum",
+        "title": "77. Bölüm",
+        "season": 1,
+        "episode": 77
+      },
+      {
+        "id": "turkanime:ep:one-piece-78-bolum",
+        "title": "78. Bölüm",
+        "season": 1,
+        "episode": 78
+      },
+      {
+        "id": "turkanime:ep:one-piece-79-bolum",
+        "title": "79. Bölüm",
+        "season": 1,
+        "episode": 79
+      },
+      {
+        "id": "turkanime:ep:one-piece-80-bolum",
+        "title": "80. Bölüm",
+        "season": 1,
+        "episode": 80
+      },
+      {
+        "id": "turkanime:ep:one-piece-81-bolum",
+        "title": "81. Bölüm",
+        "season": 1,
+        "episode": 81
+      },
+      {
+        "id": "turkanime:ep:one-piece-82-bolum",
+        "title": "82. Bölüm",
+        "season": 1,
+        "episode": 82
+      },
+      {
+        "id": "turkanime:ep:one-piece-83-bolum",
+        "title": "83. Bölüm",
+        "season": 1,
+        "episode": 83
+      },
+      {
+        "id": "turkanime:ep:one-piece-84-bolum",
+        "title": "84. Bölüm",
+        "season": 1,
+        "episode": 84
+      },
+      {
+        "id": "turkanime:ep:one-piece-85-bolum",
+        "title": "85. Bölüm",
+        "season": 1,
+        "episode": 85
+      },
+      {
+        "id": "turkanime:ep:one-piece-86-bolum",
+        "title": "86. Bölüm",
+        "season": 1,
+        "episode": 86
+      },
+      {
+        "id": "turkanime:ep:one-piece-87-bolum",
+        "title": "87. Bölüm",
+        "season": 1,
+        "episode": 87
+      },
+      {
+        "id": "turkanime:ep:one-piece-88-bolum",
+        "title": "88. Bölüm",
+        "season": 1,
+        "episode": 88
+      },
+      {
+        "id": "turkanime:ep:one-piece-89-bolum",
+        "title": "89. Bölüm",
+        "season": 1,
+        "episode": 89
+      },
+      {
+        "id": "turkanime:ep:one-piece-90-bolum",
+        "title": "90. Bölüm",
+        "season": 1,
+        "episode": 90
+      },
+      {
+        "id": "turkanime:ep:one-piece-91-bolum",
+        "title": "91. Bölüm",
+        "season": 1,
+        "episode": 91
+      },
+      {
+        "id": "turkanime:ep:one-piece-92-bolum",
+        "title": "92. Bölüm",
+        "season": 1,
+        "episode": 92
+      },
+      {
+        "id": "turkanime:ep:one-piece-93-bolum",
+        "title": "93. Bölüm",
+        "season": 1,
+        "episode": 93
+      },
+      {
+        "id": "turkanime:ep:one-piece-94-bolum",
+        "title": "94. Bölüm",
+        "season": 1,
+        "episode": 94
+      },
+      {
+        "id": "turkanime:ep:one-piece-95-bolum",
+        "title": "95. Bölüm",
+        "season": 1,
+        "episode": 95
+      },
+      {
+        "id": "turkanime:ep:one-piece-96-bolum",
+        "title": "96. Bölüm",
+        "season": 1,
+        "episode": 96
+      },
+      {
+        "id": "turkanime:ep:one-piece-97-bolum",
+        "title": "97. Bölüm",
+        "season": 1,
+        "episode": 97
+      },
+      {
+        "id": "turkanime:ep:one-piece-98-bolum",
+        "title": "98. Bölüm",
+        "season": 1,
+        "episode": 98
+      },
+      {
+        "id": "turkanime:ep:one-piece-99-bolum",
+        "title": "99. Bölüm",
+        "season": 1,
+        "episode": 99
+      },
+      {
+        "id": "turkanime:ep:one-piece-100-bolum",
+        "title": "100. Bölüm",
+        "season": 1,
+        "episode": 100
+      },
+      {
+        "id": "turkanime:ep:one-piece-101-bolum",
+        "title": "101. Bölüm",
+        "season": 1,
+        "episode": 101
+      },
+      {
+        "id": "turkanime:ep:one-piece-102-bolum",
+        "title": "102. Bölüm",
+        "season": 1,
+        "episode": 102
+      },
+      {
+        "id": "turkanime:ep:one-piece-103-bolum",
+        "title": "103. Bölüm",
+        "season": 1,
+        "episode": 103
+      },
+      {
+        "id": "turkanime:ep:one-piece-104-bolum",
+        "title": "104. Bölüm",
+        "season": 1,
+        "episode": 104
+      },
+      {
+        "id": "turkanime:ep:one-piece-105-bolum",
+        "title": "105. Bölüm",
+        "season": 1,
+        "episode": 105
+      },
+      {
+        "id": "turkanime:ep:one-piece-106-bolum",
+        "title": "106. Bölüm",
+        "season": 1,
+        "episode": 106
+      },
+      {
+        "id": "turkanime:ep:one-piece-107-bolum",
+        "title": "107. Bölüm",
+        "season": 1,
+        "episode": 107
+      },
+      {
+        "id": "turkanime:ep:one-piece-108-bolum",
+        "title": "108. Bölüm",
+        "season": 1,
+        "episode": 108
+      },
+      {
+        "id": "turkanime:ep:one-piece-109-bolum",
+        "title": "109. Bölüm",
+        "season": 1,
+        "episode": 109
+      },
+      {
+        "id": "turkanime:ep:one-piece-110-bolum",
+        "title": "110. Bölüm",
+        "season": 1,
+        "episode": 110
+      },
+      {
+        "id": "turkanime:ep:one-piece-111-bolum",
+        "title": "111. Bölüm",
+        "season": 1,
+        "episode": 111
+      },
+      {
+        "id": "turkanime:ep:one-piece-112-bolum",
+        "title": "112. Bölüm",
+        "season": 1,
+        "episode": 112
+      },
+      {
+        "id": "turkanime:ep:one-piece-113-bolum",
+        "title": "113. Bölüm",
+        "season": 1,
+        "episode": 113
+      },
+      {
+        "id": "turkanime:ep:one-piece-114-bolum",
+        "title": "114. Bölüm",
+        "season": 1,
+        "episode": 114
+      },
+      {
+        "id": "turkanime:ep:one-piece-115-bolum",
+        "title": "115. Bölüm",
+        "season": 1,
+        "episode": 115
+      },
+      {
+        "id": "turkanime:ep:one-piece-116-bolum",
+        "title": "116. Bölüm",
+        "season": 1,
+        "episode": 116
+      },
+      {
+        "id": "turkanime:ep:one-piece-117-bolum",
+        "title": "117. Bölüm",
+        "season": 1,
+        "episode": 117
+      },
+      {
+        "id": "turkanime:ep:one-piece-118-bolum",
+        "title": "118. Bölüm",
+        "season": 1,
+        "episode": 118
+      },
+      {
+        "id": "turkanime:ep:one-piece-119-bolum",
+        "title": "119. Bölüm",
+        "season": 1,
+        "episode": 119
+      },
+      {
+        "id": "turkanime:ep:one-piece-120-bolum",
+        "title": "120. Bölüm",
+        "season": 1,
+        "episode": 120
+      },
+      {
+        "id": "turkanime:ep:one-piece-121-bolum",
+        "title": "121. Bölüm",
+        "season": 1,
+        "episode": 121
+      },
+      {
+        "id": "turkanime:ep:one-piece-122-bolum",
+        "title": "122. Bölüm",
+        "season": 1,
+        "episode": 122
+      },
+      {
+        "id": "turkanime:ep:one-piece-123-bolum",
+        "title": "123. Bölüm",
+        "season": 1,
+        "episode": 123
+      },
+      {
+        "id": "turkanime:ep:one-piece-124-bolum",
+        "title": "124. Bölüm",
+        "season": 1,
+        "episode": 124
+      },
+      {
+        "id": "turkanime:ep:one-piece-125-bolum",
+        "title": "125. Bölüm",
+        "season": 1,
+        "episode": 125
+      },
+      {
+        "id": "turkanime:ep:one-piece-126-bolum",
+        "title": "126. Bölüm",
+        "season": 1,
+        "episode": 126
+      },
+      {
+        "id": "turkanime:ep:one-piece-127-bolum",
+        "title": "127. Bölüm",
+        "season": 1,
+        "episode": 127
+      },
+      {
+        "id": "turkanime:ep:one-piece-128-bolum",
+        "title": "128. Bölüm",
+        "season": 1,
+        "episode": 128
+      },
+      {
+        "id": "turkanime:ep:one-piece-129-bolum",
+        "title": "129. Bölüm",
+        "season": 1,
+        "episode": 129
+      },
+      {
+        "id": "turkanime:ep:one-piece-130-bolum",
+        "title": "130. Bölüm",
+        "season": 1,
+        "episode": 130
+      },
+      {
+        "id": "turkanime:ep:one-piece-131-bolum",
+        "title": "131. Bölüm",
+        "season": 1,
+        "episode": 131
+      },
+      {
+        "id": "turkanime:ep:one-piece-132-bolum",
+        "title": "132. Bölüm",
+        "season": 1,
+        "episode": 132
+      },
+      {
+        "id": "turkanime:ep:one-piece-133-bolum",
+        "title": "133. Bölüm",
+        "season": 1,
+        "episode": 133
+      },
+      {
+        "id": "turkanime:ep:one-piece-134-bolum",
+        "title": "134. Bölüm",
+        "season": 1,
+        "episode": 134
+      },
+      {
+        "id": "turkanime:ep:one-piece-135-bolum",
+        "title": "135. Bölüm",
+        "season": 1,
+        "episode": 135
+      },
+      {
+        "id": "turkanime:ep:one-piece-136-bolum",
+        "title": "136. Bölüm",
+        "season": 1,
+        "episode": 136
+      },
+      {
+        "id": "turkanime:ep:one-piece-137-bolum",
+        "title": "137. Bölüm",
+        "season": 1,
+        "episode": 137
+      },
+      {
+        "id": "turkanime:ep:one-piece-138-bolum",
+        "title": "138. Bölüm",
+        "season": 1,
+        "episode": 138
+      },
+      {
+        "id": "turkanime:ep:one-piece-139-bolum",
+        "title": "139. Bölüm",
+        "season": 1,
+        "episode": 139
+      },
+      {
+        "id": "turkanime:ep:one-piece-140-bolum",
+        "title": "140. Bölüm",
+        "season": 1,
+        "episode": 140
+      },
+      {
+        "id": "turkanime:ep:one-piece-141-bolum",
+        "title": "141. Bölüm",
+        "season": 1,
+        "episode": 141
+      },
+      {
+        "id": "turkanime:ep:one-piece-142-bolum",
+        "title": "142. Bölüm",
+        "season": 1,
+        "episode": 142
+      },
+      {
+        "id": "turkanime:ep:one-piece-143-bolum",
+        "title": "143. Bölüm",
+        "season": 1,
+        "episode": 143
+      },
+      {
+        "id": "turkanime:ep:one-piece-144-bolum",
+        "title": "144. Bölüm",
+        "season": 1,
+        "episode": 144
+      },
+      {
+        "id": "turkanime:ep:one-piece-145-bolum",
+        "title": "145. Bölüm",
+        "season": 1,
+        "episode": 145
+      },
+      {
+        "id": "turkanime:ep:one-piece-146-bolum",
+        "title": "146. Bölüm",
+        "season": 1,
+        "episode": 146
+      },
+      {
+        "id": "turkanime:ep:one-piece-147-bolum",
+        "title": "147. Bölüm",
+        "season": 1,
+        "episode": 147
+      },
+      {
+        "id": "turkanime:ep:one-piece-148-bolum",
+        "title": "148. Bölüm",
+        "season": 1,
+        "episode": 148
+      },
+      {
+        "id": "turkanime:ep:one-piece-149-bolum",
+        "title": "149. Bölüm",
+        "season": 1,
+        "episode": 149
+      },
+      {
+        "id": "turkanime:ep:one-piece-150-bolum",
+        "title": "150. Bölüm",
+        "season": 1,
+        "episode": 150
+      },
+      {
+        "id": "turkanime:ep:one-piece-151-bolum",
+        "title": "151. Bölüm",
+        "season": 1,
+        "episode": 151
+      },
+      {
+        "id": "turkanime:ep:one-piece-152-bolum",
+        "title": "152. Bölüm",
+        "season": 1,
+        "episode": 152
+      },
+      {
+        "id": "turkanime:ep:one-piece-153-bolum",
+        "title": "153. Bölüm",
+        "season": 1,
+        "episode": 153
+      },
+      {
+        "id": "turkanime:ep:one-piece-154-bolum",
+        "title": "154. Bölüm",
+        "season": 1,
+        "episode": 154
+      },
+      {
+        "id": "turkanime:ep:one-piece-155-bolum",
+        "title": "155. Bölüm",
+        "season": 1,
+        "episode": 155
+      },
+      {
+        "id": "turkanime:ep:one-piece-156-bolum",
+        "title": "156. Bölüm",
+        "season": 1,
+        "episode": 156
+      },
+      {
+        "id": "turkanime:ep:one-piece-157-bolum",
+        "title": "157. Bölüm",
+        "season": 1,
+        "episode": 157
+      },
+      {
+        "id": "turkanime:ep:one-piece-158-bolum",
+        "title": "158. Bölüm",
+        "season": 1,
+        "episode": 158
+      },
+      {
+        "id": "turkanime:ep:one-piece-159-bolum",
+        "title": "159. Bölüm",
+        "season": 1,
+        "episode": 159
+      },
+      {
+        "id": "turkanime:ep:one-piece-160-bolum",
+        "title": "160. Bölüm",
+        "season": 1,
+        "episode": 160
+      },
+      {
+        "id": "turkanime:ep:one-piece-161-bolum",
+        "title": "161. Bölüm",
+        "season": 1,
+        "episode": 161
+      },
+      {
+        "id": "turkanime:ep:one-piece-162-bolum",
+        "title": "162. Bölüm",
+        "season": 1,
+        "episode": 162
+      },
+      {
+        "id": "turkanime:ep:one-piece-163-bolum",
+        "title": "163. Bölüm",
+        "season": 1,
+        "episode": 163
+      },
+      {
+        "id": "turkanime:ep:one-piece-164-bolum",
+        "title": "164. Bölüm",
+        "season": 1,
+        "episode": 164
+      },
+      {
+        "id": "turkanime:ep:one-piece-165-bolum",
+        "title": "165. Bölüm",
+        "season": 1,
+        "episode": 165
+      },
+      {
+        "id": "turkanime:ep:one-piece-166-bolum",
+        "title": "166. Bölüm",
+        "season": 1,
+        "episode": 166
+      },
+      {
+        "id": "turkanime:ep:one-piece-167-bolum",
+        "title": "167. Bölüm",
+        "season": 1,
+        "episode": 167
+      },
+      {
+        "id": "turkanime:ep:one-piece-168-bolum",
+        "title": "168. Bölüm",
+        "season": 1,
+        "episode": 168
+      },
+      {
+        "id": "turkanime:ep:one-piece-169-bolum",
+        "title": "169. Bölüm",
+        "season": 1,
+        "episode": 169
+      },
+      {
+        "id": "turkanime:ep:one-piece-170-bolum",
+        "title": "170. Bölüm",
+        "season": 1,
+        "episode": 170
+      },
+      {
+        "id": "turkanime:ep:one-piece-171-bolum",
+        "title": "171. Bölüm",
+        "season": 1,
+        "episode": 171
+      },
+      {
+        "id": "turkanime:ep:one-piece-172-bolum",
+        "title": "172. Bölüm",
+        "season": 1,
+        "episode": 172
+      },
+      {
+        "id": "turkanime:ep:one-piece-173-bolum",
+        "title": "173. Bölüm",
+        "season": 1,
+        "episode": 173
+      },
+      {
+        "id": "turkanime:ep:one-piece-174-bolum",
+        "title": "174. Bölüm",
+        "season": 1,
+        "episode": 174
+      },
+      {
+        "id": "turkanime:ep:one-piece-175-bolum",
+        "title": "175. Bölüm",
+        "season": 1,
+        "episode": 175
+      },
+      {
+        "id": "turkanime:ep:one-piece-176-bolum",
+        "title": "176. Bölüm",
+        "season": 1,
+        "episode": 176
+      },
+      {
+        "id": "turkanime:ep:one-piece-177-bolum",
+        "title": "177. Bölüm",
+        "season": 1,
+        "episode": 177
+      },
+      {
+        "id": "turkanime:ep:one-piece-178-bolum",
+        "title": "178. Bölüm",
+        "season": 1,
+        "episode": 178
+      },
+      {
+        "id": "turkanime:ep:one-piece-179-bolum",
+        "title": "179. Bölüm",
+        "season": 1,
+        "episode": 179
+      },
+      {
+        "id": "turkanime:ep:one-piece-180-bolum",
+        "title": "180. Bölüm",
+        "season": 1,
+        "episode": 180
+      },
+      {
+        "id": "turkanime:ep:one-piece-181-bolum",
+        "title": "181. Bölüm",
+        "season": 1,
+        "episode": 181
+      },
+      {
+        "id": "turkanime:ep:one-piece-182-bolum",
+        "title": "182. Bölüm",
+        "season": 1,
+        "episode": 182
+      },
+      {
+        "id": "turkanime:ep:one-piece-183-bolum",
+        "title": "183. Bölüm",
+        "season": 1,
+        "episode": 183
+      },
+      {
+        "id": "turkanime:ep:one-piece-184-bolum",
+        "title": "184. Bölüm",
+        "season": 1,
+        "episode": 184
+      },
+      {
+        "id": "turkanime:ep:one-piece-185-bolum",
+        "title": "185. Bölüm",
+        "season": 1,
+        "episode": 185
+      },
+      {
+        "id": "turkanime:ep:one-piece-186-bolum",
+        "title": "186. Bölüm",
+        "season": 1,
+        "episode": 186
+      },
+      {
+        "id": "turkanime:ep:one-piece-187-bolum",
+        "title": "187. Bölüm",
+        "season": 1,
+        "episode": 187
+      },
+      {
+        "id": "turkanime:ep:one-piece-188-bolum",
+        "title": "188. Bölüm",
+        "season": 1,
+        "episode": 188
+      },
+      {
+        "id": "turkanime:ep:one-piece-189-bolum",
+        "title": "189. Bölüm",
+        "season": 1,
+        "episode": 189
+      },
+      {
+        "id": "turkanime:ep:one-piece-190-bolum",
+        "title": "190. Bölüm",
+        "season": 1,
+        "episode": 190
+      },
+      {
+        "id": "turkanime:ep:one-piece-191-bolum",
+        "title": "191. Bölüm",
+        "season": 1,
+        "episode": 191
+      },
+      {
+        "id": "turkanime:ep:one-piece-192-bolum",
+        "title": "192. Bölüm",
+        "season": 1,
+        "episode": 192
+      },
+      {
+        "id": "turkanime:ep:one-piece-193-bolum",
+        "title": "193. Bölüm",
+        "season": 1,
+        "episode": 193
+      },
+      {
+        "id": "turkanime:ep:one-piece-194-bolum",
+        "title": "194. Bölüm",
+        "season": 1,
+        "episode": 194
+      },
+      {
+        "id": "turkanime:ep:one-piece-195-bolum",
+        "title": "195. Bölüm",
+        "season": 1,
+        "episode": 195
+      },
+      {
+        "id": "turkanime:ep:one-piece-196-bolum",
+        "title": "196. Bölüm",
+        "season": 1,
+        "episode": 196
+      },
+      {
+        "id": "turkanime:ep:one-piece-197-bolum",
+        "title": "197. Bölüm",
+        "season": 1,
+        "episode": 197
+      },
+      {
+        "id": "turkanime:ep:one-piece-198-bolum",
+        "title": "198. Bölüm",
+        "season": 1,
+        "episode": 198
+      },
+      {
+        "id": "turkanime:ep:one-piece-199-bolum",
+        "title": "199. Bölüm",
+        "season": 1,
+        "episode": 199
+      },
+      {
+        "id": "turkanime:ep:one-piece-200-bolum",
+        "title": "200. Bölüm",
+        "season": 1,
+        "episode": 200
+      },
+      {
+        "id": "turkanime:ep:one-piece-201-bolum",
+        "title": "201. Bölüm",
+        "season": 1,
+        "episode": 201
+      },
+      {
+        "id": "turkanime:ep:one-piece-202-bolum",
+        "title": "202. Bölüm",
+        "season": 1,
+        "episode": 202
+      },
+      {
+        "id": "turkanime:ep:one-piece-203-bolum",
+        "title": "203. Bölüm",
+        "season": 1,
+        "episode": 203
+      },
+      {
+        "id": "turkanime:ep:one-piece-204-bolum",
+        "title": "204. Bölüm",
+        "season": 1,
+        "episode": 204
+      },
+      {
+        "id": "turkanime:ep:one-piece-205-bolum",
+        "title": "205. Bölüm",
+        "season": 1,
+        "episode": 205
+      },
+      {
+        "id": "turkanime:ep:one-piece-206-bolum",
+        "title": "206. Bölüm",
+        "season": 1,
+        "episode": 206
+      },
+      {
+        "id": "turkanime:ep:one-piece-207-bolum",
+        "title": "207. Bölüm",
+        "season": 1,
+        "episode": 207
+      },
+      {
+        "id": "turkanime:ep:one-piece-208-bolum",
+        "title": "208. Bölüm",
+        "season": 1,
+        "episode": 208
+      },
+      {
+        "id": "turkanime:ep:one-piece-209-bolum",
+        "title": "209. Bölüm",
+        "season": 1,
+        "episode": 209
+      },
+      {
+        "id": "turkanime:ep:one-piece-210-bolum",
+        "title": "210. Bölüm",
+        "season": 1,
+        "episode": 210
+      },
+      {
+        "id": "turkanime:ep:one-piece-211-bolum",
+        "title": "211. Bölüm",
+        "season": 1,
+        "episode": 211
+      },
+      {
+        "id": "turkanime:ep:one-piece-212-bolum",
+        "title": "212. Bölüm",
+        "season": 1,
+        "episode": 212
+      },
+      {
+        "id": "turkanime:ep:one-piece-213-bolum",
+        "title": "213. Bölüm",
+        "season": 1,
+        "episode": 213
+      },
+      {
+        "id": "turkanime:ep:one-piece-214-bolum",
+        "title": "214. Bölüm",
+        "season": 1,
+        "episode": 214
+      },
+      {
+        "id": "turkanime:ep:one-piece-215-216-bolum",
+        "title": "216. Bölüm",
+        "season": 1,
+        "episode": 216
+      },
+      {
+        "id": "turkanime:ep:one-piece-217-bolum",
+        "title": "217. Bölüm",
+        "season": 1,
+        "episode": 217
+      },
+      {
+        "id": "turkanime:ep:one-piece-218-bolum",
+        "title": "218. Bölüm",
+        "season": 1,
+        "episode": 218
+      },
+      {
+        "id": "turkanime:ep:one-piece-219-bolum",
+        "title": "219. Bölüm",
+        "season": 1,
+        "episode": 219
+      },
+      {
+        "id": "turkanime:ep:one-piece-220-bolum",
+        "title": "220. Bölüm",
+        "season": 1,
+        "episode": 220
+      },
+      {
+        "id": "turkanime:ep:one-piece-221-bolum",
+        "title": "221. Bölüm",
+        "season": 1,
+        "episode": 221
+      },
+      {
+        "id": "turkanime:ep:one-piece-222-bolum",
+        "title": "222. Bölüm",
+        "season": 1,
+        "episode": 222
+      },
+      {
+        "id": "turkanime:ep:one-piece-223-bolum",
+        "title": "223. Bölüm",
+        "season": 1,
+        "episode": 223
+      },
+      {
+        "id": "turkanime:ep:one-piece-224-bolum",
+        "title": "224. Bölüm",
+        "season": 1,
+        "episode": 224
+      },
+      {
+        "id": "turkanime:ep:one-piece-225-bolum",
+        "title": "225. Bölüm",
+        "season": 1,
+        "episode": 225
+      },
+      {
+        "id": "turkanime:ep:one-piece-226-bolum",
+        "title": "226. Bölüm",
+        "season": 1,
+        "episode": 226
+      },
+      {
+        "id": "turkanime:ep:one-piece-227-228-bolum",
+        "title": "228. Bölüm",
+        "season": 1,
+        "episode": 228
+      },
+      {
+        "id": "turkanime:ep:one-piece-229-bolum",
+        "title": "229. Bölüm",
+        "season": 1,
+        "episode": 229
+      },
+      {
+        "id": "turkanime:ep:one-piece-230-bolum",
+        "title": "230. Bölüm",
+        "season": 1,
+        "episode": 230
+      },
+      {
+        "id": "turkanime:ep:one-piece-231-bolum",
+        "title": "231. Bölüm",
+        "season": 1,
+        "episode": 231
+      },
+      {
+        "id": "turkanime:ep:one-piece-232-bolum",
+        "title": "232. Bölüm",
+        "season": 1,
+        "episode": 232
+      },
+      {
+        "id": "turkanime:ep:one-piece-233-bolum",
+        "title": "233. Bölüm",
+        "season": 1,
+        "episode": 233
+      },
+      {
+        "id": "turkanime:ep:one-piece-234-bolum",
+        "title": "234. Bölüm",
+        "season": 1,
+        "episode": 234
+      },
+      {
+        "id": "turkanime:ep:one-piece-235-bolum",
+        "title": "235. Bölüm",
+        "season": 1,
+        "episode": 235
+      },
+      {
+        "id": "turkanime:ep:one-piece-236-bolum",
+        "title": "236. Bölüm",
+        "season": 1,
+        "episode": 236
+      },
+      {
+        "id": "turkanime:ep:one-piece-237-bolum",
+        "title": "237. Bölüm",
+        "season": 1,
+        "episode": 237
+      },
+      {
+        "id": "turkanime:ep:one-piece-238-bolum",
+        "title": "238. Bölüm",
+        "season": 1,
+        "episode": 238
+      },
+      {
+        "id": "turkanime:ep:one-piece-239-bolum",
+        "title": "239. Bölüm",
+        "season": 1,
+        "episode": 239
+      },
+      {
+        "id": "turkanime:ep:one-piece-240-bolum",
+        "title": "240. Bölüm",
+        "season": 1,
+        "episode": 240
+      },
+      {
+        "id": "turkanime:ep:one-piece-241-bolum",
+        "title": "241. Bölüm",
+        "season": 1,
+        "episode": 241
+      },
+      {
+        "id": "turkanime:ep:one-piece-242-bolum",
+        "title": "242. Bölüm",
+        "season": 1,
+        "episode": 242
+      },
+      {
+        "id": "turkanime:ep:one-piece-243-bolum",
+        "title": "243. Bölüm",
+        "season": 1,
+        "episode": 243
+      },
+      {
+        "id": "turkanime:ep:one-piece-244-bolum",
+        "title": "244. Bölüm",
+        "season": 1,
+        "episode": 244
+      },
+      {
+        "id": "turkanime:ep:one-piece-245-bolum",
+        "title": "245. Bölüm",
+        "season": 1,
+        "episode": 245
+      },
+      {
+        "id": "turkanime:ep:one-piece-246-bolum",
+        "title": "246. Bölüm",
+        "season": 1,
+        "episode": 246
+      },
+      {
+        "id": "turkanime:ep:one-piece-247-bolum",
+        "title": "247. Bölüm",
+        "season": 1,
+        "episode": 247
+      },
+      {
+        "id": "turkanime:ep:one-piece-248-bolum",
+        "title": "248. Bölüm",
+        "season": 1,
+        "episode": 248
+      },
+      {
+        "id": "turkanime:ep:one-piece-249-bolum",
+        "title": "249. Bölüm",
+        "season": 1,
+        "episode": 249
+      },
+      {
+        "id": "turkanime:ep:one-piece-250-251-bolum",
+        "title": "251. Bölüm",
+        "season": 1,
+        "episode": 251
+      },
+      {
+        "id": "turkanime:ep:one-piece-252-bolum",
+        "title": "252. Bölüm",
+        "season": 1,
+        "episode": 252
+      },
+      {
+        "id": "turkanime:ep:one-piece-253-bolum",
+        "title": "253. Bölüm",
+        "season": 1,
+        "episode": 253
+      },
+      {
+        "id": "turkanime:ep:one-piece-254-bolum",
+        "title": "254. Bölüm",
+        "season": 1,
+        "episode": 254
+      },
+      {
+        "id": "turkanime:ep:one-piece-255-bolum",
+        "title": "255. Bölüm",
+        "season": 1,
+        "episode": 255
+      },
+      {
+        "id": "turkanime:ep:one-piece-256-bolum",
+        "title": "256. Bölüm",
+        "season": 1,
+        "episode": 256
+      },
+      {
+        "id": "turkanime:ep:one-piece-257-bolum",
+        "title": "257. Bölüm",
+        "season": 1,
+        "episode": 257
+      },
+      {
+        "id": "turkanime:ep:one-piece-258-bolum",
+        "title": "258. Bölüm",
+        "season": 1,
+        "episode": 258
+      },
+      {
+        "id": "turkanime:ep:one-piece-259-bolum",
+        "title": "259. Bölüm",
+        "season": 1,
+        "episode": 259
+      },
+      {
+        "id": "turkanime:ep:one-piece-260-bolum",
+        "title": "260. Bölüm",
+        "season": 1,
+        "episode": 260
+      },
+      {
+        "id": "turkanime:ep:one-piece-261-bolum",
+        "title": "261. Bölüm",
+        "season": 1,
+        "episode": 261
+      },
+      {
+        "id": "turkanime:ep:one-piece-262-bolum",
+        "title": "262. Bölüm",
+        "season": 1,
+        "episode": 262
+      },
+      {
+        "id": "turkanime:ep:one-piece-263-bolum",
+        "title": "263. Bölüm",
+        "season": 1,
+        "episode": 263
+      },
+      {
+        "id": "turkanime:ep:one-piece-264-bolum",
+        "title": "264. Bölüm",
+        "season": 1,
+        "episode": 264
+      },
+      {
+        "id": "turkanime:ep:one-piece-265-bolum",
+        "title": "265. Bölüm",
+        "season": 1,
+        "episode": 265
+      },
+      {
+        "id": "turkanime:ep:one-piece-266-bolum",
+        "title": "266. Bölüm",
+        "season": 1,
+        "episode": 266
+      },
+      {
+        "id": "turkanime:ep:one-piece-267-bolum",
+        "title": "267. Bölüm",
+        "season": 1,
+        "episode": 267
+      },
+      {
+        "id": "turkanime:ep:one-piece-268-269-bolum",
+        "title": "269. Bölüm",
+        "season": 1,
+        "episode": 269
+      },
+      {
+        "id": "turkanime:ep:one-piece-270-bolum",
+        "title": "270. Bölüm",
+        "season": 1,
+        "episode": 270
+      },
+      {
+        "id": "turkanime:ep:one-piece-271-bolum",
+        "title": "271. Bölüm",
+        "season": 1,
+        "episode": 271
+      },
+      {
+        "id": "turkanime:ep:one-piece-272-bolum",
+        "title": "272. Bölüm",
+        "season": 1,
+        "episode": 272
+      },
+      {
+        "id": "turkanime:ep:one-piece-273-bolum",
+        "title": "273. Bölüm",
+        "season": 1,
+        "episode": 273
+      },
+      {
+        "id": "turkanime:ep:one-piece-274-bolum",
+        "title": "274. Bölüm",
+        "season": 1,
+        "episode": 274
+      },
+      {
+        "id": "turkanime:ep:one-piece-275-bolum",
+        "title": "275. Bölüm",
+        "season": 1,
+        "episode": 275
+      },
+      {
+        "id": "turkanime:ep:one-piece-276-bolum",
+        "title": "276. Bölüm",
+        "season": 1,
+        "episode": 276
+      },
+      {
+        "id": "turkanime:ep:one-piece-277-278-bolum",
+        "title": "278. Bölüm",
+        "season": 1,
+        "episode": 278
+      },
+      {
+        "id": "turkanime:ep:one-piece-279-bolum",
+        "title": "279. Bölüm",
+        "season": 1,
+        "episode": 279
+      },
+      {
+        "id": "turkanime:ep:one-piece-280-bolum",
+        "title": "280. Bölüm",
+        "season": 1,
+        "episode": 280
+      },
+      {
+        "id": "turkanime:ep:one-piece-281-bolum",
+        "title": "281. Bölüm",
+        "season": 1,
+        "episode": 281
+      },
+      {
+        "id": "turkanime:ep:one-piece-282-bolum",
+        "title": "282. Bölüm",
+        "season": 1,
+        "episode": 282
+      },
+      {
+        "id": "turkanime:ep:one-piece-283-bolum",
+        "title": "283. Bölüm",
+        "season": 1,
+        "episode": 283
+      },
+      {
+        "id": "turkanime:ep:one-piece-284-bolum",
+        "title": "284. Bölüm",
+        "season": 1,
+        "episode": 284
+      },
+      {
+        "id": "turkanime:ep:one-piece-285-bolum",
+        "title": "285. Bölüm",
+        "season": 1,
+        "episode": 285
+      },
+      {
+        "id": "turkanime:ep:one-piece-286-bolum",
+        "title": "286. Bölüm",
+        "season": 1,
+        "episode": 286
+      },
+      {
+        "id": "turkanime:ep:one-piece-287-bolum",
+        "title": "287. Bölüm",
+        "season": 1,
+        "episode": 287
+      },
+      {
+        "id": "turkanime:ep:one-piece-288-bolum",
+        "title": "288. Bölüm",
+        "season": 1,
+        "episode": 288
+      },
+      {
+        "id": "turkanime:ep:one-piece-289-bolum",
+        "title": "289. Bölüm",
+        "season": 1,
+        "episode": 289
+      },
+      {
+        "id": "turkanime:ep:one-piece-290-bolum",
+        "title": "290. Bölüm",
+        "season": 1,
+        "episode": 290
+      },
+      {
+        "id": "turkanime:ep:one-piece-291-bolum",
+        "title": "291. Bölüm",
+        "season": 1,
+        "episode": 291
+      },
+      {
+        "id": "turkanime:ep:one-piece-292-bolum",
+        "title": "292. Bölüm",
+        "season": 1,
+        "episode": 292
+      },
+      {
+        "id": "turkanime:ep:one-piece-293-bolum",
+        "title": "293. Bölüm",
+        "season": 1,
+        "episode": 293
+      },
+      {
+        "id": "turkanime:ep:one-piece-294-bolum",
+        "title": "294. Bölüm",
+        "season": 1,
+        "episode": 294
+      },
+      {
+        "id": "turkanime:ep:one-piece-295-bolum",
+        "title": "295. Bölüm",
+        "season": 1,
+        "episode": 295
+      },
+      {
+        "id": "turkanime:ep:one-piece-296-bolum",
+        "title": "296. Bölüm",
+        "season": 1,
+        "episode": 296
+      },
+      {
+        "id": "turkanime:ep:one-piece-297-bolum",
+        "title": "297. Bölüm",
+        "season": 1,
+        "episode": 297
+      },
+      {
+        "id": "turkanime:ep:one-piece-298-bolum",
+        "title": "298. Bölüm",
+        "season": 1,
+        "episode": 298
+      },
+      {
+        "id": "turkanime:ep:one-piece-299-bolum",
+        "title": "299. Bölüm",
+        "season": 1,
+        "episode": 299
+      },
+      {
+        "id": "turkanime:ep:one-piece-300-bolum",
+        "title": "300. Bölüm",
+        "season": 1,
+        "episode": 300
+      },
+      {
+        "id": "turkanime:ep:one-piece-301-bolum",
+        "title": "301. Bölüm",
+        "season": 1,
+        "episode": 301
+      },
+      {
+        "id": "turkanime:ep:one-piece-302-bolum",
+        "title": "302. Bölüm",
+        "season": 1,
+        "episode": 302
+      },
+      {
+        "id": "turkanime:ep:one-piece-303-bolum",
+        "title": "303. Bölüm",
+        "season": 1,
+        "episode": 303
+      },
+      {
+        "id": "turkanime:ep:one-piece-304-bolum",
+        "title": "304. Bölüm",
+        "season": 1,
+        "episode": 304
+      },
+      {
+        "id": "turkanime:ep:one-piece-305-bolum",
+        "title": "305. Bölüm",
+        "season": 1,
+        "episode": 305
+      },
+      {
+        "id": "turkanime:ep:one-piece-306-bolum",
+        "title": "306. Bölüm",
+        "season": 1,
+        "episode": 306
+      },
+      {
+        "id": "turkanime:ep:one-piece-307-bolum",
+        "title": "307. Bölüm",
+        "season": 1,
+        "episode": 307
+      },
+      {
+        "id": "turkanime:ep:one-piece-308-bolum",
+        "title": "308. Bölüm",
+        "season": 1,
+        "episode": 308
+      },
+      {
+        "id": "turkanime:ep:one-piece-309-bolum",
+        "title": "309. Bölüm",
+        "season": 1,
+        "episode": 309
+      },
+      {
+        "id": "turkanime:ep:one-piece-310-bolum",
+        "title": "310. Bölüm",
+        "season": 1,
+        "episode": 310
+      },
+      {
+        "id": "turkanime:ep:one-piece-311-bolum",
+        "title": "311. Bölüm",
+        "season": 1,
+        "episode": 311
+      },
+      {
+        "id": "turkanime:ep:one-piece-312-bolum",
+        "title": "312. Bölüm",
+        "season": 1,
+        "episode": 312
+      },
+      {
+        "id": "turkanime:ep:one-piece-313-bolum",
+        "title": "313. Bölüm",
+        "season": 1,
+        "episode": 313
+      },
+      {
+        "id": "turkanime:ep:one-piece-314-bolum",
+        "title": "314. Bölüm",
+        "season": 1,
+        "episode": 314
+      },
+      {
+        "id": "turkanime:ep:one-piece-315-bolum",
+        "title": "315. Bölüm",
+        "season": 1,
+        "episode": 315
+      },
+      {
+        "id": "turkanime:ep:one-piece-316-bolum",
+        "title": "316. Bölüm",
+        "season": 1,
+        "episode": 316
+      },
+      {
+        "id": "turkanime:ep:one-piece-317-bolum",
+        "title": "317. Bölüm",
+        "season": 1,
+        "episode": 317
+      },
+      {
+        "id": "turkanime:ep:one-piece-318-bolum",
+        "title": "318. Bölüm",
+        "season": 1,
+        "episode": 318
+      },
+      {
+        "id": "turkanime:ep:one-piece-319-bolum",
+        "title": "319. Bölüm",
+        "season": 1,
+        "episode": 319
+      },
+      {
+        "id": "turkanime:ep:one-piece-320-bolum",
+        "title": "320. Bölüm",
+        "season": 1,
+        "episode": 320
+      },
+      {
+        "id": "turkanime:ep:one-piece-321-bolum",
+        "title": "321. Bölüm",
+        "season": 1,
+        "episode": 321
+      },
+      {
+        "id": "turkanime:ep:one-piece-322-bolum",
+        "title": "322. Bölüm",
+        "season": 1,
+        "episode": 322
+      },
+      {
+        "id": "turkanime:ep:one-piece-323-bolum",
+        "title": "323. Bölüm",
+        "season": 1,
+        "episode": 323
+      },
+      {
+        "id": "turkanime:ep:one-piece-324-bolum",
+        "title": "324. Bölüm",
+        "season": 1,
+        "episode": 324
+      },
+      {
+        "id": "turkanime:ep:one-piece-325-bolum",
+        "title": "325. Bölüm",
+        "season": 1,
+        "episode": 325
+      },
+      {
+        "id": "turkanime:ep:one-piece-326-bolum",
+        "title": "326. Bölüm",
+        "season": 1,
+        "episode": 326
+      },
+      {
+        "id": "turkanime:ep:one-piece-327-bolum",
+        "title": "327. Bölüm",
+        "season": 1,
+        "episode": 327
+      },
+      {
+        "id": "turkanime:ep:one-piece-328-bolum",
+        "title": "328. Bölüm",
+        "season": 1,
+        "episode": 328
+      },
+      {
+        "id": "turkanime:ep:one-piece-329-bolum",
+        "title": "329. Bölüm",
+        "season": 1,
+        "episode": 329
+      },
+      {
+        "id": "turkanime:ep:one-piece-330-bolum",
+        "title": "330. Bölüm",
+        "season": 1,
+        "episode": 330
+      },
+      {
+        "id": "turkanime:ep:one-piece-331-bolum",
+        "title": "331. Bölüm",
+        "season": 1,
+        "episode": 331
+      },
+      {
+        "id": "turkanime:ep:one-piece-332-bolum",
+        "title": "332. Bölüm",
+        "season": 1,
+        "episode": 332
+      },
+      {
+        "id": "turkanime:ep:one-piece-333-bolum",
+        "title": "333. Bölüm",
+        "season": 1,
+        "episode": 333
+      },
+      {
+        "id": "turkanime:ep:one-piece-334-bolum",
+        "title": "334. Bölüm",
+        "season": 1,
+        "episode": 334
+      },
+      {
+        "id": "turkanime:ep:one-piece-335-bolum",
+        "title": "335. Bölüm",
+        "season": 1,
+        "episode": 335
+      },
+      {
+        "id": "turkanime:ep:one-piece-336-bolum",
+        "title": "336. Bölüm",
+        "season": 1,
+        "episode": 336
+      },
+      {
+        "id": "turkanime:ep:one-piece-337-bolum",
+        "title": "337. Bölüm",
+        "season": 1,
+        "episode": 337
+      },
+      {
+        "id": "turkanime:ep:one-piece-338-bolum",
+        "title": "338. Bölüm",
+        "season": 1,
+        "episode": 338
+      },
+      {
+        "id": "turkanime:ep:one-piece-339-bolum",
+        "title": "339. Bölüm",
+        "season": 1,
+        "episode": 339
+      },
+      {
+        "id": "turkanime:ep:one-piece-340-bolum",
+        "title": "340. Bölüm",
+        "season": 1,
+        "episode": 340
+      },
+      {
+        "id": "turkanime:ep:one-piece-341-bolum",
+        "title": "341. Bölüm",
+        "season": 1,
+        "episode": 341
+      },
+      {
+        "id": "turkanime:ep:one-piece-342-bolum",
+        "title": "342. Bölüm",
+        "season": 1,
+        "episode": 342
+      },
+      {
+        "id": "turkanime:ep:one-piece-343-bolum",
+        "title": "343. Bölüm",
+        "season": 1,
+        "episode": 343
+      },
+      {
+        "id": "turkanime:ep:one-piece-344-bolum",
+        "title": "344. Bölüm",
+        "season": 1,
+        "episode": 344
+      },
+      {
+        "id": "turkanime:ep:one-piece-345-bolum",
+        "title": "345. Bölüm",
+        "season": 1,
+        "episode": 345
+      },
+      {
+        "id": "turkanime:ep:one-piece-346-bolum",
+        "title": "346. Bölüm",
+        "season": 1,
+        "episode": 346
+      },
+      {
+        "id": "turkanime:ep:one-piece-347-bolum",
+        "title": "347. Bölüm",
+        "season": 1,
+        "episode": 347
+      },
+      {
+        "id": "turkanime:ep:one-piece-348-bolum",
+        "title": "348. Bölüm",
+        "season": 1,
+        "episode": 348
+      },
+      {
+        "id": "turkanime:ep:one-piece-349-bolum",
+        "title": "349. Bölüm",
+        "season": 1,
+        "episode": 349
+      },
+      {
+        "id": "turkanime:ep:one-piece-350-bolum",
+        "title": "350. Bölüm",
+        "season": 1,
+        "episode": 350
+      },
+      {
+        "id": "turkanime:ep:one-piece-351-bolum",
+        "title": "351. Bölüm",
+        "season": 1,
+        "episode": 351
+      },
+      {
+        "id": "turkanime:ep:one-piece-352-bolum",
+        "title": "352. Bölüm",
+        "season": 1,
+        "episode": 352
+      },
+      {
+        "id": "turkanime:ep:one-piece-353-bolum",
+        "title": "353. Bölüm",
+        "season": 1,
+        "episode": 353
+      },
+      {
+        "id": "turkanime:ep:one-piece-354-bolum",
+        "title": "354. Bölüm",
+        "season": 1,
+        "episode": 354
+      },
+      {
+        "id": "turkanime:ep:one-piece-355-bolum",
+        "title": "355. Bölüm",
+        "season": 1,
+        "episode": 355
+      },
+      {
+        "id": "turkanime:ep:one-piece-356-bolum",
+        "title": "356. Bölüm",
+        "season": 1,
+        "episode": 356
+      },
+      {
+        "id": "turkanime:ep:one-piece-357-bolum",
+        "title": "357. Bölüm",
+        "season": 1,
+        "episode": 357
+      },
+      {
+        "id": "turkanime:ep:one-piece-358-bolum",
+        "title": "358. Bölüm",
+        "season": 1,
+        "episode": 358
+      },
+      {
+        "id": "turkanime:ep:one-piece-359-bolum",
+        "title": "359. Bölüm",
+        "season": 1,
+        "episode": 359
+      },
+      {
+        "id": "turkanime:ep:one-piece-360-bolum",
+        "title": "360. Bölüm",
+        "season": 1,
+        "episode": 360
+      },
+      {
+        "id": "turkanime:ep:one-piece-361-bolum",
+        "title": "361. Bölüm",
+        "season": 1,
+        "episode": 361
+      },
+      {
+        "id": "turkanime:ep:one-piece-362-bolum",
+        "title": "362. Bölüm",
+        "season": 1,
+        "episode": 362
+      },
+      {
+        "id": "turkanime:ep:one-piece-363-bolum",
+        "title": "363. Bölüm",
+        "season": 1,
+        "episode": 363
+      },
+      {
+        "id": "turkanime:ep:one-piece-364-bolum",
+        "title": "364. Bölüm",
+        "season": 1,
+        "episode": 364
+      },
+      {
+        "id": "turkanime:ep:one-piece-365-bolum",
+        "title": "365. Bölüm",
+        "season": 1,
+        "episode": 365
+      },
+      {
+        "id": "turkanime:ep:one-piece-366-bolum",
+        "title": "366. Bölüm",
+        "season": 1,
+        "episode": 366
+      },
+      {
+        "id": "turkanime:ep:one-piece-367-bolum",
+        "title": "367. Bölüm",
+        "season": 1,
+        "episode": 367
+      },
+      {
+        "id": "turkanime:ep:one-piece-368-bolum",
+        "title": "368. Bölüm",
+        "season": 1,
+        "episode": 368
+      },
+      {
+        "id": "turkanime:ep:one-piece-369-bolum",
+        "title": "369. Bölüm",
+        "season": 1,
+        "episode": 369
+      },
+      {
+        "id": "turkanime:ep:one-piece-370-bolum",
+        "title": "370. Bölüm",
+        "season": 1,
+        "episode": 370
+      },
+      {
+        "id": "turkanime:ep:one-piece-371-bolum",
+        "title": "371. Bölüm",
+        "season": 1,
+        "episode": 371
+      },
+      {
+        "id": "turkanime:ep:one-piece-372-bolum",
+        "title": "372. Bölüm",
+        "season": 1,
+        "episode": 372
+      },
+      {
+        "id": "turkanime:ep:one-piece-373-bolum",
+        "title": "373. Bölüm",
+        "season": 1,
+        "episode": 373
+      },
+      {
+        "id": "turkanime:ep:one-piece-374-bolum",
+        "title": "374. Bölüm",
+        "season": 1,
+        "episode": 374
+      },
+      {
+        "id": "turkanime:ep:one-piece-375-bolum",
+        "title": "375. Bölüm",
+        "season": 1,
+        "episode": 375
+      },
+      {
+        "id": "turkanime:ep:one-piece-376-bolum",
+        "title": "376. Bölüm",
+        "season": 1,
+        "episode": 376
+      },
+      {
+        "id": "turkanime:ep:one-piece-377-bolum",
+        "title": "377. Bölüm",
+        "season": 1,
+        "episode": 377
+      },
+      {
+        "id": "turkanime:ep:one-piece-378-bolum",
+        "title": "378. Bölüm",
+        "season": 1,
+        "episode": 378
+      },
+      {
+        "id": "turkanime:ep:one-piece-379-bolum",
+        "title": "379. Bölüm",
+        "season": 1,
+        "episode": 379
+      },
+      {
+        "id": "turkanime:ep:one-piece-380-bolum",
+        "title": "380. Bölüm",
+        "season": 1,
+        "episode": 380
+      },
+      {
+        "id": "turkanime:ep:one-piece-381-bolum",
+        "title": "381. Bölüm",
+        "season": 1,
+        "episode": 381
+      },
+      {
+        "id": "turkanime:ep:one-piece-382-bolum",
+        "title": "382. Bölüm",
+        "season": 1,
+        "episode": 382
+      },
+      {
+        "id": "turkanime:ep:one-piece-383-bolum",
+        "title": "383. Bölüm",
+        "season": 1,
+        "episode": 383
+      },
+      {
+        "id": "turkanime:ep:one-piece-384-bolum",
+        "title": "384. Bölüm",
+        "season": 1,
+        "episode": 384
+      },
+      {
+        "id": "turkanime:ep:one-piece-385-bolum",
+        "title": "385. Bölüm",
+        "season": 1,
+        "episode": 385
+      },
+      {
+        "id": "turkanime:ep:one-piece-386-bolum",
+        "title": "386. Bölüm",
+        "season": 1,
+        "episode": 386
+      },
+      {
+        "id": "turkanime:ep:one-piece-387-bolum",
+        "title": "387. Bölüm",
+        "season": 1,
+        "episode": 387
+      },
+      {
+        "id": "turkanime:ep:one-piece-388-bolum",
+        "title": "388. Bölüm",
+        "season": 1,
+        "episode": 388
+      },
+      {
+        "id": "turkanime:ep:one-piece-389-bolum",
+        "title": "389. Bölüm",
+        "season": 1,
+        "episode": 389
+      },
+      {
+        "id": "turkanime:ep:one-piece-390-bolum",
+        "title": "390. Bölüm",
+        "season": 1,
+        "episode": 390
+      },
+      {
+        "id": "turkanime:ep:one-piece-391-bolum",
+        "title": "391. Bölüm",
+        "season": 1,
+        "episode": 391
+      },
+      {
+        "id": "turkanime:ep:one-piece-392-bolum",
+        "title": "392. Bölüm",
+        "season": 1,
+        "episode": 392
+      },
+      {
+        "id": "turkanime:ep:one-piece-393-bolum",
+        "title": "393. Bölüm",
+        "season": 1,
+        "episode": 393
+      },
+      {
+        "id": "turkanime:ep:one-piece-394-bolum",
+        "title": "394. Bölüm",
+        "season": 1,
+        "episode": 394
+      },
+      {
+        "id": "turkanime:ep:one-piece-395-bolum",
+        "title": "395. Bölüm",
+        "season": 1,
+        "episode": 395
+      },
+      {
+        "id": "turkanime:ep:one-piece-396-bolum",
+        "title": "396. Bölüm",
+        "season": 1,
+        "episode": 396
+      },
+      {
+        "id": "turkanime:ep:one-piece-397-bolum",
+        "title": "397. Bölüm",
+        "season": 1,
+        "episode": 397
+      },
+      {
+        "id": "turkanime:ep:one-piece-398-bolum",
+        "title": "398. Bölüm",
+        "season": 1,
+        "episode": 398
+      },
+      {
+        "id": "turkanime:ep:one-piece-399-bolum",
+        "title": "399. Bölüm",
+        "season": 1,
+        "episode": 399
+      },
+      {
+        "id": "turkanime:ep:one-piece-400-bolum",
+        "title": "400. Bölüm",
+        "season": 1,
+        "episode": 400
+      },
+      {
+        "id": "turkanime:ep:one-piece-401-bolum",
+        "title": "401. Bölüm",
+        "season": 1,
+        "episode": 401
+      },
+      {
+        "id": "turkanime:ep:one-piece-402-bolum",
+        "title": "402. Bölüm",
+        "season": 1,
+        "episode": 402
+      },
+      {
+        "id": "turkanime:ep:one-piece-403-bolum",
+        "title": "403. Bölüm",
+        "season": 1,
+        "episode": 403
+      },
+      {
+        "id": "turkanime:ep:one-piece-404-bolum",
+        "title": "404. Bölüm",
+        "season": 1,
+        "episode": 404
+      },
+      {
+        "id": "turkanime:ep:one-piece-405-bolum",
+        "title": "405. Bölüm",
+        "season": 1,
+        "episode": 405
+      },
+      {
+        "id": "turkanime:ep:one-piece-406-bolum",
+        "title": "406. Bölüm",
+        "season": 1,
+        "episode": 406
+      },
+      {
+        "id": "turkanime:ep:one-piece-407-bolum",
+        "title": "407. Bölüm",
+        "season": 1,
+        "episode": 407
+      },
+      {
+        "id": "turkanime:ep:one-piece-408-bolum",
+        "title": "408. Bölüm",
+        "season": 1,
+        "episode": 408
+      },
+      {
+        "id": "turkanime:ep:one-piece-409-bolum",
+        "title": "409. Bölüm",
+        "season": 1,
+        "episode": 409
+      },
+      {
+        "id": "turkanime:ep:one-piece-410-bolum",
+        "title": "410. Bölüm",
+        "season": 1,
+        "episode": 410
+      },
+      {
+        "id": "turkanime:ep:one-piece-411-bolum",
+        "title": "411. Bölüm",
+        "season": 1,
+        "episode": 411
+      },
+      {
+        "id": "turkanime:ep:one-piece-412-bolum",
+        "title": "412. Bölüm",
+        "season": 1,
+        "episode": 412
+      },
+      {
+        "id": "turkanime:ep:one-piece-413-bolum",
+        "title": "413. Bölüm",
+        "season": 1,
+        "episode": 413
+      },
+      {
+        "id": "turkanime:ep:one-piece-414-bolum",
+        "title": "414. Bölüm",
+        "season": 1,
+        "episode": 414
+      },
+      {
+        "id": "turkanime:ep:one-piece-415-bolum",
+        "title": "415. Bölüm",
+        "season": 1,
+        "episode": 415
+      },
+      {
+        "id": "turkanime:ep:one-piece-416-bolum",
+        "title": "416. Bölüm",
+        "season": 1,
+        "episode": 416
+      },
+      {
+        "id": "turkanime:ep:one-piece-417-bolum",
+        "title": "417. Bölüm",
+        "season": 1,
+        "episode": 417
+      },
+      {
+        "id": "turkanime:ep:one-piece-418-bolum",
+        "title": "418. Bölüm",
+        "season": 1,
+        "episode": 418
+      },
+      {
+        "id": "turkanime:ep:one-piece-419-bolum",
+        "title": "419. Bölüm",
+        "season": 1,
+        "episode": 419
+      },
+      {
+        "id": "turkanime:ep:one-piece-420-bolum",
+        "title": "420. Bölüm",
+        "season": 1,
+        "episode": 420
+      },
+      {
+        "id": "turkanime:ep:one-piece-421-bolum",
+        "title": "421. Bölüm",
+        "season": 1,
+        "episode": 421
+      },
+      {
+        "id": "turkanime:ep:one-piece-422-bolum",
+        "title": "422. Bölüm",
+        "season": 1,
+        "episode": 422
+      },
+      {
+        "id": "turkanime:ep:one-piece-423-bolum",
+        "title": "423. Bölüm",
+        "season": 1,
+        "episode": 423
+      },
+      {
+        "id": "turkanime:ep:one-piece-424-bolum",
+        "title": "424. Bölüm",
+        "season": 1,
+        "episode": 424
+      },
+      {
+        "id": "turkanime:ep:one-piece-425-bolum",
+        "title": "425. Bölüm",
+        "season": 1,
+        "episode": 425
+      },
+      {
+        "id": "turkanime:ep:one-piece-426-bolum",
+        "title": "426. Bölüm",
+        "season": 1,
+        "episode": 426
+      },
+      {
+        "id": "turkanime:ep:one-piece-427-bolum",
+        "title": "427. Bölüm",
+        "season": 1,
+        "episode": 427
+      },
+      {
+        "id": "turkanime:ep:one-piece-428-bolum",
+        "title": "428. Bölüm",
+        "season": 1,
+        "episode": 428
+      },
+      {
+        "id": "turkanime:ep:one-piece-429-bolum",
+        "title": "429. Bölüm",
+        "season": 1,
+        "episode": 429
+      },
+      {
+        "id": "turkanime:ep:one-piece-430-bolum",
+        "title": "430. Bölüm",
+        "season": 1,
+        "episode": 430
+      },
+      {
+        "id": "turkanime:ep:one-piece-431-bolum",
+        "title": "431. Bölüm",
+        "season": 1,
+        "episode": 431
+      },
+      {
+        "id": "turkanime:ep:one-piece-432-bolum",
+        "title": "432. Bölüm",
+        "season": 1,
+        "episode": 432
+      },
+      {
+        "id": "turkanime:ep:one-piece-433-bolum",
+        "title": "433. Bölüm",
+        "season": 1,
+        "episode": 433
+      },
+      {
+        "id": "turkanime:ep:one-piece-434-bolum",
+        "title": "434. Bölüm",
+        "season": 1,
+        "episode": 434
+      },
+      {
+        "id": "turkanime:ep:one-piece-435-bolum",
+        "title": "435. Bölüm",
+        "season": 1,
+        "episode": 435
+      },
+      {
+        "id": "turkanime:ep:one-piece-436-bolum",
+        "title": "436. Bölüm",
+        "season": 1,
+        "episode": 436
+      },
+      {
+        "id": "turkanime:ep:one-piece-437-bolum",
+        "title": "437. Bölüm",
+        "season": 1,
+        "episode": 437
+      },
+      {
+        "id": "turkanime:ep:one-piece-438-bolum",
+        "title": "438. Bölüm",
+        "season": 1,
+        "episode": 438
+      },
+      {
+        "id": "turkanime:ep:one-piece-439-bolum",
+        "title": "439. Bölüm",
+        "season": 1,
+        "episode": 439
+      },
+      {
+        "id": "turkanime:ep:one-piece-440-bolum",
+        "title": "440. Bölüm",
+        "season": 1,
+        "episode": 440
+      },
+      {
+        "id": "turkanime:ep:one-piece-441-bolum",
+        "title": "441. Bölüm",
+        "season": 1,
+        "episode": 441
+      },
+      {
+        "id": "turkanime:ep:one-piece-442-bolum",
+        "title": "442. Bölüm",
+        "season": 1,
+        "episode": 442
+      },
+      {
+        "id": "turkanime:ep:one-piece-443-bolum",
+        "title": "443. Bölüm",
+        "season": 1,
+        "episode": 443
+      },
+      {
+        "id": "turkanime:ep:one-piece-444-bolum",
+        "title": "444. Bölüm",
+        "season": 1,
+        "episode": 444
+      },
+      {
+        "id": "turkanime:ep:one-piece-445-bolum",
+        "title": "445. Bölüm",
+        "season": 1,
+        "episode": 445
+      },
+      {
+        "id": "turkanime:ep:one-piece-446-bolum",
+        "title": "446. Bölüm",
+        "season": 1,
+        "episode": 446
+      },
+      {
+        "id": "turkanime:ep:one-piece-447-bolum",
+        "title": "447. Bölüm",
+        "season": 1,
+        "episode": 447
+      },
+      {
+        "id": "turkanime:ep:one-piece-448-bolum",
+        "title": "448. Bölüm",
+        "season": 1,
+        "episode": 448
+      },
+      {
+        "id": "turkanime:ep:one-piece-449-bolum",
+        "title": "449. Bölüm",
+        "season": 1,
+        "episode": 449
+      },
+      {
+        "id": "turkanime:ep:one-piece-450-bolum",
+        "title": "450. Bölüm",
+        "season": 1,
+        "episode": 450
+      },
+      {
+        "id": "turkanime:ep:one-piece-451-bolum",
+        "title": "451. Bölüm",
+        "season": 1,
+        "episode": 451
+      },
+      {
+        "id": "turkanime:ep:one-piece-452-bolum",
+        "title": "452. Bölüm",
+        "season": 1,
+        "episode": 452
+      },
+      {
+        "id": "turkanime:ep:one-piece-453-bolum",
+        "title": "453. Bölüm",
+        "season": 1,
+        "episode": 453
+      },
+      {
+        "id": "turkanime:ep:one-piece-454-bolum",
+        "title": "454. Bölüm",
+        "season": 1,
+        "episode": 454
+      },
+      {
+        "id": "turkanime:ep:one-piece-455-bolum",
+        "title": "455. Bölüm",
+        "season": 1,
+        "episode": 455
+      },
+      {
+        "id": "turkanime:ep:one-piece-456-bolum",
+        "title": "456. Bölüm",
+        "season": 1,
+        "episode": 456
+      },
+      {
+        "id": "turkanime:ep:one-piece-457-bolum",
+        "title": "457. Bölüm",
+        "season": 1,
+        "episode": 457
+      },
+      {
+        "id": "turkanime:ep:one-piece-458-bolum",
+        "title": "458. Bölüm",
+        "season": 1,
+        "episode": 458
+      },
+      {
+        "id": "turkanime:ep:one-piece-459-bolum",
+        "title": "459. Bölüm",
+        "season": 1,
+        "episode": 459
+      },
+      {
+        "id": "turkanime:ep:one-piece-460-bolum",
+        "title": "460. Bölüm",
+        "season": 1,
+        "episode": 460
+      },
+      {
+        "id": "turkanime:ep:one-piece-461-bolum",
+        "title": "461. Bölüm",
+        "season": 1,
+        "episode": 461
+      },
+      {
+        "id": "turkanime:ep:one-piece-462-bolum",
+        "title": "462. Bölüm",
+        "season": 1,
+        "episode": 462
+      },
+      {
+        "id": "turkanime:ep:one-piece-463-bolum",
+        "title": "463. Bölüm",
+        "season": 1,
+        "episode": 463
+      },
+      {
+        "id": "turkanime:ep:one-piece-464-bolum",
+        "title": "464. Bölüm",
+        "season": 1,
+        "episode": 464
+      },
+      {
+        "id": "turkanime:ep:one-piece-465-bolum",
+        "title": "465. Bölüm",
+        "season": 1,
+        "episode": 465
+      },
+      {
+        "id": "turkanime:ep:one-piece-466-bolum",
+        "title": "466. Bölüm",
+        "season": 1,
+        "episode": 466
+      },
+      {
+        "id": "turkanime:ep:one-piece-467-bolum",
+        "title": "467. Bölüm",
+        "season": 1,
+        "episode": 467
+      },
+      {
+        "id": "turkanime:ep:one-piece-468-bolum",
+        "title": "468. Bölüm",
+        "season": 1,
+        "episode": 468
+      },
+      {
+        "id": "turkanime:ep:one-piece-469-bolum",
+        "title": "469. Bölüm",
+        "season": 1,
+        "episode": 469
+      },
+      {
+        "id": "turkanime:ep:one-piece-470-bolum",
+        "title": "470. Bölüm",
+        "season": 1,
+        "episode": 470
+      },
+      {
+        "id": "turkanime:ep:one-piece-471-bolum",
+        "title": "471. Bölüm",
+        "season": 1,
+        "episode": 471
+      },
+      {
+        "id": "turkanime:ep:one-piece-472-bolum",
+        "title": "472. Bölüm",
+        "season": 1,
+        "episode": 472
+      },
+      {
+        "id": "turkanime:ep:one-piece-473-bolum",
+        "title": "473. Bölüm",
+        "season": 1,
+        "episode": 473
+      },
+      {
+        "id": "turkanime:ep:one-piece-474-bolum",
+        "title": "474. Bölüm",
+        "season": 1,
+        "episode": 474
+      },
+      {
+        "id": "turkanime:ep:one-piece-475-bolum",
+        "title": "475. Bölüm",
+        "season": 1,
+        "episode": 475
+      },
+      {
+        "id": "turkanime:ep:one-piece-476-bolum",
+        "title": "476. Bölüm",
+        "season": 1,
+        "episode": 476
+      },
+      {
+        "id": "turkanime:ep:one-piece-477-bolum",
+        "title": "477. Bölüm",
+        "season": 1,
+        "episode": 477
+      },
+      {
+        "id": "turkanime:ep:one-piece-478-bolum",
+        "title": "478. Bölüm",
+        "season": 1,
+        "episode": 478
+      },
+      {
+        "id": "turkanime:ep:one-piece-479-bolum",
+        "title": "479. Bölüm",
+        "season": 1,
+        "episode": 479
+      },
+      {
+        "id": "turkanime:ep:one-piece-480-bolum",
+        "title": "480. Bölüm",
+        "season": 1,
+        "episode": 480
+      },
+      {
+        "id": "turkanime:ep:one-piece-481-bolum",
+        "title": "481. Bölüm",
+        "season": 1,
+        "episode": 481
+      },
+      {
+        "id": "turkanime:ep:one-piece-482-bolum",
+        "title": "482. Bölüm",
+        "season": 1,
+        "episode": 482
+      },
+      {
+        "id": "turkanime:ep:one-piece-483-bolum",
+        "title": "483. Bölüm",
+        "season": 1,
+        "episode": 483
+      },
+      {
+        "id": "turkanime:ep:one-piece-484-bolum",
+        "title": "484. Bölüm",
+        "season": 1,
+        "episode": 484
+      },
+      {
+        "id": "turkanime:ep:one-piece-485-bolum",
+        "title": "485. Bölüm",
+        "season": 1,
+        "episode": 485
+      },
+      {
+        "id": "turkanime:ep:one-piece-486-bolum",
+        "title": "486. Bölüm",
+        "season": 1,
+        "episode": 486
+      },
+      {
+        "id": "turkanime:ep:one-piece-487-bolum",
+        "title": "487. Bölüm",
+        "season": 1,
+        "episode": 487
+      },
+      {
+        "id": "turkanime:ep:one-piece-488-bolum",
+        "title": "488. Bölüm",
+        "season": 1,
+        "episode": 488
+      },
+      {
+        "id": "turkanime:ep:one-piece-489-bolum",
+        "title": "489. Bölüm",
+        "season": 1,
+        "episode": 489
+      },
+      {
+        "id": "turkanime:ep:one-piece-490-bolum",
+        "title": "490. Bölüm",
+        "season": 1,
+        "episode": 490
+      },
+      {
+        "id": "turkanime:ep:one-piece-491-bolum",
+        "title": "491. Bölüm",
+        "season": 1,
+        "episode": 491
+      },
+      {
+        "id": "turkanime:ep:one-piece-492-bolum",
+        "title": "492. Bölüm",
+        "season": 1,
+        "episode": 492
+      },
+      {
+        "id": "turkanime:ep:one-piece-493-bolum",
+        "title": "493. Bölüm",
+        "season": 1,
+        "episode": 493
+      },
+      {
+        "id": "turkanime:ep:one-piece-494-bolum",
+        "title": "494. Bölüm",
+        "season": 1,
+        "episode": 494
+      },
+      {
+        "id": "turkanime:ep:one-piece-495-bolum",
+        "title": "495. Bölüm",
+        "season": 1,
+        "episode": 495
+      },
+      {
+        "id": "turkanime:ep:one-piece-496-bolum",
+        "title": "496. Bölüm",
+        "season": 1,
+        "episode": 496
+      },
+      {
+        "id": "turkanime:ep:one-piece-497-bolum",
+        "title": "497. Bölüm",
+        "season": 1,
+        "episode": 497
+      },
+      {
+        "id": "turkanime:ep:one-piece-498-bolum",
+        "title": "498. Bölüm",
+        "season": 1,
+        "episode": 498
+      },
+      {
+        "id": "turkanime:ep:one-piece-499-bolum",
+        "title": "499. Bölüm",
+        "season": 1,
+        "episode": 499
+      },
+      {
+        "id": "turkanime:ep:one-piece-500-bolum",
+        "title": "500. Bölüm",
+        "season": 1,
+        "episode": 500
+      },
+      {
+        "id": "turkanime:ep:one-piece-501-bolum",
+        "title": "501. Bölüm",
+        "season": 1,
+        "episode": 501
+      },
+      {
+        "id": "turkanime:ep:one-piece-502-bolum",
+        "title": "502. Bölüm",
+        "season": 1,
+        "episode": 502
+      },
+      {
+        "id": "turkanime:ep:one-piece-503-bolum",
+        "title": "503. Bölüm",
+        "season": 1,
+        "episode": 503
+      },
+      {
+        "id": "turkanime:ep:one-piece-504-bolum",
+        "title": "504. Bölüm",
+        "season": 1,
+        "episode": 504
+      },
+      {
+        "id": "turkanime:ep:one-piece-505-bolum",
+        "title": "505. Bölüm",
+        "season": 1,
+        "episode": 505
+      },
+      {
+        "id": "turkanime:ep:one-piece-506-bolum",
+        "title": "506. Bölüm",
+        "season": 1,
+        "episode": 506
+      },
+      {
+        "id": "turkanime:ep:one-piece-507-bolum",
+        "title": "507. Bölüm",
+        "season": 1,
+        "episode": 507
+      },
+      {
+        "id": "turkanime:ep:one-piece-508-bolum",
+        "title": "508. Bölüm",
+        "season": 1,
+        "episode": 508
+      },
+      {
+        "id": "turkanime:ep:one-piece-509-bolum",
+        "title": "509. Bölüm",
+        "season": 1,
+        "episode": 509
+      },
+      {
+        "id": "turkanime:ep:one-piece-510-bolum",
+        "title": "510. Bölüm",
+        "season": 1,
+        "episode": 510
+      },
+      {
+        "id": "turkanime:ep:one-piece-511-bolum",
+        "title": "511. Bölüm",
+        "season": 1,
+        "episode": 511
+      },
+      {
+        "id": "turkanime:ep:one-piece-512-bolum",
+        "title": "512. Bölüm",
+        "season": 1,
+        "episode": 512
+      },
+      {
+        "id": "turkanime:ep:one-piece-513-bolum",
+        "title": "513. Bölüm",
+        "season": 1,
+        "episode": 513
+      },
+      {
+        "id": "turkanime:ep:one-piece-514-bolum",
+        "title": "514. Bölüm",
+        "season": 1,
+        "episode": 514
+      },
+      {
+        "id": "turkanime:ep:one-piece-515-bolum",
+        "title": "515. Bölüm",
+        "season": 1,
+        "episode": 515
+      },
+      {
+        "id": "turkanime:ep:one-piece-516-bolum",
+        "title": "516. Bölüm",
+        "season": 1,
+        "episode": 516
+      },
+      {
+        "id": "turkanime:ep:one-piece-517-bolum",
+        "title": "517. Bölüm",
+        "season": 1,
+        "episode": 517
+      },
+      {
+        "id": "turkanime:ep:one-piece-518-bolum",
+        "title": "518. Bölüm",
+        "season": 1,
+        "episode": 518
+      },
+      {
+        "id": "turkanime:ep:one-piece-519-bolum",
+        "title": "519. Bölüm",
+        "season": 1,
+        "episode": 519
+      },
+      {
+        "id": "turkanime:ep:one-piece-520-bolum",
+        "title": "520. Bölüm",
+        "season": 1,
+        "episode": 520
+      },
+      {
+        "id": "turkanime:ep:one-piece-521-bolum",
+        "title": "521. Bölüm",
+        "season": 1,
+        "episode": 521
+      },
+      {
+        "id": "turkanime:ep:one-piece-522-bolum",
+        "title": "522. Bölüm",
+        "season": 1,
+        "episode": 522
+      },
+      {
+        "id": "turkanime:ep:one-piece-523-bolum",
+        "title": "523. Bölüm",
+        "season": 1,
+        "episode": 523
+      },
+      {
+        "id": "turkanime:ep:one-piece-524-bolum",
+        "title": "524. Bölüm",
+        "season": 1,
+        "episode": 524
+      },
+      {
+        "id": "turkanime:ep:one-piece-525-bolum",
+        "title": "525. Bölüm",
+        "season": 1,
+        "episode": 525
+      },
+      {
+        "id": "turkanime:ep:one-piece-526-bolum",
+        "title": "526. Bölüm",
+        "season": 1,
+        "episode": 526
+      },
+      {
+        "id": "turkanime:ep:one-piece-527-bolum",
+        "title": "527. Bölüm",
+        "season": 1,
+        "episode": 527
+      },
+      {
+        "id": "turkanime:ep:one-piece-528-bolum",
+        "title": "528. Bölüm",
+        "season": 1,
+        "episode": 528
+      },
+      {
+        "id": "turkanime:ep:one-piece-529-bolum",
+        "title": "529. Bölüm",
+        "season": 1,
+        "episode": 529
+      },
+      {
+        "id": "turkanime:ep:one-piece-530-bolum",
+        "title": "530. Bölüm",
+        "season": 1,
+        "episode": 530
+      },
+      {
+        "id": "turkanime:ep:one-piece-531-bolum",
+        "title": "531. Bölüm",
+        "season": 1,
+        "episode": 531
+      },
+      {
+        "id": "turkanime:ep:one-piece-532-bolum",
+        "title": "532. Bölüm",
+        "season": 1,
+        "episode": 532
+      },
+      {
+        "id": "turkanime:ep:one-piece-533-bolum",
+        "title": "533. Bölüm",
+        "season": 1,
+        "episode": 533
+      },
+      {
+        "id": "turkanime:ep:one-piece-534-bolum",
+        "title": "534. Bölüm",
+        "season": 1,
+        "episode": 534
+      },
+      {
+        "id": "turkanime:ep:one-piece-535-bolum",
+        "title": "535. Bölüm",
+        "season": 1,
+        "episode": 535
+      },
+      {
+        "id": "turkanime:ep:one-piece-536-bolum",
+        "title": "536. Bölüm",
+        "season": 1,
+        "episode": 536
+      },
+      {
+        "id": "turkanime:ep:one-piece-537-bolum",
+        "title": "537. Bölüm",
+        "season": 1,
+        "episode": 537
+      },
+      {
+        "id": "turkanime:ep:one-piece-538-bolum",
+        "title": "538. Bölüm",
+        "season": 1,
+        "episode": 538
+      },
+      {
+        "id": "turkanime:ep:one-piece-539-bolum",
+        "title": "539. Bölüm",
+        "season": 1,
+        "episode": 539
+      },
+      {
+        "id": "turkanime:ep:one-piece-540-bolum",
+        "title": "540. Bölüm",
+        "season": 1,
+        "episode": 540
+      },
+      {
+        "id": "turkanime:ep:one-piece-541-bolum",
+        "title": "541. Bölüm",
+        "season": 1,
+        "episode": 541
+      },
+      {
+        "id": "turkanime:ep:one-piece-543-bolum",
+        "title": "543. Bölüm",
+        "season": 1,
+        "episode": 543
+      },
+      {
+        "id": "turkanime:ep:one-piece-544-bolum",
+        "title": "544. Bölüm",
+        "season": 1,
+        "episode": 544
+      },
+      {
+        "id": "turkanime:ep:one-piece-545-bolum",
+        "title": "545. Bölüm",
+        "season": 1,
+        "episode": 545
+      },
+      {
+        "id": "turkanime:ep:one-piece-546-bolum",
+        "title": "546. Bölüm",
+        "season": 1,
+        "episode": 546
+      },
+      {
+        "id": "turkanime:ep:one-piece-547-bolum",
+        "title": "547. Bölüm",
+        "season": 1,
+        "episode": 547
+      },
+      {
+        "id": "turkanime:ep:one-piece-548-bolum",
+        "title": "548. Bölüm",
+        "season": 1,
+        "episode": 548
+      },
+      {
+        "id": "turkanime:ep:one-piece-549-bolum",
+        "title": "549. Bölüm",
+        "season": 1,
+        "episode": 549
+      },
+      {
+        "id": "turkanime:ep:one-piece-550-bolum",
+        "title": "550. Bölüm",
+        "season": 1,
+        "episode": 550
+      },
+      {
+        "id": "turkanime:ep:one-piece-551-bolum",
+        "title": "551. Bölüm",
+        "season": 1,
+        "episode": 551
+      },
+      {
+        "id": "turkanime:ep:one-piece-552-bolum",
+        "title": "552. Bölüm",
+        "season": 1,
+        "episode": 552
+      },
+      {
+        "id": "turkanime:ep:one-piece-553-bolum",
+        "title": "553. Bölüm",
+        "season": 1,
+        "episode": 553
+      },
+      {
+        "id": "turkanime:ep:one-piece-554-bolum",
+        "title": "554. Bölüm",
+        "season": 1,
+        "episode": 554
+      },
+      {
+        "id": "turkanime:ep:one-piece-555-bolum",
+        "title": "555. Bölüm",
+        "season": 1,
+        "episode": 555
+      },
+      {
+        "id": "turkanime:ep:one-piece-556-bolum",
+        "title": "556. Bölüm",
+        "season": 1,
+        "episode": 556
+      },
+      {
+        "id": "turkanime:ep:one-piece-557-bolum",
+        "title": "557. Bölüm",
+        "season": 1,
+        "episode": 557
+      },
+      {
+        "id": "turkanime:ep:one-piece-558-bolum",
+        "title": "558. Bölüm",
+        "season": 1,
+        "episode": 558
+      },
+      {
+        "id": "turkanime:ep:one-piece-559-bolum",
+        "title": "559. Bölüm",
+        "season": 1,
+        "episode": 559
+      },
+      {
+        "id": "turkanime:ep:one-piece-560-bolum",
+        "title": "560. Bölüm",
+        "season": 1,
+        "episode": 560
+      },
+      {
+        "id": "turkanime:ep:one-piece-561-bolum",
+        "title": "561. Bölüm",
+        "season": 1,
+        "episode": 561
+      },
+      {
+        "id": "turkanime:ep:one-piece-562-bolum",
+        "title": "562. Bölüm",
+        "season": 1,
+        "episode": 562
+      },
+      {
+        "id": "turkanime:ep:one-piece-563-bolum",
+        "title": "563. Bölüm",
+        "season": 1,
+        "episode": 563
+      },
+      {
+        "id": "turkanime:ep:one-piece-564-bolum",
+        "title": "564. Bölüm",
+        "season": 1,
+        "episode": 564
+      },
+      {
+        "id": "turkanime:ep:one-piece-565-bolum",
+        "title": "565. Bölüm",
+        "season": 1,
+        "episode": 565
+      },
+      {
+        "id": "turkanime:ep:one-piece-566-bolum",
+        "title": "566. Bölüm",
+        "season": 1,
+        "episode": 566
+      },
+      {
+        "id": "turkanime:ep:one-piece-567-bolum",
+        "title": "567. Bölüm",
+        "season": 1,
+        "episode": 567
+      },
+      {
+        "id": "turkanime:ep:one-piece-568-bolum",
+        "title": "568. Bölüm",
+        "season": 1,
+        "episode": 568
+      },
+      {
+        "id": "turkanime:ep:one-piece-569-bolum",
+        "title": "569. Bölüm",
+        "season": 1,
+        "episode": 569
+      },
+      {
+        "id": "turkanime:ep:one-piece-570-bolum",
+        "title": "570. Bölüm",
+        "season": 1,
+        "episode": 570
+      },
+      {
+        "id": "turkanime:ep:one-piece-571-bolum",
+        "title": "571. Bölüm",
+        "season": 1,
+        "episode": 571
+      },
+      {
+        "id": "turkanime:ep:one-piece-572-bolum",
+        "title": "572. Bölüm",
+        "season": 1,
+        "episode": 572
+      },
+      {
+        "id": "turkanime:ep:one-piece-573-bolum",
+        "title": "573. Bölüm",
+        "season": 1,
+        "episode": 573
+      },
+      {
+        "id": "turkanime:ep:one-piece-574-bolum",
+        "title": "574. Bölüm",
+        "season": 1,
+        "episode": 574
+      },
+      {
+        "id": "turkanime:ep:one-piece-575-bolum",
+        "title": "575. Bölüm",
+        "season": 1,
+        "episode": 575
+      },
+      {
+        "id": "turkanime:ep:one-piece-576-bolum",
+        "title": "576. Bölüm",
+        "season": 1,
+        "episode": 576
+      },
+      {
+        "id": "turkanime:ep:one-piece-577-bolum",
+        "title": "577. Bölüm",
+        "season": 1,
+        "episode": 577
+      },
+      {
+        "id": "turkanime:ep:one-piece-578-bolum",
+        "title": "578. Bölüm",
+        "season": 1,
+        "episode": 578
+      },
+      {
+        "id": "turkanime:ep:one-piece-579-bolum",
+        "title": "579. Bölüm",
+        "season": 1,
+        "episode": 579
+      },
+      {
+        "id": "turkanime:ep:one-piece-580-bolum",
+        "title": "580. Bölüm",
+        "season": 1,
+        "episode": 580
+      },
+      {
+        "id": "turkanime:ep:one-piece-581-bolum",
+        "title": "581. Bölüm",
+        "season": 1,
+        "episode": 581
+      },
+      {
+        "id": "turkanime:ep:one-piece-582-bolum",
+        "title": "582. Bölüm",
+        "season": 1,
+        "episode": 582
+      },
+      {
+        "id": "turkanime:ep:one-piece-583-bolum",
+        "title": "583. Bölüm",
+        "season": 1,
+        "episode": 583
+      },
+      {
+        "id": "turkanime:ep:one-piece-584-bolum",
+        "title": "584. Bölüm",
+        "season": 1,
+        "episode": 584
+      },
+      {
+        "id": "turkanime:ep:one-piece-585-bolum",
+        "title": "585. Bölüm",
+        "season": 1,
+        "episode": 585
+      },
+      {
+        "id": "turkanime:ep:one-piece-586-bolum",
+        "title": "586. Bölüm",
+        "season": 1,
+        "episode": 586
+      },
+      {
+        "id": "turkanime:ep:one-piece-587-bolum",
+        "title": "587. Bölüm",
+        "season": 1,
+        "episode": 587
+      },
+      {
+        "id": "turkanime:ep:one-piece-588-bolum",
+        "title": "588. Bölüm",
+        "season": 1,
+        "episode": 588
+      },
+      {
+        "id": "turkanime:ep:one-piece-589-bolum",
+        "title": "589. Bölüm",
+        "season": 1,
+        "episode": 589
+      },
+      {
+        "id": "turkanime:ep:one-piece-590-bolum",
+        "title": "590. Bölüm",
+        "season": 1,
+        "episode": 590
+      },
+      {
+        "id": "turkanime:ep:one-piece-591-bolum",
+        "title": "591. Bölüm",
+        "season": 1,
+        "episode": 591
+      },
+      {
+        "id": "turkanime:ep:one-piece-592-bolum",
+        "title": "592. Bölüm",
+        "season": 1,
+        "episode": 592
+      },
+      {
+        "id": "turkanime:ep:one-piece-593-bolum",
+        "title": "593. Bölüm",
+        "season": 1,
+        "episode": 593
+      },
+      {
+        "id": "turkanime:ep:one-piece-594-bolum",
+        "title": "594. Bölüm",
+        "season": 1,
+        "episode": 594
+      },
+      {
+        "id": "turkanime:ep:one-piece-595-bolum",
+        "title": "595. Bölüm",
+        "season": 1,
+        "episode": 595
+      },
+      {
+        "id": "turkanime:ep:one-piece-596-bolum",
+        "title": "596. Bölüm",
+        "season": 1,
+        "episode": 596
+      },
+      {
+        "id": "turkanime:ep:one-piece-597-bolum",
+        "title": "597. Bölüm",
+        "season": 1,
+        "episode": 597
+      },
+      {
+        "id": "turkanime:ep:one-piece-598-bolum",
+        "title": "598. Bölüm",
+        "season": 1,
+        "episode": 598
+      },
+      {
+        "id": "turkanime:ep:one-piece-599-bolum",
+        "title": "599. Bölüm",
+        "season": 1,
+        "episode": 599
+      },
+      {
+        "id": "turkanime:ep:one-piece-600-bolum",
+        "title": "600. Bölüm",
+        "season": 1,
+        "episode": 600
+      },
+      {
+        "id": "turkanime:ep:one-piece-601-bolum",
+        "title": "601. Bölüm",
+        "season": 1,
+        "episode": 601
+      },
+      {
+        "id": "turkanime:ep:one-piece-602-bolum",
+        "title": "602. Bölüm",
+        "season": 1,
+        "episode": 602
+      },
+      {
+        "id": "turkanime:ep:one-piece-603-bolum",
+        "title": "603. Bölüm",
+        "season": 1,
+        "episode": 603
+      },
+      {
+        "id": "turkanime:ep:one-piece-604-bolum",
+        "title": "604. Bölüm",
+        "season": 1,
+        "episode": 604
+      },
+      {
+        "id": "turkanime:ep:one-piece-605-bolum",
+        "title": "605. Bölüm",
+        "season": 1,
+        "episode": 605
+      },
+      {
+        "id": "turkanime:ep:one-piece-606-bolum",
+        "title": "606. Bölüm",
+        "season": 1,
+        "episode": 606
+      },
+      {
+        "id": "turkanime:ep:one-piece-607-bolum",
+        "title": "607. Bölüm",
+        "season": 1,
+        "episode": 607
+      },
+      {
+        "id": "turkanime:ep:one-piece-608-bolum",
+        "title": "608. Bölüm",
+        "season": 1,
+        "episode": 608
+      },
+      {
+        "id": "turkanime:ep:one-piece-609-bolum",
+        "title": "609. Bölüm",
+        "season": 1,
+        "episode": 609
+      },
+      {
+        "id": "turkanime:ep:one-piece-610-bolum",
+        "title": "610. Bölüm",
+        "season": 1,
+        "episode": 610
+      },
+      {
+        "id": "turkanime:ep:one-piece-611-bolum",
+        "title": "611. Bölüm",
+        "season": 1,
+        "episode": 611
+      },
+      {
+        "id": "turkanime:ep:one-piece-612-bolum",
+        "title": "612. Bölüm",
+        "season": 1,
+        "episode": 612
+      },
+      {
+        "id": "turkanime:ep:one-piece-613-bolum",
+        "title": "613. Bölüm",
+        "season": 1,
+        "episode": 613
+      },
+      {
+        "id": "turkanime:ep:one-piece-614-bolum",
+        "title": "614. Bölüm",
+        "season": 1,
+        "episode": 614
+      },
+      {
+        "id": "turkanime:ep:one-piece-615-bolum",
+        "title": "615. Bölüm",
+        "season": 1,
+        "episode": 615
+      },
+      {
+        "id": "turkanime:ep:one-piece-616-bolum",
+        "title": "616. Bölüm",
+        "season": 1,
+        "episode": 616
+      },
+      {
+        "id": "turkanime:ep:one-piece-617-bolum",
+        "title": "617. Bölüm",
+        "season": 1,
+        "episode": 617
+      },
+      {
+        "id": "turkanime:ep:one-piece-618-bolum",
+        "title": "618. Bölüm",
+        "season": 1,
+        "episode": 618
+      },
+      {
+        "id": "turkanime:ep:one-piece-619-bolum",
+        "title": "619. Bölüm",
+        "season": 1,
+        "episode": 619
+      },
+      {
+        "id": "turkanime:ep:one-piece-620-bolum",
+        "title": "620. Bölüm",
+        "season": 1,
+        "episode": 620
+      },
+      {
+        "id": "turkanime:ep:one-piece-621-bolum",
+        "title": "621. Bölüm",
+        "season": 1,
+        "episode": 621
+      },
+      {
+        "id": "turkanime:ep:one-piece-622-bolum",
+        "title": "622. Bölüm",
+        "season": 1,
+        "episode": 622
+      },
+      {
+        "id": "turkanime:ep:one-piece-623-bolum",
+        "title": "623. Bölüm",
+        "season": 1,
+        "episode": 623
+      },
+      {
+        "id": "turkanime:ep:one-piece-624-bolum",
+        "title": "624. Bölüm",
+        "season": 1,
+        "episode": 624
+      },
+      {
+        "id": "turkanime:ep:one-piece-625-bolum",
+        "title": "625. Bölüm",
+        "season": 1,
+        "episode": 625
+      },
+      {
+        "id": "turkanime:ep:one-piece-626-bolum",
+        "title": "626. Bölüm",
+        "season": 1,
+        "episode": 626
+      },
+      {
+        "id": "turkanime:ep:one-piece-627-bolum",
+        "title": "627. Bölüm",
+        "season": 1,
+        "episode": 627
+      },
+      {
+        "id": "turkanime:ep:one-piece-628-bolum",
+        "title": "628. Bölüm",
+        "season": 1,
+        "episode": 628
+      },
+      {
+        "id": "turkanime:ep:one-piece-629-bolum",
+        "title": "629. Bölüm",
+        "season": 1,
+        "episode": 629
+      },
+      {
+        "id": "turkanime:ep:one-piece-630-bolum",
+        "title": "630. Bölüm",
+        "season": 1,
+        "episode": 630
+      },
+      {
+        "id": "turkanime:ep:one-piece-631-bolum",
+        "title": "631. Bölüm",
+        "season": 1,
+        "episode": 631
+      },
+      {
+        "id": "turkanime:ep:one-piece-632-bolum",
+        "title": "632. Bölüm",
+        "season": 1,
+        "episode": 632
+      },
+      {
+        "id": "turkanime:ep:one-piece-633-bolum",
+        "title": "633. Bölüm",
+        "season": 1,
+        "episode": 633
+      },
+      {
+        "id": "turkanime:ep:one-piece-634-bolum",
+        "title": "634. Bölüm",
+        "season": 1,
+        "episode": 634
+      },
+      {
+        "id": "turkanime:ep:one-piece-635-bolum",
+        "title": "635. Bölüm",
+        "season": 1,
+        "episode": 635
+      },
+      {
+        "id": "turkanime:ep:one-piece-636-bolum",
+        "title": "636. Bölüm",
+        "season": 1,
+        "episode": 636
+      },
+      {
+        "id": "turkanime:ep:one-piece-637-bolum",
+        "title": "637. Bölüm",
+        "season": 1,
+        "episode": 637
+      },
+      {
+        "id": "turkanime:ep:one-piece-638-bolum",
+        "title": "638. Bölüm",
+        "season": 1,
+        "episode": 638
+      },
+      {
+        "id": "turkanime:ep:one-piece-639-bolum",
+        "title": "639. Bölüm",
+        "season": 1,
+        "episode": 639
+      },
+      {
+        "id": "turkanime:ep:one-piece-640-bolum",
+        "title": "640. Bölüm",
+        "season": 1,
+        "episode": 640
+      },
+      {
+        "id": "turkanime:ep:one-piece-641-bolum",
+        "title": "641. Bölüm",
+        "season": 1,
+        "episode": 641
+      },
+      {
+        "id": "turkanime:ep:one-piece-642-bolum",
+        "title": "642. Bölüm",
+        "season": 1,
+        "episode": 642
+      },
+      {
+        "id": "turkanime:ep:one-piece-643-bolum",
+        "title": "643. Bölüm",
+        "season": 1,
+        "episode": 643
+      },
+      {
+        "id": "turkanime:ep:one-piece-644-bolum",
+        "title": "644. Bölüm",
+        "season": 1,
+        "episode": 644
+      },
+      {
+        "id": "turkanime:ep:one-piece-645-bolum",
+        "title": "645. Bölüm",
+        "season": 1,
+        "episode": 645
+      },
+      {
+        "id": "turkanime:ep:one-piece-646-bolum",
+        "title": "646. Bölüm",
+        "season": 1,
+        "episode": 646
+      },
+      {
+        "id": "turkanime:ep:one-piece-647-bolum",
+        "title": "647. Bölüm",
+        "season": 1,
+        "episode": 647
+      },
+      {
+        "id": "turkanime:ep:one-piece-648-bolum",
+        "title": "648. Bölüm",
+        "season": 1,
+        "episode": 648
+      },
+      {
+        "id": "turkanime:ep:one-piece-649-bolum",
+        "title": "649. Bölüm",
+        "season": 1,
+        "episode": 649
+      },
+      {
+        "id": "turkanime:ep:one-piece-650-bolum",
+        "title": "650. Bölüm",
+        "season": 1,
+        "episode": 650
+      },
+      {
+        "id": "turkanime:ep:one-piece-651-bolum",
+        "title": "651. Bölüm",
+        "season": 1,
+        "episode": 651
+      },
+      {
+        "id": "turkanime:ep:one-piece-652-bolum",
+        "title": "652. Bölüm",
+        "season": 1,
+        "episode": 652
+      },
+      {
+        "id": "turkanime:ep:one-piece-653-bolum",
+        "title": "653. Bölüm",
+        "season": 1,
+        "episode": 653
+      },
+      {
+        "id": "turkanime:ep:one-piece-654-bolum",
+        "title": "654. Bölüm",
+        "season": 1,
+        "episode": 654
+      },
+      {
+        "id": "turkanime:ep:one-piece-655-bolum",
+        "title": "655. Bölüm",
+        "season": 1,
+        "episode": 655
+      },
+      {
+        "id": "turkanime:ep:one-piece-656-bolum",
+        "title": "656. Bölüm",
+        "season": 1,
+        "episode": 656
+      },
+      {
+        "id": "turkanime:ep:one-piece-657-bolum",
+        "title": "657. Bölüm",
+        "season": 1,
+        "episode": 657
+      },
+      {
+        "id": "turkanime:ep:one-piece-658-bolum",
+        "title": "658. Bölüm",
+        "season": 1,
+        "episode": 658
+      },
+      {
+        "id": "turkanime:ep:one-piece-659-bolum",
+        "title": "659. Bölüm",
+        "season": 1,
+        "episode": 659
+      },
+      {
+        "id": "turkanime:ep:one-piece-660-bolum",
+        "title": "660. Bölüm",
+        "season": 1,
+        "episode": 660
+      },
+      {
+        "id": "turkanime:ep:one-piece-661-bolum",
+        "title": "661. Bölüm",
+        "season": 1,
+        "episode": 661
+      },
+      {
+        "id": "turkanime:ep:one-piece-662-bolum",
+        "title": "662. Bölüm",
+        "season": 1,
+        "episode": 662
+      },
+      {
+        "id": "turkanime:ep:one-piece-663-bolum",
+        "title": "663. Bölüm",
+        "season": 1,
+        "episode": 663
+      },
+      {
+        "id": "turkanime:ep:one-piece-664-bolum",
+        "title": "664. Bölüm",
+        "season": 1,
+        "episode": 664
+      },
+      {
+        "id": "turkanime:ep:one-piece-665-bolum",
+        "title": "665. Bölüm",
+        "season": 1,
+        "episode": 665
+      },
+      {
+        "id": "turkanime:ep:one-piece-666-bolum",
+        "title": "666. Bölüm",
+        "season": 1,
+        "episode": 666
+      },
+      {
+        "id": "turkanime:ep:one-piece-667-bolum",
+        "title": "667. Bölüm",
+        "season": 1,
+        "episode": 667
+      },
+      {
+        "id": "turkanime:ep:one-piece-668-bolum",
+        "title": "668. Bölüm",
+        "season": 1,
+        "episode": 668
+      },
+      {
+        "id": "turkanime:ep:one-piece-669-bolum",
+        "title": "669. Bölüm",
+        "season": 1,
+        "episode": 669
+      },
+      {
+        "id": "turkanime:ep:one-piece-670-bolum",
+        "title": "670. Bölüm",
+        "season": 1,
+        "episode": 670
+      },
+      {
+        "id": "turkanime:ep:one-piece-671-bolum",
+        "title": "671. Bölüm",
+        "season": 1,
+        "episode": 671
+      },
+      {
+        "id": "turkanime:ep:one-piece-672-bolum",
+        "title": "672. Bölüm",
+        "season": 1,
+        "episode": 672
+      },
+      {
+        "id": "turkanime:ep:one-piece-673-bolum",
+        "title": "673. Bölüm",
+        "season": 1,
+        "episode": 673
+      },
+      {
+        "id": "turkanime:ep:one-piece-674-bolum",
+        "title": "674. Bölüm",
+        "season": 1,
+        "episode": 674
+      },
+      {
+        "id": "turkanime:ep:one-piece-675-bolum",
+        "title": "675. Bölüm",
+        "season": 1,
+        "episode": 675
+      },
+      {
+        "id": "turkanime:ep:one-piece-676-bolum",
+        "title": "676. Bölüm",
+        "season": 1,
+        "episode": 676
+      },
+      {
+        "id": "turkanime:ep:one-piece-677-bolum",
+        "title": "677. Bölüm",
+        "season": 1,
+        "episode": 677
+      },
+      {
+        "id": "turkanime:ep:one-piece-678-bolum",
+        "title": "678. Bölüm",
+        "season": 1,
+        "episode": 678
+      },
+      {
+        "id": "turkanime:ep:one-piece-679-bolum",
+        "title": "679. Bölüm",
+        "season": 1,
+        "episode": 679
+      },
+      {
+        "id": "turkanime:ep:one-piece-680-bolum",
+        "title": "680. Bölüm",
+        "season": 1,
+        "episode": 680
+      },
+      {
+        "id": "turkanime:ep:one-piece-681-bolum",
+        "title": "681. Bölüm",
+        "season": 1,
+        "episode": 681
+      },
+      {
+        "id": "turkanime:ep:one-piece-682-bolum",
+        "title": "682. Bölüm",
+        "season": 1,
+        "episode": 682
+      },
+      {
+        "id": "turkanime:ep:one-piece-683-bolum",
+        "title": "683. Bölüm",
+        "season": 1,
+        "episode": 683
+      },
+      {
+        "id": "turkanime:ep:one-piece-684-bolum",
+        "title": "684. Bölüm",
+        "season": 1,
+        "episode": 684
+      },
+      {
+        "id": "turkanime:ep:one-piece-685-bolum",
+        "title": "685. Bölüm",
+        "season": 1,
+        "episode": 685
+      },
+      {
+        "id": "turkanime:ep:one-piece-686-bolum",
+        "title": "686. Bölüm",
+        "season": 1,
+        "episode": 686
+      },
+      {
+        "id": "turkanime:ep:one-piece-687-bolum",
+        "title": "687. Bölüm",
+        "season": 1,
+        "episode": 687
+      },
+      {
+        "id": "turkanime:ep:one-piece-688-bolum",
+        "title": "688. Bölüm",
+        "season": 1,
+        "episode": 688
+      },
+      {
+        "id": "turkanime:ep:one-piece-689-bolum",
+        "title": "689. Bölüm",
+        "season": 1,
+        "episode": 689
+      },
+      {
+        "id": "turkanime:ep:one-piece-690-bolum",
+        "title": "690. Bölüm",
+        "season": 1,
+        "episode": 690
+      },
+      {
+        "id": "turkanime:ep:one-piece-691-bolum",
+        "title": "691. Bölüm",
+        "season": 1,
+        "episode": 691
+      },
+      {
+        "id": "turkanime:ep:one-piece-692-bolum",
+        "title": "692. Bölüm",
+        "season": 1,
+        "episode": 692
+      },
+      {
+        "id": "turkanime:ep:one-piece-693-bolum",
+        "title": "693. Bölüm",
+        "season": 1,
+        "episode": 693
+      },
+      {
+        "id": "turkanime:ep:one-piece-694-bolum",
+        "title": "694. Bölüm",
+        "season": 1,
+        "episode": 694
+      },
+      {
+        "id": "turkanime:ep:one-piece-695-bolum",
+        "title": "695. Bölüm",
+        "season": 1,
+        "episode": 695
+      },
+      {
+        "id": "turkanime:ep:one-piece-696-bolum",
+        "title": "696. Bölüm",
+        "season": 1,
+        "episode": 696
+      },
+      {
+        "id": "turkanime:ep:one-piece-697-bolum",
+        "title": "697. Bölüm",
+        "season": 1,
+        "episode": 697
+      },
+      {
+        "id": "turkanime:ep:one-piece-698-bolum",
+        "title": "698. Bölüm",
+        "season": 1,
+        "episode": 698
+      },
+      {
+        "id": "turkanime:ep:one-piece-699-bolum",
+        "title": "699. Bölüm",
+        "season": 1,
+        "episode": 699
+      },
+      {
+        "id": "turkanime:ep:one-piece-700-bolum",
+        "title": "700. Bölüm",
+        "season": 1,
+        "episode": 700
+      },
+      {
+        "id": "turkanime:ep:one-piece-701-bolum",
+        "title": "701. Bölüm",
+        "season": 1,
+        "episode": 701
+      },
+      {
+        "id": "turkanime:ep:one-piece-702-bolum",
+        "title": "702. Bölüm",
+        "season": 1,
+        "episode": 702
+      },
+      {
+        "id": "turkanime:ep:one-piece-703-bolum",
+        "title": "703. Bölüm",
+        "season": 1,
+        "episode": 703
+      },
+      {
+        "id": "turkanime:ep:one-piece-704-bolum",
+        "title": "704. Bölüm",
+        "season": 1,
+        "episode": 704
+      },
+      {
+        "id": "turkanime:ep:one-piece-705-bolum",
+        "title": "705. Bölüm",
+        "season": 1,
+        "episode": 705
+      },
+      {
+        "id": "turkanime:ep:one-piece-706-bolum",
+        "title": "706. Bölüm",
+        "season": 1,
+        "episode": 706
+      },
+      {
+        "id": "turkanime:ep:one-piece-707-bolum",
+        "title": "707. Bölüm",
+        "season": 1,
+        "episode": 707
+      },
+      {
+        "id": "turkanime:ep:one-piece-708-bolum",
+        "title": "708. Bölüm",
+        "season": 1,
+        "episode": 708
+      },
+      {
+        "id": "turkanime:ep:one-piece-709-bolum",
+        "title": "709. Bölüm",
+        "season": 1,
+        "episode": 709
+      },
+      {
+        "id": "turkanime:ep:one-piece-710-bolum",
+        "title": "710. Bölüm",
+        "season": 1,
+        "episode": 710
+      },
+      {
+        "id": "turkanime:ep:one-piece-711-bolum",
+        "title": "711. Bölüm",
+        "season": 1,
+        "episode": 711
+      },
+      {
+        "id": "turkanime:ep:one-piece-712-bolum",
+        "title": "712. Bölüm",
+        "season": 1,
+        "episode": 712
+      },
+      {
+        "id": "turkanime:ep:one-piece-713-bolum",
+        "title": "713. Bölüm",
+        "season": 1,
+        "episode": 713
+      },
+      {
+        "id": "turkanime:ep:one-piece-714-bolum",
+        "title": "714. Bölüm",
+        "season": 1,
+        "episode": 714
+      },
+      {
+        "id": "turkanime:ep:one-piece-715-bolum",
+        "title": "715. Bölüm",
+        "season": 1,
+        "episode": 715
+      },
+      {
+        "id": "turkanime:ep:one-piece-716-bolum",
+        "title": "716. Bölüm",
+        "season": 1,
+        "episode": 716
+      },
+      {
+        "id": "turkanime:ep:one-piece-717-bolum",
+        "title": "717. Bölüm",
+        "season": 1,
+        "episode": 717
+      },
+      {
+        "id": "turkanime:ep:one-piece-718-bolum",
+        "title": "718. Bölüm",
+        "season": 1,
+        "episode": 718
+      },
+      {
+        "id": "turkanime:ep:one-piece-719-bolum",
+        "title": "719. Bölüm",
+        "season": 1,
+        "episode": 719
+      },
+      {
+        "id": "turkanime:ep:one-piece-720-bolum",
+        "title": "720. Bölüm",
+        "season": 1,
+        "episode": 720
+      },
+      {
+        "id": "turkanime:ep:one-piece-721-bolum",
+        "title": "721. Bölüm",
+        "season": 1,
+        "episode": 721
+      },
+      {
+        "id": "turkanime:ep:one-piece-722-bolum",
+        "title": "722. Bölüm",
+        "season": 1,
+        "episode": 722
+      },
+      {
+        "id": "turkanime:ep:one-piece-723-bolum",
+        "title": "723. Bölüm",
+        "season": 1,
+        "episode": 723
+      },
+      {
+        "id": "turkanime:ep:one-piece-724-bolum",
+        "title": "724. Bölüm",
+        "season": 1,
+        "episode": 724
+      },
+      {
+        "id": "turkanime:ep:one-piece-725-bolum",
+        "title": "725. Bölüm",
+        "season": 1,
+        "episode": 725
+      },
+      {
+        "id": "turkanime:ep:one-piece-726-bolum",
+        "title": "726. Bölüm",
+        "season": 1,
+        "episode": 726
+      },
+      {
+        "id": "turkanime:ep:one-piece-727-bolum",
+        "title": "727. Bölüm",
+        "season": 1,
+        "episode": 727
+      },
+      {
+        "id": "turkanime:ep:one-piece-728-bolum",
+        "title": "728. Bölüm",
+        "season": 1,
+        "episode": 728
+      },
+      {
+        "id": "turkanime:ep:one-piece-729-bolum",
+        "title": "729. Bölüm",
+        "season": 1,
+        "episode": 729
+      },
+      {
+        "id": "turkanime:ep:one-piece-730-bolum",
+        "title": "730. Bölüm",
+        "season": 1,
+        "episode": 730
+      },
+      {
+        "id": "turkanime:ep:one-piece-731-bolum",
+        "title": "731. Bölüm",
+        "season": 1,
+        "episode": 731
+      },
+      {
+        "id": "turkanime:ep:one-piece-732-bolum",
+        "title": "732. Bölüm",
+        "season": 1,
+        "episode": 732
+      },
+      {
+        "id": "turkanime:ep:one-piece-733-bolum",
+        "title": "733. Bölüm",
+        "season": 1,
+        "episode": 733
+      },
+      {
+        "id": "turkanime:ep:one-piece-734-bolum",
+        "title": "734. Bölüm",
+        "season": 1,
+        "episode": 734
+      },
+      {
+        "id": "turkanime:ep:one-piece-735-bolum",
+        "title": "735. Bölüm",
+        "season": 1,
+        "episode": 735
+      },
+      {
+        "id": "turkanime:ep:one-piece-736-bolum",
+        "title": "736. Bölüm",
+        "season": 1,
+        "episode": 736
+      },
+      {
+        "id": "turkanime:ep:one-piece-737-bolum",
+        "title": "737. Bölüm",
+        "season": 1,
+        "episode": 737
+      },
+      {
+        "id": "turkanime:ep:one-piece-738-bolum",
+        "title": "738. Bölüm",
+        "season": 1,
+        "episode": 738
+      },
+      {
+        "id": "turkanime:ep:one-piece-739-bolum",
+        "title": "739. Bölüm",
+        "season": 1,
+        "episode": 739
+      },
+      {
+        "id": "turkanime:ep:one-piece-740-bolum",
+        "title": "740. Bölüm",
+        "season": 1,
+        "episode": 740
+      },
+      {
+        "id": "turkanime:ep:one-piece-741-bolum",
+        "title": "741. Bölüm",
+        "season": 1,
+        "episode": 741
+      },
+      {
+        "id": "turkanime:ep:one-piece-742-bolum",
+        "title": "742. Bölüm",
+        "season": 1,
+        "episode": 742
+      },
+      {
+        "id": "turkanime:ep:one-piece-743-bolum",
+        "title": "743. Bölüm",
+        "season": 1,
+        "episode": 743
+      },
+      {
+        "id": "turkanime:ep:one-piece-744-bolum",
+        "title": "744. Bölüm",
+        "season": 1,
+        "episode": 744
+      },
+      {
+        "id": "turkanime:ep:one-piece-745-bolum",
+        "title": "745. Bölüm",
+        "season": 1,
+        "episode": 745
+      },
+      {
+        "id": "turkanime:ep:one-piece-746-bolum",
+        "title": "746. Bölüm",
+        "season": 1,
+        "episode": 746
+      },
+      {
+        "id": "turkanime:ep:one-piece-747-bolum",
+        "title": "747. Bölüm",
+        "season": 1,
+        "episode": 747
+      },
+      {
+        "id": "turkanime:ep:one-piece-748-bolum",
+        "title": "748. Bölüm",
+        "season": 1,
+        "episode": 748
+      },
+      {
+        "id": "turkanime:ep:one-piece-749-bolum",
+        "title": "749. Bölüm",
+        "season": 1,
+        "episode": 749
+      },
+      {
+        "id": "turkanime:ep:one-piece-750-bolum",
+        "title": "750. Bölüm",
+        "season": 1,
+        "episode": 750
+      },
+      {
+        "id": "turkanime:ep:one-piece-751-bolum",
+        "title": "751. Bölüm",
+        "season": 1,
+        "episode": 751
+      },
+      {
+        "id": "turkanime:ep:one-piece-752-bolum",
+        "title": "752. Bölüm",
+        "season": 1,
+        "episode": 752
+      },
+      {
+        "id": "turkanime:ep:one-piece-753-bolum",
+        "title": "753. Bölüm",
+        "season": 1,
+        "episode": 753
+      },
+      {
+        "id": "turkanime:ep:one-piece-754-bolum",
+        "title": "754. Bölüm",
+        "season": 1,
+        "episode": 754
+      },
+      {
+        "id": "turkanime:ep:one-piece-755-bolum",
+        "title": "755. Bölüm",
+        "season": 1,
+        "episode": 755
+      },
+      {
+        "id": "turkanime:ep:one-piece-756-bolum",
+        "title": "756. Bölüm",
+        "season": 1,
+        "episode": 756
+      },
+      {
+        "id": "turkanime:ep:one-piece-757-bolum",
+        "title": "757. Bölüm",
+        "season": 1,
+        "episode": 757
+      },
+      {
+        "id": "turkanime:ep:one-piece-758-bolum",
+        "title": "758. Bölüm",
+        "season": 1,
+        "episode": 758
+      },
+      {
+        "id": "turkanime:ep:one-piece-759-bolum",
+        "title": "759. Bölüm",
+        "season": 1,
+        "episode": 759
+      },
+      {
+        "id": "turkanime:ep:one-piece-760-bolum",
+        "title": "760. Bölüm",
+        "season": 1,
+        "episode": 760
+      },
+      {
+        "id": "turkanime:ep:one-piece-761-bolum",
+        "title": "761. Bölüm",
+        "season": 1,
+        "episode": 761
+      },
+      {
+        "id": "turkanime:ep:one-piece-762-bolum",
+        "title": "762. Bölüm",
+        "season": 1,
+        "episode": 762
+      },
+      {
+        "id": "turkanime:ep:one-piece-763-bolum",
+        "title": "763. Bölüm",
+        "season": 1,
+        "episode": 763
+      },
+      {
+        "id": "turkanime:ep:one-piece-764-bolum",
+        "title": "764. Bölüm",
+        "season": 1,
+        "episode": 764
+      },
+      {
+        "id": "turkanime:ep:one-piece-765-bolum",
+        "title": "765. Bölüm",
+        "season": 1,
+        "episode": 765
+      },
+      {
+        "id": "turkanime:ep:one-piece-766-bolum",
+        "title": "766. Bölüm",
+        "season": 1,
+        "episode": 766
+      },
+      {
+        "id": "turkanime:ep:one-piece-767-bolum",
+        "title": "767. Bölüm",
+        "season": 1,
+        "episode": 767
+      },
+      {
+        "id": "turkanime:ep:one-piece-768-bolum",
+        "title": "768. Bölüm",
+        "season": 1,
+        "episode": 768
+      },
+      {
+        "id": "turkanime:ep:one-piece-769-bolum",
+        "title": "769. Bölüm",
+        "season": 1,
+        "episode": 769
+      },
+      {
+        "id": "turkanime:ep:one-piece-770-bolum",
+        "title": "770. Bölüm",
+        "season": 1,
+        "episode": 770
+      },
+      {
+        "id": "turkanime:ep:one-piece-771-bolum",
+        "title": "771. Bölüm",
+        "season": 1,
+        "episode": 771
+      },
+      {
+        "id": "turkanime:ep:one-piece-772-bolum",
+        "title": "772. Bölüm",
+        "season": 1,
+        "episode": 772
+      },
+      {
+        "id": "turkanime:ep:one-piece-773-bolum",
+        "title": "773. Bölüm",
+        "season": 1,
+        "episode": 773
+      },
+      {
+        "id": "turkanime:ep:one-piece-774-bolum",
+        "title": "774. Bölüm",
+        "season": 1,
+        "episode": 774
+      },
+      {
+        "id": "turkanime:ep:one-piece-775-bolum",
+        "title": "775. Bölüm",
+        "season": 1,
+        "episode": 775
+      },
+      {
+        "id": "turkanime:ep:one-piece-776-bolum",
+        "title": "776. Bölüm",
+        "season": 1,
+        "episode": 776
+      },
+      {
+        "id": "turkanime:ep:one-piece-777-bolum",
+        "title": "777. Bölüm",
+        "season": 1,
+        "episode": 777
+      },
+      {
+        "id": "turkanime:ep:one-piece-778-bolum",
+        "title": "778. Bölüm",
+        "season": 1,
+        "episode": 778
+      },
+      {
+        "id": "turkanime:ep:one-piece-779-bolum",
+        "title": "779. Bölüm",
+        "season": 1,
+        "episode": 779
+      },
+      {
+        "id": "turkanime:ep:one-piece-780-bolum",
+        "title": "780. Bölüm",
+        "season": 1,
+        "episode": 780
+      },
+      {
+        "id": "turkanime:ep:one-piece-781-bolum",
+        "title": "781. Bölüm",
+        "season": 1,
+        "episode": 781
+      },
+      {
+        "id": "turkanime:ep:one-piece-782-bolum",
+        "title": "782. Bölüm",
+        "season": 1,
+        "episode": 782
+      },
+      {
+        "id": "turkanime:ep:one-piece-783-bolum",
+        "title": "783. Bölüm",
+        "season": 1,
+        "episode": 783
+      },
+      {
+        "id": "turkanime:ep:one-piece-784-bolum",
+        "title": "784. Bölüm",
+        "season": 1,
+        "episode": 784
+      },
+      {
+        "id": "turkanime:ep:one-piece-785-bolum",
+        "title": "785. Bölüm",
+        "season": 1,
+        "episode": 785
+      },
+      {
+        "id": "turkanime:ep:one-piece-786-bolum",
+        "title": "786. Bölüm",
+        "season": 1,
+        "episode": 786
+      },
+      {
+        "id": "turkanime:ep:one-piece-787-bolum",
+        "title": "787. Bölüm",
+        "season": 1,
+        "episode": 787
+      },
+      {
+        "id": "turkanime:ep:one-piece-788-bolum",
+        "title": "788. Bölüm",
+        "season": 1,
+        "episode": 788
+      },
+      {
+        "id": "turkanime:ep:one-piece-789-bolum",
+        "title": "789. Bölüm",
+        "season": 1,
+        "episode": 789
+      },
+      {
+        "id": "turkanime:ep:one-piece-790-bolum",
+        "title": "790. Bölüm",
+        "season": 1,
+        "episode": 790
+      },
+      {
+        "id": "turkanime:ep:one-piece-791-bolum",
+        "title": "791. Bölüm",
+        "season": 1,
+        "episode": 791
+      },
+      {
+        "id": "turkanime:ep:one-piece-792-bolum",
+        "title": "792. Bölüm",
+        "season": 1,
+        "episode": 792
+      },
+      {
+        "id": "turkanime:ep:one-piece-793-bolum",
+        "title": "793. Bölüm",
+        "season": 1,
+        "episode": 793
+      },
+      {
+        "id": "turkanime:ep:one-piece-794-bolum",
+        "title": "794. Bölüm",
+        "season": 1,
+        "episode": 794
+      },
+      {
+        "id": "turkanime:ep:one-piece-795-bolum",
+        "title": "795. Bölüm",
+        "season": 1,
+        "episode": 795
+      },
+      {
+        "id": "turkanime:ep:one-piece-796-bolum",
+        "title": "796. Bölüm",
+        "season": 1,
+        "episode": 796
+      },
+      {
+        "id": "turkanime:ep:one-piece-797-bolum",
+        "title": "797. Bölüm",
+        "season": 1,
+        "episode": 797
+      },
+      {
+        "id": "turkanime:ep:one-piece-798-bolum",
+        "title": "798. Bölüm",
+        "season": 1,
+        "episode": 798
+      },
+      {
+        "id": "turkanime:ep:one-piece-799-bolum",
+        "title": "799. Bölüm",
+        "season": 1,
+        "episode": 799
+      },
+      {
+        "id": "turkanime:ep:one-piece-800-bolum",
+        "title": "800. Bölüm",
+        "season": 1,
+        "episode": 800
+      },
+      {
+        "id": "turkanime:ep:one-piece-801-bolum",
+        "title": "801. Bölüm",
+        "season": 1,
+        "episode": 801
+      },
+      {
+        "id": "turkanime:ep:one-piece-802-bolum",
+        "title": "802. Bölüm",
+        "season": 1,
+        "episode": 802
+      },
+      {
+        "id": "turkanime:ep:one-piece-803-bolum",
+        "title": "803. Bölüm",
+        "season": 1,
+        "episode": 803
+      },
+      {
+        "id": "turkanime:ep:one-piece-804-bolum",
+        "title": "804. Bölüm",
+        "season": 1,
+        "episode": 804
+      },
+      {
+        "id": "turkanime:ep:one-piece-805-bolum",
+        "title": "805. Bölüm",
+        "season": 1,
+        "episode": 805
+      },
+      {
+        "id": "turkanime:ep:one-piece-806-bolum",
+        "title": "806. Bölüm",
+        "season": 1,
+        "episode": 806
+      },
+      {
+        "id": "turkanime:ep:one-piece-807-bolum",
+        "title": "807. Bölüm",
+        "season": 1,
+        "episode": 807
+      },
+      {
+        "id": "turkanime:ep:one-piece-808-bolum",
+        "title": "808. Bölüm",
+        "season": 1,
+        "episode": 808
+      },
+      {
+        "id": "turkanime:ep:one-piece-809-bolum",
+        "title": "809. Bölüm",
+        "season": 1,
+        "episode": 809
+      },
+      {
+        "id": "turkanime:ep:one-piece-810-bolum",
+        "title": "810. Bölüm",
+        "season": 1,
+        "episode": 810
+      },
+      {
+        "id": "turkanime:ep:one-piece-811-bolum",
+        "title": "811. Bölüm",
+        "season": 1,
+        "episode": 811
+      },
+      {
+        "id": "turkanime:ep:one-piece-812-bolum",
+        "title": "812. Bölüm",
+        "season": 1,
+        "episode": 812
+      },
+      {
+        "id": "turkanime:ep:one-piece-813-bolum",
+        "title": "813. Bölüm",
+        "season": 1,
+        "episode": 813
+      },
+      {
+        "id": "turkanime:ep:one-piece-814-bolum",
+        "title": "814. Bölüm",
+        "season": 1,
+        "episode": 814
+      },
+      {
+        "id": "turkanime:ep:one-piece-815-bolum",
+        "title": "815. Bölüm",
+        "season": 1,
+        "episode": 815
+      },
+      {
+        "id": "turkanime:ep:one-piece-816-bolum",
+        "title": "816. Bölüm",
+        "season": 1,
+        "episode": 816
+      },
+      {
+        "id": "turkanime:ep:one-piece-817-bolum",
+        "title": "817. Bölüm",
+        "season": 1,
+        "episode": 817
+      },
+      {
+        "id": "turkanime:ep:one-piece-818-bolum",
+        "title": "818. Bölüm",
+        "season": 1,
+        "episode": 818
+      },
+      {
+        "id": "turkanime:ep:one-piece-819-bolum",
+        "title": "819. Bölüm",
+        "season": 1,
+        "episode": 819
+      },
+      {
+        "id": "turkanime:ep:one-piece-820-bolum",
+        "title": "820. Bölüm",
+        "season": 1,
+        "episode": 820
+      },
+      {
+        "id": "turkanime:ep:one-piece-821-bolum",
+        "title": "821. Bölüm",
+        "season": 1,
+        "episode": 821
+      },
+      {
+        "id": "turkanime:ep:one-piece-822-bolum",
+        "title": "822. Bölüm",
+        "season": 1,
+        "episode": 822
+      },
+      {
+        "id": "turkanime:ep:one-piece-823-bolum",
+        "title": "823. Bölüm",
+        "season": 1,
+        "episode": 823
+      },
+      {
+        "id": "turkanime:ep:one-piece-824-bolum",
+        "title": "824. Bölüm",
+        "season": 1,
+        "episode": 824
+      },
+      {
+        "id": "turkanime:ep:one-piece-825-bolum",
+        "title": "825. Bölüm",
+        "season": 1,
+        "episode": 825
+      },
+      {
+        "id": "turkanime:ep:one-piece-826-bolum",
+        "title": "826. Bölüm",
+        "season": 1,
+        "episode": 826
+      },
+      {
+        "id": "turkanime:ep:one-piece-827-bolum",
+        "title": "827. Bölüm",
+        "season": 1,
+        "episode": 827
+      },
+      {
+        "id": "turkanime:ep:one-piece-828-bolum",
+        "title": "828. Bölüm",
+        "season": 1,
+        "episode": 828
+      },
+      {
+        "id": "turkanime:ep:one-piece-829-bolum",
+        "title": "829. Bölüm",
+        "season": 1,
+        "episode": 829
+      },
+      {
+        "id": "turkanime:ep:one-piece-830-bolum",
+        "title": "830. Bölüm",
+        "season": 1,
+        "episode": 830
+      },
+      {
+        "id": "turkanime:ep:one-piece-831-bolum",
+        "title": "831. Bölüm",
+        "season": 1,
+        "episode": 831
+      },
+      {
+        "id": "turkanime:ep:one-piece-832-bolum",
+        "title": "832. Bölüm",
+        "season": 1,
+        "episode": 832
+      },
+      {
+        "id": "turkanime:ep:one-piece-833-bolum",
+        "title": "833. Bölüm",
+        "season": 1,
+        "episode": 833
+      },
+      {
+        "id": "turkanime:ep:one-piece-834-bolum",
+        "title": "834. Bölüm",
+        "season": 1,
+        "episode": 834
+      },
+      {
+        "id": "turkanime:ep:one-piece-835-bolum",
+        "title": "835. Bölüm",
+        "season": 1,
+        "episode": 835
+      },
+      {
+        "id": "turkanime:ep:one-piece-836-bolum",
+        "title": "836. Bölüm",
+        "season": 1,
+        "episode": 836
+      },
+      {
+        "id": "turkanime:ep:one-piece-837-bolum",
+        "title": "837. Bölüm",
+        "season": 1,
+        "episode": 837
+      },
+      {
+        "id": "turkanime:ep:one-piece-838-bolum",
+        "title": "838. Bölüm",
+        "season": 1,
+        "episode": 838
+      },
+      {
+        "id": "turkanime:ep:one-piece-839-bolum",
+        "title": "839. Bölüm",
+        "season": 1,
+        "episode": 839
+      },
+      {
+        "id": "turkanime:ep:one-piece-840-bolum",
+        "title": "840. Bölüm",
+        "season": 1,
+        "episode": 840
+      },
+      {
+        "id": "turkanime:ep:one-piece-841-bolum",
+        "title": "841. Bölüm",
+        "season": 1,
+        "episode": 841
+      },
+      {
+        "id": "turkanime:ep:one-piece-842-bolum",
+        "title": "842. Bölüm",
+        "season": 1,
+        "episode": 842
+      },
+      {
+        "id": "turkanime:ep:one-piece-843-bolum",
+        "title": "843. Bölüm",
+        "season": 1,
+        "episode": 843
+      },
+      {
+        "id": "turkanime:ep:one-piece-844-bolum",
+        "title": "844. Bölüm",
+        "season": 1,
+        "episode": 844
+      },
+      {
+        "id": "turkanime:ep:one-piece-845-bolum",
+        "title": "845. Bölüm",
+        "season": 1,
+        "episode": 845
+      },
+      {
+        "id": "turkanime:ep:one-piece-846-bolum",
+        "title": "846. Bölüm",
+        "season": 1,
+        "episode": 846
+      },
+      {
+        "id": "turkanime:ep:one-piece-847-bolum",
+        "title": "847. Bölüm",
+        "season": 1,
+        "episode": 847
+      },
+      {
+        "id": "turkanime:ep:one-piece-848-bolum",
+        "title": "848. Bölüm",
+        "season": 1,
+        "episode": 848
+      },
+      {
+        "id": "turkanime:ep:one-piece-849-bolum",
+        "title": "849. Bölüm",
+        "season": 1,
+        "episode": 849
+      },
+      {
+        "id": "turkanime:ep:one-piece-850-bolum",
+        "title": "850. Bölüm",
+        "season": 1,
+        "episode": 850
+      },
+      {
+        "id": "turkanime:ep:one-piece-851-bolum",
+        "title": "851. Bölüm",
+        "season": 1,
+        "episode": 851
+      },
+      {
+        "id": "turkanime:ep:one-piece-852-bolum",
+        "title": "852. Bölüm",
+        "season": 1,
+        "episode": 852
+      },
+      {
+        "id": "turkanime:ep:one-piece-853-bolum",
+        "title": "853. Bölüm",
+        "season": 1,
+        "episode": 853
+      },
+      {
+        "id": "turkanime:ep:one-piece-854-bolum",
+        "title": "854. Bölüm",
+        "season": 1,
+        "episode": 854
+      },
+      {
+        "id": "turkanime:ep:one-piece-855-bolum",
+        "title": "855. Bölüm",
+        "season": 1,
+        "episode": 855
+      },
+      {
+        "id": "turkanime:ep:one-piece-856-bolum",
+        "title": "856. Bölüm",
+        "season": 1,
+        "episode": 856
+      },
+      {
+        "id": "turkanime:ep:one-piece-857-bolum",
+        "title": "857. Bölüm",
+        "season": 1,
+        "episode": 857
+      },
+      {
+        "id": "turkanime:ep:one-piece-858-bolum",
+        "title": "858. Bölüm",
+        "season": 1,
+        "episode": 858
+      },
+      {
+        "id": "turkanime:ep:one-piece-859-bolum",
+        "title": "859. Bölüm",
+        "season": 1,
+        "episode": 859
+      },
+      {
+        "id": "turkanime:ep:one-piece-860-bolum",
+        "title": "860. Bölüm",
+        "season": 1,
+        "episode": 860
+      },
+      {
+        "id": "turkanime:ep:one-piece-861-bolum",
+        "title": "861. Bölüm",
+        "season": 1,
+        "episode": 861
+      },
+      {
+        "id": "turkanime:ep:one-piece-862-bolum",
+        "title": "862. Bölüm",
+        "season": 1,
+        "episode": 862
+      },
+      {
+        "id": "turkanime:ep:one-piece-863-bolum",
+        "title": "863. Bölüm",
+        "season": 1,
+        "episode": 863
+      },
+      {
+        "id": "turkanime:ep:one-piece-864-bolum",
+        "title": "864. Bölüm",
+        "season": 1,
+        "episode": 864
+      },
+      {
+        "id": "turkanime:ep:one-piece-865-bolum",
+        "title": "865. Bölüm",
+        "season": 1,
+        "episode": 865
+      },
+      {
+        "id": "turkanime:ep:one-piece-866-bolum",
+        "title": "866. Bölüm",
+        "season": 1,
+        "episode": 866
+      },
+      {
+        "id": "turkanime:ep:one-piece-867-bolum",
+        "title": "867. Bölüm",
+        "season": 1,
+        "episode": 867
+      },
+      {
+        "id": "turkanime:ep:one-piece-868-bolum",
+        "title": "868. Bölüm",
+        "season": 1,
+        "episode": 868
+      },
+      {
+        "id": "turkanime:ep:one-piece-869-bolum",
+        "title": "869. Bölüm",
+        "season": 1,
+        "episode": 869
+      },
+      {
+        "id": "turkanime:ep:one-piece-870-bolum",
+        "title": "870. Bölüm",
+        "season": 1,
+        "episode": 870
+      },
+      {
+        "id": "turkanime:ep:one-piece-871-bolum",
+        "title": "871. Bölüm",
+        "season": 1,
+        "episode": 871
+      },
+      {
+        "id": "turkanime:ep:one-piece-872-bolum",
+        "title": "872. Bölüm",
+        "season": 1,
+        "episode": 872
+      },
+      {
+        "id": "turkanime:ep:one-piece-873-bolum",
+        "title": "873. Bölüm",
+        "season": 1,
+        "episode": 873
+      },
+      {
+        "id": "turkanime:ep:one-piece-874-bolum",
+        "title": "874. Bölüm",
+        "season": 1,
+        "episode": 874
+      },
+      {
+        "id": "turkanime:ep:one-piece-875-bolum",
+        "title": "875. Bölüm",
+        "season": 1,
+        "episode": 875
+      },
+      {
+        "id": "turkanime:ep:one-piece-876-bolum",
+        "title": "876. Bölüm",
+        "season": 1,
+        "episode": 876
+      },
+      {
+        "id": "turkanime:ep:one-piece-877-bolum",
+        "title": "877. Bölüm",
+        "season": 1,
+        "episode": 877
+      },
+      {
+        "id": "turkanime:ep:one-piece-878-bolum",
+        "title": "878. Bölüm",
+        "season": 1,
+        "episode": 878
+      },
+      {
+        "id": "turkanime:ep:one-piece-879-bolum",
+        "title": "879. Bölüm",
+        "season": 1,
+        "episode": 879
+      },
+      {
+        "id": "turkanime:ep:one-piece-880-bolum",
+        "title": "880. Bölüm",
+        "season": 1,
+        "episode": 880
+      },
+      {
+        "id": "turkanime:ep:one-piece-881-bolum",
+        "title": "881. Bölüm",
+        "season": 1,
+        "episode": 881
+      },
+      {
+        "id": "turkanime:ep:one-piece-882-bolum",
+        "title": "882. Bölüm",
+        "season": 1,
+        "episode": 882
+      },
+      {
+        "id": "turkanime:ep:one-piece-883-bolum",
+        "title": "883. Bölüm",
+        "season": 1,
+        "episode": 883
+      },
+      {
+        "id": "turkanime:ep:one-piece-884-bolum",
+        "title": "884. Bölüm",
+        "season": 1,
+        "episode": 884
+      },
+      {
+        "id": "turkanime:ep:one-piece-885-bolum",
+        "title": "885. Bölüm",
+        "season": 1,
+        "episode": 885
+      },
+      {
+        "id": "turkanime:ep:one-piece-886-bolum",
+        "title": "886. Bölüm",
+        "season": 1,
+        "episode": 886
+      },
+      {
+        "id": "turkanime:ep:one-piece-887-bolum",
+        "title": "887. Bölüm",
+        "season": 1,
+        "episode": 887
+      },
+      {
+        "id": "turkanime:ep:one-piece-888-bolum",
+        "title": "888. Bölüm",
+        "season": 1,
+        "episode": 888
+      },
+      {
+        "id": "turkanime:ep:one-piece-889-bolum",
+        "title": "889. Bölüm",
+        "season": 1,
+        "episode": 889
+      },
+      {
+        "id": "turkanime:ep:one-piece-890-bolum",
+        "title": "890. Bölüm",
+        "season": 1,
+        "episode": 890
+      },
+      {
+        "id": "turkanime:ep:one-piece-891-bolum",
+        "title": "891. Bölüm",
+        "season": 1,
+        "episode": 891
+      },
+      {
+        "id": "turkanime:ep:one-piece-892-bolum",
+        "title": "892. Bölüm",
+        "season": 1,
+        "episode": 892
+      },
+      {
+        "id": "turkanime:ep:one-piece-893-bolum",
+        "title": "893. Bölüm",
+        "season": 1,
+        "episode": 893
+      },
+      {
+        "id": "turkanime:ep:one-piece-894-bolum",
+        "title": "894. Bölüm",
+        "season": 1,
+        "episode": 894
+      },
+      {
+        "id": "turkanime:ep:one-piece-895-bolum",
+        "title": "895. Bölüm",
+        "season": 1,
+        "episode": 895
+      },
+      {
+        "id": "turkanime:ep:one-piece-896-bolum",
+        "title": "896. Bölüm",
+        "season": 1,
+        "episode": 896
+      },
+      {
+        "id": "turkanime:ep:one-piece-897-bolum",
+        "title": "897. Bölüm",
+        "season": 1,
+        "episode": 897
+      },
+      {
+        "id": "turkanime:ep:one-piece-898-bolum",
+        "title": "898. Bölüm",
+        "season": 1,
+        "episode": 898
+      },
+      {
+        "id": "turkanime:ep:one-piece-899-bolum",
+        "title": "899. Bölüm",
+        "season": 1,
+        "episode": 899
+      },
+      {
+        "id": "turkanime:ep:one-piece-900-bolum",
+        "title": "900. Bölüm",
+        "season": 1,
+        "episode": 900
+      },
+      {
+        "id": "turkanime:ep:one-piece-901-bolum",
+        "title": "901. Bölüm",
+        "season": 1,
+        "episode": 901
+      },
+      {
+        "id": "turkanime:ep:one-piece-902-bolum",
+        "title": "902. Bölüm",
+        "season": 1,
+        "episode": 902
+      },
+      {
+        "id": "turkanime:ep:one-piece-903-bolum",
+        "title": "903. Bölüm",
+        "season": 1,
+        "episode": 903
+      },
+      {
+        "id": "turkanime:ep:one-piece-904-bolum",
+        "title": "904. Bölüm",
+        "season": 1,
+        "episode": 904
+      },
+      {
+        "id": "turkanime:ep:one-piece-905-bolum",
+        "title": "905. Bölüm",
+        "season": 1,
+        "episode": 905
+      },
+      {
+        "id": "turkanime:ep:one-piece-906-bolum",
+        "title": "906. Bölüm",
+        "season": 1,
+        "episode": 906
+      },
+      {
+        "id": "turkanime:ep:one-piece-907-bolum",
+        "title": "907. Bölüm",
+        "season": 1,
+        "episode": 907
+      },
+      {
+        "id": "turkanime:ep:one-piece-908-bolum",
+        "title": "908. Bölüm",
+        "season": 1,
+        "episode": 908
+      },
+      {
+        "id": "turkanime:ep:one-piece-909-bolum",
+        "title": "909. Bölüm",
+        "season": 1,
+        "episode": 909
+      },
+      {
+        "id": "turkanime:ep:one-piece-910-bolum",
+        "title": "910. Bölüm",
+        "season": 1,
+        "episode": 910
+      },
+      {
+        "id": "turkanime:ep:one-piece-911-bolum",
+        "title": "911. Bölüm",
+        "season": 1,
+        "episode": 911
+      },
+      {
+        "id": "turkanime:ep:one-piece-912-bolum",
+        "title": "912. Bölüm",
+        "season": 1,
+        "episode": 912
+      },
+      {
+        "id": "turkanime:ep:one-piece-913-bolum",
+        "title": "913. Bölüm",
+        "season": 1,
+        "episode": 913
+      },
+      {
+        "id": "turkanime:ep:one-piece-914-bolum",
+        "title": "914. Bölüm",
+        "season": 1,
+        "episode": 914
+      },
+      {
+        "id": "turkanime:ep:one-piece-915-bolum",
+        "title": "915. Bölüm",
+        "season": 1,
+        "episode": 915
+      },
+      {
+        "id": "turkanime:ep:one-piece-916-bolum",
+        "title": "916. Bölüm",
+        "season": 1,
+        "episode": 916
+      },
+      {
+        "id": "turkanime:ep:one-piece-917-bolum",
+        "title": "917. Bölüm",
+        "season": 1,
+        "episode": 917
+      },
+      {
+        "id": "turkanime:ep:one-piece-918-bolum",
+        "title": "918. Bölüm",
+        "season": 1,
+        "episode": 918
+      },
+      {
+        "id": "turkanime:ep:one-piece-919-bolum",
+        "title": "919. Bölüm",
+        "season": 1,
+        "episode": 919
+      },
+      {
+        "id": "turkanime:ep:one-piece-920-bolum",
+        "title": "920. Bölüm",
+        "season": 1,
+        "episode": 920
+      },
+      {
+        "id": "turkanime:ep:one-piece-921-bolum",
+        "title": "921. Bölüm",
+        "season": 1,
+        "episode": 921
+      },
+      {
+        "id": "turkanime:ep:one-piece-922-bolum",
+        "title": "922. Bölüm",
+        "season": 1,
+        "episode": 922
+      },
+      {
+        "id": "turkanime:ep:one-piece-923-bolum",
+        "title": "923. Bölüm",
+        "season": 1,
+        "episode": 923
+      },
+      {
+        "id": "turkanime:ep:one-piece-924-bolum",
+        "title": "924. Bölüm",
+        "season": 1,
+        "episode": 924
+      },
+      {
+        "id": "turkanime:ep:one-piece-925-bolum",
+        "title": "925. Bölüm",
+        "season": 1,
+        "episode": 925
+      },
+      {
+        "id": "turkanime:ep:one-piece-926-bolum",
+        "title": "926. Bölüm",
+        "season": 1,
+        "episode": 926
+      },
+      {
+        "id": "turkanime:ep:one-piece-927-bolum",
+        "title": "927. Bölüm",
+        "season": 1,
+        "episode": 927
+      },
+      {
+        "id": "turkanime:ep:one-piece-928-bolum",
+        "title": "928. Bölüm",
+        "season": 1,
+        "episode": 928
+      },
+      {
+        "id": "turkanime:ep:one-piece-929-bolum",
+        "title": "929. Bölüm",
+        "season": 1,
+        "episode": 929
+      },
+      {
+        "id": "turkanime:ep:one-piece-930-bolum",
+        "title": "930. Bölüm",
+        "season": 1,
+        "episode": 930
+      },
+      {
+        "id": "turkanime:ep:one-piece-931-bolum",
+        "title": "931. Bölüm",
+        "season": 1,
+        "episode": 931
+      },
+      {
+        "id": "turkanime:ep:one-piece-932-bolum",
+        "title": "932. Bölüm",
+        "season": 1,
+        "episode": 932
+      },
+      {
+        "id": "turkanime:ep:one-piece-933-bolum",
+        "title": "933. Bölüm",
+        "season": 1,
+        "episode": 933
+      },
+      {
+        "id": "turkanime:ep:one-piece-934-bolum",
+        "title": "934. Bölüm",
+        "season": 1,
+        "episode": 934
+      },
+      {
+        "id": "turkanime:ep:one-piece-935-bolum",
+        "title": "935. Bölüm",
+        "season": 1,
+        "episode": 935
+      },
+      {
+        "id": "turkanime:ep:one-piece-936-bolum",
+        "title": "936. Bölüm",
+        "season": 1,
+        "episode": 936
+      },
+      {
+        "id": "turkanime:ep:one-piece-937-bolum",
+        "title": "937. Bölüm",
+        "season": 1,
+        "episode": 937
+      },
+      {
+        "id": "turkanime:ep:one-piece-938-bolum",
+        "title": "938. Bölüm",
+        "season": 1,
+        "episode": 938
+      },
+      {
+        "id": "turkanime:ep:one-piece-939-bolum",
+        "title": "939. Bölüm",
+        "season": 1,
+        "episode": 939
+      },
+      {
+        "id": "turkanime:ep:one-piece-940-bolum",
+        "title": "940. Bölüm",
+        "season": 1,
+        "episode": 940
+      },
+      {
+        "id": "turkanime:ep:one-piece-941-bolum",
+        "title": "941. Bölüm",
+        "season": 1,
+        "episode": 941
+      },
+      {
+        "id": "turkanime:ep:one-piece-942-bolum",
+        "title": "942. Bölüm",
+        "season": 1,
+        "episode": 942
+      },
+      {
+        "id": "turkanime:ep:one-piece-943-bolum",
+        "title": "943. Bölüm",
+        "season": 1,
+        "episode": 943
+      },
+      {
+        "id": "turkanime:ep:one-piece-944-bolum",
+        "title": "944. Bölüm",
+        "season": 1,
+        "episode": 944
+      },
+      {
+        "id": "turkanime:ep:one-piece-945-bolum",
+        "title": "945. Bölüm",
+        "season": 1,
+        "episode": 945
+      },
+      {
+        "id": "turkanime:ep:one-piece-946-bolum",
+        "title": "946. Bölüm",
+        "season": 1,
+        "episode": 946
+      },
+      {
+        "id": "turkanime:ep:one-piece-947-bolum",
+        "title": "947. Bölüm",
+        "season": 1,
+        "episode": 947
+      },
+      {
+        "id": "turkanime:ep:one-piece-948-bolum",
+        "title": "948. Bölüm",
+        "season": 1,
+        "episode": 948
+      },
+      {
+        "id": "turkanime:ep:one-piece-949-bolum",
+        "title": "949. Bölüm",
+        "season": 1,
+        "episode": 949
+      },
+      {
+        "id": "turkanime:ep:one-piece-950-bolum",
+        "title": "950. Bölüm",
+        "season": 1,
+        "episode": 950
+      },
+      {
+        "id": "turkanime:ep:one-piece-951-bolum",
+        "title": "951. Bölüm",
+        "season": 1,
+        "episode": 951
+      },
+      {
+        "id": "turkanime:ep:one-piece-952-bolum",
+        "title": "952. Bölüm",
+        "season": 1,
+        "episode": 952
+      },
+      {
+        "id": "turkanime:ep:one-piece-953-bolum",
+        "title": "953. Bölüm",
+        "season": 1,
+        "episode": 953
+      },
+      {
+        "id": "turkanime:ep:one-piece-954-bolum",
+        "title": "954. Bölüm",
+        "season": 1,
+        "episode": 954
+      },
+      {
+        "id": "turkanime:ep:one-piece-955-bolum",
+        "title": "955. Bölüm",
+        "season": 1,
+        "episode": 955
+      },
+      {
+        "id": "turkanime:ep:one-piece-956-bolum",
+        "title": "956. Bölüm",
+        "season": 1,
+        "episode": 956
+      },
+      {
+        "id": "turkanime:ep:one-piece-957-bolum",
+        "title": "957. Bölüm",
+        "season": 1,
+        "episode": 957
+      },
+      {
+        "id": "turkanime:ep:one-piece-958-bolum",
+        "title": "958. Bölüm",
+        "season": 1,
+        "episode": 958
+      },
+      {
+        "id": "turkanime:ep:one-piece-959-bolum",
+        "title": "959. Bölüm",
+        "season": 1,
+        "episode": 959
+      },
+      {
+        "id": "turkanime:ep:one-piece-960-bolum",
+        "title": "960. Bölüm",
+        "season": 1,
+        "episode": 960
+      },
+      {
+        "id": "turkanime:ep:one-piece-961-bolum",
+        "title": "961. Bölüm",
+        "season": 1,
+        "episode": 961
+      },
+      {
+        "id": "turkanime:ep:one-piece-962-bolum",
+        "title": "962. Bölüm",
+        "season": 1,
+        "episode": 962
+      },
+      {
+        "id": "turkanime:ep:one-piece-963-bolum",
+        "title": "963. Bölüm",
+        "season": 1,
+        "episode": 963
+      },
+      {
+        "id": "turkanime:ep:one-piece-964-bolum",
+        "title": "964. Bölüm",
+        "season": 1,
+        "episode": 964
+      },
+      {
+        "id": "turkanime:ep:one-piece-965-bolum",
+        "title": "965. Bölüm",
+        "season": 1,
+        "episode": 965
+      },
+      {
+        "id": "turkanime:ep:one-piece-966-bolum",
+        "title": "966. Bölüm",
+        "season": 1,
+        "episode": 966
+      },
+      {
+        "id": "turkanime:ep:one-piece-967-bolum",
+        "title": "967. Bölüm",
+        "season": 1,
+        "episode": 967
+      },
+      {
+        "id": "turkanime:ep:one-piece-968-bolum",
+        "title": "968. Bölüm",
+        "season": 1,
+        "episode": 968
+      },
+      {
+        "id": "turkanime:ep:one-piece-969-bolum",
+        "title": "969. Bölüm",
+        "season": 1,
+        "episode": 969
+      },
+      {
+        "id": "turkanime:ep:one-piece-970-bolum",
+        "title": "970. Bölüm",
+        "season": 1,
+        "episode": 970
+      },
+      {
+        "id": "turkanime:ep:one-piece-971-bolum",
+        "title": "971. Bölüm",
+        "season": 1,
+        "episode": 971
+      },
+      {
+        "id": "turkanime:ep:one-piece-972-bolum",
+        "title": "972. Bölüm",
+        "season": 1,
+        "episode": 972
+      },
+      {
+        "id": "turkanime:ep:one-piece-973-bolum",
+        "title": "973. Bölüm",
+        "season": 1,
+        "episode": 973
+      },
+      {
+        "id": "turkanime:ep:one-piece-974-bolum",
+        "title": "974. Bölüm",
+        "season": 1,
+        "episode": 974
+      },
+      {
+        "id": "turkanime:ep:one-piece-975-bolum",
+        "title": "975. Bölüm",
+        "season": 1,
+        "episode": 975
+      },
+      {
+        "id": "turkanime:ep:one-piece-976-bolum",
+        "title": "976. Bölüm",
+        "season": 1,
+        "episode": 976
+      },
+      {
+        "id": "turkanime:ep:one-piece-977-bolum",
+        "title": "977. Bölüm",
+        "season": 1,
+        "episode": 977
+      },
+      {
+        "id": "turkanime:ep:one-piece-978-bolum",
+        "title": "978. Bölüm",
+        "season": 1,
+        "episode": 978
+      },
+      {
+        "id": "turkanime:ep:one-piece-979-bolum",
+        "title": "979. Bölüm",
+        "season": 1,
+        "episode": 979
+      },
+      {
+        "id": "turkanime:ep:one-piece-980-bolum",
+        "title": "980. Bölüm",
+        "season": 1,
+        "episode": 980
+      },
+      {
+        "id": "turkanime:ep:one-piece-981-bolum",
+        "title": "981. Bölüm",
+        "season": 1,
+        "episode": 981
+      },
+      {
+        "id": "turkanime:ep:one-piece-982-bolum",
+        "title": "982. Bölüm",
+        "season": 1,
+        "episode": 982
+      },
+      {
+        "id": "turkanime:ep:one-piece-983-bolum",
+        "title": "983. Bölüm",
+        "season": 1,
+        "episode": 983
+      },
+      {
+        "id": "turkanime:ep:one-piece-984-bolum",
+        "title": "984. Bölüm",
+        "season": 1,
+        "episode": 984
+      },
+      {
+        "id": "turkanime:ep:one-piece-985-bolum",
+        "title": "985. Bölüm",
+        "season": 1,
+        "episode": 985
+      },
+      {
+        "id": "turkanime:ep:one-piece-986-bolum",
+        "title": "986. Bölüm",
+        "season": 1,
+        "episode": 986
+      },
+      {
+        "id": "turkanime:ep:one-piece-987-bolum",
+        "title": "987. Bölüm",
+        "season": 1,
+        "episode": 987
+      },
+      {
+        "id": "turkanime:ep:one-piece-988-bolum",
+        "title": "988. Bölüm",
+        "season": 1,
+        "episode": 988
+      },
+      {
+        "id": "turkanime:ep:one-piece-989-bolum",
+        "title": "989. Bölüm",
+        "season": 1,
+        "episode": 989
+      },
+      {
+        "id": "turkanime:ep:one-piece-990-bolum",
+        "title": "990. Bölüm",
+        "season": 1,
+        "episode": 990
+      },
+      {
+        "id": "turkanime:ep:one-piece-991-bolum",
+        "title": "991. Bölüm",
+        "season": 1,
+        "episode": 991
+      },
+      {
+        "id": "turkanime:ep:one-piece-992-bolum",
+        "title": "992. Bölüm",
+        "season": 1,
+        "episode": 992
+      },
+      {
+        "id": "turkanime:ep:one-piece-993-bolum",
+        "title": "993. Bölüm",
+        "season": 1,
+        "episode": 993
+      },
+      {
+        "id": "turkanime:ep:one-piece-994-bolum",
+        "title": "994. Bölüm",
+        "season": 1,
+        "episode": 994
+      },
+      {
+        "id": "turkanime:ep:one-piece-995-bolum",
+        "title": "995. Bölüm",
+        "season": 1,
+        "episode": 995
+      },
+      {
+        "id": "turkanime:ep:one-piece-996-bolum",
+        "title": "996. Bölüm",
+        "season": 1,
+        "episode": 996
+      },
+      {
+        "id": "turkanime:ep:one-piece-997-bolum",
+        "title": "997. Bölüm",
+        "season": 1,
+        "episode": 997
+      },
+      {
+        "id": "turkanime:ep:one-piece-998-bolum",
+        "title": "998. Bölüm",
+        "season": 1,
+        "episode": 998
+      },
+      {
+        "id": "turkanime:ep:one-piece-999-bolum",
+        "title": "999. Bölüm",
+        "season": 1,
+        "episode": 999
+      },
+      {
+        "id": "turkanime:ep:one-piece-1000-bolum",
+        "title": "1000. Bölüm",
+        "season": 1,
+        "episode": 1000
+      },
+      {
+        "id": "turkanime:ep:one-piece-1001-bolum",
+        "title": "1001. Bölüm",
+        "season": 1,
+        "episode": 1001
+      },
+      {
+        "id": "turkanime:ep:one-piece-1002-bolum",
+        "title": "1002. Bölüm",
+        "season": 1,
+        "episode": 1002
+      },
+      {
+        "id": "turkanime:ep:one-piece-1003-bolum",
+        "title": "1003. Bölüm",
+        "season": 1,
+        "episode": 1003
+      },
+      {
+        "id": "turkanime:ep:one-piece-1004-bolum",
+        "title": "1004. Bölüm",
+        "season": 1,
+        "episode": 1004
+      },
+      {
+        "id": "turkanime:ep:one-piece-1005-bolum",
+        "title": "1005. Bölüm",
+        "season": 1,
+        "episode": 1005
+      },
+      {
+        "id": "turkanime:ep:one-piece-1006-bolum",
+        "title": "1006. Bölüm",
+        "season": 1,
+        "episode": 1006
+      },
+      {
+        "id": "turkanime:ep:one-piece-1007-bolum",
+        "title": "1007. Bölüm",
+        "season": 1,
+        "episode": 1007
+      },
+      {
+        "id": "turkanime:ep:one-piece-1008-bolum",
+        "title": "1008. Bölüm",
+        "season": 1,
+        "episode": 1008
+      },
+      {
+        "id": "turkanime:ep:one-piece-1009-bolum",
+        "title": "1009. Bölüm",
+        "season": 1,
+        "episode": 1009
+      },
+      {
+        "id": "turkanime:ep:one-piece-1010-bolum",
+        "title": "1010. Bölüm",
+        "season": 1,
+        "episode": 1010
+      },
+      {
+        "id": "turkanime:ep:one-piece-1011-bolum",
+        "title": "1011. Bölüm",
+        "season": 1,
+        "episode": 1011
+      },
+      {
+        "id": "turkanime:ep:one-piece-1012-bolum",
+        "title": "1012. Bölüm",
+        "season": 1,
+        "episode": 1012
+      },
+      {
+        "id": "turkanime:ep:one-piece-1013-bolum",
+        "title": "1013. Bölüm",
+        "season": 1,
+        "episode": 1013
+      },
+      {
+        "id": "turkanime:ep:one-piece-1014-bolum",
+        "title": "1014. Bölüm",
+        "season": 1,
+        "episode": 1014
+      },
+      {
+        "id": "turkanime:ep:one-piece-1015-bolum",
+        "title": "1015. Bölüm",
+        "season": 1,
+        "episode": 1015
+      },
+      {
+        "id": "turkanime:ep:one-piece-1016-bolum",
+        "title": "1016. Bölüm",
+        "season": 1,
+        "episode": 1016
+      },
+      {
+        "id": "turkanime:ep:one-piece-1017-bolum",
+        "title": "1017. Bölüm",
+        "season": 1,
+        "episode": 1017
+      },
+      {
+        "id": "turkanime:ep:one-piece-1018-bolum",
+        "title": "1018. Bölüm",
+        "season": 1,
+        "episode": 1018
+      },
+      {
+        "id": "turkanime:ep:one-piece-1019-bolum",
+        "title": "1019. Bölüm",
+        "season": 1,
+        "episode": 1019
+      },
+      {
+        "id": "turkanime:ep:one-piece-1020-bolum",
+        "title": "1020. Bölüm",
+        "season": 1,
+        "episode": 1020
+      },
+      {
+        "id": "turkanime:ep:one-piece-1021-bolum",
+        "title": "1021. Bölüm",
+        "season": 1,
+        "episode": 1021
+      },
+      {
+        "id": "turkanime:ep:one-piece-1022-bolum",
+        "title": "1022. Bölüm",
+        "season": 1,
+        "episode": 1022
+      },
+      {
+        "id": "turkanime:ep:one-piece-1023-bolum",
+        "title": "1023. Bölüm",
+        "season": 1,
+        "episode": 1023
+      },
+      {
+        "id": "turkanime:ep:one-piece-1024-bolum",
+        "title": "1024. Bölüm",
+        "season": 1,
+        "episode": 1024
+      },
+      {
+        "id": "turkanime:ep:one-piece-1025-bolum",
+        "title": "1025. Bölüm",
+        "season": 1,
+        "episode": 1025
+      },
+      {
+        "id": "turkanime:ep:one-piece-1026-bolum",
+        "title": "1026. Bölüm",
+        "season": 1,
+        "episode": 1026
+      },
+      {
+        "id": "turkanime:ep:one-piece-1027-bolum",
+        "title": "1027. Bölüm",
+        "season": 1,
+        "episode": 1027
+      },
+      {
+        "id": "turkanime:ep:one-piece-1028-bolum",
+        "title": "1028. Bölüm",
+        "season": 1,
+        "episode": 1028
+      },
+      {
+        "id": "turkanime:ep:one-piece-1029-bolum",
+        "title": "1029. Bölüm",
+        "season": 1,
+        "episode": 1029
+      },
+      {
+        "id": "turkanime:ep:one-piece-1030-bolum",
+        "title": "1030. Bölüm",
+        "season": 1,
+        "episode": 1030
+      },
+      {
+        "id": "turkanime:ep:one-piece-1031-bolum",
+        "title": "1031. Bölüm",
+        "season": 1,
+        "episode": 1031
+      },
+      {
+        "id": "turkanime:ep:one-piece-1032-bolum",
+        "title": "1032. Bölüm",
+        "season": 1,
+        "episode": 1032
+      },
+      {
+        "id": "turkanime:ep:one-piece-1033-bolum",
+        "title": "1033. Bölüm",
+        "season": 1,
+        "episode": 1033
+      },
+      {
+        "id": "turkanime:ep:one-piece-1034-bolum",
+        "title": "1034. Bölüm",
+        "season": 1,
+        "episode": 1034
+      },
+      {
+        "id": "turkanime:ep:one-piece-1035-bolum",
+        "title": "1035. Bölüm",
+        "season": 1,
+        "episode": 1035
+      },
+      {
+        "id": "turkanime:ep:one-piece-1036-bolum",
+        "title": "1036. Bölüm",
+        "season": 1,
+        "episode": 1036
+      },
+      {
+        "id": "turkanime:ep:one-piece-1037-bolum",
+        "title": "1037. Bölüm",
+        "season": 1,
+        "episode": 1037
+      },
+      {
+        "id": "turkanime:ep:one-piece-1038-bolum",
+        "title": "1038. Bölüm",
+        "season": 1,
+        "episode": 1038
+      },
+      {
+        "id": "turkanime:ep:one-piece-1039-bolum",
+        "title": "1039. Bölüm",
+        "season": 1,
+        "episode": 1039
+      },
+      {
+        "id": "turkanime:ep:one-piece-1040-bolum",
+        "title": "1040. Bölüm",
+        "season": 1,
+        "episode": 1040
+      },
+      {
+        "id": "turkanime:ep:one-piece-1041-bolum",
+        "title": "1041. Bölüm",
+        "season": 1,
+        "episode": 1041
+      },
+      {
+        "id": "turkanime:ep:one-piece-1042-bolum",
+        "title": "1042. Bölüm",
+        "season": 1,
+        "episode": 1042
+      },
+      {
+        "id": "turkanime:ep:one-piece-1043-bolum",
+        "title": "1043. Bölüm",
+        "season": 1,
+        "episode": 1043
+      },
+      {
+        "id": "turkanime:ep:one-piece-1044-bolum",
+        "title": "1044. Bölüm",
+        "season": 1,
+        "episode": 1044
+      },
+      {
+        "id": "turkanime:ep:one-piece-1045-bolum",
+        "title": "1045. Bölüm",
+        "season": 1,
+        "episode": 1045
+      },
+      {
+        "id": "turkanime:ep:one-piece-1046-bolum",
+        "title": "1046. Bölüm",
+        "season": 1,
+        "episode": 1046
+      },
+      {
+        "id": "turkanime:ep:one-piece-1047-bolum",
+        "title": "1047. Bölüm",
+        "season": 1,
+        "episode": 1047
+      },
+      {
+        "id": "turkanime:ep:one-piece-1048-bolum",
+        "title": "1048. Bölüm",
+        "season": 1,
+        "episode": 1048
+      },
+      {
+        "id": "turkanime:ep:one-piece-1049-bolum",
+        "title": "1049. Bölüm",
+        "season": 1,
+        "episode": 1049
+      },
+      {
+        "id": "turkanime:ep:one-piece-1050-bolum",
+        "title": "1050. Bölüm",
+        "season": 1,
+        "episode": 1050
+      },
+      {
+        "id": "turkanime:ep:one-piece-1051-bolum",
+        "title": "1051. Bölüm",
+        "season": 1,
+        "episode": 1051
+      },
+      {
+        "id": "turkanime:ep:one-piece-1052-bolum",
+        "title": "1052. Bölüm",
+        "season": 1,
+        "episode": 1052
+      },
+      {
+        "id": "turkanime:ep:one-piece-1053-bolum",
+        "title": "1053. Bölüm",
+        "season": 1,
+        "episode": 1053
+      },
+      {
+        "id": "turkanime:ep:one-piece-1054-bolum",
+        "title": "1054. Bölüm",
+        "season": 1,
+        "episode": 1054
+      },
+      {
+        "id": "turkanime:ep:one-piece-1055-bolum",
+        "title": "1055. Bölüm",
+        "season": 1,
+        "episode": 1055
+      },
+      {
+        "id": "turkanime:ep:one-piece-1056-bolum",
+        "title": "1056. Bölüm",
+        "season": 1,
+        "episode": 1056
+      },
+      {
+        "id": "turkanime:ep:one-piece-1057-bolum",
+        "title": "1057. Bölüm",
+        "season": 1,
+        "episode": 1057
+      },
+      {
+        "id": "turkanime:ep:one-piece-1058-bolum",
+        "title": "1058. Bölüm",
+        "season": 1,
+        "episode": 1058
+      },
+      {
+        "id": "turkanime:ep:one-piece-1059-bolum",
+        "title": "1059. Bölüm",
+        "season": 1,
+        "episode": 1059
+      },
+      {
+        "id": "turkanime:ep:one-piece-1060-bolum",
+        "title": "1060. Bölüm",
+        "season": 1,
+        "episode": 1060
+      },
+      {
+        "id": "turkanime:ep:one-piece-1061-bolum",
+        "title": "1061. Bölüm",
+        "season": 1,
+        "episode": 1061
+      },
+      {
+        "id": "turkanime:ep:one-piece-1062-bolum",
+        "title": "1062. Bölüm",
+        "season": 1,
+        "episode": 1062
+      },
+      {
+        "id": "turkanime:ep:one-piece-1063-bolum",
+        "title": "1063. Bölüm",
+        "season": 1,
+        "episode": 1063
+      },
+      {
+        "id": "turkanime:ep:one-piece-1064-bolum",
+        "title": "1064. Bölüm",
+        "season": 1,
+        "episode": 1064
+      },
+      {
+        "id": "turkanime:ep:one-piece-1065-bolum",
+        "title": "1065. Bölüm",
+        "season": 1,
+        "episode": 1065
+      },
+      {
+        "id": "turkanime:ep:one-piece-1066-bolum",
+        "title": "1066. Bölüm",
+        "season": 1,
+        "episode": 1066
+      },
+      {
+        "id": "turkanime:ep:one-piece-1067-bolum",
+        "title": "1067. Bölüm",
+        "season": 1,
+        "episode": 1067
+      },
+      {
+        "id": "turkanime:ep:one-piece-1068-bolum",
+        "title": "1068. Bölüm",
+        "season": 1,
+        "episode": 1068
+      },
+      {
+        "id": "turkanime:ep:one-piece-1069-bolum",
+        "title": "1069. Bölüm",
+        "season": 1,
+        "episode": 1069
+      },
+      {
+        "id": "turkanime:ep:one-piece-1070-bolum",
+        "title": "1070. Bölüm",
+        "season": 1,
+        "episode": 1070
+      },
+      {
+        "id": "turkanime:ep:one-piece-1071-bolum",
+        "title": "1071. Bölüm",
+        "season": 1,
+        "episode": 1071
+      },
+      {
+        "id": "turkanime:ep:one-piece-1072-bolum",
+        "title": "1072. Bölüm",
+        "season": 1,
+        "episode": 1072
+      },
+      {
+        "id": "turkanime:ep:one-piece-1073-bolum",
+        "title": "1073. Bölüm",
+        "season": 1,
+        "episode": 1073
+      },
+      {
+        "id": "turkanime:ep:one-piece-1074-bolum",
+        "title": "1074. Bölüm",
+        "season": 1,
+        "episode": 1074
+      },
+      {
+        "id": "turkanime:ep:one-piece-1075-bolum",
+        "title": "1075. Bölüm",
+        "season": 1,
+        "episode": 1075
+      },
+      {
+        "id": "turkanime:ep:one-piece-1076-bolum",
+        "title": "1076. Bölüm",
+        "season": 1,
+        "episode": 1076
+      },
+      {
+        "id": "turkanime:ep:one-piece-1077-bolum",
+        "title": "1077. Bölüm",
+        "season": 1,
+        "episode": 1077
+      },
+      {
+        "id": "turkanime:ep:one-piece-1078-bolum",
+        "title": "1078. Bölüm",
+        "season": 1,
+        "episode": 1078
+      },
+      {
+        "id": "turkanime:ep:one-piece-1079-bolum",
+        "title": "1079. Bölüm",
+        "season": 1,
+        "episode": 1079
+      },
+      {
+        "id": "turkanime:ep:one-piece-1080-bolum",
+        "title": "1080. Bölüm",
+        "season": 1,
+        "episode": 1080
+      },
+      {
+        "id": "turkanime:ep:one-piece-1081-bolum",
+        "title": "1081. Bölüm",
+        "season": 1,
+        "episode": 1081
+      },
+      {
+        "id": "turkanime:ep:one-piece-1082-bolum",
+        "title": "1082. Bölüm",
+        "season": 1,
+        "episode": 1082
+      },
+      {
+        "id": "turkanime:ep:one-piece-1083-bolum",
+        "title": "1083. Bölüm",
+        "season": 1,
+        "episode": 1083
+      },
+      {
+        "id": "turkanime:ep:one-piece-1084-bolum",
+        "title": "1084. Bölüm",
+        "season": 1,
+        "episode": 1084
+      },
+      {
+        "id": "turkanime:ep:one-piece-1085-bolum",
+        "title": "1085. Bölüm",
+        "season": 1,
+        "episode": 1085
+      },
+      {
+        "id": "turkanime:ep:one-piece-1086-bolum",
+        "title": "1086. Bölüm",
+        "season": 1,
+        "episode": 1086
+      },
+      {
+        "id": "turkanime:ep:one-piece-1087-bolum",
+        "title": "1087. Bölüm",
+        "season": 1,
+        "episode": 1087
+      },
+      {
+        "id": "turkanime:ep:one-piece-1088-bolum",
+        "title": "1088. Bölüm",
+        "season": 1,
+        "episode": 1088
+      },
+      {
+        "id": "turkanime:ep:one-piece-1089-bolum",
+        "title": "1089. Bölüm",
+        "season": 1,
+        "episode": 1089
+      },
+      {
+        "id": "turkanime:ep:one-piece-1090-bolum",
+        "title": "1090. Bölüm",
+        "season": 1,
+        "episode": 1090
+      },
+      {
+        "id": "turkanime:ep:one-piece-1091-bolum",
+        "title": "1091. Bölüm",
+        "season": 1,
+        "episode": 1091
+      },
+      {
+        "id": "turkanime:ep:one-piece-1092-bolum",
+        "title": "1092. Bölüm",
+        "season": 1,
+        "episode": 1092
+      },
+      {
+        "id": "turkanime:ep:one-piece-1093-bolum",
+        "title": "1093. Bölüm",
+        "season": 1,
+        "episode": 1093
+      },
+      {
+        "id": "turkanime:ep:one-piece-1094-bolum",
+        "title": "1094. Bölüm",
+        "season": 1,
+        "episode": 1094
+      },
+      {
+        "id": "turkanime:ep:one-piece-1095-bolum",
+        "title": "1095. Bölüm",
+        "season": 1,
+        "episode": 1095
+      },
+      {
+        "id": "turkanime:ep:one-piece-1096-bolum",
+        "title": "1096. Bölüm",
+        "season": 1,
+        "episode": 1096
+      },
+      {
+        "id": "turkanime:ep:one-piece-1097-bolum",
+        "title": "1097. Bölüm",
+        "season": 1,
+        "episode": 1097
+      },
+      {
+        "id": "turkanime:ep:one-piece-1098-bolum",
+        "title": "1098. Bölüm",
+        "season": 1,
+        "episode": 1098
+      },
+      {
+        "id": "turkanime:ep:one-piece-1099-bolum",
+        "title": "1099. Bölüm",
+        "season": 1,
+        "episode": 1099
+      },
+      {
+        "id": "turkanime:ep:one-piece-1100-bolum",
+        "title": "1100. Bölüm",
+        "season": 1,
+        "episode": 1100
+      },
+      {
+        "id": "turkanime:ep:one-piece-1101-bolum",
+        "title": "1101. Bölüm",
+        "season": 1,
+        "episode": 1101
+      },
+      {
+        "id": "turkanime:ep:one-piece-1102-bolum",
+        "title": "1102. Bölüm",
+        "season": 1,
+        "episode": 1102
+      },
+      {
+        "id": "turkanime:ep:one-piece-1103-bolum",
+        "title": "1103. Bölüm",
+        "season": 1,
+        "episode": 1103
+      },
+      {
+        "id": "turkanime:ep:one-piece-1104-bolum",
+        "title": "1104. Bölüm",
+        "season": 1,
+        "episode": 1104
+      },
+      {
+        "id": "turkanime:ep:one-piece-1105-bolum",
+        "title": "1105. Bölüm",
+        "season": 1,
+        "episode": 1105
+      },
+      {
+        "id": "turkanime:ep:one-piece-1106-bolum",
+        "title": "1106. Bölüm",
+        "season": 1,
+        "episode": 1106
+      },
+      {
+        "id": "turkanime:ep:one-piece-1107-bolum",
+        "title": "1107. Bölüm",
+        "season": 1,
+        "episode": 1107
+      },
+      {
+        "id": "turkanime:ep:one-piece-1108-bolum",
+        "title": "1108. Bölüm",
+        "season": 1,
+        "episode": 1108
+      },
+      {
+        "id": "turkanime:ep:one-piece-1109-bolum",
+        "title": "1109. Bölüm",
+        "season": 1,
+        "episode": 1109
+      },
+      {
+        "id": "turkanime:ep:one-piece-1110-bolum",
+        "title": "1110. Bölüm",
+        "season": 1,
+        "episode": 1110
+      },
+      {
+        "id": "turkanime:ep:one-piece-1111-bolum",
+        "title": "1111. Bölüm",
+        "season": 1,
+        "episode": 1111
+      },
+      {
+        "id": "turkanime:ep:one-piece-1112-bolum",
+        "title": "1112. Bölüm",
+        "season": 1,
+        "episode": 1112
+      },
+      {
+        "id": "turkanime:ep:one-piece-1113-bolum",
+        "title": "1113. Bölüm",
+        "season": 1,
+        "episode": 1113
+      },
+      {
+        "id": "turkanime:ep:one-piece-1114-bolum",
+        "title": "1114. Bölüm",
+        "season": 1,
+        "episode": 1114
+      },
+      {
+        "id": "turkanime:ep:one-piece-1115-bolum",
+        "title": "1115. Bölüm",
+        "season": 1,
+        "episode": 1115
+      },
+      {
+        "id": "turkanime:ep:one-piece-1116-bolum",
+        "title": "1116. Bölüm",
+        "season": 1,
+        "episode": 1116
+      },
+      {
+        "id": "turkanime:ep:one-piece-1117-bolum",
+        "title": "1117. Bölüm",
+        "season": 1,
+        "episode": 1117
+      },
+      {
+        "id": "turkanime:ep:one-piece-1118-bolum",
+        "title": "1118. Bölüm",
+        "season": 1,
+        "episode": 1118
+      },
+      {
+        "id": "turkanime:ep:one-piece-1119-bolum",
+        "title": "1119. Bölüm",
+        "season": 1,
+        "episode": 1119
+      },
+      {
+        "id": "turkanime:ep:one-piece-1120-bolum",
+        "title": "1120. Bölüm",
+        "season": 1,
+        "episode": 1120
+      },
+      {
+        "id": "turkanime:ep:one-piece-1121-bolum",
+        "title": "1121. Bölüm",
+        "season": 1,
+        "episode": 1121
+      },
+      {
+        "id": "turkanime:ep:one-piece-1122-bolum",
+        "title": "1122. Bölüm",
+        "season": 1,
+        "episode": 1122
+      },
+      {
+        "id": "turkanime:ep:one-piece-1123-bolum",
+        "title": "1123. Bölüm",
+        "season": 1,
+        "episode": 1123
+      },
+      {
+        "id": "turkanime:ep:one-piece-1124-bolum",
+        "title": "1124. Bölüm",
+        "season": 1,
+        "episode": 1124
+      },
+      {
+        "id": "turkanime:ep:one-piece-1125-bolum",
+        "title": "1125. Bölüm",
+        "season": 1,
+        "episode": 1125
+      },
+      {
+        "id": "turkanime:ep:one-piece-1126-bolum",
+        "title": "1126. Bölüm",
+        "season": 1,
+        "episode": 1126
+      },
+      {
+        "id": "turkanime:ep:one-piece-1127-bolum",
+        "title": "1127. Bölüm",
+        "season": 1,
+        "episode": 1127
+      },
+      {
+        "id": "turkanime:ep:one-piece-1128-bolum",
+        "title": "1128. Bölüm",
+        "season": 1,
+        "episode": 1128
+      },
+      {
+        "id": "turkanime:ep:one-piece-1129-bolum",
+        "title": "1129. Bölüm",
+        "season": 1,
+        "episode": 1129
+      },
+      {
+        "id": "turkanime:ep:one-piece-1130-bolum",
+        "title": "1130. Bölüm",
+        "season": 1,
+        "episode": 1130
+      },
+      {
+        "id": "turkanime:ep:one-piece-1131-bolum",
+        "title": "1131. Bölüm",
+        "season": 1,
+        "episode": 1131
+      },
+      {
+        "id": "turkanime:ep:one-piece-1132-bolum",
+        "title": "1132. Bölüm",
+        "season": 1,
+        "episode": 1132
+      },
+      {
+        "id": "turkanime:ep:one-piece-1133-bolum",
+        "title": "1133. Bölüm",
+        "season": 1,
+        "episode": 1133
+      },
+      {
+        "id": "turkanime:ep:one-piece-1134-bolum",
+        "title": "1134. Bölüm",
+        "season": 1,
+        "episode": 1134
+      },
+      {
+        "id": "turkanime:ep:one-piece-1135-bolum",
+        "title": "1135. Bölüm",
+        "season": 1,
+        "episode": 1135
+      },
+      {
+        "id": "turkanime:ep:one-piece-1136-bolum",
+        "title": "1136. Bölüm",
+        "season": 1,
+        "episode": 1136
+      },
+      {
+        "id": "turkanime:ep:one-piece-1137-bolum",
+        "title": "1137. Bölüm",
+        "season": 1,
+        "episode": 1137
+      },
+      {
+        "id": "turkanime:ep:one-piece-1138-bolum",
+        "title": "1138. Bölüm",
+        "season": 1,
+        "episode": 1138
+      },
+      {
+        "id": "turkanime:ep:one-piece-1139-bolum",
+        "title": "1139. Bölüm",
+        "season": 1,
+        "episode": 1139
+      },
+      {
+        "id": "turkanime:ep:one-piece-1140-bolum",
+        "title": "1140. Bölüm",
+        "season": 1,
+        "episode": 1140
+      },
+      {
+        "id": "turkanime:ep:one-piece-1141-bolum",
+        "title": "1141. Bölüm",
+        "season": 1,
+        "episode": 1141
+      },
+      {
+        "id": "turkanime:ep:one-piece-1142-bolum",
+        "title": "1142. Bölüm",
+        "season": 1,
+        "episode": 1142
+      },
+      {
+        "id": "turkanime:ep:one-piece-1143-bolum",
+        "title": "1143. Bölüm",
+        "season": 1,
+        "episode": 1143
+      },
+      {
+        "id": "turkanime:ep:one-piece-1144-bolum",
+        "title": "1144. Bölüm",
+        "season": 1,
+        "episode": 1144
+      },
+      {
+        "id": "turkanime:ep:one-piece-1145-bolum",
+        "title": "1145. Bölüm",
+        "season": 1,
+        "episode": 1145
+      },
+      {
+        "id": "turkanime:ep:one-piece-1146-bolum",
+        "title": "1146. Bölüm",
+        "season": 1,
+        "episode": 1146
+      },
+      {
+        "id": "turkanime:ep:one-piece-1147-bolum",
+        "title": "1147. Bölüm",
+        "season": 1,
+        "episode": 1147
+      },
+      {
+        "id": "turkanime:ep:one-piece-1148-bolum",
+        "title": "1148. Bölüm",
+        "season": 1,
+        "episode": 1148
+      },
+      {
+        "id": "turkanime:ep:one-piece-1149-bolum",
+        "title": "1149. Bölüm",
+        "season": 1,
+        "episode": 1149
+      },
+      {
+        "id": "turkanime:ep:one-piece-1150-bolum",
+        "title": "1150. Bölüm",
+        "season": 1,
+        "episode": 1150
+      },
+      {
+        "id": "turkanime:ep:one-piece-1151-bolum",
+        "title": "1151. Bölüm",
+        "season": 1,
+        "episode": 1151
+      },
+      {
+        "id": "turkanime:ep:one-piece-1152-bolum",
+        "title": "1152. Bölüm",
+        "season": 1,
+        "episode": 1152
+      },
+      {
+        "id": "turkanime:ep:one-piece-1153-bolum",
+        "title": "1153. Bölüm",
+        "season": 1,
+        "episode": 1153
+      },
+      {
+        "id": "turkanime:ep:one-piece-1154-bolum",
+        "title": "1154. Bölüm",
+        "season": 1,
+        "episode": 1154
+      },
+      {
+        "id": "turkanime:ep:one-piece-1155-bolum",
+        "title": "1155. Bölüm",
+        "season": 1,
+        "episode": 1155
+      },
+      {
+        "id": "turkanime:ep:one-piece-1156-bolum",
+        "title": "1156. Bölüm",
+        "season": 1,
+        "episode": 1156
+      },
+      {
+        "id": "turkanime:ep:one-piece-1157-bolum",
+        "title": "1157. Bölüm",
+        "season": 1,
+        "episode": 1157
+      },
+      {
+        "id": "turkanime:ep:one-piece-1158-bolum",
+        "title": "1158. Bölüm",
+        "season": 1,
+        "episode": 1158
+      },
+      {
+        "id": "turkanime:ep:one-piece-1159-bolum",
+        "title": "1159. Bölüm",
+        "season": 1,
+        "episode": 1159
+      },
+      {
+        "id": "turkanime:ep:one-piece-1160-bolum",
+        "title": "1160. Bölüm",
+        "season": 1,
+        "episode": 1160
+      },
+      {
+        "id": "turkanime:ep:one-piece-1161-bolum",
+        "title": "1161. Bölüm",
+        "season": 1,
+        "episode": 1161
+      },
+      {
+        "id": "turkanime:ep:one-piece-1162-bolum",
+        "title": "1162. Bölüm",
+        "season": 1,
+        "episode": 1162
+      },
+      {
+        "id": "turkanime:ep:one-piece-1163-bolum",
+        "title": "1163. Bölüm",
+        "season": 1,
+        "episode": 1163
+      },
+      {
+        "id": "turkanime:ep:one-piece-1164-bolum",
+        "title": "1164. Bölüm",
+        "season": 1,
+        "episode": 1164
+      },
+      {
+        "id": "turkanime:ep:one-piece-1165-bolum",
+        "title": "1165. Bölüm",
+        "season": 1,
+        "episode": 1165
+      },
+      {
+        "id": "turkanime:ep:one-piece-1166-bolum",
+        "title": "1166. Bölüm",
+        "season": 1,
+        "episode": 1166
+      },
+      {
+        "id": "turkanime:ep:one-piece-1167-bolum",
+        "title": "1167. Bölüm",
+        "season": 1,
+        "episode": 1167
+      },
+      {
+        "id": "turkanime:ep:one-piece-1168-bolum",
+        "title": "1168. Bölüm",
+        "season": 1,
+        "episode": 1168
+      },
+      {
+        "id": "turkanime:ep:one-piece-1169-bolum",
+        "title": "1169. Bölüm",
+        "season": 1,
+        "episode": 1169
+      },
+      {
+        "id": "turkanime:ep:one-piece-1170-bolum",
+        "title": "1170. Bölüm",
+        "season": 1,
+        "episode": 1170
+      },
+      {
+        "id": "turkanime:ep:one-piece-1171-bolum",
+        "title": "1171. Bölüm",
+        "season": 1,
+        "episode": 1171
+      },
+      {
+        "id": "turkanime:ep:one-piece-1172-bolum",
+        "title": "1172. Bölüm",
+        "season": 1,
+        "episode": 1172
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:1581",
+      "type": "movie",
+      "name": "Borat Devam Filmi",
+      "poster": "https://image.tmdb.org/t/p/w500/3L1Ml5RWjFVfVq3rQENvgFymT0U.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/hbrXbVoE0NuA1ORoSGGYNASagrl.jpg",
+      "description": "Film, Borat Sagdiyev adlı kurgusal bir Kazak televizyon muhabirinin gerçek maceralarına odaklanan 2006 komedisinin devamı niteliğini taşıyor. Ancak bu kez Borat’ın maceralarına kızı Tutar da eşlik ediyor.",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    }
+  ]
+}

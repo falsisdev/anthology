@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "id": "filmmodu:dune-film-izle",
+    "type": "movie",
+    "name": "Dune",
+    "poster": "https://cdn.filmmodu.one/uploads/movie/poster/1680/thumb_ngUaHgSZGkKy1Izwjk7qwZLOC5A.jpg",
+    "background": "https://cdn.filmmodu.one/uploads/movie/poster/1680/thumb_ngUaHgSZGkKy1Izwjk7qwZLOC5A.jpg",
+    "description": "Dune - FilmModu HD Film",
+    "genres": [
+      "FilmModu",
+      "Film"
+    ]
+  }
+}

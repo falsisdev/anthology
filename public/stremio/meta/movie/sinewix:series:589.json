@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "id": "sinewix:series:589",
+    "type": "movie",
+    "name": "Godfather of Harlem",
+    "poster": "https://image.tmdb.org/t/p/w500/t2LLLdpsz7RdXNog0nnVFWrMYxB.jpg",
+    "background": "https://image.tmdb.org/t/p/w500/8SC24iAMhPUjymFmUqWstOtpwNl.jpg",
+    "description": "70’li yıllarda geçen dizi, dönemin en güçlü mafya liderlerinden Bumpy Johnson’ı takip ediyor. 60’larda hapse giren Bumpy Johnson, 10 yıl sonra özgürlüğüne yeniden kavuştuğunda, bir dönem hükmettiği mahallenin geçirdiği dönüşümü görür. Bölge bir süre önce İtalyan mafyası tarafından ele geçirilmiştir. Bumpy kontrolü yeniden kazanmak için Genovese ailesine savaş açar. Bu süreçte en büyük yardımı radikal papaz Malcolm X’ten alacaktır...",
+    "genres": [
+      "SineWix"
+    ]
+  }
+}

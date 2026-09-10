@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:jujutsu-kaisen-0-movie",
+    "type": "series",
+    "name": "Jujutsu Kaisen 0 Movie",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/5691.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/5691.jpg",
+    "description": "Jujutsu Kaisen 0 Movie - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:jujutsu-kaisen-movie-0",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}

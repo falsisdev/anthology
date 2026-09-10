@@ -1,0 +1,592 @@
+{
+  "meta": {
+    "id": "animecix:title:60",
+    "type": "series",
+    "name": "Sword Art Online",
+    "poster": "https://image.tmdb.org/t/p/original/mK9zGGk90VmHLOnK79sqlGFjZjW.jpg",
+    "background": "https://image.tmdb.org/t/p/w1280/5PUo6C8LAzcTzkuPKgLXuUFjafi.jpg",
+    "description": "2022 yılında piyasaya sürülen Sword Art Online MMORPG oyunu, başa takılan bir alet aracılığıyla oyuncuları kendi dünyasına götürerek gerçek bir Role-Playing oyunu sunmaktadır.\r\nOyuna katılan 10.000 oyuncu arasında olan Kirito da SAO dünyasına giriş yapmıştır. Fakat kısa sürede bütün oyuncular oyundan çıkış olmadığını fark ederler ve herkes bir anda geniş bir alana ışınlanır.\r\nOyunun yapımcısının burada yaptığı açıklamaya göre oyundan çıkmanın tek yolu 100 katlı SAO dünyasını temizlemektir. Her katta bir boss bulunmaktadır ve 100. kattaki boss'u öldürebilen oyundan çıkabilecektir.\r\nFakat oyunda sağlığı biten kişi gerçek hayatta da ölecek, ayrıca dışarıdan biri oyuncuların başındaki aleti çıkarmak isterse alet oyuncuları öldürecektir.\r\nBütün oyuncular şaşkınlık içerisindeyken oyunlar konusunda tecrübeli olan Kirito oyunu kazanmayı kafasına koymuştur.",
+    "genres": [
+      "Anime",
+      "AnimeciX"
+    ],
+    "videos": [
+      {
+        "id": "animecix:ep:60:1:1",
+        "title": "Sword Art Online 1. Sezon 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "animecix:ep:60:1:2",
+        "title": "Sword Art Online 1. Sezon 2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "animecix:ep:60:1:3",
+        "title": "Sword Art Online 1. Sezon 3. Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "animecix:ep:60:1:4",
+        "title": "Sword Art Online 1. Sezon 4. Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "animecix:ep:60:1:5",
+        "title": "Sword Art Online 1. Sezon 5. Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "animecix:ep:60:1:6",
+        "title": "Sword Art Online 1. Sezon 6. Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "animecix:ep:60:1:7",
+        "title": "Sword Art Online 1. Sezon 7. Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "animecix:ep:60:1:8",
+        "title": "Sword Art Online 1. Sezon 8. Bölüm",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "animecix:ep:60:1:9",
+        "title": "Sword Art Online 1. Sezon 9. Bölüm",
+        "season": 1,
+        "episode": 9
+      },
+      {
+        "id": "animecix:ep:60:1:10",
+        "title": "Sword Art Online 1. Sezon 10. Bölüm",
+        "season": 1,
+        "episode": 10
+      },
+      {
+        "id": "animecix:ep:60:1:11",
+        "title": "Sword Art Online 1. Sezon 11. Bölüm",
+        "season": 1,
+        "episode": 11
+      },
+      {
+        "id": "animecix:ep:60:1:12",
+        "title": "Sword Art Online 1. Sezon 12. Bölüm",
+        "season": 1,
+        "episode": 12
+      },
+      {
+        "id": "animecix:ep:60:1:13",
+        "title": "Sword Art Online 1. Sezon 13. Bölüm",
+        "season": 1,
+        "episode": 13
+      },
+      {
+        "id": "animecix:ep:60:1:14",
+        "title": "Sword Art Online 1. Sezon 14. Bölüm",
+        "season": 1,
+        "episode": 14
+      },
+      {
+        "id": "animecix:ep:60:1:15",
+        "title": "Sword Art Online 1. Sezon 15. Bölüm",
+        "season": 1,
+        "episode": 15
+      },
+      {
+        "id": "animecix:ep:60:1:16",
+        "title": "Sword Art Online 1. Sezon 16. Bölüm",
+        "season": 1,
+        "episode": 16
+      },
+      {
+        "id": "animecix:ep:60:1:17",
+        "title": "Sword Art Online 1. Sezon 17. Bölüm",
+        "season": 1,
+        "episode": 17
+      },
+      {
+        "id": "animecix:ep:60:1:18",
+        "title": "Sword Art Online 1. Sezon 18. Bölüm",
+        "season": 1,
+        "episode": 18
+      },
+      {
+        "id": "animecix:ep:60:1:19",
+        "title": "Sword Art Online 1. Sezon 19. Bölüm",
+        "season": 1,
+        "episode": 19
+      },
+      {
+        "id": "animecix:ep:60:1:20",
+        "title": "Sword Art Online 1. Sezon 20. Bölüm",
+        "season": 1,
+        "episode": 20
+      },
+      {
+        "id": "animecix:ep:60:1:21",
+        "title": "Sword Art Online 1. Sezon 21. Bölüm",
+        "season": 1,
+        "episode": 21
+      },
+      {
+        "id": "animecix:ep:60:1:22",
+        "title": "Sword Art Online 1. Sezon 22. Bölüm",
+        "season": 1,
+        "episode": 22
+      },
+      {
+        "id": "animecix:ep:60:1:23",
+        "title": "Sword Art Online 1. Sezon 23. Bölüm",
+        "season": 1,
+        "episode": 23
+      },
+      {
+        "id": "animecix:ep:60:1:24",
+        "title": "Sword Art Online 1. Sezon 24. Bölüm",
+        "season": 1,
+        "episode": 24
+      },
+      {
+        "id": "animecix:ep:60:1:25",
+        "title": "Sword Art Online 1. Sezon 25. Bölüm",
+        "season": 1,
+        "episode": 25
+      },
+      {
+        "id": "animecix:ep:60:2:1",
+        "title": "Sword Art Online 2. Sezon 1. Bölüm",
+        "season": 2,
+        "episode": 1
+      },
+      {
+        "id": "animecix:ep:60:2:2",
+        "title": "Sword Art Online 2. Sezon 2. Bölüm",
+        "season": 2,
+        "episode": 2
+      },
+      {
+        "id": "animecix:ep:60:2:3",
+        "title": "Sword Art Online 2. Sezon 3. Bölüm",
+        "season": 2,
+        "episode": 3
+      },
+      {
+        "id": "animecix:ep:60:2:4",
+        "title": "Sword Art Online 2. Sezon 4. Bölüm",
+        "season": 2,
+        "episode": 4
+      },
+      {
+        "id": "animecix:ep:60:2:5",
+        "title": "Sword Art Online 2. Sezon 5. Bölüm",
+        "season": 2,
+        "episode": 5
+      },
+      {
+        "id": "animecix:ep:60:2:6",
+        "title": "Sword Art Online 2. Sezon 6. Bölüm",
+        "season": 2,
+        "episode": 6
+      },
+      {
+        "id": "animecix:ep:60:2:7",
+        "title": "Sword Art Online 2. Sezon 7. Bölüm",
+        "season": 2,
+        "episode": 7
+      },
+      {
+        "id": "animecix:ep:60:2:8",
+        "title": "Sword Art Online 2. Sezon 8. Bölüm",
+        "season": 2,
+        "episode": 8
+      },
+      {
+        "id": "animecix:ep:60:2:9",
+        "title": "Sword Art Online 2. Sezon 9. Bölüm",
+        "season": 2,
+        "episode": 9
+      },
+      {
+        "id": "animecix:ep:60:2:10",
+        "title": "Sword Art Online 2. Sezon 10. Bölüm",
+        "season": 2,
+        "episode": 10
+      },
+      {
+        "id": "animecix:ep:60:2:11",
+        "title": "Sword Art Online 2. Sezon 11. Bölüm",
+        "season": 2,
+        "episode": 11
+      },
+      {
+        "id": "animecix:ep:60:2:12",
+        "title": "Sword Art Online 2. Sezon 12. Bölüm",
+        "season": 2,
+        "episode": 12
+      },
+      {
+        "id": "animecix:ep:60:2:13",
+        "title": "Sword Art Online 2. Sezon 13. Bölüm",
+        "season": 2,
+        "episode": 13
+      },
+      {
+        "id": "animecix:ep:60:2:14",
+        "title": "Sword Art Online 2. Sezon 14. Bölüm",
+        "season": 2,
+        "episode": 14
+      },
+      {
+        "id": "animecix:ep:60:2:15",
+        "title": "Sword Art Online 2. Sezon 15. Bölüm",
+        "season": 2,
+        "episode": 15
+      },
+      {
+        "id": "animecix:ep:60:2:16",
+        "title": "Sword Art Online 2. Sezon 16. Bölüm",
+        "season": 2,
+        "episode": 16
+      },
+      {
+        "id": "animecix:ep:60:2:17",
+        "title": "Sword Art Online 2. Sezon 17. Bölüm",
+        "season": 2,
+        "episode": 17
+      },
+      {
+        "id": "animecix:ep:60:2:18",
+        "title": "Sword Art Online 2. Sezon 18. Bölüm",
+        "season": 2,
+        "episode": 18
+      },
+      {
+        "id": "animecix:ep:60:2:19",
+        "title": "Sword Art Online 2. Sezon 19. Bölüm",
+        "season": 2,
+        "episode": 19
+      },
+      {
+        "id": "animecix:ep:60:2:20",
+        "title": "Sword Art Online 2. Sezon 20. Bölüm",
+        "season": 2,
+        "episode": 20
+      },
+      {
+        "id": "animecix:ep:60:2:21",
+        "title": "Sword Art Online 2. Sezon 21. Bölüm",
+        "season": 2,
+        "episode": 21
+      },
+      {
+        "id": "animecix:ep:60:2:22",
+        "title": "Sword Art Online 2. Sezon 22. Bölüm",
+        "season": 2,
+        "episode": 22
+      },
+      {
+        "id": "animecix:ep:60:2:23",
+        "title": "Sword Art Online 2. Sezon 23. Bölüm",
+        "season": 2,
+        "episode": 23
+      },
+      {
+        "id": "animecix:ep:60:2:24",
+        "title": "Sword Art Online 2. Sezon 24. Bölüm",
+        "season": 2,
+        "episode": 24
+      },
+      {
+        "id": "animecix:ep:60:3:1",
+        "title": "Sword Art Online 3. Sezon 1. Bölüm",
+        "season": 3,
+        "episode": 1
+      },
+      {
+        "id": "animecix:ep:60:3:2",
+        "title": "Sword Art Online 3. Sezon 2. Bölüm",
+        "season": 3,
+        "episode": 2
+      },
+      {
+        "id": "animecix:ep:60:3:3",
+        "title": "Sword Art Online 3. Sezon 3. Bölüm",
+        "season": 3,
+        "episode": 3
+      },
+      {
+        "id": "animecix:ep:60:3:4",
+        "title": "Sword Art Online 3. Sezon 4. Bölüm",
+        "season": 3,
+        "episode": 4
+      },
+      {
+        "id": "animecix:ep:60:3:5",
+        "title": "Sword Art Online 3. Sezon 5. Bölüm",
+        "season": 3,
+        "episode": 5
+      },
+      {
+        "id": "animecix:ep:60:3:6",
+        "title": "Sword Art Online 3. Sezon 6. Bölüm",
+        "season": 3,
+        "episode": 6
+      },
+      {
+        "id": "animecix:ep:60:3:7",
+        "title": "Sword Art Online 3. Sezon 7. Bölüm",
+        "season": 3,
+        "episode": 7
+      },
+      {
+        "id": "animecix:ep:60:3:8",
+        "title": "Sword Art Online 3. Sezon 8. Bölüm",
+        "season": 3,
+        "episode": 8
+      },
+      {
+        "id": "animecix:ep:60:3:9",
+        "title": "Sword Art Online 3. Sezon 9. Bölüm",
+        "season": 3,
+        "episode": 9
+      },
+      {
+        "id": "animecix:ep:60:3:10",
+        "title": "Sword Art Online 3. Sezon 10. Bölüm",
+        "season": 3,
+        "episode": 10
+      },
+      {
+        "id": "animecix:ep:60:3:11",
+        "title": "Sword Art Online 3. Sezon 11. Bölüm",
+        "season": 3,
+        "episode": 11
+      },
+      {
+        "id": "animecix:ep:60:3:12",
+        "title": "Sword Art Online 3. Sezon 12. Bölüm",
+        "season": 3,
+        "episode": 12
+      },
+      {
+        "id": "animecix:ep:60:3:13",
+        "title": "Sword Art Online 3. Sezon 13. Bölüm",
+        "season": 3,
+        "episode": 13
+      },
+      {
+        "id": "animecix:ep:60:3:14",
+        "title": "Sword Art Online 3. Sezon 14. Bölüm",
+        "season": 3,
+        "episode": 14
+      },
+      {
+        "id": "animecix:ep:60:3:15",
+        "title": "Sword Art Online 3. Sezon 15. Bölüm",
+        "season": 3,
+        "episode": 15
+      },
+      {
+        "id": "animecix:ep:60:3:16",
+        "title": "Sword Art Online 3. Sezon 16. Bölüm",
+        "season": 3,
+        "episode": 16
+      },
+      {
+        "id": "animecix:ep:60:3:17",
+        "title": "Sword Art Online 3. Sezon 17. Bölüm",
+        "season": 3,
+        "episode": 17
+      },
+      {
+        "id": "animecix:ep:60:3:18",
+        "title": "Sword Art Online 3. Sezon 18. Bölüm",
+        "season": 3,
+        "episode": 18
+      },
+      {
+        "id": "animecix:ep:60:3:19",
+        "title": "Sword Art Online 3. Sezon 19. Bölüm",
+        "season": 3,
+        "episode": 19
+      },
+      {
+        "id": "animecix:ep:60:3:20",
+        "title": "Sword Art Online 3. Sezon 20. Bölüm",
+        "season": 3,
+        "episode": 20
+      },
+      {
+        "id": "animecix:ep:60:3:21",
+        "title": "Sword Art Online 3. Sezon 21. Bölüm",
+        "season": 3,
+        "episode": 21
+      },
+      {
+        "id": "animecix:ep:60:3:22",
+        "title": "Sword Art Online 3. Sezon 22. Bölüm",
+        "season": 3,
+        "episode": 22
+      },
+      {
+        "id": "animecix:ep:60:3:23",
+        "title": "Sword Art Online 3. Sezon 23. Bölüm",
+        "season": 3,
+        "episode": 23
+      },
+      {
+        "id": "animecix:ep:60:3:24",
+        "title": "Sword Art Online 3. Sezon 24. Bölüm",
+        "season": 3,
+        "episode": 24
+      },
+      {
+        "id": "animecix:ep:60:4:1",
+        "title": "Sword Art Online 4. Sezon 1. Bölüm",
+        "season": 4,
+        "episode": 1
+      },
+      {
+        "id": "animecix:ep:60:4:2",
+        "title": "Sword Art Online 4. Sezon 2. Bölüm",
+        "season": 4,
+        "episode": 2
+      },
+      {
+        "id": "animecix:ep:60:4:3",
+        "title": "Sword Art Online 4. Sezon 3. Bölüm",
+        "season": 4,
+        "episode": 3
+      },
+      {
+        "id": "animecix:ep:60:4:4",
+        "title": "Sword Art Online 4. Sezon 4. Bölüm",
+        "season": 4,
+        "episode": 4
+      },
+      {
+        "id": "animecix:ep:60:4:5",
+        "title": "Sword Art Online 4. Sezon 5. Bölüm",
+        "season": 4,
+        "episode": 5
+      },
+      {
+        "id": "animecix:ep:60:4:6",
+        "title": "Sword Art Online 4. Sezon 6. Bölüm",
+        "season": 4,
+        "episode": 6
+      },
+      {
+        "id": "animecix:ep:60:4:7",
+        "title": "Sword Art Online 4. Sezon 7. Bölüm",
+        "season": 4,
+        "episode": 7
+      },
+      {
+        "id": "animecix:ep:60:4:8",
+        "title": "Sword Art Online 4. Sezon 8. Bölüm",
+        "season": 4,
+        "episode": 8
+      },
+      {
+        "id": "animecix:ep:60:4:9",
+        "title": "Sword Art Online 4. Sezon 9. Bölüm",
+        "season": 4,
+        "episode": 9
+      },
+      {
+        "id": "animecix:ep:60:4:10",
+        "title": "Sword Art Online 4. Sezon 10. Bölüm",
+        "season": 4,
+        "episode": 10
+      },
+      {
+        "id": "animecix:ep:60:4:11",
+        "title": "Sword Art Online 4. Sezon 11. Bölüm",
+        "season": 4,
+        "episode": 11
+      },
+      {
+        "id": "animecix:ep:60:4:12",
+        "title": "Sword Art Online 4. Sezon 12. Bölüm",
+        "season": 4,
+        "episode": 12
+      },
+      {
+        "id": "animecix:ep:60:4:13",
+        "title": "Sword Art Online 4. Sezon 13. Bölüm",
+        "season": 4,
+        "episode": 13
+      },
+      {
+        "id": "animecix:ep:60:4:14",
+        "title": "Sword Art Online 4. Sezon 14. Bölüm",
+        "season": 4,
+        "episode": 14
+      },
+      {
+        "id": "animecix:ep:60:4:15",
+        "title": "Sword Art Online 4. Sezon 15. Bölüm",
+        "season": 4,
+        "episode": 15
+      },
+      {
+        "id": "animecix:ep:60:4:16",
+        "title": "Sword Art Online 4. Sezon 16. Bölüm",
+        "season": 4,
+        "episode": 16
+      },
+      {
+        "id": "animecix:ep:60:4:17",
+        "title": "Sword Art Online 4. Sezon 17. Bölüm",
+        "season": 4,
+        "episode": 17
+      },
+      {
+        "id": "animecix:ep:60:4:18",
+        "title": "Sword Art Online 4. Sezon 18. Bölüm",
+        "season": 4,
+        "episode": 18
+      },
+      {
+        "id": "animecix:ep:60:4:19",
+        "title": "Sword Art Online 4. Sezon 19. Bölüm",
+        "season": 4,
+        "episode": 19
+      },
+      {
+        "id": "animecix:ep:60:4:20",
+        "title": "Sword Art Online 4. Sezon 20. Bölüm",
+        "season": 4,
+        "episode": 20
+      },
+      {
+        "id": "animecix:ep:60:4:21",
+        "title": "Sword Art Online 4. Sezon 21. Bölüm",
+        "season": 4,
+        "episode": 21
+      },
+      {
+        "id": "animecix:ep:60:4:22",
+        "title": "Sword Art Online 4. Sezon 22. Bölüm",
+        "season": 4,
+        "episode": 22
+      },
+      {
+        "id": "animecix:ep:60:4:23",
+        "title": "Sword Art Online 4. Sezon 23. Bölüm",
+        "season": 4,
+        "episode": 23
+      }
+    ]
+  }
+}

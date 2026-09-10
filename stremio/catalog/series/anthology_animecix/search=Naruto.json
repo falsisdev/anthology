@@ -1,0 +1,28 @@
+{
+  "metas": [
+    {
+      "id": "animecix:title:80",
+      "type": "series",
+      "name": "Naruto",
+      "poster": "https://image.tmdb.org/t/p/original/vauCEnR7CiyBDzRCeElKkCaXIYu.jpg",
+      "background": "https://image.tmdb.org/t/p/original/5F0HVEgkgP99fEWDjPyikGt9jQi.jpg",
+      "description": "12 yıl önce; devasa ve dehşet saçan Dokuz Kuyruklu Tilki, Gizli Yaprak Köyü’ne (Konoha) saldırarak büyük bir yıkıma yol açmıştı. Bu felaketi durdurmak için köyün lideri olan Dördüncü Hokage, kendi canını feda ederek bu azgın canavarı henüz yeni doğmuş bir bebeğin, Naruto Uzumaki’nin içine mühürledi. Ancak bu fedakârlık, Naruto için zorlu bir hayatın başlangıcı oldu. Köy halkı içindeki bu güçten korktuğu için onu dışladı ve Naruto derin bir yalnızlığa mahkûm edildi.\n\nYıllarca hor görülmesine ve zorbalığa uğramasına rağmen Naruto, pes etmek yerine dikkat çekmek için sürekli eşek şakalarına ve yaramazlıklara başvurarak ele avuca sığmaz birine dönüştü. Ancak tüm bu haylazlıkların altında yatan tek bir büyük hayali vardı: Bir gün köyün en büyük ninjası, yani Hokage olup kendisine sırt çeviren herkesin saygısını ve takdirini kazanmak.\n\nNinja olma yolunda ilk büyük adımını atan Naruto; akademinin dâhi ve soğukkanlı çocuğu olan Sasuke Uchiha ve zeki bir kız olan Sakura Haruno ile birlikte \"7.Takım\"ı kurar. Gizemli ve usta ninja Kakashi Hatake’nin rehberliğinde tehlikeli görevlere atılan bu üçlü, bir yandan güçlenip aralarındaki rekabetle yoğrulurken bir yandan da dostluğun ve ekip ruhunun ne demek olduğunu keşfederler. Fakat bu yolculuk, onları sadece dış dünyadaki düşmanlarla değil, kendi geçmişlerinin karanlık gölgeleriyle de yüzleşmeye zorlayacaktır.",
+      "genres": [
+        "Anime",
+        "AnimeciX"
+      ]
+    },
+    {
+      "id": "animecix:title:9207",
+      "type": "series",
+      "name": "Naruto x UT",
+      "poster": "https://image.tmdb.org/t/p/original/5ds86rcR01tHvgsNimlQoIFFlqB.jpg",
+      "background": "https://image.tmdb.org/t/p/w1280/6kzjvVkb5WoeTetupYzxQnacie.jpg",
+      "description": "Naruto x UT is the eighth Naruto OVA. Approximately 200,000 copies of this OVA were distributed by Uniqlo to promote a line of Naruto-themed shirts designed by Masashi Kishimoto in conjunction with Studio Pierrot. It shows the aftermath between a fight between Naruto and Sasuke and shows clips of their times together and the story so far.",
+      "genres": [
+        "Anime",
+        "AnimeciX"
+      ]
+    }
+  ]
+}

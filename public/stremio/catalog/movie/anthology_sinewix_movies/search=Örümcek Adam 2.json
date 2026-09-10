@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:411",
+      "type": "movie",
+      "name": "Örümcek Adam 2",
+      "poster": "https://image.tmdb.org/t/p/w500/2DwuE8UwpebKgMnpII35YSL9NL1.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/6al048Lat3eLVQOuKtc9h6Tu94d.jpg",
+      "description": "Sevgilisi Mary Jane'den ayrılan Peter ona gerçek kimliğini açıklayıp açıklamamak arasında kaldığı için oldukça zor bir dönem geçirmektedir. kararsızlık içine düştüğü bu esnada Mary Jane'in, patronun oğlu John'la birlikte olmaya başlaması iyice canını sıkar. Bunlara, halasının mali sıkıntıları ve hayattaki tek dostu Harry Osborne'un, babasının ölümünden kendisini sorumlu tuttuğu için Peterdan uzaklaşması onu depresyonun eşiğine getirmiştir. Bu esnada, yeni düşmanı Doktor Ahtapot'un ortaya çıkmasıyla Peter Parker'ın hayatı içinden çıkılmaz bir hal alacaktır.",
+      "genres": [
+        "SineWix"
+      ]
+    }
+  ]
+}

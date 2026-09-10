@@ -1,0 +1,28 @@
+{
+  "metas": [
+    {
+      "id": "cizgimax:show:spider-man-the-new-animated-series-izle",
+      "type": "series",
+      "name": "Spider-Man: The New Animated Series",
+      "poster": "https://cizgimax.online/img/locandine/spider-man-the-new-animated-series-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/spider-man-the-new-animated-series-poster.webp",
+      "description": "Spider-Man: The New Animated Series - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:superman-the-animated-series-izle",
+      "type": "series",
+      "name": "Superman: The Animated Series",
+      "poster": "https://cizgimax.online/img/locandine/superman-the-animated-series-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/superman-the-animated-series-poster.webp",
+      "description": "Superman: The Animated Series - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    }
+  ]
+}

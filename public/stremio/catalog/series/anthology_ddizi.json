@@ -551,6 +551,330 @@
         "Yerli Dizi",
         "DDizi"
       ]
+    },
+    {
+      "id": "ddizi:show:2166/sakli-bahar",
+      "type": "series",
+      "name": "Saklı Bahar",
+      "poster": "https://www.ddizi.im/diziresimleri/saklibaharkapakddmin.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/saklibaharkapakddmin.jpg",
+      "description": "Saklı Bahar - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2037/bahar",
+      "type": "series",
+      "name": "Bahar",
+      "poster": "https://www.ddizi.im/diziresimleri/baharkapak-min.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/baharkapak-min.jpg",
+      "description": "Bahar - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2023/bahar-yeli",
+      "type": "series",
+      "name": "Bahar Yeli",
+      "poster": "https://www.ddizi.im/diziresimleri/baharyelikapak-min.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/baharyelikapak-min.jpg",
+      "description": "Bahar Yeli - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1204/gec-gelen-bahar",
+      "type": "series",
+      "name": "Geç Gelen Bahar",
+      "poster": "https://www.ddizi.im/diziresimleri/gecgelenbaharr.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/gecgelenbaharr.jpg",
+      "description": "Geç Gelen Bahar - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:290/bahar-dallari",
+      "type": "series",
+      "name": "Bahar Dalları",
+      "poster": "https://www.ddizi.im/diziresimleri/bahar-dallari-2.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/bahar-dallari-2.jpg",
+      "description": "Bahar Dalları - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:117/sonbahar",
+      "type": "series",
+      "name": "Sonbahar",
+      "poster": "https://www.ddizi.im/diziresimleri/sonbahar.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/sonbahar.jpg",
+      "description": "Sonbahar - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1944/yali-capkini-hd02",
+      "type": "series",
+      "name": "Yalı Çapkını",
+      "poster": "https://www.ddizi.im/diziresimleri/yalicapkinikapak.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/yalicapkinikapak.jpg",
+      "description": "Yalı Çapkını - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2034/inci-taneleri-2",
+      "type": "series",
+      "name": "İnci Taneleri",
+      "poster": "https://www.ddizi.im/diziresimleri/incitanelerikapak-min.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/incitanelerikapak-min.jpg",
+      "description": "İnci Taneleri - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2032/gaddar",
+      "type": "series",
+      "name": "Gaddar",
+      "poster": "https://www.ddizi.im/diziresimleri/gaddarkaoak-min.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/gaddarkaoak-min.jpg",
+      "description": "Gaddar - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2132/kurulus-orhan-4",
+      "type": "series",
+      "name": "Kuruluş Orhan",
+      "poster": "https://www.ddizi.im/diziresimleri/kurulusorhankapak-min.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/kurulusorhankapak-min.jpg",
+      "description": "Kuruluş Orhan - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1780/kurulus-osman-67",
+      "type": "series",
+      "name": "Kuruluş Osman",
+      "poster": "https://www.ddizi.im/diziresimleri/kurulusosman.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/kurulusosman.jpg",
+      "description": "Kuruluş Osman - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1881/yargi-35",
+      "type": "series",
+      "name": "Yargı",
+      "poster": "https://www.ddizi.im/diziresimleri/yargikapak-min.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/yargikapak-min.jpg",
+      "description": "Yargı - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2007/hudutsuz-sevda-9",
+      "type": "series",
+      "name": "Hudutsuz Sevda",
+      "poster": "https://www.ddizi.im/diziresimleri/hudutsuzsevdakapak-min.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/hudutsuzsevdakapak-min.jpg",
+      "description": "Hudutsuz Sevda - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2074/arka-sokaklar-3",
+      "type": "series",
+      "name": "Arka Sokaklar",
+      "poster": "https://www.ddizi.im/diziresimleri/arkasoakaklarkapak-min.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/arkasoakaklarkapak-min.jpg",
+      "description": "Arka Sokaklar - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2022/sandik-kokusu",
+      "type": "series",
+      "name": "Sandık Kokusu",
+      "poster": "https://www.ddizi.im/diziresimleri/sandikokusukapak-min.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/sandikokusukapak-min.jpg",
+      "description": "Sandık Kokusu - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2014/sahane-hayatim-1",
+      "type": "series",
+      "name": "Şahane Hayatım",
+      "poster": "https://www.ddizi.im/diziresimleri/sahanehayatimkapak-min.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/sahanehayatimkapak-min.jpg",
+      "description": "Şahane Hayatım - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1965/tacsiz-prenses",
+      "type": "series",
+      "name": "Taçsız Prenses",
+      "poster": "https://www.ddizi.im/diziresimleri/tacsizprenskapak-min.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/tacsizprenskapak-min.jpg",
+      "description": "Taçsız Prenses - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1740/isigin-prensesi",
+      "type": "series",
+      "name": "Işığın Prensesi",
+      "poster": "https://www.ddizi.im/diziresimleri/isiginprensesiyeni.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/isiginprensesiyeni.jpg",
+      "description": "Işığın Prensesi - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:868/sahte-prenses",
+      "type": "series",
+      "name": "Sahte Prenses",
+      "poster": "https://www.ddizi.im/diziresimleri/sahte.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/sahte.jpg",
+      "description": "Sahte Prenses - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:89/kayip-prenses",
+      "type": "series",
+      "name": "Kayıp Prenses",
+      "poster": "https://www.ddizi.im/diziresimleri/kayipprenses.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/kayipprenses.jpg",
+      "description": "Kayıp Prenses - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:2137/ruya-gibi-1",
+      "type": "series",
+      "name": "Rüya Gibi",
+      "poster": "https://www.ddizi.im/diziresimleri/ruyagibikapak-min.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/ruyagibikapak-min.jpg",
+      "description": "Rüya Gibi - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1936/gelsin-hayat-bildigi-gibi-07",
+      "type": "series",
+      "name": "Gelsin Hayat Bildiği Gibi",
+      "poster": "https://www.ddizi.im/diziresimleri/gelsinhayatkapak-min.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/gelsinhayatkapak-min.jpg",
+      "description": "Gelsin Hayat Bildiği Gibi - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1892/kulup-3",
+      "type": "series",
+      "name": "Kulüp",
+      "poster": "https://www.ddizi.im/diziresimleri/kulupkapak-min.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/kulupkapak-min.jpg",
+      "description": "Kulüp - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1984/terzi-5",
+      "type": "series",
+      "name": "Terzi",
+      "poster": "https://www.ddizi.im/diziresimleri/terzikapak-min.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/terzikapak-min.jpg",
+      "description": "Terzi - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1862/bozkir-arslani-celaleddin-hd2",
+      "type": "series",
+      "name": "Bozkır Arslanı Celaleddin",
+      "poster": "https://www.ddizi.im/diziresimleri/bozkirarslanicelokapak-min.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/bozkirarslanicelokapak-min.jpg",
+      "description": "Bozkır Arslanı Celaleddin - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1516/saygilar-bizden-hd1",
+      "type": "series",
+      "name": "Saygılar Bizden",
+      "poster": "https://www.ddizi.im/diziresimleri/saygilarbizden.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/saygilarbizden.jpg",
+      "description": "Saygılar Bizden - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
+    },
+    {
+      "id": "ddizi:show:1861/fatma-5",
+      "type": "series",
+      "name": "Fatma",
+      "poster": "https://www.ddizi.im/diziresimleri/fatmakapak-min.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/fatmakapak-min.jpg",
+      "description": "Fatma - DDizi Yerli Dizi Arşivi",
+      "genres": [
+        "Yerli Dizi",
+        "DDizi"
+      ]
     }
   ]
 }

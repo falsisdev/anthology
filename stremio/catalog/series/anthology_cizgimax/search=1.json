@@ -1,0 +1,28 @@
+{
+  "metas": [
+    {
+      "id": "cizgimax:show:1-opucuk-izle",
+      "type": "series",
+      "name": "1. Öpücük",
+      "poster": "https://asyaanimeleri.top/wp-content/uploads/2023/11/1699440442-8198-139298.jpg",
+      "background": "https://asyaanimeleri.top/wp-content/uploads/2023/11/1699440442-8198-139298.jpg",
+      "description": "1. Öpücük - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    },
+    {
+      "id": "cizgimax:show:film/batman-the-dark-knight-returns-part-1-izle",
+      "type": "series",
+      "name": "Batman: Kara Şövalye Dönüyor 1. Bölüm",
+      "poster": "https://cizgimax.online/img/locandine/batman-the-dark-knight-returns-part-1-poster.webp",
+      "background": "https://cizgimax.online/img/locandine/batman-the-dark-knight-returns-part-1-poster.webp",
+      "description": "Batman: Kara Şövalye Dönüyor 1. Bölüm - ÇizgiMax Arşivi",
+      "genres": [
+        "Çizgi Dizi",
+        "ÇizgiMax"
+      ]
+    }
+  ]
+}

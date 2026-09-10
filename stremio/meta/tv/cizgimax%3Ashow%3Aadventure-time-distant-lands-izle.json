@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "id": "cizgimax:show:adventure-time-distant-lands-izle",
+    "type": "series",
+    "name": "Adventure Time Uzak Diyarlar",
+    "poster": "https://cizgimax.online/img/locandine/adventure-time-distant-lands-poster.webp",
+    "background": "https://cizgimax.online/img/locandine/adventure-time-distant-lands-poster.webp",
+    "description": "Adventure Time Uzak Diyarlar - ÇizgiMax",
+    "genres": [
+      "Çizgi Dizi",
+      "ÇizgiMax"
+    ],
+    "videos": [
+      {
+        "id": "cizgimax:ep:adventure-time-distant-lands-1-sezon-1-bolum-izle",
+        "title": "1. Sezon 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "cizgimax:ep:adventure-time-distant-lands-1-sezon-2-bolum-izle",
+        "title": "1. Sezon 2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "cizgimax:ep:adventure-time-distant-lands-1-sezon-3-bolum-izle",
+        "title": "1. Sezon 3. Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "cizgimax:ep:adventure-time-distant-lands-1-sezon-4-bolum-izle",
+        "title": "1. Sezon 4. Bölüm",
+        "season": 1,
+        "episode": 4
+      }
+    ]
+  }
+}

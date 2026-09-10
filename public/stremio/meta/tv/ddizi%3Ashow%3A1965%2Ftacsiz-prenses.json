@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "id": "ddizi:show:1965/tacsiz-prenses",
+    "type": "series",
+    "name": "Taçsız Prenses",
+    "poster": "https://www.ddizi.im/diziresimleri/tacsizprenskapak-min.jpg",
+    "background": "https://www.ddizi.im/diziresimleri/tacsizprenskapak-min.jpg",
+    "description": "Taçsız Prenses - DDizi Dizi Arşivi",
+    "genres": [
+      "Yerli Dizi",
+      "DDizi"
+    ],
+    "videos": [
+      {
+        "id": "ddizi:ep:80159/tacsiz-prenses-1-bolum-izle-hd1.htm",
+        "title": "Taçsız Prenses 1.Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "ddizi:ep:80222/tacsiz-prenses-2-bolum-izle-hd1.htm",
+        "title": "Taçsız Prenses 2.Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "ddizi:ep:80295/tacsiz-prenses-3-bolum-izle-hd1.htm",
+        "title": "Taçsız Prenses 3.Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "ddizi:ep:80360/tacsiz-prenses-4-bolum-izle-hd1.htm",
+        "title": "Taçsız Prenses 4.Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "ddizi:ep:80589/tacsiz-prenses-5-bolum-izle-hd1.htm",
+        "title": "Taçsız Prenses 5.Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "ddizi:ep:80632/tacsiz-prenses-6-bolum-izle-hd1.htm",
+        "title": "Taçsız Prenses 6.Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "ddizi:ep:80689/tacsiz-prenses-7-bolum-izle-hd1.htm",
+        "title": "Taçsız Prenses 7.Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "ddizi:ep:80753/tacsiz-prenses-8-bolum-izle-hd1.htm",
+        "title": "Taçsız Prenses 8.Bölüm",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "ddizi:ep:80820/tacsiz-prenses-9-bolum-izle-hd1.htm",
+        "title": "Taçsız Prenses 9.Bölüm",
+        "season": 1,
+        "episode": 9
+      },
+      {
+        "id": "ddizi:ep:80890/tacsiz-prenses-10-bolum-izle-sezon-finali-hd1.htm",
+        "title": "Taçsız Prenses 10.Bölüm Sezon Finali",
+        "season": 1,
+        "episode": 10
+      },
+      {
+        "id": "ddizi:ep:81589/tacsiz-prenses-11-bolum-izle.htm",
+        "title": "Taçsız Prenses 11.Bölüm",
+        "season": 1,
+        "episode": 11
+      },
+      {
+        "id": "ddizi:ep:81604/tacsiz-prenses-12-bolum-izle-hd1.htm",
+        "title": "Taçsız Prenses 12.Bölüm",
+        "season": 1,
+        "episode": 12
+      },
+      {
+        "id": "ddizi:ep:81641/tacsiz-prenses-13-bolum-final-izle-hd1.htm",
+        "title": "Taçsız Prenses 13.Bölüm Final",
+        "season": 1,
+        "episode": 13
+      }
+    ]
+  }
+}

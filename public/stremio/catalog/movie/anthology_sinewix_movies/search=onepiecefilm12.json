@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "sinewix:movie:2349",
+      "type": "movie",
+      "name": "One Piece Film 12",
+      "poster": "https://image.tmdb.org/t/p/w500/guzIZgMMUp11qDA22clAdVXRids.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/59M1aPwmaVvzZ5KR6dagkC3pUb7.jpg",
+      "description": "Hasır Şapka Korsanları, Korsanlar Kralı Gol D. Roger'ın gizli hazinelerinin arayışında sert denizlere girer. Yolculukları esnasında, korkutucu ve güçlü bir adam olan eski Denizci Amirali Z ile karşılaşırlar.\r Z, Yeni Dünya'yı yerinden oynatabilecek güce sahip olduğuna inanılan \"Dyna Taşları'nı\" çalmış olmaktan suçludur. Denizci Karargahı, Z'nin, Korsan Çağı'nı sonlandırması için taşları kullanacağının yanı sıra birçok masum insanın hayatına da son vereceğine inanmaktadır. Böylesine büyük bir olayın korkusuyla denizciler, eski amirallerine karşı harekete geçer.\r Bu, denizciler ve donanmayla karşılaşmak anlamına gelse de, Hasır Şapka Korsanları, Z'yi takip etmeye ve onun katliam çıkarmasını engellemeye karar verir. Korsanlar maceralarına devam ettikçe, yeni veya aşina oldukları kişilere rastlarlar.",
+      "genres": [
+        "SineWix",
+        "Film"
+      ]
+    }
+  ]
+}

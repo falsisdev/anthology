@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:TabiiSpor8.tr",
+      "type": "tv",
+      "name": "Tabii Spor 8 HD",
+      "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "background": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "description": "Tabii Spor 8 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    }
+  ]
+}

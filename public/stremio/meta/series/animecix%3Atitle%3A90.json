@@ -1,0 +1,1120 @@
+{
+  "meta": {
+    "id": "animecix:title:90",
+    "type": "series",
+    "name": "Boku no Hero Academia",
+    "poster": "https://image.tmdb.org/t/p/original/phuYuzqWW9ru8EA3HVjE9W2Rr3M.jpg",
+    "background": "https://image.tmdb.org/t/p/original/6wSSyRNeF9vBJ1h29nuw3vG9hZI.jpg",
+    "description": "Nüfusun yüzde 80'i dört yaşında “Quirks” adı verilen olağanüstü süper güçler sergileseydi dünya nasıl bir yer olurdu? Kahramanlar ve kötü adamlar her yerde savaşırlardı! Kahraman olmak, gücünüzü kullanmayı öğrenmek anlamına gelirdi, ama bunu nerede öğrenirdiniz? Tabii ki U.A. Lisesi'nin Kahraman Programı'nda! Peki, Quirks'sız doğan yüzde 20'lik kesimin bir parçası olsaydınız ne yapardınız?\n\nOrtaokul öğrencisi Izuku Midoriya her şeyden çok kahraman olmak istiyor, ama içinde zerre kadar güç yok. Yeni kahramanlar için prestijli U.A. Lisesi'ne girme şansı olmadığı için, hayatı giderek daha çok çıkmaz bir yol gibi görünüyor. Sonra, en büyük kahraman All Might ile karşılaşması, ona kaderini değiştirme şansı verir...",
+    "genres": [
+      "Anime",
+      "AnimeciX"
+    ],
+    "videos": [
+      {
+        "id": "animecix:ep:90:1:1",
+        "title": "Boku no Hero Academia 1. Sezon 1. Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "animecix:ep:90:1:2",
+        "title": "Boku no Hero Academia 1. Sezon 2. Bölüm",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "id": "animecix:ep:90:1:3",
+        "title": "Boku no Hero Academia 1. Sezon 3. Bölüm",
+        "season": 1,
+        "episode": 3
+      },
+      {
+        "id": "animecix:ep:90:1:4",
+        "title": "Boku no Hero Academia 1. Sezon 4. Bölüm",
+        "season": 1,
+        "episode": 4
+      },
+      {
+        "id": "animecix:ep:90:1:5",
+        "title": "Boku no Hero Academia 1. Sezon 5. Bölüm",
+        "season": 1,
+        "episode": 5
+      },
+      {
+        "id": "animecix:ep:90:1:6",
+        "title": "Boku no Hero Academia 1. Sezon 6. Bölüm",
+        "season": 1,
+        "episode": 6
+      },
+      {
+        "id": "animecix:ep:90:1:7",
+        "title": "Boku no Hero Academia 1. Sezon 7. Bölüm",
+        "season": 1,
+        "episode": 7
+      },
+      {
+        "id": "animecix:ep:90:1:8",
+        "title": "Boku no Hero Academia 1. Sezon 8. Bölüm",
+        "season": 1,
+        "episode": 8
+      },
+      {
+        "id": "animecix:ep:90:1:9",
+        "title": "Boku no Hero Academia 1. Sezon 9. Bölüm",
+        "season": 1,
+        "episode": 9
+      },
+      {
+        "id": "animecix:ep:90:1:10",
+        "title": "Boku no Hero Academia 1. Sezon 10. Bölüm",
+        "season": 1,
+        "episode": 10
+      },
+      {
+        "id": "animecix:ep:90:1:11",
+        "title": "Boku no Hero Academia 1. Sezon 11. Bölüm",
+        "season": 1,
+        "episode": 11
+      },
+      {
+        "id": "animecix:ep:90:1:12",
+        "title": "Boku no Hero Academia 1. Sezon 12. Bölüm",
+        "season": 1,
+        "episode": 12
+      },
+      {
+        "id": "animecix:ep:90:1:13",
+        "title": "Boku no Hero Academia 1. Sezon 13. Bölüm",
+        "season": 1,
+        "episode": 13
+      },
+      {
+        "id": "animecix:ep:90:1:14",
+        "title": "Boku no Hero Academia 1. Sezon 14. Bölüm",
+        "season": 1,
+        "episode": 14
+      },
+      {
+        "id": "animecix:ep:90:1:15",
+        "title": "Boku no Hero Academia 1. Sezon 15. Bölüm",
+        "season": 1,
+        "episode": 15
+      },
+      {
+        "id": "animecix:ep:90:2:1",
+        "title": "Boku no Hero Academia 2. Sezon 1. Bölüm",
+        "season": 2,
+        "episode": 1
+      },
+      {
+        "id": "animecix:ep:90:2:2",
+        "title": "Boku no Hero Academia 2. Sezon 2. Bölüm",
+        "season": 2,
+        "episode": 2
+      },
+      {
+        "id": "animecix:ep:90:2:3",
+        "title": "Boku no Hero Academia 2. Sezon 3. Bölüm",
+        "season": 2,
+        "episode": 3
+      },
+      {
+        "id": "animecix:ep:90:2:4",
+        "title": "Boku no Hero Academia 2. Sezon 4. Bölüm",
+        "season": 2,
+        "episode": 4
+      },
+      {
+        "id": "animecix:ep:90:2:5",
+        "title": "Boku no Hero Academia 2. Sezon 5. Bölüm",
+        "season": 2,
+        "episode": 5
+      },
+      {
+        "id": "animecix:ep:90:2:6",
+        "title": "Boku no Hero Academia 2. Sezon 6. Bölüm",
+        "season": 2,
+        "episode": 6
+      },
+      {
+        "id": "animecix:ep:90:2:7",
+        "title": "Boku no Hero Academia 2. Sezon 7. Bölüm",
+        "season": 2,
+        "episode": 7
+      },
+      {
+        "id": "animecix:ep:90:2:8",
+        "title": "Boku no Hero Academia 2. Sezon 8. Bölüm",
+        "season": 2,
+        "episode": 8
+      },
+      {
+        "id": "animecix:ep:90:2:9",
+        "title": "Boku no Hero Academia 2. Sezon 9. Bölüm",
+        "season": 2,
+        "episode": 9
+      },
+      {
+        "id": "animecix:ep:90:2:10",
+        "title": "Boku no Hero Academia 2. Sezon 10. Bölüm",
+        "season": 2,
+        "episode": 10
+      },
+      {
+        "id": "animecix:ep:90:2:11",
+        "title": "Boku no Hero Academia 2. Sezon 11. Bölüm",
+        "season": 2,
+        "episode": 11
+      },
+      {
+        "id": "animecix:ep:90:2:12",
+        "title": "Boku no Hero Academia 2. Sezon 12. Bölüm",
+        "season": 2,
+        "episode": 12
+      },
+      {
+        "id": "animecix:ep:90:2:13",
+        "title": "Boku no Hero Academia 2. Sezon 13. Bölüm",
+        "season": 2,
+        "episode": 13
+      },
+      {
+        "id": "animecix:ep:90:2:14",
+        "title": "Boku no Hero Academia 2. Sezon 14. Bölüm",
+        "season": 2,
+        "episode": 14
+      },
+      {
+        "id": "animecix:ep:90:2:15",
+        "title": "Boku no Hero Academia 2. Sezon 15. Bölüm",
+        "season": 2,
+        "episode": 15
+      },
+      {
+        "id": "animecix:ep:90:2:16",
+        "title": "Boku no Hero Academia 2. Sezon 16. Bölüm",
+        "season": 2,
+        "episode": 16
+      },
+      {
+        "id": "animecix:ep:90:2:17",
+        "title": "Boku no Hero Academia 2. Sezon 17. Bölüm",
+        "season": 2,
+        "episode": 17
+      },
+      {
+        "id": "animecix:ep:90:2:18",
+        "title": "Boku no Hero Academia 2. Sezon 18. Bölüm",
+        "season": 2,
+        "episode": 18
+      },
+      {
+        "id": "animecix:ep:90:2:19",
+        "title": "Boku no Hero Academia 2. Sezon 19. Bölüm",
+        "season": 2,
+        "episode": 19
+      },
+      {
+        "id": "animecix:ep:90:2:20",
+        "title": "Boku no Hero Academia 2. Sezon 20. Bölüm",
+        "season": 2,
+        "episode": 20
+      },
+      {
+        "id": "animecix:ep:90:2:21",
+        "title": "Boku no Hero Academia 2. Sezon 21. Bölüm",
+        "season": 2,
+        "episode": 21
+      },
+      {
+        "id": "animecix:ep:90:2:22",
+        "title": "Boku no Hero Academia 2. Sezon 22. Bölüm",
+        "season": 2,
+        "episode": 22
+      },
+      {
+        "id": "animecix:ep:90:2:23",
+        "title": "Boku no Hero Academia 2. Sezon 23. Bölüm",
+        "season": 2,
+        "episode": 23
+      },
+      {
+        "id": "animecix:ep:90:2:24",
+        "title": "Boku no Hero Academia 2. Sezon 24. Bölüm",
+        "season": 2,
+        "episode": 24
+      },
+      {
+        "id": "animecix:ep:90:2:25",
+        "title": "Boku no Hero Academia 2. Sezon 25. Bölüm",
+        "season": 2,
+        "episode": 25
+      },
+      {
+        "id": "animecix:ep:90:2:26",
+        "title": "Boku no Hero Academia 2. Sezon 26. Bölüm",
+        "season": 2,
+        "episode": 26
+      },
+      {
+        "id": "animecix:ep:90:2:27",
+        "title": "Boku no Hero Academia 2. Sezon 27. Bölüm",
+        "season": 2,
+        "episode": 27
+      },
+      {
+        "id": "animecix:ep:90:2:28",
+        "title": "Boku no Hero Academia 2. Sezon 28. Bölüm",
+        "season": 2,
+        "episode": 28
+      },
+      {
+        "id": "animecix:ep:90:3:1",
+        "title": "Boku no Hero Academia 3. Sezon 1. Bölüm",
+        "season": 3,
+        "episode": 1
+      },
+      {
+        "id": "animecix:ep:90:3:2",
+        "title": "Boku no Hero Academia 3. Sezon 2. Bölüm",
+        "season": 3,
+        "episode": 2
+      },
+      {
+        "id": "animecix:ep:90:3:3",
+        "title": "Boku no Hero Academia 3. Sezon 3. Bölüm",
+        "season": 3,
+        "episode": 3
+      },
+      {
+        "id": "animecix:ep:90:3:4",
+        "title": "Boku no Hero Academia 3. Sezon 4. Bölüm",
+        "season": 3,
+        "episode": 4
+      },
+      {
+        "id": "animecix:ep:90:3:5",
+        "title": "Boku no Hero Academia 3. Sezon 5. Bölüm",
+        "season": 3,
+        "episode": 5
+      },
+      {
+        "id": "animecix:ep:90:3:6",
+        "title": "Boku no Hero Academia 3. Sezon 6. Bölüm",
+        "season": 3,
+        "episode": 6
+      },
+      {
+        "id": "animecix:ep:90:3:7",
+        "title": "Boku no Hero Academia 3. Sezon 7. Bölüm",
+        "season": 3,
+        "episode": 7
+      },
+      {
+        "id": "animecix:ep:90:3:8",
+        "title": "Boku no Hero Academia 3. Sezon 8. Bölüm",
+        "season": 3,
+        "episode": 8
+      },
+      {
+        "id": "animecix:ep:90:3:9",
+        "title": "Boku no Hero Academia 3. Sezon 9. Bölüm",
+        "season": 3,
+        "episode": 9
+      },
+      {
+        "id": "animecix:ep:90:3:10",
+        "title": "Boku no Hero Academia 3. Sezon 10. Bölüm",
+        "season": 3,
+        "episode": 10
+      },
+      {
+        "id": "animecix:ep:90:3:11",
+        "title": "Boku no Hero Academia 3. Sezon 11. Bölüm",
+        "season": 3,
+        "episode": 11
+      },
+      {
+        "id": "animecix:ep:90:3:12",
+        "title": "Boku no Hero Academia 3. Sezon 12. Bölüm",
+        "season": 3,
+        "episode": 12
+      },
+      {
+        "id": "animecix:ep:90:3:13",
+        "title": "Boku no Hero Academia 3. Sezon 13. Bölüm",
+        "season": 3,
+        "episode": 13
+      },
+      {
+        "id": "animecix:ep:90:3:14",
+        "title": "Boku no Hero Academia 3. Sezon 14. Bölüm",
+        "season": 3,
+        "episode": 14
+      },
+      {
+        "id": "animecix:ep:90:3:15",
+        "title": "Boku no Hero Academia 3. Sezon 15. Bölüm",
+        "season": 3,
+        "episode": 15
+      },
+      {
+        "id": "animecix:ep:90:3:16",
+        "title": "Boku no Hero Academia 3. Sezon 16. Bölüm",
+        "season": 3,
+        "episode": 16
+      },
+      {
+        "id": "animecix:ep:90:3:17",
+        "title": "Boku no Hero Academia 3. Sezon 17. Bölüm",
+        "season": 3,
+        "episode": 17
+      },
+      {
+        "id": "animecix:ep:90:3:18",
+        "title": "Boku no Hero Academia 3. Sezon 18. Bölüm",
+        "season": 3,
+        "episode": 18
+      },
+      {
+        "id": "animecix:ep:90:3:19",
+        "title": "Boku no Hero Academia 3. Sezon 19. Bölüm",
+        "season": 3,
+        "episode": 19
+      },
+      {
+        "id": "animecix:ep:90:3:20",
+        "title": "Boku no Hero Academia 3. Sezon 20. Bölüm",
+        "season": 3,
+        "episode": 20
+      },
+      {
+        "id": "animecix:ep:90:3:21",
+        "title": "Boku no Hero Academia 3. Sezon 21. Bölüm",
+        "season": 3,
+        "episode": 21
+      },
+      {
+        "id": "animecix:ep:90:3:22",
+        "title": "Boku no Hero Academia 3. Sezon 22. Bölüm",
+        "season": 3,
+        "episode": 22
+      },
+      {
+        "id": "animecix:ep:90:3:23",
+        "title": "Boku no Hero Academia 3. Sezon 23. Bölüm",
+        "season": 3,
+        "episode": 23
+      },
+      {
+        "id": "animecix:ep:90:3:24",
+        "title": "Boku no Hero Academia 3. Sezon 24. Bölüm",
+        "season": 3,
+        "episode": 24
+      },
+      {
+        "id": "animecix:ep:90:3:25",
+        "title": "Boku no Hero Academia 3. Sezon 25. Bölüm",
+        "season": 3,
+        "episode": 25
+      },
+      {
+        "id": "animecix:ep:90:3:26",
+        "title": "Boku no Hero Academia 3. Sezon 26. Bölüm",
+        "season": 3,
+        "episode": 26
+      },
+      {
+        "id": "animecix:ep:90:3:27",
+        "title": "Boku no Hero Academia 3. Sezon 27. Bölüm",
+        "season": 3,
+        "episode": 27
+      },
+      {
+        "id": "animecix:ep:90:4:1",
+        "title": "Boku no Hero Academia 4. Sezon 1. Bölüm",
+        "season": 4,
+        "episode": 1
+      },
+      {
+        "id": "animecix:ep:90:4:2",
+        "title": "Boku no Hero Academia 4. Sezon 2. Bölüm",
+        "season": 4,
+        "episode": 2
+      },
+      {
+        "id": "animecix:ep:90:4:3",
+        "title": "Boku no Hero Academia 4. Sezon 3. Bölüm",
+        "season": 4,
+        "episode": 3
+      },
+      {
+        "id": "animecix:ep:90:4:4",
+        "title": "Boku no Hero Academia 4. Sezon 4. Bölüm",
+        "season": 4,
+        "episode": 4
+      },
+      {
+        "id": "animecix:ep:90:4:5",
+        "title": "Boku no Hero Academia 4. Sezon 5. Bölüm",
+        "season": 4,
+        "episode": 5
+      },
+      {
+        "id": "animecix:ep:90:4:6",
+        "title": "Boku no Hero Academia 4. Sezon 6. Bölüm",
+        "season": 4,
+        "episode": 6
+      },
+      {
+        "id": "animecix:ep:90:4:7",
+        "title": "Boku no Hero Academia 4. Sezon 7. Bölüm",
+        "season": 4,
+        "episode": 7
+      },
+      {
+        "id": "animecix:ep:90:4:8",
+        "title": "Boku no Hero Academia 4. Sezon 8. Bölüm",
+        "season": 4,
+        "episode": 8
+      },
+      {
+        "id": "animecix:ep:90:4:9",
+        "title": "Boku no Hero Academia 4. Sezon 9. Bölüm",
+        "season": 4,
+        "episode": 9
+      },
+      {
+        "id": "animecix:ep:90:4:10",
+        "title": "Boku no Hero Academia 4. Sezon 10. Bölüm",
+        "season": 4,
+        "episode": 10
+      },
+      {
+        "id": "animecix:ep:90:4:11",
+        "title": "Boku no Hero Academia 4. Sezon 11. Bölüm",
+        "season": 4,
+        "episode": 11
+      },
+      {
+        "id": "animecix:ep:90:4:12",
+        "title": "Boku no Hero Academia 4. Sezon 12. Bölüm",
+        "season": 4,
+        "episode": 12
+      },
+      {
+        "id": "animecix:ep:90:4:13",
+        "title": "Boku no Hero Academia 4. Sezon 13. Bölüm",
+        "season": 4,
+        "episode": 13
+      },
+      {
+        "id": "animecix:ep:90:4:14",
+        "title": "Boku no Hero Academia 4. Sezon 14. Bölüm",
+        "season": 4,
+        "episode": 14
+      },
+      {
+        "id": "animecix:ep:90:4:15",
+        "title": "Boku no Hero Academia 4. Sezon 15. Bölüm",
+        "season": 4,
+        "episode": 15
+      },
+      {
+        "id": "animecix:ep:90:4:16",
+        "title": "Boku no Hero Academia 4. Sezon 16. Bölüm",
+        "season": 4,
+        "episode": 16
+      },
+      {
+        "id": "animecix:ep:90:4:17",
+        "title": "Boku no Hero Academia 4. Sezon 17. Bölüm",
+        "season": 4,
+        "episode": 17
+      },
+      {
+        "id": "animecix:ep:90:4:18",
+        "title": "Boku no Hero Academia 4. Sezon 18. Bölüm",
+        "season": 4,
+        "episode": 18
+      },
+      {
+        "id": "animecix:ep:90:4:19",
+        "title": "Boku no Hero Academia 4. Sezon 19. Bölüm",
+        "season": 4,
+        "episode": 19
+      },
+      {
+        "id": "animecix:ep:90:4:20",
+        "title": "Boku no Hero Academia 4. Sezon 20. Bölüm",
+        "season": 4,
+        "episode": 20
+      },
+      {
+        "id": "animecix:ep:90:4:21",
+        "title": "Boku no Hero Academia 4. Sezon 21. Bölüm",
+        "season": 4,
+        "episode": 21
+      },
+      {
+        "id": "animecix:ep:90:4:22",
+        "title": "Boku no Hero Academia 4. Sezon 22. Bölüm",
+        "season": 4,
+        "episode": 22
+      },
+      {
+        "id": "animecix:ep:90:4:23",
+        "title": "Boku no Hero Academia 4. Sezon 23. Bölüm",
+        "season": 4,
+        "episode": 23
+      },
+      {
+        "id": "animecix:ep:90:4:24",
+        "title": "Boku no Hero Academia 4. Sezon 24. Bölüm",
+        "season": 4,
+        "episode": 24
+      },
+      {
+        "id": "animecix:ep:90:4:25",
+        "title": "Boku no Hero Academia 4. Sezon 25. Bölüm",
+        "season": 4,
+        "episode": 25
+      },
+      {
+        "id": "animecix:ep:90:5:1",
+        "title": "Boku no Hero Academia 5. Sezon 1. Bölüm",
+        "season": 5,
+        "episode": 1
+      },
+      {
+        "id": "animecix:ep:90:5:2",
+        "title": "Boku no Hero Academia 5. Sezon 2. Bölüm",
+        "season": 5,
+        "episode": 2
+      },
+      {
+        "id": "animecix:ep:90:5:3",
+        "title": "Boku no Hero Academia 5. Sezon 3. Bölüm",
+        "season": 5,
+        "episode": 3
+      },
+      {
+        "id": "animecix:ep:90:5:4",
+        "title": "Boku no Hero Academia 5. Sezon 4. Bölüm",
+        "season": 5,
+        "episode": 4
+      },
+      {
+        "id": "animecix:ep:90:5:5",
+        "title": "Boku no Hero Academia 5. Sezon 5. Bölüm",
+        "season": 5,
+        "episode": 5
+      },
+      {
+        "id": "animecix:ep:90:5:6",
+        "title": "Boku no Hero Academia 5. Sezon 6. Bölüm",
+        "season": 5,
+        "episode": 6
+      },
+      {
+        "id": "animecix:ep:90:5:7",
+        "title": "Boku no Hero Academia 5. Sezon 7. Bölüm",
+        "season": 5,
+        "episode": 7
+      },
+      {
+        "id": "animecix:ep:90:5:8",
+        "title": "Boku no Hero Academia 5. Sezon 8. Bölüm",
+        "season": 5,
+        "episode": 8
+      },
+      {
+        "id": "animecix:ep:90:5:9",
+        "title": "Boku no Hero Academia 5. Sezon 9. Bölüm",
+        "season": 5,
+        "episode": 9
+      },
+      {
+        "id": "animecix:ep:90:5:10",
+        "title": "Boku no Hero Academia 5. Sezon 10. Bölüm",
+        "season": 5,
+        "episode": 10
+      },
+      {
+        "id": "animecix:ep:90:5:11",
+        "title": "Boku no Hero Academia 5. Sezon 11. Bölüm",
+        "season": 5,
+        "episode": 11
+      },
+      {
+        "id": "animecix:ep:90:5:12",
+        "title": "Boku no Hero Academia 5. Sezon 12. Bölüm",
+        "season": 5,
+        "episode": 12
+      },
+      {
+        "id": "animecix:ep:90:5:13",
+        "title": "Boku no Hero Academia 5. Sezon 13. Bölüm",
+        "season": 5,
+        "episode": 13
+      },
+      {
+        "id": "animecix:ep:90:5:14",
+        "title": "Boku no Hero Academia 5. Sezon 14. Bölüm",
+        "season": 5,
+        "episode": 14
+      },
+      {
+        "id": "animecix:ep:90:5:15",
+        "title": "Boku no Hero Academia 5. Sezon 15. Bölüm",
+        "season": 5,
+        "episode": 15
+      },
+      {
+        "id": "animecix:ep:90:5:16",
+        "title": "Boku no Hero Academia 5. Sezon 16. Bölüm",
+        "season": 5,
+        "episode": 16
+      },
+      {
+        "id": "animecix:ep:90:5:17",
+        "title": "Boku no Hero Academia 5. Sezon 17. Bölüm",
+        "season": 5,
+        "episode": 17
+      },
+      {
+        "id": "animecix:ep:90:5:18",
+        "title": "Boku no Hero Academia 5. Sezon 18. Bölüm",
+        "season": 5,
+        "episode": 18
+      },
+      {
+        "id": "animecix:ep:90:5:19",
+        "title": "Boku no Hero Academia 5. Sezon 19. Bölüm",
+        "season": 5,
+        "episode": 19
+      },
+      {
+        "id": "animecix:ep:90:5:20",
+        "title": "Boku no Hero Academia 5. Sezon 20. Bölüm",
+        "season": 5,
+        "episode": 20
+      },
+      {
+        "id": "animecix:ep:90:5:21",
+        "title": "Boku no Hero Academia 5. Sezon 21. Bölüm",
+        "season": 5,
+        "episode": 21
+      },
+      {
+        "id": "animecix:ep:90:5:22",
+        "title": "Boku no Hero Academia 5. Sezon 22. Bölüm",
+        "season": 5,
+        "episode": 22
+      },
+      {
+        "id": "animecix:ep:90:5:23",
+        "title": "Boku no Hero Academia 5. Sezon 23. Bölüm",
+        "season": 5,
+        "episode": 23
+      },
+      {
+        "id": "animecix:ep:90:5:24",
+        "title": "Boku no Hero Academia 5. Sezon 24. Bölüm",
+        "season": 5,
+        "episode": 24
+      },
+      {
+        "id": "animecix:ep:90:5:25",
+        "title": "Boku no Hero Academia 5. Sezon 25. Bölüm",
+        "season": 5,
+        "episode": 25
+      },
+      {
+        "id": "animecix:ep:90:5:26",
+        "title": "Boku no Hero Academia 5. Sezon 26. Bölüm",
+        "season": 5,
+        "episode": 26
+      },
+      {
+        "id": "animecix:ep:90:5:27",
+        "title": "Boku no Hero Academia 5. Sezon 27. Bölüm",
+        "season": 5,
+        "episode": 27
+      },
+      {
+        "id": "animecix:ep:90:5:28",
+        "title": "Boku no Hero Academia 5. Sezon 28. Bölüm",
+        "season": 5,
+        "episode": 28
+      },
+      {
+        "id": "animecix:ep:90:5:29",
+        "title": "Boku no Hero Academia 5. Sezon 29. Bölüm",
+        "season": 5,
+        "episode": 29
+      },
+      {
+        "id": "animecix:ep:90:6:1",
+        "title": "Boku no Hero Academia 6. Sezon 1. Bölüm",
+        "season": 6,
+        "episode": 1
+      },
+      {
+        "id": "animecix:ep:90:6:2",
+        "title": "Boku no Hero Academia 6. Sezon 2. Bölüm",
+        "season": 6,
+        "episode": 2
+      },
+      {
+        "id": "animecix:ep:90:6:3",
+        "title": "Boku no Hero Academia 6. Sezon 3. Bölüm",
+        "season": 6,
+        "episode": 3
+      },
+      {
+        "id": "animecix:ep:90:6:4",
+        "title": "Boku no Hero Academia 6. Sezon 4. Bölüm",
+        "season": 6,
+        "episode": 4
+      },
+      {
+        "id": "animecix:ep:90:6:5",
+        "title": "Boku no Hero Academia 6. Sezon 5. Bölüm",
+        "season": 6,
+        "episode": 5
+      },
+      {
+        "id": "animecix:ep:90:6:6",
+        "title": "Boku no Hero Academia 6. Sezon 6. Bölüm",
+        "season": 6,
+        "episode": 6
+      },
+      {
+        "id": "animecix:ep:90:6:7",
+        "title": "Boku no Hero Academia 6. Sezon 7. Bölüm",
+        "season": 6,
+        "episode": 7
+      },
+      {
+        "id": "animecix:ep:90:6:8",
+        "title": "Boku no Hero Academia 6. Sezon 8. Bölüm",
+        "season": 6,
+        "episode": 8
+      },
+      {
+        "id": "animecix:ep:90:6:9",
+        "title": "Boku no Hero Academia 6. Sezon 9. Bölüm",
+        "season": 6,
+        "episode": 9
+      },
+      {
+        "id": "animecix:ep:90:6:10",
+        "title": "Boku no Hero Academia 6. Sezon 10. Bölüm",
+        "season": 6,
+        "episode": 10
+      },
+      {
+        "id": "animecix:ep:90:6:11",
+        "title": "Boku no Hero Academia 6. Sezon 11. Bölüm",
+        "season": 6,
+        "episode": 11
+      },
+      {
+        "id": "animecix:ep:90:6:12",
+        "title": "Boku no Hero Academia 6. Sezon 12. Bölüm",
+        "season": 6,
+        "episode": 12
+      },
+      {
+        "id": "animecix:ep:90:6:13",
+        "title": "Boku no Hero Academia 6. Sezon 13. Bölüm",
+        "season": 6,
+        "episode": 13
+      },
+      {
+        "id": "animecix:ep:90:6:14",
+        "title": "Boku no Hero Academia 6. Sezon 14. Bölüm",
+        "season": 6,
+        "episode": 14
+      },
+      {
+        "id": "animecix:ep:90:6:15",
+        "title": "Boku no Hero Academia 6. Sezon 15. Bölüm",
+        "season": 6,
+        "episode": 15
+      },
+      {
+        "id": "animecix:ep:90:6:16",
+        "title": "Boku no Hero Academia 6. Sezon 16. Bölüm",
+        "season": 6,
+        "episode": 16
+      },
+      {
+        "id": "animecix:ep:90:6:17",
+        "title": "Boku no Hero Academia 6. Sezon 17. Bölüm",
+        "season": 6,
+        "episode": 17
+      },
+      {
+        "id": "animecix:ep:90:6:18",
+        "title": "Boku no Hero Academia 6. Sezon 18. Bölüm",
+        "season": 6,
+        "episode": 18
+      },
+      {
+        "id": "animecix:ep:90:6:19",
+        "title": "Boku no Hero Academia 6. Sezon 19. Bölüm",
+        "season": 6,
+        "episode": 19
+      },
+      {
+        "id": "animecix:ep:90:6:20",
+        "title": "Boku no Hero Academia 6. Sezon 20. Bölüm",
+        "season": 6,
+        "episode": 20
+      },
+      {
+        "id": "animecix:ep:90:6:21",
+        "title": "Boku no Hero Academia 6. Sezon 21. Bölüm",
+        "season": 6,
+        "episode": 21
+      },
+      {
+        "id": "animecix:ep:90:6:22",
+        "title": "Boku no Hero Academia 6. Sezon 22. Bölüm",
+        "season": 6,
+        "episode": 22
+      },
+      {
+        "id": "animecix:ep:90:6:23",
+        "title": "Boku no Hero Academia 6. Sezon 23. Bölüm",
+        "season": 6,
+        "episode": 23
+      },
+      {
+        "id": "animecix:ep:90:6:24",
+        "title": "Boku no Hero Academia 6. Sezon 24. Bölüm",
+        "season": 6,
+        "episode": 24
+      },
+      {
+        "id": "animecix:ep:90:6:25",
+        "title": "Boku no Hero Academia 6. Sezon 25. Bölüm",
+        "season": 6,
+        "episode": 25
+      },
+      {
+        "id": "animecix:ep:90:6:26",
+        "title": "Boku no Hero Academia 6. Sezon 26. Bölüm",
+        "season": 6,
+        "episode": 26
+      },
+      {
+        "id": "animecix:ep:90:7:1",
+        "title": "Boku no Hero Academia 7. Sezon 1. Bölüm",
+        "season": 7,
+        "episode": 1
+      },
+      {
+        "id": "animecix:ep:90:7:2",
+        "title": "Boku no Hero Academia 7. Sezon 2. Bölüm",
+        "season": 7,
+        "episode": 2
+      },
+      {
+        "id": "animecix:ep:90:7:3",
+        "title": "Boku no Hero Academia 7. Sezon 3. Bölüm",
+        "season": 7,
+        "episode": 3
+      },
+      {
+        "id": "animecix:ep:90:7:4",
+        "title": "Boku no Hero Academia 7. Sezon 4. Bölüm",
+        "season": 7,
+        "episode": 4
+      },
+      {
+        "id": "animecix:ep:90:7:5",
+        "title": "Boku no Hero Academia 7. Sezon 5. Bölüm",
+        "season": 7,
+        "episode": 5
+      },
+      {
+        "id": "animecix:ep:90:7:6",
+        "title": "Boku no Hero Academia 7. Sezon 6. Bölüm",
+        "season": 7,
+        "episode": 6
+      },
+      {
+        "id": "animecix:ep:90:7:7",
+        "title": "Boku no Hero Academia 7. Sezon 7. Bölüm",
+        "season": 7,
+        "episode": 7
+      },
+      {
+        "id": "animecix:ep:90:7:8",
+        "title": "Boku no Hero Academia 7. Sezon 8. Bölüm",
+        "season": 7,
+        "episode": 8
+      },
+      {
+        "id": "animecix:ep:90:7:9",
+        "title": "Boku no Hero Academia 7. Sezon 9. Bölüm",
+        "season": 7,
+        "episode": 9
+      },
+      {
+        "id": "animecix:ep:90:7:10",
+        "title": "Boku no Hero Academia 7. Sezon 10. Bölüm",
+        "season": 7,
+        "episode": 10
+      },
+      {
+        "id": "animecix:ep:90:7:11",
+        "title": "Boku no Hero Academia 7. Sezon 11. Bölüm",
+        "season": 7,
+        "episode": 11
+      },
+      {
+        "id": "animecix:ep:90:7:12",
+        "title": "Boku no Hero Academia 7. Sezon 12. Bölüm",
+        "season": 7,
+        "episode": 12
+      },
+      {
+        "id": "animecix:ep:90:7:13",
+        "title": "Boku no Hero Academia 7. Sezon 13. Bölüm",
+        "season": 7,
+        "episode": 13
+      },
+      {
+        "id": "animecix:ep:90:7:14",
+        "title": "Boku no Hero Academia 7. Sezon 14. Bölüm",
+        "season": 7,
+        "episode": 14
+      },
+      {
+        "id": "animecix:ep:90:7:15",
+        "title": "Boku no Hero Academia 7. Sezon 15. Bölüm",
+        "season": 7,
+        "episode": 15
+      },
+      {
+        "id": "animecix:ep:90:7:16",
+        "title": "Boku no Hero Academia 7. Sezon 16. Bölüm",
+        "season": 7,
+        "episode": 16
+      },
+      {
+        "id": "animecix:ep:90:7:17",
+        "title": "Boku no Hero Academia 7. Sezon 17. Bölüm",
+        "season": 7,
+        "episode": 17
+      },
+      {
+        "id": "animecix:ep:90:7:18",
+        "title": "Boku no Hero Academia 7. Sezon 18. Bölüm",
+        "season": 7,
+        "episode": 18
+      },
+      {
+        "id": "animecix:ep:90:7:19",
+        "title": "Boku no Hero Academia 7. Sezon 19. Bölüm",
+        "season": 7,
+        "episode": 19
+      },
+      {
+        "id": "animecix:ep:90:7:20",
+        "title": "Boku no Hero Academia 7. Sezon 20. Bölüm",
+        "season": 7,
+        "episode": 20
+      },
+      {
+        "id": "animecix:ep:90:7:21",
+        "title": "Boku no Hero Academia 7. Sezon 21. Bölüm",
+        "season": 7,
+        "episode": 21
+      },
+      {
+        "id": "animecix:ep:90:8:1",
+        "title": "Boku no Hero Academia 8. Sezon 1. Bölüm",
+        "season": 8,
+        "episode": 1
+      },
+      {
+        "id": "animecix:ep:90:8:2",
+        "title": "Boku no Hero Academia 8. Sezon 2. Bölüm",
+        "season": 8,
+        "episode": 2
+      },
+      {
+        "id": "animecix:ep:90:8:3",
+        "title": "Boku no Hero Academia 8. Sezon 3. Bölüm",
+        "season": 8,
+        "episode": 3
+      },
+      {
+        "id": "animecix:ep:90:8:4",
+        "title": "Boku no Hero Academia 8. Sezon 4. Bölüm",
+        "season": 8,
+        "episode": 4
+      },
+      {
+        "id": "animecix:ep:90:8:5",
+        "title": "Boku no Hero Academia 8. Sezon 5. Bölüm",
+        "season": 8,
+        "episode": 5
+      },
+      {
+        "id": "animecix:ep:90:8:6",
+        "title": "Boku no Hero Academia 8. Sezon 6. Bölüm",
+        "season": 8,
+        "episode": 6
+      },
+      {
+        "id": "animecix:ep:90:8:7",
+        "title": "Boku no Hero Academia 8. Sezon 7. Bölüm",
+        "season": 8,
+        "episode": 7
+      },
+      {
+        "id": "animecix:ep:90:8:8",
+        "title": "Boku no Hero Academia 8. Sezon 8. Bölüm",
+        "season": 8,
+        "episode": 8
+      },
+      {
+        "id": "animecix:ep:90:8:9",
+        "title": "Boku no Hero Academia 8. Sezon 9. Bölüm",
+        "season": 8,
+        "episode": 9
+      },
+      {
+        "id": "animecix:ep:90:8:10",
+        "title": "Boku no Hero Academia 8. Sezon 10. Bölüm",
+        "season": 8,
+        "episode": 10
+      },
+      {
+        "id": "animecix:ep:90:8:11",
+        "title": "Boku no Hero Academia 8. Sezon 11. Bölüm",
+        "season": 8,
+        "episode": 11
+      },
+      {
+        "id": "animecix:ep:90:8:12",
+        "title": "Boku no Hero Academia 8. Sezon 12. Bölüm",
+        "season": 8,
+        "episode": 12
+      },
+      {
+        "id": "animecix:ep:90:8:13",
+        "title": "Boku no Hero Academia 8. Sezon 13. Bölüm",
+        "season": 8,
+        "episode": 13
+      }
+    ]
+  }
+}

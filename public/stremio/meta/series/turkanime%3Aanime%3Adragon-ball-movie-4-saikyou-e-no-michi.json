@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "turkanime:anime:dragon-ball-movie-4-saikyou-e-no-michi",
+    "type": "series",
+    "name": "Dragon Ball Movie 4: Saikyou e no Michi",
+    "poster": "https://www.turkanime.tv/imajlar/serilerb/5567.jpg",
+    "background": "https://www.turkanime.tv/imajlar/serilerb/5567.jpg",
+    "description": "Dragon Ball Movie 4: Saikyou e no Michi - TurkAnime TV",
+    "genres": [
+      "Anime",
+      "TurkAnime"
+    ],
+    "videos": [
+      {
+        "id": "turkanime:ep:dragon-ball-saikyou-e-no-michi-movie-4",
+        "title": "1. Bölüm",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}
