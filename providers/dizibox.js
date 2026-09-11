@@ -7,7 +7,7 @@ var BASE_URL = 'https://www.dizibox.live';
 var TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
 
 var HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36',
     'Cookie': 'LockUser=true; isTrustedUser=true; dbxu=1744054959089',
     'Referer': BASE_URL + '/'
 };
@@ -237,108 +237,155 @@ async function getMeta(args) {
     }
 }
 
+function safeB64Decode(str) {
+    try {
+        if (typeof atob === 'function') return atob(str);
+        if (typeof Buffer !== 'undefined') return Buffer.from(str, 'base64').toString('utf-8');
+    } catch (e) {}
+    return '';
+}
+
 async function extractMolystreamFromEpisodePage(epUrl) {
     try {
         const epRes = await fetch(epUrl, { headers: HEADERS });
         if (!epRes.ok) return [];
         const epHtml = await epRes.text();
 
-        const iframes = [...epHtml.matchAll(/<iframe[^>]+src=["']([^"']+)["']/gi)];
+        // 1. Discover all server tabs from select dropdown or standard /2/ /3/ URLs
+        const selectMatch = epHtml.match(/<select[^>]+class=["'][^']*linkpages[^']*["'][^>]*>([\s\S]*?)<\/select>/i);
+        let tabUrls = selectMatch 
+            ? [...selectMatch[1].matchAll(/<option[^>]+(?:href|value)=["']([^"']+)["'][^>]*>/gi)].map(m => m[1])
+            : [];
+        
+        const resolvedEpUrl = epRes.url || epUrl;
+        if (!tabUrls.includes(resolvedEpUrl)) {
+            tabUrls.unshift(resolvedEpUrl);
+        }
+        if (tabUrls.length <= 1) {
+            const cleanBase = resolvedEpUrl.replace(/\/$/, '');
+            tabUrls.push(`${cleanBase}/2/`, `${cleanBase}/3/`);
+        }
+
         const streams = [];
+        const seenUrls = new Set();
 
-        for (const ifr of iframes) {
-            let src = ifr[1];
-            if (src.startsWith('//')) src = 'https:' + src;
-            else if (src.startsWith('/')) src = BASE_URL + src;
-
-            if (!src.includes('king.php') && !src.includes('molystream')) continue;
-
+        for (const tabUrl of tabUrls) {
             try {
-                const pRes = await fetch(src, { headers: { ...HEADERS, Referer: epUrl } });
+                const pRes = await fetch(tabUrl, { headers: { ...HEADERS, Referer: epUrl } });
                 if (!pRes.ok) continue;
                 const pHtml = await pRes.text();
+                const iframes = [...pHtml.matchAll(/<iframe[^>]+src=["']([^"']+)["']/gi)].map(m => m[1]);
 
-                // Extract molyId from intermediate page
-                const molyMatch = pHtml.match(/https?:\/\/[^"'\s]*molystream\.org\/embed\/(?:sheila\/)?([a-zA-Z0-9_-]+)/);
-                if (molyMatch) {
-                    const molyId = molyMatch[1];
-                    const sheilaUrl = `https://dbx.molystream.org/embed/sheila/${molyId}`;
-                    const embedPage = `https://dbx.molystream.org/embed/${molyId}`;
+                for (const ifr of iframes) {
+                    let src = ifr;
+                    if (src.startsWith('//')) src = 'https:' + src;
+                    else if (src.startsWith('/')) src = BASE_URL + src;
 
-                    try {
-                        const sRes = await fetch(sheilaUrl, { 
-                            headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': embedPage } 
-                        });
-                        if (sRes.ok) {
-                            const sText = await sRes.text();
-                            const subLine = sText.trim().startsWith('#EXTM3U') 
-                                ? sText.split('\n').map(l => l.trim()).find(l => l.startsWith('http')) 
-                                : null;
-                            
-                            const molyHeaders = {
-                                'User-Agent': HEADERS['User-Agent'],
-                                'Referer': `https://dbx.molystream.org/embed/${molyId}`,
-                                'Origin': 'https://dbx.molystream.org'
-                            };
+                    // Source A: VidMoly via moly.php (Tab 2 - Moly+) -> Produces unified master.m3u8 (58min single stream, no resets)
+                    if (src.includes('moly.php')) {
+                        try {
+                            const mRes = await fetch(src, { headers: { ...HEADERS, Referer: tabUrl } });
+                            if (mRes.ok) {
+                                const mHtml = await mRes.text();
+                                const unescapeMatch = mHtml.match(/unescape\(["']([^"']+)/);
+                                if (unescapeMatch) {
+                                    const rawB64 = decodeURIComponent(unescapeMatch[1]);
+                                    const decoded = safeB64Decode(rawB64);
+                                    const vmMatch = decoded.match(/https?:\/\/[^\s"'\\]*vidmoly\.[a-z0-9]+\/embed-[a-zA-Z0-9_-]+\.html/i);
+                                    if (vmMatch) {
+                                        const vmRes = await fetch(vmMatch[0], { headers: { ...HEADERS, Referer: BASE_URL + '/' } });
+                                        if (vmRes.ok) {
+                                            const vmHtml = await vmRes.text();
+                                            const m3u8Match = vmHtml.match(/file:\s*["'](https?:\/\/[^"']+\.m3u8[^"']*)["']/i);
+                                            if (m3u8Match && !seenUrls.has(m3u8Match[1])) {
+                                                seenUrls.add(m3u8Match[1]);
+                                                const vmHeaders = {
+                                                    'User-Agent': HEADERS['User-Agent'],
+                                                    'Referer': 'https://vidmoly.biz/'
+                                                };
+                                                streams.unshift({
+                                                    name: 'DiziBox',
+                                                    title: '⌜ DiziBox ⌟ | VidMoly (1080p HLS)',
+                                                    url: m3u8Match[1],
+                                                    quality: '1080p',
+                                                    provider: 'dizibox',
+                                                    headers: vmHeaders,
+                                                    behaviorHints: {
+                                                        notWebReady: true,
+                                                        proxyHeaders: {
+                                                            request: vmHeaders
+                                                        }
+                                                    }
+                                                });
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        } catch (e) {}
+                    }
 
-                            // Primary: Sheila Master Playlist (provides bandwidth & resolution metadata to player, preventing 2-3s buffer underruns)
+                    // Source B: Molystream via king.php (Tab 1 - DBX Pro)
+                    if (src.includes('king.php') || src.includes('molystream')) {
+                        try {
+                            const kRes = await fetch(src, { headers: { ...HEADERS, Referer: tabUrl } });
+                            if (kRes.ok) {
+                                const kHtml = await kRes.text();
+                                const molyMatch = kHtml.match(/https?:\/\/[^"'\s]*molystream\.org\/embed\/(?:sheila\/)?([a-zA-Z0-9_-]+)/);
+                                if (molyMatch) {
+                                    const molyId = molyMatch[1];
+                                    const sheilaUrl = `https://dbx.molystream.org/embed/sheila/${molyId}`;
+                                    const molyHeaders = {
+                                        'User-Agent': HEADERS['User-Agent'],
+                                        'Referer': `https://dbx.molystream.org/embed/${molyId}`,
+                                        'Origin': 'https://dbx.molystream.org'
+                                    };
+                                    if (!seenUrls.has(sheilaUrl)) {
+                                        seenUrls.add(sheilaUrl);
+                                        streams.push({
+                                            name: 'DiziBox',
+                                            title: '⌜ DiziBox ⌟ | Molystream (1080p HLS)',
+                                            url: `${sheilaUrl}#master.m3u8`,
+                                            quality: '1080p',
+                                            provider: 'dizibox',
+                                            headers: molyHeaders,
+                                            behaviorHints: {
+                                                notWebReady: true,
+                                                proxyHeaders: {
+                                                    request: molyHeaders
+                                                }
+                                            }
+                                        });
+                                    }
+                                }
+                            }
+                        } catch (e) {}
+                    }
+
+                    // Source C: Any direct MP4 or M3U8 in page or intermediate page
+                    const directMatches = [...pHtml.matchAll(/(https?:\/\/[^"'\s\\]+\.(?:m3u8|mp4)[^"'\s\\]*)/gi)];
+                    for (const dm of directMatches) {
+                        const dUrl = dm[1];
+                        if (dUrl.includes('preview') || dUrl.includes('.jpg') || dUrl.includes('.png')) continue;
+                        if (!seenUrls.has(dUrl)) {
+                            seenUrls.add(dUrl);
+                            const directHeaders = { 'User-Agent': HEADERS['User-Agent'], 'Referer': src };
                             streams.push({
                                 name: 'DiziBox',
-                                title: '⌜ DiziBox ⌟ | Molystream (1080p HLS)',
-                                url: `${sheilaUrl}#master.m3u8`,
+                                title: `⌜ DiziBox ⌟ | Direct (${dUrl.includes('.m3u8') ? 'HLS' : 'MP4'})`,
+                                url: dUrl,
                                 quality: '1080p',
                                 provider: 'dizibox',
-                                headers: molyHeaders,
+                                headers: directHeaders,
                                 behaviorHints: {
                                     notWebReady: true,
                                     proxyHeaders: {
-                                        request: molyHeaders
+                                        request: directHeaders
                                     }
                                 }
                             });
-
-                            // Backup: Direct sub-playlist if available
-                            if (subLine) {
-                                streams.push({
-                                    name: 'DiziBox',
-                                    title: '⌜ DiziBox ⌟ | Molystream Direct (1080p HLS)',
-                                    url: `${subLine}#video.m3u8`,
-                                    quality: '1080p',
-                                    provider: 'dizibox',
-                                    headers: molyHeaders,
-                                    behaviorHints: {
-                                        notWebReady: true,
-                                        proxyHeaders: {
-                                            request: molyHeaders
-                                        }
-                                    }
-                                });
-                            }
                         }
-                    } catch (e) {}
-                }
-                
-                // Also try direct m3u8/mp4 URLs in the intermediate page
-                const directMatches = [...pHtml.matchAll(/(https?:\/\/[^"'\s\\]+\.(?:m3u8|mp4)[^"'\s\\]*)/gi)];
-                for (const dm of directMatches) {
-                    const dUrl = dm[1];
-                    if (dUrl.includes('preview') || dUrl.includes('.jpg') || dUrl.includes('.png')) continue;
-                    if (streams.some(s => s.url === dUrl)) continue;
-                    const directHeaders = { 'User-Agent': HEADERS['User-Agent'], 'Referer': src };
-                    streams.push({
-                        name: 'DiziBox',
-                        title: `⌜ DiziBox ⌟ | Direct (${dUrl.includes('.m3u8') ? 'HLS' : 'MP4'})`,
-                        url: dUrl,
-                        quality: '1080p',
-                        provider: 'dizibox',
-                        headers: directHeaders,
-                        behaviorHints: {
-                            notWebReady: true,
-                            proxyHeaders: {
-                                request: directHeaders
-                            }
-                        }
-                    });
+                    }
                 }
             } catch (e) {}
         }
