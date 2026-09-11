@@ -234,15 +234,22 @@ function fetchStreamsFromAlt(altLink, filmUrl) {
             // m3u8 uzantısı yoksa ekle
             var srcUrl = source.src;
             if (srcUrl.indexOf('.m3u8') === -1) srcUrl = srcUrl + '.m3u8';
+            var fmHeaders = {
+              'Referer':    BASE_URL + '/',
+              'User-Agent': HEADERS['User-Agent']
+            };
             var streamObj = {
               name:    'FilmModu',
               title:   altLink.name + ' • ' + qualityLabel,
               url:     srcUrl,
               quality: qualityLabel,
               type:    'hls',
-              headers: {
-                'Referer':    BASE_URL + '/',
-                'User-Agent': HEADERS['User-Agent']
+              headers: fmHeaders,
+              behaviorHints: {
+                notWebReady: true,
+                proxyHeaders: {
+                  request: fmHeaders
+                }
               }
             };
             if (subtitleUrl) {

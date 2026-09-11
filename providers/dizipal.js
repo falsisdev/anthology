@@ -217,6 +217,15 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
           headers: {
             'Referer': embedUrl,
             'User-Agent': HEADERS['User-Agent']
+          },
+          behaviorHints: {
+            notWebReady: true,
+            proxyHeaders: {
+              request: {
+                'Referer': embedUrl,
+                'User-Agent': HEADERS['User-Agent']
+              }
+            }
           }
         });
       }
@@ -232,6 +241,10 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
                      || embHtml.match(/https?:\/\/[^"'\s<>]+\.m3u8[^"'\s<>]*/i);
           if (mFile) {
             const streamUrl = mFile[1] || mFile[0];
+            const dpHeaders = {
+              'Referer': embedUrl,
+              'User-Agent': HEADERS['User-Agent']
+            };
             streams.push({
               name: displayTitle,
               title: `⌜ DiziPal ⌟ | HLS [1080p]`,
@@ -239,9 +252,12 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
               quality: '1080p',
               type: 'hls',
               provider: 'dizipal',
-              headers: {
-                'Referer': embedUrl,
-                'User-Agent': HEADERS['User-Agent']
+              headers: dpHeaders,
+              behaviorHints: {
+                notWebReady: true,
+                proxyHeaders: {
+                  request: dpHeaders
+                }
               }
             });
           }

@@ -303,14 +303,21 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
                     if (u.url && !seenUrls.has(u.url)) {
                       seenUrls.add(u.url);
                       const quality = u.label || '1080p';
+                      const strHeaders = {
+                        'Referer': `${BASE_URL}/`,
+                        'User-Agent': HEADERS['User-Agent']
+                      };
                       streams.push({
                         name: `ÇizgiMax - ${label} [${quality}]`,
                         title: `ÇizgiMax | ${label} (${quality})`,
                         url: u.url,
                         quality: quality,
-                        headers: {
-                          'Referer': `${BASE_URL}/`,
-                          'User-Agent': HEADERS['User-Agent']
+                        headers: strHeaders,
+                        behaviorHints: {
+                          notWebReady: true,
+                          proxyHeaders: {
+                            request: strHeaders
+                          }
                         }
                       });
                     }
@@ -337,14 +344,21 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
           if (loc && !seenUrls.has(loc)) {
             seenUrls.add(loc);
             const isSib = loc.includes('sibnet.ru');
+            const locHeaders = {
+              'Referer': isSib ? 'https://video.sibnet.ru/' : `${BASE_URL}/`,
+              'User-Agent': HEADERS['User-Agent']
+            };
             streams.push({
               name: `ÇizgiMax - ${label}`,
               title: `ÇizgiMax | ${label}`,
               url: loc,
               quality: 'HD',
-              headers: {
-                'Referer': isSib ? 'https://video.sibnet.ru/' : `${BASE_URL}/`,
-                'User-Agent': HEADERS['User-Agent']
+              headers: locHeaders,
+              behaviorHints: {
+                notWebReady: true,
+                proxyHeaders: {
+                  request: locHeaders
+                }
               }
             });
           }
@@ -362,7 +376,13 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
               title: `ÇizgiMax | Sibnet [HD]`,
               url: sibRes.url,
               quality: 'HD',
-              headers: sibRes.headers
+              headers: sibRes.headers,
+              behaviorHints: {
+                notWebReady: true,
+                proxyHeaders: {
+                  request: sibRes.headers
+                }
+              }
             });
           }
         } catch (e) {}

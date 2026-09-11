@@ -128,6 +128,10 @@ function fetchAndParseM3U8(playlistUrl, mediaInfo) {
                     quality: 'Auto',
                     size: 'ALTYAZILI',    //'Unknown',
                     headers: STREAM_HEADERS,
+                    behaviorHints: {
+                        notWebReady: true,
+                        proxyHeaders: { request: STREAM_HEADERS }
+                    },
                     provider: 'vidlink'
                 }];
             }
@@ -144,6 +148,10 @@ function fetchAndParseM3U8(playlistUrl, mediaInfo) {
                     quality: quality,
                     size: 'ALTYAZILI',    //'Unknown',
                     headers: STREAM_HEADERS,
+                    behaviorHints: {
+                        notWebReady: true,
+                        proxyHeaders: { request: STREAM_HEADERS }
+                    },
                     provider: 'vidlink'
                 };
             });
@@ -160,6 +168,10 @@ function fetchAndParseM3U8(playlistUrl, mediaInfo) {
                 quality: 'Auto',
                 size: 'ALTYAZILI',    //'Unknown',
                 headers: STREAM_HEADERS,
+                behaviorHints: {
+                    notWebReady: true,
+                    proxyHeaders: { request: STREAM_HEADERS }
+                },
                 provider: 'vidlink'
             }];
         });
@@ -300,6 +312,10 @@ function processVidlinkResponse(data, mediaInfo) {
                         quality: `${quality} [${lang}]`, // KALİTE + DİL
                         size: 'ALTYAZILI',    //'Unknown',
                         headers: STREAM_HEADERS,
+                        behaviorHints: {
+                            notWebReady: true,
+                            proxyHeaders: { request: STREAM_HEADERS }
+                        },
                         provider: 'vidlink'
                     });
                 }
@@ -350,8 +366,12 @@ function processVidlinkResponse(data, mediaInfo) {
                 title: streamTitle,
                 url: data.url,
                 quality: `${quality} [${lang}]`,
-               size: 'ALTYAZILI',    //'Unknown',
+                size: 'ALTYAZILI',    //'Unknown',
                 headers: STREAM_HEADERS,
+                behaviorHints: {
+                    notWebReady: true,
+                    proxyHeaders: { request: STREAM_HEADERS }
+                },
                 provider: 'vidlink'
             });
         }
@@ -374,6 +394,10 @@ function processVidlinkResponse(data, mediaInfo) {
                         quality: `${quality} [${lang}]`,
                         size: stream.size || 'ALTYAZILI',    //'Unknown',
                         headers: STREAM_HEADERS,
+                        behaviorHints: {
+                            notWebReady: true,
+                            proxyHeaders: { request: STREAM_HEADERS }
+                        },
                         provider: 'vidlink'
                     });
                 }

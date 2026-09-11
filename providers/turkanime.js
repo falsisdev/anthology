@@ -461,7 +461,13 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
                 title: 'TurkAnime | Sibnet [1080p MP4]',
                 url: sib.url,
                 quality: '1080p',
-                headers: sib.headers
+                headers: sib.headers,
+                behaviorHints: {
+                  notWebReady: true,
+                  proxyHeaders: {
+                    request: sib.headers
+                  }
+                }
               });
             }
           }
@@ -489,7 +495,13 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
                 title: 'TurkAnime | Sibnet [1080p MP4]',
                 url: sib.url,
                 quality: '1080p',
-                headers: sib.headers
+                headers: sib.headers,
+                behaviorHints: {
+                  notWebReady: true,
+                  proxyHeaders: {
+                    request: sib.headers
+                  }
+                }
               });
               break;
             }
