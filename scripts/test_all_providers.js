@@ -21,7 +21,10 @@ const path = require("path");
           const cat = await mod.getCatalog({});
           streams = (cat && cat.metas) || [];
         }
-      } else if (scraper.id === "animecix" || scraper.id === "turkanime") {
+      } else if (scraper.id === "animecix") {
+        testTarget = "Solo Leveling (127532 S01E01)";
+        streams = await mod.getStreams("127532", "tv", 1, 1);
+      } else if (scraper.id === "turkanime") {
         testTarget = "Death Note (13916 S01E01)";
         streams = await mod.getStreams("13916", "tv", 1, 1);
       } else if (scraper.id === "cizgimax") {

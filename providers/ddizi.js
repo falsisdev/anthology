@@ -303,11 +303,28 @@ async function extractStreamsFromEpisodePage(epUrl) {
                     else if (vUrl.includes('360') || vUrl.includes('itag=18')) quality = '360p';
 
                     let server = 'CDN';
-                    if (vUrl.includes('ciner.com.tr')) server = 'Ciner CDN';
-                    else if (vUrl.includes('yandex')) server = 'Yandex';
-                    else if (vUrl.includes('googlevideo')) server = 'Google Direct';
-                    else if (vUrl.includes('twimg')) server = 'Fast CDN';
-                    else if (vUrl.includes('akamaized')) server = 'Akamai';
+                    let streamHeaders = { 'User-Agent': HEADERS['User-Agent'] };
+                    if (vUrl.includes('ciner.com.tr')) {
+                        server = 'Ciner CDN';
+                        streamHeaders['Referer'] = 'https://www.ciner.com.tr/';
+                    } else if (vUrl.includes('yandex')) {
+                        server = 'Yandex';
+                        streamHeaders['Referer'] = 'https://yadi.sk/';
+                    } else if (vUrl.includes('googlevideo')) {
+                        server = 'Google Direct';
+                    } else if (vUrl.includes('twimg')) {
+                        server = 'Fast CDN';
+                        streamHeaders['Referer'] = 'https://twitter.com/';
+                        streamHeaders['Origin'] = 'https://twitter.com';
+                    } else if (vUrl.includes('tabii.com')) {
+                        server = 'Tabii CDN';
+                        streamHeaders['Referer'] = 'https://www.tabii.com/';
+                    } else if (vUrl.includes('akamaized')) {
+                        server = 'Akamai';
+                        streamHeaders['Referer'] = 'https://www.ddizi.im/';
+                    } else {
+                        streamHeaders['Referer'] = src;
+                    }
 
                     streams.push({
                         name: 'DDizi',
@@ -315,9 +332,12 @@ async function extractStreamsFromEpisodePage(epUrl) {
                         url: vUrl,
                         quality,
                         provider: 'ddizi',
-                        headers: {
-                            'User-Agent': HEADERS['User-Agent'],
-                            'Referer': src
+                        headers: streamHeaders,
+                        behaviorHints: {
+                            notWebReady: true,
+                            proxyHeaders: {
+                                request: streamHeaders
+                            }
                         }
                     });
                 }
@@ -333,15 +353,22 @@ async function extractStreamsFromEpisodePage(epUrl) {
                             const dmData = await dmRes.json();
                             const autoQual = dmData.qualities && dmData.qualities.auto && dmData.qualities.auto[0];
                             if (autoQual && autoQual.url) {
+                                const dmHeaders = {
+                                    'User-Agent': HEADERS['User-Agent'],
+                                    'Referer': 'https://www.dailymotion.com/'
+                                };
                                 streams.push({
                                     name: 'DDizi',
                                     title: '⌜ DDizi ⌟ | Dailymotion (1080p HLS)',
                                     url: autoQual.url,
                                     quality: '1080p',
                                     provider: 'ddizi',
-                                    headers: {
-                                        'User-Agent': HEADERS['User-Agent'],
-                                        'Referer': 'https://www.dailymotion.com/'
+                                    headers: dmHeaders,
+                                    behaviorHints: {
+                                        notWebReady: true,
+                                        proxyHeaders: {
+                                            request: dmHeaders
+                                        }
                                     }
                                 });
                             }
@@ -350,53 +377,49 @@ async function extractStreamsFromEpisodePage(epUrl) {
                 }
             }
 
-            // Type 3: Official YouTube player — extract direct stream via Invidious
+            // Type 3: Official YouTube player — extract direct MP4 stream via Invidious / Piped
             if (src.includes('youtube.php') || src.includes('/player/telif/') || src.includes('youtube.com') || src.includes('youtu.be')) {
                 const ytMatch = src.match(/(?:youtube\.php\?id=|v=|youtu\.be\/|\/embed\/)([a-zA-Z0-9_-]{11})/);
                 if (ytMatch) {
                     const ytId = ytMatch[1];
-                    // Try Invidious API for direct MP4 URLs
                     const invInstances = [
                         'https://inv.nadeko.net',
                         'https://invidious.nerdvpn.de',
-                        'https://vid.puffyan.us'
+                        'https://vid.puffyan.us',
+                        'https://pipedapi.kavin.rocks',
+                        'https://api.piped.private.coffee'
                     ];
-                    let ytResolved = false;
                     for (const inst of invInstances) {
                         try {
-                            const invRes = await fetch(`${inst}/api/v1/videos/${ytId}?fields=formatStreams,adaptiveFormats,title`, {
+                            const invRes = await fetch(`${inst}/api/v1/videos/${ytId}?fields=formatStreams,title`, {
                                 headers: { 'User-Agent': HEADERS['User-Agent'] }
                             });
                             if (!invRes.ok) continue;
                             const invData = await invRes.json();
-                            const formats = (invData.formatStreams || []).concat(invData.adaptiveFormats || []);
-                            const mp4s = formats.filter(f => f.url && f.container === 'mp4' && f.type && f.type.includes('video'));
-                            if (mp4s.length > 0) {
-                                // Sort by quality (highest first)
-                                mp4s.sort((a, b) => (parseInt(b.quality) || 0) - (parseInt(a.quality) || 0));
-                                for (const fmt of mp4s.slice(0, 3)) {
+                            // ONLY formatStreams contain combined audio + video; adaptiveFormats are chunked DASH without audio!
+                            const formats = (invData.formatStreams || []).filter(f => f.url && f.container === 'mp4');
+                            if (formats.length > 0) {
+                                formats.sort((a, b) => (parseInt(b.quality) || 0) - (parseInt(a.quality) || 0));
+                                for (const fmt of formats.slice(0, 3)) {
+                                    const ytHeaders = { 'User-Agent': HEADERS['User-Agent'] };
                                     streams.push({
                                         name: 'DDizi',
                                         title: `⌜ DDizi ⌟ | YouTube (${fmt.qualityLabel || fmt.quality || 'HD'})`,
                                         url: fmt.url,
                                         quality: fmt.qualityLabel || '720p',
                                         provider: 'ddizi',
-                                        headers: { 'User-Agent': HEADERS['User-Agent'] }
+                                        headers: ytHeaders,
+                                        behaviorHints: {
+                                            notWebReady: true,
+                                            proxyHeaders: {
+                                                request: ytHeaders
+                                            }
+                                        }
                                     });
                                 }
-                                ytResolved = true;
                                 break;
                             }
                         } catch (e) {}
-                    }
-                    // Fallback: embed URL (Nuvio WebView might handle it)
-                    if (!ytResolved) {
-                        streams.push({
-                            name: 'DDizi',
-                            title: '⌜ DDizi ⌟ | YouTube (Resmi Yayın)',
-                            url: `https://www.youtube.com/embed/${ytId}`,
-                            provider: 'ddizi'
-                        });
                     }
                 }
             }
@@ -419,12 +442,19 @@ async function extractStreamsFromEpisodePage(epUrl) {
                     for (const vm of videoMatches) {
                         const vUrl = vm[0].trim();
                         if (vUrl.includes('preview/') || vUrl.includes('.jpg') || vUrl.includes('.png')) continue;
+                        const fallbackHeaders = { 'User-Agent': HEADERS['User-Agent'], 'Referer': src };
                         streams.push({
                             name: 'DDizi',
                             title: `⌜ DDizi ⌟ | Alternatif Kaynak`,
                             url: vUrl,
                             provider: 'ddizi',
-                            headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': src }
+                            headers: fallbackHeaders,
+                            behaviorHints: {
+                                notWebReady: true,
+                                proxyHeaders: {
+                                    request: fallbackHeaders
+                                }
+                            }
                         });
                     }
                 } catch (e) {}

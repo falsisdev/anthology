@@ -13,6 +13,15 @@ var HEADERS = {
   'x-e-h': XEH_KEY
 };
 
+function ultraClean(str) {
+  if (!str) return '';
+  return str.toString().toLowerCase()
+    .replace(/[ıİ]/g, 'i').replace(/[üÜ]/g, 'u').replace(/[öÖ]/g, 'o')
+    .replace(/[şŞ]/g, 's').replace(/[ğĞ]/g, 'g').replace(/[çÇ]/g, 'c')
+    .replace(/[^a-z0-9]/g, '')
+    .trim();
+}
+
 async function resolveTmdbInfo(id, mediaType) {
   try {
     let cleanId = String(id || '').trim();
@@ -177,15 +186,22 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
 
     const displayTitle = isTv ? `${matchedItem.name} S${season}E${episode}` : matchedItem.name;
 
+    const aHeaders = {
+      'User-Agent': HEADERS['User-Agent'],
+      'Referer': BASE_URL + '/'
+    };
     return tauData.urls.map(u => ({
       name: displayTitle,
       title: `⌜ AnimeciX ⌟ | TauVideo [${u.label || 'HD'}]`,
       url: u.url,
       quality: u.label || '1080p',
       provider: 'animecix',
-      headers: {
-        'User-Agent': HEADERS['User-Agent'],
-        'Referer': BASE_URL + '/'
+      headers: aHeaders,
+      behaviorHints: {
+        notWebReady: true,
+        proxyHeaders: {
+          request: aHeaders
+        }
       }
     }));
   } catch (err) {

@@ -248,6 +248,15 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
               headers: {
                 'Referer': iframe,
                 'User-Agent': HEADERS['User-Agent']
+              },
+              behaviorHints: {
+                notWebReady: true,
+                proxyHeaders: {
+                  request: {
+                    'Referer': iframe,
+                    'User-Agent': HEADERS['User-Agent']
+                  }
+                }
               }
             });
           }

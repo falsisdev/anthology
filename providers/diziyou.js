@@ -127,6 +127,8 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
     const hasSub = epHtml.indexOf('turkceAltyazili') !== -1;
     const hasDub = epHtml.indexOf('turkceDublaj') !== -1;
 
+    const dyHeaders = { 'Referer': BASE_URL + '/' };
+
     if (hasSub) {
       streams.push({
         name: displayTitle,
@@ -135,7 +137,11 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
         quality: '1080p',
         type: 'hls',
         provider: 'diziyou',
-        headers: { 'Referer': BASE_URL + '/' },
+        headers: dyHeaders,
+        behaviorHints: {
+          notWebReady: true,
+          proxyHeaders: { request: dyHeaders }
+        },
         subtitles: [{ label: 'Turkish', url: `${STORAGE_URL}/subtitles/${itemId}/tr.vtt` }]
       });
     }
@@ -148,7 +154,11 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
         quality: '1080p',
         type: 'hls',
         provider: 'diziyou',
-        headers: { 'Referer': BASE_URL + '/' },
+        headers: dyHeaders,
+        behaviorHints: {
+          notWebReady: true,
+          proxyHeaders: { request: dyHeaders }
+        },
         subtitles: [{ label: 'Turkish', url: `${STORAGE_URL}/subtitles/${itemId}/tr.vtt` }]
       });
     }
@@ -161,7 +171,11 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
         quality: '1080p',
         type: 'hls',
         provider: 'diziyou',
-        headers: { 'Referer': BASE_URL + '/' }
+        headers: dyHeaders,
+        behaviorHints: {
+          notWebReady: true,
+          proxyHeaders: { request: dyHeaders }
+        }
       });
     }
 

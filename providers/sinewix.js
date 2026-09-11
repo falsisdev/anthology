@@ -40,6 +40,10 @@ function buildStreams(videos, sinewixName) {
                         url: finalUrl,
                         quality: "Auto",
                         headers: STREAM_HEADERS,
+                        behaviorHints: {
+                            notWebReady: true,
+                            proxyHeaders: { request: STREAM_HEADERS }
+                        },
                         provider: 'sinewix'
                     };
                 });
@@ -48,7 +52,12 @@ function buildStreams(videos, sinewixName) {
                 name: sinewixName,
                 title: displayTitle,
                 url: link,
+                quality: "Auto",
                 headers: STREAM_HEADERS,
+                behaviorHints: {
+                    notWebReady: true,
+                    proxyHeaders: { request: STREAM_HEADERS }
+                },
                 provider: 'sinewix'
             });
         })

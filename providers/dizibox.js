@@ -271,25 +271,49 @@ async function extractMolystreamFromEpisodePage(epUrl) {
                         });
                         if (sRes.ok) {
                             const sText = await sRes.text();
-                            let finalStreamUrl = `${sheilaUrl}#master.m3u8`;
-                            if (sText.trim().startsWith('#EXTM3U')) {
-                                const subLine = sText.split('\n').map(l => l.trim()).find(l => l.startsWith('http'));
-                                if (subLine) {
-                                    finalStreamUrl = `${subLine}#video.m3u8`;
-                                }
-                            }
+                            const subLine = sText.trim().startsWith('#EXTM3U') 
+                                ? sText.split('\n').map(l => l.trim()).find(l => l.startsWith('http')) 
+                                : null;
+                            
+                            const molyHeaders = {
+                                'User-Agent': HEADERS['User-Agent'],
+                                'Referer': `https://dbx.molystream.org/embed/${molyId}`,
+                                'Origin': 'https://dbx.molystream.org'
+                            };
 
+                            // Primary: Sheila Master Playlist (provides bandwidth & resolution metadata to player, preventing 2-3s buffer underruns)
                             streams.push({
                                 name: 'DiziBox',
                                 title: '⌜ DiziBox ⌟ | Molystream (1080p HLS)',
-                                url: finalStreamUrl,
+                                url: `${sheilaUrl}#master.m3u8`,
                                 quality: '1080p',
                                 provider: 'dizibox',
-                                headers: {
-                                    'User-Agent': HEADERS['User-Agent'],
-                                    'Referer': embedPage
+                                headers: molyHeaders,
+                                behaviorHints: {
+                                    notWebReady: true,
+                                    proxyHeaders: {
+                                        request: molyHeaders
+                                    }
                                 }
                             });
+
+                            // Backup: Direct sub-playlist if available
+                            if (subLine) {
+                                streams.push({
+                                    name: 'DiziBox',
+                                    title: '⌜ DiziBox ⌟ | Molystream Direct (1080p HLS)',
+                                    url: `${subLine}#video.m3u8`,
+                                    quality: '1080p',
+                                    provider: 'dizibox',
+                                    headers: molyHeaders,
+                                    behaviorHints: {
+                                        notWebReady: true,
+                                        proxyHeaders: {
+                                            request: molyHeaders
+                                        }
+                                    }
+                                });
+                            }
                         }
                     } catch (e) {}
                 }
@@ -300,13 +324,20 @@ async function extractMolystreamFromEpisodePage(epUrl) {
                     const dUrl = dm[1];
                     if (dUrl.includes('preview') || dUrl.includes('.jpg') || dUrl.includes('.png')) continue;
                     if (streams.some(s => s.url === dUrl)) continue;
+                    const directHeaders = { 'User-Agent': HEADERS['User-Agent'], 'Referer': src };
                     streams.push({
                         name: 'DiziBox',
                         title: `⌜ DiziBox ⌟ | Direct (${dUrl.includes('.m3u8') ? 'HLS' : 'MP4'})`,
                         url: dUrl,
                         quality: '1080p',
                         provider: 'dizibox',
-                        headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': src }
+                        headers: directHeaders,
+                        behaviorHints: {
+                            notWebReady: true,
+                            proxyHeaders: {
+                                request: directHeaders
+                            }
+                        }
                     });
                 }
             } catch (e) {}

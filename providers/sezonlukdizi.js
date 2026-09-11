@@ -223,7 +223,13 @@ function getStreams(tmdbId, mediaType, season, episode) {
                             url: s.url,
                             quality: '1080p',
                             type: s.type,
-                            headers: s.headers
+                            headers: s.headers,
+                            behaviorHints: {
+                                notWebReady: true,
+                                proxyHeaders: {
+                                    request: s.headers
+                                }
+                            }
                         };
                     });
                 });
