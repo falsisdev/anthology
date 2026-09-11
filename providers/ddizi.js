@@ -7,7 +7,7 @@ var BASE_URL = 'https://www.ddizi.im';
 var TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
 
 var HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/122.0.0.0 Safari/537.36',
     'Referer': BASE_URL + '/'
 };
 
@@ -420,6 +420,15 @@ async function extractStreamsFromEpisodePage(epUrl) {
                                 break;
                             }
                         } catch (e) {}
+                    }
+
+                    if (streams.length === 0) {
+                        streams.push({
+                            name: 'DDizi',
+                            title: '⌜ DDizi ⌟ | YouTube (Resmi Yayın)',
+                            url: `https://www.youtube.com/watch?v=${ytId}`,
+                            provider: 'ddizi'
+                        });
                     }
                 }
             }
