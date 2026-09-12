@@ -60,6 +60,9 @@ const path = require("path");
       } else if (scraper.id === "yabancidizi") {
         testTarget = "Dexter (1405 S01E01)";
         streams = await mod.getStreams("1405", "tv", 1, 1);
+      } else if (scraper.id === "mahsundizi") {
+        testTarget = "Breaking Bad (1396 S01E01)";
+        streams = await mod.getStreams("1396", "tv", 1, 1);
       } else if (scraper.supportedTypes && scraper.supportedTypes.includes("tv")) {
         testTarget = "Breaking Bad (1396 S01E01)";
         streams = await mod.getStreams("1396", "tv", 1, 1);
