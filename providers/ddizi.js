@@ -323,7 +323,7 @@ async function extractStreamsFromEpisodePage(epUrl) {
                         streamHeaders['Referer'] = 'https://www.tabii.com/';
                     } else if (vUrl.includes('akamaized')) {
                         server = 'Akamai';
-                        streamHeaders['Referer'] = 'https://www.ddizi.im/';
+                        streamHeaders['Referer'] = src;
                     } else {
                         streamHeaders['Referer'] = src;
                     }
@@ -335,6 +335,8 @@ async function extractStreamsFromEpisodePage(epUrl) {
                         quality,
                         provider: 'ddizi',
                         headers: streamHeaders,
+                        format: 'hls',
+                        isHls: true,
                         behaviorHints: {
                             notWebReady: true,
                             proxyHeaders: {
@@ -359,20 +361,22 @@ async function extractStreamsFromEpisodePage(epUrl) {
                                     'User-Agent': HEADERS['User-Agent'],
                                     'Referer': 'https://www.dailymotion.com/'
                                 };
-                                streams.push({
-                                    name: 'DDizi',
-                                    title: '⌜ DDizi ⌟ | Dailymotion (1080p HLS)',
-                                    url: autoQual.url,
-                                    quality: '1080p',
-                                    provider: 'ddizi',
-                                    headers: dmHeaders,
-                                    behaviorHints: {
-                                        notWebReady: true,
-                                        proxyHeaders: {
-                                            request: dmHeaders
-                                        }
+streams.push({
+                                name: 'DDizi',
+                                title: '⌜ DDizi ⌟ | Dailymotion (1080p HLS)',
+                                url: autoQual.url,
+                                quality: '1080p',
+                                provider: 'ddizi',
+                                headers: dmHeaders,
+                                format: 'hls',
+                                isHls: true,
+                                behaviorHints: {
+                                    notWebReady: true,
+                                    proxyHeaders: {
+                                        request: dmHeaders
                                     }
-                                });
+                                }
+                            });
                             }
                         }
                     } catch (e) {}
@@ -412,6 +416,7 @@ async function extractStreamsFromEpisodePage(epUrl) {
                                         quality: fmt.qualityLabel || '720p',
                                         provider: 'ddizi',
                                         headers: ytHeaders,
+                                        format: 'mp4',
                                         behaviorHints: {
                                             notWebReady: true,
                                             proxyHeaders: {
@@ -454,12 +459,15 @@ async function extractStreamsFromEpisodePage(epUrl) {
                         const vUrl = vm[0].trim();
                         if (vUrl.includes('preview/') || vUrl.includes('.jpg') || vUrl.includes('.png')) continue;
                         const fallbackHeaders = { 'User-Agent': HEADERS['User-Agent'], 'Referer': src };
+                        const isHls = vUrl.includes('.m3u8');
                         streams.push({
                             name: 'DDizi',
                             title: `⌜ DDizi ⌟ | Alternatif Kaynak`,
                             url: vUrl,
                             provider: 'ddizi',
                             headers: fallbackHeaders,
+                            format: isHls ? 'hls' : 'mp4',
+                            isHls: isHls,
                             behaviorHints: {
                                 notWebReady: true,
                                 proxyHeaders: {

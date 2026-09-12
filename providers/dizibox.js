@@ -310,6 +310,8 @@ async function extractMolystreamFromEpisodePage(epUrl) {
                                                     quality: '1080p',
                                                     provider: 'dizibox',
                                                     headers: vmHeaders,
+                                                    format: 'hls',
+                                                    isHls: true,
                                                     behaviorHints: {
                                                         notWebReady: true,
                                                         proxyHeaders: {
@@ -360,13 +362,16 @@ async function extractMolystreamFromEpisodePage(epUrl) {
                         if (!seenUrls.has(dUrl)) {
                             seenUrls.add(dUrl);
                             const directHeaders = { 'User-Agent': HEADERS['User-Agent'], 'Referer': src };
+                            const isHls = dUrl.includes('.m3u8');
                             streams.push({
                                 name: 'DiziBox',
-                                title: `⌜ DiziBox ⌟ | Direct (${dUrl.includes('.m3u8') ? 'HLS' : 'MP4'})`,
+                                title: `⌜ DiziBox ⌟ | Direct (${isHls ? 'HLS' : 'MP4'})`,
                                 url: dUrl,
                                 quality: '1080p',
                                 provider: 'dizibox',
                                 headers: directHeaders,
+                                format: isHls ? 'hls' : 'mp4',
+                                isHls: isHls,
                                 behaviorHints: {
                                     notWebReady: true,
                                     proxyHeaders: {
@@ -413,15 +418,52 @@ async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
         if (searchTitles.length === 0) return [];
 
         for (const title of searchTitles) {
-            const sRes = await fetch(`${BASE_URL}/wp-admin/admin-ajax.php?s=${encodeURIComponent(title)}&action=dwls_search`, { headers: HEADERS });
-            if (!sRes.ok) continue;
-            const sJson = await sRes.json();
-            const results = sJson.results || [];
+            // Strategy 1: Use regular site search (POST to homepage) - more reliable than AJAX
+            let results = [];
+            try {
+                const form = new URLSearchParams();
+                form.append('s', title);
+                const sRes = await fetch(`${BASE_URL}/`, {
+                    method: 'POST',
+                    headers: Object.assign({}, HEADERS, { 'Content-Type': 'application/x-www-form-urlencoded' }),
+                    body: form.toString(),
+                    signal: AbortSignal.timeout(15000)
+                });
+                if (sRes.ok) {
+                    const sHtml = await sRes.text();
+                    // Parse search results from HTML
+                    const resultMatches = [...sHtml.matchAll(/<a[^>]+href="([^"]*\/diziler\/[^"]*)"[^>]*>([\s\S]*?)<\/a>/gi)];
+                    for (const m of resultMatches) {
+                        const url = m[1];
+                        const postTitle = m[2].replace(/<[^>]+>/g, '').trim();
+                        if (url && postTitle) {
+                            const postName = url.replace(BASE_URL + '/diziler/', '').replace(/\/$/, '');
+                            results.push({ post_title: postTitle, permalink: url, post_name: postName });
+                        }
+                    }
+                }
+            } catch (e) {}
+
+            // Strategy 2: Fallback to AJAX search if HTML search fails
+            if (results.length === 0) {
+                try {
+                    const sRes = await fetch(`${BASE_URL}/wp-admin/admin-ajax.php?s=${encodeURIComponent(title)}&action=dwls_search`, {
+                        headers: HEADERS,
+                        signal: AbortSignal.timeout(10000)
+                    });
+                    if (sRes.ok) {
+                        const sJson = await sRes.json();
+                        results = sJson.results || [];
+                    }
+                } catch (e) {}
+            }
+
             if (results.length === 0) continue;
 
             const cleanTarget = ultraClean(title);
             let matchedShow = null;
 
+            // Exact match
             for (const r of results) {
                 const rTitle = ultraClean(r.post_title);
                 if (rTitle === cleanTarget) {
@@ -430,6 +472,7 @@ async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
                 }
             }
 
+            // Partial match
             if (!matchedShow) {
                 for (const r of results) {
                     const rTitle = ultraClean(r.post_title);
@@ -440,6 +483,21 @@ async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
                 }
             }
 
+            // Fuzzy match: check individual words
+            if (!matchedShow) {
+                const targetWords = cleanTarget.split(/[^a-z0-9]+/).filter(w => w.length > 2);
+                for (const r of results) {
+                    const rTitle = ultraClean(r.post_title);
+                    const rWords = rTitle.split(/[^a-z0-9]+/).filter(w => w.length > 2);
+                    const matches = targetWords.filter(tw => rWords.some(rw => rw.includes(tw) || tw.includes(rw))).length;
+                    if (matches >= Math.min(2, targetWords.length)) {
+                        matchedShow = r;
+                        break;
+                    }
+                }
+            }
+
+            // Fallback to first result
             if (!matchedShow && results.length > 0) {
                 matchedShow = results[0];
             }
@@ -449,28 +507,48 @@ async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
             // Strategy 1: Fetch show page to find matching season & episode link
             let targetEpUrl = null;
             if (matchedShow.permalink) {
-                const showRes = await fetch(matchedShow.permalink, { headers: HEADERS });
-                if (showRes.ok) {
-                    const showHtml = await showRes.text();
-                    const epMatches = [...showHtml.matchAll(/<a href="([^"]*bolum[^"]*izle[^"]*)"[^>]*>([\s\S]*?)<\/a>/gi)];
-                    
-                    const sRegex = new RegExp(`(?:^|\\s|\\.)${season}\\.?\\s*(?:sezon|\\. sezon)`, 'i');
-                    const eRegex = new RegExp(`(?:^|\\s|\\.)${episode}\\.?\\s*(?:bölüm|\\. bölüm)`, 'i');
+                try {
+                    const showRes = await fetch(matchedShow.permalink, { headers: HEADERS, signal: AbortSignal.timeout(15000) });
+                    if (showRes.ok) {
+                        const showHtml = await showRes.text();
+                        const epMatches = [...showHtml.matchAll(/<a href="([^"]*bolum[^"]*izle[^"]*)"[^>]*>([\s\S]*?)<\/a>/gi)];
 
-                    for (const ep of epMatches) {
-                        const epText = ep[2].toLowerCase();
-                        if (sRegex.test(epText) && eRegex.test(epText)) {
-                            targetEpUrl = ep[1];
-                            break;
+                        const sRegex = new RegExp(`(?:^|\\s|\\.)${season}\\.?\\s*(?:sezon|\\. sezon)`, 'i');
+                        const eRegex = new RegExp(`(?:^|\\s|\\.)${episode}\\.?\\s*(?:bölüm|\\. bölüm)`, 'i');
+
+                        for (const ep of epMatches) {
+                            const epText = ep[2].toLowerCase();
+                            if (sRegex.test(epText) && eRegex.test(epText)) {
+                                targetEpUrl = ep[1];
+                                break;
+                            }
                         }
                     }
-                }
+                } catch (e) {}
             }
 
             // Strategy 2: Direct predictable URL pattern
             if (!targetEpUrl && matchedShow.post_name) {
                 const baseSlug = matchedShow.post_name.replace(/-izle.*$/, '').replace(/-\d+$/, '');
                 targetEpUrl = `${BASE_URL}/${baseSlug}-${season}-sezon-${episode}-bolum-izle/`;
+            }
+
+            // Strategy 3: Try alternative slug patterns
+            if (!targetEpUrl && matchedShow.post_name) {
+                const altSlugs = [
+                    `${matchedShow.post_name}-${season}-sezon-${episode}-bolum-izle/`,
+                    `${matchedShow.post_name.replace(/-izle.*$/, '')}-${season}-sezon-${episode}-bolum-izle/`
+                ];
+                for (const altSlug of altSlugs) {
+                    const testUrl = `${BASE_URL}/${altSlug}`;
+                    try {
+                        const testRes = await fetch(testUrl, { headers: HEADERS, signal: AbortSignal.timeout(8000) });
+                        if (testRes.ok && testRes.url.includes('bolum')) {
+                            targetEpUrl = testRes.url;
+                            break;
+                        }
+                    } catch (e) {}
+                }
             }
 
             if (targetEpUrl) {
