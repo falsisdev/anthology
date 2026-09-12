@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:Kanal7Avrupa.tr",
+    "type": "tv",
+    "name": "Kanal 7 Avrupa",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png",
+    "description": "Kanal 7 Avrupa Canlı Yayın",
+    "genres": [
+      "Ulusal"
+    ],
+    "videos": [
+      {
+        "id": "tv:Kanal7Avrupa.tr",
+        "title": "Kanal 7 Avrupa"
+      }
+    ]
+  }
+}

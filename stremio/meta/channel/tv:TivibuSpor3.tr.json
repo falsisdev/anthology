@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:TivibuSpor3.tr",
+    "type": "tv",
+    "name": "Tivibu Spor 3 HD",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
+    "description": "Tivibu Spor 3 HD Canlı Spor Yayını",
+    "genres": [
+      "Spor"
+    ],
+    "videos": [
+      {
+        "id": "tv:TivibuSpor3.tr",
+        "title": "Tivibu Spor 3 HD"
+      }
+    ]
+  }
+}

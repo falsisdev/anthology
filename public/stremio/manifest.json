@@ -5,12 +5,14 @@
   "description": "DDizi, DiziBox, SineWix, FilmModu, AnimeciX, TurkAnime, ÇizgiMax ve Canlı TV ana sayfa keşif katalogları.",
   "resources": [
     "catalog",
-    "meta"
+    "meta",
+    "stream"
   ],
   "types": [
     "movie",
     "series",
-    "tv"
+    "tv",
+    "channel"
   ],
   "idPrefixes": [
     "tv:",

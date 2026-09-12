@@ -1,6 +1,30 @@
 {
   "metas": [
     {
+      "id": "dizibox:show:dark-matter-2024",
+      "type": "series",
+      "name": "DARK MATTER (2024)",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/dark-matter-2024-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/dark-matter-2024-200x290.jpg",
+      "description": "DARK MATTER (2024) - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:star-trek-strange-new-worlds",
+      "type": "series",
+      "name": "STAR TREK: STRANGE NEW WORLDS",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/star-trek-strange-new-worlds-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/star-trek-strange-new-worlds-200x290.jpg",
+      "description": "STAR TREK: STRANGE NEW WORLDS - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
       "id": "dizibox:show:the-shards",
       "type": "series",
       "name": "THE SHARDS",
@@ -61,6 +85,18 @@
       ]
     },
     {
+      "id": "dizibox:show:badly-in-love",
+      "type": "series",
+      "name": "BADLY IN LOVE",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/badly-in-love-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/badly-in-love-200x290.jpg",
+      "description": "BADLY IN LOVE - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
       "id": "dizibox:show:lanterns",
       "type": "series",
       "name": "LANTERNS",
@@ -73,48 +109,192 @@
       ]
     },
     {
-      "id": "dizibox:show:silo",
+      "id": "dizibox:show:vigil",
       "type": "series",
-      "name": "SILO",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/silo-200x290.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/silo-200x290.jpg",
-      "description": "SILO - DiziBox Yabancı Dizi Arşivi",
+      "name": "VIGIL",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/vigil-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/vigil-200x290.jpg",
+      "description": "VIGIL - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:show:dark-matter-2024",
+      "id": "dizibox:show:ludwig",
       "type": "series",
-      "name": "DARK MATTER (2024)",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/dark-matter-2024-200x290.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/dark-matter-2024-200x290.jpg",
-      "description": "DARK MATTER (2024) - DiziBox Yabancı Dizi Arşivi",
+      "name": "LUDWIG",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/ludwig-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/ludwig-200x290.jpg",
+      "description": "LUDWIG - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:show:star-trek-strange-new-worlds",
+      "id": "dizibox:show:deep-revenge",
       "type": "series",
-      "name": "STAR TREK: STRANGE NEW WORLDS",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/star-trek-strange-new-worlds-200x290.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/star-trek-strange-new-worlds-200x290.jpg",
-      "description": "STAR TREK: STRANGE NEW WORLDS - DiziBox Yabancı Dizi Arşivi",
+      "name": "DEEP REVENGE",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/deep-revenge-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/deep-revenge-200x290.jpg",
+      "description": "DEEP REVENGE - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:show:the-gentlemen",
+      "id": "dizibox:show:the-librarians-the-next-chapter",
       "type": "series",
-      "name": "THE GENTLEMEN",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-gentlemen-200x290.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-gentlemen-200x290.jpg",
-      "description": "THE GENTLEMEN - DiziBox Yabancı Dizi Arşivi",
+      "name": "THE LIBRARIANS: THE NEXT CHAPTER",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-librarians-the-next-chapter-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-librarians-the-next-chapter-200x290.jpg",
+      "description": "THE LIBRARIANS: THE NEXT CHAPTER - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:smoking-behind-the-supermarket-with-you",
+      "type": "series",
+      "name": "SMOKING BEHIND THE SUPERMARKET WITH YOU",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/smoking-behind-the-supermarket-with-you-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/smoking-behind-the-supermarket-with-you-200x290.jpg",
+      "description": "SMOKING BEHIND THE SUPERMARKET WITH YOU - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:physical-100-italy",
+      "type": "series",
+      "name": "PHYSICAL 100: ITALY",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/physical-100-italy-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/physical-100-italy-200x290.jpg",
+      "description": "PHYSICAL 100: ITALY - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:a-killer-story",
+      "type": "series",
+      "name": "A KILLER STORY",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/a-killer-story-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/a-killer-story-200x290.jpg",
+      "description": "A KILLER STORY - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:margarita",
+      "type": "series",
+      "name": "MARGARITA",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/margarita-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/margarita-200x290.jpg",
+      "description": "MARGARITA - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:stuart-fails-to-save-the-universe",
+      "type": "series",
+      "name": "STUART FAILS TO SAVE THE UNIVERSE",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/stuart-fails-to-save-the-universe-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/stuart-fails-to-save-the-universe-200x290.jpg",
+      "description": "STUART FAILS TO SAVE THE UNIVERSE - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:chainsmoker-cat",
+      "type": "series",
+      "name": "CHAINSMOKER CAT",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/chainsmoker-cat-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/chainsmoker-cat-200x290.jpg",
+      "description": "CHAINSMOKER CAT - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:fightland",
+      "type": "series",
+      "name": "FIGHTLAND",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/fightland-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/fightland-200x290.jpg",
+      "description": "FIGHTLAND - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:the-revolutionaries",
+      "type": "series",
+      "name": "THE REVOLUTIONARIES",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-revolutionaries-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-revolutionaries-200x290.jpg",
+      "description": "THE REVOLUTIONARIES - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:the-ark",
+      "type": "series",
+      "name": "THE ARK",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-ark-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-ark-200x290.jpg",
+      "description": "THE ARK - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:the-game",
+      "type": "series",
+      "name": "THE GAME",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-game-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-game-200x290.jpg",
+      "description": "THE GAME - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:de-eetclub",
+      "type": "series",
+      "name": "DE EETCLUB",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/de-eetclub-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/de-eetclub-200x290.jpg",
+      "description": "DE EETCLUB - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:crew-girl",
+      "type": "series",
+      "name": "CREW GIRL",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/crew-girl-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/crew-girl-200x290.jpg",
+      "description": "CREW GIRL - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
@@ -151,162 +331,6 @@
       "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-paper-2025-200x290.jpg",
       "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-paper-2025-200x290.jpg",
       "description": "THE PAPER 2025 - DiziBox Yabancı Dizi Arşivi",
-      "genres": [
-        "Yabancı Dizi",
-        "DiziBox"
-      ]
-    },
-    {
-      "id": "dizibox:show:the-game",
-      "type": "series",
-      "name": "THE GAME",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-game-200x290.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-game-200x290.jpg",
-      "description": "THE GAME - DiziBox Yabancı Dizi Arşivi",
-      "genres": [
-        "Yabancı Dizi",
-        "DiziBox"
-      ]
-    },
-    {
-      "id": "dizibox:show:son-of-a-critch",
-      "type": "series",
-      "name": "SON OF A CRITCH",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/son-of-a-critch-200x290.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/son-of-a-critch-200x290.jpg",
-      "description": "SON OF A CRITCH - DiziBox Yabancı Dizi Arşivi",
-      "genres": [
-        "Yabancı Dizi",
-        "DiziBox"
-      ]
-    },
-    {
-      "id": "dizibox:show:the-librarians-the-next-chapter",
-      "type": "series",
-      "name": "THE LIBRARIANS: THE NEXT CHAPTER",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-librarians-the-next-chapter-200x290.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-librarians-the-next-chapter-200x290.jpg",
-      "description": "THE LIBRARIANS: THE NEXT CHAPTER - DiziBox Yabancı Dizi Arşivi",
-      "genres": [
-        "Yabancı Dizi",
-        "DiziBox"
-      ]
-    },
-    {
-      "id": "dizibox:show:the-drop-a-snowfall-saga",
-      "type": "series",
-      "name": "THE DROP: A SNOWFALL SAGA",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-drop-a-snowfall-saga-200x290.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-drop-a-snowfall-saga-200x290.jpg",
-      "description": "THE DROP: A SNOWFALL SAGA - DiziBox Yabancı Dizi Arşivi",
-      "genres": [
-        "Yabancı Dizi",
-        "DiziBox"
-      ]
-    },
-    {
-      "id": "dizibox:show:las-azules",
-      "type": "series",
-      "name": "LAS AZULES",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/las-azules-200x290.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/las-azules-200x290.jpg",
-      "description": "LAS AZULES - DiziBox Yabancı Dizi Arşivi",
-      "genres": [
-        "Yabancı Dizi",
-        "DiziBox"
-      ]
-    },
-    {
-      "id": "dizibox:show:last-seen",
-      "type": "series",
-      "name": "LAST SEEN",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/last-seen-200x290.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/last-seen-200x290.jpg",
-      "description": "LAST SEEN - DiziBox Yabancı Dizi Arşivi",
-      "genres": [
-        "Yabancı Dizi",
-        "DiziBox"
-      ]
-    },
-    {
-      "id": "dizibox:show:blue-murder-motel",
-      "type": "series",
-      "name": "BLUE MURDER MOTEL",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/blue-murder-motel-200x290.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/blue-murder-motel-200x290.jpg",
-      "description": "BLUE MURDER MOTEL - DiziBox Yabancı Dizi Arşivi",
-      "genres": [
-        "Yabancı Dizi",
-        "DiziBox"
-      ]
-    },
-    {
-      "id": "dizibox:show:elixer",
-      "type": "series",
-      "name": "ELIXER",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/elixer-200x290.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/elixer-200x290.jpg",
-      "description": "ELIXER - DiziBox Yabancı Dizi Arşivi",
-      "genres": [
-        "Yabancı Dizi",
-        "DiziBox"
-      ]
-    },
-    {
-      "id": "dizibox:show:its-always-sunny-in-philadelphia",
-      "type": "series",
-      "name": "IT’S ALWAYS SUNNY IN PHILADELPHIA",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/its-always-sunny-in-philadelphia-200x290.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/its-always-sunny-in-philadelphia-200x290.jpg",
-      "description": "IT’S ALWAYS SUNNY IN PHILADELPHIA - DiziBox Yabancı Dizi Arşivi",
-      "genres": [
-        "Yabancı Dizi",
-        "DiziBox"
-      ]
-    },
-    {
-      "id": "dizibox:show:all-american",
-      "type": "series",
-      "name": "ALL AMERICAN",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/all-american-200x290.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/all-american-200x290.jpg",
-      "description": "ALL AMERICAN - DiziBox Yabancı Dizi Arşivi",
-      "genres": [
-        "Yabancı Dizi",
-        "DiziBox"
-      ]
-    },
-    {
-      "id": "dizibox:show:badly-in-love",
-      "type": "series",
-      "name": "BADLY IN LOVE",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/badly-in-love-200x290.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/badly-in-love-200x290.jpg",
-      "description": "BADLY IN LOVE - DiziBox Yabancı Dizi Arşivi",
-      "genres": [
-        "Yabancı Dizi",
-        "DiziBox"
-      ]
-    },
-    {
-      "id": "dizibox:show:dang",
-      "type": "series",
-      "name": "DANG!",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/dang-200x290.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/dang-200x290.jpg",
-      "description": "DANG! - DiziBox Yabancı Dizi Arşivi",
-      "genres": [
-        "Yabancı Dizi",
-        "DiziBox"
-      ]
-    },
-    {
-      "id": "dizibox:show:marble-hall-murders",
-      "type": "series",
-      "name": "MARBLE HALL MURDERS",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/marble-hall-murders-200x290.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/marble-hall-murders-200x290.jpg",
-      "description": "MARBLE HALL MURDERS - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"

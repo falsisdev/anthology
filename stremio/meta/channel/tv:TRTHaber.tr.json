@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:TRTHaber.tr",
+    "type": "tv",
+    "name": "TRT Haber HD",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trthaber.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trthaber.png",
+    "description": "TRT Haber HD Canlı Haber Yayını",
+    "genres": [
+      "Haber"
+    ],
+    "videos": [
+      {
+        "id": "tv:TRTHaber.tr",
+        "title": "TRT Haber HD"
+      }
+    ]
+  }
+}

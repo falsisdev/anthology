@@ -1,6 +1,18 @@
 {
   "metas": [
     {
+      "id": "dizibox:show:smoking-behind-the-supermarket-with-you",
+      "type": "series",
+      "name": "SMOKING BEHIND THE SUPERMARKET WITH YOU",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/smoking-behind-the-supermarket-with-you-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/smoking-behind-the-supermarket-with-you-200x290.jpg",
+      "description": "SMOKING BEHIND THE SUPERMARKET WITH YOU - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
       "id": "dizibox:show:my-life-with-the-walter-boys",
       "type": "series",
       "name": "My Life with the Walter Boys",

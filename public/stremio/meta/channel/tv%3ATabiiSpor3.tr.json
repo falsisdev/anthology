@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:TabiiSpor3.tr",
+    "type": "tv",
+    "name": "Tabii Spor 3 HD",
+    "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+    "background": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+    "description": "Tabii Spor 3 HD Canlı Spor Yayını",
+    "genres": [
+      "Spor"
+    ],
+    "videos": [
+      {
+        "id": "tv:TabiiSpor3.tr",
+        "title": "Tabii Spor 3 HD"
+      }
+    ]
+  }
+}

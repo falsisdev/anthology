@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:Kanal24.tr",
+    "type": "tv",
+    "name": "24 TV HD",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/24tv.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/24tv.png",
+    "description": "24 TV HD Canlı Haber Yayını",
+    "genres": [
+      "Haber"
+    ],
+    "videos": [
+      {
+        "id": "tv:Kanal24.tr",
+        "title": "24 TV HD"
+      }
+    ]
+  }
+}

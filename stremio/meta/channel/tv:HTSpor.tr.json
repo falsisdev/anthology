@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:HTSpor.tr",
+    "type": "tv",
+    "name": "HT Spor HD",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/htspor.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/htspor.png",
+    "description": "HT Spor HD Canlı Spor Yayını",
+    "genres": [
+      "Spor"
+    ],
+    "videos": [
+      {
+        "id": "tv:HTSpor.tr",
+        "title": "HT Spor HD"
+      }
+    ]
+  }
+}

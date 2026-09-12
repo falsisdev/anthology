@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "dizibox:show:vigil",
+      "type": "series",
+      "name": "VIGIL",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/vigil-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/vigil-200x290.jpg",
+      "description": "VIGIL - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    }
+  ]
+}

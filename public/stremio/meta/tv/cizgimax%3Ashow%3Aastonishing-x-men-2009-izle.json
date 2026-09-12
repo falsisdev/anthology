@@ -5,7 +5,7 @@
     "name": "Astonishing X-Men",
     "poster": "https://cizgimax.online/img/locandine/astonishing-x-men-2009-poster.webp",
     "background": "https://cizgimax.online/img/locandine/astonishing-x-men-2009-poster.webp",
-    "description": "Astonishing X-Men - ÇizgiMax",
+    "description": "Astonishing X-Men - ÇizgiMax Arşivi",
     "genres": [
       "Çizgi Dizi",
       "ÇizgiMax"
@@ -13,7 +13,7 @@
     "videos": [
       {
         "id": "cizgimax:show:astonishing-x-men-2009-izle",
-        "title": "Astonishing X-Men 1. Bölüm",
+        "title": "Astonishing X-Men",
         "season": 1,
         "episode": 1
       }

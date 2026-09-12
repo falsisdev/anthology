@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:TRTSpor.tr",
+    "type": "tv",
+    "name": "TRT Spor HD",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt.png",
+    "description": "TRT Spor HD Canlı Spor Yayını",
+    "genres": [
+      "Spor"
+    ],
+    "videos": [
+      {
+        "id": "tv:TRTSpor.tr",
+        "title": "TRT Spor HD"
+      }
+    ]
+  }
+}

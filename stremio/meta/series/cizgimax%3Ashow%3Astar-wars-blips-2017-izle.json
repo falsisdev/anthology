@@ -5,7 +5,7 @@
     "name": "Star Wars Blips",
     "poster": "https://cizgimax.online/img/locandine/star-wars-blips-2017-poster.webp",
     "background": "https://cizgimax.online/img/locandine/star-wars-blips-2017-poster.webp",
-    "description": "Star Wars Blips - ÇizgiMax",
+    "description": "Star Wars Blips - ÇizgiMax Arşivi",
     "genres": [
       "Çizgi Dizi",
       "ÇizgiMax"
@@ -13,7 +13,7 @@
     "videos": [
       {
         "id": "cizgimax:show:star-wars-blips-2017-izle",
-        "title": "Star Wars Blips 1. Bölüm",
+        "title": "Star Wars Blips",
         "season": 1,
         "episode": 1
       }

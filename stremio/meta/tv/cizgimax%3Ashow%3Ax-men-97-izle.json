@@ -5,125 +5,17 @@
     "name": "X-Men '97",
     "poster": "https://cizgimax.online/img/locandine/x-men-97-poster.webp",
     "background": "https://cizgimax.online/img/locandine/x-men-97-poster.webp",
-    "description": "X-Men '97 - ÇizgiMax",
+    "description": "X-Men '97 - ÇizgiMax Arşivi",
     "genres": [
       "Çizgi Dizi",
       "ÇizgiMax"
     ],
     "videos": [
       {
-        "id": "cizgimax:ep:x-men-97-1-sezon-1-bolum-izle",
-        "title": "1. Sezon 1. Bölüm",
+        "id": "cizgimax:show:x-men-97-izle",
+        "title": "X-Men '97",
         "season": 1,
         "episode": 1
-      },
-      {
-        "id": "cizgimax:ep:x-men-97-1-sezon-2-bolum-izle",
-        "title": "1. Sezon 2. Bölüm",
-        "season": 1,
-        "episode": 2
-      },
-      {
-        "id": "cizgimax:ep:x-men-97-1-sezon-3-bolum-izle",
-        "title": "1. Sezon 3. Bölüm",
-        "season": 1,
-        "episode": 3
-      },
-      {
-        "id": "cizgimax:ep:x-men-97-1-sezon-4-bolum-izle",
-        "title": "1. Sezon 4. Bölüm",
-        "season": 1,
-        "episode": 4
-      },
-      {
-        "id": "cizgimax:ep:x-men-97-1-sezon-5-bolum-izle",
-        "title": "1. Sezon 5. Bölüm",
-        "season": 1,
-        "episode": 5
-      },
-      {
-        "id": "cizgimax:ep:x-men-97-1-sezon-6-bolum-izle",
-        "title": "1. Sezon 6. Bölüm",
-        "season": 1,
-        "episode": 6
-      },
-      {
-        "id": "cizgimax:ep:x-men-97-1-sezon-7-bolum-izle",
-        "title": "1. Sezon 7. Bölüm",
-        "season": 1,
-        "episode": 7
-      },
-      {
-        "id": "cizgimax:ep:x-men-97-1-sezon-8-bolum-izle",
-        "title": "1. Sezon 8. Bölüm",
-        "season": 1,
-        "episode": 8
-      },
-      {
-        "id": "cizgimax:ep:x-men-97-1-sezon-9-bolum-izle",
-        "title": "1. Sezon 9. Bölüm",
-        "season": 1,
-        "episode": 9
-      },
-      {
-        "id": "cizgimax:ep:x-men-97-1-sezon-10-bolum-izle",
-        "title": "1. Sezon 10. Bölüm",
-        "season": 1,
-        "episode": 10
-      },
-      {
-        "id": "cizgimax:ep:x-men-97-2-sezon-1-bolum-izle",
-        "title": "2. Sezon 1. Bölüm",
-        "season": 2,
-        "episode": 1
-      },
-      {
-        "id": "cizgimax:ep:x-men-97-2-sezon-2-bolum-izle",
-        "title": "2. Sezon 2. Bölüm",
-        "season": 2,
-        "episode": 2
-      },
-      {
-        "id": "cizgimax:ep:x-men-97-2-sezon-3-bolum-izle",
-        "title": "2. Sezon 3. Bölüm",
-        "season": 2,
-        "episode": 3
-      },
-      {
-        "id": "cizgimax:ep:x-men-97-2-sezon-4-bolum-izle",
-        "title": "2. Sezon 4. Bölüm",
-        "season": 2,
-        "episode": 4
-      },
-      {
-        "id": "cizgimax:ep:x-men-97-2-sezon-5-bolum-izle",
-        "title": "2. Sezon 5. Bölüm",
-        "season": 2,
-        "episode": 5
-      },
-      {
-        "id": "cizgimax:ep:x-men-97-2-sezon-6-bolum-izle",
-        "title": "2. Sezon 6. Bölüm",
-        "season": 2,
-        "episode": 6
-      },
-      {
-        "id": "cizgimax:ep:x-men-97-2-sezon-7-bolum-izle",
-        "title": "2. Sezon 7. Bölüm",
-        "season": 2,
-        "episode": 7
-      },
-      {
-        "id": "cizgimax:ep:x-men-97-2-sezon-8-bolum-izle",
-        "title": "2. Sezon 8. Bölüm",
-        "season": 2,
-        "episode": 8
-      },
-      {
-        "id": "cizgimax:ep:x-men-97-2-sezon-9-bolum-izle",
-        "title": "2. Sezon 9. Bölüm",
-        "season": 2,
-        "episode": 9
       }
     ]
   }
