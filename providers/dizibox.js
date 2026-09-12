@@ -325,6 +325,32 @@ async function extractMolystreamFromEpisodePage(epUrl) {
                         } catch (e) {}
                     }
 
+                    // Source B: Haydi player (Odnok / OK.ru)
+                    if (src.includes('haydi.php')) {
+                        try {
+                            const vParam = src.match(/[?&]v=([^&#]+)/);
+                            if (vParam) {
+                                const decodedOkUrl = safeB64Decode(decodeURIComponent(vParam[1]));
+                                if (decodedOkUrl && decodedOkUrl.includes('ok.ru')) {
+                                    const okIdMatch = decodedOkUrl.match(/video(?:embed)?\/(\d+)/);
+                                    if (okIdMatch) {
+                                        const okWorkerUrl = `http://movie.okru.workers.dev/?ID=${okIdMatch[1]}`;
+                                        if (!seenUrls.has(okWorkerUrl)) {
+                                            seenUrls.add(okWorkerUrl);
+                                            streams.push({
+                                                name: 'DiziBox',
+                                                title: '⌜ DiziBox ⌟ | Odnok (1080p Direct)',
+                                                url: okWorkerUrl,
+                                                quality: '1080p',
+                                                provider: 'dizibox'
+                                            });
+                                        }
+                                    }
+                                }
+                            }
+                        } catch (e) {}
+                    }
+
 
                     // Source C: Any direct MP4 or M3U8 in page or intermediate page
                     const directMatches = [...pHtml.matchAll(/(https?:\/\/[^"'\s\\]+\.(?:m3u8|mp4)[^"'\s\\]*)/gi)];

@@ -304,14 +304,16 @@ async function extractStreamsFromEpisodePage(epUrl) {
 
                     let server = 'CDN';
                     let streamHeaders = { 'User-Agent': HEADERS['User-Agent'] };
-                    if (vUrl.includes('ciner.com.tr')) {
+                    if (vUrl.includes('googlevideo')) {
+                        const durMatch = vUrl.match(/[?&]dur=([0-9.]+)/);
+                        if (durMatch && parseFloat(durMatch[1]) < 300) continue;
+                        server = 'Google Direct';
+                    } else if (vUrl.includes('ciner.com.tr')) {
                         server = 'Ciner CDN';
                         streamHeaders['Referer'] = 'https://www.ciner.com.tr/';
                     } else if (vUrl.includes('yandex')) {
                         server = 'Yandex';
                         streamHeaders['Referer'] = 'https://yadi.sk/';
-                    } else if (vUrl.includes('googlevideo')) {
-                        server = 'Google Direct';
                     } else if (vUrl.includes('twimg')) {
                         server = 'Fast CDN';
                         streamHeaders['Referer'] = 'https://twitter.com/';
@@ -377,7 +379,7 @@ async function extractStreamsFromEpisodePage(epUrl) {
                 }
             }
 
-            // Type 3: Official YouTube player — extract direct MP4 stream via Invidious / Piped
+            // Type 3: Official YouTube player — extract direct MP4 stream via Invidious / Piped, or provide native ytId
             if (src.includes('youtube.php') || src.includes('/player/telif/') || src.includes('youtube.com') || src.includes('youtu.be')) {
                 const ytMatch = src.match(/(?:youtube\.php\?id=|v=|youtu\.be\/|\/embed\/)([a-zA-Z0-9_-]{11})/);
                 if (ytMatch) {
@@ -392,19 +394,20 @@ async function extractStreamsFromEpisodePage(epUrl) {
                     for (const inst of invInstances) {
                         try {
                             const invRes = await fetch(`${inst}/api/v1/videos/${ytId}?fields=formatStreams,title`, {
-                                headers: { 'User-Agent': HEADERS['User-Agent'] }
+                                headers: { 'User-Agent': HEADERS['User-Agent'] },
+                                signal: AbortSignal.timeout(2000)
                             });
                             if (!invRes.ok) continue;
                             const invData = await invRes.json();
-                            // ONLY formatStreams contain combined audio + video; adaptiveFormats are chunked DASH without audio!
+                            // ONLY formatStreams contain combined audio + video
                             const formats = (invData.formatStreams || []).filter(f => f.url && f.container === 'mp4');
                             if (formats.length > 0) {
                                 formats.sort((a, b) => (parseInt(b.quality) || 0) - (parseInt(a.quality) || 0));
-                                for (const fmt of formats.slice(0, 3)) {
+                                for (const fmt of formats.slice(0, 2)) {
                                     const ytHeaders = { 'User-Agent': HEADERS['User-Agent'] };
                                     streams.push({
                                         name: 'DDizi',
-                                        title: `⌜ DDizi ⌟ | YouTube (${fmt.qualityLabel || fmt.quality || 'HD'})`,
+                                        title: `⌜ DDizi ⌟ | YouTube MP4 (${fmt.qualityLabel || fmt.quality || 'HD'})`,
                                         url: fmt.url,
                                         quality: fmt.qualityLabel || '720p',
                                         provider: 'ddizi',
@@ -422,14 +425,13 @@ async function extractStreamsFromEpisodePage(epUrl) {
                         } catch (e) {}
                     }
 
-                    if (streams.length === 0) {
-                        streams.push({
-                            name: 'DDizi',
-                            title: '⌜ DDizi ⌟ | YouTube (Resmi Yayın)',
-                            url: `https://www.youtube.com/watch?v=${ytId}`,
-                            provider: 'ddizi'
-                        });
-                    }
+                    // Native Stremio / Nuvio YouTube player (using ytId instead of raw web URL)
+                    streams.push({
+                        name: 'DDizi',
+                        title: '⌜ DDizi ⌟ | YouTube (Resmi Yayın)',
+                        ytId: ytId,
+                        provider: 'ddizi'
+                    });
                 }
             }
         }
@@ -469,6 +471,16 @@ async function extractStreamsFromEpisodePage(epUrl) {
                 } catch (e) {}
             }
         }
+
+        // Sort streams: Direct unbroken MP4s (Ciner, Yandex) first, then 1080p down
+        streams.sort((a, b) => {
+            const aIsDirectMp4 = (a.url && a.url.includes('.mp4')) ? 1 : 0;
+            const bIsDirectMp4 = (b.url && b.url.includes('.mp4')) ? 1 : 0;
+            if (bIsDirectMp4 !== aIsDirectMp4) return bIsDirectMp4 - aIsDirectMp4;
+            const aQ = parseInt(a.quality) || 0;
+            const bQ = parseInt(b.quality) || 0;
+            return bQ - aQ;
+        });
 
         return streams;
     } catch (e) {
@@ -512,7 +524,10 @@ async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
             if (!sRes.ok) continue;
             const sHtml = await sRes.text();
 
-            const seriesMatches = [...sHtml.matchAll(/<a href="([^"]*\/diziler\/[^"]*)"[^>]*>([\s\S]*?)<\/a>/gi)];
+            const leftMatch = sHtml.match(/class=["']left_sidebar["'][^>]*>([\s\S]*?)class=["']right_sidebar["']/i);
+            const contentToSearch = leftMatch ? leftMatch[1] : (sHtml.split(/class=["']right_sidebar["']/i)[0] || sHtml);
+
+            const seriesMatches = [...contentToSearch.matchAll(/<a href="([^"]*\/diziler\/[^"]*)"[^>]*>([\s\S]*?)<\/a>/gi)];
             if (seriesMatches.length === 0) continue;
 
             const cleanTarget = ultraClean(title);
@@ -538,10 +553,6 @@ async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
                 }
             }
 
-            if (!matchedShowHref && seriesMatches.length > 0) {
-                matchedShowHref = seriesMatches[0][1];
-            }
-
             if (!matchedShowHref) continue;
             if (!matchedShowHref.startsWith('http')) matchedShowHref = `${BASE_URL}${matchedShowHref.startsWith('/') ? '' : '/'}${matchedShowHref}`;
 
@@ -551,7 +562,7 @@ async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
             if (!showRes.ok) continue;
             const showHtml = await showRes.text();
 
-            const pageLinks = [...showHtml.matchAll(/href="([^"]*sayfa-(\d+))"/g)];
+            const pageLinks = [...showHtml.matchAll(/href="([^"]*sayfa-(\d+)[^"]*)"/g)];
             const sortedPages = pageLinks.map(p => ({ url: p[1], num: parseInt(p[2]) }))
                 .sort((a, b) => b.num - a.num); // Check oldest pages first for ep 1
             for (const sp of sortedPages) {
@@ -563,7 +574,10 @@ async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
                 if (!pRes.ok) continue;
                 const pHtml = await pRes.text();
 
-                const epMatches = [...pHtml.matchAll(/<a href="([^"]*\/izle\/[^"]*)"[^>]*>([\s\S]*?)<\/a>/gi)];
+                const leftEpMatch = pHtml.match(/class=["']left_sidebar["'][^>]*>([\s\S]*?)class=["']right_sidebar["']/i);
+                const pageContent = leftEpMatch ? leftEpMatch[1] : (pHtml.split(/class=["']right_sidebar["']/i)[0] || pHtml);
+
+                const epMatches = [...pageContent.matchAll(/<a href="([^"]*\/izle\/[^"]*)"[^>]*>([\s\S]*?)<\/a>/gi)];
                 if (epMatches.length === 0) continue;
 
                 let targetEpUrl = null;
