@@ -6,7 +6,7 @@
   <p>
     <img src="https://img.shields.io/badge/Nuvio-Eklenti_Deposu-00e676?style=for-the-badge&logo=github&logoColor=white" alt="Nuvio" />
     <img src="https://img.shields.io/badge/Durum-Aktif-00e676?style=for-the-badge" alt="Aktif" />
-    <img src="https://img.shields.io/badge/Eklenti-31_Doğrulanmış-3b82f6?style=for-the-badge" alt="31 Aktif Eklenti" />
+    <img src="https://img.shields.io/badge/Eklenti-33_Doğrulanmış-3b82f6?style=for-the-badge" alt="33 Aktif Eklenti" />
     <img src="https://img.shields.io/badge/Katalog-13_Aktif-8b5cf6?style=for-the-badge" alt="13 Aktif Katalog" />
     <img src="https://img.shields.io/badge/Başarı_Oranı-%25100-00e676?style=for-the-badge" alt="100% Başarı" />
   </p>
@@ -14,7 +14,7 @@
   <a href="https://falsisdev.github.io/anthology">🌐 Web Sitesi</a> &nbsp;|&nbsp;
   <a href="#-kurulum">📲 Kurulum</a> &nbsp;|&nbsp;
   <a href="#-zengin-kataloglar-13-katalog">📚 Zengin Kataloglar</a> &nbsp;|&nbsp;
-  <a href="#-doğrulanmış-eklentiler-31-aktif">🎬 Eklentiler (31)</a> &nbsp;|&nbsp;
+  <a href="#-doğrulanmış-eklentiler-33-aktif">🎬 Eklentiler (33)</a> &nbsp;|&nbsp;
   <a href="#-canlı-tv--spor-kanalları">📡 Canlı TV & Spor</a>
 </div>
 
@@ -27,7 +27,7 @@ Nuvio'da yerli dizileri, animeleri, çizgi dizileri ve canlı TV kanallarını h
 ---
 
 ### 1️⃣ Adım: Video Oynatma Motorunu Ekleyin (Pluginler)
-Bu adım, bir içerik açtığınızda arka planda çalışan 31 Türkçe/yabancı video scraper'ını Nuvio oynatıcısına yükler.
+Bu adım, bir içerik açtığınızda arka planda çalışan 33 Türkçe/yabancı video scraper'ını Nuvio oynatıcısına yükler.
 
 1. **Nuvio** uygulamasında **Ayarlar** → **Genel** → **İçerik & Keşif** → **Pluginler** → **Depo Ekle** bölümüne gidin.
 2. Aşağıdaki bağlantıyı yapıştırıp **Ekle** butonuna basın:
@@ -79,7 +79,7 @@ Nuvio ana ekranında içerik keşfetmenizi sağlayan yerli/yabancı kataloglar:
 
 ---
 
-## 🎬 Doğrulanmış Eklentiler (31 Aktif)
+## 🎬 Doğrulanmış Eklentiler (33 Aktif)
 
 > [!NOTE]
 > Tüm eklentiler doğrudan Nuvio video oynatıcısına uygun `.m3u8` HLS veya `.mp4`/`.mkv` doğrudan akışları döndürür. Bozuk iframe veya oynatılamayan bağlantı kesinlikle içermez.
@@ -104,6 +104,8 @@ Nuvio ana ekranında içerik keşfetmenizi sağlayan yerli/yabancı kataloglar:
 | **SinemaCX** | sinema.gg (Player.filmizle.in) | 1080p HLS | Dublaj & Altyazı Seçenekleri |
 | **SineWix** | sinewix (snwixdepo) | 1080p Direct MKV | Çift Ses DUAL |
 | **Vidlink** | vidlink.pro (Global CDN) | 4K & 1080p MP4 | Türkçe & Global Çok Dilli |
+| **Vidmody** | vidmody.com (Multi-Audio HLS) | 1080p HLS | Çift Ses (Türkçe & İngilizce) + Altyazı |
+| **Webteİzle** | webteizle.info (VidMoly Master) | 1080p HLS | Dublaj & Altyazı Seçenekleri |
 
 ### 📺 Dizi Kaynakları & Arşivleri
 
@@ -120,6 +122,7 @@ Nuvio ana ekranında içerik keşfetmenizi sağlayan yerli/yabancı kataloglar:
 | **DiziYou** | diziyou.one (Storage CDN) | 1080p HLS | Dublaj + TR VTT |
 | **SineWix** | sinewix (snwixdepo) | 1080p Direct MKV | Çift Ses DUAL |
 | **Vidlink** | vidlink.pro (Global CDN) | 1080p MP4 | Türkçe & Global |
+| **Vidmody** | vidmody.com (Multi-Audio HLS) | 1080p HLS | Çift Ses (Türkçe & İngilizce) + Altyazı |
 
 ### ⛩️ Anime & Çizgi Dizi Kaynakları
 

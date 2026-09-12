@@ -15,9 +15,9 @@ const VIDLINK_HEADERS = {
     "Origin": "https://vidlink.pro"
 };
 
-// Clean headers for video playback (CDN blocks requests with Referer: https://vidlink.pro/ with 429)
+// Clean headers for video playback (CDN blocks browser User-Agent with 428 and Referer: vidlink.pro with 429)
 const STREAM_HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/137.0.0.0 Safari/537.36"
+    "Accept": "*/*"
 };
 
 // Helper function to make HTTP requests with default headers
