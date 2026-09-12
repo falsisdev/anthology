@@ -84,8 +84,9 @@ function searchAndFetch(title, originalTitle, targetImdb, mediaType, seasonNum, 
                 if (!item) return false;
                 if (item.imdb_external_id && targetImdb && item.imdb_external_id === targetImdb) return true;
                 var itemYear = (item.release_date || item.first_air_date || '').split('-')[0];
-                var nameMatch = (item.name || '').toLowerCase() === originalTitle.toLowerCase();
-                return nameMatch && (itemYear === targetYear);
+                var nameMatch = (item.name || '').toLowerCase() === (originalTitle || '').toLowerCase() 
+                             || (item.name || '').toLowerCase() === (title || '').toLowerCase();
+                return nameMatch && (!targetYear || !itemYear || itemYear === targetYear);
             });
 
             if (!bestMatch) return [];
