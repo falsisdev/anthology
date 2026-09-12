@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "id": "dizimom:show:alikara-izle",
+    "type": "series",
+    "name": "Alıkara",
+    "poster": "https://www.dizimom.diy/wp-content/uploads/2026/09/alikara-izle.jpg",
+    "background": "https://www.dizimom.diy/wp-content/uploads/2026/09/alikara-izle.jpg",
+    "description": "Alıkara izle, 2026 Yapımı Alıkara dizisinin tüm bölümleri full hd tek parça olarak dizimom.diy farkıyla sizlerle",
+    "genres": [
+      "Yabancı Dizi",
+      "DiziMom"
+    ],
+    "videos": [
+      {
+        "id": "dizimom:ep:alikara-1-sezon-1-bolum-izle",
+        "title": "1.Sezon 1.Bölüm",
+        "season": 1,
+        "episode": 1
+      },
+      {
+        "id": "dizimom:ep:alikara-1-sezon-2-bolum-izle",
+        "title": "1.Sezon 2.Bölüm",
+        "season": 1,
+        "episode": 2
+      }
+    ]
+  }
+}

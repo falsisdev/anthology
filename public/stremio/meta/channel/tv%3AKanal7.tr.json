@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:Kanal7.tr",
+    "type": "tv",
+    "name": "Kanal 7 HD",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png",
+    "description": "Kanal 7 HD Canlı Yayın",
+    "genres": [
+      "Ulusal"
+    ],
+    "videos": [
+      {
+        "id": "tv:Kanal7.tr",
+        "title": "Kanal 7 HD"
+      }
+    ]
+  }
+}

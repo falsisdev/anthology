@@ -5,47 +5,17 @@
     "name": "Star Wars Tales of the Empire",
     "poster": "https://cizgimax.online/img/locandine/star-wars-tales-of-the-empire-poster.webp",
     "background": "https://cizgimax.online/img/locandine/star-wars-tales-of-the-empire-poster.webp",
-    "description": "Star Wars Tales of the Empire - ÇizgiMax",
+    "description": "Star Wars Tales of the Empire - ÇizgiMax Arşivi",
     "genres": [
       "Çizgi Dizi",
       "ÇizgiMax"
     ],
     "videos": [
       {
-        "id": "cizgimax:ep:star-wars-tales-of-the-empire-1-sezon-1-bolum-izle",
-        "title": "1. Sezon 1. Bölüm",
+        "id": "cizgimax:show:star-wars-tales-of-the-empire-izle",
+        "title": "Star Wars Tales of the Empire",
         "season": 1,
         "episode": 1
-      },
-      {
-        "id": "cizgimax:ep:star-wars-tales-of-the-empire-1-sezon-2-bolum-izle",
-        "title": "1. Sezon 2. Bölüm",
-        "season": 1,
-        "episode": 2
-      },
-      {
-        "id": "cizgimax:ep:star-wars-tales-of-the-empire-1-sezon-3-bolum-izle",
-        "title": "1. Sezon 3. Bölüm",
-        "season": 1,
-        "episode": 3
-      },
-      {
-        "id": "cizgimax:ep:star-wars-tales-of-the-empire-1-sezon-4-bolum-izle",
-        "title": "1. Sezon 4. Bölüm",
-        "season": 1,
-        "episode": 4
-      },
-      {
-        "id": "cizgimax:ep:star-wars-tales-of-the-empire-1-sezon-5-bolum-izle",
-        "title": "1. Sezon 5. Bölüm",
-        "season": 1,
-        "episode": 5
-      },
-      {
-        "id": "cizgimax:ep:star-wars-tales-of-the-empire-1-sezon-6-bolum-izle",
-        "title": "1. Sezon 6. Bölüm",
-        "season": 1,
-        "episode": 6
       }
     ]
   }

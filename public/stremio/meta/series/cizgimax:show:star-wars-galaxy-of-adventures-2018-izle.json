@@ -5,7 +5,7 @@
     "name": "Star Wars Galaxy of Adventures",
     "poster": "https://cizgimax.online/img/locandine/star-wars-galaxy-of-adventures-2018-poster.webp",
     "background": "https://cizgimax.online/img/locandine/star-wars-galaxy-of-adventures-2018-poster.webp",
-    "description": "Star Wars Galaxy of Adventures - ÇizgiMax",
+    "description": "Star Wars Galaxy of Adventures - ÇizgiMax Arşivi",
     "genres": [
       "Çizgi Dizi",
       "ÇizgiMax"
@@ -13,7 +13,7 @@
     "videos": [
       {
         "id": "cizgimax:show:star-wars-galaxy-of-adventures-2018-izle",
-        "title": "Star Wars Galaxy of Adventures 1. Bölüm",
+        "title": "Star Wars Galaxy of Adventures",
         "season": 1,
         "episode": 1
       }

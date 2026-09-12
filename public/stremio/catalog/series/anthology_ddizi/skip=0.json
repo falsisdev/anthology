@@ -169,23 +169,11 @@
       ]
     },
     {
-      "id": "ddizi:show:2161/masumiyet-muzesi-14-son-bolum-izle",
-      "type": "series",
-      "name": "Masumiyet Müzesi",
-      "poster": "https://www.ddizi.im/diziresimleri/masumiyetmuzekapakmin.jpg",
-      "background": "https://www.ddizi.im/diziresimleri/masumiyetmuzekapakmin.jpg",
-      "description": "Masumiyet Müzesi - DDizi Yerli Dizi Arşivi",
-      "genres": [
-        "Yerli Dizi",
-        "DDizi"
-      ]
-    },
-    {
       "id": "ddizi:show:2041/mehmed-fetihler-sultani-178-son-bolum-izle",
       "type": "series",
       "name": "Mehmed: Fetihler Sultanı",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+      "poster": "https://www.ddizi.im/diziresimleri/mehmetfetihlerkapak-min.jpg",
+      "background": "https://www.ddizi.im/diziresimleri/mehmetfetihlerkapak-min.jpg",
       "description": "Mehmed: Fetihler Sultanı - DDizi Yerli Dizi Arşivi",
       "genres": [
         "Yerli Dizi",
@@ -241,7 +229,7 @@
       ]
     },
     {
-      "id": "ddizi:show:2182/sevdan-bir-ates-son-bolum-izle",
+      "id": "ddizi:show:2182/sevdan-bir-ates-1-son-bolum-izle",
       "type": "series",
       "name": "Sevdan Bir Ateş",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
@@ -301,7 +289,7 @@
       ]
     },
     {
-      "id": "ddizi:show:2078/uzak-sehir-35-son-bolum-izle",
+      "id": "ddizi:show:2078/uzak-sehir-36-son-bolum-izle",
       "type": "series",
       "name": "Uzak Şehir",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",

@@ -1,0 +1,16 @@
+{
+  "metas": [
+    {
+      "id": "dizibox:show:fightland",
+      "type": "series",
+      "name": "FIGHTLAND",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/fightland-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/fightland-200x290.jpg",
+      "description": "FIGHTLAND - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    }
+  ]
+}

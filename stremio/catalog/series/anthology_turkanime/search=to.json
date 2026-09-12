@@ -1,24 +1,12 @@
 {
   "metas": [
     {
-      "id": "turkanime:anime:naruto-shippuuden-movie-6-road-to-ninja",
+      "id": "turkanime:anime:seihantai-na-kimi-to-boku-2nd-season",
       "type": "series",
-      "name": "Naruto: Shippuuden Movie 6 - Road to ...",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
-      "description": "Naruto: Shippuuden Movie 6 - Road to ... - TurkAnime TV",
-      "genres": [
-        "Anime",
-        "TurkAnime"
-      ]
-    },
-    {
-      "id": "turkanime:anime:bleach-movie-3-fade-to-black-kimi-no-na-wo-yobu",
-      "type": "series",
-      "name": "Bleach Movie 3: Fade to Black - Kimi ...",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
-      "description": "Bleach Movie 3: Fade to Black - Kimi ... - TurkAnime TV",
+      "name": "Seihantai na Kimi to Boku 2nd Season",
+      "poster": "https://www.turkanime.tv/imajlar/serilerb/6796.jpg",
+      "background": "https://www.turkanime.tv/imajlar/serilerb/6796.jpg",
+      "description": "Seihantai na Kimi to Boku 2nd Season - TurkAnime TV",
       "genres": [
         "Anime",
         "TurkAnime"

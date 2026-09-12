@@ -10,8 +10,8 @@ const stremioManifest = {
   version: "1.7.0",
   name: "Anthology — Türkçe Kataloglar",
   description: "DDizi, DiziBox, SineWix, FilmModu, AnimeciX, TurkAnime, ÇizgiMax ve Canlı TV ana sayfa keşif katalogları.",
-  resources: ["catalog", "meta"],
-  types: ["movie", "series", "tv"],
+  resources: ["catalog", "meta", "stream"],
+  types: ["movie", "series", "tv", "channel"],
   idPrefixes: [
     "tv:",
     "dizimom:",
@@ -298,11 +298,17 @@ function generateSearchTerms(title) {
   if (fs.existsSync(path.join(STREMIO_DIR, 'meta'))) {
     fs.rmSync(path.join(STREMIO_DIR, 'meta'), { recursive: true, force: true });
   }
+  if (fs.existsSync(path.join(STREMIO_DIR, 'stream'))) {
+    fs.rmSync(path.join(STREMIO_DIR, 'stream'), { recursive: true, force: true });
+  }
   if (fs.existsSync(path.join(PUBLIC_STREMIO_DIR, 'catalog'))) {
     fs.rmSync(path.join(PUBLIC_STREMIO_DIR, 'catalog'), { recursive: true, force: true });
   }
   if (fs.existsSync(path.join(PUBLIC_STREMIO_DIR, 'meta'))) {
     fs.rmSync(path.join(PUBLIC_STREMIO_DIR, 'meta'), { recursive: true, force: true });
+  }
+  if (fs.existsSync(path.join(PUBLIC_STREMIO_DIR, 'stream'))) {
+    fs.rmSync(path.join(PUBLIC_STREMIO_DIR, 'stream'), { recursive: true, force: true });
   }
 
   // 1. Write manifest.json
@@ -458,7 +464,10 @@ function generateSearchTerms(title) {
       }
 
       const typesToWrite = [metaData.type];
-      if (metaData.type === 'tv') typesToWrite.push('series');
+      if (metaData.type === 'tv') {
+        typesToWrite.push('series');
+        typesToWrite.push('channel');
+      }
       if (metaData.type === 'series') typesToWrite.push('tv');
 
       for (const t of typesToWrite) {
@@ -471,6 +480,29 @@ function generateSearchTerms(title) {
         if (encodedId !== item.id) {
           const encodedPath = path.join(STREMIO_DIR, 'meta', t, `${encodedId}.json`);
           writeJsonSync(encodedPath, { meta: metaData });
+        }
+      }
+
+      // If item is Live TV or provider supports getStreams, generate static /stream endpoint!
+      if (typeof mod.getStreams === 'function' && (item.id.startsWith('tv:') || metaData.type === 'tv')) {
+        try {
+          const streamRes = await withTimeout(mod.getStreams({ id: item.id, type: item.type || cfg.type }), 6000);
+          const streamsArray = Array.isArray(streamRes) ? streamRes : (streamRes && streamRes.streams ? streamRes.streams : []);
+          if (streamsArray.length > 0) {
+            const streamTypes = ['tv', 'channel', 'series'];
+            for (const st of streamTypes) {
+              const streamPath = path.join(STREMIO_DIR, 'stream', st, `${item.id}.json`);
+              writeJsonSync(streamPath, { streams: streamsArray });
+
+              const encodedId = encodeURIComponent(item.id);
+              if (encodedId !== item.id) {
+                const encodedStreamPath = path.join(STREMIO_DIR, 'stream', st, `${encodedId}.json`);
+                writeJsonSync(encodedStreamPath, { streams: streamsArray });
+              }
+            }
+          }
+        } catch (e) {
+          console.warn(`   ⚠️ Warning: failed to fetch stream for ${item.id}:`, e.message);
         }
       }
 

@@ -127,9 +127,10 @@
       "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
       "version": "1.7.0",
       "author": "falsisdev",
-      "types": [
+      "supportedTypes": [
         "tv",
-        "movie"
+        "movie",
+        "channel"
       ],
       "idPrefixes": [
         "tv:",
@@ -435,7 +436,8 @@
       "version": "1.7.0",
       "author": "falsisdev",
       "supportedTypes": [
-        "tv"
+        "tv",
+        "channel"
       ],
       "filename": "providers/anthology_spor.js",
       "enabled": true,
@@ -477,7 +479,8 @@
       "version": "1.7.0",
       "author": "falsisdev",
       "supportedTypes": [
-        "tv"
+        "tv",
+        "channel"
       ],
       "filename": "providers/anthology_haber.js",
       "enabled": true,
@@ -519,7 +522,8 @@
       "version": "1.7.0",
       "author": "falsisdev",
       "supportedTypes": [
-        "tv"
+        "tv",
+        "channel"
       ],
       "filename": "providers/anthology_ulusal.js",
       "enabled": true,

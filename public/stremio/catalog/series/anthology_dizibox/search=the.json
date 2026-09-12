@@ -25,24 +25,60 @@
       ]
     },
     {
-      "id": "dizibox:show:the-gentlemen",
+      "id": "dizibox:show:the-librarians-the-next-chapter",
       "type": "series",
-      "name": "THE GENTLEMEN",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-gentlemen-200x290.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-gentlemen-200x290.jpg",
-      "description": "THE GENTLEMEN - DiziBox Yabancı Dizi Arşivi",
+      "name": "THE LIBRARIANS: THE NEXT CHAPTER",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-librarians-the-next-chapter-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-librarians-the-next-chapter-200x290.jpg",
+      "description": "THE LIBRARIANS: THE NEXT CHAPTER - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
       ]
     },
     {
-      "id": "dizibox:show:the-paper-2025",
+      "id": "dizibox:show:smoking-behind-the-supermarket-with-you",
       "type": "series",
-      "name": "THE PAPER 2025",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-paper-2025-200x290.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-paper-2025-200x290.jpg",
-      "description": "THE PAPER 2025 - DiziBox Yabancı Dizi Arşivi",
+      "name": "SMOKING BEHIND THE SUPERMARKET WITH YOU",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/smoking-behind-the-supermarket-with-you-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/smoking-behind-the-supermarket-with-you-200x290.jpg",
+      "description": "SMOKING BEHIND THE SUPERMARKET WITH YOU - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:stuart-fails-to-save-the-universe",
+      "type": "series",
+      "name": "STUART FAILS TO SAVE THE UNIVERSE",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/stuart-fails-to-save-the-universe-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/stuart-fails-to-save-the-universe-200x290.jpg",
+      "description": "STUART FAILS TO SAVE THE UNIVERSE - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:the-revolutionaries",
+      "type": "series",
+      "name": "THE REVOLUTIONARIES",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-revolutionaries-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-revolutionaries-200x290.jpg",
+      "description": "THE REVOLUTIONARIES - DiziBox Yabancı Dizi Arşivi",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziBox"
+      ]
+    },
+    {
+      "id": "dizibox:show:the-ark",
+      "type": "series",
+      "name": "THE ARK",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-ark-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-ark-200x290.jpg",
+      "description": "THE ARK - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
@@ -61,24 +97,12 @@
       ]
     },
     {
-      "id": "dizibox:show:the-librarians-the-next-chapter",
+      "id": "dizibox:show:the-paper-2025",
       "type": "series",
-      "name": "THE LIBRARIANS: THE NEXT CHAPTER",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-librarians-the-next-chapter-200x290.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-librarians-the-next-chapter-200x290.jpg",
-      "description": "THE LIBRARIANS: THE NEXT CHAPTER - DiziBox Yabancı Dizi Arşivi",
-      "genres": [
-        "Yabancı Dizi",
-        "DiziBox"
-      ]
-    },
-    {
-      "id": "dizibox:show:the-drop-a-snowfall-saga",
-      "type": "series",
-      "name": "THE DROP: A SNOWFALL SAGA",
-      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-drop-a-snowfall-saga-200x290.jpg",
-      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-drop-a-snowfall-saga-200x290.jpg",
-      "description": "THE DROP: A SNOWFALL SAGA - DiziBox Yabancı Dizi Arşivi",
+      "name": "THE PAPER 2025",
+      "poster": "https://www.dizibox.live/wp-content/uploads/afisler/the-paper-2025-200x290.jpg",
+      "background": "https://www.dizibox.live/wp-content/uploads/afisler/the-paper-2025-200x290.jpg",
+      "description": "THE PAPER 2025 - DiziBox Yabancı Dizi Arşivi",
       "genres": [
         "Yabancı Dizi",
         "DiziBox"
