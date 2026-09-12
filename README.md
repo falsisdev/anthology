@@ -6,7 +6,7 @@
   <p>
     <img src="https://img.shields.io/badge/Nuvio-Eklenti_Deposu-00e676?style=for-the-badge&logo=github&logoColor=white" alt="Nuvio" />
     <img src="https://img.shields.io/badge/Durum-Aktif-00e676?style=for-the-badge" alt="Aktif" />
-    <img src="https://img.shields.io/badge/Eklenti-33_Doğrulanmış-3b82f6?style=for-the-badge" alt="33 Aktif Eklenti" />
+    <img src="https://img.shields.io/badge/Eklenti-34_Doğrulanmış-3b82f6?style=for-the-badge" alt="34 Aktif Eklenti" />
     <img src="https://img.shields.io/badge/Katalog-13_Aktif-8b5cf6?style=for-the-badge" alt="13 Aktif Katalog" />
     <img src="https://img.shields.io/badge/Başarı_Oranı-%25100-00e676?style=for-the-badge" alt="100% Başarı" />
   </p>
@@ -14,7 +14,7 @@
   <a href="https://falsisdev.github.io/anthology">🌐 Web Sitesi</a> &nbsp;|&nbsp;
   <a href="#-kurulum">📲 Kurulum</a> &nbsp;|&nbsp;
   <a href="#-zengin-kataloglar-13-katalog">📚 Zengin Kataloglar</a> &nbsp;|&nbsp;
-  <a href="#-doğrulanmış-eklentiler-33-aktif">🎬 Eklentiler (33)</a> &nbsp;|&nbsp;
+  <a href="#-doğrulanmış-eklentiler-34-aktif">🎬 Eklentiler (34)</a> &nbsp;|&nbsp;
   <a href="#-canlı-tv--spor-kanalları">📡 Canlı TV & Spor</a>
 </div>
 
@@ -27,7 +27,7 @@ Nuvio'da yerli dizileri, animeleri, çizgi dizileri ve canlı TV kanallarını h
 ---
 
 ### 1️⃣ Adım: Video Oynatma Motorunu Ekleyin (Pluginler)
-Bu adım, bir içerik açtığınızda arka planda çalışan 33 Türkçe/yabancı video scraper'ını Nuvio oynatıcısına yükler.
+Bu adım, bir içerik açtığınızda arka planda çalışan 34 Türkçe/yabancı video scraper'ını Nuvio oynatıcısına yükler.
 
 1. **Nuvio** uygulamasında **Ayarlar** → **Genel** → **İçerik & Keşif** → **Pluginler** → **Depo Ekle** bölümüne gidin.
 2. Aşağıdaki bağlantıyı yapıştırıp **Ekle** butonuna basın:
@@ -79,7 +79,7 @@ Nuvio ana ekranında içerik keşfetmenizi sağlayan yerli/yabancı kataloglar:
 
 ---
 
-## 🎬 Doğrulanmış Eklentiler (33 Aktif)
+## 🎬 Doğrulanmış Eklentiler (34 Aktif)
 
 > [!NOTE]
 > Tüm eklentiler doğrudan Nuvio video oynatıcısına uygun `.m3u8` HLS veya `.mp4`/`.mkv` doğrudan akışları döndürür. Bozuk iframe veya oynatılamayan bağlantı kesinlikle içermez.
@@ -112,11 +112,12 @@ Nuvio ana ekranında içerik keşfetmenizi sağlayan yerli/yabancı kataloglar:
 | Eklenti | Kaynak / Altyapı | Kalite & Format | İçerik Detayı |
 |---|---|:---:|:---:|
 | **DDizi** | ddizi.im (Fast CDN / Akamai / Google Direct) | 1080p MP4 / HLS | Yerli Dizi & Güncel Bölümler Arşivi |
-| **DiziBox** | dizibox.live (Molystream Sheila) | 1080p HLS Master | Popüler Yabancı Diziler Arşivi |
+| **DiziBox** | dizibox.live (VidMoly Master) | 1080p HLS Master | Popüler Yabancı Diziler Arşivi |
 | **DiziMom** | dizimom.diy (HDPlayer Fire HLS) | 1080p HLS Master | Popüler Yabancı Diziler (Dublaj & Altyazı) |
 | <img src="assets/logo_1_transparent.png" width="16" height="16" valign="middle" /> **Anthology Dizi (M3U)** | Zerk / Ciner CDN | 1080p MP4 / HLS | Yerli & Yabancı Dizi Arşivi |
 | <img src="assets/logo_1_transparent.png" width="16" height="16" valign="middle" /> **Anthology Yerli Dizi** | Ciner & Zerk CDN | 1080p MP4 / HLS | Güncel & Klasik Türk Dizileri |
 | <img src="assets/logo_1_transparent.png" width="16" height="16" valign="middle" /> **Anthology Yabancı Dizi** | Zerk DUAL Master CDN | 1080p HLS | Popüler Yabancı Dizi Arşivi |
+| **YabancıDizi** | yabancidizi.news (VidMoly Master) | 1080p HLS | Popüler Yabancı Diziler (Dublaj & Altyazı) |
 | **SezonlukDizi** | sezonlukdizi.cc (VidMoly) | 1080p HLS | Dublaj & Altyazı |
 | **DiziPal** | dizipal2127.com (FormationFeed) | 1080p HLS | Dublaj & Altyazı |
 | **DiziYou** | diziyou.one (Storage CDN) | 1080p HLS | Dublaj + TR VTT |

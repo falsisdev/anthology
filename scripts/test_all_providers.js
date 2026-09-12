@@ -57,6 +57,9 @@ const path = require("path");
       } else if (scraper.supportedTypes && scraper.supportedTypes.includes("movie")) {
         testTarget = "The Matrix (603)";
         streams = await mod.getStreams("603", "movie");
+      } else if (scraper.id === "yabancidizi") {
+        testTarget = "Dexter (1405 S01E01)";
+        streams = await mod.getStreams("1405", "tv", 1, 1);
       } else if (scraper.supportedTypes && scraper.supportedTypes.includes("tv")) {
         testTarget = "Breaking Bad (1396 S01E01)";
         streams = await mod.getStreams("1396", "tv", 1, 1);

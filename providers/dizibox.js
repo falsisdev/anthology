@@ -325,42 +325,6 @@ async function extractMolystreamFromEpisodePage(epUrl) {
                         } catch (e) {}
                     }
 
-                    // Source B: Molystream via king.php (Tab 1 - DBX Pro)
-                    if (src.includes('king.php') || src.includes('molystream')) {
-                        try {
-                            const kRes = await fetch(src, { headers: { ...HEADERS, Referer: tabUrl } });
-                            if (kRes.ok) {
-                                const kHtml = await kRes.text();
-                                const molyMatch = kHtml.match(/https?:\/\/[^"'\s]*molystream\.org\/embed\/(?:sheila\/)?([a-zA-Z0-9_-]+)/);
-                                if (molyMatch) {
-                                    const molyId = molyMatch[1];
-                                    const sheilaUrl = `https://dbx.molystream.org/embed/sheila/${molyId}`;
-                                    const molyHeaders = {
-                                        'User-Agent': HEADERS['User-Agent'],
-                                        'Referer': `https://dbx.molystream.org/embed/${molyId}`,
-                                        'Origin': 'https://dbx.molystream.org'
-                                    };
-                                    if (!seenUrls.has(sheilaUrl)) {
-                                        seenUrls.add(sheilaUrl);
-                                        streams.push({
-                                            name: 'DiziBox',
-                                            title: '⌜ DiziBox ⌟ | Molystream (1080p HLS)',
-                                            url: `${sheilaUrl}#master.m3u8`,
-                                            quality: '1080p',
-                                            provider: 'dizibox',
-                                            headers: molyHeaders,
-                                            behaviorHints: {
-                                                notWebReady: true,
-                                                proxyHeaders: {
-                                                    request: molyHeaders
-                                                }
-                                            }
-                                        });
-                                    }
-                                }
-                            }
-                        } catch (e) {}
-                    }
 
                     // Source C: Any direct MP4 or M3U8 in page or intermediate page
                     const directMatches = [...pHtml.matchAll(/(https?:\/\/[^"'\s\\]+\.(?:m3u8|mp4)[^"'\s\\]*)/gi)];
