@@ -1,5 +1,7 @@
-var API_BASE = 'https://ydfvfdizipanel.ru/public/api';
-var API_KEY = '9iQNC5HQwPlaFuJDkhncJ5XTJ8feGXOJatAA';
+var CONFIG = (typeof require !== 'undefined' ? (function(){ try { return require('./config'); } catch(e) { return require('./urls'); } })() : null) || (typeof globalThis !== 'undefined' ? (globalThis.CONFIG || globalThis.URLS) : null) || {};
+var URLS = CONFIG.urls || CONFIG;
+var API_BASE = (URLS.sinewix && URLS.sinewix.api_base) || 'https://ydfvfdizipanel.ru/public/api';
+var API_KEY = (CONFIG.api_keys && CONFIG.api_keys.sinewix) || '9iQNC5HQwPlaFuJDkhncJ5XTJ8feGXOJatAA';
 
 var API_HEADERS = {
     'hash256': '711bff4afeb47f07ab08a0b07e85d3835e739295e8a6361db77eebd93d96306b',

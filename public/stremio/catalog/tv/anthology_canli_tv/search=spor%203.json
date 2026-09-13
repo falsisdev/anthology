@@ -4,8 +4,8 @@
       "id": "tv:TivibuSpor3.tr",
       "type": "tv",
       "name": "Tivibu Spor 3 HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.png",
       "description": "Tivibu Spor 3 HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
@@ -15,8 +15,8 @@
       "id": "tv:TabiiSpor3.tr",
       "type": "tv",
       "name": "Tabii Spor 3 HD",
-      "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
-      "background": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
       "description": "Tabii Spor 3 HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"

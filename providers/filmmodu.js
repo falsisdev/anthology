@@ -5,7 +5,9 @@
 //  Sadece Film (movie) destekler
 // ============================================================
 
-var BASE_URL = 'https://www.filmmodu.one';
+var CONFIG = (typeof require !== 'undefined' ? (function(){ try { return require('./config'); } catch(e) { return require('./urls'); } })() : null) || (typeof globalThis !== 'undefined' ? (globalThis.CONFIG || globalThis.URLS) : null) || {};
+var URLS = CONFIG.urls || CONFIG;
+var BASE_URL = (URLS.filmmodu && URLS.filmmodu.base) || 'https://www.filmmodu.one';
 var TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
 
 var HEADERS = {

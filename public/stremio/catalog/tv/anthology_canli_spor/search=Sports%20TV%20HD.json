@@ -4,8 +4,8 @@
       "id": "tv:SportsTV.tr",
       "type": "tv",
       "name": "Sports TV HD",
-      "poster": "https://i.imgur.com/tGTVcVe.jpg",
-      "background": "https://i.imgur.com/tGTVcVe.jpg",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportstv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportstv.png",
       "description": "Sports TV HD Canlı Spor Yayını",
       "genres": [
         "Spor"

@@ -4,8 +4,10 @@
  */
 
 const TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
-const FILM_BASE_URL = 'https://raw.githubusercontent.com/mooncrown04/m3ubirlestir/main/nuvio_parcalari/';
-const DIZI_BASE_URL = 'https://raw.githubusercontent.com/mooncrown04/m3ubirlestir/main/nuvio_dizi_parcalari/';
+var CONFIG = (typeof require !== 'undefined' ? (function(){ try { return require('./config'); } catch(e) { return require('./urls'); } })() : null) || (typeof globalThis !== 'undefined' ? (globalThis.CONFIG || globalThis.URLS) : null) || {};
+var URLS = CONFIG.urls || CONFIG;
+const FILM_BASE_URL = (URLS.m3u && URLS.m3u.film_base) || 'https://raw.githubusercontent.com/mooncrown04/m3ubirlestir/main/nuvio_parcalari/';
+const DIZI_BASE_URL = (URLS.m3u && URLS.m3u.dizi_base) || 'https://raw.githubusercontent.com/mooncrown04/m3ubirlestir/main/nuvio_dizi_parcalari/';
 
 const cache = {};
 const cacheTime = {};

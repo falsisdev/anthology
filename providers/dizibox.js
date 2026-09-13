@@ -3,7 +3,9 @@
  * Yabancı dizi arşivi, güncel bölümler kataloğu ve Molystream/Sheila üzerinden doğrudan 1080p HLS akışları.
  */
 
-var BASE_URL = 'https://www.dizibox.live';
+var CONFIG = (typeof require !== 'undefined' ? (function(){ try { return require('./config'); } catch(e) { return require('./urls'); } })() : null) || (typeof globalThis !== 'undefined' ? (globalThis.CONFIG || globalThis.URLS) : null) || {};
+var URLS = CONFIG.urls || CONFIG;
+var BASE_URL = (URLS.dizibox && URLS.dizibox.base) || 'https://www.dizibox.live';
 var TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
 
 var HEADERS = {

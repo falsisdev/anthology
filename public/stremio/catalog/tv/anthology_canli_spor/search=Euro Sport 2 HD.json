@@ -4,8 +4,8 @@
       "id": "tv:EuroSport2.tr",
       "type": "tv",
       "name": "Euro Sport 2 HD",
-      "poster": "https://i.imgur.com/f56dHgR.png",
-      "background": "https://i.imgur.com/f56dHgR.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurosport.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurosport.png",
       "description": "Euro Sport 2 HD Canlı Spor Yayını",
       "genres": [
         "Spor"

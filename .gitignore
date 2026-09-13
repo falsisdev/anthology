@@ -19,3 +19,7 @@ node_modules/
 # Misc
 *.log
 scratch/
+
+# AI
+docs/
+docs/*

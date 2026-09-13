@@ -15,8 +15,8 @@
       "id": "tv:CBCSport.tr",
       "type": "tv",
       "name": "CBC Sport HD",
-      "poster": "https://i.imgur.com/3mEdjuq.png",
-      "background": "https://i.imgur.com/3mEdjuq.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cbcsport.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cbcsport.png",
       "description": "CBC Sport HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"

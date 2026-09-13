@@ -6,8 +6,10 @@
 var path = typeof require !== 'undefined' ? require('path') : null;
 var fs = typeof require !== 'undefined' ? require('fs') : null;
 
-var M3U_REMOTE = "https://raw.githubusercontent.com/falsisdev/anthology/main/providers/M3U/Liste/canli.m3u";
-var NETVGOLD_REMOTE = "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/catalogs/netvgold.json";
+var CONFIG = (typeof require !== 'undefined' ? (function(){ try { return require('./config'); } catch(e) { return require('./urls'); } })() : null) || (typeof globalThis !== 'undefined' ? (globalThis.CONFIG || globalThis.URLS) : null) || {};
+var URLS = CONFIG.urls || CONFIG;
+var M3U_REMOTE = (URLS.live && URLS.live.m3u_remote) || "https://raw.githubusercontent.com/falsisdev/anthology/main/providers/M3U/Liste/canli.m3u";
+var NETVGOLD_REMOTE = (URLS.live && URLS.live.netvgold_remote) || "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/catalogs/netvgold.json";
 var _HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36',
     'Accept': '*/*'

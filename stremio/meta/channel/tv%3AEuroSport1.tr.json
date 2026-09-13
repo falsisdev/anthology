@@ -3,8 +3,8 @@
     "id": "tv:EuroSport1.tr",
     "type": "tv",
     "name": "Euro Sport 1 HD",
-    "poster": "https://i.imgur.com/olQJgm7.png",
-    "background": "https://i.imgur.com/olQJgm7.png",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurosport.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurosport.png",
     "description": "Euro Sport 1 HD Canlı Spor Yayını",
     "genres": [
       "Spor"

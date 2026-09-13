@@ -15,8 +15,8 @@
       "id": "tv:beINSports2.tr",
       "type": "tv",
       "name": "BeIN Sports 2 HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
       "description": "BeIN Sports 2 HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
@@ -26,8 +26,8 @@
       "id": "tv:beINSportsMax2.tr",
       "type": "tv",
       "name": "BeIN Sports Max 2 HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
       "description": "BeIN Sports Max 2 HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
@@ -48,8 +48,8 @@
       "id": "tv:TivibuSpor2.tr",
       "type": "tv",
       "name": "Tivibu Spor 2 HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.png",
       "description": "Tivibu Spor 2 HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
@@ -59,8 +59,8 @@
       "id": "tv:SmartSpor2.tr",
       "type": "tv",
       "name": "Smart Spor 2 HD",
-      "poster": "https://i.imgur.com/qyUKCUa.png",
-      "background": "https://i.imgur.com/qyUKCUa.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/smartspor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/smartspor.png",
       "description": "Smart Spor 2 HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
@@ -70,8 +70,8 @@
       "id": "tv:EuroSport2.tr",
       "type": "tv",
       "name": "Euro Sport 2 HD",
-      "poster": "https://i.imgur.com/f56dHgR.png",
-      "background": "https://i.imgur.com/f56dHgR.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurosport.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurosport.png",
       "description": "Euro Sport 2 HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
@@ -81,8 +81,8 @@
       "id": "tv:ExxenSports2.tr",
       "type": "tv",
       "name": "Exxen Sports 2 HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
       "description": "Exxen Sports 2 HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
@@ -92,8 +92,8 @@
       "id": "tv:TabiiSpor2.tr",
       "type": "tv",
       "name": "Tabii Spor 2 HD",
-      "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
-      "background": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
       "description": "Tabii Spor 2 HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
