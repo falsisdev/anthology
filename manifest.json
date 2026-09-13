@@ -432,7 +432,7 @@
     {
       "id": "anthology_spor",
       "name": "Anthology Canlı Spor",
-      "description": "BeIN Sports 1-5, S Sport 1-2, Tivibu Spor, Exxen Spor ve 49 canlı spor kanalı.",
+      "description": "BeIN Sports 1-5, S Sport 1-2, Tivibu Spor, Exxen Spor ve 49 canlı spor kanalı (Anthology + NetVGold çok kaynaklı).",
       "version": "1.7.0",
       "author": "falsisdev",
       "supportedTypes": [
@@ -957,6 +957,56 @@
       "contentLanguage": [
         "tr",
         "en"
+      ]
+    },
+    {
+      "id": "setfilmizle",
+      "name": "SetFilmIzle",
+      "description": "SetFilmIzle arşivi üzerinden FastPlay 1080p HLS master akışları ve TR/EN altyazılar (film + dizi).",
+      "version": "1.7.0",
+      "author": "falsisdev",
+      "supportedTypes": [
+        "movie",
+        "tv"
+      ],
+      "filename": "providers/setfilmizle.js",
+      "enabled": true,
+      "formats": [
+        "hls",
+        "m3u8"
+      ],
+      "logo": "https://www.google.com/s2/favicons?domain=setfilmizle.ltd&sz=128",
+      "catalogs": [
+        {
+          "type": "movie",
+          "id": "anthology_setfilmizle_movies",
+          "name": "SetFilmIzle — Popüler Filmler",
+          "extra": [
+            {
+              "name": "search",
+              "isRequired": false
+            }
+          ]
+        },
+        {
+          "type": "tv",
+          "id": "anthology_setfilmizle_series",
+          "name": "SetFilmIzle — Popüler Diziler",
+          "extra": [
+            {
+              "name": "search",
+              "isRequired": false
+            }
+          ]
+        }
+      ],
+      "resources": [
+        "catalog",
+        "meta",
+        "stream"
+      ],
+      "contentLanguage": [
+        "tr"
       ]
     },
     {
