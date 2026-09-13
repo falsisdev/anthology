@@ -1010,6 +1010,120 @@
       ]
     },
     {
+      "id": "kultfilmler",
+      "name": "KultFilmler",
+      "description": "KultFilmler arşivi üzerinden VidMoly/Vidpapi HLS akışları.",
+      "version": "1.7.0",
+      "author": "falsisdev",
+      "supportedTypes": [
+        "movie"
+      ],
+      "filename": "providers/kultfilmler.js",
+      "enabled": true,
+      "formats": [
+        "hls",
+        "m3u8"
+      ],
+      "logo": "https://www.google.com/s2/favicons?domain=kultfilmler.net&sz=128",
+      "catalogs": [
+        {
+          "type": "movie",
+          "id": "anthology_kultfilmler_movies",
+          "name": "KultFilmler — Popüler Filmler",
+          "extra": [
+            {
+              "name": "search",
+              "isRequired": false
+            }
+          ]
+        }
+      ],
+      "resources": [
+        "catalog",
+        "meta",
+        "stream"
+      ],
+      "contentLanguage": [
+        "tr"
+      ]
+    },
+    {
+      "id": "hdfilmdelisi",
+      "name": "HDFilmDelisi",
+      "description": "HDFilmDelisi JSON API arşivi üzerinden VidMody 1080p HLS akışları.",
+      "version": "1.7.0",
+      "author": "falsisdev",
+      "supportedTypes": [
+        "movie"
+      ],
+      "filename": "providers/hdfilmdelisi.js",
+      "enabled": true,
+      "formats": [
+        "hls",
+        "m3u8"
+      ],
+      "logo": "https://www.google.com/s2/favicons?domain=hdfilmdelisi.one&sz=128",
+      "catalogs": [
+        {
+          "type": "movie",
+          "id": "anthology_hdfilmdelisi_movies",
+          "name": "HDFilmDelisi — Son Filmler",
+          "extra": [
+            {
+              "name": "search",
+              "isRequired": false
+            }
+          ]
+        }
+      ],
+      "resources": [
+        "catalog",
+        "meta",
+        "stream"
+      ],
+      "contentLanguage": [
+        "tr"
+      ]
+    },
+    {
+      "id": "hdfilmizle",
+      "name": "HDFilmIzle",
+      "description": "HDFilmIzle (Ink/Vip) arşivi üzerinden FastPlay 1080p HLS master akışları ve TR/EN altyazılar.",
+      "version": "1.7.0",
+      "author": "falsisdev",
+      "supportedTypes": [
+        "movie"
+      ],
+      "filename": "providers/hdfilmizle.js",
+      "enabled": true,
+      "formats": [
+        "hls",
+        "m3u8"
+      ],
+      "logo": "https://www.google.com/s2/favicons?domain=hdfilmizle.ink&sz=128",
+      "catalogs": [
+        {
+          "type": "movie",
+          "id": "anthology_hdfilmizle_movies",
+          "name": "HDFilmIzle — Popüler Filmler",
+          "extra": [
+            {
+              "name": "search",
+              "isRequired": false
+            }
+          ]
+        }
+      ],
+      "resources": [
+        "catalog",
+        "meta",
+        "stream"
+      ],
+      "contentLanguage": [
+        "tr"
+      ]
+    },
+    {
       "id": "mahsundizi",
       "name": "Mahsun Dizi",
       "description": "Mahsun Dizi arşivi ve dosyaload BEPLAYER+ üzerinden 1080p HLS akışları ve Türkçe/İngilizce altyazılar.",

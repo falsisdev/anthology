@@ -178,7 +178,7 @@ async function resolveFastplay(fastplayUrl, fastplayRef) {
 
         var spMatch = fpHtml.match(/"sp"\s*:\s*"([^"]+)"/);
         var spTMatch = fpHtml.match(/"spT"\s*:\s*(\d+)/);
-        var manMatch = fpHtml.match(/src\s*:\s*"(\/manifests\/[^"]+)"/);
+        var manMatch = fpHtml.match(/(?:src|stream)\s*:\s*"(\/manifests\/[^"]+)"/);
         if (!spMatch || !spTMatch || !manMatch) return null;
 
         var sp = spMatch[1];
