@@ -45,8 +45,13 @@ AnthologyDiziM3U, AnthologyFilmM3U, animecix, anthology_aksiyon, anthology_anima
 > - test_all_providers: 37→39, 39/39 PASS (önce 2 FAIL olan dizibox/yabancidizi toparladı; diziyou dalgalı ama şu tur PASS).
 > - Sırada: Dizilla (516 satır, AES NextData+Hotlinger/ContentX → orta-zor), FullHDFilm (hdfilm.us self-signed cert dalgalı), BelgeselX (Google CSE tokenli arama), InatBox/RecTV/TLCtr/Vavoo(lokke.app imzası)/Watch2Movies — hepsi için canlılık + port edilebilirlik notlandı.
 
-## SON DURUM (2026-09-13 23:2x)
-> - 39 sağlayıcı, 100% PASS. 4 yeni film sağlayıcısı eklendi (setfilmizle, kultfilmler, hdfilmdelisi, hdfilmizle); spor multi-source aktif.
-> - FilmMakinesi rafa kalktı; FullHDFilmizlesene/HDFilmCehennemi 403 CF, hdfilm.us TLS self-signed → sonraki turlarda denenir.
-> - Sonraki tur hızlı kazanım sırası: Dizilla → BelgeselX → InatBox → Vavoo (auth) → RecTV/TLCtr.
-> - Spor Faz-2: Zbahis mono.m3u8 (data-reality.com CF 403), Arda/İnter JS-gömülü → ayrı branch'te ele alınmalı.
+## 2026-09-14 — Stabilizasyon turu (kullanıcı geri bildirimi)
+> - FilmModu: Matrix 603 artık doğru film (the-matrix-hd-film-izle, id 2433) + format/isHls eklendi; 5 kalite 1080p+ doğrulandı.
+> - SetFilmIzle/HDFilmIzle: STF_AJAX nonceleri çoklu deneme (video nonce + data-nonce) ve `aj.success===false` kontrolü; X-Sp master doğrulaması kaldırıldı (anlık 404'lere rağmen Nuvio fetch'i taze X-Sp ile 200 veriyor — testte 200 doğrulandı). İki sağlayıcı da 603'te 1×1080p HLS + altyazı.
+> - DDizi/DiziBox 3 sn takılma: master yerine en yüksek varyantın media playlist'i doğrudan döndürülüyor (`resolveHighestVariant` → chunklist_b3128000 / index-v1-a1.m3u8) ve .ts segmentler birleşik akış olarak oynatılıyor; hedef 49 katalog sabit, tek parça buffer.
+> - Canlı TV: `anthology_spor` artık `tv:` dışı film/dizi aramalarında 0 döndürüyor (plugin kirliliği bitti); `m3u.anthology.addon` sadece tv/channel; katalog 49 sabit, beIN1 için 3 etiketli stream (Anthology + AtomSpor/NetVGold + SelcukSports doğrudan playlist) — kullanıcı isteği karşılandı; kapsam sadece katalogdan.
+> - Test: 39/39 PASS (son committe).
+
+## SON DURUM (2026-09-14)
+> - 39 sağlayıcı, 100% PASS. Spor çok kaynaklı (3 etiket), film/dizi oynatma düzeltmeleri commitlenmeye hazır.
+> - Kalan adaylar: Dizilla/BelgeselX/InatBox/Vavoo/Watch2Movies gibi ağır ekstrakörler bir sonraki tura bırakıldı (CF/WASM/TLS engelleri notlu).

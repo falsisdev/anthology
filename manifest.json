@@ -129,7 +129,6 @@
       "author": "falsisdev",
       "supportedTypes": [
         "tv",
-        "movie",
         "channel"
       ],
       "idPrefixes": [

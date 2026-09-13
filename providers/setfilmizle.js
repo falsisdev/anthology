@@ -253,20 +253,23 @@ async function extractStreamsFromContentPage(pageUrl) {
         }
         if (players.length === 0) return [];
 
-        var nonce = videoNonce;
-        if (!nonce) {
-            var nonceMatch = html.match(/data-nonce="([a-z0-9]+)"/i);
-            if (nonceMatch) nonce = nonceMatch[1];
+        var nonces = [];
+        if (videoNonce) nonces.push(videoNonce);
+        var nonceMatches = [...html.matchAll(/data-nonce="([a-z0-9]+)"/gi)].map(function(m) { return m[1]; });
+        for (var ni = 0; ni < nonceMatches.length; ni++) {
+            if (nonces.indexOf(nonceMatches[ni]) === -1) nonces.push(nonceMatches[ni]);
         }
-        if (!nonce) return [];
+        if (nonces.length === 0) return [];
 
         var seenUrls = new Set();
         for (var i = 0; i < Math.min(players.length, 4); i++) {
+            var gotStreamForPlayer = false;
+            for (var nIdx = 0; nIdx < nonces.length && !gotStreamForPlayer; nIdx++) {
             try {
                 var pl = players[i];
                 var form = new URLSearchParams();
                 form.append('action', 'get_video_url');
-                form.append('nonce', nonce);
+                form.append('nonce', nonces[nIdx]);
                 form.append('post_id', pl.id);
                 form.append('player_name', pl.name);
                 form.append('part_key', pl.key);
@@ -282,10 +285,11 @@ async function extractStreamsFromContentPage(pageUrl) {
                 }, 15000);
                 if (!aRes.ok) continue;
                 var aj = await aRes.json();
+                if (!aj || aj.success === false) continue;
                 var setplayUrl = aj && aj.data && ((aj.data.stream && aj.data.stream.url) || aj.data.url);
                 if (!setplayUrl) continue;
                 setplayUrl = setplayUrl.replace(/\\\//g, '/');
-                if (seenUrls.has(setplayUrl)) continue;
+                if (seenUrls.has(setplayUrl)) { gotStreamForPlayer = true; continue; }
                 seenUrls.add(setplayUrl);
 
                 // setplay -> SPG.cerceve -> fastplay
@@ -310,19 +314,7 @@ async function extractStreamsFromContentPage(pageUrl) {
                 var fp = await resolveFastplay(fastplayUrl, spRes.url || setplayUrl);
                 if (!fp || !fp.manifestUrl) continue;
 
-                // Manifest erişilebilir mi diye hızlı doğrula
                 var xsp = makeXSp(fp.sp, fp.spT);
-                var manRes = await fetchWithTimeout(fp.manifestUrl, {
-                    headers: {
-                        'User-Agent': HEADERS['User-Agent'],
-                        'Referer': fp.referer,
-                        'X-Sp': xsp
-                    }
-                }, 15000);
-                if (!manRes.ok) continue;
-                var manText = await manRes.text();
-                if (!manText.includes('#EXTM3U')) continue;
-
                 var sHeaders = {
                     'User-Agent': HEADERS['User-Agent'],
                     'Referer': fp.referer,
@@ -343,8 +335,10 @@ async function extractStreamsFromContentPage(pageUrl) {
                     },
                     subtitles: fp.subtitles || []
                 });
+                gotStreamForPlayer = true;
                 if (streams.length > 0) break;
             } catch (e) {}
+            }
         }
     } catch (e) {}
     return streams;

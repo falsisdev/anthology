@@ -57,9 +57,24 @@ function normalizeForUrl(str) {
 }
 
 // ── Yardımcı: Sonuçlar arasından en iyi eşleşmeyi bul ───────
+function slugFromHref(href) {
+  try {
+    var last = href.split('/').filter(Boolean).pop() || '';
+    return last.replace(/-film-izle.*$/i, '').replace(/-izle.*$/i, '').trim();
+  } catch (e) { return href; }
+}
 function findBestMatch(results, searchTitle, year) {
   var normalizedSearch = normalizeForUrl(searchTitle);
+  var slugSearch = normalizeForUrl(slugFromHref(searchTitle));
 
+  // 0. Slug tam eşleşme (en güvenilir) — ör. "the-matrix" vs "the-matrix-reloaded"
+  for (var s = 0; s < results.length; s++) {
+    var slugNorm = normalizeForUrl(slugFromHref(results[s].href));
+    if (slugNorm === normalizedSearch || slugNorm === slugSearch) {
+      console.log('[FilmModu] Slug tam eşleşti: ' + results[s].href);
+      return results[s].href;
+    }
+  }
   // 1. Hem başlık hem yıl URL'de eşleşiyor mu?
   if (year) {
     for (var i = 0; i < results.length; i++) {
@@ -71,13 +86,19 @@ function findBestMatch(results, searchTitle, year) {
     }
   }
 
-  // 2. Sadece başlık URL'de eşleşiyor mu?
+  // 2. Sadece başlık URL'de eşleşiyor mu? (slug içinde, en kısa eşleşmeyi tercih et)
+  var best = null;
+  var bestLen = Infinity;
   for (var j = 0; j < results.length; j++) {
     var normalizedHref2 = normalizeForUrl(results[j].href);
     if (normalizedHref2.indexOf(normalizedSearch) !== -1) {
-      console.log('[FilmModu] Başlık eşleşti: ' + results[j].href);
-      return results[j].href;
+      var len = normalizedHref2.length;
+      if (len < bestLen) { best = results[j].href; bestLen = len; }
     }
+  }
+  if (best) {
+    console.log('[FilmModu] Başlık eşleşti (en kısa): ' + best);
+    return best;
   }
 
   // 3. Sadece yıl URL'de eşleşiyor mu?
@@ -244,6 +265,8 @@ function fetchStreamsFromAlt(altLink, filmUrl) {
               url:     srcUrl,
               quality: qualityLabel,
               type:    'hls',
+              format:  'hls',
+              isHls:   true,
               headers: fmHeaders,
               behaviorHints: {
                 notWebReady: true,

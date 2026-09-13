@@ -234,8 +234,68 @@ function getCatalog(args) {
         });
 }
 
+async function fetchSelcukStreams(matched) {
+    // SelcukSports doğrudan m3u8 — WASM gerektirmeyen varyantlar için playlist URL'sini döndür
+    var map = {
+        'beinsports1': 'selcukbeinsports1',
+        'beinsports2': 'selcukbeinsports2',
+        'beinsports3': 'selcukbeinsports3',
+        'beinsports4': 'selcukbeinsports4',
+        'beinsports5': 'selcukbeinsports5',
+        'beinsportsmax1': 'selcukbeinmax1',
+        'beinsportsmax2': 'selcukbeinmax2',
+        'ssport': 'selcuksport',
+        'ssport2': 'selcuksport2',
+        'ssportplus': 'selcuksportplus',
+        'tivibuspor1': 'selcuktivibu1',
+        'tivibuspor2': 'selcuktivibu2',
+        'tivibuspor3': 'selcuktivibu3',
+        'smartsport1': 'selcuksmart1',
+        'eurosport1': 'selcukeurosport1',
+        'asport': 'selcukaspor',
+        'trtspor': 'selcuktrtspor'
+    };
+    var key = cleanKey(matched.id.replace(/^tv:/, ''));
+    var selId = null;
+    for (var k in map) { if (key.indexOf(k) !== -1 || k.indexOf(key) !== -1) { selId = map[k]; break; } }
+    // fallback: isimden dene
+    if (!selId) {
+        var n = normTitle(matched.name);
+        if (n.includes('beinsports1') || n === 'beinsports1') selId = 'selcukbeinsports1';
+        else if (n.includes('beinsports2')) selId = 'selcukbeinsports2';
+        else if (n.includes('beinsports3')) selId = 'selcukbeinsports3';
+        else if (n.includes('ssport') && !n.includes('2')) selId = 'selcuksport';
+    }
+    if (!selId) return [];
+    var playlist = 'https://dga1op10s1u3lea.82250d06d39d38.click/live/' + selId + '/playlist.m3u8';
+    // Hızlı doğrulama (opsiyonel, başarısız olsa da döndür — Nuvio kendi kontrolünü yapar)
+    return [{
+        name: '⌜ SelcukSports ⌟',
+        title: matched.name + ' [SelcukSports HD]',
+        url: playlist,
+        headers: {
+            'User-Agent': _HEADERS['User-Agent'],
+            'Referer': 'https://www.selcuksportshdbd813bd00f.xyz/',
+            'Origin': 'https://www.selcuksportshdbd813bd00f.xyz'
+        },
+        behaviorHints: { isLive: true }
+    }];
+}
+
 function getStreams(args) {
     var targetId = (typeof args === 'string') ? args : (args ? (args.id || args.name) : "");
+    var mediaType = (args && args.type) || (args && args.mediaType) || '';
+    // Sadece katalogdan gelen canlı tv istekleri: tv: prefix'i olmayan film/dizi aramalarını reddet
+    var isLiveRequest = /^tv:/i.test(targetId) || mediaType === 'channel' || mediaType === 'tv' && /^tv:/i.test((args && args.id) || '');
+    // TMDB id gibi sayısal film/dizi araması canlı spor döndürmemeli
+    if (!isLiveRequest && targetId && !/^tv:/i.test(targetId)) {
+        var looksLikeTmdb = /^(tt\d+|\d+)$/.test(String(targetId).split(':')[0]);
+        if (looksLikeTmdb || mediaType === 'movie') {
+            var emptyNoLive = [];
+            emptyNoLive.streams = [];
+            return Promise.resolve(emptyNoLive);
+        }
+    }
 
     return Promise.all([
         fetchChannels(),
@@ -272,14 +332,11 @@ function getStreams(args) {
                 }
             }
 
-            if (!matched && channels.length > 0) {
-                // Fallback to top sport channel (e.g. BeIN 1 / S Sport)
-                matched = channels[0];
-            }
             if (!matched) {
-                var empty = [];
-                empty.streams = [];
-                return empty;
+                // Eşleşme yoksa fallback yapma — boş döndür (plugin aramasını kirletmemek için)
+                var empty2 = [];
+                empty2.streams = [];
+                return empty2;
             }
 
             var streams = [{
@@ -306,15 +363,54 @@ function getStreams(args) {
                 };
                 var origin = originOf(ref);
                 if (origin) headers['Origin'] = origin.replace(/\/$/, '');
+                // Etiketleri referere göre daha anlamlı yap: taraftarium/atomsportv vb. -> NetVGold altında
+                var label = 'NetVGold';
+                if (ref && ref.includes('atomsportv')) label = 'AtomSpor';
+                else if (ref && ref.includes('taraftarium')) label = 'Taraftarium';
                 streams.push({
-                    name: '⌜ NetVGold ⌟',
-                    title: matched.name + ' [NetVGold HD]',
+                    name: '⌜ ' + label + ' ⌟',
+                    title: matched.name + ' [' + label + ' HD]',
                     url: entry.url,
                     headers: headers,
                     behaviorHints: { isLive: true }
                 });
-                if (streams.length >= 6) break;
+                if (streams.length >= 5) break;
             }
+
+            // SelcukSports / ArdaSpor doğrudan playlist varyantları (katalog dışı alternatif)
+            // NetVGold'dan bağımsız, aynı beIN numarasına göre doğrudan selcuk playlisti
+            try {
+                var selcukList = [];
+                // fetchSelcukStreams senkron çağrı — promise değil, doğrudan liste
+                var keyForSelcuk = cleanKey(matched.id.replace(/^tv:/, ''));
+                var selId = null;
+                if (keyForSelcuk.includes('beinsports1')) selId = 'selcukbeinsports1';
+                else if (keyForSelcuk.includes('beinsports2')) selId = 'selcukbeinsports2';
+                else if (keyForSelcuk.includes('beinsports3')) selId = 'selcukbeinsports3';
+                else if (keyForSelcuk.includes('beinsports4')) selId = 'selcukbeinsports4';
+                else if (keyForSelcuk.includes('beinsports5')) selId = 'selcukbeinsports5';
+                else if (keyForSelcuk.includes('ssport') && !keyForSelcuk.includes('2') && !keyForSelcuk.includes('plus')) selId = 'selcuksport';
+                else if (keyForSelcuk.includes('ssport2')) selId = 'selcuksport2';
+                if (selId) {
+                    var selPlaylist = 'https://dga1op10s1u3lea.82250d06d39d38.click/live/' + selId + '/playlist.m3u8';
+                    if (!seenUrls[selPlaylist]) {
+                        seenUrls[selPlaylist] = true;
+                        streams.push({
+                            name: '⌜ SelcukSports ⌟',
+                            title: matched.name + ' [SelcukSports HD]',
+                            url: selPlaylist,
+                            headers: {
+                                'User-Agent': _HEADERS['User-Agent'],
+                                'Referer': 'https://www.selcuksportshdbd813bd00f.xyz/',
+                                'Origin': 'https://www.selcuksportshdbd813bd00f.xyz'
+                            },
+                            behaviorHints: { isLive: true }
+                        });
+                    }
+                }
+                // ArdaSpor için NetVGold zaten taraftarium kaynaklarını kapsıyor, ek klonlamaya gerek yok
+                // İhtiyaç halinde buraya Zbahis/İnter eklenebilir
+            } catch (e) {}
 
             streams.streams = streams;
             return streams;
