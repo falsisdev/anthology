@@ -11,6 +11,45 @@
       "behaviorHints": {
         "isLive": true
       }
+    },
+    {
+      "name": "⌜ NetVGold ⌟",
+      "title": "S Sport 2 HD [NetVGold HD]",
+      "url": "https://raw.githubusercontent.com/icebu12/turbo-guacamole/refs/heads/main/streams/stream_ss2.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Referer": "https://fairtv20.com/",
+        "Origin": "https://fairtv20.com"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ NetVGold ⌟",
+      "title": "S Sport 2 HD [NetVGold HD]",
+      "url": "https://andro.evrenesoglu57.click/checklist/androstreamlivess2.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Referer": "https://mahsunsports37.xyz/",
+        "Origin": "https://mahsunsports37.xyz"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ SelcukSports ⌟",
+      "title": "S Sport 2 HD [SelcukSports HD]",
+      "url": "https://dga1op10s1u3lea.82250d06d39d38.click/live/selcuksport2/playlist.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Referer": "https://www.selcuksportshdbd813bd00f.xyz/",
+        "Origin": "https://www.selcuksportshdbd813bd00f.xyz"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
     }
   ]
 }

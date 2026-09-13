@@ -2,7 +2,7 @@
   "id": "community.anthology.catalogs",
   "version": "1.7.0",
   "name": "Anthology — Türkçe Kataloglar",
-  "description": "DDizi, DiziBox, SineWix, FilmModu, AnimeciX, TurkAnime, ÇizgiMax ve Canlı TV ana sayfa keşif katalogları.",
+  "description": "Canlı TV/Spor/Haber/Ulusal, SineWix, FilmModu, AnimeciX, DDizi ve DiziMom ana sayfa keşif katalogları.",
   "resources": [
     "catalog",
     "meta",
@@ -18,12 +18,13 @@
     "tv:",
     "dizimom:",
     "ddizi:",
-    "dizibox:",
     "sinewix:",
     "filmmodu:",
     "animecix:",
-    "turkanime:",
-    "cizgimax:",
+    "setfilmizle:",
+    "kultfilmler:",
+    "hdfilmdelisi:",
+    "hdfilmizle:",
     "tv_",
     "iptv_",
     "tmdb:"
@@ -32,108 +33,9 @@
   "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
   "catalogs": [
     {
-      "type": "series",
-      "id": "anthology_ddizi",
-      "name": "DDizi — Popüler Yerli Diziler",
-      "extra": [
-        {
-          "name": "search",
-          "isRequired": false
-        }
-      ]
-    },
-    {
-      "type": "series",
-      "id": "anthology_dizibox",
-      "name": "DiziBox — Popüler Yabancı Diziler",
-      "extra": [
-        {
-          "name": "search",
-          "isRequired": false
-        }
-      ]
-    },
-    {
-      "type": "series",
-      "id": "anthology_dizimom",
-      "name": "DiziMom — Popüler Diziler",
-      "extra": [
-        {
-          "name": "search",
-          "isRequired": false
-        }
-      ]
-    },
-    {
-      "type": "movie",
-      "id": "anthology_sinewix_movies",
-      "name": "SineWix — Popüler Filmler",
-      "extra": [
-        {
-          "name": "search",
-          "isRequired": false
-        }
-      ]
-    },
-    {
-      "type": "series",
-      "id": "anthology_sinewix_series",
-      "name": "SineWix — Popüler Diziler",
-      "extra": [
-        {
-          "name": "search",
-          "isRequired": false
-        }
-      ]
-    },
-    {
-      "type": "movie",
-      "id": "anthology_filmmodu",
-      "name": "FilmModu — Son Eklenen Filmler",
-      "extra": [
-        {
-          "name": "search",
-          "isRequired": false
-        }
-      ]
-    },
-    {
-      "type": "series",
-      "id": "anthology_animecix",
-      "name": "AnimeciX — Popüler Animeler",
-      "extra": [
-        {
-          "name": "search",
-          "isRequired": false
-        }
-      ]
-    },
-    {
-      "type": "series",
-      "id": "anthology_turkanime",
-      "name": "TurkAnime — Popüler Animeler",
-      "extra": [
-        {
-          "name": "search",
-          "isRequired": false
-        }
-      ]
-    },
-    {
-      "type": "series",
-      "id": "anthology_cizgimax",
-      "name": "ÇizgiMax — Çizgi Diziler",
-      "extra": [
-        {
-          "name": "search",
-          "isRequired": false
-        }
-      ]
-    },
-    {
       "type": "tv",
       "id": "anthology_canli_tv",
-      "name": "Anthology — Canlı TV",
+      "name": "📺 Canlı TV — Tüm Kanallar",
       "extra": [
         {
           "name": "search",
@@ -148,18 +50,7 @@
     {
       "type": "tv",
       "id": "anthology_canli_spor",
-      "name": "Anthology — Canlı Spor",
-      "extra": [
-        {
-          "name": "search",
-          "isRequired": false
-        }
-      ]
-    },
-    {
-      "type": "tv",
-      "id": "anthology_canli_haber",
-      "name": "Anthology — Canlı Haber",
+      "name": "⚽ Canlı Spor — BeIN / S Sport / Tivibu / Exxen",
       "extra": [
         {
           "name": "search",
@@ -170,7 +61,84 @@
     {
       "type": "tv",
       "id": "anthology_ulusal",
-      "name": "Anthology — Ulusal Kanallar",
+      "name": "🇹🇷 Ulusal Kanallar — TRT / ATV / Kanal D / Show / Star / NOW / TV8",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "tv",
+      "id": "anthology_canli_haber",
+      "name": "📰 Canlı Haber — NTV / Habertürk / TRT Haber / CNN Türk",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "movie",
+      "id": "anthology_sinewix_movies",
+      "name": "🎬 SineWix — Popüler Filmler",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "series",
+      "id": "anthology_sinewix_series",
+      "name": "📺 SineWix — Popüler Diziler",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "movie",
+      "id": "anthology_filmmodu",
+      "name": "🎞️ FilmModu — Son Eklenen Filmler",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "series",
+      "id": "anthology_dizimom",
+      "name": "🔥 DiziMom — Popüler Diziler",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "series",
+      "id": "anthology_ddizi",
+      "name": "🏠 DDizi — Yerli Diziler",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "series",
+      "id": "anthology_animecix",
+      "name": "🌸 AnimeciX — Animeler",
       "extra": [
         {
           "name": "search",
