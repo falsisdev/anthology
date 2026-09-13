@@ -192,9 +192,12 @@ async function extractStreamsFromFilmPage(pageUrl, base) {
 
         var ajaxMatch = html.match(/["'](https?:[^"']*wp-admin\/admin-ajax\.php)["']/);
         var ajaxUrl = ajaxMatch ? ajaxMatch[1].replace(/\\\//g, '/') : (base + '/wp-admin/admin-ajax.php');
-        var nonceMatch = html.match(/data-nonce="([a-z0-9]+)"/i);
-        var nonce = nonceMatch ? nonceMatch[1] : '';
-        if (!nonce) return [];
+        var nonceMatches = [...html.matchAll(/data-nonce="([a-z0-9]+)"/gi)].map(function(m){return m[1];});
+        var ajaxVideoNonce = (html.match(/window\.STF_AJAX[\s\S]*?video\s*:\s*"([a-z0-9]+)"/)||[])[1] || '';
+        var nonces = [];
+        if (ajaxVideoNonce) nonces.push(ajaxVideoNonce);
+        for (var _ni=0; _ni<nonceMatches.length; _ni++) if (nonces.indexOf(nonceMatches[_ni])===-1) nonces.push(nonceMatches[_ni]);
+        if (nonces.length===0) return [];
 
         var players = [];
         var seenP = new Set();
@@ -224,11 +227,13 @@ async function extractStreamsFromFilmPage(pageUrl, base) {
 
         var seenUrls = new Set();
         for (var i = 0; i < Math.min(players.length, 4); i++) {
+            var gotStreamForPlayer = false;
+            for (var nIdx=0; nIdx<nonces.length && !gotStreamForPlayer; nIdx++) {
             try {
                 var pl = players[i];
                 var form = new URLSearchParams();
                 form.append('action', 'get_video_url');
-                form.append('nonce', nonce);
+                form.append('nonce', nonces[nIdx]);
                 form.append('post_id', pl.id);
                 form.append('player_name', pl.name);
                 form.append('part_key', pl.key);
@@ -244,10 +249,11 @@ async function extractStreamsFromFilmPage(pageUrl, base) {
                 }, 15000);
                 if (!aRes.ok) continue;
                 var aj = await aRes.json();
+                if (!aj || aj.success===false) continue;
                 var setplayUrl = aj && aj.data && ((aj.data.stream && aj.data.stream.url) || aj.data.url);
                 if (!setplayUrl) continue;
                 setplayUrl = setplayUrl.replace(/\\\//g, '/');
-                if (seenUrls.has(setplayUrl)) continue;
+                if (seenUrls.has(setplayUrl)) { gotStreamForPlayer=true; continue; }
                 seenUrls.add(setplayUrl);
 
                 var spRes = await fetchWithTimeout(setplayUrl, {
@@ -267,13 +273,6 @@ async function extractStreamsFromFilmPage(pageUrl, base) {
                 if (!fp || !fp.manifestUrl) continue;
 
                 var xsp = makeXSp(fp.sp, fp.spT);
-                var manRes = await fetchWithTimeout(fp.manifestUrl, {
-                    headers: { 'User-Agent': UA, 'Referer': fp.referer, 'X-Sp': xsp }
-                }, 15000);
-                if (!manRes.ok) continue;
-                var manText = await manRes.text();
-                if (!manText.includes('#EXTM3U')) continue;
-
                 var sHeaders = { 'User-Agent': UA, 'Referer': fp.referer, 'X-Sp': xsp };
                 streams.push({
                     name: 'HDFilmIzle',
@@ -287,8 +286,10 @@ async function extractStreamsFromFilmPage(pageUrl, base) {
                     behaviorHints: { notWebReady: true, proxyHeaders: { request: sHeaders } },
                     subtitles: fp.subtitles || []
                 });
+                gotStreamForPlayer=true;
                 if (streams.length > 0) break;
             } catch (e) {}
+            }
         }
     } catch (e) {}
     return streams;

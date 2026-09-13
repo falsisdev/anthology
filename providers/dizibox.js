@@ -245,6 +245,29 @@ function safeB64Decode(str) {
     return '';
 }
 
+async function resolveHighestVariant(masterUrl, headers) {
+    try {
+        const r = await fetch(masterUrl, { headers: headers || HEADERS });
+        if (!r.ok) return masterUrl;
+        const txt = await r.text();
+        if (!txt.includes('#EXT-X-STREAM-INF')) return masterUrl;
+        const variants = [...txt.matchAll(/#EXT-X-STREAM-INF[^:]*:[^\n]*BANDWIDTH=(\d+)[^\n]*\n([^\n]+)/gi)]
+            .map(function(m) { return { bw: parseInt(m[1]) || 0, url: m[2].trim() }; })
+            .filter(function(v) { return v.url && !v.url.startsWith('#'); });
+        if (variants.length === 0) return masterUrl;
+        variants.sort(function(a,b){ return b.bw - a.bw; });
+        var best = variants[0].url;
+        if (best.startsWith('http')) return best;
+        var base = masterUrl.split('?')[0];
+        base = base.substring(0, base.lastIndexOf('/') + 1);
+        if (best.startsWith('/')) {
+            var origin = masterUrl.match(/^(https?:\/\/[^/]+)/);
+            return (origin ? origin[1] : '') + best;
+        }
+        return base + best;
+    } catch (e) { return masterUrl; }
+}
+
 async function extractMolystreamFromEpisodePage(epUrl) {
     try {
         const epRes = await fetch(epUrl, { headers: HEADERS });
@@ -281,7 +304,7 @@ async function extractMolystreamFromEpisodePage(epUrl) {
                     if (src.startsWith('//')) src = 'https:' + src;
                     else if (src.startsWith('/')) src = BASE_URL + src;
 
-                    // Source A: VidMoly via moly.php (Tab 2 - Moly+) -> Produces unified master.m3u8 (58min single stream, no resets)
+                    // Source A: VidMoly via moly.php (Tab 2 - Moly+) -> master yerine en yüksek varyant
                     if (src.includes('moly.php')) {
                         try {
                             const mRes = await fetch(src, { headers: { ...HEADERS, Referer: tabUrl } });
@@ -303,10 +326,11 @@ async function extractMolystreamFromEpisodePage(epUrl) {
                                                     'User-Agent': HEADERS['User-Agent'],
                                                     'Referer': 'https://vidmoly.biz/'
                                                 };
+                                                var finalVmUrl = await resolveHighestVariant(m3u8Match[1], vmHeaders);
                                                 streams.unshift({
                                                     name: 'DiziBox',
                                                     title: '⌜ DiziBox ⌟ | VidMoly (1080p HLS)',
-                                                    url: m3u8Match[1],
+                                                    url: finalVmUrl,
                                                     quality: '1080p',
                                                     provider: 'dizibox',
                                                     headers: vmHeaders,

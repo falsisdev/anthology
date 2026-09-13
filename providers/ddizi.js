@@ -266,6 +266,30 @@ async function getMeta(args) {
     }
 }
 
+async function resolveHighestVariant(masterUrl, headers) {
+    try {
+        const r = await fetch(masterUrl, { headers: headers || HEADERS });
+        if (!r.ok) return masterUrl;
+        const txt = await r.text();
+        if (!txt.includes('#EXT-X-STREAM-INF')) return masterUrl;
+        const variants = [...txt.matchAll(/#EXT-X-STREAM-INF[^:]*:[^\n]*BANDWIDTH=(\d+)[^\n]*\n([^\n]+)/gi)]
+            .map(function(m) { return { bw: parseInt(m[1]) || 0, url: m[2].trim() }; })
+            .filter(function(v) { return v.url && !v.url.startsWith('#'); });
+        if (variants.length === 0) return masterUrl;
+        variants.sort(function(a,b){ return b.bw - a.bw; });
+        var best = variants[0].url;
+        if (best.startsWith('http')) return best;
+        // relative
+        var base = masterUrl.split('?')[0];
+        base = base.substring(0, base.lastIndexOf('/') + 1);
+        if (best.startsWith('/')) {
+            var origin = masterUrl.match(/^(https?:\/\/[^/]+)/);
+            return (origin ? origin[1] : '') + best;
+        }
+        return base + best;
+    } catch (e) { return masterUrl; }
+}
+
 async function extractStreamsFromEpisodePage(epUrl) {
     try {
         const epRes = await fetch(epUrl, { headers: HEADERS });
@@ -328,10 +352,24 @@ async function extractStreamsFromEpisodePage(epUrl) {
                         streamHeaders['Referer'] = src;
                     }
 
+                    // Tüm parçalar birleşik akış: master yerine en yüksek varyantın doğrudan media playlistini ver
+                    var finalUrl = vUrl;
+                    if (vUrl.includes('master.m3u8') || vUrl.includes('.m3u8')) {
+                        try {
+                            var maybeVariant = await resolveHighestVariant(vUrl, streamHeaders);
+                            if (maybeVariant && maybeVariant !== vUrl) {
+                                finalUrl = maybeVariant;
+                                // media playlist ise quality'yi güncelle
+                                if (finalUrl.includes('media-3') || finalUrl.includes('1080')) quality = '1080p';
+                                else if (finalUrl.includes('media-2') || finalUrl.includes('720')) quality = '720p';
+                                else if (finalUrl.includes('media-1') || finalUrl.includes('480')) quality = '480p';
+                            }
+                        } catch (e) {}
+                    }
                     streams.push({
                         name: 'DDizi',
                         title: `⌜ DDizi ⌟ | ${server} (${quality})`,
-                        url: vUrl,
+                        url: finalUrl,
                         quality,
                         provider: 'ddizi',
                         headers: streamHeaders,
