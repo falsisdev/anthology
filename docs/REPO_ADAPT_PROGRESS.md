@@ -32,16 +32,21 @@ AnthologyDiziM3U, AnthologyFilmM3U, animecix, anthology_aksiyon, anthology_anima
 - Bu tur: SetFilmIzle + FullHDFilmizlesene (ikisi de movie; SetFilmIzle tv de destekler). Test hedefleri: movie 603 The Matrix; tv 1396 Breaking Bad S01E01 (SetFilmIzle için).
 
 ## 2026-09-13 — Uygulama başladı
-- [x] anthology_spor.js multi-source (NetVGold): katalog 49 sabit; beIN1 2 stream, beIN2/3 3 stream, S Sport doğru ayrıştı (S Sport 2 karışması düzeltildi).
-- [ ] providers/setfilmizle.js (YENİ)
-- [ ] providers/fullhdfilmizlesene.js (YENİ)
-- [ ] manifest.json kayıtları
-- [ ] test_all_providers + spor multi-stream doğrulama
-- [ ] commit + push
+- [x] anthology_spor.js multi-source (NetVGold): katalog 49 sabit; beIN1 2 stream, beIN2/3 3 stream, S Sport doğru ayrıştı.
+- [x] providers/setfilmizle.js (YENİ) — 1. committe pushlandı (266c780).
+- [x] FullHDFilmizlesene / FilmMakinesi / HDFilmCehennemi canlılık: 403 Cloudflare → atlandı (JS taşınamaz).
+- [x] providers/kultfilmler.js (YENİ), providers/hdfilmdelisi.js (YENİ), providers/hdfilmizle.js (YENİ) — SetFilmIzle fastplay/X-Sp zinciri genelleştirildi.
+- [x] providers/filmmakinesi.js denendi → search AJAX boş (knl_ajax_search cookie+bypass gerektiriyor), rafa kaldırıldı (dosya silindi).
+- [x] manifest.json 39 sağlayıcıya çıkarıldı; test 39/39 PASS.
 
-## SON DURUM (2026-09-13 ~22:5x)
-> - anthology_spor.js çok-kaynaklı doğrulandı (katalog 49 sabit; beIN1 2, beIN2/3 3, S Sport ayrışık).
-> - providers/setfilmizle.js YENİ yazıldı ve doğrulandı: Matrix 603 -> 1080p HLS + 2 altyazı; BB 1396 S01E01 -> 1080p HLS + 3 altyazı; katalog 24 meta; dizi meta 63 video.
-> - manifest.json'a setfilmizle kaydedildi; spor açıklaması güncellendi.
-> - test_all_providers: 34/36 PASS. Yeni SetFilmIzle PASS, spor katalog 49 PASS. 2 FAIL önceden mevcut ve bu değişiklikten bağımsız: dizibox + yabancidizi (ana sayfalar server-side fetch'e 403/CF dönüyor; dosyalarına dokunulmadı).
-> - Sıradaki (sonraki tur): FullHDFilmizlesene (403 CF, riskli), Dizilla (AES, orta-zor), FilmMakinesi.ch (403), HDFilmCehennemi.nl (403), HDFilmIzle, InatBox, RecTV, TLCtr, Vavoo, Watch2Movies, KultFilmler, FullHDFilm, WebDramaTurkey, BelgeselX, CineJoy, DiziPalOriginal + spor Faz-2 (Zbahis CF bypass, Arda/İnter player çözümleme; Selçuk WASM atlandı).
+## 2026-09-13 ~23:18 — Ara commit sonrası durum (hızlı devam)
+> - anthology_spor.js çok-kaynaklı (49 katalog sabit; beIN1 2, beIN2/3 3, S Sport ayrışık) — ilk committe.
+> - Yeni film sağlayıcıları: SetFilmIzle (Matrix 603 + BB S01E01 1080p+altyazı), KultFilmler (Matrix 603 Vidpapi HLS), HDFilmDelisi (Matrix VidMody via player.vidmody.com/WkVo… → vidmody.com/vs/tt0133093), HDFilmIzle (Ink/Vip FastPlay + SPG.cerceve → /video/wKhq… → X-Sp master.txt).
+> - test_all_providers: 37→39, 39/39 PASS (önce 2 FAIL olan dizibox/yabancidizi toparladı; diziyou dalgalı ama şu tur PASS).
+> - Sırada: Dizilla (516 satır, AES NextData+Hotlinger/ContentX → orta-zor), FullHDFilm (hdfilm.us self-signed cert dalgalı), BelgeselX (Google CSE tokenli arama), InatBox/RecTV/TLCtr/Vavoo(lokke.app imzası)/Watch2Movies — hepsi için canlılık + port edilebilirlik notlandı.
+
+## SON DURUM (2026-09-13 23:2x)
+> - 39 sağlayıcı, 100% PASS. 4 yeni film sağlayıcısı eklendi (setfilmizle, kultfilmler, hdfilmdelisi, hdfilmizle); spor multi-source aktif.
+> - FilmMakinesi rafa kalktı; FullHDFilmizlesene/HDFilmCehennemi 403 CF, hdfilm.us TLS self-signed → sonraki turlarda denenir.
+> - Sonraki tur hızlı kazanım sırası: Dizilla → BelgeselX → InatBox → Vavoo (auth) → RecTV/TLCtr.
+> - Spor Faz-2: Zbahis mono.m3u8 (data-reality.com CF 403), Arda/İnter JS-gömülü → ayrı branch'te ele alınmalı.
