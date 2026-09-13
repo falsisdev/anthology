@@ -147,8 +147,8 @@
       "id": "tv:ExxenTV.tr",
       "type": "tv",
       "name": "Exxen TV HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.jpg",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
       "description": "Exxen TV HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
@@ -158,8 +158,8 @@
       "id": "tv:TJKTV.tr",
       "type": "tv",
       "name": "TJK TV HD",
-      "poster": "https://i.imgur.com/3zHdkYG.png",
-      "background": "https://i.imgur.com/3zHdkYG.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tjktv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tjktv.png",
       "description": "TJK TV HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
@@ -169,8 +169,8 @@
       "id": "tv:NBATV.tr",
       "type": "tv",
       "name": "NBA TV HD",
-      "poster": "https://i.imgur.com/QmSc6kh.png",
-      "background": "https://i.imgur.com/QmSc6kh.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nbatv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nbatv.png",
       "description": "NBA TV HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
@@ -180,8 +180,8 @@
       "id": "tv:FBTV.tr",
       "type": "tv",
       "name": "FB TV HD",
-      "poster": "https://i.imgur.com/qBVqtYd.png",
-      "background": "https://i.imgur.com/qBVqtYd.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fbtv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fbtv.png",
       "description": "FB TV HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
@@ -191,8 +191,8 @@
       "id": "tv:GSTV.tr",
       "type": "tv",
       "name": "GS TV HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/gstv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/gstv.png",
       "description": "GS TV HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
@@ -202,8 +202,8 @@
       "id": "tv:SportsTV.tr",
       "type": "tv",
       "name": "Sports TV HD",
-      "poster": "https://i.imgur.com/tGTVcVe.jpg",
-      "background": "https://i.imgur.com/tGTVcVe.jpg",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportstv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportstv.png",
       "description": "Sports TV HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
@@ -213,8 +213,8 @@
       "id": "tv:IdmanTV.tr",
       "type": "tv",
       "name": "iDMAN Tv HD",
-      "poster": "https://i.imgur.com/fM9FOrZ.png",
-      "background": "https://i.imgur.com/fM9FOrZ.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/idmantv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/idmantv.png",
       "description": "iDMAN Tv HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"

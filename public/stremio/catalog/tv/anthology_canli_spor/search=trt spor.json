@@ -4,8 +4,8 @@
       "id": "tv:TRTSpor.tr",
       "type": "tv",
       "name": "TRT Spor HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtspor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtspor.png",
       "description": "TRT Spor HD Canlı Spor Yayını",
       "genres": [
         "Spor"
@@ -15,8 +15,8 @@
       "id": "tv:TRTSporYildiz.tr",
       "type": "tv",
       "name": "TRT Spor Yıldız HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtsporyildiz.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtsporyildiz.png",
       "description": "TRT Spor Yıldız HD Canlı Spor Yayını",
       "genres": [
         "Spor"

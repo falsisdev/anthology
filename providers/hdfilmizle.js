@@ -6,7 +6,9 @@
  * Kaynak: Cloudstream HDFilmIzle (SetPlay) mantığının Nuvio JS uyarlaması.
  */
 
-var BASES = ['https://www.hdfilmizle.ink', 'https://www.hdfilmizle.vip'];
+var CONFIG = (typeof require !== 'undefined' ? (function(){ try { return require('./config'); } catch(e) { return require('./urls'); } })() : null) || (typeof globalThis !== 'undefined' ? (globalThis.CONFIG || globalThis.URLS) : null) || {};
+var URLS = CONFIG.urls || CONFIG;
+var BASES = (URLS.hdfilmizle && URLS.hdfilmizle.bases) || ['https://www.hdfilmizle.ink', 'https://www.hdfilmizle.vip'];
 var TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
 
 var UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36';

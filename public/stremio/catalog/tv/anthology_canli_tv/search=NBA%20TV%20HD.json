@@ -4,8 +4,8 @@
       "id": "tv:NBATV.tr",
       "type": "tv",
       "name": "NBA TV HD",
-      "poster": "https://i.imgur.com/QmSc6kh.png",
-      "background": "https://i.imgur.com/QmSc6kh.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nbatv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nbatv.png",
       "description": "NBA TV HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"

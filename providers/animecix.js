@@ -3,9 +3,11 @@
  * Anime dizi ve filmleri için doğrudan TauVideo MP4 akışları sunar.
  */
 
-var BASE_URL = 'https://animecix.tv';
-var XEH_KEY = '7Y2ozlO+QysR5w9Q6Tupmtvl9jJp7ThFH8SB+Lo7NvZjgjqRSqOgcT2v4ISM9sP10LmnlYI8WQ==.xrlyOBFS5BHjQ2Lk';
-var TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
+var CONFIG = (typeof require !== 'undefined' ? (function(){ try { return require('./config'); } catch(e) { return require('./urls'); } })() : null) || (typeof globalThis !== 'undefined' ? (globalThis.CONFIG || globalThis.URLS) : null) || {};
+var URLS = CONFIG.urls || CONFIG;
+var BASE_URL = (URLS.animecix && URLS.animecix.base) || 'https://animecix.tv';
+var XEH_KEY = (CONFIG.api_keys && CONFIG.api_keys.animecix_xeh) || '7Y2ozlO+QysR5w9Q6Tupmtvl9jJp7ThFH8SB+Lo7NvZjgjqRSqOgcT2v4ISM9sP10LmnlYI8WQ==.xrlyOBFS5BHjQ2Lk';
+var TMDB_API_KEY = (CONFIG.api_keys && CONFIG.api_keys.tmdb) || '500330721680edb6d5f7f12ba7cd9023';
 
 var HEADERS = {
   'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/122.0.0.0 Safari/537.36',

@@ -4,8 +4,8 @@
       "id": "tv:SmartSpor1.tr",
       "type": "tv",
       "name": "Smart Spor 1 HD",
-      "poster": "https://i.imgur.com/blu6v6P.png",
-      "background": "https://i.imgur.com/blu6v6P.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/smartspor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/smartspor.png",
       "description": "Smart Spor 1 HD Canlı Spor Yayını",
       "genres": [
         "Spor"

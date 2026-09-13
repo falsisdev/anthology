@@ -3,8 +3,8 @@
     "id": "tv:TJKTV.tr",
     "type": "tv",
     "name": "TJK TV HD",
-    "poster": "https://i.imgur.com/3zHdkYG.png",
-    "background": "https://i.imgur.com/3zHdkYG.png",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tjktv.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tjktv.png",
     "description": "TJK TV HD Canlı Spor Yayını",
     "genres": [
       "Spor"

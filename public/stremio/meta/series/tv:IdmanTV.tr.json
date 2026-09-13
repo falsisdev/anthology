@@ -3,8 +3,8 @@
     "id": "tv:IdmanTV.tr",
     "type": "tv",
     "name": "iDMAN Tv HD",
-    "poster": "https://i.imgur.com/fM9FOrZ.png",
-    "background": "https://i.imgur.com/fM9FOrZ.png",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/idmantv.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/idmantv.png",
     "description": "iDMAN Tv HD Canlı Spor Yayını",
     "genres": [
       "Spor"

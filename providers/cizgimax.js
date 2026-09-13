@@ -3,7 +3,9 @@
  * Çizgi diziler, animeler ve animasyon filmleri için doğrudan TauVideo & Sibnet akışları sağlar.
  */
 
-var BASE_URL = 'https://cizgimax.online';
+var CONFIG = (typeof require !== 'undefined' ? (function(){ try { return require('./config'); } catch(e) { return require('./urls'); } })() : null) || (typeof globalThis !== 'undefined' ? (globalThis.CONFIG || globalThis.URLS) : null) || {};
+var URLS = CONFIG.urls || CONFIG;
+var BASE_URL = (URLS.cizgimax && URLS.cizgimax.base) || 'https://cizgimax.online';
 var TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
 
 var HEADERS = {

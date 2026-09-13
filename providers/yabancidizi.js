@@ -4,7 +4,9 @@
  * Yabancı diziler kataloğu ve doğrudan 1080p HLS master.m3u8 (VidMoly) akışları.
  */
 
-var BASE_URL = 'https://yabancidizi.news';
+var CONFIG = (typeof require !== 'undefined' ? (function(){ try { return require('./config'); } catch(e) { return require('./urls'); } })() : null) || (typeof globalThis !== 'undefined' ? (globalThis.CONFIG || globalThis.URLS) : null) || {};
+var URLS = CONFIG.urls || CONFIG;
+var BASE_URL = (URLS.yabancidizi && URLS.yabancidizi.base) || 'https://yabancidizi.news';
 var TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
 
 var HEADERS = {

@@ -7,8 +7,10 @@
 var cheerio = require('cheerio-without-node-native');
 
 const PROVIDER_NAME = 'DiziYou';
-const BASE_URL = 'https://www.diziyou.one'; 
-const STORAGE_URL = 'https://storage.diziyou.one';
+var CONFIG = (typeof require !== 'undefined' ? (function(){ try { return require('./config'); } catch(e) { return require('./urls'); } })() : null) || (typeof globalThis !== 'undefined' ? (globalThis.CONFIG || globalThis.URLS) : null) || {};
+var URLS = CONFIG.urls || CONFIG;
+const BASE_URL = (URLS.diziyou && URLS.diziyou.base) || 'https://www.diziyou.one';
+const STORAGE_URL = (URLS.diziyou && URLS.diziyou.storage) || 'https://storage.diziyou.one';
 const TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
 
 const WORKING_HEADERS = {

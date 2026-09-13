@@ -3,8 +3,8 @@
     "id": "tv:beINSportsMax2.tr",
     "type": "tv",
     "name": "BeIN Sports Max 2 HD",
-    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
-    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.jpg",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
     "description": "BeIN Sports Max 2 HD Canlı Spor Yayını",
     "genres": [
       "Spor"

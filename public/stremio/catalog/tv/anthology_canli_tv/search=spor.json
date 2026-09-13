@@ -26,8 +26,8 @@
       "id": "tv:TRTSpor.tr",
       "type": "tv",
       "name": "TRT Spor HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtspor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtspor.png",
       "description": "TRT Spor HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
@@ -37,8 +37,8 @@
       "id": "tv:TRTSporYildiz.tr",
       "type": "tv",
       "name": "TRT Spor Yıldız HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtsporyildiz.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtsporyildiz.png",
       "description": "TRT Spor Yıldız HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
@@ -48,8 +48,8 @@
       "id": "tv:TivibuSpor.tr",
       "type": "tv",
       "name": "Tivibu Spor HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.png",
       "description": "Tivibu Spor HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
@@ -59,8 +59,8 @@
       "id": "tv:TivibuSpor1.tr",
       "type": "tv",
       "name": "Tivibu Spor 1 HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.png",
       "description": "Tivibu Spor 1 HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
@@ -70,8 +70,8 @@
       "id": "tv:TivibuSpor2.tr",
       "type": "tv",
       "name": "Tivibu Spor 2 HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.png",
       "description": "Tivibu Spor 2 HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
@@ -81,8 +81,8 @@
       "id": "tv:TivibuSpor3.tr",
       "type": "tv",
       "name": "Tivibu Spor 3 HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.png",
       "description": "Tivibu Spor 3 HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
@@ -92,8 +92,8 @@
       "id": "tv:TivibuSpor4.tr",
       "type": "tv",
       "name": "Tivibu Spor 4 HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.jpg",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.png",
       "description": "Tivibu Spor 4 HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
@@ -103,8 +103,8 @@
       "id": "tv:SmartSpor1.tr",
       "type": "tv",
       "name": "Smart Spor 1 HD",
-      "poster": "https://i.imgur.com/blu6v6P.png",
-      "background": "https://i.imgur.com/blu6v6P.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/smartspor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/smartspor.png",
       "description": "Smart Spor 1 HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
@@ -114,8 +114,8 @@
       "id": "tv:SmartSpor2.tr",
       "type": "tv",
       "name": "Smart Spor 2 HD",
-      "poster": "https://i.imgur.com/qyUKCUa.png",
-      "background": "https://i.imgur.com/qyUKCUa.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/smartspor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/smartspor.png",
       "description": "Smart Spor 2 HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
@@ -125,8 +125,8 @@
       "id": "tv:TabiiSpor.tr",
       "type": "tv",
       "name": "Tabii Spor HD",
-      "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
-      "background": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
       "description": "Tabii Spor HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
@@ -136,8 +136,8 @@
       "id": "tv:TabiiSpor1.tr",
       "type": "tv",
       "name": "Tabii Spor 1 HD",
-      "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
-      "background": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
       "description": "Tabii Spor 1 HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
@@ -147,8 +147,8 @@
       "id": "tv:TabiiSpor2.tr",
       "type": "tv",
       "name": "Tabii Spor 2 HD",
-      "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
-      "background": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
       "description": "Tabii Spor 2 HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
@@ -158,8 +158,8 @@
       "id": "tv:TabiiSpor3.tr",
       "type": "tv",
       "name": "Tabii Spor 3 HD",
-      "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
-      "background": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
       "description": "Tabii Spor 3 HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
@@ -169,8 +169,8 @@
       "id": "tv:TabiiSpor4.tr",
       "type": "tv",
       "name": "Tabii Spor 4 HD",
-      "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
-      "background": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
       "description": "Tabii Spor 4 HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
@@ -180,8 +180,8 @@
       "id": "tv:TabiiSpor5.tr",
       "type": "tv",
       "name": "Tabii Spor 5 HD",
-      "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
-      "background": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
       "description": "Tabii Spor 5 HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
@@ -191,8 +191,8 @@
       "id": "tv:TabiiSpor6.tr",
       "type": "tv",
       "name": "Tabii Spor 6 HD",
-      "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
-      "background": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
       "description": "Tabii Spor 6 HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
@@ -202,8 +202,8 @@
       "id": "tv:TabiiSpor7.tr",
       "type": "tv",
       "name": "Tabii Spor 7 HD",
-      "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
-      "background": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
       "description": "Tabii Spor 7 HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
@@ -213,8 +213,8 @@
       "id": "tv:TabiiSpor8.tr",
       "type": "tv",
       "name": "Tabii Spor 8 HD",
-      "poster": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
-      "background": "https://cms-tabii-public-image.tabii.com/int/w300/43020.jpeg",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
       "description": "Tabii Spor 8 HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
