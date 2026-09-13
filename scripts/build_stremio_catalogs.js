@@ -9,19 +9,20 @@ const stremioManifest = {
   id: "community.anthology.catalogs",
   version: "1.7.0",
   name: "Anthology — Türkçe Kataloglar",
-  description: "DDizi, DiziBox, SineWix, FilmModu, AnimeciX, TurkAnime, ÇizgiMax ve Canlı TV ana sayfa keşif katalogları.",
+  description: "Canlı TV/Spor/Haber/Ulusal, SineWix, FilmModu, AnimeciX, DDizi ve DiziMom ana sayfa keşif katalogları.",
   resources: ["catalog", "meta", "stream"],
   types: ["movie", "series", "tv", "channel"],
   idPrefixes: [
     "tv:",
     "dizimom:",
     "ddizi:",
-    "dizibox:",
     "sinewix:",
     "filmmodu:",
     "animecix:",
-    "turkanime:",
-    "cizgimax:",
+    "setfilmizle:",
+    "kultfilmler:",
+    "hdfilmdelisi:",
+    "hdfilmizle:",
     "tv_",
     "iptv_",
     "tmdb:"
@@ -30,63 +31,9 @@ const stremioManifest = {
   background: "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
   catalogs: [
     {
-      type: "series",
-      id: "anthology_ddizi",
-      name: "DDizi — Popüler Yerli Diziler",
-      extra: [{ name: "search", isRequired: false }]
-    },
-    {
-      type: "series",
-      id: "anthology_dizibox",
-      name: "DiziBox — Popüler Yabancı Diziler",
-      extra: [{ name: "search", isRequired: false }]
-    },
-    {
-      type: "series",
-      id: "anthology_dizimom",
-      name: "DiziMom — Popüler Diziler",
-      extra: [{ name: "search", isRequired: false }]
-    },
-    {
-      type: "movie",
-      id: "anthology_sinewix_movies",
-      name: "SineWix — Popüler Filmler",
-      extra: [{ name: "search", isRequired: false }]
-    },
-    {
-      type: "series",
-      id: "anthology_sinewix_series",
-      name: "SineWix — Popüler Diziler",
-      extra: [{ name: "search", isRequired: false }]
-    },
-    {
-      type: "movie",
-      id: "anthology_filmmodu",
-      name: "FilmModu — Son Eklenen Filmler",
-      extra: [{ name: "search", isRequired: false }]
-    },
-    {
-      type: "series",
-      id: "anthology_animecix",
-      name: "AnimeciX — Popüler Animeler",
-      extra: [{ name: "search", isRequired: false }]
-    },
-    {
-      type: "series",
-      id: "anthology_turkanime",
-      name: "TurkAnime — Popüler Animeler",
-      extra: [{ name: "search", isRequired: false }]
-    },
-    {
-      type: "series",
-      id: "anthology_cizgimax",
-      name: "ÇizgiMax — Çizgi Diziler",
-      extra: [{ name: "search", isRequired: false }]
-    },
-    {
       type: "tv",
       id: "anthology_canli_tv",
-      name: "Anthology — Canlı TV",
+      name: "📺 Canlı TV — Tüm Kanallar",
       extra: [
         { name: "search", isRequired: false },
         { name: "genre", isRequired: false }
@@ -95,19 +42,55 @@ const stremioManifest = {
     {
       type: "tv",
       id: "anthology_canli_spor",
-      name: "Anthology — Canlı Spor",
-      extra: [{ name: "search", isRequired: false }]
-    },
-    {
-      type: "tv",
-      id: "anthology_canli_haber",
-      name: "Anthology — Canlı Haber",
+      name: "⚽ Canlı Spor — BeIN / S Sport / Tivibu / Exxen",
       extra: [{ name: "search", isRequired: false }]
     },
     {
       type: "tv",
       id: "anthology_ulusal",
-      name: "Anthology — Ulusal Kanallar",
+      name: "🇹🇷 Ulusal Kanallar — TRT / ATV / Kanal D / Show / Star / NOW / TV8",
+      extra: [{ name: "search", isRequired: false }]
+    },
+    {
+      type: "tv",
+      id: "anthology_canli_haber",
+      name: "📰 Canlı Haber — NTV / Habertürk / TRT Haber / CNN Türk",
+      extra: [{ name: "search", isRequired: false }]
+    },
+    {
+      type: "movie",
+      id: "anthology_sinewix_movies",
+      name: "🎬 SineWix — Popüler Filmler",
+      extra: [{ name: "search", isRequired: false }]
+    },
+    {
+      type: "series",
+      id: "anthology_sinewix_series",
+      name: "📺 SineWix — Popüler Diziler",
+      extra: [{ name: "search", isRequired: false }]
+    },
+    {
+      type: "movie",
+      id: "anthology_filmmodu",
+      name: "🎞️ FilmModu — Son Eklenen Filmler",
+      extra: [{ name: "search", isRequired: false }]
+    },
+    {
+      type: "series",
+      id: "anthology_dizimom",
+      name: "🔥 DiziMom — Popüler Diziler",
+      extra: [{ name: "search", isRequired: false }]
+    },
+    {
+      type: "series",
+      id: "anthology_ddizi",
+      name: "🏠 DDizi — Yerli Diziler",
+      extra: [{ name: "search", isRequired: false }]
+    },
+    {
+      type: "series",
+      id: "anthology_animecix",
+      name: "🌸 AnimeciX — Animeler",
       extra: [{ name: "search", isRequired: false }]
     }
   ]
@@ -115,25 +98,28 @@ const stremioManifest = {
 
 const catalogConfigs = [
   {
-    catId: "anthology_ddizi",
-    type: "series",
-    file: "providers/ddizi.js",
-    args: { id: "ddizi_popular", type: "series" },
-    popularSearches: ["kizilcik", "kızılcık", "bahar", "yali capkini", "inci taneleri", "gaddar", "kurulus", "yargi", "hudutsuz", "teskilat", "arka sokaklar", "gonul dagi", "sandik kokusu", "sahane hayat", "ataturk", "prens", "gibi", "kulup", "terzi", "bozkir", "magarsus", "kus ucusu", "saygi", "fatma"]
+    catId: "anthology_canli_tv",
+    type: "tv",
+    file: "providers/M3U/ListM3u.js",
+    args: { id: "anthology_m3u_list", type: "tv" }
   },
   {
-    catId: "anthology_dizibox",
-    type: "series",
-    file: "providers/dizibox.js",
-    args: { id: "dizibox_popular", type: "series" },
-    popularSearches: ["breaking bad", "game of thrones", "the boys", "stranger things", "dexter", "sherlock", "dark", "chernobyl", "fargo", "true detective", "sopranos", "peaky blinders", "vikings", "the walking dead", "lost", "prison break", "house of the dragon", "better call saul", "the last of us", "the bear", "fallout"]
+    catId: "anthology_canli_spor",
+    type: "tv",
+    file: "providers/anthology_spor.js",
+    args: { id: "anthology_spor_list", type: "tv" }
   },
   {
-    catId: "anthology_dizimom",
-    type: "series",
-    file: "providers/dizimom.js",
-    args: { id: "dizimom_popular", type: "series" },
-    popularSearches: ["fatma", "bahar", "breaking bad", "game of thrones", "the boys", "stranger things", "dexter", "sherlock", "dark", "chernobyl", "fargo", "true detective", "sopranos", "peaky blinders", "vikings", "the walking dead", "house of the dragon", "better call saul", "the last of us", "the bear", "fallout"]
+    catId: "anthology_ulusal",
+    type: "tv",
+    file: "providers/anthology_ulusal.js",
+    args: { id: "anthology_ulusal_list", type: "tv" }
+  },
+  {
+    catId: "anthology_canli_haber",
+    type: "tv",
+    file: "providers/anthology_haber.js",
+    args: { id: "anthology_haber_list", type: "tv" }
   },
   {
     catId: "anthology_sinewix_movies",
@@ -156,49 +142,25 @@ const catalogConfigs = [
     popularSearches: ["fight club", "godfather", "matrix", "interstellar", "inception", "oppenheimer", "barbie", "dune", "gladiator", "lord of the rings", "harry potter", "batman", "dark knight", "avengers", "iron man", "spider-man", "avatar", "pulp fiction", "forrest gump", "seven"]
   },
   {
+    catId: "anthology_dizimom",
+    type: "series",
+    file: "providers/dizimom.js",
+    args: { id: "dizimom_popular", type: "series" },
+    popularSearches: ["fatma", "bahar", "breaking bad", "game of thrones", "the boys", "stranger things", "dexter", "sherlock", "dark", "chernobyl", "fargo", "true detective", "sopranos", "peaky blinders", "vikings", "the walking dead", "house of the dragon", "better call saul", "the last of us", "the bear", "fallout"]
+  },
+  {
+    catId: "anthology_ddizi",
+    type: "series",
+    file: "providers/ddizi.js",
+    args: { id: "ddizi_popular", type: "series" },
+    popularSearches: ["kizilcik", "kızılcık", "bahar", "yali capkini", "inci taneleri", "gaddar", "kurulus", "yargi", "hudutsuz", "teskilat", "arka sokaklar", "gonul dagi", "sandik kokusu", "sahane hayat", "ataturk", "prens", "gibi", "kulup", "terzi", "bozkir", "magarsus", "kus ucusu", "saygi", "fatma"]
+  },
+  {
     catId: "anthology_animecix",
     type: "series",
     file: "providers/animecix.js",
     args: { id: "animecix_popular", type: "series" },
     popularSearches: ["naruto", "one piece", "bleach", "attack on titan", "death note", "jujutsu kaisen", "demon slayer", "dragon ball", "hunter x hunter", "fullmetal", "my hero academia", "tokyo ghoul", "sword art online", "chainsaw man", "solo leveling"]
-  },
-  {
-    catId: "anthology_turkanime",
-    type: "series",
-    file: "providers/turkanime.js",
-    args: { id: "turkanime_popular", type: "series" },
-    popularSearches: ["naruto", "one piece", "bleach", "attack on titan", "death note", "jujutsu kaisen", "demon slayer", "dragon ball", "hunter x hunter", "fullmetal", "my hero academia", "tokyo ghoul", "sword art online", "chainsaw man", "solo leveling"]
-  },
-  {
-    catId: "anthology_cizgimax",
-    type: "series",
-    file: "providers/cizgimax.js",
-    args: { id: "cizgimax_popular", type: "series" },
-    popularSearches: ["avatar", "ben 10", "esrarengiz kasaba", "regular show", "surekli dizi", "adventure time", "samurai jack", "rick and morty", "south park", "simpsons", "sponge bob", "spider-man", "batman", "superman", "x-men", "star wars", "gumball", "ninja kaplumbagalar"]
-  },
-  {
-    catId: "anthology_canli_tv",
-    type: "tv",
-    file: "providers/M3U/ListM3u.js",
-    args: { id: "anthology_m3u_list", type: "tv" }
-  },
-  {
-    catId: "anthology_canli_spor",
-    type: "tv",
-    file: "providers/anthology_spor.js",
-    args: { id: "anthology_spor_list", type: "tv" }
-  },
-  {
-    catId: "anthology_canli_haber",
-    type: "tv",
-    file: "providers/anthology_haber.js",
-    args: { id: "anthology_haber_list", type: "tv" }
-  },
-  {
-    catId: "anthology_ulusal",
-    type: "tv",
-    file: "providers/anthology_ulusal.js",
-    args: { id: "anthology_ulusal_list", type: "tv" }
   }
 ];
 
@@ -515,7 +477,7 @@ function generateSearchTerms(title) {
 
   console.log("\n==================================================");
   console.log(`🎉 BUILD SUCCESSFUL!`);
-  console.log(`- 12 Catalogs Generated`);
+  console.log(`- ${catalogConfigs.length} Catalogs Generated`);
   console.log(`- ${totalCatalogItems} Total Catalog Items`);
   console.log(`- ${totalMetasWritten} Meta Files Created`);
   console.log(`- Output written to stremio/ and public/stremio/`);

@@ -323,7 +323,7 @@ async function extractStreamsFromContentPage(pageUrl) {
                 streams.push({
                     name: 'SetFilmIzle',
                     title: '⌜ SetFilmIzle ⌟ | FastPlay (1080p HLS)',
-                    url: fp.manifestUrl,
+                    url: fp.manifestUrl + '#.m3u8',
                     quality: '1080p',
                     provider: 'setfilmizle',
                     headers: sHeaders,

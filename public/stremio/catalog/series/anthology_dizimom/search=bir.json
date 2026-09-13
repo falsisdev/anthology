@@ -1,6 +1,18 @@
 {
   "metas": [
     {
+      "id": "dizimom:show:senden-baska-bir-ask-izle",
+      "type": "series",
+      "name": "Senden Başka Bir Aşk",
+      "poster": "https://www.dizimom.diy/wp-content/uploads/2026/09/a-love-other-than-yours.jpg",
+      "background": "https://www.dizimom.diy/wp-content/uploads/2026/09/a-love-other-than-yours.jpg",
+      "description": "Senden Başka Bir Aşk izle, 2026 Amazon Yapımı Senden Başka Bir Aşk (A Love Other Than Yours) kore dizisinin tüm bölümleri Türkçe dublaj veya Altyazılı olarak full hd görüntü kalitesiyle dizimom.diy farkıyla sizlerle, Onuncu yıllarında, rahat ilişkileri beklenmedik duygularla sınanan bir çift hakkında gerçekçi ve duygusal açıdan yankı uyandıran bir romantik hikâye.",
+      "genres": [
+        "Yabancı Dizi",
+        "DiziMom"
+      ]
+    },
+    {
       "id": "dizimom:show:sevdan-bir-ates-izle",
       "type": "series",
       "name": "Sevdan Bir Ateş",
