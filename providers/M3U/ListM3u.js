@@ -195,8 +195,8 @@ function getStreams(args) {
                                     seenUrls[urlLine] = true;
                                     var ytMatch = urlLine.match(/(?:watch\?v=|embed\/|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
                                     var sObj = {
-                                        name: encrypted ? '⌜ MahsunSports ⌟' : '⌜ Anthology ⌟',
-                                        title: aliasName + (encrypted ? ' [MahsunSports HD]' : (ytMatch ? ' [Canlı HD · YouTube]' : ' [Canlı HD]')),
+                                        name: encrypted ? '⌜ Anthology Spor ⌟' : '⌜ Anthology ⌟',
+                                        title: aliasName + (ytMatch ? ' [Canlı HD · YouTube]' : ' [Canlı HD]'),
                                         url: urlLine,
                                         behaviorHints: { isLive: true }
                                     };
