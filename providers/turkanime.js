@@ -31,46 +31,167 @@ function toSlug(str) {
     .replace(/^-|-$/g, '');
 }
 
-async function resolveTmdbInfo(id, mediaType) {
+async function resolveKitsu(kitsuId) {
   try {
-    let cleanId = String(id || '').trim();
-    if (cleanId.includes(':')) cleanId = cleanId.split(':')[0];
+    const cleanId = String(kitsuId).replace(/^kitsu:/, '').split(':')[0];
+    const res = await fetch(`https://kitsu.io/api/edge/anime/${cleanId}`);
+    if (!res.ok) return null;
+    const data = await res.json();
+    const attr = data && data.data && data.data.attributes;
+    if (!attr) return null;
+    const titles = [];
+    if (attr.titles) {
+      if (attr.titles.en_jp) titles.push(attr.titles.en_jp);
+      if (attr.titles.en) titles.push(attr.titles.en);
+      if (attr.titles.en_us) titles.push(attr.titles.en_us);
+    }
+    if (attr.canonicalTitle && !titles.includes(attr.canonicalTitle)) {
+      titles.push(attr.canonicalTitle);
+    }
+    if (Array.isArray(attr.abbreviatedTitles)) {
+      titles.push(...attr.abbreviatedTitles);
+    }
+    return {
+      title: attr.canonicalTitle || titles[0] || '',
+      origTitle: (attr.titles && attr.titles.en_jp) || titles[0] || '',
+      queries: [...new Set(titles.filter(Boolean))]
+    };
+  } catch (e) {
+    return null;
+  }
+}
 
-    let numericId = null;
-    let title = '';
-    let origTitle = '';
+async function resolveMediaInfo(idOrObj, mediaType, defaultSeason, defaultEpisode) {
+  let id = idOrObj;
+  let type = mediaType || 'tv';
+  let season = parseInt(defaultSeason) || 1;
+  let episode = parseInt(defaultEpisode) || 1;
 
-    if (cleanId.startsWith('tt')) {
-      const findRes = await fetch(`https://api.themoviedb.org/3/find/${cleanId}?api_key=${TMDB_API_KEY}&external_source=imdb_id`);
-      if (findRes.ok) {
-        const fData = await findRes.json();
-        const item = (mediaType === 'tv' || mediaType === 'series')
-          ? (fData.tv_results && fData.tv_results[0])
-          : (fData.movie_results && fData.movie_results[0]);
+  if (typeof idOrObj === 'object' && idOrObj !== null) {
+    id = idOrObj.id || idOrObj.imdbId || idOrObj.tmdbId || '';
+    type = idOrObj.type || type;
+    if (idOrObj.season !== undefined) season = parseInt(idOrObj.season) || season;
+    if (idOrObj.episode !== undefined) episode = parseInt(idOrObj.episode) || episode;
+  }
+
+  id = String(id || '').trim();
+  const isTv = (type === 'tv' || type === 'series');
+
+  if (id.includes(':')) {
+    const parts = id.split(':');
+    if (id.startsWith('kitsu:')) {
+      season = 1;
+      episode = parts.length >= 3 ? (parseInt(parts[2]) || 1) : (parseInt(parts[1]) || 1);
+    } else {
+      if (parts.length >= 3) {
+        season = parseInt(parts[parts.length - 2]) || season;
+        episode = parseInt(parts[parts.length - 1]) || episode;
+      } else if (parts.length === 2 && !isNaN(parseInt(parts[1]))) {
+        episode = parseInt(parts[1]) || episode;
+      }
+    }
+  }
+
+  if (id.startsWith('kitsu:')) {
+    const kitsuData = await resolveKitsu(id);
+    if (kitsuData) {
+      return {
+        numericId: null,
+        title: kitsuData.title,
+        origTitle: kitsuData.origTitle,
+        queries: kitsuData.queries,
+        season,
+        episode,
+        isTv
+      };
+    }
+  }
+
+  let cleanId = id;
+  if (cleanId.includes(':')) cleanId = cleanId.split(':')[0];
+
+  let numericId = null;
+  let title = '';
+  let origTitle = '';
+  const queries = [];
+
+  if (cleanId.startsWith('tt')) {
+    try {
+      const fRes = await fetch(`https://api.themoviedb.org/3/find/${cleanId}?api_key=${TMDB_API_KEY}&external_source=imdb_id`);
+      if (fRes.ok) {
+        const fData = await fRes.json();
+        const item = isTv ? (fData.tv_results && fData.tv_results[0]) : (fData.movie_results && fData.movie_results[0]);
         if (item) {
           numericId = item.id;
           title = item.name || item.title || '';
           origTitle = item.original_name || item.original_title || '';
+        } else {
+          const revItem = isTv ? (fData.movie_results && fData.movie_results[0]) : (fData.tv_results && fData.tv_results[0]);
+          if (revItem) {
+            numericId = revItem.id;
+            title = revItem.name || revItem.title || '';
+            origTitle = revItem.original_name || revItem.original_title || '';
+          }
         }
       }
-    } else {
-      numericId = cleanId;
-    }
-
-    if (numericId && (!title || !origTitle)) {
-      const type = (mediaType === 'tv' || mediaType === 'series') ? 'tv' : 'movie';
-      const tRes = await fetch(`https://api.themoviedb.org/3/${type}/${numericId}?api_key=${TMDB_API_KEY}&language=tr-TR`);
-      if (tRes.ok) {
-        const tData = await tRes.json();
-        title = tData.name || tData.title || title;
-        origTitle = tData.original_name || tData.original_title || origTitle;
-      }
-    }
-
-    return { title, origTitle, numericId };
-  } catch (e) {
-    return { title: '', origTitle: '', numericId: id };
+    } catch (e) {}
+  } else if (!isNaN(parseInt(cleanId))) {
+    numericId = parseInt(cleanId);
   }
+
+  if (numericId) {
+    const endpointType = isTv ? 'tv' : 'movie';
+    try {
+      const [resEn, resTr] = await Promise.all([
+        fetch(`https://api.themoviedb.org/3/${endpointType}/${numericId}?api_key=${TMDB_API_KEY}&language=en-US&append_to_response=alternative_titles`),
+        fetch(`https://api.themoviedb.org/3/${endpointType}/${numericId}?api_key=${TMDB_API_KEY}&language=tr-TR`)
+      ]);
+
+      let dataEn = resEn.ok ? await resEn.json() : null;
+      let dataTr = resTr.ok ? await resTr.json() : null;
+
+      if (!dataEn && !dataTr && isTv) {
+        const mRes = await fetch(`https://api.themoviedb.org/3/movie/${numericId}?api_key=${TMDB_API_KEY}&language=en-US&append_to_response=alternative_titles`);
+        if (mRes.ok) dataEn = await mRes.json();
+      }
+
+      if (dataEn) {
+        const nameEn = dataEn.name || dataEn.title || '';
+        if (nameEn) queries.push(nameEn);
+        const origName = dataEn.original_name || dataEn.original_title || '';
+        if (origName && /^[a-zA-Z0-9\s:;.,'\"!?-]+$/.test(origName)) {
+          queries.push(origName);
+        }
+        title = nameEn || title;
+        origTitle = origName || origTitle;
+
+        const alts = dataEn.alternative_titles ? (dataEn.alternative_titles.results || dataEn.alternative_titles.titles || []) : [];
+        for (const a of alts) {
+          const t = a.title || a.name || '';
+          if (t && /^[a-zA-Z0-9\s:;.,'\"!?-]+$/.test(t) && !queries.includes(t)) {
+            queries.push(t);
+          }
+        }
+      }
+
+      if (dataTr) {
+        const nameTr = dataTr.name || dataTr.title || '';
+        if (nameTr && !queries.includes(nameTr)) {
+          queries.push(nameTr);
+        }
+      }
+    } catch (e) {}
+  }
+
+  return {
+    numericId,
+    title,
+    origTitle,
+    queries: [...new Set(queries.filter(Boolean))],
+    season,
+    episode,
+    isTv
+  };
 }
 
 async function resolveSibnet(iframeUrl) {
@@ -267,13 +388,6 @@ async function getMeta(args) {
 
 async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
   try {
-    if (typeof tmdbId === 'object' && tmdbId && tmdbId.id) {
-      return getStreams(tmdbId.id, mediaType || 'tv', seasonNum, episodeNum);
-    }
-
-    let finalSeason = parseInt(seasonNum) || 1;
-    let finalEpisode = parseInt(episodeNum) || 1;
-
     let epHref = null;
     let animeHref = null;
 
@@ -283,77 +397,82 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
     } else if (typeof tmdbId === 'string' && tmdbId.startsWith('turkanime:')) {
       const slug = tmdbId.replace(/^turkanime:(?:anime:|ep:)?/, '');
       animeHref = `${BASE_URL}/anime/${slug}`;
-    } else {
-      if (typeof tmdbId === 'string' && tmdbId.includes(':')) {
-        const parts = tmdbId.split(':');
-        if (parts.length >= 3) {
-          finalSeason = parseInt(parts[1]) || finalSeason;
-          finalEpisode = parseInt(parts[2]) || finalEpisode;
+    }
+
+    const info = await resolveMediaInfo(tmdbId, mediaType, seasonNum, episodeNum);
+    const finalEpisode = info.episode;
+    const finalSeason = info.season;
+
+    if (!animeHref && !epHref) {
+      const queries = info.queries;
+      if (!queries || queries.length === 0) return [];
+
+      // 1. Direct slug prediction across all queries (Romaji, English, etc.)
+      const slugCandidates = [];
+      for (const q of queries) {
+        const s = toSlug(q);
+        if (s && s.length >= 2 && !slugCandidates.includes(s)) {
+          slugCandidates.push(s);
+          if (q.includes(':') || q.includes('-')) {
+            const base = toSlug(q.split(/[:\-]/)[0]);
+            if (base && base.length >= 2 && !slugCandidates.includes(base)) {
+              slugCandidates.push(base);
+            }
+          }
         }
       }
-
-      const info = await resolveTmdbInfo(tmdbId, mediaType);
-      const targetTr = ultraClean(info.title);
-      const targetEn = ultraClean(info.origTitle);
-
-      // 1. Direct slug prediction (avoids /arama rate limit)
-      const slugCandidates = [
-        toSlug(info.origTitle),
-        toSlug(info.title)
-      ].filter(Boolean);
 
       for (const s of slugCandidates) {
         const testUrl = `${BASE_URL}/anime/${s}`;
-        const tRes = await fetch(testUrl, { headers: HEADERS });
-        if (tRes.ok) {
-          const tHtml = await tRes.text();
-          if (tHtml.includes('ajax/bolumler&animeId=')) {
-            animeHref = testUrl;
-            break;
-          }
-        }
-      }
-
-      // 2. Search fallback if slug did not match
-      if (!animeHref) {
-        const queries = [info.title, info.origTitle].filter(Boolean);
-        for (const q of queries) {
-          const searchRes = await fetch(`${BASE_URL}/arama`, {
-            method: 'POST',
-            headers: Object.assign({}, HEADERS, { 'Content-Type': 'application/x-www-form-urlencoded' }),
-            body: `arama=${encodeURIComponent(q)}`
-          });
-          if (!searchRes.ok) continue;
-          const searchHtml = await searchRes.text();
-
-          const itemRegex = /<div[^>]*class=["'][^"']*panel-title[^"']*["'][^>]*>\s*<a[^>]*href=["']([^"']+)["'][^>]*>(.*?)<\/a>/gis;
-          let match;
-          const candidates = [];
-          while ((match = itemRegex.exec(searchHtml)) !== null) {
-            const h = match[1];
-            const t = match[2].replace(/<[^>]+>/g, '').trim();
-            candidates.push({ href: h, title: t });
-            const cClean = ultraClean(t);
-            if (cClean === targetTr || cClean === targetEn ||
-                (targetTr && cClean.includes(targetTr)) ||
-                (targetEn && cClean.includes(targetEn))) {
-              animeHref = h;
+        try {
+          const tRes = await fetch(testUrl, { headers: HEADERS });
+          if (tRes.ok) {
+            const tHtml = await tRes.text();
+            if (tHtml.includes('ajax/bolumler&animeId=')) {
+              animeHref = testUrl;
               break;
             }
           }
+        } catch (e) {}
+      }
 
-          if (animeHref) break;
-          if (!animeHref && candidates.length > 0) {
-            animeHref = candidates[0].href;
-            break;
-          }
+      // 2. Search fallback
+      if (!animeHref) {
+        for (const q of queries.slice(0, 6)) {
+          try {
+            const searchRes = await fetch(`${BASE_URL}/arama`, {
+              method: 'POST',
+              headers: Object.assign({}, HEADERS, { 'Content-Type': 'application/x-www-form-urlencoded' }),
+              body: `arama=${encodeURIComponent(q)}`
+            });
+            if (!searchRes.ok) continue;
+            const searchHtml = await searchRes.text();
+            const itemRegex = /<div[^>]*class=["'][^"']*panel-title[^"']*["'][^>]*>\s*<a[^>]*href=["']([^"']+)["'][^>]*>(.*?)<\/a>/gis;
+            let match;
+            const candidates = [];
+            const qClean = ultraClean(q);
+            while ((match = itemRegex.exec(searchHtml)) !== null) {
+              const h = match[1];
+              const t = match[2].replace(/<[^>]+>/g, '').trim();
+              candidates.push({ href: h, title: t });
+              const cClean = ultraClean(t);
+              if (cClean === qClean || (qClean && cClean.includes(qClean)) || (cClean && qClean.includes(cClean))) {
+                animeHref = h;
+                break;
+              }
+            }
+            if (animeHref) break;
+            if (!animeHref && candidates.length > 0) {
+              animeHref = candidates[0].href;
+              break;
+            }
+          } catch (e) {}
         }
       }
     }
 
     if (!epHref) {
       if (!animeHref) return [];
-
       if (animeHref.startsWith('//')) animeHref = 'https:' + animeHref;
       else if (!animeHref.startsWith('http')) animeHref = `${BASE_URL}/${animeHref.replace(/^\//, '')}`;
 
@@ -361,12 +480,12 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
       if (!detRes.ok) return [];
       const detHtml = await detRes.text();
 
+      const ajaxMatch = detHtml.match(/ajax\/bolumler&animeId=(\d+)/i);
+      if (!ajaxMatch) return [];
+
       const tokenMatch = detHtml.match(/<meta[^>]*name=["']_token["'][^>]*content=["']([^"']+)["']/i) ||
                          detHtml.match(/token\s*=\s*['"]([^'"]+)['"]/);
       const token = tokenMatch ? tokenMatch[1] : '';
-
-      const ajaxMatch = detHtml.match(/ajax\/bolumler&animeId=(\d+)/i);
-      if (!ajaxMatch) return [];
 
       const bolumlerUrl = `${BASE_URL}/${ajaxMatch[0]}`;
       const bRes = await fetch(bolumlerUrl, {
@@ -388,10 +507,15 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
         const text = epMatch[2].replace(/<[^>]+>/g, '').trim();
         if (attrs.includes('/video/')) {
           const hrefMatch = attrs.match(/href=["']([^"']+)["']/i);
+          const titleMatch = attrs.match(/title=["']([^"']+)["']/i);
           if (hrefMatch) {
             const h = hrefMatch[1];
-            candidates.push({ href: h, text });
-            const epNumMatch = text.match(/(\d+)\s*\.?\s*(?:bölüm|bolum)/i) || h.match(/-(\d+)-bolum/i);
+            const t = titleMatch ? titleMatch[1] : text;
+            candidates.push({ href: h, text: t });
+
+            const epNumMatch = t.match(/(\d+)\s*\.?\s*(?:bölüm|bolum)/i) ||
+                               h.match(/-(\d+)-bolum/i) ||
+                               text.match(/(\d+)\s*$/);
             if (epNumMatch && parseInt(epNumMatch[1]) === finalEpisode) {
               epHref = h;
               break;
@@ -400,11 +524,14 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
         }
       }
 
-
+      if (!epHref && candidates.length > 0) {
+        if (!info.isTv || candidates.length === 1 || finalEpisode === 1) {
+          epHref = candidates[0].href;
+        }
+      }
     }
 
     if (!epHref) return [];
-
     if (epHref.startsWith('//')) epHref = 'https:' + epHref;
     else if (!epHref.startsWith('http')) epHref = `${BASE_URL}/${epHref.replace(/^\//, '')}`;
 
@@ -452,34 +579,31 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
 
         // 2. Direct Sibnet iframe
         const ifrMatch = pHtml.match(/<iframe[^>]*src=["']([^"']+)["']/i);
-        if (ifrMatch) {
-          const src = ifrMatch[1];
-          if (src.includes('sibnet.ru') || src.includes('shell.php')) {
-            const sib = await resolveSibnet(src);
-            if (sib && sib.url && !seenUrls.has(sib.url)) {
-              seenUrls.add(sib.url);
-              streams.push({
-                name: 'TurkAnime - Sibnet',
-                title: 'TurkAnime | Sibnet [1080p MP4]',
-                url: sib.url,
-                quality: '1080p',
-                headers: sib.headers,
-                behaviorHints: {
-                  notWebReady: true,
-                  proxyHeaders: {
-                    request: sib.headers
-                  }
+        if (ifrMatch && (ifrMatch[1].includes('sibnet.ru') || ifrMatch[1].includes('shell.php'))) {
+          const sib = await resolveSibnet(ifrMatch[1]);
+          if (sib && sib.url && !seenUrls.has(sib.url)) {
+            seenUrls.add(sib.url);
+            streams.push({
+              name: 'TurkAnime - Sibnet',
+              title: 'TurkAnime | Sibnet [1080p MP4]',
+              url: sib.url,
+              quality: '1080p',
+              headers: sib.headers,
+              behaviorHints: {
+                notWebReady: true,
+                proxyHeaders: {
+                  request: sib.headers
                 }
-              });
-            }
+              }
+            });
           }
         }
 
-        // 3. Sub-buttons inside videosec (e.g. SIBNET buttons)
-        const subIcerik = [...pHtml.matchAll(/IndexIcerik\('([^']+)'/gi)].map(m => m[1]);
-        for (const subRel of subIcerik) {
-          const subFull = `${BASE_URL}/${subRel.replace(/^\//, '')}`;
-          const sRes = await fetch(subFull, {
+        // 3. SIBNET Button search directly inside pHtml
+        const sibButtons = [...pHtml.matchAll(/IndexIcerik\(\s*['"]([^'"]+)['"][\s\S]*?SIBNET/gi)].map(m => m[1]);
+        for (const sRel of sibButtons) {
+          const sFull = `${BASE_URL}/${sRel.replace(/^\//, '')}`;
+          const sRes = await fetch(sFull, {
             headers: Object.assign({}, HEADERS, {
               'X-Requested-With': 'XMLHttpRequest',
               'Referer': epHref
