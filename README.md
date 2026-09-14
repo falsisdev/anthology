@@ -92,7 +92,7 @@ Nuvio ve Stremio ana ekranında canlı TV kanallarını kategorilere ayrılmış
 | <img src="assets/canli/trtcocuk.png" width="16" height="16" valign="middle" /> **Anthology Çocuk & Aile** | Lunedor & Zerk Aile Arşivi | 1080p HLS | Aile & Çocuk Sineması |
 | <img src="assets/logo_1_transparent.png" width="16" height="16" valign="middle" /> **Anthology IMDb Top Rated** | En Yüksek Puanlı Başyapıtlar | 1080p HLS | Kült & IMDb Top 250 Ödüllü Sinema |
 | **FilmModu** | filmmodu.one (ImgsAPI) | 4K & 1080p HLS | Dublaj & Altyazı Seçenekleri |
-| **DiziPal** | dizipal2127.com (Imagestoo) | 1080p HLS | Dublaj & Altyazı Seçenekleri |
+| **DiziPal** | dizipal2131.com (Imagestoo) | 1080p HLS | Dublaj & Altyazı Seçenekleri |
 | **JetFilmİzle** | jetfilmizle.now (Videopark & PlayerX) | 1080p MP4 / HLS | Dublaj & Çoklu Dil Seçenekleri |
 | **SinemaCX** | sinema.gg (Player.filmizle.in) | 1080p HLS | Dublaj & Altyazı Seçenekleri |
 | **SineWix** | sinewix (snwixdepo) | 1080p Direct MKV | Çift Ses DUAL |
@@ -113,7 +113,7 @@ Nuvio ve Stremio ana ekranında canlı TV kanallarını kategorilere ayrılmış
 | <img src="assets/logo_1_transparent.png" width="16" height="16" valign="middle" /> **Anthology Yabancı Dizi** | Zerk DUAL Master CDN | 1080p HLS | Popüler Yabancı Dizi Arşivi |
 | **YabancıDizi** | yabancidizi.news (VidMoly Master) | 1080p HLS | Popüler Yabancı Diziler (Dublaj & Altyazı) |
 | **SezonlukDizi** | sezonlukdizi.cc (VidMoly) | 1080p HLS | Dublaj & Altyazı |
-| **DiziPal** | dizipal2127.com (FormationFeed) | 1080p HLS | Dublaj & Altyazı |
+| **DiziPal** | dizipal2131.com (FormationFeed) | 1080p HLS | Dublaj & Altyazı |
 | **DiziYou** | diziyou.one (Storage CDN) | 1080p HLS | Dublaj + TR VTT |
 | **SineWix** | sinewix (snwixdepo) | 1080p Direct MKV | Çift Ses DUAL |
 | **Vidlink** | vidlink.pro (Global CDN) | 1080p MP4 | Türkçe & Global |
