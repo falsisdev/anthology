@@ -157,10 +157,10 @@ Nuvio ve Stremio ana ekranında canlı TV kanallarını kategorilere ayrılmış
 
 <br>
 
-- <img src="https://i.pinimg.com/736x/20/f8/53/20f853787e15c584b40cb92aee225029.jpg" width="18" height="18" valign="middle" /> **BeIN Sports:** BeIN Sports 1, 2, 3, 4, 5 & Max 1, Max 2 HD (MahsunSports)
-- <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/S_Sport_Plus_Logo.png" width="18" height="18" valign="middle" /> **S Sport:** S Sport 1 HD, S Sport 2 HD & S Sport Plus HD (MahsunSports)
-- <img src="https://upload.wikimedia.org/wikipedia/tr/thumb/3/36/Tivibu_spor_logosu.jpg/250px-Tivibu_spor_logosu.jpg" width="18" height="18" valign="middle" /> **Tivibu Spor:** Tivibu Spor HD, Tivibu Spor 1, 2, 3, 4 HD (MahsunSports)
-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK9InesAS1UOC0SncC59Td7MRuowocxr7VkTw3zMisTjzQ0kQICzZj8qWI&s=10" width="18" height="18" valign="middle" /> **Exxen Spor:** Exxen TV & Exxen Spor 1, 2, 3, 4, 5, 6, 7, 8 HD (MahsunSports)
+- <img src="https://i.pinimg.com/736x/20/f8/53/20f853787e15c584b40cb92aee225029.jpg" width="18" height="18" valign="middle" /> **BeIN Sports:** BeIN Sports 1, 2, 3, 4, 5 & Max 1, Max 2 HD
+- <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/S_Sport_Plus_Logo.png" width="18" height="18" valign="middle" /> **S Sport:** S Sport 1 HD, S Sport 2 HD & S Sport Plus HD
+- <img src="https://upload.wikimedia.org/wikipedia/tr/thumb/3/36/Tivibu_spor_logosu.jpg/250px-Tivibu_spor_logosu.jpg" width="18" height="18" valign="middle" /> **Tivibu Spor:** Tivibu Spor HD, Tivibu Spor 1, 2, 3, 4 HD
+- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK9InesAS1UOC0SncC59Td7MRuowocxr7VkTw3zMisTjzQ0kQICzZj8qWI&s=10" width="18" height="18" valign="middle" /> **Exxen Spor:** Exxen TV & Exxen Spor 1, 2, 3, 4, 5, 6, 7, 8 HD
 - <img src="https://images.seeklogo.com/logo-png/39/2/trt-logo-png_seeklogo-399831.png" width="18" height="18" valign="middle" /> **Ulusal & Diğer Spor:** TRT Spor HD, TRT Spor Yıldız HD, A Spor HD, HT Spor HD, TV8,5 HD, Smart Spor 1-2, EuroSport 1-2, NBA TV, FB TV, TJK TV, Sports TV, CBC Sport, iDMAN TV
 
 ### 📺 Ulusal, Haber, Belgesel & Müzik Kanalları

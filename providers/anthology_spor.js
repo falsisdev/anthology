@@ -151,8 +151,8 @@ function getStreams(args) {
                 return channels.slice(0, 5).map(function(ch) {
                     var encrypted = isEncryptedSport(ch);
                     return {
-                        name: encrypted ? '⌜ MahsunSports ⌟' : '⌜ Anthology Spor ⌟',
-                        title: ch.name + (encrypted ? ' [MahsunSports HD]' : ' [Canlı HD]'),
+                        name: '⌜ Anthology Spor ⌟',
+                        title: ch.name + ' [Canlı HD]',
                         url: ch.url,
                         headers: encrypted ? _MAHSUN_HEADERS : _HEADERS,
                         behaviorHints: { isLive: true }
@@ -184,16 +184,16 @@ function getStreams(args) {
             var encrypted = isEncryptedSport(matched);
 
             if (encrypted) {
-                // Şifreli kanallar: MahsunSports altyapısı üzerinden sunulur
+                // Şifreli kanallar: Canlı spor yayınları
                 streams.push({
-                    name: '⌜ MahsunSports ⌟',
-                    title: matched.name + ' [MahsunSports HD]',
+                    name: '⌜ Anthology Spor ⌟',
+                    title: matched.name + ' [Canlı HD]',
                     url: matched.url,
                     headers: _MAHSUN_HEADERS,
                     behaviorHints: { isLive: true }
                 });
 
-                // Alternatif MahsunSports yedek akışları
+                // Alternatif yedek akışlar
                 var key = cleanKey(matched.id.replace(/^tv:/, ''));
                 var backupUrl = null;
                 if (key.includes('beinsports1')) backupUrl = 'https://andro.evrenesoglu99.click/checklist/androstreamlivebs1.m3u8';
@@ -205,8 +205,8 @@ function getStreams(args) {
 
                 if (backupUrl && backupUrl !== matched.url) {
                     streams.push({
-                        name: '⌜ MahsunSports · Yedek ⌟',
-                        title: matched.name + ' [MahsunSports Yedek]',
+                        name: '⌜ Anthology Spor · Yedek ⌟',
+                        title: matched.name + ' [Yedek Akış]',
                         url: backupUrl,
                         headers: _MAHSUN_HEADERS,
                         behaviorHints: { isLive: true }
