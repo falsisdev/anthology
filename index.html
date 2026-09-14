@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Anthology — Nuvio &amp; Stremio Türkçe Eklenti Deposu</title>
-  <meta name="description" content="Anthology — Nuvio ve Stremio için 41 doğrulanmış Türkçe film, dizi, anime, canlı TV eklentisi ve 100 canlı yayın kanalı.">
+  <meta name="description"
+    content="Anthology — Nuvio ve Stremio için 41 doğrulanmış Türkçe film, dizi, anime, canlı TV eklentisi ve 100 canlı yayın kanalı.">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <style>
     :root {
@@ -17,25 +19,25 @@
       --border: rgba(255, 255, 255, 0.08);
       --border-hover: rgba(255, 255, 255, 0.18);
       --border-glow: rgba(0, 230, 118, 0.35);
-      
+
       --accent: #00e676;
       --accent-rgb: 0, 230, 118;
       --accent-dim: rgba(0, 230, 118, 0.12);
       --accent-glow: rgba(0, 230, 118, 0.4);
       --accent-dark: #00b359;
-      
+
       --blue: #60a5fa;
       --blue-dim: rgba(96, 165, 250, 0.12);
       --blue-border: rgba(96, 165, 250, 0.25);
-      
+
       --purple: #a78bfa;
       --purple-dim: rgba(167, 139, 250, 0.12);
       --purple-border: rgba(167, 139, 250, 0.25);
-      
+
       --orange: #fb923c;
       --orange-dim: rgba(251, 146, 60, 0.12);
       --orange-border: rgba(251, 146, 60, 0.25);
-      
+
       --pink: #f472b6;
       --pink-dim: rgba(244, 114, 182, 0.12);
       --pink-border: rgba(244, 114, 182, 0.25);
@@ -54,7 +56,9 @@
       --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
     }
 
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -68,7 +72,7 @@
     body {
       font-family: var(--font-sans);
       background-color: var(--bg);
-      background-image: 
+      background-image:
         radial-gradient(circle at 20% 12%, rgba(0, 230, 118, 0.07) 0%, transparent 45%),
         radial-gradient(circle at 80% 15%, rgba(96, 165, 250, 0.08) 0%, transparent 45%),
         radial-gradient(circle at 50% 50%, rgba(167, 139, 250, 0.05) 0%, transparent 55%),
@@ -87,7 +91,10 @@
     }
 
     /* TYPOGRAPHY */
-    h1, h2, h3, h4 {
+    h1,
+    h2,
+    h3,
+    h4 {
       color: #fff;
       font-weight: 800;
       letter-spacing: -0.03em;
@@ -283,8 +290,17 @@
     }
 
     @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.85); }
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.4;
+        transform: scale(0.85);
+      }
     }
 
     .hero-title {
@@ -534,6 +550,7 @@
       gap: 16px;
       margin-bottom: 28px;
     }
+
     .platform-notice-col {
       background: rgba(15, 20, 34, 0.7);
       border: 1px solid var(--border);
@@ -544,14 +561,17 @@
       line-height: 1.6;
       color: var(--text-muted);
     }
+
     .platform-notice-col.nuvio-col {
       border-color: rgba(0, 230, 118, 0.25);
       background: linear-gradient(180deg, rgba(0, 230, 118, 0.05) 0%, rgba(15, 20, 34, 0.7) 100%);
     }
+
     .platform-notice-col.stremio-col {
       border-color: rgba(168, 85, 247, 0.25);
       background: linear-gradient(180deg, rgba(168, 85, 247, 0.05) 0%, rgba(15, 20, 34, 0.7) 100%);
     }
+
     .platform-notice-title {
       display: flex;
       align-items: center;
@@ -560,6 +580,7 @@
       color: #fff;
       margin-bottom: 8px;
     }
+
     .status-indicator-green {
       width: 8px;
       height: 8px;
@@ -568,6 +589,7 @@
       box-shadow: 0 0 8px var(--accent);
       flex-shrink: 0;
     }
+
     .status-indicator-purple {
       width: 8px;
       height: 8px;
@@ -576,6 +598,7 @@
       box-shadow: 0 0 8px var(--purple);
       flex-shrink: 0;
     }
+
     .stremio-dir-link {
       display: inline-block;
       margin-top: 8px;
@@ -584,6 +607,7 @@
       text-decoration: none;
       transition: color 0.15s;
     }
+
     .stremio-dir-link:hover {
       color: #c084fc;
       text-decoration: underline;
@@ -654,8 +678,15 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* INSTALL CARDS */
@@ -1037,11 +1068,35 @@
       letter-spacing: 0.4px;
     }
 
-    .tag-movie { background: var(--blue-dim); color: var(--blue); border: 1px solid var(--blue-border); }
-    .tag-tv { background: var(--purple-dim); color: var(--purple); border: 1px solid var(--purple-border); }
-    .tag-anime { background: var(--pink-dim); color: var(--pink); border: 1px solid var(--pink-border); }
-    .tag-live { background: var(--orange-dim); color: var(--orange); border: 1px solid var(--orange-border); }
-    .tag-genre { background: var(--cyan-dim); color: var(--cyan); border: 1px solid rgba(56, 189, 248, 0.25); }
+    .tag-movie {
+      background: var(--blue-dim);
+      color: var(--blue);
+      border: 1px solid var(--blue-border);
+    }
+
+    .tag-tv {
+      background: var(--purple-dim);
+      color: var(--purple);
+      border: 1px solid var(--purple-border);
+    }
+
+    .tag-anime {
+      background: var(--pink-dim);
+      color: var(--pink);
+      border: 1px solid var(--pink-border);
+    }
+
+    .tag-live {
+      background: var(--orange-dim);
+      color: var(--orange);
+      border: 1px solid var(--orange-border);
+    }
+
+    .tag-genre {
+      background: var(--cyan-dim);
+      color: var(--cyan);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
 
     /* CHANNELS SHOWCASE */
     .channels-showcase-grid {
@@ -1325,616 +1380,726 @@
     }
 
     @media (max-width: 640px) {
-      .nav-links, .nav-actions .nav-cta {
+
+      .nav-links,
+      .nav-actions .nav-cta {
         display: none;
       }
+
       .mobile-menu-btn {
         display: block;
       }
+
       .hero {
         padding: 56px 16px 44px;
       }
+
       .hero-title {
         font-size: 34px;
       }
+
       .hero-desc {
         font-size: 14.5px;
       }
+
       .manifest-bar {
         flex-direction: column;
         align-items: stretch;
         gap: 10px;
       }
+
       .copy-btn {
         width: 100%;
         justify-content: center;
       }
+
       .stats-container {
         grid-template-columns: repeat(2, 1fr);
       }
+
       .stat-number {
         font-size: 24px;
       }
+
       section {
         padding: 56px 16px;
       }
+
       .channels-showcase-grid {
         grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
       }
     }
   </style>
 </head>
+
 <body>
 
-<!-- TOP NAVBAR -->
-<nav>
-  <div class="nav-container">
-    <a href="#" class="nav-brand">
-      <img src="assets/logo_1_transparent.png" alt="Anthology Logo">
-      Anthology
-      <span class="version-pill">v2.0</span>
-    </a>
-    <div class="nav-links">
-      <a href="#install">Kurulum</a>
-      <a href="#providers">Eklentiler (41)</a>
-      <a href="#live">Canlı TV (100)</a>
-      <a href="#faq">SSS</a>
-      <a href="https://github.com/falsisdev/anthology" target="_blank" rel="noopener">GitHub</a>
-    </div>
-    <div class="nav-actions">
-      <button class="nav-cta" onclick="copyNuvioManifest()">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-        Depo Linkini Al
-      </button>
-      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
-      </button>
-    </div>
-  </div>
-</nav>
-
-<!-- MOBILE NAVIGATION DRAWER -->
-<div class="mobile-nav-panel" id="mobileNavPanel">
-  <a href="#install" onclick="toggleMobileNav()">📲 Kurulum Rehberi</a>
-  <a href="#providers" onclick="toggleMobileNav()">🎬 Eklentiler (41 Aktif)</a>
-  <a href="#live" onclick="toggleMobileNav()">📺 Canlı TV (100 Kanal)</a>
-  <a href="#faq" onclick="toggleMobileNav()">❓ Sıkça Sorulan Sorular</a>
-  <a href="https://github.com/falsisdev/anthology" target="_blank" rel="noopener">⭐️ GitHub'da Görüntüle</a>
-</div>
-
-<!-- HERO SECTION -->
-<div class="hero">
-  <div class="hero-container">
-    <div class="hero-badge-wrap">
-      <div class="hero-badge">
-        <span class="pulse-dot"></span>
-        <span>41 Doğrulanmış Eklenti · 6 Canlı TV Kataloğu · 100 Canlı Kanal</span>
-      </div>
-    </div>
-    
-    <h1 class="hero-title">
-      Türkçe Film, Dizi, Anime ve <span>100 Canlı TV</span> Deposu
-    </h1>
-    
-    <p class="hero-desc">
-      Nuvio ve Stremio için optimize edilmiş, doğrulanmış resmi CDN akışları, çift ses seçenekleri ve ana sayfa vitrin katalogları.
-    </p>
-
-    <div class="hero-actions">
-      <button class="btn btn-primary" onclick="copyNuvioManifest()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-        Nuvio'ya Ekle (Depo Kopyala)
-      </button>
-      <a class="btn btn-stremio" href="stremio://falsisdev.github.io/anthology/stremio/manifest.json">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-        Stremio'ya Tek Tıkla Ekle
+  <!-- TOP NAVBAR -->
+  <nav>
+    <div class="nav-container">
+      <a href="#" class="nav-brand">
+        <img src="assets/logo_1_transparent.png" alt="Anthology Logo">
+        Anthology
+        <span class="version-pill">v2.0</span>
       </a>
-      <a class="btn btn-ghost" href="#install">
-        Rehberi İncele ↓
-      </a>
-    </div>
-
-    <!-- QUICK MANIFEST URL BAR -->
-    <div class="manifest-bar-wrapper">
-      <div class="manifest-bar">
-        <span class="manifest-label">Nuvio URL</span>
-        <span class="manifest-url" id="manifestUrlText">https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json</span>
-        <button class="copy-btn" id="copyHeroBtn" onclick="copyNuvioManifest()">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-          <span>Kopyala</span>
+      <div class="nav-links">
+        <a href="#install">Kurulum</a>
+        <a href="#providers">Eklentiler (41)</a>
+        <a href="#live">Canlı TV (100)</a>
+        <a href="#faq">SSS</a>
+        <a href="https://github.com/falsisdev/anthology" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <div class="nav-actions">
+        <button class="nav-cta" onclick="copyNuvioManifest()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
+          </svg>
+          Depo Linkini Al
+        </button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
         </button>
       </div>
     </div>
+  </nav>
 
-    <!-- STATS -->
-    <div class="stats-container">
-      <div class="stat-box">
-        <div class="stat-number">41</div>
-        <div class="stat-label">Doğrulanmış Eklenti</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-number">6</div>
-        <div class="stat-label">Canlı TV Kataloğu</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-number">100</div>
-        <div class="stat-label">Canlı TV Kanalı</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-number">0 <span>TL</span></div>
-        <div class="stat-label">Ücretsiz &amp; Açık Kaynak</div>
-      </div>
-    </div>
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div class="mobile-nav-panel" id="mobileNavPanel">
+    <a href="#install" onclick="toggleMobileNav()">📲 Kurulum Rehberi</a>
+    <a href="#providers" onclick="toggleMobileNav()">🎬 Eklentiler (41 Aktif)</a>
+    <a href="#live" onclick="toggleMobileNav()">📺 Canlı TV (100 Kanal)</a>
+    <a href="#faq" onclick="toggleMobileNav()">❓ Sıkça Sorulan Sorular</a>
+    <a href="https://github.com/falsisdev/anthology" target="_blank" rel="noopener">⭐️ GitHub'da Görüntüle</a>
   </div>
-</div>
 
-<!-- INSTALLATION GUIDE WITH PLATFORM SWITCHER -->
-<section id="install">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-eyebrow">Kolay Kurulum</div>
-      <h2 class="section-title">Hangi Uygulamayı Kullanıyorsunuz?</h2>
-      <p class="section-desc">Platformunuza uygun adımları takip ederek saniyeler içinde zengin Türkçe içerik havuzunu etkinleştirin.</p>
-    </div>
-
-    <!-- PLATFORM NOTICE & COMPARISON -->
-    <div class="platform-notice-box">
-      <div class="platform-notice-col nuvio-col">
-        <div class="platform-notice-title">
-          <span class="status-indicator-green"></span>
-          <strong>🌟 Nuvio — Tüm Özellikler Sorunsuz &amp; Eksiksiz</strong>
-        </div>
-        <p>Nuvio kullanıcıları, Anthology deposundaki <strong>41 doğrulanmış video motorunun</strong> (film, dizi, anime, özel tür paketleri) yanı sıra <strong>6 Canlı TV kataloğunu ve 100 canlı yayın kanalını</strong> hiçbir kısıtlama olmadan tek çatı altında eksiksiz kullanabilir.</p>
-      </div>
-      <div class="platform-notice-col stremio-col">
-        <div class="platform-notice-title">
-          <span class="status-indicator-purple"></span>
-          <strong>🟣 Stremio — Yalnızca Canlı TV Katalogları</strong>
-        </div>
-        <p>Stremio eklentisi olarak kullanım <strong>yalnızca Canlı TV (6 katalog ve 100 kanal)</strong> ile sınırlıdır. Film ve dizi motorları Nuvio'nun yerel plugin mimarisine özeldir.<br>
-        <a href="https://stremio-addons.net/addons/anthology" target="_blank" rel="noopener" class="stremio-dir-link">🌐 Stremio-Addons Topluluk Dizininde Görüntüle &rarr;</a></p>
-      </div>
-    </div>
-
-    <!-- PLATFORM TABS -->
-    <div class="platform-tabs-nav">
-      <button class="tab-btn active" data-tab="nuvio" onclick="switchPlatformTab('nuvio')">
-        🌟 Nuvio (Tüm Özellikler)
-      </button>
-      <button class="tab-btn" data-tab="stremio" onclick="switchPlatformTab('stremio')">
-        🟣 Stremio (Canlı TV)
-      </button>
-    </div>
-
-    <!-- NUVIO TAB PANE -->
-    <div class="platform-tab-pane active" id="tab-nuvio">
-      <div class="install-grid">
-        <!-- 1. ADIM -->
-        <div class="install-card card-primary">
-          <div>
-            <div class="step-badge badge-nuvio">1. ADIM · ZORUNLU (VİDEO MOTORU)</div>
-            <h3>Video Scraper Motorunu Ekleyin</h3>
-            <p class="install-card-desc">
-              Bir film, dizi veya anime açtığınızda arka planda çalışan 41 Türkçe/yabancı video oynatma motorunu Nuvio'ya yükler.
-            </p>
-            <div class="route-pill">
-              <code>Nuvio</code> &rarr; <code>Ayarlar</code> &rarr; <code>Genel</code> &rarr; <code>İçerik &amp; Keşif</code> &rarr; <code>Pluginler</code> &rarr; <code>Depo Ekle</code>
-            </div>
-          </div>
-          <div class="manifest-bar" style="margin-top: 10px;">
-            <span class="manifest-url" style="font-size: 11px;">https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json</span>
-            <button class="copy-btn" onclick="copyText('https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json', '📋 Nuvio Plugin Depo URL kopyalandı!')">Kopyala</button>
-          </div>
-        </div>
-
-        <!-- 2. ADIM -->
-        <div class="install-card card-primary">
-          <div>
-            <div class="step-badge badge-nuvio">2. ADIM · ÖNERİLEN (CANLI TV VİTRİNİ)</div>
-            <h3>Anthology Canlı TV Kataloglarını Ekleyin</h3>
-            <p class="install-card-desc">
-              100 Canlı TV kanalını 6 vitrin kategorisinde (Tüm Kanallar, Ulusal, Canlı Spor, Canlı Haber, Belgesel &amp; Çocuk, Müzik) Nuvio ana sayfasına ekler.
-            </p>
-            <div class="route-pill">
-              <code>Nuvio</code> &rarr; <code>Eklentiler / Addons</code> &rarr; <code>Depo Ekle</code>
-            </div>
-          </div>
-          <div class="manifest-bar" style="margin-top: 10px;">
-            <span class="manifest-url" style="font-size: 11px;">https://falsisdev.github.io/anthology/stremio/manifest.json</span>
-            <button class="copy-btn" onclick="copyText('https://falsisdev.github.io/anthology/stremio/manifest.json', '📚 Canlı TV Katalog URL kopyalandı!')">Kopyala</button>
-          </div>
+  <!-- HERO SECTION -->
+  <div class="hero">
+    <div class="hero-container">
+      <div class="hero-badge-wrap">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          <span>41 Doğrulanmış Eklenti · 6 Canlı TV Kataloğu · 100 Canlı Kanal</span>
         </div>
       </div>
 
-      <div class="info-callout">
-        <div class="info-icon">💡</div>
-        <div class="info-body">
-          <strong>Nuvio'da Bu İki Adım Birlikte Nasıl Çalışır?</strong><br>
-          1. Adım, Nuvio içinde herhangi bir film veya dizi aradığınızda doğrudan en yüksek kalitede çalışan <em>.m3u8</em> veya <em>.mp4</em> video kaynaklarını getirir. 2. Adım ise Nuvio ana sayfanıza Canlı TV vitrinlerini yerleştirir; herhangi bir kanala tıkladığınızda yayın anında başlar.
-        </div>
-      </div>
-    </div>
+      <h1 class="hero-title">
+        Türkçe Film, Dizi, Anime ve <span>100 Canlı TV</span> Deposu
+      </h1>
 
-    <!-- STREMIO TAB PANE -->
-    <div class="platform-tab-pane" id="tab-stremio">
-      <div class="install-grid">
-        <div class="install-card card-stremio">
-          <div>
-            <div class="step-badge badge-stremio">TEK TIKLA KURULUM</div>
-            <h3>Stremio Canlı TV Addon</h3>
-            <p class="install-card-desc">
-              Stremio masaüstü veya mobil uygulamanız yüklüyse aşağıdaki butona basarak doğrudan "Install" onayını açabilirsiniz.
-            </p>
-            <div class="route-pill">
-              <code>Stremio</code> &rarr; <code>Addons (Eklentiler)</code> &rarr; <code>Community Addons</code> &rarr; <code>Anthology — Canlı TV</code>
-            </div>
-          </div>
-          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px;">
-            <a class="btn btn-stremio" style="flex: 1; padding: 10px 16px; font-size: 13px;" href="stremio://falsisdev.github.io/anthology/stremio/manifest.json">
-              🚀 Stremio'da Aç
-            </a>
-            <a class="btn btn-ghost" style="flex: 1; padding: 10px 16px; font-size: 13px;" target="_blank" rel="noopener" href="https://web.stremio.com/#/addons?addon=https%3A%2F%2Ffalsisdev.github.io%2Fanthology%2Fstremio%2Fmanifest.json">
-              🌐 Web Stremio
-            </a>
-            <a class="btn btn-ghost" style="flex: 1; padding: 10px 16px; font-size: 13px; border-color: rgba(168, 85, 247, 0.3); color: #d8b4fe;" target="_blank" rel="noopener" href="https://stremio-addons.net/addons/anthology">
-              📦 Stremio-Addons.net
-            </a>
-          </div>
-        </div>
-
-        <div class="install-card card-stremio">
-          <div>
-            <div class="step-badge badge-stremio">MANUEL URL İLE EKLEME</div>
-            <h3>Addon URL'sini Yapıştırın</h3>
-            <p class="install-card-desc">
-              Stremio arama çubuğuna veya eklenti ekleme kutusuna aşağıdaki bağlantıyı yapıştırarak da yükleyebilirsiniz.
-            </p>
-            <div class="route-pill">
-              Stremio eklentiler kutusuna yapıştırın ve <code>Enter</code> tuşuna basın.
-            </div>
-          </div>
-          <div class="manifest-bar" style="margin-top: 10px;">
-            <span class="manifest-url" style="font-size: 11px;">https://falsisdev.github.io/anthology/stremio/manifest.json</span>
-            <button class="copy-btn" onclick="copyText('https://falsisdev.github.io/anthology/stremio/manifest.json', '🟣 Stremio Addon URL kopyalandı!')">Kopyala</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="info-callout" style="border-color: rgba(168, 85, 247, 0.3); background: rgba(168, 85, 247, 0.04);">
-        <div class="info-icon">📺</div>
-        <div class="info-body">
-          <strong>Stremio'da Neler Kullanılabilir?</strong><br>
-          Stremio platformunda Anthology'nin <strong>6 resmi Canlı TV kataloğu</strong> (Ulusal Kanallar, Canlı Spor, Canlı Haber, Belgesel &amp; Çocuk, Müzik &amp; Eğlence) ve <strong>100 Canlı Kanal</strong> doğrudan resmi CDN bağlantılarıyla çalışır. Film ve dizi eklentileri ise Nuvio'nun yerel plugin motoruna özel olarak derlenmiştir.
-        </div>
-      </div>
-    </div>
-
-    <!-- COMPATIBILITY BADGES -->
-    <div class="devices-bar">
-      <div class="device-item">
-        <svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg>
-        Android TV / Google TV
-      </div>
-      <div class="device-item">
-        <svg viewBox="0 0 24 24"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg>
-        Windows &amp; macOS PC
-      </div>
-      <div class="device-item">
-        <svg viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
-        Android &amp; iOS Telefon / Tablet
-      </div>
-      <div class="device-item">
-        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-        Fire TV &amp; Web Oynatıcılar
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROVIDERS SECTION -->
-<section id="providers" style="background: rgba(10, 14, 26, 0.4);">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-eyebrow">Doğrulanmış Kaynaklar</div>
-      <h2 class="section-title">Eklentiler (41 Aktif)</h2>
-      <p class="section-desc">
-        Sadece gerçek, yüksek hızlı ve doğrudan çalışan HLS/MP4 akışları üreten resmi ve topluluk eklentileri.
+      <p class="hero-desc">
+        Nuvio ve Stremio için optimize edilmiş, doğrulanmış resmi CDN akışları, çift ses seçenekleri ve ana sayfa vitrin
+        katalogları.
       </p>
-    </div>
 
-    <!-- TOOLBAR -->
-    <div class="catalog-controls">
-      <div class="search-input-wrap">
-        <svg class="search-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-        <input type="text" class="search-input" id="providerSearchInput" placeholder="Eklenti ara (ör. SineWix, FilmModu, Vidlink, Anime)..." oninput="filterProviders()">
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="copyNuvioManifest()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+          </svg>
+          Nuvio'ya Ekle (Depo Kopyala)
+        </button>
+        <a class="btn btn-stremio" href="stremio://falsisdev.github.io/anthology/stremio/manifest.json">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+          Stremio'ya Tek Tıkla Ekle
+        </a>
+        <a class="btn btn-ghost" href="#install">
+          Rehberi İncele ↓
+        </a>
       </div>
 
-      <div class="filter-pills" id="providerFilterPills">
-        <button class="filter-pill active" data-filter="all">
-          <span>Tümü</span>
-          <span class="filter-count" id="countAll">41</span>
-        </button>
-        <button class="filter-pill" data-filter="movie">
-          <span>🎬 Film</span>
-          <span class="filter-count" id="countMovie">26</span>
-        </button>
-        <button class="filter-pill" data-filter="tv">
-          <span>📺 Dizi</span>
-          <span class="filter-count" id="countTv">20</span>
-        </button>
-        <button class="filter-pill" data-filter="anime">
-          <span>⛩️ Anime &amp; Çizgi</span>
-          <span class="filter-count" id="countAnime">4</span>
-        </button>
-        <button class="filter-pill" data-filter="live">
-          <span>📡 Canlı TV &amp; Spor</span>
-          <span class="filter-count" id="countLive">6</span>
-        </button>
-        <button class="filter-pill" data-filter="genre">
-          <span>📦 Tür Paketleri</span>
-          <span class="filter-count" id="countGenre">13</span>
-        </button>
-      </div>
-    </div>
-
-    <div class="results-count-bar">
-      <span id="providerResultsText">41 eklentinin tümü listeleniyor</span>
-    </div>
-
-    <!-- GRID -->
-    <div class="providers-grid" id="providerGrid"></div>
-  </div>
-</section>
-
-<!-- LIVE CHANNELS SECTION -->
-<section id="live">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-eyebrow">Yüksek Kaliteli Yayınlar</div>
-      <h2 class="section-title">100 Canlı TV Kanalı</h2>
-      <p class="section-desc">
-        Ulusal, spor, haber, belgesel, çocuk ve müzik kanalları — resmi TRT CDN, Daion, Demirören ve Ciner altyapıları ile kesintisiz canlı yayın.
-      </p>
-    </div>
-
-    <!-- CHANNELS TOOLBAR -->
-    <div class="catalog-controls">
-      <div class="search-input-wrap">
-        <svg class="search-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-        <input type="text" class="search-input" id="channelSearchInput" placeholder="Kanal ara (ör. BeIN, TRT, S Sport, Exxen, NTV, Kral)..." oninput="filterChannels()">
-      </div>
-
-      <div class="filter-pills" id="channelFilterPills">
-        <button class="filter-pill active" data-channel-cat="all">
-          <span>Tüm Kanallar</span>
-          <span class="filter-count">100</span>
-        </button>
-        <button class="filter-pill" data-channel-cat="spor">
-          <span>⚽ Canlı Spor</span>
-          <span class="filter-count">49</span>
-        </button>
-        <button class="filter-pill" data-channel-cat="ulusal">
-          <span>🇹🇷 Ulusal</span>
-          <span class="filter-count">19</span>
-        </button>
-        <button class="filter-pill" data-channel-cat="haber">
-          <span>📰 Canlı Haber</span>
-          <span class="filter-count">18</span>
-        </button>
-        <button class="filter-pill" data-channel-cat="belgesel_cocuk">
-          <span>🦁 Belgesel &amp; Çocuk</span>
-          <span class="filter-count">7</span>
-        </button>
-        <button class="filter-pill" data-channel-cat="muzik">
-          <span>🎵 Müzik &amp; Eğlence</span>
-          <span class="filter-count">7</span>
-        </button>
-      </div>
-    </div>
-
-    <div class="results-count-bar">
-      <span id="channelResultsText">100 kanalın tümü listeleniyor</span>
-    </div>
-
-    <!-- CHANNELS SHOWCASE GRID -->
-    <div class="channels-showcase-grid" id="channelsGrid"></div>
-  </div>
-</section>
-
-<!-- FAQ SECTION -->
-<section id="faq" style="background: rgba(10, 14, 26, 0.4);">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-eyebrow">Merak Edilenler</div>
-      <h2 class="section-title">Sıkça Sorulan Sorular</h2>
-      <p class="section-desc">Anthology deposu, kurulumu ve oynatma özellikleri hakkında en çok sorulan soruların yanıtları.</p>
-    </div>
-
-    <div class="faq-wrapper">
-      <div class="faq-item">
-        <button class="faq-trigger" onclick="toggleFaq(this)">
-          <span>1. Anthology nedir ve tamamen ücretsiz midir?</span>
-          <svg class="faq-icon" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-        </button>
-        <div class="faq-body">
-          Evet, Anthology tamamen açık kaynaklı ve ücretsiz bir eklenti deposudur. Hiçbir kayıt, abonelik ya da reklam içermez. Doğrulanmış Türkçe film, dizi, anime kaynaklarını ve resmi canlı TV yayın akışlarını Nuvio ve Stremio oynatıcılarıyla buluşturur.
+      <!-- QUICK MANIFEST URL BAR -->
+      <div class="manifest-bar-wrapper">
+        <div class="manifest-bar">
+          <span class="manifest-label">Nuvio URL</span>
+          <span class="manifest-url"
+            id="manifestUrlText">https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json</span>
+          <button class="copy-btn" id="copyHeroBtn" onclick="copyNuvioManifest()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
+            </svg>
+            <span>Kopyala</span>
+          </button>
         </div>
       </div>
 
-      <div class="faq-item">
-        <button class="faq-trigger" onclick="toggleFaq(this)">
-          <span>2. Nuvio mu kullanmalıyım yoksa Stremio mu? Aralarındaki fark nedir?</span>
-          <svg class="faq-icon" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-        </button>
-        <div class="faq-body">
-          <p><strong>Nuvio (Tam Kapsam):</strong> Anthology'nin ana platformudur. Nuvio kullanıcıları 41 doğrulanmış film, dizi ve anime video scraper motorunun tamamını, 6 Canlı TV kataloğunu ve 100 canlı yayın kanalını hiçbir sınırlama olmaksızın sorunsuz ve eksiksiz kullanabilir.</p>
-          <br>
-          <p><strong>Stremio (Yalnızca Canlı TV):</strong> Stremio'nun eklenti mimarisi gereği Anthology Stremio üzerinde <strong>yalnızca Canlı TV katalogları (6 vitrin ve 100 canlı kanal)</strong> ile sınırlıdır. Film ve dizi scraper'ları Stremio'da çalışmaz. Eklentiyi resmi Stremio topluluk sayfasından incelemek için <a href="https://stremio-addons.net/addons/anthology" target="_blank" rel="noopener" style="color:var(--purple);font-weight:600;text-decoration:underline;">stremio-addons.net/addons/anthology</a> adresini ziyaret edebilirsiniz.</p>
+      <!-- STATS -->
+      <div class="stats-container">
+        <div class="stat-box">
+          <div class="stat-number">41</div>
+          <div class="stat-label">Doğrulanmış Eklenti</div>
         </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-trigger" onclick="toggleFaq(this)">
-          <span>3. Canlı TV yayınları neden donmuyor ve nasıl bu kadar hızlı açılıyor?</span>
-          <svg class="faq-icon" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-        </button>
-        <div class="faq-body">
-          Anthology'deki canlı kanallar üçüncü parti bozuk sitelerden değil; televizyon kanallarının resmi CDN altyapılarından (TRT Akamai CDN, Ciner CDN, TurkNet CDN, DaionCDN vb.) doğrudan <code>.m3u8</code> HLS formatında çekilir. Bu sayede gecikmesiz, yüksek bit hızında ve kesintisiz akış sağlanır.
+        <div class="stat-box">
+          <div class="stat-number">6</div>
+          <div class="stat-label">Canlı TV Kataloğu</div>
         </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-trigger" onclick="toggleFaq(this)">
-          <span>4. Nuvio'da video oynatıcı (Player) ayarlarını nasıl yapmalıyım?</span>
-          <svg class="faq-icon" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-        </button>
-        <div class="faq-body">
-          Android ve TV Box cihazlarında en akıcı deneyim için Nuvio ayarlarında varsayılan oynatıcı olarak <strong>ExoPlayer</strong> veya <strong>VLC</strong> seçilmesi önerilir. MP4 ve MKV formatındaki çift sesli filmler için VLC veya dahili donanım hızlandırma en iyi sonucu verir.
+        <div class="stat-box">
+          <div class="stat-number">100</div>
+          <div class="stat-label">Canlı TV Kanalı</div>
         </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-trigger" onclick="toggleFaq(this)">
-          <span>5. Yayınları izlemek için VPN kullanmam gerekir mi?</span>
-          <svg class="faq-icon" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-        </button>
-        <div class="faq-body">
-          Türkiye içinden bağlanan kullanıcılar için VPN gerekli değildir. Yurt dışından bağlanan kullanıcılar için bazı yerel yayınlar coğrafi kısıtlamaya sahip olabileceğinden Türkiye konumlu bir VPN faydalı olabilir.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-trigger" onclick="toggleFaq(this)">
-          <span>6. Eklentiler veya kanal adresleri güncellendiğinde ne yapmalıyım?</span>
-          <svg class="faq-icon" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-        </button>
-        <div class="faq-body">
-          Depoyu bir kez eklemeniz yeterlidir. Anthology GitHub üzerinden sürekli güncellendiği için Nuvio ve Stremio uygulamalarını her açtığınızda güncel eklentiler ve kanal akışları otomatik olarak devreye girer. Ek bir işlem yapmanıza gerek kalmaz.
+        <div class="stat-box">
+          <div class="stat-number">0 <span>TL</span></div>
+          <div class="stat-label">Ücretsiz &amp; Açık Kaynak</div>
         </div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-content">
-    <img class="footer-logo" src="assets/logo_1_transparent.png" alt="Anthology Logo">
-    <div class="footer-title">Anthology</div>
-    <div class="footer-desc">Nuvio &amp; Stremio için Optimize Edilmiş Doğrulanmış Eklenti Deposu</div>
-    
-    <div class="footer-nav">
-      <a href="#install">Kurulum</a>
-      <a href="#providers">Eklentiler (41)</a>
-      <a href="#live">Canlı TV (100)</a>
-      <a href="https://github.com/falsisdev/anthology" target="_blank" rel="noopener">GitHub Deposu</a>
-      <a href="https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json" target="_blank" rel="noopener">manifest.json</a>
-      <a href="https://falsisdev.github.io/anthology/stremio/manifest.json" target="_blank" rel="noopener">stremio/manifest.json</a>
-      <a href="https://stremio-addons.net/addons/anthology" target="_blank" rel="noopener">Stremio-Addons.net</a>
-      <a href="mailto:falsis@proton.me">İletişim</a>
-    </div>
+  <!-- INSTALLATION GUIDE WITH PLATFORM SWITCHER -->
+  <section id="install">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Kolay Kurulum</div>
+        <h2 class="section-title">Hangi Uygulamayı Kullanıyorsunuz?</h2>
+        <p class="section-desc">Platformunuza uygun adımları takip ederek saniyeler içinde zengin Türkçe içerik havuzunu
+          etkinleştirin.</p>
+      </div>
 
-    <div class="footer-copy">
-      &copy; 2024–2026 falsisdev &middot; Açık Kaynak Topluluk Projesidir.
+      <!-- PLATFORM NOTICE & COMPARISON -->
+      <div class="platform-notice-box">
+        <div class="platform-notice-col nuvio-col">
+          <div class="platform-notice-title">
+            <span class="status-indicator-green"></span>
+            <strong>🌟 Nuvio — Tüm Özellikler Sorunsuz &amp; Eksiksiz</strong>
+          </div>
+          <p>Nuvio kullanıcıları, Anthology deposundaki <strong>41 doğrulanmış video motorunun</strong> (film, dizi,
+            anime, özel tür paketleri) yanı sıra <strong>6 Canlı TV kataloğunu ve 100 canlı yayın kanalını</strong>
+            hiçbir kısıtlama olmadan tek çatı altında eksiksiz kullanabilir.</p>
+        </div>
+        <div class="platform-notice-col stremio-col">
+          <div class="platform-notice-title">
+            <span class="status-indicator-purple"></span>
+            <strong>🟣 Stremio — Yalnızca Canlı TV Katalogları</strong>
+          </div>
+          <p>Stremio eklentisi olarak kullanım <strong>yalnızca Canlı TV (6 katalog ve 100 kanal)</strong> ile
+            sınırlıdır. Film ve dizi motorları Nuvio'nun yerel plugin mimarisine özeldir.<br>
+            <a href="https://stremio-addons.net/addons/anthology" target="_blank" rel="noopener"
+              class="stremio-dir-link">🌐 Stremio-Addons Topluluk Dizininde Görüntüle &rarr;</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- PLATFORM TABS -->
+      <div class="platform-tabs-nav">
+        <button class="tab-btn active" data-tab="nuvio" onclick="switchPlatformTab('nuvio')">
+          🌟 Nuvio (Tüm Özellikler)
+        </button>
+        <button class="tab-btn" data-tab="stremio" onclick="switchPlatformTab('stremio')">
+          🟣 Stremio (Canlı TV)
+        </button>
+      </div>
+
+      <!-- NUVIO TAB PANE -->
+      <div class="platform-tab-pane active" id="tab-nuvio">
+        <div class="install-grid">
+          <!-- 1. ADIM -->
+          <div class="install-card card-primary">
+            <div>
+              <div class="step-badge badge-nuvio">1. ADIM · ZORUNLU (VİDEO MOTORU)</div>
+              <h3>Video Scraper Motorunu Ekleyin</h3>
+              <p class="install-card-desc">
+                Bir film, dizi veya anime açtığınızda arka planda çalışan 41 Türkçe/yabancı video oynatma motorunu
+                Nuvio'ya yükler.
+              </p>
+              <div class="route-pill">
+                <code>Nuvio</code> &rarr; <code>Ayarlar</code> &rarr; <code>Genel</code> &rarr;
+                <code>İçerik &amp; Keşif</code> &rarr; <code>Uzantılar</code> &rarr; <code>Depo Ekle</code>
+              </div>
+            </div>
+            <div class="manifest-bar" style="margin-top: 10px;">
+              <span class="manifest-url"
+                style="font-size: 11px;">https://falsisdev.github.io/anthology/manifest.json</span>
+              <button class="copy-btn"
+                onclick="copyText('https://falsisdev.github.io/anthology/manifest.json', '📋 Nuvio Uzantı Depo URL kopyalandı!')">Kopyala</button>
+            </div>
+          </div>
+
+          <!-- 2. ADIM -->
+          <div class="install-card card-primary">
+            <div>
+              <div class="step-badge badge-nuvio">2. ADIM · ÖNERİLEN (CANLI TV VİTRİNİ)</div>
+              <h3>Anthology Canlı TV Kataloglarını Ekleyin</h3>
+              <p class="install-card-desc">
+                100 Canlı TV kanalını 6 vitrin kategorisinde (Tüm Kanallar, Ulusal, Canlı Spor, Canlı Haber, Belgesel
+                &amp; Çocuk, Müzik) Nuvio ana sayfasına ekler.
+              </p>
+              <div class="route-pill">
+                <code>Nuvio</code> &rarr; <code>Ayarlar</code> &rarr; <code>Genel</code> &rarr;
+                <code>İçerik &amp; Keşif</code> &rarr; <code>Eklentiler</code> &rarr; <code>Depo Ekle</code>
+              </div>
+            </div>
+            <div class="manifest-bar" style="margin-top: 10px;">
+              <span class="manifest-url"
+                style="font-size: 11px;">https://falsisdev.github.io/anthology/stremio/manifest.json</span>
+              <button class="copy-btn"
+                onclick="copyText('https://falsisdev.github.io/anthology/stremio/manifest.json', '📚 Canlı TV Katalog URL kopyalandı!')">Kopyala</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-callout">
+          <div class="info-icon">💡</div>
+          <div class="info-body">
+            <strong>Nuvio'da Bu İki Adım Birlikte Nasıl Çalışır?</strong><br>
+            1. Adım, Nuvio içinde herhangi bir film veya dizi aradığınızda doğrudan en yüksek kalitede çalışan
+            <em>.m3u8</em> veya <em>.mp4</em> video kaynaklarını getirir. 2. Adım ise Nuvio ana sayfanıza Canlı TV
+            vitrinlerini yerleştirir; herhangi bir kanala tıkladığınızda yayın anında başlar.
+          </div>
+        </div>
+      </div>
+
+      <!-- STREMIO TAB PANE -->
+      <div class="platform-tab-pane" id="tab-stremio">
+        <div class="install-grid">
+          <div class="install-card card-stremio">
+            <div>
+              <div class="step-badge badge-stremio">TEK TIKLA KURULUM</div>
+              <h3>Stremio Canlı TV Addon</h3>
+              <p class="install-card-desc">
+                Stremio masaüstü veya mobil uygulamanız yüklüyse aşağıdaki butona basarak doğrudan "Install" onayını
+                açabilirsiniz.
+              </p>
+              <div class="route-pill">
+                <code>Stremio</code> &rarr; <code>Addons (Eklentiler)</code> &rarr; <code>Community Addons</code> &rarr;
+                <code>Anthology — Canlı TV</code>
+              </div>
+            </div>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px;">
+              <a class="btn btn-stremio" style="flex: 1; padding: 10px 16px; font-size: 13px;"
+                href="stremio://falsisdev.github.io/anthology/stremio/manifest.json">
+                🚀 Stremio'da Aç
+              </a>
+              <a class="btn btn-ghost" style="flex: 1; padding: 10px 16px; font-size: 13px;" target="_blank"
+                rel="noopener"
+                href="https://web.stremio.com/#/addons?addon=https%3A%2F%2Ffalsisdev.github.io%2Fanthology%2Fstremio%2Fmanifest.json">
+                🌐 Web Stremio
+              </a>
+              <a class="btn btn-ghost"
+                style="flex: 1; padding: 10px 16px; font-size: 13px; border-color: rgba(168, 85, 247, 0.3); color: #d8b4fe;"
+                target="_blank" rel="noopener" href="https://stremio-addons.net/addons/anthology">
+                📦 Stremio-Addons.net
+              </a>
+            </div>
+          </div>
+
+          <div class="install-card card-stremio">
+            <div>
+              <div class="step-badge badge-stremio">MANUEL URL İLE EKLEME</div>
+              <h3>Addon URL'sini Yapıştırın</h3>
+              <p class="install-card-desc">
+                Stremio arama çubuğuna veya eklenti ekleme kutusuna aşağıdaki bağlantıyı yapıştırarak da
+                yükleyebilirsiniz.
+              </p>
+              <div class="route-pill">
+                Stremio eklentiler kutusuna yapıştırın ve <code>Enter</code> tuşuna basın.
+              </div>
+            </div>
+            <div class="manifest-bar" style="margin-top: 10px;">
+              <span class="manifest-url"
+                style="font-size: 11px;">https://falsisdev.github.io/anthology/stremio/manifest.json</span>
+              <button class="copy-btn"
+                onclick="copyText('https://falsisdev.github.io/anthology/stremio/manifest.json', '🟣 Stremio Addon URL kopyalandı!')">Kopyala</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-callout" style="border-color: rgba(168, 85, 247, 0.3); background: rgba(168, 85, 247, 0.04);">
+          <div class="info-icon">📺</div>
+          <div class="info-body">
+            <strong>Stremio'da Neler Kullanılabilir?</strong><br>
+            Stremio platformunda Anthology'nin <strong>6 resmi Canlı TV kataloğu</strong> (Ulusal Kanallar, Canlı Spor,
+            Canlı Haber, Belgesel &amp; Çocuk, Müzik &amp; Eğlence) ve <strong>100 Canlı Kanal</strong> doğrudan resmi
+            CDN bağlantılarıyla çalışır. Film ve dizi eklentileri ise Nuvio'nun yerel plugin motoruna özel olarak
+            derlenmiştir.
+          </div>
+        </div>
+      </div>
+
+      <!-- COMPATIBILITY BADGES -->
+      <div class="devices-bar">
+        <div class="device-item">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z" />
+          </svg>
+          Android TV / Google TV
+        </div>
+        <div class="device-item">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z" />
+          </svg>
+          Windows &amp; macOS PC
+        </div>
+        <div class="device-item">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z" />
+          </svg>
+          Android &amp; iOS Telefon / Tablet
+        </div>
+        <div class="device-item">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+          </svg>
+          Fire TV &amp; Web Oynatıcılar
+        </div>
+      </div>
     </div>
+  </section>
+
+  <!-- PROVIDERS SECTION -->
+  <section id="providers" style="background: rgba(10, 14, 26, 0.4);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Doğrulanmış Kaynaklar</div>
+        <h2 class="section-title">Eklentiler (41 Aktif)</h2>
+        <p class="section-desc">
+          Sadece gerçek, yüksek hızlı ve doğrudan çalışan HLS/MP4 akışları üreten resmi ve topluluk eklentileri.
+        </p>
+      </div>
+
+      <!-- TOOLBAR -->
+      <div class="catalog-controls">
+        <div class="search-input-wrap">
+          <svg class="search-icon" viewBox="0 0 24 24">
+            <path
+              d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+          </svg>
+          <input type="text" class="search-input" id="providerSearchInput"
+            placeholder="Eklenti ara (ör. SineWix, FilmModu, Vidlink, Anime)..." oninput="filterProviders()">
+        </div>
+
+        <div class="filter-pills" id="providerFilterPills">
+          <button class="filter-pill active" data-filter="all">
+            <span>Tümü</span>
+            <span class="filter-count" id="countAll">41</span>
+          </button>
+          <button class="filter-pill" data-filter="movie">
+            <span>🎬 Film</span>
+            <span class="filter-count" id="countMovie">26</span>
+          </button>
+          <button class="filter-pill" data-filter="tv">
+            <span>📺 Dizi</span>
+            <span class="filter-count" id="countTv">20</span>
+          </button>
+          <button class="filter-pill" data-filter="anime">
+            <span>⛩️ Anime &amp; Çizgi</span>
+            <span class="filter-count" id="countAnime">4</span>
+          </button>
+          <button class="filter-pill" data-filter="live">
+            <span>📡 Canlı TV &amp; Spor</span>
+            <span class="filter-count" id="countLive">6</span>
+          </button>
+          <button class="filter-pill" data-filter="genre">
+            <span>📦 Tür Paketleri</span>
+            <span class="filter-count" id="countGenre">13</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="results-count-bar">
+        <span id="providerResultsText">41 eklentinin tümü listeleniyor</span>
+      </div>
+
+      <!-- GRID -->
+      <div class="providers-grid" id="providerGrid"></div>
+    </div>
+  </section>
+
+  <!-- LIVE CHANNELS SECTION -->
+  <section id="live">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Yüksek Kaliteli Yayınlar</div>
+        <h2 class="section-title">100 Canlı TV Kanalı</h2>
+        <p class="section-desc">
+          Ulusal, spor, haber, belgesel, çocuk ve müzik kanalları — resmi TRT CDN, Daion, Demirören ve Ciner altyapıları
+          ile kesintisiz canlı yayın.
+        </p>
+      </div>
+
+      <!-- CHANNELS TOOLBAR -->
+      <div class="catalog-controls">
+        <div class="search-input-wrap">
+          <svg class="search-icon" viewBox="0 0 24 24">
+            <path
+              d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+          </svg>
+          <input type="text" class="search-input" id="channelSearchInput"
+            placeholder="Kanal ara (ör. BeIN, TRT, S Sport, Exxen, NTV, Kral)..." oninput="filterChannels()">
+        </div>
+
+        <div class="filter-pills" id="channelFilterPills">
+          <button class="filter-pill active" data-channel-cat="all">
+            <span>Tüm Kanallar</span>
+            <span class="filter-count">100</span>
+          </button>
+          <button class="filter-pill" data-channel-cat="spor">
+            <span>⚽ Canlı Spor</span>
+            <span class="filter-count">49</span>
+          </button>
+          <button class="filter-pill" data-channel-cat="ulusal">
+            <span>🇹🇷 Ulusal</span>
+            <span class="filter-count">19</span>
+          </button>
+          <button class="filter-pill" data-channel-cat="haber">
+            <span>📰 Canlı Haber</span>
+            <span class="filter-count">18</span>
+          </button>
+          <button class="filter-pill" data-channel-cat="belgesel_cocuk">
+            <span>🦁 Belgesel &amp; Çocuk</span>
+            <span class="filter-count">7</span>
+          </button>
+          <button class="filter-pill" data-channel-cat="muzik">
+            <span>🎵 Müzik &amp; Eğlence</span>
+            <span class="filter-count">7</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="results-count-bar">
+        <span id="channelResultsText">100 kanalın tümü listeleniyor</span>
+      </div>
+
+      <!-- CHANNELS SHOWCASE GRID -->
+      <div class="channels-showcase-grid" id="channelsGrid"></div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section id="faq" style="background: rgba(10, 14, 26, 0.4);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Merak Edilenler</div>
+        <h2 class="section-title">Sıkça Sorulan Sorular</h2>
+        <p class="section-desc">Anthology deposu, kurulumu ve oynatma özellikleri hakkında en çok sorulan soruların
+          yanıtları.</p>
+      </div>
+
+      <div class="faq-wrapper">
+        <div class="faq-item">
+          <button class="faq-trigger" onclick="toggleFaq(this)">
+            <span>1. Anthology nedir ve tamamen ücretsiz midir?</span>
+            <svg class="faq-icon" viewBox="0 0 24 24">
+              <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+            </svg>
+          </button>
+          <div class="faq-body">
+            Evet, Anthology tamamen açık kaynaklı ve ücretsiz bir eklenti deposudur. Hiçbir kayıt, abonelik ya da reklam
+            içermez. Doğrulanmış Türkçe film, dizi, anime kaynaklarını ve resmi canlı TV yayın akışlarını Nuvio ve
+            Stremio oynatıcılarıyla buluşturur.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" onclick="toggleFaq(this)">
+            <span>2. Nuvio mu kullanmalıyım yoksa Stremio mu? Aralarındaki fark nedir?</span>
+            <svg class="faq-icon" viewBox="0 0 24 24">
+              <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+            </svg>
+          </button>
+          <div class="faq-body">
+            <p><strong>Nuvio (Tam Kapsam):</strong> Anthology'nin ana platformudur. Nuvio kullanıcıları 41 doğrulanmış
+              film, dizi ve anime video scraper motorunun tamamını, 6 Canlı TV kataloğunu ve 100 canlı yayın kanalını
+              hiçbir sınırlama olmaksızın sorunsuz ve eksiksiz kullanabilir.</p>
+            <br>
+            <p><strong>Stremio (Yalnızca Canlı TV):</strong> Stremio'nun eklenti mimarisi gereği Anthology Stremio
+              üzerinde <strong>yalnızca Canlı TV katalogları (6 vitrin ve 100 canlı kanal)</strong> ile sınırlıdır. Film
+              ve dizi scraper'ları Stremio'da çalışmaz. Eklentiyi resmi Stremio topluluk sayfasından incelemek için <a
+                href="https://stremio-addons.net/addons/anthology" target="_blank" rel="noopener"
+                style="color:var(--purple);font-weight:600;text-decoration:underline;">stremio-addons.net/addons/anthology</a>
+              adresini ziyaret edebilirsiniz.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" onclick="toggleFaq(this)">
+            <span>3. Canlı TV yayınları neden donmuyor ve nasıl bu kadar hızlı açılıyor?</span>
+            <svg class="faq-icon" viewBox="0 0 24 24">
+              <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+            </svg>
+          </button>
+          <div class="faq-body">
+            Anthology'deki canlı kanallar üçüncü parti bozuk sitelerden değil; televizyon kanallarının resmi CDN
+            altyapılarından (TRT Akamai CDN, Ciner CDN, TurkNet CDN, DaionCDN vb.) doğrudan <code>.m3u8</code> HLS
+            formatında çekilir. Bu sayede gecikmesiz, yüksek bit hızında ve kesintisiz akış sağlanır.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" onclick="toggleFaq(this)">
+            <span>4. Nuvio'da video oynatıcı (Player) ayarlarını nasıl yapmalıyım?</span>
+            <svg class="faq-icon" viewBox="0 0 24 24">
+              <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+            </svg>
+          </button>
+          <div class="faq-body">
+            Android ve TV Box cihazlarında en akıcı deneyim için Nuvio ayarlarında varsayılan oynatıcı olarak
+            <strong>ExoPlayer</strong> veya <strong>VLC</strong> seçilmesi önerilir. MP4 ve MKV formatındaki çift sesli
+            filmler için VLC veya dahili donanım hızlandırma en iyi sonucu verir.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" onclick="toggleFaq(this)">
+            <span>5. Yayınları izlemek için VPN kullanmam gerekir mi?</span>
+            <svg class="faq-icon" viewBox="0 0 24 24">
+              <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+            </svg>
+          </button>
+          <div class="faq-body">
+            Türkiye içinden bağlanan kullanıcılar için VPN gerekli değildir. Yurt dışından bağlanan kullanıcılar için
+            bazı yerel yayınlar coğrafi kısıtlamaya sahip olabileceğinden Türkiye konumlu bir VPN faydalı olabilir.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" onclick="toggleFaq(this)">
+            <span>6. Eklentiler veya kanal adresleri güncellendiğinde ne yapmalıyım?</span>
+            <svg class="faq-icon" viewBox="0 0 24 24">
+              <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+            </svg>
+          </button>
+          <div class="faq-body">
+            Depoyu bir kez eklemeniz yeterlidir. Anthology GitHub üzerinden sürekli güncellendiği için Nuvio ve Stremio
+            uygulamalarını her açtığınızda güncel eklentiler ve kanal akışları otomatik olarak devreye girer. Ek bir
+            işlem yapmanıza gerek kalmaz.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <img class="footer-logo" src="assets/logo_1_transparent.png" alt="Anthology Logo">
+      <div class="footer-title">Anthology</div>
+      <div class="footer-desc">Nuvio &amp; Stremio için Optimize Edilmiş Doğrulanmış Eklenti Deposu</div>
+
+      <div class="footer-nav">
+        <a href="#install">Kurulum</a>
+        <a href="#providers">Eklentiler (41)</a>
+        <a href="#live">Canlı TV (100)</a>
+        <a href="https://github.com/falsisdev/anthology" target="_blank" rel="noopener">GitHub Deposu</a>
+        <a href="https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json" target="_blank"
+          rel="noopener">manifest.json</a>
+        <a href="https://falsisdev.github.io/anthology/stremio/manifest.json" target="_blank"
+          rel="noopener">stremio/manifest.json</a>
+        <a href="https://stremio-addons.net/addons/anthology" target="_blank" rel="noopener">Stremio-Addons.net</a>
+        <a href="mailto:falsis@proton.me">İletişim</a>
+      </div>
+
+      <div class="footer-copy">
+        &copy; 2024–2026 falsisdev &middot; Açık Kaynak Topluluk Projesidir.
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+    </svg>
+    <span id="toastMsg">Bildirim</span>
   </div>
-</footer>
 
-<!-- TOAST -->
-<div class="toast" id="toast">
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-  <span id="toastMsg">Bildirim</span>
-</div>
+  <script>
+    const NUVIO_MANIFEST_URL = "https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json";
+    const STREMIO_MANIFEST_URL = "https://falsisdev.github.io/anthology/stremio/manifest.json";
+    const FALLBACK_LOGO = "assets/logo_1_transparent.png";
 
-<script>
-const NUVIO_MANIFEST_URL = "https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json";
-const STREMIO_MANIFEST_URL = "https://falsisdev.github.io/anthology/stremio/manifest.json";
-const FALLBACK_LOGO = "assets/logo_1_transparent.png";
+    /* 41 SCRAPERS / PLUGINS */
+    const PROVIDERS = [
+      { id: "AnthologyFilmM3U", name: "Anthology Film (M3U)", cats: ["movie", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS", desc: "On binlerce yerli ve yabancı film arşivi (Lunedor, Zerk, PowerBoard altyapısı)." },
+      { id: "AnthologyDiziM3U", name: "Anthology Dizi (M3U)", cats: ["tv", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p MP4 / HLS", desc: "On binlerce yerli ve yabancı dizi bölümü (Zerk, PowerBoard altyapısı)." },
+      { id: "sinewix", name: "SineWix", cats: ["movie", "tv"], domain: "sinewix.com", logo: null, format: "1080p MKV Çift Ses", desc: "5000+ HD film, dizi ve anime — 1080p çift ses doğrudan MKV akışları." },
+      { id: "vidlink", name: "Vidlink", cats: ["movie", "tv"], domain: "vidlink.pro", logo: null, format: "4K / 1080p MP4", desc: "TMDB tabanlı global 4K/1080p doğrudan HLS ve MP4 akışları." },
+      { id: "m3u.anthology.addon", name: "Anthology Canlı TV", cats: ["live"], domain: null, logo: "assets/logo_1_transparent.png", format: "100 Kanal M3U", desc: "100 canlı TV kanalı, spor, ulusal, haber ve belgesel M3U kataloğu (resmi CDN)." },
+      { id: "filmmodu", name: "FilmModu", cats: ["movie"], domain: "filmmodu.one", logo: null, format: "4K / 1080p HLS", desc: "Türkçe dublaj ve altyazılı 4K/1080p Full HD ImgsAPI doğrudan HLS akışları." },
+      { id: "dizipal", name: "DiziPal", cats: ["movie", "tv"], domain: "dizipal2131.com", logo: null, format: "1080p HLS", desc: "Popüler yerli ve yabancı dizi/filmler (Imagestoo & FormationFeed HLS altyapısı)." },
+      { id: "sezonlukdizi", name: "SezonlukDizi", cats: ["tv"], domain: "sezonlukdizi.cc", logo: null, format: "1080p HLS", desc: "VidMoly altyapısıyla Türkçe dublaj ve altyazılı geniş yabancı dizi arşivi." },
+      { id: "diziyou", name: "DiziYou", cats: ["tv"], domain: "diziyou.one", logo: null, format: "1080p HLS + VTT", desc: "DiziYou doğrudan depolama akışları ve Türkçe VTT altyazı desteği." },
+      { id: "sinemacx", name: "SinemaCX", cats: ["movie"], domain: "sinema.gg", logo: null, format: "1080p HLS Master", desc: "Sinema.gg ve Filmizle API üzerinden doğrudan 1080p master HLS akışları." },
+      { id: "jetfilmizle", name: "JetFilmİzle", cats: ["movie"], domain: "jetfilmizle.now", logo: null, format: "1080p MP4 / HLS", desc: "Videopark Google Drive doğrudan MP4 ve PlayerX çok dilli HLS master akışları." },
+      { id: "animecix", name: "AnimeciX", cats: ["anime", "tv", "movie"], domain: "animecix.tv", logo: null, format: "1080p / 720p MP4", desc: "TauVideo altyapısıyla binlerce anime bölümü (1080p, 720p, 480p doğrudan MP4)." },
+      { id: "cizgimax", name: "ÇizgiMax", cats: ["anime", "tv", "movie"], domain: "cizgimax.online", logo: null, format: "1080p Direct MP4", desc: "Çizgi diziler, animeler ve animasyon yapımları (TauVideo & Sibnet doğrudan MP4)." },
+      { id: "turkanime", name: "TurkAnime", cats: ["anime", "tv", "movie"], domain: "turkanime.tv", logo: null, format: "1080p MP4 / HLS", desc: "Türkiye'nin en geniş anime arşivi — Sibnet 1080p MP4 ve ArtPlayer HLS akışları." },
+      { id: "anthology_spor", name: "Anthology Canlı Spor", cats: ["live"], domain: null, logo: "assets/canli/aspor.png", format: "49 Canlı Kanal", desc: "BeIN Sports 1-5, S Sport 1-2, Tivibu Spor, Exxen Spor ve 49 canlı spor kanalı." },
+      { id: "anthology_haber", name: "Anthology Canlı Haber", cats: ["live"], domain: null, logo: "assets/canli/ntv.png", format: "18 Canlı Kanal", desc: "NTV, Habertürk, TRT Haber, A Haber, CNN Türk, Sözcü TV ve 18 canlı haber kanalı." },
+      { id: "anthology_ulusal", name: "Anthology Ulusal Kanallar", cats: ["live"], domain: null, logo: "assets/canli/trt1.png", format: "19 Canlı Kanal", desc: "TRT 1, ATV, Kanal D, Show TV, Star TV, NOW TV, TV8 ve 19 ulusal televizyon kanalı." },
+      { id: "anthology_belgesel_cocuk", name: "Anthology Belgesel & Çocuk", cats: ["live"], domain: null, logo: "assets/canli/trtcocuk.png", format: "7 Canlı Kanal", desc: "TRT Belgesel, Minika Çocuk, Minika GO, TRT Çocuk ve TRT EBA canlı yayınları." },
+      { id: "anthology_muzik", name: "Anthology Müzik & Eğlence", cats: ["live"], domain: null, logo: "assets/canli/kralpop.png", format: "7 Canlı Kanal", desc: "Kral Pop TV, Power TV, PowerTürk TV, Number 1 TV ve canlı müzik kanalları." },
+      { id: "anthology_aksiyon", name: "Anthology Aksiyon & Macera", cats: ["movie", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS", desc: "Aksiyon, macera, suç ve gerilim sineması doğrudan HD HLS akışları." },
+      { id: "anthology_bilimkurgu", name: "Anthology Bilim Kurgu", cats: ["movie", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS", desc: "Bilim kurgu, fantastik ve uzay sineması doğrudan HD HLS akışları." },
+      { id: "anthology_korku", name: "Anthology Korku & Gerilim", cats: ["movie", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS", desc: "Korku, gerilim, gizem ve doğaüstü sineması doğrudan HD HLS akışları." },
+      { id: "anthology_komedi", name: "Anthology Komedi", cats: ["movie", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS", desc: "Yerli ve yabancı komedi filmleri için doğrudan HD HLS akışları." },
+      { id: "anthology_animasyon", name: "Anthology Animasyon", cats: ["movie", "anime", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS", desc: "Animasyon, anime ve çizgi sinema doğrudan HD HLS akışları." },
+      { id: "anthology_yerlifilm", name: "Anthology Yerli Film & Yeşilçam", cats: ["movie", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS / MP4", desc: "Klasik Yeşilçam, Türk sineması ve yerli başyapıtlar doğrudan HD HLS akışları." },
+      { id: "anthology_belgesel", name: "Anthology Belgesel & Doğa", cats: ["movie", "tv", "genre"], domain: null, logo: "assets/canli/trtbelgesel.png", format: "1080p HLS", desc: "Belgeseller, doğa, bilim ve tarih yapımları doğrudan HD HLS akışları." },
+      { id: "anthology_cocuk", name: "Anthology Çocuk & Aile", cats: ["movie", "tv", "genre"], domain: null, logo: "assets/canli/trtcocuk.png", format: "1080p HLS", desc: "Çocuk filmleri, çizgi diziler ve aile sineması doğrudan HD HLS akışları." },
+      { id: "anthology_toprated", name: "Anthology IMDb Top Rated", cats: ["movie", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS Master", desc: "IMDb'nin en yüksek puanlı kült ve başyapıt filmleri doğrudan HD HLS akışları." },
+      { id: "anthology_yerlidizi", name: "Anthology Yerli Dizi", cats: ["tv", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p MP4 / HLS", desc: "Yerli diziler, Türk televizyon arşivi ve güncel Türk dizileri doğrudan MP4/HLS akışları." },
+      { id: "anthology_yabancidizi", name: "Anthology Yabancı Dizi", cats: ["tv", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS Master", desc: "Yabancı popüler diziler için doğrudan HD HLS master akışları." },
+      { id: "ddizi", name: "DDizi", cats: ["tv"], domain: "ddizi.im", logo: null, format: "1080p MP4 / HLS", desc: "Yerli dizi arşivi, güncel bölümler kataloğu ve doğrudan Ciner/Yandex CDN akışları." },
+      { id: "dizibox", name: "DiziBox", cats: ["tv"], domain: "dizibox.live", logo: null, format: "1080p HLS Master", desc: "Popüler yabancı diziler arşivi, güncel bölümler ve doğrudan 1080p Molystream akışları." },
+      { id: "dizimom", name: "DiziMom", cats: ["tv"], domain: "dizimom.diy", logo: null, format: "1080p HLS Master", desc: "Popüler yabancı diziler arşivi, güncel bölümler ve doğrudan 1080p Fire HLS akışları." },
+      { id: "vidmody", name: "Vidmody", cats: ["movie", "tv"], domain: "vidmody.com", logo: null, format: "1080p HLS Çift Ses", desc: "Doğrudan çoklu dil ve altyazı destekli HLS film ve dizi akış sağlayıcısı." },
+      { id: "webteizle", name: "Webteİzle", cats: ["movie"], domain: "webteizle.info", logo: null, format: "1080p VidMoly HLS", desc: "Webteİzle arşivi üzerinden Türkçe Dublaj ve Altyazılı VidMoly 1080p master HLS akışları." },
+      { id: "yabancidizi", name: "YabancıDizi", cats: ["tv"], domain: "yabancidizi.news", logo: null, format: "1080p VidMoly HLS", desc: "YabancıDizi arşivi üzerinden Türkçe Dublaj ve Altyazılı VidMoly 1080p master HLS akışları." },
+      { id: "setfilmizle", name: "SetFilmIzle", cats: ["movie", "tv"], domain: "setfilmizle.ltd", logo: null, format: "1080p FastPlay HLS", desc: "SetFilmIzle arşivi üzerinden FastPlay 1080p HLS master akışları ve TR/EN altyazılar." },
+      { id: "kultfilmler", name: "KultFilmler", cats: ["movie"], domain: "kultfilmler.net", logo: null, format: "1080p VidMoly HLS", desc: "KultFilmler arşivi üzerinden VidMoly/Vidpapi 1080p HLS akışları." },
+      { id: "hdfilmdelisi", name: "HDFilmDelisi", cats: ["movie"], domain: "hdfilmdelisi.org", logo: null, format: "1080p VidMody HLS", desc: "HDFilmDelisi JSON API arşivi üzerinden VidMody 1080p HLS akışları." },
+      { id: "hdfilmizle", name: "HDFilmIzle", cats: ["movie"], domain: "hdfilmizle.ink", logo: null, format: "1080p FastPlay HLS", desc: "HDFilmIzle arşivi üzerinden FastPlay 1080p HLS master akışları ve TR/EN altyazılar." },
+      { id: "mahsundizi", name: "Mahsun Dizi", cats: ["tv", "movie"], domain: "mahsundizi8.com", logo: null, format: "1080p BEPLAYER+ HLS", desc: "Mahsun Dizi arşivi ve dosyaload BEPLAYER+ üzerinden 1080p HLS akışları ve altyazılar." }
+    ];
 
-/* 41 SCRAPERS / PLUGINS */
-const PROVIDERS = [
-  {id:"AnthologyFilmM3U",name:"Anthology Film (M3U)",cats:["movie","genre"],domain:null,logo:"assets/logo_1_transparent.png",format:"1080p HLS",desc:"On binlerce yerli ve yabancı film arşivi (Lunedor, Zerk, PowerBoard altyapısı)."},
-  {id:"AnthologyDiziM3U",name:"Anthology Dizi (M3U)",cats:["tv","genre"],domain:null,logo:"assets/logo_1_transparent.png",format:"1080p MP4 / HLS",desc:"On binlerce yerli ve yabancı dizi bölümü (Zerk, PowerBoard altyapısı)."},
-  {id:"sinewix",name:"SineWix",cats:["movie","tv"],domain:"sinewix.com",logo:null,format:"1080p MKV Çift Ses",desc:"5000+ HD film, dizi ve anime — 1080p çift ses doğrudan MKV akışları."},
-  {id:"vidlink",name:"Vidlink",cats:["movie","tv"],domain:"vidlink.pro",logo:null,format:"4K / 1080p MP4",desc:"TMDB tabanlı global 4K/1080p doğrudan HLS ve MP4 akışları."},
-  {id:"m3u.anthology.addon",name:"Anthology Canlı TV",cats:["live"],domain:null,logo:"assets/logo_1_transparent.png",format:"100 Kanal M3U",desc:"100 canlı TV kanalı, spor, ulusal, haber ve belgesel M3U kataloğu (resmi CDN)."},
-  {id:"filmmodu",name:"FilmModu",cats:["movie"],domain:"filmmodu.one",logo:null,format:"4K / 1080p HLS",desc:"Türkçe dublaj ve altyazılı 4K/1080p Full HD ImgsAPI doğrudan HLS akışları."},
-  {id:"dizipal",name:"DiziPal",cats:["movie","tv"],domain:"dizipal2131.com",logo:null,format:"1080p HLS",desc:"Popüler yerli ve yabancı dizi/filmler (Imagestoo & FormationFeed HLS altyapısı)."},
-  {id:"sezonlukdizi",name:"SezonlukDizi",cats:["tv"],domain:"sezonlukdizi.cc",logo:null,format:"1080p HLS",desc:"VidMoly altyapısıyla Türkçe dublaj ve altyazılı geniş yabancı dizi arşivi."},
-  {id:"diziyou",name:"DiziYou",cats:["tv"],domain:"diziyou.one",logo:null,format:"1080p HLS + VTT",desc:"DiziYou doğrudan depolama akışları ve Türkçe VTT altyazı desteği."},
-  {id:"sinemacx",name:"SinemaCX",cats:["movie"],domain:"sinema.gg",logo:null,format:"1080p HLS Master",desc:"Sinema.gg ve Filmizle API üzerinden doğrudan 1080p master HLS akışları."},
-  {id:"jetfilmizle",name:"JetFilmİzle",cats:["movie"],domain:"jetfilmizle.now",logo:null,format:"1080p MP4 / HLS",desc:"Videopark Google Drive doğrudan MP4 ve PlayerX çok dilli HLS master akışları."},
-  {id:"animecix",name:"AnimeciX",cats:["anime","tv","movie"],domain:"animecix.tv",logo:null,format:"1080p / 720p MP4",desc:"TauVideo altyapısıyla binlerce anime bölümü (1080p, 720p, 480p doğrudan MP4)."},
-  {id:"cizgimax",name:"ÇizgiMax",cats:["anime","tv","movie"],domain:"cizgimax.online",logo:null,format:"1080p Direct MP4",desc:"Çizgi diziler, animeler ve animasyon yapımları (TauVideo & Sibnet doğrudan MP4)."},
-  {id:"turkanime",name:"TurkAnime",cats:["anime","tv","movie"],domain:"turkanime.tv",logo:null,format:"1080p MP4 / HLS",desc:"Türkiye'nin en geniş anime arşivi — Sibnet 1080p MP4 ve ArtPlayer HLS akışları."},
-  {id:"anthology_spor",name:"Anthology Canlı Spor",cats:["live"],domain:null,logo:"assets/canli/aspor.png",format:"49 Canlı Kanal",desc:"BeIN Sports 1-5, S Sport 1-2, Tivibu Spor, Exxen Spor ve 49 canlı spor kanalı."},
-  {id:"anthology_haber",name:"Anthology Canlı Haber",cats:["live"],domain:null,logo:"assets/canli/ntv.png",format:"18 Canlı Kanal",desc:"NTV, Habertürk, TRT Haber, A Haber, CNN Türk, Sözcü TV ve 18 canlı haber kanalı."},
-  {id:"anthology_ulusal",name:"Anthology Ulusal Kanallar",cats:["live"],domain:null,logo:"assets/canli/trt1.png",format:"19 Canlı Kanal",desc:"TRT 1, ATV, Kanal D, Show TV, Star TV, NOW TV, TV8 ve 19 ulusal televizyon kanalı."},
-  {id:"anthology_belgesel_cocuk",name:"Anthology Belgesel & Çocuk",cats:["live"],domain:null,logo:"assets/canli/trtcocuk.png",format:"7 Canlı Kanal",desc:"TRT Belgesel, Minika Çocuk, Minika GO, TRT Çocuk ve TRT EBA canlı yayınları."},
-  {id:"anthology_muzik",name:"Anthology Müzik & Eğlence",cats:["live"],domain:null,logo:"assets/canli/kralpop.png",format:"7 Canlı Kanal",desc:"Kral Pop TV, Power TV, PowerTürk TV, Number 1 TV ve canlı müzik kanalları."},
-  {id:"anthology_aksiyon",name:"Anthology Aksiyon & Macera",cats:["movie","genre"],domain:null,logo:"assets/logo_1_transparent.png",format:"1080p HLS",desc:"Aksiyon, macera, suç ve gerilim sineması doğrudan HD HLS akışları."},
-  {id:"anthology_bilimkurgu",name:"Anthology Bilim Kurgu",cats:["movie","genre"],domain:null,logo:"assets/logo_1_transparent.png",format:"1080p HLS",desc:"Bilim kurgu, fantastik ve uzay sineması doğrudan HD HLS akışları."},
-  {id:"anthology_korku",name:"Anthology Korku & Gerilim",cats:["movie","genre"],domain:null,logo:"assets/logo_1_transparent.png",format:"1080p HLS",desc:"Korku, gerilim, gizem ve doğaüstü sineması doğrudan HD HLS akışları."},
-  {id:"anthology_komedi",name:"Anthology Komedi",cats:["movie","genre"],domain:null,logo:"assets/logo_1_transparent.png",format:"1080p HLS",desc:"Yerli ve yabancı komedi filmleri için doğrudan HD HLS akışları."},
-  {id:"anthology_animasyon",name:"Anthology Animasyon",cats:["movie","anime","genre"],domain:null,logo:"assets/logo_1_transparent.png",format:"1080p HLS",desc:"Animasyon, anime ve çizgi sinema doğrudan HD HLS akışları."},
-  {id:"anthology_yerlifilm",name:"Anthology Yerli Film & Yeşilçam",cats:["movie","genre"],domain:null,logo:"assets/logo_1_transparent.png",format:"1080p HLS / MP4",desc:"Klasik Yeşilçam, Türk sineması ve yerli başyapıtlar doğrudan HD HLS akışları."},
-  {id:"anthology_belgesel",name:"Anthology Belgesel & Doğa",cats:["movie","tv","genre"],domain:null,logo:"assets/canli/trtbelgesel.png",format:"1080p HLS",desc:"Belgeseller, doğa, bilim ve tarih yapımları doğrudan HD HLS akışları."},
-  {id:"anthology_cocuk",name:"Anthology Çocuk & Aile",cats:["movie","tv","genre"],domain:null,logo:"assets/canli/trtcocuk.png",format:"1080p HLS",desc:"Çocuk filmleri, çizgi diziler ve aile sineması doğrudan HD HLS akışları."},
-  {id:"anthology_toprated",name:"Anthology IMDb Top Rated",cats:["movie","genre"],domain:null,logo:"assets/logo_1_transparent.png",format:"1080p HLS Master",desc:"IMDb'nin en yüksek puanlı kült ve başyapıt filmleri doğrudan HD HLS akışları."},
-  {id:"anthology_yerlidizi",name:"Anthology Yerli Dizi",cats:["tv","genre"],domain:null,logo:"assets/logo_1_transparent.png",format:"1080p MP4 / HLS",desc:"Yerli diziler, Türk televizyon arşivi ve güncel Türk dizileri doğrudan MP4/HLS akışları."},
-  {id:"anthology_yabancidizi",name:"Anthology Yabancı Dizi",cats:["tv","genre"],domain:null,logo:"assets/logo_1_transparent.png",format:"1080p HLS Master",desc:"Yabancı popüler diziler için doğrudan HD HLS master akışları."},
-  {id:"ddizi",name:"DDizi",cats:["tv"],domain:"ddizi.im",logo:null,format:"1080p MP4 / HLS",desc:"Yerli dizi arşivi, güncel bölümler kataloğu ve doğrudan Ciner/Yandex CDN akışları."},
-  {id:"dizibox",name:"DiziBox",cats:["tv"],domain:"dizibox.live",logo:null,format:"1080p HLS Master",desc:"Popüler yabancı diziler arşivi, güncel bölümler ve doğrudan 1080p Molystream akışları."},
-  {id:"dizimom",name:"DiziMom",cats:["tv"],domain:"dizimom.diy",logo:null,format:"1080p HLS Master",desc:"Popüler yabancı diziler arşivi, güncel bölümler ve doğrudan 1080p Fire HLS akışları."},
-  {id:"vidmody",name:"Vidmody",cats:["movie","tv"],domain:"vidmody.com",logo:null,format:"1080p HLS Çift Ses",desc:"Doğrudan çoklu dil ve altyazı destekli HLS film ve dizi akış sağlayıcısı."},
-  {id:"webteizle",name:"Webteİzle",cats:["movie"],domain:"webteizle.info",logo:null,format:"1080p VidMoly HLS",desc:"Webteİzle arşivi üzerinden Türkçe Dublaj ve Altyazılı VidMoly 1080p master HLS akışları."},
-  {id:"yabancidizi",name:"YabancıDizi",cats:["tv"],domain:"yabancidizi.news",logo:null,format:"1080p VidMoly HLS",desc:"YabancıDizi arşivi üzerinden Türkçe Dublaj ve Altyazılı VidMoly 1080p master HLS akışları."},
-  {id:"setfilmizle",name:"SetFilmIzle",cats:["movie","tv"],domain:"setfilmizle.ltd",logo:null,format:"1080p FastPlay HLS",desc:"SetFilmIzle arşivi üzerinden FastPlay 1080p HLS master akışları ve TR/EN altyazılar."},
-  {id:"kultfilmler",name:"KultFilmler",cats:["movie"],domain:"kultfilmler.net",logo:null,format:"1080p VidMoly HLS",desc:"KultFilmler arşivi üzerinden VidMoly/Vidpapi 1080p HLS akışları."},
-  {id:"hdfilmdelisi",name:"HDFilmDelisi",cats:["movie"],domain:"hdfilmdelisi.org",logo:null,format:"1080p VidMody HLS",desc:"HDFilmDelisi JSON API arşivi üzerinden VidMody 1080p HLS akışları."},
-  {id:"hdfilmizle",name:"HDFilmIzle",cats:["movie"],domain:"hdfilmizle.ink",logo:null,format:"1080p FastPlay HLS",desc:"HDFilmIzle arşivi üzerinden FastPlay 1080p HLS master akışları ve TR/EN altyazılar."},
-  {id:"mahsundizi",name:"Mahsun Dizi",cats:["tv","movie"],domain:"mahsundizi8.com",logo:null,format:"1080p BEPLAYER+ HLS",desc:"Mahsun Dizi arşivi ve dosyaload BEPLAYER+ üzerinden 1080p HLS akışları ve altyazılar."}
-];
+    /* 100 LIVE CHANNELS */
+    const CHANNELS = [{ "id": "tv:TRT1.tr", "name": "TRT 1 HD", "logo": "assets/canli/trt1.png", "desc": "TRT 1 HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:ATV.tr", "name": "ATV HD", "logo": "assets/canli/atv.png", "desc": "ATV HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:KanalD.tr", "name": "Kanal D HD", "logo": "assets/canli/kanald.png", "desc": "Kanal D HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:ShowTV.tr", "name": "Show TV HD", "logo": "assets/canli/showtv.png", "desc": "Show TV HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:StarTV.tr", "name": "Star TV HD", "logo": "assets/canli/startv.png", "desc": "Star TV HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:NOW.tr", "name": "NOW TV HD", "logo": "assets/canli/now.png", "desc": "NOW TV HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:TV8.tr", "name": "TV8 HD", "logo": "assets/canli/tv8.png", "desc": "TV8 HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:Kanal7.tr", "name": "Kanal 7 HD", "logo": "assets/canli/kanal7.png", "desc": "Kanal 7 HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:BeyazTV.tr", "name": "Beyaz TV HD", "logo": "assets/canli/beyaztv.png", "desc": "Beyaz TV HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:Teve2.tr", "name": "Teve2 HD", "logo": "assets/canli/teve2.png", "desc": "Teve2 HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:A2.tr", "name": "A2 TV HD", "logo": "assets/canli/a2.png", "desc": "A2 TV HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:TV360.tr", "name": "360 TV HD", "logo": "assets/canli/tv360.png", "desc": "360 TV HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:TRT2.tr", "name": "TRT 2 Kültür & Sanat HD", "logo": "assets/canli/trt2.png", "desc": "TRT 2 Kültür & Sanat HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:TRTTurk.tr", "name": "TRT Türk HD", "logo": "assets/canli/trtturk.png", "desc": "TRT Türk HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:Kanal7Avrupa.tr", "name": "Kanal 7 Avrupa", "logo": "assets/canli/kanal7.png", "desc": "Kanal 7 Avrupa Canlı Yayın", "cat": "ulusal" }, { "id": "tv:TRTSpor.tr", "name": "TRT Spor HD", "logo": "assets/canli/trtspor.png", "desc": "TRT Spor HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TRTSporYildiz.tr", "name": "TRT Spor Yıldız HD", "logo": "assets/canli/trtsporyildiz.png", "desc": "TRT Spor Yıldız HD Canlı Yayın", "cat": "spor" }, { "id": "tv:ASpor.tr", "name": "A Spor HD", "logo": "assets/canli/aspor.png", "desc": "A Spor HD Canlı Yayın", "cat": "spor" }, { "id": "tv:HTSpor.tr", "name": "HT Spor HD", "logo": "assets/canli/htspor.png", "desc": "HT Spor HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TV85.tr", "name": "TV8.5 HD", "logo": "assets/canli/tv85.png", "desc": "TV8.5 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:FBTV.tr", "name": "FB TV HD", "logo": "assets/canli/fbtv.png", "desc": "FB TV HD Canlı Yayın", "cat": "spor" }, { "id": "tv:GSTV.tr", "name": "GS TV HD", "logo": "assets/canli/gstv.png", "desc": "GS TV HD Canlı Yayın", "cat": "spor" }, { "id": "tv:SportsTV.tr", "name": "Sports TV HD", "logo": "assets/canli/sportstv.png", "desc": "Sports TV HD Canlı Yayın", "cat": "spor" }, { "id": "tv:CBCSport.tr", "name": "CBC Sport HD", "logo": "assets/canli/cbcsport.png", "desc": "CBC Sport HD Canlı Yayın", "cat": "spor" }, { "id": "tv:IdmanTV.tr", "name": "iDMAN Tv HD", "logo": "assets/canli/idmantv.png", "desc": "iDMAN Tv HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TJKTV.tr", "name": "TJK TV HD", "logo": "assets/canli/tjktv.png", "desc": "TJK TV HD Canlı Yayın", "cat": "spor" }, { "id": "tv:NBATV.tr", "name": "NBA TV HD", "logo": "assets/canli/nbatv.png", "desc": "NBA TV HD Canlı Yayın", "cat": "spor" }, { "id": "tv:beINSports1.tr", "name": "BeIN Sports 1 HD", "logo": "assets/canli/beinsports.png", "desc": "BeIN Sports 1 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:beINSports2.tr", "name": "BeIN Sports 2 HD", "logo": "assets/canli/beinsports.png", "desc": "BeIN Sports 2 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:beINSports3.tr", "name": "BeIN Sports 3 HD", "logo": "assets/canli/beinsports.png", "desc": "BeIN Sports 3 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:beINSports4.tr", "name": "BeIN Sports 4 HD", "logo": "assets/canli/beinsports.png", "desc": "BeIN Sports 4 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:beINSports5.tr", "name": "BeIN Sports 5 HD", "logo": "assets/canli/beinsports.png", "desc": "BeIN Sports 5 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:beINSportsMax1.tr", "name": "BeIN Sports Max 1 HD", "logo": "assets/canli/beinsports.png", "desc": "BeIN Sports Max 1 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:beINSportsMax2.tr", "name": "BeIN Sports Max 2 HD", "logo": "assets/canli/beinsports.png", "desc": "BeIN Sports Max 2 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:SSport.tr", "name": "S Sport HD", "logo": "assets/canli/ssport.png", "desc": "S Sport HD Canlı Yayın", "cat": "spor" }, { "id": "tv:SSport2.tr", "name": "S Sport 2 HD", "logo": "assets/canli/ssport.png", "desc": "S Sport 2 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:SSportPlus.tr", "name": "S Sport Plus HD", "logo": "assets/canli/ssport.png", "desc": "S Sport Plus HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TivibuSpor.tr", "name": "Tivibu Spor HD", "logo": "assets/canli/tivibuspor.png", "desc": "Tivibu Spor HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TivibuSpor1.tr", "name": "Tivibu Spor 1 HD", "logo": "assets/canli/tivibuspor.png", "desc": "Tivibu Spor 1 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TivibuSpor2.tr", "name": "Tivibu Spor 2 HD", "logo": "assets/canli/tivibuspor.png", "desc": "Tivibu Spor 2 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TivibuSpor3.tr", "name": "Tivibu Spor 3 HD", "logo": "assets/canli/tivibuspor.png", "desc": "Tivibu Spor 3 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TivibuSpor4.tr", "name": "Tivibu Spor 4 HD", "logo": "assets/canli/tivibuspor.png", "desc": "Tivibu Spor 4 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:SmartSpor1.tr", "name": "Smart Spor 1 HD", "logo": "assets/canli/smartspor.png", "desc": "Smart Spor 1 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:SmartSpor2.tr", "name": "Smart Spor 2 HD", "logo": "assets/canli/smartspor.png", "desc": "Smart Spor 2 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:EuroSport1.tr", "name": "Euro Sport 1 HD", "logo": "assets/canli/eurosport.png", "desc": "Euro Sport 1 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:EuroSport2.tr", "name": "Euro Sport 2 HD", "logo": "assets/canli/eurosport.png", "desc": "Euro Sport 2 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:ExxenTV.tr", "name": "Exxen TV HD", "logo": "assets/canli/exxenspor.png", "desc": "Exxen TV HD Canlı Yayın", "cat": "spor" }, { "id": "tv:ExxenSports1.tr", "name": "Exxen Sports 1 HD", "logo": "assets/canli/exxenspor.png", "desc": "Exxen Sports 1 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:ExxenSports2.tr", "name": "Exxen Sports 2 HD", "logo": "assets/canli/exxenspor.png", "desc": "Exxen Sports 2 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:ExxenSports3.tr", "name": "Exxen Sports 3 HD", "logo": "assets/canli/exxenspor.png", "desc": "Exxen Sports 3 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:ExxenSports4.tr", "name": "Exxen Sports 4 HD", "logo": "assets/canli/exxenspor.png", "desc": "Exxen Sports 4 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:ExxenSports5.tr", "name": "Exxen Sports 5 HD", "logo": "assets/canli/exxenspor.png", "desc": "Exxen Sports 5 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:ExxenSports6.tr", "name": "Exxen Sports 6 HD", "logo": "assets/canli/exxenspor.png", "desc": "Exxen Sports 6 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:ExxenSports7.tr", "name": "Exxen Sports 7 HD", "logo": "assets/canli/exxenspor.png", "desc": "Exxen Sports 7 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:ExxenSports8.tr", "name": "Exxen Sports 8 HD", "logo": "assets/canli/exxenspor.png", "desc": "Exxen Sports 8 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TabiiSpor.tr", "name": "Tabii Spor HD", "logo": "assets/canli/tabiispor.png", "desc": "Tabii Spor HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TabiiSpor1.tr", "name": "Tabii Spor 1 HD", "logo": "assets/canli/tabiispor.png", "desc": "Tabii Spor 1 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TabiiSpor2.tr", "name": "Tabii Spor 2 HD", "logo": "assets/canli/tabiispor.png", "desc": "Tabii Spor 2 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TabiiSpor3.tr", "name": "Tabii Spor 3 HD", "logo": "assets/canli/tabiispor.png", "desc": "Tabii Spor 3 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TabiiSpor4.tr", "name": "Tabii Spor 4 HD", "logo": "assets/canli/tabiispor.png", "desc": "Tabii Spor 4 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TabiiSpor5.tr", "name": "Tabii Spor 5 HD", "logo": "assets/canli/tabiispor.png", "desc": "Tabii Spor 5 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TabiiSpor6.tr", "name": "Tabii Spor 6 HD", "logo": "assets/canli/tabiispor.png", "desc": "Tabii Spor 6 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TabiiSpor7.tr", "name": "Tabii Spor 7 HD", "logo": "assets/canli/tabiispor.png", "desc": "Tabii Spor 7 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TabiiSpor8.tr", "name": "Tabii Spor 8 HD", "logo": "assets/canli/tabiispor.png", "desc": "Tabii Spor 8 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TRTHaber.tr", "name": "TRT Haber HD", "logo": "assets/canli/trthaber.png", "desc": "TRT Haber HD Canlı Yayın", "cat": "haber" }, { "id": "tv:NTV.tr", "name": "NTV Haber HD", "logo": "assets/canli/ntv.png", "desc": "NTV Haber HD Canlı Yayın", "cat": "haber" }, { "id": "tv:HaberTurk.tr", "name": "Habertürk TV HD", "logo": "assets/canli/haberturk.png", "desc": "Habertürk TV HD Canlı Yayın", "cat": "haber" }, { "id": "tv:TV100.tr", "name": "TV100 HD", "logo": "assets/canli/tv100.png", "desc": "TV100 HD Canlı Yayın", "cat": "haber" }, { "id": "tv:AHaber.tr", "name": "A Haber HD", "logo": "assets/canli/ahaber.png", "desc": "A Haber HD Canlı Yayın", "cat": "haber" }, { "id": "tv:HalkTV.tr", "name": "Halk TV HD", "logo": "assets/canli/halktv.png", "desc": "Halk TV HD Canlı Yayın", "cat": "haber" }, { "id": "tv:Tele1.tr", "name": "Tele 1 HD", "logo": "assets/canli/tele1.png", "desc": "Tele 1 HD Canlı Yayın", "cat": "haber" }, { "id": "tv:TGRTHaber.tr", "name": "TGRT Haber HD", "logo": "assets/canli/tgrthaber.png", "desc": "TGRT Haber HD Canlı Yayın", "cat": "haber" }, { "id": "tv:HaberGlobal.tr", "name": "Haber Global HD", "logo": "assets/canli/haberglobal.png", "desc": "Haber Global HD Canlı Yayın", "cat": "haber" }, { "id": "tv:Kanal24.tr", "name": "24 TV HD", "logo": "assets/canli/24tv.png", "desc": "24 TV HD Canlı Yayın", "cat": "haber" }, { "id": "tv:BloombergHT.tr", "name": "Bloomberg HT Ekonomi HD", "logo": "assets/canli/bloomberght.png", "desc": "Bloomberg HT Ekonomi HD Canlı Yayın", "cat": "haber" }, { "id": "tv:TVNET.tr", "name": "TVNET HD", "logo": "assets/canli/tvnet.png", "desc": "TVNET HD Canlı Yayın", "cat": "haber" }, { "id": "tv:UlkeTV.tr", "name": "Ülke TV HD", "logo": "assets/canli/ulketv.png", "desc": "Ülke TV HD Canlı Yayın", "cat": "haber" }, { "id": "tv:Ekoturk.tr", "name": "Ekotürk Ekonomi HD", "logo": "assets/canli/ekoturk.png", "desc": "Ekotürk Ekonomi HD Canlı Yayın", "cat": "haber" }, { "id": "tv:BenguTurk.tr", "name": "Bengü Türk TV HD", "logo": "assets/canli/benguturk.png", "desc": "Bengü Türk TV HD Canlı Yayın", "cat": "haber" }, { "id": "tv:FlashHaber.tr", "name": "Flash Haber TV HD", "logo": "assets/canli/flashhaber.png", "desc": "Flash Haber TV HD Canlı Yayın", "cat": "haber" }, { "id": "tv:LiderHaber.tr", "name": "Lider Haber TV HD", "logo": "assets/canli/liderhaber.png", "desc": "Lider Haber TV HD Canlı Yayın", "cat": "haber" }, { "id": "tv:TurkHaber.tr", "name": "Türk Haber TV HD", "logo": "assets/canli/turkhaber.png", "desc": "Türk Haber TV HD Canlı Yayın", "cat": "haber" }, { "id": "tv:TRTBelgesel.tr", "name": "TRT Belgesel HD", "logo": "assets/canli/trtbelgesel.png", "desc": "TRT Belgesel HD Canlı Yayın", "cat": "belgesel_cocuk" }, { "id": "tv:TRTCocuk.tr", "name": "TRT Çocuk HD", "logo": "assets/canli/trtcocuk.png", "desc": "TRT Çocuk HD Canlı Yayın", "cat": "belgesel_cocuk" }, { "id": "tv:MinikaCocuk.tr", "name": "Minika Çocuk HD", "logo": "assets/canli/minikacocuk.png", "desc": "Minika Çocuk HD Canlı Yayın", "cat": "belgesel_cocuk" }, { "id": "tv:MinikaGo.tr", "name": "Minika GO HD", "logo": "assets/canli/minikago.png", "desc": "Minika GO HD Canlı Yayın", "cat": "belgesel_cocuk" }, { "id": "tv:TRTEBAIlkokul.tr", "name": "TRT EBA İlkokul HD", "logo": "assets/canli/trtebailkokul.png", "desc": "TRT EBA İlkokul HD Canlı Yayın", "cat": "belgesel_cocuk" }, { "id": "tv:TRTEBAOrtaokul.tr", "name": "TRT EBA Ortaokul HD", "logo": "assets/canli/trtebaortaokul.png", "desc": "TRT EBA Ortaokul HD Canlı Yayın", "cat": "belgesel_cocuk" }, { "id": "tv:TRTEBALise.tr", "name": "TRT EBA Lise HD", "logo": "assets/canli/trtebalise.png", "desc": "TRT EBA Lise HD Canlı Yayın", "cat": "belgesel_cocuk" }, { "id": "tv:KralPopTV.tr", "name": "Kral Pop TV HD", "logo": "assets/canli/kralpop.png", "desc": "Kral Pop TV HD Canlı Yayın", "cat": "muzik" }, { "id": "tv:PowerTurkTV.tr", "name": "PowerTürk TV HD", "logo": "assets/canli/powerturk.png", "desc": "PowerTürk TV HD Canlı Yayın", "cat": "muzik" }, { "id": "tv:PowerTV.tr", "name": "Power TV HD", "logo": "assets/canli/powertv.png", "desc": "Power TV HD Canlı Yayın", "cat": "muzik" }, { "id": "tv:Number1TV.tr", "name": "Number 1 TV HD", "logo": "assets/canli/number1.png", "desc": "Number 1 TV HD Canlı Yayın", "cat": "muzik" }, { "id": "tv:TRTMuzik.tr", "name": "TRT Müzik HD", "logo": "assets/canli/trtmuzik.png", "desc": "TRT Müzik HD Canlı Yayın", "cat": "muzik" }, { "id": "tv:PowerDance.tr", "name": "Power Dance HD", "logo": "assets/canli/powerdance.png", "desc": "Power Dance HD Canlı Yayın", "cat": "muzik" }, { "id": "tv:PowerLove.tr", "name": "Power Love HD", "logo": "assets/canli/powerlove.png", "desc": "Power Love HD Canlı Yayın", "cat": "muzik" }, { "id": "tv:TRTWorld.tr", "name": "TRT World HD", "logo": "assets/canli/trtworld.png", "desc": "TRT World HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:TRTAvaz.tr", "name": "TRT Avaz HD", "logo": "assets/canli/trtavaz.png", "desc": "TRT Avaz HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:TRTKurdi.tr", "name": "TRT Kurdî HD", "logo": "assets/canli/trtkurdi.png", "desc": "TRT Kurdî HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:TRTArabi.tr", "name": "TRT Arabi HD", "logo": "assets/canli/trtarabi.png", "desc": "TRT Arabi HD Canlı Yayın", "cat": "ulusal" }];
 
-/* 100 LIVE CHANNELS */
-const CHANNELS = [{"id":"tv:TRT1.tr","name":"TRT 1 HD","logo":"assets/canli/trt1.png","desc":"TRT 1 HD Canlı Yayın","cat":"ulusal"},{"id":"tv:ATV.tr","name":"ATV HD","logo":"assets/canli/atv.png","desc":"ATV HD Canlı Yayın","cat":"ulusal"},{"id":"tv:KanalD.tr","name":"Kanal D HD","logo":"assets/canli/kanald.png","desc":"Kanal D HD Canlı Yayın","cat":"ulusal"},{"id":"tv:ShowTV.tr","name":"Show TV HD","logo":"assets/canli/showtv.png","desc":"Show TV HD Canlı Yayın","cat":"ulusal"},{"id":"tv:StarTV.tr","name":"Star TV HD","logo":"assets/canli/startv.png","desc":"Star TV HD Canlı Yayın","cat":"ulusal"},{"id":"tv:NOW.tr","name":"NOW TV HD","logo":"assets/canli/now.png","desc":"NOW TV HD Canlı Yayın","cat":"ulusal"},{"id":"tv:TV8.tr","name":"TV8 HD","logo":"assets/canli/tv8.png","desc":"TV8 HD Canlı Yayın","cat":"ulusal"},{"id":"tv:Kanal7.tr","name":"Kanal 7 HD","logo":"assets/canli/kanal7.png","desc":"Kanal 7 HD Canlı Yayın","cat":"ulusal"},{"id":"tv:BeyazTV.tr","name":"Beyaz TV HD","logo":"assets/canli/beyaztv.png","desc":"Beyaz TV HD Canlı Yayın","cat":"ulusal"},{"id":"tv:Teve2.tr","name":"Teve2 HD","logo":"assets/canli/teve2.png","desc":"Teve2 HD Canlı Yayın","cat":"ulusal"},{"id":"tv:A2.tr","name":"A2 TV HD","logo":"assets/canli/a2.png","desc":"A2 TV HD Canlı Yayın","cat":"ulusal"},{"id":"tv:TV360.tr","name":"360 TV HD","logo":"assets/canli/tv360.png","desc":"360 TV HD Canlı Yayın","cat":"ulusal"},{"id":"tv:TRT2.tr","name":"TRT 2 Kültür & Sanat HD","logo":"assets/canli/trt2.png","desc":"TRT 2 Kültür & Sanat HD Canlı Yayın","cat":"ulusal"},{"id":"tv:TRTTurk.tr","name":"TRT Türk HD","logo":"assets/canli/trtturk.png","desc":"TRT Türk HD Canlı Yayın","cat":"ulusal"},{"id":"tv:Kanal7Avrupa.tr","name":"Kanal 7 Avrupa","logo":"assets/canli/kanal7.png","desc":"Kanal 7 Avrupa Canlı Yayın","cat":"ulusal"},{"id":"tv:TRTSpor.tr","name":"TRT Spor HD","logo":"assets/canli/trtspor.png","desc":"TRT Spor HD Canlı Yayın","cat":"spor"},{"id":"tv:TRTSporYildiz.tr","name":"TRT Spor Yıldız HD","logo":"assets/canli/trtsporyildiz.png","desc":"TRT Spor Yıldız HD Canlı Yayın","cat":"spor"},{"id":"tv:ASpor.tr","name":"A Spor HD","logo":"assets/canli/aspor.png","desc":"A Spor HD Canlı Yayın","cat":"spor"},{"id":"tv:HTSpor.tr","name":"HT Spor HD","logo":"assets/canli/htspor.png","desc":"HT Spor HD Canlı Yayın","cat":"spor"},{"id":"tv:TV85.tr","name":"TV8.5 HD","logo":"assets/canli/tv85.png","desc":"TV8.5 HD Canlı Yayın","cat":"spor"},{"id":"tv:FBTV.tr","name":"FB TV HD","logo":"assets/canli/fbtv.png","desc":"FB TV HD Canlı Yayın","cat":"spor"},{"id":"tv:GSTV.tr","name":"GS TV HD","logo":"assets/canli/gstv.png","desc":"GS TV HD Canlı Yayın","cat":"spor"},{"id":"tv:SportsTV.tr","name":"Sports TV HD","logo":"assets/canli/sportstv.png","desc":"Sports TV HD Canlı Yayın","cat":"spor"},{"id":"tv:CBCSport.tr","name":"CBC Sport HD","logo":"assets/canli/cbcsport.png","desc":"CBC Sport HD Canlı Yayın","cat":"spor"},{"id":"tv:IdmanTV.tr","name":"iDMAN Tv HD","logo":"assets/canli/idmantv.png","desc":"iDMAN Tv HD Canlı Yayın","cat":"spor"},{"id":"tv:TJKTV.tr","name":"TJK TV HD","logo":"assets/canli/tjktv.png","desc":"TJK TV HD Canlı Yayın","cat":"spor"},{"id":"tv:NBATV.tr","name":"NBA TV HD","logo":"assets/canli/nbatv.png","desc":"NBA TV HD Canlı Yayın","cat":"spor"},{"id":"tv:beINSports1.tr","name":"BeIN Sports 1 HD","logo":"assets/canli/beinsports.png","desc":"BeIN Sports 1 HD Canlı Yayın","cat":"spor"},{"id":"tv:beINSports2.tr","name":"BeIN Sports 2 HD","logo":"assets/canli/beinsports.png","desc":"BeIN Sports 2 HD Canlı Yayın","cat":"spor"},{"id":"tv:beINSports3.tr","name":"BeIN Sports 3 HD","logo":"assets/canli/beinsports.png","desc":"BeIN Sports 3 HD Canlı Yayın","cat":"spor"},{"id":"tv:beINSports4.tr","name":"BeIN Sports 4 HD","logo":"assets/canli/beinsports.png","desc":"BeIN Sports 4 HD Canlı Yayın","cat":"spor"},{"id":"tv:beINSports5.tr","name":"BeIN Sports 5 HD","logo":"assets/canli/beinsports.png","desc":"BeIN Sports 5 HD Canlı Yayın","cat":"spor"},{"id":"tv:beINSportsMax1.tr","name":"BeIN Sports Max 1 HD","logo":"assets/canli/beinsports.png","desc":"BeIN Sports Max 1 HD Canlı Yayın","cat":"spor"},{"id":"tv:beINSportsMax2.tr","name":"BeIN Sports Max 2 HD","logo":"assets/canli/beinsports.png","desc":"BeIN Sports Max 2 HD Canlı Yayın","cat":"spor"},{"id":"tv:SSport.tr","name":"S Sport HD","logo":"assets/canli/ssport.png","desc":"S Sport HD Canlı Yayın","cat":"spor"},{"id":"tv:SSport2.tr","name":"S Sport 2 HD","logo":"assets/canli/ssport.png","desc":"S Sport 2 HD Canlı Yayın","cat":"spor"},{"id":"tv:SSportPlus.tr","name":"S Sport Plus HD","logo":"assets/canli/ssport.png","desc":"S Sport Plus HD Canlı Yayın","cat":"spor"},{"id":"tv:TivibuSpor.tr","name":"Tivibu Spor HD","logo":"assets/canli/tivibuspor.png","desc":"Tivibu Spor HD Canlı Yayın","cat":"spor"},{"id":"tv:TivibuSpor1.tr","name":"Tivibu Spor 1 HD","logo":"assets/canli/tivibuspor.png","desc":"Tivibu Spor 1 HD Canlı Yayın","cat":"spor"},{"id":"tv:TivibuSpor2.tr","name":"Tivibu Spor 2 HD","logo":"assets/canli/tivibuspor.png","desc":"Tivibu Spor 2 HD Canlı Yayın","cat":"spor"},{"id":"tv:TivibuSpor3.tr","name":"Tivibu Spor 3 HD","logo":"assets/canli/tivibuspor.png","desc":"Tivibu Spor 3 HD Canlı Yayın","cat":"spor"},{"id":"tv:TivibuSpor4.tr","name":"Tivibu Spor 4 HD","logo":"assets/canli/tivibuspor.png","desc":"Tivibu Spor 4 HD Canlı Yayın","cat":"spor"},{"id":"tv:SmartSpor1.tr","name":"Smart Spor 1 HD","logo":"assets/canli/smartspor.png","desc":"Smart Spor 1 HD Canlı Yayın","cat":"spor"},{"id":"tv:SmartSpor2.tr","name":"Smart Spor 2 HD","logo":"assets/canli/smartspor.png","desc":"Smart Spor 2 HD Canlı Yayın","cat":"spor"},{"id":"tv:EuroSport1.tr","name":"Euro Sport 1 HD","logo":"assets/canli/eurosport.png","desc":"Euro Sport 1 HD Canlı Yayın","cat":"spor"},{"id":"tv:EuroSport2.tr","name":"Euro Sport 2 HD","logo":"assets/canli/eurosport.png","desc":"Euro Sport 2 HD Canlı Yayın","cat":"spor"},{"id":"tv:ExxenTV.tr","name":"Exxen TV HD","logo":"assets/canli/exxenspor.png","desc":"Exxen TV HD Canlı Yayın","cat":"spor"},{"id":"tv:ExxenSports1.tr","name":"Exxen Sports 1 HD","logo":"assets/canli/exxenspor.png","desc":"Exxen Sports 1 HD Canlı Yayın","cat":"spor"},{"id":"tv:ExxenSports2.tr","name":"Exxen Sports 2 HD","logo":"assets/canli/exxenspor.png","desc":"Exxen Sports 2 HD Canlı Yayın","cat":"spor"},{"id":"tv:ExxenSports3.tr","name":"Exxen Sports 3 HD","logo":"assets/canli/exxenspor.png","desc":"Exxen Sports 3 HD Canlı Yayın","cat":"spor"},{"id":"tv:ExxenSports4.tr","name":"Exxen Sports 4 HD","logo":"assets/canli/exxenspor.png","desc":"Exxen Sports 4 HD Canlı Yayın","cat":"spor"},{"id":"tv:ExxenSports5.tr","name":"Exxen Sports 5 HD","logo":"assets/canli/exxenspor.png","desc":"Exxen Sports 5 HD Canlı Yayın","cat":"spor"},{"id":"tv:ExxenSports6.tr","name":"Exxen Sports 6 HD","logo":"assets/canli/exxenspor.png","desc":"Exxen Sports 6 HD Canlı Yayın","cat":"spor"},{"id":"tv:ExxenSports7.tr","name":"Exxen Sports 7 HD","logo":"assets/canli/exxenspor.png","desc":"Exxen Sports 7 HD Canlı Yayın","cat":"spor"},{"id":"tv:ExxenSports8.tr","name":"Exxen Sports 8 HD","logo":"assets/canli/exxenspor.png","desc":"Exxen Sports 8 HD Canlı Yayın","cat":"spor"},{"id":"tv:TabiiSpor.tr","name":"Tabii Spor HD","logo":"assets/canli/tabiispor.png","desc":"Tabii Spor HD Canlı Yayın","cat":"spor"},{"id":"tv:TabiiSpor1.tr","name":"Tabii Spor 1 HD","logo":"assets/canli/tabiispor.png","desc":"Tabii Spor 1 HD Canlı Yayın","cat":"spor"},{"id":"tv:TabiiSpor2.tr","name":"Tabii Spor 2 HD","logo":"assets/canli/tabiispor.png","desc":"Tabii Spor 2 HD Canlı Yayın","cat":"spor"},{"id":"tv:TabiiSpor3.tr","name":"Tabii Spor 3 HD","logo":"assets/canli/tabiispor.png","desc":"Tabii Spor 3 HD Canlı Yayın","cat":"spor"},{"id":"tv:TabiiSpor4.tr","name":"Tabii Spor 4 HD","logo":"assets/canli/tabiispor.png","desc":"Tabii Spor 4 HD Canlı Yayın","cat":"spor"},{"id":"tv:TabiiSpor5.tr","name":"Tabii Spor 5 HD","logo":"assets/canli/tabiispor.png","desc":"Tabii Spor 5 HD Canlı Yayın","cat":"spor"},{"id":"tv:TabiiSpor6.tr","name":"Tabii Spor 6 HD","logo":"assets/canli/tabiispor.png","desc":"Tabii Spor 6 HD Canlı Yayın","cat":"spor"},{"id":"tv:TabiiSpor7.tr","name":"Tabii Spor 7 HD","logo":"assets/canli/tabiispor.png","desc":"Tabii Spor 7 HD Canlı Yayın","cat":"spor"},{"id":"tv:TabiiSpor8.tr","name":"Tabii Spor 8 HD","logo":"assets/canli/tabiispor.png","desc":"Tabii Spor 8 HD Canlı Yayın","cat":"spor"},{"id":"tv:TRTHaber.tr","name":"TRT Haber HD","logo":"assets/canli/trthaber.png","desc":"TRT Haber HD Canlı Yayın","cat":"haber"},{"id":"tv:NTV.tr","name":"NTV Haber HD","logo":"assets/canli/ntv.png","desc":"NTV Haber HD Canlı Yayın","cat":"haber"},{"id":"tv:HaberTurk.tr","name":"Habertürk TV HD","logo":"assets/canli/haberturk.png","desc":"Habertürk TV HD Canlı Yayın","cat":"haber"},{"id":"tv:TV100.tr","name":"TV100 HD","logo":"assets/canli/tv100.png","desc":"TV100 HD Canlı Yayın","cat":"haber"},{"id":"tv:AHaber.tr","name":"A Haber HD","logo":"assets/canli/ahaber.png","desc":"A Haber HD Canlı Yayın","cat":"haber"},{"id":"tv:HalkTV.tr","name":"Halk TV HD","logo":"assets/canli/halktv.png","desc":"Halk TV HD Canlı Yayın","cat":"haber"},{"id":"tv:Tele1.tr","name":"Tele 1 HD","logo":"assets/canli/tele1.png","desc":"Tele 1 HD Canlı Yayın","cat":"haber"},{"id":"tv:TGRTHaber.tr","name":"TGRT Haber HD","logo":"assets/canli/tgrthaber.png","desc":"TGRT Haber HD Canlı Yayın","cat":"haber"},{"id":"tv:HaberGlobal.tr","name":"Haber Global HD","logo":"assets/canli/haberglobal.png","desc":"Haber Global HD Canlı Yayın","cat":"haber"},{"id":"tv:Kanal24.tr","name":"24 TV HD","logo":"assets/canli/24tv.png","desc":"24 TV HD Canlı Yayın","cat":"haber"},{"id":"tv:BloombergHT.tr","name":"Bloomberg HT Ekonomi HD","logo":"assets/canli/bloomberght.png","desc":"Bloomberg HT Ekonomi HD Canlı Yayın","cat":"haber"},{"id":"tv:TVNET.tr","name":"TVNET HD","logo":"assets/canli/tvnet.png","desc":"TVNET HD Canlı Yayın","cat":"haber"},{"id":"tv:UlkeTV.tr","name":"Ülke TV HD","logo":"assets/canli/ulketv.png","desc":"Ülke TV HD Canlı Yayın","cat":"haber"},{"id":"tv:Ekoturk.tr","name":"Ekotürk Ekonomi HD","logo":"assets/canli/ekoturk.png","desc":"Ekotürk Ekonomi HD Canlı Yayın","cat":"haber"},{"id":"tv:BenguTurk.tr","name":"Bengü Türk TV HD","logo":"assets/canli/benguturk.png","desc":"Bengü Türk TV HD Canlı Yayın","cat":"haber"},{"id":"tv:FlashHaber.tr","name":"Flash Haber TV HD","logo":"assets/canli/flashhaber.png","desc":"Flash Haber TV HD Canlı Yayın","cat":"haber"},{"id":"tv:LiderHaber.tr","name":"Lider Haber TV HD","logo":"assets/canli/liderhaber.png","desc":"Lider Haber TV HD Canlı Yayın","cat":"haber"},{"id":"tv:TurkHaber.tr","name":"Türk Haber TV HD","logo":"assets/canli/turkhaber.png","desc":"Türk Haber TV HD Canlı Yayın","cat":"haber"},{"id":"tv:TRTBelgesel.tr","name":"TRT Belgesel HD","logo":"assets/canli/trtbelgesel.png","desc":"TRT Belgesel HD Canlı Yayın","cat":"belgesel_cocuk"},{"id":"tv:TRTCocuk.tr","name":"TRT Çocuk HD","logo":"assets/canli/trtcocuk.png","desc":"TRT Çocuk HD Canlı Yayın","cat":"belgesel_cocuk"},{"id":"tv:MinikaCocuk.tr","name":"Minika Çocuk HD","logo":"assets/canli/minikacocuk.png","desc":"Minika Çocuk HD Canlı Yayın","cat":"belgesel_cocuk"},{"id":"tv:MinikaGo.tr","name":"Minika GO HD","logo":"assets/canli/minikago.png","desc":"Minika GO HD Canlı Yayın","cat":"belgesel_cocuk"},{"id":"tv:TRTEBAIlkokul.tr","name":"TRT EBA İlkokul HD","logo":"assets/canli/trtebailkokul.png","desc":"TRT EBA İlkokul HD Canlı Yayın","cat":"belgesel_cocuk"},{"id":"tv:TRTEBAOrtaokul.tr","name":"TRT EBA Ortaokul HD","logo":"assets/canli/trtebaortaokul.png","desc":"TRT EBA Ortaokul HD Canlı Yayın","cat":"belgesel_cocuk"},{"id":"tv:TRTEBALise.tr","name":"TRT EBA Lise HD","logo":"assets/canli/trtebalise.png","desc":"TRT EBA Lise HD Canlı Yayın","cat":"belgesel_cocuk"},{"id":"tv:KralPopTV.tr","name":"Kral Pop TV HD","logo":"assets/canli/kralpop.png","desc":"Kral Pop TV HD Canlı Yayın","cat":"muzik"},{"id":"tv:PowerTurkTV.tr","name":"PowerTürk TV HD","logo":"assets/canli/powerturk.png","desc":"PowerTürk TV HD Canlı Yayın","cat":"muzik"},{"id":"tv:PowerTV.tr","name":"Power TV HD","logo":"assets/canli/powertv.png","desc":"Power TV HD Canlı Yayın","cat":"muzik"},{"id":"tv:Number1TV.tr","name":"Number 1 TV HD","logo":"assets/canli/number1.png","desc":"Number 1 TV HD Canlı Yayın","cat":"muzik"},{"id":"tv:TRTMuzik.tr","name":"TRT Müzik HD","logo":"assets/canli/trtmuzik.png","desc":"TRT Müzik HD Canlı Yayın","cat":"muzik"},{"id":"tv:PowerDance.tr","name":"Power Dance HD","logo":"assets/canli/powerdance.png","desc":"Power Dance HD Canlı Yayın","cat":"muzik"},{"id":"tv:PowerLove.tr","name":"Power Love HD","logo":"assets/canli/powerlove.png","desc":"Power Love HD Canlı Yayın","cat":"muzik"},{"id":"tv:TRTWorld.tr","name":"TRT World HD","logo":"assets/canli/trtworld.png","desc":"TRT World HD Canlı Yayın","cat":"ulusal"},{"id":"tv:TRTAvaz.tr","name":"TRT Avaz HD","logo":"assets/canli/trtavaz.png","desc":"TRT Avaz HD Canlı Yayın","cat":"ulusal"},{"id":"tv:TRTKurdi.tr","name":"TRT Kurdî HD","logo":"assets/canli/trtkurdi.png","desc":"TRT Kurdî HD Canlı Yayın","cat":"ulusal"},{"id":"tv:TRTArabi.tr","name":"TRT Arabi HD","logo":"assets/canli/trtarabi.png","desc":"TRT Arabi HD Canlı Yayın","cat":"ulusal"}];
+    /* PROVIDERS FILTER & RENDER */
+    let currentProviderFilter = "all";
+    let currentProviderSearch = "";
 
-/* PROVIDERS FILTER & RENDER */
-let currentProviderFilter = "all";
-let currentProviderSearch = "";
+    function renderProviders() {
+      const grid = document.getElementById("providerGrid");
+      const countBar = document.getElementById("providerResultsText");
+      grid.innerHTML = "";
 
-function renderProviders() {
-  const grid = document.getElementById("providerGrid");
-  const countBar = document.getElementById("providerResultsText");
-  grid.innerHTML = "";
-  
-  const q = currentProviderSearch.toLowerCase().trim();
-  let matches = 0;
+      const q = currentProviderSearch.toLowerCase().trim();
+      let matches = 0;
 
-  PROVIDERS.forEach(p => {
-    const matchCat = currentProviderFilter === "all" || p.cats.includes(currentProviderFilter);
-    const matchSearch = !q || 
-      p.name.toLowerCase().includes(q) || 
-      p.desc.toLowerCase().includes(q) || 
-      (p.format && p.format.toLowerCase().includes(q)) || 
-      (p.domain && p.domain.toLowerCase().includes(q));
+      PROVIDERS.forEach(p => {
+        const matchCat = currentProviderFilter === "all" || p.cats.includes(currentProviderFilter);
+        const matchSearch = !q ||
+          p.name.toLowerCase().includes(q) ||
+          p.desc.toLowerCase().includes(q) ||
+          (p.format && p.format.toLowerCase().includes(q)) ||
+          (p.domain && p.domain.toLowerCase().includes(q));
 
-    if (!matchCat || !matchSearch) return;
-    matches++;
+        if (!matchCat || !matchSearch) return;
+        matches++;
 
-    const card = document.createElement("div");
-    card.className = "provider-card";
+        const card = document.createElement("div");
+        card.className = "provider-card";
 
-    const tagsHTML = p.cats.map(c => {
-      const cls = c === "movie" ? "tag-movie" : c === "live" ? "tag-live" : c === "anime" ? "tag-anime" : c === "genre" ? "tag-genre" : "tag-tv";
-      const label = c === "movie" ? "Film" : c === "live" ? "Canlı TV" : c === "anime" ? "Anime" : c === "genre" ? "Tür Paketi" : "Dizi";
-      return `<span class="tag ${cls}">${label}</span>`;
-    }).join("");
+        const tagsHTML = p.cats.map(c => {
+          const cls = c === "movie" ? "tag-movie" : c === "live" ? "tag-live" : c === "anime" ? "tag-anime" : c === "genre" ? "tag-genre" : "tag-tv";
+          const label = c === "movie" ? "Film" : c === "live" ? "Canlı TV" : c === "anime" ? "Anime" : c === "genre" ? "Tür Paketi" : "Dizi";
+          return `<span class="tag ${cls}">${label}</span>`;
+        }).join("");
 
-    const logoSrc = p.logo ? p.logo : (p.domain ? `https://www.google.com/s2/favicons?domain=${p.domain}&sz=64` : FALLBACK_LOGO);
-    const linkHTML = p.domain ? `<a class="provider-ext-link" href="https://${p.domain}" target="_blank" rel="noopener" title="${p.domain}">↗ Web</a>` : "";
+        const logoSrc = p.logo ? p.logo : (p.domain ? `https://www.google.com/s2/favicons?domain=${p.domain}&sz=64` : FALLBACK_LOGO);
+        const linkHTML = p.domain ? `<a class="provider-ext-link" href="https://${p.domain}" target="_blank" rel="noopener" title="${p.domain}">↗ Web</a>` : "";
 
-    card.innerHTML = `
+        card.innerHTML = `
       <div class="provider-logo-wrap">
         <img class="provider-logo" src="${logoSrc}" alt="${p.name}" onerror="this.src='${FALLBACK_LOGO}'">
       </div>
@@ -1950,68 +2115,68 @@ function renderProviders() {
         <div class="provider-tags">${tagsHTML}</div>
       </div>
     `;
-    grid.appendChild(card);
-  });
+        grid.appendChild(card);
+      });
 
-  if (matches === 0) {
-    grid.innerHTML = `
+      if (matches === 0) {
+        grid.innerHTML = `
       <div class="empty-state">
         <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
         <p>Aramanıza uygun bir eklenti bulunamadı.</p>
         <button class="btn-reset" onclick="resetProviderFilters()">Filtreleri Temizle</button>
       </div>
     `;
-    countBar.textContent = "0 eklenti bulundu";
-  } else {
-    countBar.textContent = `41 eklentiden ${matches} tanesi listeleniyor`;
-  }
-}
+        countBar.textContent = "0 eklenti bulundu";
+      } else {
+        countBar.textContent = `41 eklentiden ${matches} tanesi listeleniyor`;
+      }
+    }
 
-function filterProviders() {
-  currentProviderSearch = document.getElementById("providerSearchInput").value;
-  renderProviders();
-}
+    function filterProviders() {
+      currentProviderSearch = document.getElementById("providerSearchInput").value;
+      renderProviders();
+    }
 
-function resetProviderFilters() {
-  document.getElementById("providerSearchInput").value = "";
-  currentProviderSearch = "";
-  document.querySelectorAll("#providerFilterPills .filter-pill").forEach(p => p.classList.remove("active"));
-  document.querySelector('#providerFilterPills [data-filter="all"]').classList.add("active");
-  currentProviderFilter = "all";
-  renderProviders();
-}
+    function resetProviderFilters() {
+      document.getElementById("providerSearchInput").value = "";
+      currentProviderSearch = "";
+      document.querySelectorAll("#providerFilterPills .filter-pill").forEach(p => p.classList.remove("active"));
+      document.querySelector('#providerFilterPills [data-filter="all"]').classList.add("active");
+      currentProviderFilter = "all";
+      renderProviders();
+    }
 
-document.querySelectorAll("#providerFilterPills .filter-pill").forEach(btn => {
-  btn.addEventListener("click", () => {
-    document.querySelectorAll("#providerFilterPills .filter-pill").forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-    currentProviderFilter = btn.dataset.filter;
-    renderProviders();
-  });
-});
+    document.querySelectorAll("#providerFilterPills .filter-pill").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("#providerFilterPills .filter-pill").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentProviderFilter = btn.dataset.filter;
+        renderProviders();
+      });
+    });
 
-/* CHANNELS FILTER & RENDER */
-let currentChannelCat = "all";
-let currentChannelSearch = "";
+    /* CHANNELS FILTER & RENDER */
+    let currentChannelCat = "all";
+    let currentChannelSearch = "";
 
-function renderChannels() {
-  const grid = document.getElementById("channelsGrid");
-  const countBar = document.getElementById("channelResultsText");
-  grid.innerHTML = "";
+    function renderChannels() {
+      const grid = document.getElementById("channelsGrid");
+      const countBar = document.getElementById("channelResultsText");
+      grid.innerHTML = "";
 
-  const q = currentChannelSearch.toLowerCase().trim();
-  let matches = 0;
+      const q = currentChannelSearch.toLowerCase().trim();
+      let matches = 0;
 
-  CHANNELS.forEach(ch => {
-    const matchCat = currentChannelCat === "all" || ch.cat === currentChannelCat;
-    const matchSearch = !q || ch.name.toLowerCase().includes(q) || (ch.desc && ch.desc.toLowerCase().includes(q));
+      CHANNELS.forEach(ch => {
+        const matchCat = currentChannelCat === "all" || ch.cat === currentChannelCat;
+        const matchSearch = !q || ch.name.toLowerCase().includes(q) || (ch.desc && ch.desc.toLowerCase().includes(q));
 
-    if (!matchCat || !matchSearch) return;
-    matches++;
+        if (!matchCat || !matchSearch) return;
+        matches++;
 
-    const card = document.createElement("div");
-    card.className = "channel-card";
-    card.innerHTML = `
+        const card = document.createElement("div");
+        card.className = "channel-card";
+        card.innerHTML = `
       <span class="channel-live-dot" title="Aktif Canlı Yayın"></span>
       <div class="channel-logo-wrap">
         <img class="channel-logo" src="${ch.logo}" alt="${ch.name}" onerror="this.src='assets/canli/default_tv.png'">
@@ -2019,126 +2184,127 @@ function renderChannels() {
       <div class="channel-name" title="${ch.name}">${ch.name}</div>
       <div class="channel-source" title="${ch.desc}">${ch.desc}</div>
     `;
-    grid.appendChild(card);
-  });
+        grid.appendChild(card);
+      });
 
-  if (matches === 0) {
-    grid.innerHTML = `
+      if (matches === 0) {
+        grid.innerHTML = `
       <div class="empty-state">
         <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
         <p>Aramanıza uygun canlı yayın kanalı bulunamadı.</p>
         <button class="btn-reset" onclick="resetChannelFilters()">Tüm Kanalları Göster</button>
       </div>
     `;
-    countBar.textContent = "0 kanal bulundu";
-  } else {
-    countBar.textContent = `${CHANNELS.length} canlı kanaldan ${matches} tanesi listeleniyor`;
-  }
-}
+        countBar.textContent = "0 kanal bulundu";
+      } else {
+        countBar.textContent = `${CHANNELS.length} canlı kanaldan ${matches} tanesi listeleniyor`;
+      }
+    }
 
-function filterChannels() {
-  currentChannelSearch = document.getElementById("channelSearchInput").value;
-  renderChannels();
-}
+    function filterChannels() {
+      currentChannelSearch = document.getElementById("channelSearchInput").value;
+      renderChannels();
+    }
 
-function resetChannelFilters() {
-  document.getElementById("channelSearchInput").value = "";
-  currentChannelSearch = "";
-  document.querySelectorAll("#channelFilterPills .filter-pill").forEach(p => p.classList.remove("active"));
-  document.querySelector('#channelFilterPills [data-channel-cat="all"]').classList.add("active");
-  currentChannelCat = "all";
-  renderChannels();
-}
+    function resetChannelFilters() {
+      document.getElementById("channelSearchInput").value = "";
+      currentChannelSearch = "";
+      document.querySelectorAll("#channelFilterPills .filter-pill").forEach(p => p.classList.remove("active"));
+      document.querySelector('#channelFilterPills [data-channel-cat="all"]').classList.add("active");
+      currentChannelCat = "all";
+      renderChannels();
+    }
 
-document.querySelectorAll("#channelFilterPills .filter-pill").forEach(btn => {
-  btn.addEventListener("click", () => {
-    document.querySelectorAll("#channelFilterPills .filter-pill").forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-    currentChannelCat = btn.dataset.channelCat;
+    document.querySelectorAll("#channelFilterPills .filter-pill").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("#channelFilterPills .filter-pill").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentChannelCat = btn.dataset.channelCat;
+        renderChannels();
+      });
+    });
+
+    /* PLATFORM TABS SWITCHER */
+    function switchPlatformTab(tabKey) {
+      document.querySelectorAll(".platform-tabs-nav .tab-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.tab === tabKey);
+      });
+      document.querySelectorAll(".platform-tab-pane").forEach(pane => {
+        pane.classList.toggle("active", pane.id === `tab-${tabKey}`);
+      });
+    }
+
+    /* FAQ ACCORDION */
+    function toggleFaq(btn) {
+      const item = btn.closest(".faq-item");
+      const wasActive = item.classList.contains("active");
+      document.querySelectorAll(".faq-item").forEach(i => i.classList.remove("active"));
+      if (!wasActive) {
+        item.classList.add("active");
+      }
+    }
+
+    /* MOBILE NAV TOGGLE */
+    function toggleMobileNav() {
+      const panel = document.getElementById("mobileNavPanel");
+      panel.classList.toggle("open");
+    }
+    document.getElementById("mobileMenuBtn").addEventListener("click", toggleMobileNav);
+
+    /* TOAST & CLIPBOARD HELPERS */
+    let toastTimeout;
+    function showToast(msg) {
+      const t = document.getElementById("toast");
+      const m = document.getElementById("toastMsg");
+      m.textContent = msg;
+      t.classList.add("show");
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        t.classList.remove("show");
+      }, 2800);
+    }
+
+    function copyNuvioManifest() {
+      copyText(NUVIO_MANIFEST_URL, "📋 Nuvio Depo URL kopyalandı!");
+      const heroBtn = document.getElementById("copyHeroBtn");
+      if (heroBtn) {
+        const original = heroBtn.innerHTML;
+        heroBtn.innerHTML = `<span>✓ Kopyalandı</span>`;
+        heroBtn.classList.add("copied");
+        setTimeout(() => {
+          heroBtn.innerHTML = original;
+          heroBtn.classList.remove("copied");
+        }, 2000);
+      }
+    }
+
+    function copyText(text, msg) {
+      const done = () => showToast(msg || "📋 Bağlantı kopyalandı!");
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopyText(text, done));
+      } else {
+        fallbackCopyText(text, done);
+      }
+    }
+
+    function fallbackCopyText(text, cb) {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.left = "-9999px";
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand("copy");
+      } catch (e) { }
+      document.body.removeChild(ta);
+      if (cb) cb();
+    }
+
+    /* INITIALIZE */
+    renderProviders();
     renderChannels();
-  });
-});
-
-/* PLATFORM TABS SWITCHER */
-function switchPlatformTab(tabKey) {
-  document.querySelectorAll(".platform-tabs-nav .tab-btn").forEach(btn => {
-    btn.classList.toggle("active", btn.dataset.tab === tabKey);
-  });
-  document.querySelectorAll(".platform-tab-pane").forEach(pane => {
-    pane.classList.toggle("active", pane.id === `tab-${tabKey}`);
-  });
-}
-
-/* FAQ ACCORDION */
-function toggleFaq(btn) {
-  const item = btn.closest(".faq-item");
-  const wasActive = item.classList.contains("active");
-  document.querySelectorAll(".faq-item").forEach(i => i.classList.remove("active"));
-  if (!wasActive) {
-    item.classList.add("active");
-  }
-}
-
-/* MOBILE NAV TOGGLE */
-function toggleMobileNav() {
-  const panel = document.getElementById("mobileNavPanel");
-  panel.classList.toggle("open");
-}
-document.getElementById("mobileMenuBtn").addEventListener("click", toggleMobileNav);
-
-/* TOAST & CLIPBOARD HELPERS */
-let toastTimeout;
-function showToast(msg) {
-  const t = document.getElementById("toast");
-  const m = document.getElementById("toastMsg");
-  m.textContent = msg;
-  t.classList.add("show");
-  clearTimeout(toastTimeout);
-  toastTimeout = setTimeout(() => {
-    t.classList.remove("show");
-  }, 2800);
-}
-
-function copyNuvioManifest() {
-  copyText(NUVIO_MANIFEST_URL, "📋 Nuvio Depo URL kopyalandı!");
-  const heroBtn = document.getElementById("copyHeroBtn");
-  if (heroBtn) {
-    const original = heroBtn.innerHTML;
-    heroBtn.innerHTML = `<span>✓ Kopyalandı</span>`;
-    heroBtn.classList.add("copied");
-    setTimeout(() => {
-      heroBtn.innerHTML = original;
-      heroBtn.classList.remove("copied");
-    }, 2000);
-  }
-}
-
-function copyText(text, msg) {
-  const done = () => showToast(msg || "📋 Bağlantı kopyalandı!");
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopyText(text, done));
-  } else {
-    fallbackCopyText(text, done);
-  }
-}
-
-function fallbackCopyText(text, cb) {
-  const ta = document.createElement("textarea");
-  ta.value = text;
-  ta.style.position = "fixed";
-  ta.style.left = "-9999px";
-  document.body.appendChild(ta);
-  ta.select();
-  try {
-    document.execCommand("copy");
-  } catch (e) {}
-  document.body.removeChild(ta);
-  if (cb) cb();
-}
-
-/* INITIALIZE */
-renderProviders();
-renderChannels();
-</script>
+  </script>
 </body>
+
 </html>
