@@ -19,3 +19,13 @@ node_modules/
 # Misc
 *.log
 scratch/
+
+# AI
+brain/
+.antigravity/
+antigravity/
+walkthrough.md
+implementation_plan.md
+**.ai-notes
+.opencode/
+AGENTS.md

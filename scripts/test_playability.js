@@ -2,32 +2,53 @@ const manifest = require("../manifest.json");
 const path = require("path");
 
 async function checkHttp(url, headers = {}) {
-  try {
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 4000);
-    const res = await fetch(url, {
-      method: "HEAD",
-      headers: Object.assign({ "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" }, headers),
-      signal: controller.signal
-    });
-    clearTimeout(timeoutId);
-    return { ok: res.ok, status: res.status, type: res.headers.get("content-type") };
-  } catch (e) {
-    // If HEAD fails, try GET with Range
+  // Bazı CDN'ler (video.sibnet.ru, dv..sibnet.ru) HEAD/405/400 döner ama
+  // GET+Range ile 206 verir. Bazıları (bcdn.hakunaymatata.com) browser UA
+  // ile 428 "Precondition Required" döner; o yüzden stream'in kendi
+  // header'ları önce, browser UA yedek olarak sonra denenir.
+
+  const withRange = (h) => Object.assign({}, h, { "Range": "bytes=0-131072" });
+  const mediaLike = (ct) => /video|mp4|mpegurl|matroska|octet-stream|m4v|dash|\/xml|audio/i.test(ct || "");
+
+  async function tryOnce(h, withUa) {
+    const hdrs = Object.assign({}, h);
+    if (withUa && !(hdrs["User-Agent"] || hdrs["user-agent"])) {
+      hdrs["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64)";
+    }
+    // 1) HEAD
     try {
-      const controller2 = new AbortController();
-      const timeoutId2 = setTimeout(() => controller2.abort(), 4000);
-      const res2 = await fetch(url, {
-        method: "GET",
-        headers: Object.assign({ "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)", "Range": "bytes=0-100" }, headers),
-        signal: controller2.signal
-      });
-      clearTimeout(timeoutId2);
-      return { ok: res2.ok, status: res2.status, type: res2.headers.get("content-type") };
+      const c = new AbortController();
+      const t = setTimeout(() => c.abort(), 5000);
+      const res = await fetch(url, { method: "HEAD", headers: hdrs, signal: c.signal });
+      clearTimeout(t);
+      if (res.ok || res.status === 206) {
+        return { ok: true, status: res.status, type: res.headers.get("content-type") };
+      }
+    } catch (e) { /* fallback GET */ }
+    // 2) GET + Range
+    try {
+      const c2 = new AbortController();
+      const t2 = setTimeout(() => c2.abort(), 6000);
+      const res2 = await fetch(url, { method: "GET", headers: withRange(hdrs), signal: c2.signal });
+      clearTimeout(t2);
+      const ok2 = res2.ok || res2.status === 206;
+      const ct = res2.headers.get("content-type") || "";
+      const hasContentRange = !!res2.headers.get("content-range");
+      const lenHeader = res2.headers.get("content-length");
+      let mediaOk = ok2 && (hasContentRange || mediaLike(ct) || !ct);
+      if (mediaOk && lenHeader === "0") mediaOk = false;
+      await res2.body?.cancel?.();
+      return { ok: mediaOk, status: res2.status, type: ct, mediaOk };
     } catch (err) {
       return { ok: false, status: err.name === "AbortError" ? "TIMEOUT" : "ERR", error: err.message };
     }
   }
+
+  const first = await tryOnce(headers || {}, false);
+  if (first.ok) return first;
+  // Yedek: browser UA ekle (bazı CDN'ler UA istiyor)
+  const second = await tryOnce(headers || {}, true);
+  return second;
 }
 
 (async () => {

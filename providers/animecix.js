@@ -213,18 +213,28 @@ async function resolveMediaInfo(idOrObj, mediaType, defaultSeason, defaultEpisod
       }
 
       if (dataEn) {
+        const normalizeTitle = (str) => {
+          if (!str) return '';
+          return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+        };
+
         const nameEn = dataEn.name || dataEn.title || '';
         if (nameEn) queries.push(nameEn);
         const origName = dataEn.original_name || dataEn.original_title || '';
-        if (origName && /^[a-zA-Z0-9\s:;.,'\"!?-]+$/.test(origName)) {
-          queries.push(origName);
+        if (origName) {
+          const cleanOrig = normalizeTitle(origName);
+          if (cleanOrig && /^[a-zA-Z0-9\s:;.,'\"!?-]+$/.test(cleanOrig) && !queries.includes(cleanOrig)) {
+            queries.push(cleanOrig);
+          }
         }
         title = nameEn || title;
         origTitle = origName || origTitle;
 
         const alts = dataEn.alternative_titles ? (dataEn.alternative_titles.results || dataEn.alternative_titles.titles || []) : [];
         for (const a of alts) {
-          const t = a.title || a.name || '';
+          const rawT = a.title || a.name || '';
+          if (!rawT) continue;
+          const t = normalizeTitle(rawT);
           if (t && /^[a-zA-Z0-9\s:;.,'\"!?-]+$/.test(t) && !queries.includes(t)) {
             queries.push(t);
           }
@@ -253,6 +263,16 @@ async function resolveMediaInfo(idOrObj, mediaType, defaultSeason, defaultEpisod
 
 async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
   try {
+    if (typeof tmdbId === 'object' && tmdbId !== null) {
+      const obj = tmdbId;
+      return getStreams(
+        obj.id || obj.imdbId || obj.tmdbId,
+        mediaType || obj.type,
+        seasonNum !== undefined ? seasonNum : obj.season,
+        episodeNum !== undefined ? episodeNum : obj.episode
+      );
+    }
+
     if (typeof tmdbId === 'string' && tmdbId.startsWith('animecix:title:')) {
       const showMeta = await getMeta(tmdbId);
       if (showMeta && showMeta.meta && Array.isArray(showMeta.meta.videos) && showMeta.meta.videos.length > 0) {
@@ -266,13 +286,14 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
       const targetSeason = parseInt(parts[1]) || 1;
       const targetEp = parseInt(parts[2]) || 1;
       const videoUrl = `${BASE_URL}/secure/best-video?titleId=${titleId}&episode=${targetEp}&season=${targetSeason}`;
-      const bestRes = await fetch(videoUrl, { headers: HEADERS, redirect: 'follow' });
+      const bestRes = await fetch(videoUrl, { headers: HEADERS, redirect: 'follow', signal: AbortSignal.timeout(5000) });
       const finalUrl = bestRes.url || '';
       const m = finalUrl.match(/tau-video\.xyz\/embed\/([a-zA-Z0-9_-]+)/);
       if (!m) return [];
       const tauId = m[1];
       const tauRes = await fetch(`https://tau-video.xyz/api/video/${tauId}`, {
-        headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': BASE_URL + '/' }
+        headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': BASE_URL + '/' },
+        signal: AbortSignal.timeout(5000)
       });
       if (!tauRes.ok) return [];
       let tauData;
@@ -289,7 +310,7 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
 
     for (const q of queries.slice(0, 10)) {
       try {
-        const searchRes = await fetch(`${BASE_URL}/secure/search/${encodeURIComponent(q)}?limit=15`, { headers: HEADERS });
+        const searchRes = await fetch(`${BASE_URL}/secure/search/${encodeURIComponent(q)}?limit=15`, { headers: HEADERS, signal: AbortSignal.timeout(5000) });
         if (!searchRes.ok) continue;
         const sData = await searchRes.json();
         const results = sData.results || [];
@@ -304,23 +325,38 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
           }
         }
 
-        // 2. Exact clean title match (avoid Live Action unless query specified)
+        // 2. Exact clean title match (romanji/english dahil; Live Action hariç)
         const qClean = ultraClean(q);
         const exactTitle = results.find(r => {
           const rClean = ultraClean(r.name || '');
-          return rClean === qClean && !/liveaction/i.test(rClean);
+          const rjClean = ultraClean(r.name_romanji || '');
+          const enClean = ultraClean(r.name_english || '');
+          if (/liveaction/i.test(rClean + rjClean + enClean)) return false;
+          return rClean === qClean || rjClean === qClean || enClean === qClean;
         });
         if (exactTitle) {
           matchedItem = exactTitle;
           break;
         }
 
-        // 3. Substring match
-        const subTitle = results.find(r => {
-          const rClean = ultraClean(r.name || '');
-          if (/liveaction/i.test(rClean)) return false;
-          return qClean.length >= 4 && (rClean.includes(qClean) || qClean.includes(rClean));
-        });
+        // 3. Substring match — aynı tmdb_id öncelikli, sonra ana-başlık (en kısa) aday önde
+        const subTitle = results
+          .filter(r => {
+            const rClean = ultraClean(r.name || '');
+            const rjClean = ultraClean(r.name_romanji || '');
+            const enClean = ultraClean(r.name_english || '');
+            if (/liveaction/i.test(rClean + rjClean + enClean)) return false;
+            return qClean.length >= 4 &&
+              (rClean.includes(qClean) || rjClean.includes(qClean) || enClean.includes(qClean) || qClean.includes(rClean));
+          })
+          .sort((a, b) => {
+            const aIdMatch = info.numericId && String(a.tmdb_id) === String(info.numericId) ? 0 : 1;
+            const bIdMatch = info.numericId && String(b.tmdb_id) === String(info.numericId) ? 0 : 1;
+            if (aIdMatch !== bIdMatch) return aIdMatch - bIdMatch;
+            const aClean = ultraClean(a.name || '');
+            const bClean = ultraClean(b.name || '');
+            return Math.abs(aClean.length - qClean.length) - Math.abs(bClean.length - qClean.length);
+          })[0];
         if (subTitle) {
           matchedItem = subTitle;
           break;
@@ -341,7 +377,7 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
     // MOVIE EXTRACTION: AnimeciX movie video embeds reside in /secure/titles/{id}
     if (isMovie) {
       try {
-        const dRes = await fetch(`${BASE_URL}/secure/titles/${matchedItem.id}`, { headers: HEADERS });
+        const dRes = await fetch(`${BASE_URL}/secure/titles/${matchedItem.id}`, { headers: HEADERS, signal: AbortSignal.timeout(5000) });
         if (dRes.ok) {
           const dData = await dRes.json();
           const titleObj = dData.title || {};
@@ -352,7 +388,8 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
               if (tauM) {
                 try {
                   const tauRes = await fetch(`https://tau-video.xyz/api/video/${tauM[1]}`, {
-                    headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': BASE_URL + '/' }
+                    headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': BASE_URL + '/' },
+                    signal: AbortSignal.timeout(5000)
                   });
                   if (tauRes.ok) {
                     const tauData = await tauRes.json();
@@ -385,7 +422,7 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
 
     // SERIES EXTRACTION: Use secure/best-video
     const videoUrl = `${BASE_URL}/secure/best-video?titleId=${matchedItem.id}&episode=${info.episode}&season=${info.season}`;
-    const bestRes = await fetch(videoUrl, { headers: HEADERS, redirect: 'follow' });
+    const bestRes = await fetch(videoUrl, { headers: HEADERS, redirect: 'follow', signal: AbortSignal.timeout(5000) });
     if (bestRes.ok) {
       const finalUrl = bestRes.url || '';
       const m = finalUrl.match(/tau-video\.xyz\/embed\/([a-zA-Z0-9_-]+)/);
@@ -395,7 +432,8 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
           headers: {
             'User-Agent': HEADERS['User-Agent'],
             'Referer': BASE_URL + '/'
-          }
+          },
+          signal: AbortSignal.timeout(5000)
         });
         if (tauRes.ok) {
           try {
@@ -410,7 +448,7 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
 
     // Fallback: If best-video failed or returned non-tau, check titles/{id} videos
     try {
-      const dRes = await fetch(`${BASE_URL}/secure/titles/${matchedItem.id}`, { headers: HEADERS });
+      const dRes = await fetch(`${BASE_URL}/secure/titles/${matchedItem.id}`, { headers: HEADERS, signal: AbortSignal.timeout(5000) });
       if (dRes.ok) {
         const dData = await dRes.json();
         const titleObj = dData.title || {};
@@ -422,7 +460,8 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
             const tauM = v.url && v.url.match(/tau-video\.xyz\/embed\/([a-zA-Z0-9_-]+)/);
             if (tauM) {
               const tauRes = await fetch(`https://tau-video.xyz/api/video/${tauM[1]}`, {
-                headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': BASE_URL + '/' }
+                headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': BASE_URL + '/' },
+                signal: AbortSignal.timeout(5000)
               });
               if (tauRes.ok) {
                 const tauData = await tauRes.json();

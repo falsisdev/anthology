@@ -13,6 +13,16 @@ var HEADERS = {
   'Referer': BASE_URL + '/'
 };
 
+async function fetchWithTimeout(url, options = {}, timeoutMs = 5000) {
+  const opts = Object.assign({}, options);
+  if (!opts.signal) {
+    try {
+      opts.signal = AbortSignal.timeout(timeoutMs);
+    } catch (e) {}
+  }
+  return fetch(url, opts);
+}
+
 function ultraClean(str) {
   if (!str) return '';
   return str.toString().toLowerCase()
@@ -50,7 +60,7 @@ function qualityWeight(q) {
 async function resolveVidmoly(embedUrl, referer) {
   try {
     const fullUrl = embedUrl.startsWith('//') ? 'https:' + embedUrl : embedUrl;
-    const res = await fetch(fullUrl, {
+    const res = await fetchWithTimeout(fullUrl, {
       headers: {
         'User-Agent': HEADERS['User-Agent'],
         'Referer': referer || 'https://vidmoly.biz/'
@@ -75,7 +85,7 @@ async function resolveVidmoly(embedUrl, referer) {
 async function resolveSibnet(iframeUrl) {
   try {
     const fullUrl = iframeUrl.startsWith('//') ? 'https:' + iframeUrl : iframeUrl;
-    const res = await fetch(fullUrl, {
+    const res = await fetchWithTimeout(fullUrl, {
       headers: {
         'User-Agent': HEADERS['User-Agent'],
         'Referer': BASE_URL + '/'
@@ -101,7 +111,7 @@ async function resolveSibnet(iframeUrl) {
 async function resolveKitsu(kitsuId) {
   try {
     const cleanId = String(kitsuId).replace(/^kitsu:/, '').split(':')[0];
-    const res = await fetch(`https://kitsu.io/api/edge/anime/${cleanId}`);
+    const res = await fetchWithTimeout(`https://kitsu.io/api/edge/anime/${cleanId}`);
     if (!res.ok) return null;
     const data = await res.json();
     const attr = data && data.data && data.data.attributes;
@@ -210,15 +220,15 @@ async function resolveMediaInfo(idOrObj, mediaType, defaultSeason, defaultEpisod
     const endpointType = isTv ? 'tv' : 'movie';
     try {
       const [resEn, resTr] = await Promise.all([
-        fetch(`https://api.themoviedb.org/3/${endpointType}/${numericId}?api_key=${TMDB_API_KEY}&language=en-US&append_to_response=alternative_titles`),
-        fetch(`https://api.themoviedb.org/3/${endpointType}/${numericId}?api_key=${TMDB_API_KEY}&language=tr-TR`)
+        fetchWithTimeout(`https://api.themoviedb.org/3/${endpointType}/${numericId}?api_key=${TMDB_API_KEY}&language=en-US&append_to_response=alternative_titles`),
+        fetchWithTimeout(`https://api.themoviedb.org/3/${endpointType}/${numericId}?api_key=${TMDB_API_KEY}&language=tr-TR`)
       ]);
 
       let dataEn = resEn.ok ? await resEn.json() : null;
       let dataTr = resTr.ok ? await resTr.json() : null;
 
       if (!dataEn && !dataTr && isTv) {
-        const mRes = await fetch(`https://api.themoviedb.org/3/movie/${numericId}?api_key=${TMDB_API_KEY}&language=en-US&append_to_response=alternative_titles`);
+        const mRes = await fetchWithTimeout(`https://api.themoviedb.org/3/movie/${numericId}?api_key=${TMDB_API_KEY}&language=en-US&append_to_response=alternative_titles`);
         if (mRes.ok) dataEn = await mRes.json();
       }
 
@@ -230,20 +240,28 @@ async function resolveMediaInfo(idOrObj, mediaType, defaultSeason, defaultEpisod
       }
 
       if (dataEn) {
+        const normalizeTitle = (str) => {
+          if (!str) return '';
+          return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+        };
+
         const nameEn = dataEn.name || dataEn.title || '';
         if (nameEn && !queries.includes(nameEn)) queries.push(nameEn);
         const origName = dataEn.original_name || dataEn.original_title || '';
-        if (origName && /^[a-zA-Z0-9\s:;.,'\"!?-]+$/.test(origName) && !queries.includes(origName)) {
-          queries.push(origName);
+        if (origName) {
+          const cleanOrig = normalizeTitle(origName);
+          if (cleanOrig && /^[a-zA-Z0-9\s:;.,'\"!?-]+$/.test(cleanOrig) && !queries.includes(cleanOrig)) {
+            queries.push(cleanOrig);
+          }
         }
         title = nameEn || title;
         origTitle = origName || origTitle;
 
         const alts = dataEn.alternative_titles ? (dataEn.alternative_titles.results || dataEn.alternative_titles.titles || []) : [];
         for (const a of alts) {
-          const isRelevant = ['JP', 'US', 'TR', 'GB'].includes(a.iso_3166_1) || (a.type && a.type.toLowerCase().includes('romaji'));
-          if (!isRelevant) continue;
-          const t = a.title || a.name || '';
+          const rawT = a.title || a.name || '';
+          if (!rawT) continue;
+          const t = normalizeTitle(rawT);
           if (t && /^[a-zA-Z0-9\s:;.,'\"!?-]+$/.test(t) && !queries.includes(t)) {
             queries.push(t);
           }
@@ -265,6 +283,16 @@ async function resolveMediaInfo(idOrObj, mediaType, defaultSeason, defaultEpisod
 
 async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
   try {
+    if (typeof tmdbId === 'object' && tmdbId !== null) {
+      const obj = tmdbId;
+      return getStreams(
+        obj.id || obj.imdbId || obj.tmdbId,
+        mediaType || obj.type,
+        seasonNum !== undefined ? seasonNum : obj.season,
+        episodeNum !== undefined ? episodeNum : obj.episode
+      );
+    }
+
     const mediaInfo = await resolveMediaInfo(tmdbId, mediaType, seasonNum, episodeNum);
     const isTv = mediaInfo.isTv;
     let finalSeason = mediaInfo.season;
@@ -288,7 +316,7 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
       // 1. For movies with TMDB numeric ID, test direct movie URL
       if (!isTv && mediaInfo.numericId) {
         try {
-          const probeRes = await fetch(`${BASE_URL}/film/film-${mediaInfo.numericId}-izle/`, { headers: HEADERS });
+          const probeRes = await fetchWithTimeout(`${BASE_URL}/film/film-${mediaInfo.numericId}-izle/`, { headers: HEADERS });
           if (probeRes.ok) {
             matchedHref = `/film/film-${mediaInfo.numericId}-izle/`;
           }
@@ -316,10 +344,10 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
 
         for (const q of deduplicatedQueries) {
           try {
-            let searchRes = await fetch(`${BASE_URL}/ara/?q=${encodeURIComponent(q)}`, { headers: HEADERS });
+            let searchRes = await fetchWithTimeout(`${BASE_URL}/ara/?q=${encodeURIComponent(q)}`, { headers: HEADERS });
             if (searchRes.status === 429) {
               await new Promise(r => setTimeout(r, 1000));
-              searchRes = await fetch(`${BASE_URL}/ara/?q=${encodeURIComponent(q)}`, { headers: HEADERS });
+              searchRes = await fetchWithTimeout(`${BASE_URL}/ara/?q=${encodeURIComponent(q)}`, { headers: HEADERS });
             }
             if (!searchRes.ok) continue;
             const searchHtml = await searchRes.text();
@@ -393,10 +421,10 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
     const isDirectEpisode = rawId.startsWith('cizgimax:ep:') || matchedHref.includes('/episode-') || matchedHref.includes('-bolum');
 
     if (isTv && !isDirectEpisode) {
-      let detailRes = await fetch(detailUrl, { headers: HEADERS });
+      let detailRes = await fetchWithTimeout(detailUrl, { headers: HEADERS });
       if (!detailRes.ok) {
         await new Promise(r => setTimeout(r, 400));
-        detailRes = await fetch(detailUrl, { headers: HEADERS });
+        detailRes = await fetchWithTimeout(detailUrl, { headers: HEADERS });
       }
       if (!detailRes.ok) return [];
       const detailHtml = await detailRes.text();
@@ -441,10 +469,10 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
     }
 
     // Now fetch player page
-    let pageRes = await fetch(targetPageUrl, { headers: HEADERS });
+    let pageRes = await fetchWithTimeout(targetPageUrl, { headers: HEADERS });
     if (!pageRes.ok) {
       await new Promise(r => setTimeout(r, 400));
-      pageRes = await fetch(targetPageUrl, { headers: HEADERS });
+      pageRes = await fetchWithTimeout(targetPageUrl, { headers: HEADERS });
     }
     if (!pageRes.ok) return [];
     const pageHtml = await pageRes.text();
@@ -496,7 +524,7 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
       if (server.resolveUrl) {
         try {
           const rUrl = server.resolveUrl.startsWith('http') ? server.resolveUrl : `${BASE_URL}${server.resolveUrl}`;
-          const rRes = await fetch(rUrl, {
+          const rRes = await fetchWithTimeout(rUrl, {
             headers: {
               'User-Agent': HEADERS['User-Agent'],
               'Referer': targetPageUrl
@@ -506,7 +534,7 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
             let rData = null;
             try { rData = await rRes.json(); } catch(e) {}
             if (rData && rData.id) {
-              const tauRes = await fetch(`https://tau-video.xyz/api/video/${rData.id}`);
+              const tauRes = await fetchWithTimeout(`https://tau-video.xyz/api/video/${rData.id}`);
               if (tauRes.ok) {
                 let tauData = null;
                 try { tauData = await tauRes.json(); } catch(e) {}
@@ -546,7 +574,7 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
       if (server.streamUrl) {
         try {
           const stUrl = server.streamUrl.startsWith('http') ? server.streamUrl : `${BASE_URL}${server.streamUrl}`;
-          const headRes = await fetch(stUrl, {
+          const headRes = await fetchWithTimeout(stUrl, {
             headers: {
               'User-Agent': HEADERS['User-Agent'],
               'Referer': targetPageUrl

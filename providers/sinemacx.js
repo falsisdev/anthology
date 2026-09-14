@@ -65,7 +65,8 @@ async function resolveTmdbInfo(id, mediaType) {
 async function searchOnSite(query, year) {
   if (!query || query.length < 2) return null;
   const cleanQuery = query.toLowerCase().trim();
-  const searchUrl = `${BASE_URL}/?s=` + encodeURIComponent(cleanQuery);
+  const slug = cleanQuery.replace(/\([^)]*\)/g, '').replace(/[^a-zçğıöşü0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  const searchUrl = `${BASE_URL}/search/${slug}/`;
 
   try {
     const res = await fetch(searchUrl, { headers: WORKING_HEADERS });
@@ -73,6 +74,7 @@ async function searchOnSite(query, year) {
     const html = await res.text();
     const $ = cheerio.load(html);
     const results = [];
+    const seenUrls = new Set();
 
     const stopWords = new Set(['the', 'a', 'an', 've', 'ile', 'der', 'die', 'das', 'le', 'la']);
     const significantWords = cleanQuery.split(/\s+/).filter(w => w.length > 1 && !stopWords.has(w));
@@ -82,6 +84,8 @@ async function searchOnSite(query, year) {
       const rawTitle = $(this).attr('title') || $(this).find('span').first().text().trim() || $(this).text().trim();
       const titleLower = rawTitle.toLowerCase();
       if (!url.includes('sinema.gg') || url.includes('/category/') || url.includes('/search/') || url.includes('/tag/') || rawTitle.length < 2) return;
+      if (seenUrls.has(url)) return;
+      seenUrls.add(url);
 
       let score = 0;
       let matchedWordCount = 0;
