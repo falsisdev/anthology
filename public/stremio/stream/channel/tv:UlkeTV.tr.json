@@ -1,15 +1,15 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Ulusal ⌟",
+      "name": "⌜ Anthology Haber ⌟",
       "title": "Ülke TV HD [Canlı HD]",
-      "url": "http://217.174.229.138:8000/play/a0el",
+      "url": "https://livetv.radyotvonline.net/kanal7live/ulketv/chunklist.m3u8",
+      "behaviorHints": {
+        "isLive": true
+      },
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
       }
     }
   ]

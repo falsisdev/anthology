@@ -5,9 +5,9 @@
     "name": "Ülke TV HD",
     "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ulketv.png",
     "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ulketv.png",
-    "description": "Ülke TV HD Canlı Yayın",
+    "description": "Ülke TV HD Canlı Haber Yayını",
     "genres": [
-      "Ulusal"
+      "Haber"
     ],
     "videos": [
       {

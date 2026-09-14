@@ -1,6 +1,17 @@
 {
   "metas": [
     {
+      "id": "tv:TRTSpor.tr",
+      "type": "tv",
+      "name": "TRT Spor HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtspor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtspor.png",
+      "description": "TRT Spor HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
       "id": "tv:ASpor.tr",
       "type": "tv",
       "name": "A Spor HD",
@@ -18,17 +29,6 @@
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/htspor.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/htspor.png",
       "description": "HT Spor HD Canlı Yayın",
-      "genres": [
-        "SPOR KANALLARI"
-      ]
-    },
-    {
-      "id": "tv:TRTSpor.tr",
-      "type": "tv",
-      "name": "TRT Spor HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtspor.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtspor.png",
-      "description": "TRT Spor HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
       ]

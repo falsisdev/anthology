@@ -1,28 +1,6 @@
 {
   "metas": [
     {
-      "id": "tv:ASpor.tr",
-      "type": "tv",
-      "name": "A Spor HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/aspor.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/aspor.png",
-      "description": "A Spor HD Canlı Spor Yayını",
-      "genres": [
-        "Spor"
-      ]
-    },
-    {
-      "id": "tv:HTSpor.tr",
-      "type": "tv",
-      "name": "HT Spor HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/htspor.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/htspor.png",
-      "description": "HT Spor HD Canlı Spor Yayını",
-      "genres": [
-        "Spor"
-      ]
-    },
-    {
       "id": "tv:TRTSpor.tr",
       "type": "tv",
       "name": "TRT Spor HD",
@@ -45,12 +23,111 @@
       ]
     },
     {
+      "id": "tv:ASpor.tr",
+      "type": "tv",
+      "name": "A Spor HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/aspor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/aspor.png",
+      "description": "A Spor HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:HTSpor.tr",
+      "type": "tv",
+      "name": "HT Spor HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/htspor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/htspor.png",
+      "description": "HT Spor HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
       "id": "tv:TV85.tr",
       "type": "tv",
-      "name": "TV8,5 HD",
+      "name": "TV8.5 HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv85.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv85.png",
-      "description": "TV8,5 HD Canlı Spor Yayını",
+      "description": "TV8.5 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:FBTV.tr",
+      "type": "tv",
+      "name": "FB TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fbtv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fbtv.png",
+      "description": "FB TV HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:GSTV.tr",
+      "type": "tv",
+      "name": "GS TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/gstv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/gstv.png",
+      "description": "GS TV HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:SportsTV.tr",
+      "type": "tv",
+      "name": "Sports TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportstv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportstv.png",
+      "description": "Sports TV HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:CBCSport.tr",
+      "type": "tv",
+      "name": "CBC Sport HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cbcsport.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cbcsport.png",
+      "description": "CBC Sport HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:IdmanTV.tr",
+      "type": "tv",
+      "name": "iDMAN Tv HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/idmantv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/idmantv.png",
+      "description": "iDMAN Tv HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:TJKTV.tr",
+      "type": "tv",
+      "name": "TJK TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tjktv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tjktv.png",
+      "description": "TJK TV HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:NBATV.tr",
+      "type": "tv",
+      "name": "NBA TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nbatv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nbatv.png",
+      "description": "NBA TV HD Canlı Spor Yayını",
       "genres": [
         "Spor"
       ]
@@ -458,83 +535,6 @@
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
       "description": "Tabii Spor 8 HD Canlı Spor Yayını",
-      "genres": [
-        "Spor"
-      ]
-    },
-    {
-      "id": "tv:TJKTV.tr",
-      "type": "tv",
-      "name": "TJK TV HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tjktv.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tjktv.png",
-      "description": "TJK TV HD Canlı Spor Yayını",
-      "genres": [
-        "Spor"
-      ]
-    },
-    {
-      "id": "tv:NBATV.tr",
-      "type": "tv",
-      "name": "NBA TV HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nbatv.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nbatv.png",
-      "description": "NBA TV HD Canlı Spor Yayını",
-      "genres": [
-        "Spor"
-      ]
-    },
-    {
-      "id": "tv:FBTV.tr",
-      "type": "tv",
-      "name": "FB TV HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fbtv.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fbtv.png",
-      "description": "FB TV HD Canlı Spor Yayını",
-      "genres": [
-        "Spor"
-      ]
-    },
-    {
-      "id": "tv:GSTV.tr",
-      "type": "tv",
-      "name": "GS TV HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/gstv.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/gstv.png",
-      "description": "GS TV HD Canlı Spor Yayını",
-      "genres": [
-        "Spor"
-      ]
-    },
-    {
-      "id": "tv:SportsTV.tr",
-      "type": "tv",
-      "name": "Sports TV HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportstv.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportstv.png",
-      "description": "Sports TV HD Canlı Spor Yayını",
-      "genres": [
-        "Spor"
-      ]
-    },
-    {
-      "id": "tv:CBCSport.tr",
-      "type": "tv",
-      "name": "CBC Sport HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cbcsport.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cbcsport.png",
-      "description": "CBC Sport HD Canlı Spor Yayını",
-      "genres": [
-        "Spor"
-      ]
-    },
-    {
-      "id": "tv:IdmanTV.tr",
-      "type": "tv",
-      "name": "iDMAN Tv HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/idmantv.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/idmantv.png",
-      "description": "iDMAN Tv HD Canlı Spor Yayını",
       "genres": [
         "Spor"
       ]

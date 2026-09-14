@@ -12,17 +12,6 @@
       ]
     },
     {
-      "id": "tv:Tele1.tr",
-      "type": "tv",
-      "name": "Tele 1 HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tele1.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tele1.png",
-      "description": "Tele 1 HD Canlı Yayın",
-      "genres": [
-        "HABER KANALLARI"
-      ]
-    },
-    {
       "id": "tv:beINSports1.tr",
       "type": "tv",
       "name": "BeIN Sports 1 HD",
@@ -97,6 +86,17 @@
       "description": "Tabii Spor 1 HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:Tele1.tr",
+      "type": "tv",
+      "name": "Tele 1 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tele1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tele1.png",
+      "description": "Tele 1 HD Canlı Yayın",
+      "genres": [
+        "HABER KANALLARI"
       ]
     },
     {
