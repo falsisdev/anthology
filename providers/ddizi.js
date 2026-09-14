@@ -268,29 +268,6 @@ async function getMeta(args) {
     }
 }
 
-async function resolveHighestVariant(masterUrl, headers) {
-    try {
-        const r = await fetch(masterUrl, { headers: headers || HEADERS });
-        if (!r.ok) return masterUrl;
-        const txt = await r.text();
-        if (!txt.includes('#EXT-X-STREAM-INF')) return masterUrl;
-        const variants = [...txt.matchAll(/#EXT-X-STREAM-INF[^:]*:[^\n]*BANDWIDTH=(\d+)[^\n]*\n([^\n]+)/gi)]
-            .map(function(m) { return { bw: parseInt(m[1]) || 0, url: m[2].trim() }; })
-            .filter(function(v) { return v.url && !v.url.startsWith('#'); });
-        if (variants.length === 0) return masterUrl;
-        variants.sort(function(a,b){ return b.bw - a.bw; });
-        var best = variants[0].url;
-        if (best.startsWith('http')) return best;
-        // relative
-        var base = masterUrl.split('?')[0];
-        base = base.substring(0, base.lastIndexOf('/') + 1);
-        if (best.startsWith('/')) {
-            var origin = masterUrl.match(/^(https?:\/\/[^/]+)/);
-            return (origin ? origin[1] : '') + best;
-        }
-        return base + best;
-    } catch (e) { return masterUrl; }
-}
 
 async function extractStreamsFromEpisodePage(epUrl) {
     try {
@@ -354,36 +331,42 @@ async function extractStreamsFromEpisodePage(epUrl) {
                         streamHeaders['Referer'] = src;
                     }
 
-                    // Tüm parçalar birleşik akış: master yerine en yüksek varyantın doğrudan media playlistini ver
-                    var finalUrl = vUrl;
-                    if (vUrl.includes('master.m3u8') || vUrl.includes('.m3u8')) {
-                        try {
-                            var maybeVariant = await resolveHighestVariant(vUrl, streamHeaders);
-                            if (maybeVariant && maybeVariant !== vUrl) {
-                                finalUrl = maybeVariant;
-                                // media playlist ise quality'yi güncelle
-                                if (finalUrl.includes('media-3') || finalUrl.includes('1080')) quality = '1080p';
-                                else if (finalUrl.includes('media-2') || finalUrl.includes('720')) quality = '720p';
-                                else if (finalUrl.includes('media-1') || finalUrl.includes('480')) quality = '480p';
-                            }
-                        } catch (e) {}
-                    }
-                    streams.push({
+                    const isHls = vUrl.includes('.m3u8');
+                    const streamFormat = isHls ? 'hls' : 'mp4';
+                    const streamObj = {
                         name: 'DDizi',
                         title: `⌜ DDizi ⌟ | ${server} (${quality})`,
-                        url: finalUrl,
+                        url: vUrl,
                         quality,
                         provider: 'ddizi',
                         headers: streamHeaders,
-                        format: 'hls',
-                        isHls: true,
-                        behaviorHints: {
+                        format: streamFormat,
+                        isHls: isHls
+                    };
+
+                    if (isHls) {
+                        streamObj.behaviorHints = {
                             notWebReady: true,
                             proxyHeaders: {
                                 request: streamHeaders
                             }
-                        }
-                    });
+                        };
+                    } else if (server === 'Ciner CDN' || server === 'Yandex') {
+                        streamObj.behaviorHints = {
+                            proxyHeaders: {
+                                request: streamHeaders
+                            }
+                        };
+                    } else {
+                        streamObj.behaviorHints = {
+                            notWebReady: true,
+                            proxyHeaders: {
+                                request: streamHeaders
+                            }
+                        };
+                    }
+
+                    streams.push(streamObj);
                 }
             }
 
@@ -522,8 +505,8 @@ streams.push({
 
         // Sort streams: Direct unbroken MP4s (Ciner, Yandex) first, then 1080p down
         streams.sort((a, b) => {
-            const aIsDirectMp4 = (a.url && a.url.includes('.mp4')) ? 1 : 0;
-            const bIsDirectMp4 = (b.url && b.url.includes('.mp4')) ? 1 : 0;
+            const aIsDirectMp4 = (a.format === 'mp4' || (!a.isHls && a.url && a.url.includes('.mp4'))) ? 1 : 0;
+            const bIsDirectMp4 = (b.format === 'mp4' || (!b.isHls && b.url && b.url.includes('.mp4'))) ? 1 : 0;
             if (bIsDirectMp4 !== aIsDirectMp4) return bIsDirectMp4 - aIsDirectMp4;
             const aQ = parseInt(a.quality) || 0;
             const bQ = parseInt(b.quality) || 0;
