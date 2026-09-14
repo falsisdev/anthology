@@ -13,6 +13,268 @@ var HEADERS = {
   'Cookie': 'yasOnay=1'
 };
 
+// ---- Saf-JS crypto (tarayıcı/statik eklenti ortamı; node crypto'ya bağımlı değil) ----
+// TurkAnime'nin /embed/#/url/<b64> şifreli embed formatı: {ct, iv, s} = CryptoJS AesJson.
+// Şifreleme: AES-256-CBC + EvpKDF(MD5, salt) + PKCS7. Anahtar chunk 0x1a0 modülünden çıkarıldı.
+
+var TK_EMBED_PASS = '710^8A@3@>T2}#zN5xK?kR7KNKb@-A!LzYL5~M1qU0UfdWsZoBm4UUat%}ueUv6E--*hDPPbH7K2bp9^3o41hw,khL:}Kx8080@M';
+
+function tkGfMul(a, b) {
+  var p = 0;
+  while (b) {
+    if (b & 1) p ^= a;
+    a = (a << 1) ^ ((a & 0x80) ? 0x11b : 0);
+    b >>= 1;
+  }
+  return p & 0xff;
+}
+function tkGfPow(a, e) {
+  var r = 1;
+  while (e > 0) {
+    if (e & 1) r = tkGfMul(r, a) & 0xff;
+    a = tkGfMul(a, a) & 0xff;
+    e >>= 1;
+  }
+  return r & 0xff;
+}
+function tkSbox() {
+  var s = new Uint8Array(256), inv = new Uint8Array(256);
+  function rotl8(v, n) { return ((v << n) | (v >>> (8 - n))) & 0xff; }
+  for (var p = 0; p < 256; p++) {
+    var m = (p === 0) ? 0 : tkGfPow(p, 254);
+    var x = m ^ rotl8(m, 1) ^ rotl8(m, 2) ^ rotl8(m, 3) ^ rotl8(m, 4) ^ 0x63;
+    s[p] = x;
+    inv[x] = p;
+  }
+  return { s: s, inv: inv };
+}
+var TK_SBOX = tkSbox();
+
+function tkRotl(x, c) { return (x << c) | (x >>> (32 - c)); }
+
+function tkMd5(input) {
+  var buf = (input instanceof Uint8Array) ? input : new Uint8Array(input);
+  var i = buf.byteLength >>> 0;
+  var padded = new Uint8Array((i + 9 + 64) & ~63);
+  padded.set(buf);
+  padded[i] = 0x80;
+  var bitLen = i * 8;
+  var dv = new DataView(padded.buffer);
+  dv.setUint32(padded.length - 8, bitLen >>> 0, true);
+  dv.setUint32(padded.length - 4, Math.floor(bitLen / 0x100000000), true);
+  var a0 = 0x67452301, b0 = 0xefcdab89, c0 = 0x98badcfe, d0 = 0x10325476;
+  var K = new Int32Array([0xd76aa478, 0xe8c7b756, 0x242070db, 0xc1bdceee, 0xf57c0faf, 0x4787c62a, 0xa8304613, 0xfd469501, 0x698098d8, 0x8b44f7af, 0xffff5bb1, 0x895cd7be, 0x6b901122, 0xfd987193, 0xa679438e, 0x49b40821, 0xf61e2562, 0xc040b340, 0x265e5a51, 0xe9b6c7aa, 0xd62f105d, 0x02441453, 0xd8a1e681, 0xe7d3fbc8, 0x21e1cde6, 0xc33707d6, 0xf4d50d87, 0x455a14ed, 0xa9e3e905, 0xfcefa3f8, 0x676f02d9, 0x8d2a4c8a, 0xfffa3942, 0x8771f681, 0x6d9d6122, 0xfde5380c, 0xa4beea44, 0x4bdecfa9, 0xf6bb4b60, 0xbebfbc70, 0x289b7ec6, 0xeaa127fa, 0xd4ef3085, 0x04881d05, 0xd9d4d039, 0xe6db99e5, 0x1fa27cf8, 0xc4ac5665, 0xf4292244, 0x432aff97, 0xab9423a7, 0xfc93a039, 0x655b59c3, 0x8f0ccc92, 0xffeff47d, 0x85845dd1, 0x6fa87e4f, 0xfe2ce6e0, 0xa3014314, 0x4e0811a1, 0xf7537e82, 0xbd3af235, 0x2ad7d2bb, 0xeb86d391]);
+  var sArr = new Int32Array([7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22, 5, 9, 14, 20, 5, 9, 14, 20, 5, 9, 14, 20, 5, 9, 14, 20, 4, 11, 16, 23, 4, 11, 16, 23, 4, 11, 16, 23, 4, 11, 16, 23, 6, 10, 15, 21, 6, 10, 15, 21, 6, 10, 15, 21, 6, 10, 15, 21]);
+  var w = new Int32Array(16);
+  for (var off = 0; off < padded.length; off += 64) {
+    var a = a0, b = b0, c = c0, d = d0;
+    for (var k = 0; k < 64; k++) {
+      if (k < 16) { w[k] = padded[off + k * 4] | (padded[off + k * 4 + 1] << 8) | (padded[off + k * 4 + 2] << 16) | (padded[off + k * 4 + 3] << 24); }
+      var f, g;
+      if (k < 16) { f = (b & c) | (~b & d); g = k; }
+      else if (k < 32) { f = (d & b) | (~d & c); g = (5 * k + 1) & 15; }
+      else if (k < 48) { f = b ^ c ^ d; g = (3 * k + 5) & 15; }
+      else { f = c ^ (b | ~d); g = (7 * k) & 15; }
+      var oldA = a, oldB = b;
+      a = d; d = c; c = b;
+      b = (oldB + tkRotl(((oldA + f + K[k] + w[g]) | 0), sArr[k])) | 0;
+    }
+    a0 = (a0 + a) | 0; b0 = (b0 + b) | 0; c0 = (c0 + c) | 0; d0 = (d0 + d) | 0;
+  }
+  var out = new Uint8Array(16);
+  var res = new Int32Array([a0, b0, c0, d0]);
+  for (var r = 0; r < 4; r++) {
+    out[r * 4] = res[r] & 0xff;
+    out[r * 4 + 1] = (res[r] >>> 8) & 0xff;
+    out[r * 4 + 2] = (res[r] >>> 16) & 0xff;
+    out[r * 4 + 3] = (res[r] >>> 24) & 0xff;
+  }
+  return out;
+}
+
+function tkUtf8(s) {
+  var out = [], i = 0;
+  while (i < s.length) {
+    var c = s.charCodeAt(i);
+    if (c < 0x80) { out.push(c); i++; }
+    else if (c < 0x800) { out.push(0xc0 | (c >> 6), 0x80 | (c & 0x3f)); i++; }
+    else if (c >= 0xd800 && c < 0xdc00 && i + 1 < s.length) {
+      var c2 = s.charCodeAt(i + 1);
+      if (c2 >= 0xdc00 && c2 < 0xe000) {
+        var cp = 0x10000 + ((c - 0xd800) << 10) + (c2 - 0xdc00);
+        out.push(0xf0 | (cp >> 18), 0x80 | ((cp >> 12) & 0x3f), 0x80 | ((cp >> 6) & 0x3f), 0x80 | (cp & 0x3f));
+        i += 2; continue;
+      }
+      out.push(0xe0 | (c >> 12), 0x80 | ((c >> 6) & 0x3f), 0x80 | (c & 0x3f)); i++;
+    } else { out.push(0xe0 | (c >> 12), 0x80 | ((c >> 6) & 0x3f), 0x80 | (c & 0x3f)); i++; }
+  }
+  return new Uint8Array(out);
+}
+
+function tkEvpKDF(passStr, saltU8) {
+  var p = tkUtf8(passStr);
+  var total = new Uint8Array(48);
+  var offset = 0, prev = new Uint8Array(0);
+  while (offset < 48) {
+    var h = new Uint8Array(prev.length + p.length + saltU8.length);
+    h.set(prev, 0);
+    h.set(p, prev.length);
+    h.set(saltU8, prev.length + p.length);
+    prev = tkMd5(h);
+    total.set(prev, offset);
+    offset += 16;
+  }
+  return { key: total.slice(0, 32), iv: total.slice(32, 48) };
+}
+
+function tkHexToU8(h) {
+  var out = new Uint8Array(h.length / 2);
+  for (var i = 0; i < out.length; i++) out[i] = parseInt(h.substr(i * 2, 2), 16);
+  return out;
+}
+function tkB64ToU8(b) {
+  var bin = (typeof atob === 'function') ? atob(b) : '';
+  var out = new Uint8Array(bin.length);
+  for (var i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i) & 0xff;
+  return out;
+}
+function tkU8ToStr(u8) {
+  var s = '', i = 0;
+  while (i < u8.length) {
+    var b = u8[i++];
+    if (b < 0x80) s += String.fromCharCode(b);
+    else if (b < 0xe0) s += String.fromCharCode(((b & 0x1f) << 6) | (u8[i++] & 0x3f));
+    else if (b < 0xf0) {
+      var c1 = ((b & 0x0f) << 12) | ((u8[i++] & 0x3f) << 6) | (u8[i++] & 0x3f);
+      s += String.fromCharCode(c1);
+    } else {
+      var cp = ((b & 7) << 18) | ((u8[i++] & 0x3f) << 12) | ((u8[i++] & 0x3f) << 6) | (u8[i++] & 0x3f);
+      s += String.fromCodePoint(cp);
+    }
+  }
+  return s;
+}
+function tkU8FromStr(s) { return tkUtf8(s); }
+
+function tkAesExpandKey(keyU8) {
+  var sbox = TK_SBOX.s;
+  var Nk = 8, Nr = 14, Nb = 4;
+  var w = new Uint8Array(4 * Nb * (Nr + 1));
+  w.set(keyU8, 0);
+  var Rcon = [0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80, 0x1b, 0x36, 0x6c, 0xd8, 0xab, 0x4d];
+  var i = Nk;
+  while (i < Nb * (Nr + 1)) {
+    var temp = new Uint8Array(4);
+    temp[0] = w[(i - 1) * 4]; temp[1] = w[(i - 1) * 4 + 1]; temp[2] = w[(i - 1) * 4 + 2]; temp[3] = w[(i - 1) * 4 + 3];
+    if (i % Nk === 0) {
+      var t = temp[0];
+      temp[0] = sbox[temp[1]] ^ Rcon[(i / Nk) - 1];
+      temp[1] = sbox[temp[2]];
+      temp[2] = sbox[temp[3]];
+      temp[3] = sbox[t];
+    } else if (i % Nk === 4) {
+      temp[0] = sbox[temp[0]]; temp[1] = sbox[temp[1]]; temp[2] = sbox[temp[2]]; temp[3] = sbox[temp[3]];
+    }
+    for (var j = 0; j < 4; j++) {
+      w[i * 4 + j] = w[(i - Nk) * 4 + j] ^ temp[j];
+    }
+    i++;
+  }
+  return w;
+}
+
+function tkAesDecryptBlock(state, rk, Nr) {
+  var sbox = TK_SBOX.inv;
+  function addRoundKey(s, k) {
+    for (var i = 0; i < 16; i++) s[i] ^= k[i];
+  }
+  function invShiftRows(s) {
+    return new Uint8Array([s[0], s[13], s[10], s[7], s[4], s[1], s[14], s[11], s[8], s[5], s[2], s[15], s[12], s[9], s[6], s[3]]);
+  }
+  function invSubBytes(s) {
+    for (var i = 0; i < 16; i++) s[i] = sbox[s[i]];
+  }
+  function gfMul(a, b) {
+    var p = 0;
+    while (b) { if (b & 1) p ^= a; a = (a << 1) ^ ((a & 0x80) ? 0x11b : 0); b >>= 1; }
+    return p & 0xff;
+  }
+  function invMixColumns(s) {
+    var t = new Uint8Array(16);
+    for (var c = 0; c < 4; c++) {
+      var o = c * 4;
+      var a0 = s[o], a1 = s[o + 1], a2 = s[o + 2], a3 = s[o + 3];
+      t[o]     = gfMul(a0, 14) ^ gfMul(a1, 11) ^ gfMul(a2, 13) ^ gfMul(a3, 9);
+      t[o + 1] = gfMul(a0, 9) ^ gfMul(a1, 14) ^ gfMul(a2, 11) ^ gfMul(a3, 13);
+      t[o + 2] = gfMul(a0, 13) ^ gfMul(a1, 9) ^ gfMul(a2, 14) ^ gfMul(a3, 11);
+      t[o + 3] = gfMul(a0, 11) ^ gfMul(a1, 13) ^ gfMul(a2, 9) ^ gfMul(a3, 14);
+    }
+    return t;
+  }
+  addRoundKey(state, rk.subarray(Nr * 16, (Nr + 1) * 16));
+  for (var rnd = Nr - 1; rnd > 0; rnd--) {
+    state = invShiftRows(state);
+    invSubBytes(state);
+    addRoundKey(state, rk.subarray(rnd * 16, (rnd + 1) * 16));
+    state = invMixColumns(state);
+  }
+  state = invShiftRows(state);
+  invSubBytes(state);
+  addRoundKey(state, rk.subarray(0, 16));
+  return state;
+}
+
+function tkAesCbcDecrypt(keyU8, ivU8, ctU8) {
+  var rk = tkAesExpandKey(keyU8);
+  var out = new Uint8Array(ctU8.length);
+  var prev = new Uint8Array(ivU8);
+  var state = new Uint8Array(16);
+  for (var off = 0; off < ctU8.length; off += 16) {
+    for (var i = 0; i < 16; i++) state[i] = ctU8[off + i];
+    state = tkAesDecryptBlock(state, rk, 14);
+    for (var j = 0; j < 16; j++) {
+      out[off + j] = state[j] ^ prev[j];
+      prev[j] = ctU8[off + j];
+    }
+  }
+  var pad = out[out.length - 1];
+  if (pad > 0 && pad <= 16) {
+    var ok = true;
+    for (var z = out.length - pad; z < out.length; z++) {
+      if (out[z] !== pad) { ok = false; break; }
+    }
+    if (ok) return out.slice(0, out.length - pad);
+  }
+  return out;
+}
+
+function tkDecryptEmbed(b64Json) {
+  if (!b64Json) return '';
+  var j;
+  try { j = JSON.parse(tkB64ToStr(b64Json)); } catch (e) { return ''; }
+  if (!j || !j.ct || !j.iv || !j.s) return '';
+  var salt = tkHexToU8(j.s);
+  var iv = tkHexToU8(j.iv);
+  var pt = tkAesCbcDecrypt(tkEvpKDF(TK_EMBED_PASS, salt).key, iv, tkB64ToU8(j.ct));
+  var txt = tkU8ToStr(pt);
+  txt = txt.replace(/\\\//g, '/').replace(/^"|"$/g, '');
+  return txt;
+}
+function tkB64ToStr(b) {
+  try {
+    if (typeof atob === 'function') return atob(b);
+    if (typeof Buffer !== 'undefined') return Buffer.from(b, 'base64').toString('utf8');
+  } catch (e) {}
+  return '';
+}
+function tkU8ToB64(u8) {
+  var bin = '';
+  for (var i = 0; i < u8.length; i++) bin += String.fromCharCode(u8[i]);
+  if (typeof btoa === 'function') return btoa(bin);
+  if (typeof Buffer !== 'undefined') return Buffer.from(u8).toString('base64');
+  return '';
+}
+
 function ultraClean(str) {
   if (!str) return '';
   return str.toString().toLowerCase()
@@ -218,6 +480,139 @@ async function resolveSibnet(iframeUrl) {
     }
   } catch (e) {}
   return null;
+}
+
+// YourUpload embed → doğrudan vidcache.net MP4
+async function resolveYourUpload(iframeUrl, referer) {
+  try {
+    const fullUrl = iframeUrl.startsWith('http') ? iframeUrl : (iframeUrl.startsWith('//') ? 'https:' + iframeUrl : BASE_URL + iframeUrl);
+    const res = await fetch(fullUrl, {
+      headers: {
+        'User-Agent': HEADERS['User-Agent'],
+        'Referer': referer || BASE_URL + '/'
+      },
+      signal: AbortSignal.timeout(10000)
+    });
+    if (!res.ok) return null;
+    const html = await res.text();
+    const m = html.match(/file\s*:\s*['"]([^'"]+\.mp4[^'"]*)['"]/i) ||
+              html.match(/['"]((?:https?:)?\/\/[^"']*vidcache\.net[^"']+)['"]/i);
+    if (!m) return null;
+    let url = m[1];
+    if (url.startsWith('//')) url = 'https:' + url;
+    return {
+      url: url,
+      headers: {
+        'Referer': fullUrl,
+        'User-Agent': HEADERS['User-Agent']
+      }
+    };
+  } catch (e) {}
+  return null;
+}
+
+// /embed/#/url/<b64> → AES çöz → /player/<token> → apiURL → /sources/<token>/ → stream
+async function resolveEmbedStream(embedSrc, epHref) {
+  try {
+    if (!embedSrc || !embedSrc.includes('/embed/#/url/')) return null;
+    let b64 = embedSrc.split('/url/')[1];
+    if (!b64) return null;
+    b64 = b64.split('?')[0].split('#')[0];
+    const decrypted = tkDecryptEmbed(b64);
+    if (!decrypted) return null;
+
+    // Harici ayna (YourUpload vb.) doğrudan şifreli embed içinde olabilir
+    if (decrypted.includes('yourupload.com')) {
+      const yu = await resolveYourUpload(decrypted, epHref || BASE_URL + '/');
+      if (yu && yu.url) {
+        return {
+          name: 'TurkAnime - YourUpload',
+          title: 'TurkAnime | YourUpload [MP4]',
+          url: yu.url,
+          quality: '1080p',
+          headers: yu.headers,
+          behaviorHints: {
+            notWebReady: true,
+            proxyHeaders: {
+              request: yu.headers
+            }
+          }
+        };
+      }
+      return null;
+    }
+
+    if (!decrypted.includes('/player/')) return null;
+    const token = decrypted.split('/player/')[1].split(/[?#]/)[0];
+    if (!token) return null;
+
+    const pRes = await fetch(`${BASE_URL}/player/${token}`, {
+      headers: Object.assign({}, HEADERS, { 'Referer': BASE_URL + '/' })
+    });
+    if (!pRes.ok) return null;
+    const pHtml = await pRes.text();
+
+    let apiURL = '';
+    const apiMatch = pHtml.match(/apiURL\s*=\s*['"]([^'"]+)['"]/i);
+    if (apiMatch) {
+      apiURL = apiMatch[1].replace(/&#34;|&quot;/g, '');
+    }
+    if (!apiURL || apiURL.includes('undefined')) return null;
+    apiURL = apiURL.trim();
+    if (apiURL.startsWith('//')) apiURL = 'https:' + apiURL;
+    else if (apiURL.startsWith('/')) apiURL = BASE_URL + apiURL;
+    if (!/^https?:\/\//.test(apiURL)) return null;
+    apiURL = apiURL.replace(/\/+$/, '') + '/';
+
+    const sRes = await fetch(apiURL, {
+      headers: Object.assign({}, HEADERS, {
+        'X-Requested-With': 'XMLHttpRequest',
+        'Referer': `${BASE_URL}/player/${token}`,
+        'Origin': BASE_URL,
+        'Accept': 'application/json, text/javascript, */*; q=0.01'
+      })
+    });
+    const txt = await sRes.text();
+    let json = null;
+    try { json = JSON.parse(txt); } catch (e) {}
+    if (!json) return null;
+
+    // Başarılı yapı: {"response": {"status": true, "stream": {"url": ..., "mimeType": ...}}}
+    const resp = (json.response && typeof json.response === 'object') ? json.response : json;
+    if (!(resp.status === true || resp.status === 'true')) return null;
+
+    const st = (resp.stream && typeof resp.stream === 'object') ? resp.stream : resp;
+    let url = st.url || st.file || resp.url || resp.file || '';
+    if (!url && Array.isArray(st.sources) && st.sources.length > 0) {
+      url = st.sources[0].url || '';
+    }
+    if (!url) return null;
+    if (url.startsWith('//')) url = 'https:' + url;
+
+    const isHls = /\.m3u8/i.test(url) || /mimeType/i.test(JSON.stringify(st)) && /mpegurl/i.test(String(st.mimeType || ''));
+    const ref = /^https?:/.test(url) ? url : apiURL;
+    return {
+      name: 'TurkAnime - Fansub',
+      title: isHls ? 'TurkAnime | Fansub [HLS]' : 'TurkAnime | Fansub [MP4]',
+      url: url,
+      quality: isHls ? 'HD' : '1080p',
+      headers: {
+        'Referer': ref,
+        'User-Agent': HEADERS['User-Agent']
+      },
+      behaviorHints: {
+        notWebReady: true,
+        proxyHeaders: {
+          request: {
+            'Referer': ref,
+            'User-Agent': HEADERS['User-Agent']
+          }
+        }
+      }
+    };
+  } catch (e) {
+    return null;
+  }
 }
 
 async function getCatalog(args) {
@@ -578,7 +973,8 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
         }
 
         // 2. Direct Sibnet iframe
-        const ifrMatch = pHtml.match(/<iframe[^>]*src=["']([^"']+)["']/i);
+        const allIframes = [...pHtml.matchAll(/<iframe[^>]*src=["']([^"']+)["']/gi)].map(m => m[1]);
+        const ifrMatch = allIframes[0] ? { 1: allIframes[0] } : null;
         if (ifrMatch && (ifrMatch[1].includes('sibnet.ru') || ifrMatch[1].includes('shell.php'))) {
           const sib = await resolveSibnet(ifrMatch[1]);
           if (sib && sib.url && !seenUrls.has(sib.url)) {
@@ -593,6 +989,38 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
                 notWebReady: true,
                 proxyHeaders: {
                   request: sib.headers
+                }
+              }
+            });
+          }
+        }
+
+        // 2b. Şifreli fansub embed (yeni format): /embed/#/url/<b64>
+        const embedSrc = allIframes.find(f => f.includes('/embed/#/url/'));
+        if (embedSrc) {
+          const emb = await resolveEmbedStream(embedSrc, epHref);
+          if (emb && emb.url && !seenUrls.has(emb.url)) {
+            seenUrls.add(emb.url);
+            streams.push(emb);
+          }
+        }
+
+        // 2c. Doğrudan YourUpload embed (direct mp4)
+        const yuSrc = allIframes.find(f => f.includes('yourupload.com') && f.includes('/embed/'));
+        if (yuSrc) {
+          const yu = await resolveYourUpload(yuSrc, epHref);
+          if (yu && yu.url && !seenUrls.has(yu.url)) {
+            seenUrls.add(yu.url);
+            streams.push({
+              name: 'TurkAnime - YourUpload',
+              title: 'TurkAnime | YourUpload [MP4]',
+              url: yu.url,
+              quality: '1080p',
+              headers: yu.headers,
+              behaviorHints: {
+                notWebReady: true,
+                proxyHeaders: {
+                  request: yu.headers
                 }
               }
             });
