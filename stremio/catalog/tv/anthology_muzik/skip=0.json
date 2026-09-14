@@ -12,23 +12,23 @@
       ]
     },
     {
-      "id": "tv:PowerTV.tr",
-      "type": "tv",
-      "name": "Power TV HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powertv.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powertv.png",
-      "description": "Power TV HD Canlı Müzik Yayını",
-      "genres": [
-        "Müzik & Eğlence"
-      ]
-    },
-    {
       "id": "tv:PowerTurkTV.tr",
       "type": "tv",
       "name": "PowerTürk TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerturk.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerturk.png",
       "description": "PowerTürk TV HD Canlı Müzik Yayını",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
+    },
+    {
+      "id": "tv:PowerTV.tr",
+      "type": "tv",
+      "name": "Power TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powertv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powertv.png",
+      "description": "Power TV HD Canlı Müzik Yayını",
       "genres": [
         "Müzik & Eğlence"
       ]
@@ -45,11 +45,22 @@
       ]
     },
     {
+      "id": "tv:TRTMuzik.tr",
+      "type": "tv",
+      "name": "TRT Müzik HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtmuzik.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtmuzik.png",
+      "description": "TRT Müzik HD Canlı Müzik Yayını",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
+    },
+    {
       "id": "tv:PowerDance.tr",
       "type": "tv",
       "name": "Power Dance HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powertv.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powertv.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerdance.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerdance.png",
       "description": "Power Dance HD Canlı Müzik Yayını",
       "genres": [
         "Müzik & Eğlence"
@@ -59,20 +70,9 @@
       "id": "tv:PowerLove.tr",
       "type": "tv",
       "name": "Power Love HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powertv.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powertv.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerlove.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerlove.png",
       "description": "Power Love HD Canlı Müzik Yayını",
-      "genres": [
-        "Müzik & Eğlence"
-      ]
-    },
-    {
-      "id": "tv:TRTMuzik.tr",
-      "type": "tv",
-      "name": "TRT Müzik HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtmuzik.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtmuzik.png",
-      "description": "TRT Müzik HD Canlı Müzik Yayını",
       "genres": [
         "Müzik & Eğlence"
       ]

@@ -1,39 +1,6 @@
 {
   "metas": [
     {
-      "id": "tv:ExxenTV.tr",
-      "type": "tv",
-      "name": "Exxen TV HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
-      "description": "Exxen TV HD Canlı Spor Yayını",
-      "genres": [
-        "Spor"
-      ]
-    },
-    {
-      "id": "tv:TJKTV.tr",
-      "type": "tv",
-      "name": "TJK TV HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tjktv.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tjktv.png",
-      "description": "TJK TV HD Canlı Spor Yayını",
-      "genres": [
-        "Spor"
-      ]
-    },
-    {
-      "id": "tv:NBATV.tr",
-      "type": "tv",
-      "name": "NBA TV HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nbatv.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nbatv.png",
-      "description": "NBA TV HD Canlı Spor Yayını",
-      "genres": [
-        "Spor"
-      ]
-    },
-    {
       "id": "tv:FBTV.tr",
       "type": "tv",
       "name": "FB TV HD",
@@ -73,6 +40,39 @@
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/idmantv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/idmantv.png",
       "description": "iDMAN Tv HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:TJKTV.tr",
+      "type": "tv",
+      "name": "TJK TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tjktv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tjktv.png",
+      "description": "TJK TV HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:NBATV.tr",
+      "type": "tv",
+      "name": "NBA TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nbatv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nbatv.png",
+      "description": "NBA TV HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:ExxenTV.tr",
+      "type": "tv",
+      "name": "Exxen TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
+      "description": "Exxen TV HD Canlı Spor Yayını",
       "genres": [
         "Spor"
       ]

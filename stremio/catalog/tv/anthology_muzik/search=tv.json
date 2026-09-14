@@ -12,23 +12,23 @@
       ]
     },
     {
-      "id": "tv:PowerTV.tr",
-      "type": "tv",
-      "name": "Power TV HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powertv.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powertv.png",
-      "description": "Power TV HD Canlı Müzik Yayını",
-      "genres": [
-        "Müzik & Eğlence"
-      ]
-    },
-    {
       "id": "tv:PowerTurkTV.tr",
       "type": "tv",
       "name": "PowerTürk TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerturk.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerturk.png",
       "description": "PowerTürk TV HD Canlı Müzik Yayını",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
+    },
+    {
+      "id": "tv:PowerTV.tr",
+      "type": "tv",
+      "name": "Power TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powertv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powertv.png",
+      "description": "Power TV HD Canlı Müzik Yayını",
       "genres": [
         "Müzik & Eğlence"
       ]

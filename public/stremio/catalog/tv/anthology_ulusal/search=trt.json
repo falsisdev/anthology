@@ -23,6 +23,28 @@
       ]
     },
     {
+      "id": "tv:TRTTurk.tr",
+      "type": "tv",
+      "name": "TRT Türk HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtturk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtturk.png",
+      "description": "TRT Türk HD Canlı Yayın",
+      "genres": [
+        "Ulusal"
+      ]
+    },
+    {
+      "id": "tv:TRTWorld.tr",
+      "type": "tv",
+      "name": "TRT World HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtworld.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtworld.png",
+      "description": "TRT World HD Canlı Yayın",
+      "genres": [
+        "Ulusal"
+      ]
+    },
+    {
       "id": "tv:TRTAvaz.tr",
       "type": "tv",
       "name": "TRT Avaz HD",
@@ -34,12 +56,23 @@
       ]
     },
     {
-      "id": "tv:TRTTurk.tr",
+      "id": "tv:TRTKurdi.tr",
       "type": "tv",
-      "name": "TRT Türk HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtturk.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtturk.png",
-      "description": "TRT Türk HD Canlı Yayın",
+      "name": "TRT Kurdî HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtkurdi.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtkurdi.png",
+      "description": "TRT Kurdî HD Canlı Yayın",
+      "genres": [
+        "Ulusal"
+      ]
+    },
+    {
+      "id": "tv:TRTArabi.tr",
+      "type": "tv",
+      "name": "TRT Arabi HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtarabi.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtarabi.png",
+      "description": "TRT Arabi HD Canlı Yayın",
       "genres": [
         "Ulusal"
       ]

@@ -144,17 +144,6 @@
       ]
     },
     {
-      "id": "tv:TRTAvaz.tr",
-      "type": "tv",
-      "name": "TRT Avaz HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtavaz.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtavaz.png",
-      "description": "TRT Avaz HD Canlı Yayın",
-      "genres": [
-        "Ulusal"
-      ]
-    },
-    {
       "id": "tv:TRTTurk.tr",
       "type": "tv",
       "name": "TRT Türk HD",
@@ -177,23 +166,45 @@
       ]
     },
     {
-      "id": "tv:TVNET.tr",
+      "id": "tv:TRTWorld.tr",
       "type": "tv",
-      "name": "TVNET HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tvnet.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tvnet.png",
-      "description": "TVNET HD Canlı Yayın",
+      "name": "TRT World HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtworld.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtworld.png",
+      "description": "TRT World HD Canlı Yayın",
       "genres": [
         "Ulusal"
       ]
     },
     {
-      "id": "tv:UlkeTV.tr",
+      "id": "tv:TRTAvaz.tr",
       "type": "tv",
-      "name": "Ülke TV HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ulketv.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ulketv.png",
-      "description": "Ülke TV HD Canlı Yayın",
+      "name": "TRT Avaz HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtavaz.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtavaz.png",
+      "description": "TRT Avaz HD Canlı Yayın",
+      "genres": [
+        "Ulusal"
+      ]
+    },
+    {
+      "id": "tv:TRTKurdi.tr",
+      "type": "tv",
+      "name": "TRT Kurdî HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtkurdi.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtkurdi.png",
+      "description": "TRT Kurdî HD Canlı Yayın",
+      "genres": [
+        "Ulusal"
+      ]
+    },
+    {
+      "id": "tv:TRTArabi.tr",
+      "type": "tv",
+      "name": "TRT Arabi HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtarabi.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtarabi.png",
+      "description": "TRT Arabi HD Canlı Yayın",
       "genres": [
         "Ulusal"
       ]

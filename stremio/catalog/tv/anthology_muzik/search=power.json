@@ -15,8 +15,8 @@
       "id": "tv:PowerDance.tr",
       "type": "tv",
       "name": "Power Dance HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powertv.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powertv.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerdance.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerdance.png",
       "description": "Power Dance HD Canlı Müzik Yayını",
       "genres": [
         "Müzik & Eğlence"
@@ -26,8 +26,8 @@
       "id": "tv:PowerLove.tr",
       "type": "tv",
       "name": "Power Love HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powertv.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powertv.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerlove.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerlove.png",
       "description": "Power Love HD Canlı Müzik Yayını",
       "genres": [
         "Müzik & Eğlence"

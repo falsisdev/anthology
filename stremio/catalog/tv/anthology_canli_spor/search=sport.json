@@ -1,6 +1,17 @@
 {
   "metas": [
     {
+      "id": "tv:CBCSport.tr",
+      "type": "tv",
+      "name": "CBC Sport HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cbcsport.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cbcsport.png",
+      "description": "CBC Sport HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
       "id": "tv:SSport.tr",
       "type": "tv",
       "name": "S Sport HD",
@@ -51,17 +62,6 @@
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurosport.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurosport.png",
       "description": "Euro Sport 2 HD Canlı Spor Yayını",
-      "genres": [
-        "Spor"
-      ]
-    },
-    {
-      "id": "tv:CBCSport.tr",
-      "type": "tv",
-      "name": "CBC Sport HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cbcsport.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cbcsport.png",
-      "description": "CBC Sport HD Canlı Spor Yayını",
       "genres": [
         "Spor"
       ]

@@ -1,17 +1,6 @@
 {
   "metas": [
     {
-      "id": "tv:BloombergHT.tr",
-      "type": "tv",
-      "name": "Bloomberg HT Ekonomi HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bloomberght.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bloomberght.png",
-      "description": "Bloomberg HT Ekonomi HD Canlı Yayın",
-      "genres": [
-        "HABER KANALLARI"
-      ]
-    },
-    {
       "id": "tv:HTSpor.tr",
       "type": "tv",
       "name": "HT Spor HD",
@@ -20,6 +9,17 @@
       "description": "HT Spor HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:BloombergHT.tr",
+      "type": "tv",
+      "name": "Bloomberg HT Ekonomi HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bloomberght.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bloomberght.png",
+      "description": "Bloomberg HT Ekonomi HD Canlı Yayın",
+      "genres": [
+        "HABER KANALLARI"
       ]
     }
   ]

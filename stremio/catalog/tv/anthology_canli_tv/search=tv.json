@@ -67,14 +67,80 @@
       ]
     },
     {
-      "id": "tv:UlkeTV.tr",
+      "id": "tv:FBTV.tr",
       "type": "tv",
-      "name": "Ülke TV HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ulketv.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ulketv.png",
-      "description": "Ülke TV HD Canlı Yayın",
+      "name": "FB TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fbtv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fbtv.png",
+      "description": "FB TV HD Canlı Yayın",
       "genres": [
-        "ULUSAL KANALLAR"
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:GSTV.tr",
+      "type": "tv",
+      "name": "GS TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/gstv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/gstv.png",
+      "description": "GS TV HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:SportsTV.tr",
+      "type": "tv",
+      "name": "Sports TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportstv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportstv.png",
+      "description": "Sports TV HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:IdmanTV.tr",
+      "type": "tv",
+      "name": "iDMAN Tv HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/idmantv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/idmantv.png",
+      "description": "iDMAN Tv HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:TJKTV.tr",
+      "type": "tv",
+      "name": "TJK TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tjktv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tjktv.png",
+      "description": "TJK TV HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:NBATV.tr",
+      "type": "tv",
+      "name": "NBA TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nbatv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nbatv.png",
+      "description": "NBA TV HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:ExxenTV.tr",
+      "type": "tv",
+      "name": "Exxen TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
+      "description": "Exxen TV HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
       ]
     },
     {
@@ -106,6 +172,17 @@
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/24tv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/24tv.png",
       "description": "24 TV HD Canlı Yayın",
+      "genres": [
+        "HABER KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:UlkeTV.tr",
+      "type": "tv",
+      "name": "Ülke TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ulketv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ulketv.png",
+      "description": "Ülke TV HD Canlı Yayın",
       "genres": [
         "HABER KANALLARI"
       ]
@@ -155,83 +232,6 @@
       ]
     },
     {
-      "id": "tv:ExxenTV.tr",
-      "type": "tv",
-      "name": "Exxen TV HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
-      "description": "Exxen TV HD Canlı Yayın",
-      "genres": [
-        "SPOR KANALLARI"
-      ]
-    },
-    {
-      "id": "tv:TJKTV.tr",
-      "type": "tv",
-      "name": "TJK TV HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tjktv.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tjktv.png",
-      "description": "TJK TV HD Canlı Yayın",
-      "genres": [
-        "SPOR KANALLARI"
-      ]
-    },
-    {
-      "id": "tv:NBATV.tr",
-      "type": "tv",
-      "name": "NBA TV HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nbatv.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nbatv.png",
-      "description": "NBA TV HD Canlı Yayın",
-      "genres": [
-        "SPOR KANALLARI"
-      ]
-    },
-    {
-      "id": "tv:FBTV.tr",
-      "type": "tv",
-      "name": "FB TV HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fbtv.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fbtv.png",
-      "description": "FB TV HD Canlı Yayın",
-      "genres": [
-        "SPOR KANALLARI"
-      ]
-    },
-    {
-      "id": "tv:GSTV.tr",
-      "type": "tv",
-      "name": "GS TV HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/gstv.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/gstv.png",
-      "description": "GS TV HD Canlı Yayın",
-      "genres": [
-        "SPOR KANALLARI"
-      ]
-    },
-    {
-      "id": "tv:SportsTV.tr",
-      "type": "tv",
-      "name": "Sports TV HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportstv.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportstv.png",
-      "description": "Sports TV HD Canlı Yayın",
-      "genres": [
-        "SPOR KANALLARI"
-      ]
-    },
-    {
-      "id": "tv:IdmanTV.tr",
-      "type": "tv",
-      "name": "iDMAN Tv HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/idmantv.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/idmantv.png",
-      "description": "iDMAN Tv HD Canlı Yayın",
-      "genres": [
-        "SPOR KANALLARI"
-      ]
-    },
-    {
       "id": "tv:KralPopTV.tr",
       "type": "tv",
       "name": "Kral Pop TV HD",
@@ -243,23 +243,23 @@
       ]
     },
     {
-      "id": "tv:PowerTV.tr",
-      "type": "tv",
-      "name": "Power TV HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powertv.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powertv.png",
-      "description": "Power TV HD Canlı Yayın",
-      "genres": [
-        "MÜZİK  EĞLENCE"
-      ]
-    },
-    {
       "id": "tv:PowerTurkTV.tr",
       "type": "tv",
       "name": "PowerTürk TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerturk.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerturk.png",
       "description": "PowerTürk TV HD Canlı Yayın",
+      "genres": [
+        "MÜZİK  EĞLENCE"
+      ]
+    },
+    {
+      "id": "tv:PowerTV.tr",
+      "type": "tv",
+      "name": "Power TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powertv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powertv.png",
+      "description": "Power TV HD Canlı Yayın",
       "genres": [
         "MÜZİK  EĞLENCE"
       ]

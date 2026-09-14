@@ -1,28 +1,6 @@
 {
   "metas": [
     {
-      "id": "tv:ASpor.tr",
-      "type": "tv",
-      "name": "A Spor HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/aspor.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/aspor.png",
-      "description": "A Spor HD Canlı Yayın",
-      "genres": [
-        "SPOR KANALLARI"
-      ]
-    },
-    {
-      "id": "tv:HTSpor.tr",
-      "type": "tv",
-      "name": "HT Spor HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/htspor.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/htspor.png",
-      "description": "HT Spor HD Canlı Yayın",
-      "genres": [
-        "SPOR KANALLARI"
-      ]
-    },
-    {
       "id": "tv:TRTSpor.tr",
       "type": "tv",
       "name": "TRT Spor HD",
@@ -40,6 +18,28 @@
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtsporyildiz.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtsporyildiz.png",
       "description": "TRT Spor Yıldız HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:ASpor.tr",
+      "type": "tv",
+      "name": "A Spor HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/aspor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/aspor.png",
+      "description": "A Spor HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:HTSpor.tr",
+      "type": "tv",
+      "name": "HT Spor HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/htspor.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/htspor.png",
+      "description": "HT Spor HD Canlı Yayın",
       "genres": [
         "SPOR KANALLARI"
       ]

@@ -150,8 +150,14 @@ var KNOWN_BACKUPS = {
     'trthaber': 'https://tv-trthaber.medya.trt.com.tr/master.m3u8',
     'trtbelgesel': 'https://tv-trtbelgesel-dai.medya.trt.com.tr/master.m3u8',
     'trtcocuk': 'https://tv-trtcocuk.medya.trt.com.tr/master.m3u8',
-    'trtmuzik': 'https://tv-trtmuzik.medya.trt.com.tr/master.m3u8'
+    'trtmuzik': 'https://tv-trtmuzik.medya.trt.com.tr/master.m3u8',
+    'tv85': 'https://tv8.daioncdn.net/tv8bucuk/tv8bucuk.m3u8?app=tv8bucuk_web&ce=3'
 };
+
+function isEncryptedChannel(name, id) {
+    var key = (name || '').toLowerCase() + ' ' + (id || '').toLowerCase();
+    return /bein|ssport|sspor|tivibu|smartspor|smarts|exxen|tabii|eurosport|nba/.test(key);
+}
 
 function getStreams(args) {
     var targetId = (typeof args === 'string') ? args : (args ? args.id : "");
@@ -181,18 +187,31 @@ function getStreams(args) {
                     var aName = cleanKey(aliasName);
 
                     if (cId === searchKey || cName === searchKey || aName === searchKey || (aName.length > 2 && (aName.includes(searchKey) || searchKey.includes(aName)))) {
+                        var encrypted = isEncryptedChannel(aliasName, cId);
                         for (var j = i + 1; j < lines.length; j++) {
                             var urlLine = lines[j].trim();
                             if (urlLine && urlLine.indexOf("http") === 0) {
                                 if (!seenUrls[urlLine]) {
                                     seenUrls[urlLine] = true;
-                                    streams.push({
-                                        name: '⌜ Anthology ⌟',
-                                        title: aliasName + ' [Canlı HD]',
+                                    var ytMatch = urlLine.match(/(?:watch\?v=|embed\/|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+                                    var sObj = {
+                                        name: encrypted ? '⌜ MahsunSports ⌟' : '⌜ Anthology ⌟',
+                                        title: aliasName + (encrypted ? ' [MahsunSports HD]' : (ytMatch ? ' [Canlı HD · YouTube]' : ' [Canlı HD]')),
                                         url: urlLine,
-                                        headers: _HEADERS,
                                         behaviorHints: { isLive: true }
-                                    });
+                                    };
+                                    if (ytMatch) {
+                                        sObj.ytId = ytMatch[1];
+                                    } else if (encrypted) {
+                                        sObj.headers = {
+                                            'User-Agent': _HEADERS['User-Agent'],
+                                            'Referer': 'https://mahsunsports80.xyz/',
+                                            'Origin': 'https://mahsunsports80.xyz'
+                                        };
+                                    } else {
+                                        sObj.headers = _HEADERS;
+                                    }
+                                    streams.push(sObj);
                                 }
                                 break;
                             }
@@ -201,7 +220,7 @@ function getStreams(args) {
 
                         // Add verified backup if available
                         for (var bk in KNOWN_BACKUPS) {
-                            if ((cId === bk || searchKey === bk) && !seenUrls[KNOWN_BACKUPS[bk]]) {
+                            if ((cId === bk || searchKey === bk) && !seenUrls[KNOWN_BACKUPS[bk]] && KNOWN_BACKUPS[bk] !== urlLine) {
                                 seenUrls[KNOWN_BACKUPS[bk]] = true;
                                 streams.push({
                                     name: '⌜ Anthology ⌟',

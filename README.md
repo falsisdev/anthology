@@ -8,7 +8,7 @@
     <img src="https://img.shields.io/badge/Stremio-Canlı_TV-ff0055?style=for-the-badge&logo=stremio&logoColor=white" alt="Stremio Canlı TV" />
     <img src="https://img.shields.io/badge/Eklenti-37_Doğrulanmış-3b82f6?style=for-the-badge" alt="37 Aktif Eklenti" />
     <img src="https://img.shields.io/badge/Katalog-6_Canlı_TV_Kataloğu-8b5cf6?style=for-the-badge" alt="6 Canlı TV Kataloğu" />
-    <img src="https://img.shields.io/badge/Kanal-99_Canlı_Kanal-00e676?style=for-the-badge" alt="99 Canlı Kanal" />
+    <img src="https://img.shields.io/badge/Kanal-100_Canlı_Kanal-00e676?style=for-the-badge" alt="100 Canlı Kanal" />
   </p>
 
   <a href="https://falsisdev.github.io/anthology">🌐 Web Sitesi</a> &nbsp;|&nbsp;
@@ -22,7 +22,7 @@
 
 ## 📲 Kurulum Rehberi (Çift Katmanlı Kusursuz Deneyim)
 
-Nuvio ve Stremio'da yerli dizileri, animeleri, çizgi dizileri ve **99+ Canlı TV kanalını** hem **ana sayfada vitrin olarak görmek** hem de **doğrulanmış resmi CDN akışlarıyla doğrudan oynatmak** için aşağıdaki adımları tamamlayın:
+Nuvio ve Stremio'da yerli dizileri, animeleri, çizgi dizileri ve **100 Canlı TV kanalını** hem **ana sayfada vitrin olarak görmek** hem de **doğrulanmış resmi CDN akışlarıyla doğrudan oynatmak** için aşağıdaki adımları tamamlayın:
 
 ---
 
@@ -39,7 +39,7 @@ https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json
 ---
 
 ### 2️⃣ Adım: Canlı TV Ana Sayfa Kataloglarını Ekleyin (Anthology — Canlı TV)
-Bu adım; 99 Canlı TV kanalını 6 kategoride (**Tüm Kanallar**, **Ulusal**, **Canlı Spor**, **Canlı Haber**, **Belgesel & Çocuk**, **Müzik & Eğlence**) **Nuvio veya Stremio'nun ana sayfa vitrinine** taşır. Tüm kanalların kapakları standart **221x126** banner formatındadır.
+Bu adım; 100 Canlı TV kanalını 6 kategoride (**Tüm Kanallar**, **Ulusal**, **Canlı Spor**, **Canlı Haber**, **Belgesel & Çocuk**, **Müzik & Eğlence**) **Nuvio veya Stremio'nun ana sayfa vitrinine** taşır. Tüm kanalların kapakları standart **221x126** banner formatındadır.
 
 1. **Nuvio** veya **Stremio** uygulamasında **Eklentiler / Addons** → **Depo / Addon Ekle** bölümüne gidin.
 2. Aşağıdaki statik katalog bağlantısını yapıştırıp **Ekle / Install** butonuna basın:
@@ -63,10 +63,10 @@ Nuvio ve Stremio ana ekranında canlı TV kanallarını kategorilere ayrılmış
 
 | Katalog | Sağlayıcı | Tür | Kanal Sayısı | Açıklama |
 |---|---|:---:|:---:|---|
-| <img src="assets/logo_1_transparent.png" width="16" height="16" valign="middle" /> **📺 Canlı TV — Tüm Kanallar** | `ListM3u.js` | Canlı TV | 99 | Türkiye'nin tüm ulusal, haber, spor, belgesel, çocuk ve müzik kanalları |
-| <img src="assets/canli/trt1.png" width="16" height="16" valign="middle" /> **🇹🇷 Ulusal Kanallar** | `anthology_ulusal.js` | Canlı TV | 18 | TRT 1, ATV, Kanal D, Show, Star, NOW, TV8, TVNET, Ülke TV vb. |
+| <img src="assets/logo_1_transparent.png" width="16" height="16" valign="middle" /> **📺 Canlı TV — Tüm Kanallar** | `ListM3u.js` | Canlı TV | 100 | Türkiye'nin tüm ulusal, haber, spor, belgesel, çocuk ve müzik kanalları |
+| <img src="assets/canli/trt1.png" width="16" height="16" valign="middle" /> **🇹🇷 Ulusal Kanallar** | `anthology_ulusal.js` | Canlı TV | 19 | TRT 1, ATV, Kanal D, Show, Star, NOW, TV8, TVNET, Ülke TV, TRT World vb. |
 | <img src="assets/canli/aspor.png" width="16" height="16" valign="middle" /> **⚽ Canlı Spor** | `anthology_spor.js` | Canlı TV | 49 | TRT Spor, A Spor, HT Spor, FB TV, TJK TV, BeIN Sports, S Sport, Tivibu |
-| <img src="assets/canli/ntv.png" width="16" height="16" valign="middle" /> **📰 Canlı Haber** | `anthology_haber.js` | Canlı TV | 18 | NTV, Habertürk, TRT Haber, CNN Türk, Sözcü TV, Ülke TV, Ekotürk, TRT World |
+| <img src="assets/canli/ntv.png" width="16" height="16" valign="middle" /> **📰 Canlı Haber** | `anthology_haber.js` | Canlı TV | 18 | NTV, Habertürk, TRT Haber, TV100, Sözcü TV, Ülke TV, Ekotürk, TVNET |
 | <img src="assets/canli/trtbelgesel.png" width="16" height="16" valign="middle" /> **🦁 Belgesel & Çocuk** | `anthology_belgesel_cocuk.js` | Canlı TV | 7 | TRT Belgesel, Minika Çocuk, Minika GO, TRT Çocuk, TRT EBA İlkokul/Orta/Lise |
 | <img src="assets/canli/kralpop.png" width="16" height="16" valign="middle" /> **🎵 Müzik & Eğlence** | `anthology_muzik.js` | Canlı TV | 7 | Kral Pop TV, Power TV, PowerTürk TV, Number 1 TV, Power Dance, TRT Müzik |
 
@@ -140,7 +140,7 @@ Nuvio ve Stremio ana ekranında canlı TV kanallarını kategorilere ayrılmış
 
 ---
 
-## 📡 Canlı TV & Spor Kanalları (99 Kanal)
+## 📡 Canlı TV & Spor Kanalları (100 Kanal)
 
 ### ⚽ Spor Kanalları (49 Canlı Kanal)
 
@@ -157,10 +157,10 @@ Nuvio ve Stremio ana ekranında canlı TV kanallarını kategorilere ayrılmış
 
 <br>
 
-- <img src="https://i.pinimg.com/736x/20/f8/53/20f853787e15c584b40cb92aee225029.jpg" width="18" height="18" valign="middle" /> **BeIN Sports:** BeIN Sports 1, 2, 3, 4, 5 & Max 1, Max 2 HD
-- <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/S_Sport_Plus_Logo.png" width="18" height="18" valign="middle" /> **S Sport:** S Sport 1 HD, S Sport 2 HD & S Sport Plus HD
-- <img src="https://upload.wikimedia.org/wikipedia/tr/thumb/3/36/Tivibu_spor_logosu.jpg/250px-Tivibu_spor_logosu.jpg" width="18" height="18" valign="middle" /> **Tivibu Spor:** Tivibu Spor HD, Tivibu Spor 1, 2, 3, 4 HD
-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK9InesAS1UOC0SncC59Td7MRuowocxr7VkTw3zMisTjzQ0kQICzZj8qWI&s=10" width="18" height="18" valign="middle" /> **Exxen Spor:** Exxen TV & Exxen Spor 1, 2, 3, 4, 5, 6, 7, 8 HD
+- <img src="https://i.pinimg.com/736x/20/f8/53/20f853787e15c584b40cb92aee225029.jpg" width="18" height="18" valign="middle" /> **BeIN Sports:** BeIN Sports 1, 2, 3, 4, 5 & Max 1, Max 2 HD (MahsunSports)
+- <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/S_Sport_Plus_Logo.png" width="18" height="18" valign="middle" /> **S Sport:** S Sport 1 HD, S Sport 2 HD & S Sport Plus HD (MahsunSports)
+- <img src="https://upload.wikimedia.org/wikipedia/tr/thumb/3/36/Tivibu_spor_logosu.jpg/250px-Tivibu_spor_logosu.jpg" width="18" height="18" valign="middle" /> **Tivibu Spor:** Tivibu Spor HD, Tivibu Spor 1, 2, 3, 4 HD (MahsunSports)
+- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK9InesAS1UOC0SncC59Td7MRuowocxr7VkTw3zMisTjzQ0kQICzZj8qWI&s=10" width="18" height="18" valign="middle" /> **Exxen Spor:** Exxen TV & Exxen Spor 1, 2, 3, 4, 5, 6, 7, 8 HD (MahsunSports)
 - <img src="https://images.seeklogo.com/logo-png/39/2/trt-logo-png_seeklogo-399831.png" width="18" height="18" valign="middle" /> **Ulusal & Diğer Spor:** TRT Spor HD, TRT Spor Yıldız HD, A Spor HD, HT Spor HD, TV8,5 HD, Smart Spor 1-2, EuroSport 1-2, NBA TV, FB TV, TJK TV, Sports TV, CBC Sport, iDMAN TV
 
 ### 📺 Ulusal, Haber, Belgesel & Müzik Kanalları
@@ -180,8 +180,8 @@ Nuvio ve Stremio ana ekranında canlı TV kanallarını kategorilere ayrılmış
 
 <br>
 
-- <img src="assets/canli/trt1.png" width="18" height="18" valign="middle" /> **Ulusal Kanallar (18 Kanal):** TRT 1, ATV, Kanal D, Show TV, Star TV, NOW TV, TV8, Kanal 7, Beyaz TV, Teve2, A2 TV, TV360, TRT 2, TVNET, Ülke TV, TRT Kurdî, TRT Arabi, TRT World
-- <img src="assets/canli/ntv.png" width="18" height="18" valign="middle" /> **Haber Kanalları (18 Kanal):** NTV, Habertürk, TRT Haber, A Haber, Halk TV, Tele 1, TGRT Haber, Haber Global, 24 TV, Bloomberg HT, Bengü Türk, Flash Haber, TVNET, Ülke TV, Ekotürk, TRT World
+- <img src="assets/canli/trt1.png" width="18" height="18" valign="middle" /> **Ulusal Kanallar (19 Kanal):** TRT 1, ATV, Kanal D, Show TV, Star TV, NOW TV, TV8, Kanal 7, Beyaz TV, Teve2, A2 TV, TV360, TRT 2, TRT Türk, Kanal 7 Avrupa, TRT World, TRT Avaz, TRT Kurdî, TRT Arabi
+- <img src="assets/canli/ntv.png" width="18" height="18" valign="middle" /> **Haber Kanalları (18 Kanal):** TRT Haber, NTV, Habertürk, TV100, A Haber, Halk TV, Tele 1, TGRT Haber, Haber Global, 24 TV, Bloomberg HT, TVNET, Ülke TV, Ekotürk, Bengü Türk, Flash Haber, Lider Haber, Türk Haber
 - <img src="assets/canli/trtbelgesel.png" width="18" height="18" valign="middle" /> **Belgesel & Çocuk (7 Kanal):** TRT Belgesel HD, Minika Çocuk HD, Minika GO HD, TRT Çocuk HD, TRT EBA İlkokul, TRT EBA Ortaokul, TRT EBA Lise
 - <img src="assets/canli/kralpop.png" width="18" height="18" valign="middle" /> **Müzik & Eğlence (7 Kanal):** Kral Pop TV HD, Power TV HD, PowerTürk TV HD, Number 1 TV HD, Power Dance HD, Power Love HD, TRT Müzik HD
 
