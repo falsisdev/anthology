@@ -12,8 +12,12 @@ var configData = null;
 
 if (typeof require !== 'undefined') {
   try {
-    configData = require('./config.json');
-  } catch (e) {}
+    configData = require('../config.json');
+  } catch (e) {
+    try {
+      configData = require('./config.json');
+    } catch (e2) {}
+  }
 }
 
 if (!configData) {
@@ -77,7 +81,7 @@ if (!configData) {
         ddizi: { base: "https://www.ddizi.im" },
         dizibox: { base: "https://www.dizibox.live" },
         dizimom: { base: "https://www.dizimom.diy" },
-        dizipal: { base: "https://dizipal2127.com", player: "https://imagestoo.com/player/index.php" },
+        dizipal: { base: "https://dizipal2131.com", player: "https://imagestoo.com/player/index.php" },
         diziyou: { base: "https://www.diziyou.one", storage: "https://storage.diziyou.one" },
         mahsundizi: { base: "https://mahsundizi8.com", storage: "https://dosyaload.com" },
         sezonlukdizi: { base: "https://sezonlukdizi.cc", sibnet: "https://video.sibnet.ru" },

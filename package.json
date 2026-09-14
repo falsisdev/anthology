@@ -1,0 +1,27 @@
+{
+  "name": "anthology",
+  "version": "1.7.1",
+  "description": "Anthology - Nuvio ve Stremio için Doğrulanmış Türkçe Film, Dizi, Anime ve Canlı TV Eklenti Deposu",
+  "main": "config.js",
+  "scripts": {
+    "build": "node scripts/build_stremio_catalogs.js",
+    "test": "node scripts/test_stremio_addon.js && node scripts/test_all_catalogs.js",
+    "test:addon": "node scripts/test_stremio_addon.js",
+    "test:catalogs": "node scripts/test_all_catalogs.js",
+    "test:providers": "node scripts/test_all_providers.js",
+    "test:playability": "node scripts/test_playability.js"
+  },
+  "keywords": [
+    "nuvio",
+    "stremio",
+    "addons",
+    "providers",
+    "live-tv",
+    "turkce"
+  ],
+  "author": "falsisdev",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio-without-node-native": "^0.20.2"
+  }
+}
