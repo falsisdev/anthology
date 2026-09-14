@@ -17,13 +17,11 @@ from PIL import Image
 
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 ASSETS_DIR = os.path.join(ROOT_DIR, 'assets', 'canli')
-PUBLIC_ASSETS_DIR = os.path.join(ROOT_DIR, 'public', 'assets', 'canli')
-USER_BG_PATH = "/Users/falsis/.gemini/antigravity/brain/72b7b404-f180-408d-8839-f480bb517d89/.user_uploaded/media_1789335260476.png"
+USER_BG_PATH = os.path.join(ROOT_DIR, 'assets', 'canli_background.png')
 
 TMP_DIR = "/tmp/anthology_channel_gen"
 os.makedirs(TMP_DIR, exist_ok=True)
 os.makedirs(ASSETS_DIR, exist_ok=True)
-os.makedirs(PUBLIC_ASSETS_DIR, exist_ok=True)
 
 USER_AGENT = "AnthologyStaticBot/1.0 (https://github.com/falsisdev/anthology; contact@falsis.dev)"
 
@@ -520,15 +518,12 @@ def main():
             target_files = [filename] + item.get("extra_files", [])
             for tf in target_files:
                 p1 = os.path.join(ASSETS_DIR, tf)
-                p2 = os.path.join(PUBLIC_ASSETS_DIR, tf)
 
                 if tf.endswith(".jpg") or tf.endswith(".jpeg"):
                     card_rgb = card.convert("RGB")
                     card_rgb.save(p1, "JPEG", quality=95)
-                    card_rgb.save(p2, "JPEG", quality=95)
                 else:
                     card.save(p1, "PNG", optimize=True)
-                    card.save(p2, "PNG", optimize=True)
 
             print("✅ DONE")
             success_count += 1

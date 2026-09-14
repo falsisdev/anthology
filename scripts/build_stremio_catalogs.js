@@ -3,7 +3,6 @@ const path = require('path');
 
 const ROOT_DIR = path.resolve(__dirname, '..');
 const STREMIO_DIR = path.join(ROOT_DIR, 'stremio');
-const PUBLIC_STREMIO_DIR = path.join(ROOT_DIR, 'public', 'stremio');
 
 const stremioManifest = {
   id: "community.anthology.canlitv",
@@ -199,15 +198,6 @@ function generateSearchTerms(title) {
   }
   if (fs.existsSync(path.join(STREMIO_DIR, 'stream'))) {
     fs.rmSync(path.join(STREMIO_DIR, 'stream'), { recursive: true, force: true });
-  }
-  if (fs.existsSync(path.join(PUBLIC_STREMIO_DIR, 'catalog'))) {
-    fs.rmSync(path.join(PUBLIC_STREMIO_DIR, 'catalog'), { recursive: true, force: true });
-  }
-  if (fs.existsSync(path.join(PUBLIC_STREMIO_DIR, 'meta'))) {
-    fs.rmSync(path.join(PUBLIC_STREMIO_DIR, 'meta'), { recursive: true, force: true });
-  }
-  if (fs.existsSync(path.join(PUBLIC_STREMIO_DIR, 'stream'))) {
-    fs.rmSync(path.join(PUBLIC_STREMIO_DIR, 'stream'), { recursive: true, force: true });
   }
 
   // 1. Write manifest.json
@@ -411,14 +401,11 @@ function generateSearchTerms(title) {
     }
   }
 
-  console.log("\nMirroring to public/stremio...");
-  copyDirRecursive(STREMIO_DIR, PUBLIC_STREMIO_DIR);
-
   console.log("\n==================================================");
   console.log(`🎉 BUILD SUCCESSFUL!`);
   console.log(`- ${catalogConfigs.length} Catalogs Generated`);
   console.log(`- ${totalCatalogItems} Total Catalog Items`);
   console.log(`- ${totalMetasWritten} Meta Files Created`);
-  console.log(`- Output written to stremio/ and public/stremio/`);
+  console.log(`- Output written to stremio/`);
   console.log("==================================================");
 })();
