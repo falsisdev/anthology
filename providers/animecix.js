@@ -64,57 +64,195 @@ function formatTauStreams(urls, displayTitle, headers) {
   });
 }
 
-async function resolveTmdbInfo(id, mediaType) {
+async function resolveVidmoly(embedUrl, referer) {
   try {
-    let cleanId = String(id || '').trim();
-    if (cleanId.includes(':')) cleanId = cleanId.split(':')[0];
+    const res = await fetch(embedUrl, {
+      headers: {
+        'User-Agent': HEADERS['User-Agent'],
+        'Referer': referer || 'https://vidmoly.biz/'
+      }
+    });
+    if (!res.ok) return null;
+    const html = await res.text();
+    const m = html.match(/file\s*:\s*['"](https?:\/\/[^'"<>]+\.m3u8[^'"<>]*)['"]/i);
+    if (m) {
+      return {
+        url: m[1],
+        headers: {
+          'User-Agent': HEADERS['User-Agent'],
+          'Referer': 'https://vidmoly.biz/'
+        }
+      };
+    }
+  } catch (e) {}
+  return null;
+}
 
-    let numericId = null;
-    let title = '';
-    let origTitle = '';
+async function resolveKitsu(kitsuId) {
+  try {
+    const cleanId = String(kitsuId).replace(/^kitsu:/, '').split(':')[0];
+    const res = await fetch(`https://kitsu.io/api/edge/anime/${cleanId}`);
+    if (!res.ok) return null;
+    const data = await res.json();
+    const attr = data && data.data && data.data.attributes;
+    if (!attr) return null;
+    const titles = [];
+    if (attr.titles) {
+      if (attr.titles.en_jp) titles.push(attr.titles.en_jp);
+      if (attr.titles.en) titles.push(attr.titles.en);
+      if (attr.titles.en_us) titles.push(attr.titles.en_us);
+    }
+    if (attr.canonicalTitle && !titles.includes(attr.canonicalTitle)) {
+      titles.push(attr.canonicalTitle);
+    }
+    if (Array.isArray(attr.abbreviatedTitles)) {
+      titles.push(...attr.abbreviatedTitles);
+    }
+    return {
+      title: attr.canonicalTitle || titles[0] || '',
+      origTitle: (attr.titles && attr.titles.en_jp) || titles[0] || '',
+      queries: [...new Set(titles.filter(Boolean))]
+    };
+  } catch (e) {
+    return null;
+  }
+}
 
-    if (cleanId.startsWith('tt')) {
-      const findRes = await fetch(`https://api.themoviedb.org/3/find/${cleanId}?api_key=${TMDB_API_KEY}&external_source=imdb_id`);
-      if (findRes.ok) {
-        const fData = await findRes.json();
-        const item = (mediaType === 'tv' || mediaType === 'series')
-          ? (fData.tv_results && fData.tv_results[0])
-          : (fData.movie_results && fData.movie_results[0]);
+async function resolveMediaInfo(idOrObj, mediaType, defaultSeason, defaultEpisode) {
+  let id = idOrObj;
+  let type = mediaType || 'tv';
+  let season = parseInt(defaultSeason) || 1;
+  let episode = parseInt(defaultEpisode) || 1;
+
+  if (typeof idOrObj === 'object' && idOrObj !== null) {
+    id = idOrObj.id || idOrObj.imdbId || idOrObj.tmdbId || '';
+    type = idOrObj.type || type;
+    if (idOrObj.season !== undefined) season = parseInt(idOrObj.season) || season;
+    if (idOrObj.episode !== undefined) episode = parseInt(idOrObj.episode) || episode;
+  }
+
+  id = String(id || '').trim();
+  const isTv = (type === 'tv' || type === 'series');
+
+  if (id.includes(':')) {
+    const parts = id.split(':');
+    if (id.startsWith('kitsu:')) {
+      season = 1;
+      episode = parts.length >= 3 ? (parseInt(parts[2]) || 1) : (parseInt(parts[1]) || 1);
+    } else {
+      if (parts.length >= 3) {
+        season = parseInt(parts[parts.length - 2]) || season;
+        episode = parseInt(parts[parts.length - 1]) || episode;
+      } else if (parts.length === 2 && !isNaN(parseInt(parts[1]))) {
+        episode = parseInt(parts[1]) || episode;
+      }
+    }
+  }
+
+  if (id.startsWith('kitsu:')) {
+    const kitsuData = await resolveKitsu(id);
+    if (kitsuData) {
+      return {
+        numericId: null,
+        title: kitsuData.title,
+        origTitle: kitsuData.origTitle,
+        queries: kitsuData.queries,
+        season,
+        episode,
+        isTv
+      };
+    }
+  }
+
+  let cleanId = id;
+  if (cleanId.includes(':')) cleanId = cleanId.split(':')[0];
+
+  let numericId = null;
+  let title = '';
+  let origTitle = '';
+  const queries = [];
+
+  if (cleanId.startsWith('tt')) {
+    try {
+      const fRes = await fetch(`https://api.themoviedb.org/3/find/${cleanId}?api_key=${TMDB_API_KEY}&external_source=imdb_id`);
+      if (fRes.ok) {
+        const fData = await fRes.json();
+        const item = isTv ? (fData.tv_results && fData.tv_results[0]) : (fData.movie_results && fData.movie_results[0]);
         if (item) {
           numericId = item.id;
           title = item.name || item.title || '';
           origTitle = item.original_name || item.original_title || '';
+        } else {
+          const revItem = isTv ? (fData.movie_results && fData.movie_results[0]) : (fData.tv_results && fData.tv_results[0]);
+          if (revItem) {
+            numericId = revItem.id;
+            title = revItem.name || revItem.title || '';
+            origTitle = revItem.original_name || revItem.original_title || '';
+          }
         }
       }
-    } else {
-      numericId = cleanId;
-    }
-
-    if (numericId && (!title || !origTitle)) {
-      const type = (mediaType === 'tv' || mediaType === 'series') ? 'tv' : 'movie';
-      const tRes = await fetch(`https://api.themoviedb.org/3/${type}/${numericId}?api_key=${TMDB_API_KEY}&language=tr-TR`);
-      if (tRes.ok) {
-        const tData = await tRes.json();
-        title = tData.name || tData.title || title;
-        origTitle = tData.original_name || tData.original_title || origTitle;
-      }
-    }
-
-    return { title, origTitle, numericId };
-  } catch (e) {
-    return { title: '', origTitle: '', numericId: id };
+    } catch (e) {}
+  } else if (!isNaN(parseInt(cleanId))) {
+    numericId = parseInt(cleanId);
   }
+
+  if (numericId) {
+    const endpointType = isTv ? 'tv' : 'movie';
+    try {
+      const [resEn, resTr] = await Promise.all([
+        fetch(`https://api.themoviedb.org/3/${endpointType}/${numericId}?api_key=${TMDB_API_KEY}&language=en-US&append_to_response=alternative_titles`),
+        fetch(`https://api.themoviedb.org/3/${endpointType}/${numericId}?api_key=${TMDB_API_KEY}&language=tr-TR`)
+      ]);
+
+      let dataEn = resEn.ok ? await resEn.json() : null;
+      let dataTr = resTr.ok ? await resTr.json() : null;
+
+      if (!dataEn && !dataTr && isTv) {
+        const mRes = await fetch(`https://api.themoviedb.org/3/movie/${numericId}?api_key=${TMDB_API_KEY}&language=en-US&append_to_response=alternative_titles`);
+        if (mRes.ok) dataEn = await mRes.json();
+      }
+
+      if (dataEn) {
+        const nameEn = dataEn.name || dataEn.title || '';
+        if (nameEn) queries.push(nameEn);
+        const origName = dataEn.original_name || dataEn.original_title || '';
+        if (origName && /^[a-zA-Z0-9\s:;.,'\"!?-]+$/.test(origName)) {
+          queries.push(origName);
+        }
+        title = nameEn || title;
+        origTitle = origName || origTitle;
+
+        const alts = dataEn.alternative_titles ? (dataEn.alternative_titles.results || dataEn.alternative_titles.titles || []) : [];
+        for (const a of alts) {
+          const t = a.title || a.name || '';
+          if (t && /^[a-zA-Z0-9\s:;.,'\"!?-]+$/.test(t) && !queries.includes(t)) {
+            queries.push(t);
+          }
+        }
+      }
+
+      if (dataTr) {
+        const nameTr = dataTr.name || dataTr.title || '';
+        if (nameTr && !queries.includes(nameTr)) {
+          queries.push(nameTr);
+        }
+      }
+    } catch (e) {}
+  }
+
+  return {
+    numericId,
+    title,
+    origTitle,
+    queries: [...new Set(queries.filter(Boolean))],
+    season,
+    episode,
+    isTv
+  };
 }
 
 async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
   try {
-    if (typeof tmdbId === 'object' && tmdbId && tmdbId.id) {
-      return getStreams(tmdbId.id, mediaType || 'tv', seasonNum, episodeNum);
-    }
-    const isTv = (mediaType === 'tv' || mediaType === 'series' || !mediaType);
-    const season = parseInt(seasonNum) || 1;
-    const episode = parseInt(episodeNum) || 1;
-
     if (typeof tmdbId === 'string' && tmdbId.startsWith('animecix:title:')) {
       const showMeta = await getMeta(tmdbId);
       if (showMeta && showMeta.meta && Array.isArray(showMeta.meta.videos) && showMeta.meta.videos.length > 0) {
@@ -125,8 +263,8 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
     if (typeof tmdbId === 'string' && tmdbId.startsWith('animecix:ep:')) {
       const parts = tmdbId.replace('animecix:ep:', '').split(':');
       const titleId = parts[0];
-      const targetSeason = parseInt(parts[1]) || season;
-      const targetEp = parseInt(parts[2]) || episode;
+      const targetSeason = parseInt(parts[1]) || 1;
+      const targetEp = parseInt(parts[2]) || 1;
       const videoUrl = `${BASE_URL}/secure/best-video?titleId=${titleId}&episode=${targetEp}&season=${targetSeason}`;
       const bestRes = await fetch(videoUrl, { headers: HEADERS, redirect: 'follow' });
       const finalUrl = bestRes.url || '';
@@ -137,88 +275,168 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
         headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': BASE_URL + '/' }
       });
       if (!tauRes.ok) return [];
-      const tauData = await tauRes.json();
-      if (!tauData.urls || tauData.urls.length === 0) return [];
+      let tauData;
+      try { tauData = await tauRes.json(); } catch(e) { return []; }
+      if (!tauData || !tauData.urls || tauData.urls.length === 0) return [];
       return formatTauStreams(tauData.urls, 'AnimeciX', { 'User-Agent': HEADERS['User-Agent'], 'Referer': BASE_URL + '/' });
     }
 
-    if (typeof tmdbId === 'string' && tmdbId.startsWith('animecix:title:')) {
-      const titleId = tmdbId.replace('animecix:title:', '');
-      const videoUrl = `${BASE_URL}/secure/best-video?titleId=${titleId}&episode=${episode}&season=${season}`;
-      const bestRes = await fetch(videoUrl, { headers: HEADERS, redirect: 'follow' });
-      const finalUrl = bestRes.url || '';
-      const m = finalUrl.match(/tau-video\.xyz\/embed\/([a-zA-Z0-9_-]+)/);
-      if (!m) return [];
-      const tauId = m[1];
-      const tauRes = await fetch(`https://tau-video.xyz/api/video/${tauId}`, {
-        headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': BASE_URL + '/' }
-      });
-      if (!tauRes.ok) return [];
-      const tauData = await tauRes.json();
-      if (!tauData.urls || tauData.urls.length === 0) return [];
-      return formatTauStreams(tauData.urls, 'AnimeciX', { 'User-Agent': HEADERS['User-Agent'], 'Referer': BASE_URL + '/' });
-    }
-
-    const info = await resolveTmdbInfo(tmdbId, mediaType);
-    const queries = [info.title, info.origTitle].filter(Boolean);
-    if (queries.length === 0) return [];
+    const info = await resolveMediaInfo(tmdbId, mediaType, seasonNum, episodeNum);
+    const queries = info.queries;
+    if (!queries || queries.length === 0) return [];
 
     let matchedItem = null;
 
-    for (const q of queries) {
-      const searchRes = await fetch(`${BASE_URL}/secure/search/${encodeURIComponent(q)}?limit=10`, { headers: HEADERS });
-      if (!searchRes.ok) continue;
-      const sData = await searchRes.json();
-      if (sData.results && sData.results.length > 0) {
-        const qClean = ultraClean(q);
-        for (const item of sData.results) {
-          // Exact TMDB ID match — always accept
-          if (info.numericId && String(item.tmdb_id) === String(info.numericId)) {
-            matchedItem = item;
-            break;
-          }
-          // Title similarity check — only accept if names actually match
-          const itemClean = ultraClean(item.name || '');
-          if (qClean && itemClean && (itemClean.includes(qClean) || qClean.includes(itemClean))) {
-            matchedItem = item;
+    for (const q of queries.slice(0, 10)) {
+      try {
+        const searchRes = await fetch(`${BASE_URL}/secure/search/${encodeURIComponent(q)}?limit=15`, { headers: HEADERS });
+        if (!searchRes.ok) continue;
+        const sData = await searchRes.json();
+        const results = sData.results || [];
+        if (!results.length) continue;
+
+        // 1. Exact numeric TMDB ID match
+        if (info.numericId) {
+          const exact = results.find(r => String(r.tmdb_id) === String(info.numericId));
+          if (exact) {
+            matchedItem = exact;
             break;
           }
         }
-        if (matchedItem) break;
-      }
+
+        // 2. Exact clean title match (avoid Live Action unless query specified)
+        const qClean = ultraClean(q);
+        const exactTitle = results.find(r => {
+          const rClean = ultraClean(r.name || '');
+          return rClean === qClean && !/liveaction/i.test(rClean);
+        });
+        if (exactTitle) {
+          matchedItem = exactTitle;
+          break;
+        }
+
+        // 3. Substring match
+        const subTitle = results.find(r => {
+          const rClean = ultraClean(r.name || '');
+          if (/liveaction/i.test(rClean)) return false;
+          return qClean.length >= 4 && (rClean.includes(qClean) || qClean.includes(rClean));
+        });
+        if (subTitle) {
+          matchedItem = subTitle;
+          break;
+        }
+      } catch (e) {}
     }
 
     if (!matchedItem) return [];
 
-    let videoUrl = isTv
-      ? `${BASE_URL}/secure/best-video?titleId=${matchedItem.id}&episode=${episode}&season=${season}`
-      : `${BASE_URL}/secure/best-video?titleId=${matchedItem.id}&episode=1&season=1`;
-
-    const bestRes = await fetch(videoUrl, { headers: HEADERS, redirect: 'follow' });
-    const finalUrl = bestRes.url || '';
-
-    const m = finalUrl.match(/tau-video\.xyz\/embed\/([a-zA-Z0-9_-]+)/);
-    if (!m) return [];
-
-    const tauId = m[1];
-    const tauRes = await fetch(`https://tau-video.xyz/api/video/${tauId}`, {
-      headers: {
-        'User-Agent': HEADERS['User-Agent'],
-        'Referer': BASE_URL + '/'
-      }
-    });
-    if (!tauRes.ok) return [];
-
-    const tauData = await tauRes.json();
-    if (!tauData.urls || tauData.urls.length === 0) return [];
-
-    const displayTitle = isTv ? `${matchedItem.name} S${season}E${episode}` : matchedItem.name;
-
+    const displayTitle = info.isTv ? `${matchedItem.name} S${info.season}E${info.episode}` : matchedItem.name;
     const aHeaders = {
       'User-Agent': HEADERS['User-Agent'],
       'Referer': BASE_URL + '/'
     };
-    return formatTauStreams(tauData.urls, displayTitle, aHeaders);
+
+    const isMovie = !info.isTv || matchedItem.title_type === 'movie' || matchedItem.type === 'movie';
+
+    // MOVIE EXTRACTION: AnimeciX movie video embeds reside in /secure/titles/{id}
+    if (isMovie) {
+      try {
+        const dRes = await fetch(`${BASE_URL}/secure/titles/${matchedItem.id}`, { headers: HEADERS });
+        if (dRes.ok) {
+          const dData = await dRes.json();
+          const titleObj = dData.title || {};
+          const videos = titleObj.videos || [];
+          for (const v of videos) {
+            if (v.url) {
+              const tauM = v.url.match(/tau-video\.xyz\/embed\/([a-zA-Z0-9_-]+)/);
+              if (tauM) {
+                try {
+                  const tauRes = await fetch(`https://tau-video.xyz/api/video/${tauM[1]}`, {
+                    headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': BASE_URL + '/' }
+                  });
+                  if (tauRes.ok) {
+                    const tauData = await tauRes.json();
+                    if (tauData && Array.isArray(tauData.urls) && tauData.urls.length > 0) {
+                      const streams = formatTauStreams(tauData.urls, displayTitle, aHeaders);
+                      if (streams.length > 0) return streams;
+                    }
+                  }
+                } catch(e) {}
+              }
+              if (v.url.includes('vidmoly')) {
+                const vm = await resolveVidmoly(v.url, BASE_URL + '/');
+                if (vm) {
+                  return [{
+                    name: displayTitle,
+                    title: '⌜ AnimeciX ⌟ | VidMoly [1080p HLS]',
+                    url: vm.url,
+                    quality: '1080p',
+                    provider: 'animecix',
+                    headers: vm.headers,
+                    behaviorHints: { notWebReady: true, proxyHeaders: { request: vm.headers } }
+                  }];
+                }
+              }
+            }
+          }
+        }
+      } catch (e) {}
+    }
+
+    // SERIES EXTRACTION: Use secure/best-video
+    const videoUrl = `${BASE_URL}/secure/best-video?titleId=${matchedItem.id}&episode=${info.episode}&season=${info.season}`;
+    const bestRes = await fetch(videoUrl, { headers: HEADERS, redirect: 'follow' });
+    if (bestRes.ok) {
+      const finalUrl = bestRes.url || '';
+      const m = finalUrl.match(/tau-video\.xyz\/embed\/([a-zA-Z0-9_-]+)/);
+      if (m) {
+        const tauId = m[1];
+        const tauRes = await fetch(`https://tau-video.xyz/api/video/${tauId}`, {
+          headers: {
+            'User-Agent': HEADERS['User-Agent'],
+            'Referer': BASE_URL + '/'
+          }
+        });
+        if (tauRes.ok) {
+          try {
+            const tauData = await tauRes.json();
+            if (tauData && tauData.urls && tauData.urls.length > 0) {
+              return formatTauStreams(tauData.urls, displayTitle, aHeaders);
+            }
+          } catch(e) {}
+        }
+      }
+    }
+
+    // Fallback: If best-video failed or returned non-tau, check titles/{id} videos
+    try {
+      const dRes = await fetch(`${BASE_URL}/secure/titles/${matchedItem.id}`, { headers: HEADERS });
+      if (dRes.ok) {
+        const dData = await dRes.json();
+        const titleObj = dData.title || {};
+        const videos = titleObj.videos || [];
+        for (const v of videos) {
+          const epNum = parseInt(v.episode_num);
+          const sNum = parseInt(v.season_num) || 1;
+          if ((!isNaN(epNum) && epNum === info.episode && sNum === info.season) || videos.length === 1) {
+            const tauM = v.url && v.url.match(/tau-video\.xyz\/embed\/([a-zA-Z0-9_-]+)/);
+            if (tauM) {
+              const tauRes = await fetch(`https://tau-video.xyz/api/video/${tauM[1]}`, {
+                headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': BASE_URL + '/' }
+              });
+              if (tauRes.ok) {
+                const tauData = await tauRes.json();
+                if (tauData && Array.isArray(tauData.urls) && tauData.urls.length > 0) {
+                  return formatTauStreams(tauData.urls, displayTitle, aHeaders);
+                }
+              }
+            }
+          }
+        }
+      }
+    } catch(e) {}
+
+    return [];
   } catch (err) {
     return [];
   }
