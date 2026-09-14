@@ -50,6 +50,12 @@ https://tv-trtturk.medya.trt.com.tr/master.m3u8
 #EXTINF:-1 tvg-id="Kanal7Avrupa.tr" tvg-name="Kanal 7 Avrupa" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png" group-title="🇹🇷 ULUSAL KANALLAR",Kanal 7 Avrupa
 https://livetv.radyotvonline.net/kanal7live/kanal7avr/playlist.m3u8
 
+#EXTINF:-1 tvg-id="TVNET.tr" tvg-name="TVNET" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tvnet.png" group-title="🇹🇷 ULUSAL KANALLAR",TVNET HD
+https://tvnet-live.lg.mncdn.com/tvnet/tvnet/playlist.m3u8
+
+#EXTINF:-1 tvg-id="UlkeTV.tr" tvg-name="Ülke TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ulketv.png" group-title="🇹🇷 ULUSAL KANALLAR",Ülke TV HD
+http://217.174.229.138:8000/play/a0el
+
 # ==============================================================================
 # HABER KANALLARI
 # ==============================================================================
@@ -95,6 +101,18 @@ http://nrttn172.kesintisizyayin.com:29010/lidertv/lidertv/sec-f5-v1-a1.m3u8
 #EXTINF:-1 tvg-id="TurkHaber.tr" tvg-name="Türk Haber" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/turkhaber.png" group-title="🇹🇷 HABER KANALLARI",Türk Haber TV HD
 https://edge1.socialsmart.tv/turkhaber/bant1/playlist.m3u8
 
+#EXTINF:-1 tvg-id="Ekoturk.tr" tvg-name="Ekotürk" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ekoturk.png" group-title="🇹🇷 HABER KANALLARI",Ekotürk Ekonomi HD
+https://cdn.ekoturk.net/hls/master.m3u8
+
+#EXTINF:-1 tvg-id="TRTWorld.tr" tvg-name="TRT World" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtworld.png" group-title="🇹🇷 HABER KANALLARI",TRT World HD
+https://tv-trtworld.medya.trt.com.tr/master.m3u8
+
+#EXTINF:-1 tvg-id="TRTKurdi.tr" tvg-name="TRT Kurdî" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtkurdi.png" group-title="🇹🇷 HABER KANALLARI",TRT Kurdî HD
+https://tv-trtkurdi.medya.trt.com.tr/master.m3u8
+
+#EXTINF:-1 tvg-id="TRTArabi.tr" tvg-name="TRT Arabi" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtarabi.png" group-title="🇹🇷 HABER KANALLARI",TRT Arabi HD
+https://tv-trtarabi.medya.trt.com.tr/master.m3u8
+
 # ==============================================================================
 # SPOR KANALLARI
 # ==============================================================================
@@ -105,10 +123,10 @@ https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/aspor/aspor.m3u8
 https://ciner.daioncdn.net/ht-spor/ht-spor.m3u8?app=web
 
 #EXTINF:-1 tvg-id="TRTSpor.tr" tvg-name="TRT Spor" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtspor.png" group-title="🇹🇷 SPOR KANALLARI",TRT Spor HD
-https://andro.evrenesoglu99.click/checklist/androstreamlivetrts.m3u8
+https://tv-trtspor1.medya.trt.com.tr/master.m3u8
 
 #EXTINF:-1 tvg-id="TRTSporYildiz.tr" tvg-name="TRT Spor Yıldız" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtsporyildiz.png" group-title="🇹🇷 SPOR KANALLARI",TRT Spor Yıldız HD
-https://andro.evrenesoglu99.click/checklist/androstreamlivetrtsy.m3u8
+https://trt.daioncdn.net/trtspor-yildiz/master.m3u8?app=web&platform=trtspor
 
 #EXTINF:-1 tvg-id="TV85.tr" tvg-name="TV8,5" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv85.png" group-title="🇹🇷 SPOR KANALLARI",TV8,5 HD
 https://andro.evrenesoglu99.click/checklist/androstreamlivetv85.m3u8
@@ -225,13 +243,13 @@ https://andro.evrenesoglu99.click/checklist/androstreamlivetb7.m3u8
 https://andro.evrenesoglu99.click/checklist/androstreamlivetb8.m3u8
 
 #EXTINF:-1 tvg-id="TJKTV.tr" tvg-name="TJK TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tjktv.png" group-title="🇹🇷 SPOR KANALLARI",TJK TV HD
-https://andro.evrenesoglu99.click/checklist/androstreamlivetjk.m3u8
+https://tjktv-live.tjk.org/tjktv.m3u8
 
 #EXTINF:-1 tvg-id="NBATV.tr" tvg-name="NBA TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nbatv.png" group-title="🇹🇷 SPOR KANALLARI",NBA TV HD
 https://andro.evrenesoglu99.click/checklist/androstreamlivenba.m3u8
 
 #EXTINF:-1 tvg-id="FBTV.tr" tvg-name="FB TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fbtv.png" group-title="🇹🇷 SPOR KANALLARI",FB TV HD
-https://andro.evrenesoglu99.click/checklist/androstreamlivefb.m3u8
+http://1hskrdto.rocketcdn.com/fenerbahcetv.smil/playlist.m3u8
 
 #EXTINF:-1 tvg-id="GSTV.tr" tvg-name="GS TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/gstv.png" group-title="🇹🇷 SPOR KANALLARI",GS TV HD
 https://andro.evrenesoglu99.click/checklist/androstreamlivegs.m3u8
@@ -250,10 +268,46 @@ https://andro.evrenesoglu99.click/checklist/androstreamliveidm.m3u8
 # BELGESEL & ÇOCUK KANALLARI
 # ==============================================================================
 #EXTINF:-1 tvg-id="TRTBelgesel.tr" tvg-name="TRT Belgesel" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtbelgesel.png" group-title="🇹🇷 BELGESEL & ÇOCUK",TRT Belgesel HD
-https://tv-trtbelgesel.medya.trt.com.tr/master.m3u8
+https://tv-trtbelgesel-dai.medya.trt.com.tr/master.m3u8
+
+#EXTINF:-1 tvg-id="MinikaCocuk.tr" tvg-name="Minika Çocuk" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/minikacocuk.png" group-title="🇹🇷 BELGESEL & ÇOCUK",Minika Çocuk HD
+https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/minikago_cocuk/minikago_cocuk.m3u8
+
+#EXTINF:-1 tvg-id="MinikaGo.tr" tvg-name="Minika GO" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/minikago.png" group-title="🇹🇷 BELGESEL & ÇOCUK",Minika GO HD
+https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/minikago/minikago.m3u8
 
 #EXTINF:-1 tvg-id="TRTCocuk.tr" tvg-name="TRT Çocuk" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtcocuk.png" group-title="🇹🇷 BELGESEL & ÇOCUK",TRT Çocuk HD
 https://tv-trtcocuk.medya.trt.com.tr/master.m3u8
 
-#EXTINF:-1 tvg-id="TRTMuzik.tr" tvg-name="TRT Müzik" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtmuzik.png" group-title="🇹🇷 SİNEMA & MÜZİK",TRT Müzik HD
+#EXTINF:-1 tvg-id="TRTEBAIlkokul.tr" tvg-name="TRT EBA İlkokul" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trteba.png" group-title="🇹🇷 BELGESEL & ÇOCUK",TRT EBA İlkokul HD
+https://tv-e-okul00.medya.trt.com.tr/master.m3u8
+
+#EXTINF:-1 tvg-id="TRTEBAOrtaokul.tr" tvg-name="TRT EBA Ortaokul" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trteba.png" group-title="🇹🇷 BELGESEL & ÇOCUK",TRT EBA Ortaokul HD
+https://tv-e-okul01.medya.trt.com.tr/master.m3u8
+
+#EXTINF:-1 tvg-id="TRTEBALise.tr" tvg-name="TRT EBA Lise" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trteba.png" group-title="🇹🇷 BELGESEL & ÇOCUK",TRT EBA Lise HD
+https://tv-e-okul02.medya.trt.com.tr/master.m3u8
+
+# ==============================================================================
+# MÜZİK & EĞLENCE KANALLARI
+# ==============================================================================
+#EXTINF:-1 tvg-id="KralPopTV.tr" tvg-name="Kral Pop TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kralpop.png" group-title="🇹🇷 MÜZİK & EĞLENCE",Kral Pop TV HD
+https://dogus-live.daioncdn.net/kralpoptv/playlist.m3u8
+
+#EXTINF:-1 tvg-id="PowerTV.tr" tvg-name="Power TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powertv.png" group-title="🇹🇷 MÜZİK & EĞLENCE",Power TV HD
+https://livetv.powerapp.com.tr/powerTV/powerhd.smil/playlist.m3u8
+
+#EXTINF:-1 tvg-id="PowerTurkTV.tr" tvg-name="PowerTürk TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerturk.png" group-title="🇹🇷 MÜZİK & EĞLENCE",PowerTürk TV HD
+https://live.artidijitalmedya.com/artidijital_powerturktv/powerturktv/playlist.m3u8
+
+#EXTINF:-1 tvg-id="Number1TV.tr" tvg-name="Number 1 TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png" group-title="🇹🇷 MÜZİK & EĞLENCE",Number 1 TV HD
+https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/broadcast_5c9e17cd59e8b.smil/playlist.m3u8
+
+#EXTINF:-1 tvg-id="PowerDance.tr" tvg-name="Power Dance" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powertv.png" group-title="🇹🇷 MÜZİK & EĞLENCE",Power Dance HD
+https://livetv.powerapp.com.tr/dance/dance.smil/playlist.m3u8
+
+#EXTINF:-1 tvg-id="PowerLove.tr" tvg-name="Power Love" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powertv.png" group-title="🇹🇷 MÜZİK & EĞLENCE",Power Love HD
+https://livetv.powerapp.com.tr/plove/love.smil/playlist.m3u8
+
+#EXTINF:-1 tvg-id="TRTMuzik.tr" tvg-name="TRT Müzik" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtmuzik.png" group-title="🇹🇷 MÜZİK & EĞLENCE",TRT Müzik HD
 https://tv-trtmuzik.medya.trt.com.tr/master.m3u8

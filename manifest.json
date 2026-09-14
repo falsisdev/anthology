@@ -530,6 +530,92 @@
       ]
     },
     {
+      "id": "anthology_belgesel_cocuk",
+      "name": "Anthology Belgesel & Çocuk",
+      "description": "TRT Belgesel, Minika Çocuk, Minika GO, TRT Çocuk ve TRT EBA canlı kanalları.",
+      "version": "1.7.2",
+      "author": "falsisdev",
+      "supportedTypes": [
+        "tv",
+        "channel"
+      ],
+      "filename": "providers/anthology_belgesel_cocuk.js",
+      "enabled": true,
+      "formats": [
+        "hls",
+        "m3u8"
+      ],
+      "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtbelgesel.png",
+      "contentLanguage": [
+        "tr"
+      ],
+      "idPrefixes": [
+        "tv:",
+        "tv_"
+      ],
+      "catalogs": [
+        {
+          "type": "tv",
+          "id": "anthology_belgesel_cocuk_list",
+          "name": "Anthology Belgesel & Çocuk",
+          "extra": [
+            {
+              "name": "search",
+              "isRequired": false
+            }
+          ]
+        }
+      ],
+      "resources": [
+        "catalog",
+        "meta",
+        "stream"
+      ]
+    },
+    {
+      "id": "anthology_muzik",
+      "name": "Anthology Müzik & Eğlence",
+      "description": "Kral Pop TV, Power TV, PowerTürk, Number 1 TV ve canlı müzik kanalları.",
+      "version": "1.7.2",
+      "author": "falsisdev",
+      "supportedTypes": [
+        "tv",
+        "channel"
+      ],
+      "filename": "providers/anthology_muzik.js",
+      "enabled": true,
+      "formats": [
+        "hls",
+        "m3u8"
+      ],
+      "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kralpop.png",
+      "contentLanguage": [
+        "tr"
+      ],
+      "idPrefixes": [
+        "tv:",
+        "tv_"
+      ],
+      "catalogs": [
+        {
+          "type": "tv",
+          "id": "anthology_muzik_list",
+          "name": "Anthology Müzik & Eğlence",
+          "extra": [
+            {
+              "name": "search",
+              "isRequired": false
+            }
+          ]
+        }
+      ],
+      "resources": [
+        "catalog",
+        "meta",
+        "stream"
+      ]
+    },
+    {
       "id": "anthology_aksiyon",
       "name": "Anthology Aksiyon & Macera",
       "description": "Aksiyon, macera, suç ve gerilim sineması doğrudan HD HLS akışları.",

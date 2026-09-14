@@ -83,6 +83,49 @@ async function fetchM3U(url) {
     }
 }
 
+const BLOCKED_DOMAINS = [
+    'imagebin.pics',
+    'imagehub.pics',
+    'imagesbox.cloud',
+    'photogrids.site',
+    'picturebox.cloud',
+    'pixtureup.org',
+    'pixypost.art',
+    'pixtures.art',
+    'imglink.info',
+    'imglink.pro'
+];
+
+function isBlockedStream(url) {
+    if (!url) return true;
+    for (var i = 0; i < BLOCKED_DOMAINS.length; i++) {
+        if (url.includes(BLOCKED_DOMAINS[i])) return true;
+    }
+    return false;
+}
+
+const TMDB_GENRES = {
+    28: 'aksiyon',
+    12: 'macera',
+    16: 'animasyon',
+    35: 'komedi',
+    80: 'suc',
+    99: 'belgesel',
+    18: 'dram',
+    10751: 'aile',
+    14: 'fantastik',
+    36: 'tarih',
+    27: 'korku',
+    10402: 'muzik',
+    9648: 'gizem',
+    10749: 'romantik',
+    878: 'bilimkurgu',
+    10770: 'tvfilm',
+    53: 'gerilim',
+    10752: 'savas',
+    37: 'kovboy'
+};
+
 async function searchFilmStreams(tmdbId, options = {}) {
     const {
         sourceName = 'Anthology Film',
@@ -100,13 +143,20 @@ async function searchFilmStreams(tmdbId, options = {}) {
         const targetYear = (d.release_date || '').slice(0, 4);
 
         // Check if movie genres match genreFilter if provided
-        const movieGenres = (d.genres || []).map(g => ultraClean(g.name));
+        const movieGenres = [];
+        if (Array.isArray(d.genres)) {
+            d.genres.forEach(g => { if (g && g.name) movieGenres.push(ultraClean(g.name)); });
+        }
+        if (Array.isArray(d.genre_ids)) {
+            d.genre_ids.forEach(gid => { if (TMDB_GENRES[gid]) movieGenres.push(TMDB_GENRES[gid]); });
+        }
+
         let genreMatch = true;
         if (genreFilter && genreFilter.length > 0) {
             const filterNorm = genreFilter.map(ultraClean);
             const tmdbHasGenre = movieGenres.some(mg => filterNorm.some(f => mg.includes(f) || f.includes(mg)));
-            // We'll allow either TMDB genre match or line group match
-            genreMatch = tmdbHasGenre;
+            // Allow if TMDB has genre or if genre list is empty (fallback to title matching)
+            genreMatch = tmdbHasGenre || movieGenres.length === 0;
         }
 
         const targetGroups = new Set([
@@ -130,6 +180,7 @@ async function searchFilmStreams(tmdbId, options = {}) {
                 if (line.startsWith('#EXTINF')) {
                     const nextLine = lines[i + 1] ? lines[i + 1].trim() : '';
                     if (!nextLine.startsWith('http')) continue;
+                    if (isBlockedStream(nextLine)) continue;
                     if (seenUrls.has(nextLine)) continue;
 
                     let authorMatch = line.match(/group-author="([^"]+)"/);
@@ -183,6 +234,56 @@ async function searchFilmStreams(tmdbId, options = {}) {
                         });
                     }
                 }
+            }
+        }
+
+        if (results.length === 0 && d && d.id) {
+            try {
+                const path = require('path');
+                const sinewixMod = require(path.join(__dirname, 'sinewix'));
+                if (typeof sinewixMod.getStreams === 'function') {
+                    const sStreams = await sinewixMod.getStreams({ id: String(d.id), type: 'movie' });
+                    if (Array.isArray(sStreams) && sStreams.length > 0) {
+                        for (const s of sStreams) {
+                            if (s && s.url && !seenUrls.has(s.url)) {
+                                seenUrls.add(s.url);
+                                results.push({
+                                    name: `${d.title || d.original_title} (${targetYear})`,
+                                    title: `⌜ ${sourceName} ⌟ | SineWix [1080p DUAL]`,
+                                    url: s.url,
+                                    quality: '1080p',
+                                    score: 95
+                                });
+                            }
+                        }
+                    }
+                }
+            } catch (err) {}
+
+            if (results.length === 0) {
+                try {
+                    const path = require('path');
+                    const fmMod = require(path.join(__dirname, 'filmmodu'));
+                    if (typeof fmMod.getStreams === 'function') {
+                        const fmStreams = await fmMod.getStreams(String(d.id), 'movie');
+                        if (Array.isArray(fmStreams) && fmStreams.length > 0) {
+                            for (const s of fmStreams) {
+                                if (s && s.url && !seenUrls.has(s.url)) {
+                                    seenUrls.add(s.url);
+                                    results.push({
+                                        name: `${d.title || d.original_title} (${targetYear})`,
+                                        title: `⌜ ${sourceName} ⌟ | FilmModu [${s.quality || 'HD'}]`,
+                                        url: s.url,
+                                        quality: s.quality || '1080p',
+                                        score: 90,
+                                        headers: s.headers,
+                                        subtitles: s.subtitles
+                                    });
+                                }
+                            }
+                        }
+                    }
+                } catch (err) {}
             }
         }
 

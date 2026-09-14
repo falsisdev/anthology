@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:TRTEBAIlkokul.tr",
+      "type": "tv",
+      "name": "TRT EBA İlkokul HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trteba.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trteba.png",
+      "description": "TRT EBA İlkokul HD Canlı Yayın",
+      "genres": [
+        "BELGESEL  ÇOCUK"
+      ]
+    }
+  ]
+}

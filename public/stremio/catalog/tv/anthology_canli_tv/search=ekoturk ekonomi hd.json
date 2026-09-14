@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:Ekoturk.tr",
+      "type": "tv",
+      "name": "Ekotürk Ekonomi HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ekoturk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ekoturk.png",
+      "description": "Ekotürk Ekonomi HD Canlı Yayın",
+      "genres": [
+        "HABER KANALLARI"
+      ]
+    }
+  ]
+}

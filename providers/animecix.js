@@ -24,6 +24,46 @@ function ultraClean(str) {
     .trim();
 }
 
+function formatTauStreams(urls, displayTitle, headers) {
+  if (!Array.isArray(urls) || urls.length === 0) return [];
+  var qualityWeight = function(q) {
+    if (!q) return 100;
+    var s = String(q).toLowerCase();
+    if (s.includes('2160') || s.includes('4k')) return 4000;
+    if (s.includes('1080')) return 1080;
+    if (s.includes('720')) return 720;
+    if (s.includes('480')) return 480;
+    return 100;
+  };
+
+  // Filter out dead/blocked domains like yhwach.icu (returns 404)
+  var valid = urls.filter(function(u) {
+    return u && u.url && !u.url.includes('yhwach.icu');
+  });
+  var list = valid.length > 0 ? valid : urls;
+
+  var mapped = list.map(function(u) {
+    return {
+      name: displayTitle,
+      title: '⌜ AnimeciX ⌟ | TauVideo [' + (u.label || 'HD') + ']',
+      url: u.url,
+      quality: u.label || '1080p',
+      provider: 'animecix',
+      headers: headers,
+      behaviorHints: {
+        notWebReady: true,
+        proxyHeaders: {
+          request: headers
+        }
+      }
+    };
+  });
+
+  return mapped.sort(function(a, b) {
+    return qualityWeight(b.quality) - qualityWeight(a.quality);
+  });
+}
+
 async function resolveTmdbInfo(id, mediaType) {
   try {
     let cleanId = String(id || '').trim();
@@ -99,14 +139,7 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
       if (!tauRes.ok) return [];
       const tauData = await tauRes.json();
       if (!tauData.urls || tauData.urls.length === 0) return [];
-      return tauData.urls.map(u => ({
-        name: 'AnimeciX',
-        title: `⌜ AnimeciX ⌟ | TauVideo [${u.label || 'HD'}]`,
-        url: u.url,
-        quality: u.label || '1080p',
-        provider: 'animecix',
-        headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': BASE_URL + '/' }
-      }));
+      return formatTauStreams(tauData.urls, 'AnimeciX', { 'User-Agent': HEADERS['User-Agent'], 'Referer': BASE_URL + '/' });
     }
 
     if (typeof tmdbId === 'string' && tmdbId.startsWith('animecix:title:')) {
@@ -123,14 +156,7 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
       if (!tauRes.ok) return [];
       const tauData = await tauRes.json();
       if (!tauData.urls || tauData.urls.length === 0) return [];
-      return tauData.urls.map(u => ({
-        name: 'AnimeciX',
-        title: `⌜ AnimeciX ⌟ | TauVideo [${u.label || 'HD'}]`,
-        url: u.url,
-        quality: u.label || '1080p',
-        provider: 'animecix',
-        headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': BASE_URL + '/' }
-      }));
+      return formatTauStreams(tauData.urls, 'AnimeciX', { 'User-Agent': HEADERS['User-Agent'], 'Referer': BASE_URL + '/' });
     }
 
     const info = await resolveTmdbInfo(tmdbId, mediaType);
@@ -192,20 +218,7 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
       'User-Agent': HEADERS['User-Agent'],
       'Referer': BASE_URL + '/'
     };
-    return tauData.urls.map(u => ({
-      name: displayTitle,
-      title: `⌜ AnimeciX ⌟ | TauVideo [${u.label || 'HD'}]`,
-      url: u.url,
-      quality: u.label || '1080p',
-      provider: 'animecix',
-      headers: aHeaders,
-      behaviorHints: {
-        notWebReady: true,
-        proxyHeaders: {
-          request: aHeaders
-        }
-      }
-    }));
+    return formatTauStreams(tauData.urls, displayTitle, aHeaders);
   } catch (err) {
     return [];
   }

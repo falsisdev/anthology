@@ -63,6 +63,27 @@ async function fetchM3U(url) {
     }
 }
 
+const BLOCKED_DOMAINS = [
+    'imagebin.pics',
+    'imagehub.pics',
+    'imagesbox.cloud',
+    'photogrids.site',
+    'picturebox.cloud',
+    'pixtureup.org',
+    'pixypost.art',
+    'pixtures.art',
+    'imglink.info',
+    'imglink.pro'
+];
+
+function isBlockedStream(url) {
+    if (!url) return true;
+    for (var i = 0; i < BLOCKED_DOMAINS.length; i++) {
+        if (url.includes(BLOCKED_DOMAINS[i])) return true;
+    }
+    return false;
+}
+
 async function getStreams(tmdbId, mediaType) {
     if (mediaType === 'tv' || mediaType === 'series') return [];
 
@@ -96,6 +117,7 @@ async function getStreams(tmdbId, mediaType) {
                 if (line.startsWith('#EXTINF')) {
                     const nextLine = lines[i + 1] ? lines[i + 1].trim() : '';
                     if (!nextLine.startsWith('http')) continue;
+                    if (isBlockedStream(nextLine)) continue;
                     if (seenUrls.has(nextLine)) continue;
 
                     let authorMatch = line.match(/group-author="([^"]+)"/);
@@ -137,6 +159,56 @@ async function getStreams(tmdbId, mediaType) {
                         });
                     }
                 }
+            }
+        }
+
+        if (results.length === 0 && d && d.id) {
+            try {
+                const path = require('path');
+                const sinewixMod = require(path.join(__dirname, 'sinewix'));
+                if (typeof sinewixMod.getStreams === 'function') {
+                    const sStreams = await sinewixMod.getStreams({ id: String(d.id), type: 'movie' });
+                    if (Array.isArray(sStreams) && sStreams.length > 0) {
+                        for (const s of sStreams) {
+                            if (s && s.url && !seenUrls.has(s.url)) {
+                                seenUrls.add(s.url);
+                                results.push({
+                                    name: `${d.title || d.original_title} (${targetYear})`,
+                                    title: `⌜ Anthology ⌟ | SineWix [1080p DUAL]`,
+                                    url: s.url,
+                                    quality: '1080p',
+                                    score: 95
+                                });
+                            }
+                        }
+                    }
+                }
+            } catch (err) {}
+
+            if (results.length === 0) {
+                try {
+                    const path = require('path');
+                    const fmMod = require(path.join(__dirname, 'filmmodu'));
+                    if (typeof fmMod.getStreams === 'function') {
+                        const fmStreams = await fmMod.getStreams(String(d.id), 'movie');
+                        if (Array.isArray(fmStreams) && fmStreams.length > 0) {
+                            for (const s of fmStreams) {
+                                if (s && s.url && !seenUrls.has(s.url)) {
+                                    seenUrls.add(s.url);
+                                    results.push({
+                                        name: `${d.title || d.original_title} (${targetYear})`,
+                                        title: `⌜ Anthology ⌟ | FilmModu [${s.quality || 'HD'}]`,
+                                        url: s.url,
+                                        quality: s.quality || '1080p',
+                                        score: 90,
+                                        headers: s.headers,
+                                        subtitles: s.subtitles
+                                    });
+                                }
+                            }
+                        }
+                    }
+                } catch (err) {}
             }
         }
 

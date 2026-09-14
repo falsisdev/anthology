@@ -1,9 +1,9 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology ⌟",
-      "title": "TRT Belgesel HD [Canlı]",
-      "url": "https://tv-trtbelgesel.medya.trt.com.tr/master.m3u8",
+      "name": "⌜ Anthology Belgesel & Çocuk ⌟",
+      "title": "TRT Belgesel HD [Canlı HD]",
+      "url": "https://tv-trtbelgesel-dai.medya.trt.com.tr/master.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Accept": "*/*"

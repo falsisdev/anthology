@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:PowerLove.tr",
+      "type": "tv",
+      "name": "Power Love HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powertv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powertv.png",
+      "description": "Power Love HD Canlı Yayın",
+      "genres": [
+        "MÜZİK  EĞLENCE"
+      ]
+    }
+  ]
+}

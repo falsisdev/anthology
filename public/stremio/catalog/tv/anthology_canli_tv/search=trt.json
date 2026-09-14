@@ -56,6 +56,39 @@
       ]
     },
     {
+      "id": "tv:TRTWorld.tr",
+      "type": "tv",
+      "name": "TRT World HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtworld.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtworld.png",
+      "description": "TRT World HD Canlı Yayın",
+      "genres": [
+        "HABER KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:TRTKurdi.tr",
+      "type": "tv",
+      "name": "TRT Kurdî HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtkurdi.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtkurdi.png",
+      "description": "TRT Kurdî HD Canlı Yayın",
+      "genres": [
+        "HABER KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:TRTArabi.tr",
+      "type": "tv",
+      "name": "TRT Arabi HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtarabi.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtarabi.png",
+      "description": "TRT Arabi HD Canlı Yayın",
+      "genres": [
+        "HABER KANALLARI"
+      ]
+    },
+    {
       "id": "tv:TRTSpor.tr",
       "type": "tv",
       "name": "TRT Spor HD",
@@ -100,6 +133,39 @@
       ]
     },
     {
+      "id": "tv:TRTEBAIlkokul.tr",
+      "type": "tv",
+      "name": "TRT EBA İlkokul HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trteba.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trteba.png",
+      "description": "TRT EBA İlkokul HD Canlı Yayın",
+      "genres": [
+        "BELGESEL  ÇOCUK"
+      ]
+    },
+    {
+      "id": "tv:TRTEBAOrtaokul.tr",
+      "type": "tv",
+      "name": "TRT EBA Ortaokul HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trteba.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trteba.png",
+      "description": "TRT EBA Ortaokul HD Canlı Yayın",
+      "genres": [
+        "BELGESEL  ÇOCUK"
+      ]
+    },
+    {
+      "id": "tv:TRTEBALise.tr",
+      "type": "tv",
+      "name": "TRT EBA Lise HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trteba.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trteba.png",
+      "description": "TRT EBA Lise HD Canlı Yayın",
+      "genres": [
+        "BELGESEL  ÇOCUK"
+      ]
+    },
+    {
       "id": "tv:TRTMuzik.tr",
       "type": "tv",
       "name": "TRT Müzik HD",
@@ -107,7 +173,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtmuzik.png",
       "description": "TRT Müzik HD Canlı Yayın",
       "genres": [
-        "SİNEMA  MÜZİK"
+        "MÜZİK  EĞLENCE"
       ]
     }
   ]

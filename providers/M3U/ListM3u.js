@@ -143,6 +143,16 @@ function getMeta(args) {
         });
 }
 
+var KNOWN_BACKUPS = {
+    'trt1': 'https://tv-trt1.medya.trt.com.tr/master.m3u8',
+    'trtspor': 'https://tv-trtspor1.medya.trt.com.tr/master.m3u8',
+    'trtsporyildiz': 'https://tv-trtspor2.medya.trt.com.tr/master.m3u8',
+    'trthaber': 'https://tv-trthaber.medya.trt.com.tr/master.m3u8',
+    'trtbelgesel': 'https://tv-trtbelgesel-dai.medya.trt.com.tr/master.m3u8',
+    'trtcocuk': 'https://tv-trtcocuk.medya.trt.com.tr/master.m3u8',
+    'trtmuzik': 'https://tv-trtmuzik.medya.trt.com.tr/master.m3u8'
+};
+
 function getStreams(args) {
     var targetId = (typeof args === 'string') ? args : (args ? args.id : "");
     if (!targetId) {
@@ -155,6 +165,7 @@ function getStreams(args) {
         .then(function(content) {
             var lines = content.split('\n');
             var streams = [];
+            var seenUrls = {};
             var searchKey = cleanKey(targetId.replace(/^tv:/, ''));
 
             for (var i = 0; i < lines.length; i++) {
@@ -173,20 +184,37 @@ function getStreams(args) {
                         for (var j = i + 1; j < lines.length; j++) {
                             var urlLine = lines[j].trim();
                             if (urlLine && urlLine.indexOf("http") === 0) {
-                                streams.push({
-                                    name: '⌜ Anthology ⌟',
-                                    title: aliasName + ' [Canlı]',
-                                    url: urlLine,
-                                    headers: _HEADERS,
-                                    behaviorHints: { isLive: true }
-                                });
+                                if (!seenUrls[urlLine]) {
+                                    seenUrls[urlLine] = true;
+                                    streams.push({
+                                        name: '⌜ Anthology ⌟',
+                                        title: aliasName + ' [Canlı HD]',
+                                        url: urlLine,
+                                        headers: _HEADERS,
+                                        behaviorHints: { isLive: true }
+                                    });
+                                }
                                 break;
                             }
                             if (urlLine.indexOf("#EXTINF") === 0) break;
                         }
+
+                        // Add verified backup if available
+                        for (var bk in KNOWN_BACKUPS) {
+                            if ((cId === bk || searchKey === bk) && !seenUrls[KNOWN_BACKUPS[bk]]) {
+                                seenUrls[KNOWN_BACKUPS[bk]] = true;
+                                streams.push({
+                                    name: '⌜ Anthology ⌟',
+                                    title: aliasName + ' [Yedek Akış]',
+                                    url: KNOWN_BACKUPS[bk],
+                                    headers: _HEADERS,
+                                    behaviorHints: { isLive: true }
+                                });
+                            }
+                        }
                     }
                 }
-                if (streams.length > 0) break;
+                if (streams.length >= 3) break;
             }
 
             streams.streams = streams;
