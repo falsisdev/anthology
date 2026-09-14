@@ -181,12 +181,17 @@ function fetchAlternateLinks(filmUrl) {
       var $ = cheerio.load(html);
       var links = [];
 
+      // Ana sayfanın kendisini de birincil kaynak olarak ekle
+      links.push({ href: filmUrl, name: 'Ana Kaynak' });
+
       $('div.alternates a').each(function() {
         var href = $(this).attr('href') || '';
         var name = $(this).text().trim();
-        // Fragman ve Türkçe Dublaj linklerini atla, sadece Türkçe Altyazılı al
-        if (name && name !== 'Fragman' && name !== 'Türkçe Altyazılı' && href) {
-          links.push({ href: href, name: name });
+        // Sadece Fragman linkini atla, Dublaj ve Altyazı olanların hepsini al
+        if (name && !name.toLowerCase().includes('fragman') && href) {
+          if (!links.some(function(l) { return l.href === href; })) {
+            links.push({ href: href, name: name });
+          }
         }
       });
 
@@ -312,7 +317,20 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
       return Promise.all(altLinks.map(function(alt) { return fetchStreamsFromAlt(alt, filmUrl); }))
         .then(function(results) {
           var allStreams = [];
-          results.forEach(function(arr) { if (arr) arr.forEach(function(s) { allStreams.push(s); }); });
+          var seen = new Set();
+          results.forEach(function(arr) {
+            if (arr) arr.forEach(function(s) {
+              if (s && s.url && !seen.has(s.url)) {
+                seen.add(s.url);
+                allStreams.push(s);
+              }
+            });
+          });
+          allStreams.sort(function(a, b) {
+            var qA = parseInt(a.quality) || (a.quality && a.quality.includes('4K') ? 2160 : 0);
+            var qB = parseInt(b.quality) || (b.quality && b.quality.includes('4K') ? 2160 : 0);
+            return qB - qA;
+          });
           return allStreams;
         });
     });
@@ -363,10 +381,21 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
 
               return Promise.all(promises).then(function(results) {
                 var allStreams = [];
+                var seen = new Set();
                 results.forEach(function(arr) {
                   if (arr && arr.length > 0) {
-                    arr.forEach(function(s) { allStreams.push(s); });
+                    arr.forEach(function(s) {
+                      if (s && s.url && !seen.has(s.url)) {
+                        seen.add(s.url);
+                        allStreams.push(s);
+                      }
+                    });
                   }
+                });
+                allStreams.sort(function(a, b) {
+                  var qA = parseInt(a.quality) || (a.quality && a.quality.includes('4K') ? 2160 : 0);
+                  var qB = parseInt(b.quality) || (b.quality && b.quality.includes('4K') ? 2160 : 0);
+                  return qB - qA;
                 });
                 console.log('[FilmModu] Toplam stream: ' + allStreams.length);
                 return allStreams;

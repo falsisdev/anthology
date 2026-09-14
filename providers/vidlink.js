@@ -2,10 +2,9 @@
 // React Native compatible version - Standalone (no external dependencies)
 // Converted to Promise-based syntax for sandbox compatibility
 
-// Constants
-const TMDB_API_KEY = (CONFIG.api_keys && CONFIG.api_keys.tmdb_vidlink) || "68e094699525b18a70bab2f86b1fa706";
 var CONFIG = (typeof require !== 'undefined' ? (function(){ try { return require('./config'); } catch(e) { return require('./urls'); } })() : null) || (typeof globalThis !== 'undefined' ? (globalThis.CONFIG || globalThis.URLS) : null) || {};
 var URLS = CONFIG.urls || CONFIG;
+const TMDB_API_KEY = (CONFIG.api_keys && CONFIG.api_keys.tmdb_vidlink) || "68e094699525b18a70bab2f86b1fa706";
 const ENC_DEC_API = (URLS.vidlink && URLS.vidlink.enc_dec) || "https://enc-dec.app/api";
 const VIDLINK_API = (URLS.vidlink && URLS.vidlink.api) || "https://vidlink.pro/api/b";
 

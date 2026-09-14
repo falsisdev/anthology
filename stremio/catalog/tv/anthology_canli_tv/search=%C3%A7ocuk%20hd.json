@@ -1,6 +1,17 @@
 {
   "metas": [
     {
+      "id": "tv:MinikaCocuk.tr",
+      "type": "tv",
+      "name": "Minika Çocuk HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/minikacocuk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/minikacocuk.png",
+      "description": "Minika Çocuk HD Canlı Yayın",
+      "genres": [
+        "BELGESEL  ÇOCUK"
+      ]
+    },
+    {
       "id": "tv:TRTCocuk.tr",
       "type": "tv",
       "name": "TRT Çocuk HD",

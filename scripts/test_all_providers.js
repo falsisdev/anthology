@@ -15,12 +15,15 @@ const path = require("path");
       let streams = [];
       let testTarget = "";
 
-      if (scraper.id === "m3u.anthology.addon" || scraper.id.startsWith("anthology_spor") || scraper.id.startsWith("anthology_haber") || scraper.id.startsWith("anthology_ulusal")) {
+      if (scraper.id === "m3u.anthology.addon" || scraper.id.startsWith("anthology_spor") || scraper.id.startsWith("anthology_haber") || scraper.id.startsWith("anthology_ulusal") || scraper.id.startsWith("anthology_belgesel_cocuk") || scraper.id.startsWith("anthology_muzik")) {
         testTarget = "Catalog / Live Channels";
         if (typeof mod.getCatalog === "function") {
           const cat = await mod.getCatalog({});
           streams = (cat && cat.metas) || [];
         }
+      } else if (scraper.id === "sinewix") {
+        testTarget = "The Matrix (obj {id: 603, type: movie})";
+        streams = await mod.getStreams({ id: "603", type: "movie" });
       } else if (scraper.id === "animecix") {
         testTarget = "Solo Leveling (127532 S01E01)";
         streams = await mod.getStreams("127532", "tv", 1, 1);
@@ -52,8 +55,8 @@ const path = require("path");
         testTarget = "Shrek 2 (809)";
         streams = await mod.getStreams("809", "movie");
       } else if (scraper.id === "anthology_belgesel") {
-        testTarget = "The Matrix Revisited (14543)";
-        streams = await mod.getStreams("14543", "movie");
+        testTarget = "Rüzgâr Gibi Geçti (770)";
+        streams = await mod.getStreams("770", "movie");
       } else if (scraper.supportedTypes && scraper.supportedTypes.includes("movie")) {
         testTarget = "The Matrix (603)";
         streams = await mod.getStreams("603", "movie");

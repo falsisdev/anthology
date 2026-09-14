@@ -1,7 +1,8 @@
 var CONFIG = (typeof require !== 'undefined' ? (function(){ try { return require('./config'); } catch(e) { return require('./urls'); } })() : null) || (typeof globalThis !== 'undefined' ? (globalThis.CONFIG || globalThis.URLS) : null) || {};
 var URLS = CONFIG.urls || CONFIG;
-var API_BASE = (URLS.sinewix && URLS.sinewix.api_base) || 'https://ydfvfdizipanel.ru/public/api';
+var API_BASE = (CONFIG.sinewix && CONFIG.sinewix.api_base) || (URLS.sinewix && URLS.sinewix.api_base) || (URLS.movies && URLS.movies.sinewix && URLS.movies.sinewix.api_base) || 'https://ydfvfdizipanel.ru/public/api';
 var API_KEY = (CONFIG.api_keys && CONFIG.api_keys.sinewix) || '9iQNC5HQwPlaFuJDkhncJ5XTJ8feGXOJatAA';
+var TMDB_KEY = (CONFIG.api_keys && CONFIG.api_keys.tmdb) || '500330721680edb6d5f7f12ba7cd9023';
 
 var API_HEADERS = {
     'hash256': '711bff4afeb47f07ab08a0b07e85d3835e739295e8a6361db77eebd93d96306b',
@@ -17,7 +18,7 @@ var STREAM_HEADERS = {
 };
 
 function resolveMediaFireLink(link) {
-    return fetch(link)
+    return fetch(link, { headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' } })
         .then(function(res) { return res.text(); })
         .then(function(html) {
             var match = html.match(/href="(https:\/\/download\d+\.mediafire\.com[^"]+)"/);
@@ -26,9 +27,9 @@ function resolveMediaFireLink(link) {
         .catch(function() { return link; });
 }
 
-function buildStreams(videos, sinewixName) {
+function buildStreams(videos, mediaTitle) {
     return Promise.all(
-        videos.map(function(v) {
+        (videos || []).map(function(v) {
             var link = v.link;
             var serverName = v.server || 'Sunucu';
             var isMF = link.includes('mediafire.com');
@@ -37,7 +38,7 @@ function buildStreams(videos, sinewixName) {
             if (isMF) {
                 return resolveMediaFireLink(link).then(function(finalUrl) {
                     return {
-                        name: sinewixName,
+                        name: 'SineWix',
                         title: displayTitle,
                         url: finalUrl,
                         quality: "Auto",
@@ -51,7 +52,7 @@ function buildStreams(videos, sinewixName) {
                 });
             }
             return Promise.resolve({
-                name: sinewixName,
+                name: 'SineWix',
                 title: displayTitle,
                 url: link,
                 quality: "Auto",
@@ -66,78 +67,181 @@ function buildStreams(videos, sinewixName) {
     );
 }
 
-function searchAndFetch(title, originalTitle, targetImdb, mediaType, seasonNum, episodeNum, targetYear) {
-    var searchUrl = API_BASE + '/search/' + encodeURIComponent(originalTitle) + '/' + API_KEY;
-    
-    return fetch(searchUrl, { headers: API_HEADERS })
-        .then(function(res) { return res.json(); })
-        .then(function(data) {
-            var results = data.search || [];
-            var path = (mediaType === 'movie') ? 'media/detail' : 'series/show';
+async function searchAndFetch(title, originalTitle, targetImdb, targetTmdb, mediaType, seasonNum, episodeNum, targetYear) {
+    var queries = new Set();
+    if (originalTitle) queries.add(originalTitle);
+    if (title) queries.add(title);
 
-            return Promise.all(results.map(function(item) {
-                return fetch(API_BASE + '/' + path + '/' + item.id + '/' + API_KEY, { headers: API_HEADERS })
-                    .then(function(r) { return r.json(); })
-                    .catch(function() { return null; });
-            }));
-        })
-        .then(function(detailedItems) {
-            var bestMatch = detailedItems.find(function(item) {
-                if (!item) return false;
-                if (item.imdb_external_id && targetImdb && item.imdb_external_id === targetImdb) return true;
-                var itemYear = (item.release_date || item.first_air_date || '').split('-')[0];
-                var nameMatch = (item.name || '').toLowerCase() === (originalTitle || '').toLowerCase() 
-                             || (item.name || '').toLowerCase() === (title || '').toLowerCase();
-                return nameMatch && (!targetYear || !itemYear || itemYear === targetYear);
-            });
+    // Variations for subtitles, hyphens, colons, or punctuation
+    var candidates = [originalTitle, title];
+    for (var i = 0; i < candidates.length; i++) {
+        var t = candidates[i];
+        if (!t) continue;
+        if (t.includes(':')) {
+            var p1 = t.split(':')[0].trim();
+            var p2 = t.split(':')[1].trim();
+            if (p1.length >= 2) queries.add(p1);
+            if (p2.length >= 2) queries.add(p2);
+        }
+        if (t.includes('-')) {
+            var hp1 = t.split('-')[0].trim();
+            var hp2 = t.split('-')[1].trim();
+            if (hp1.length >= 2) queries.add(hp1);
+            if (hp2.length >= 2) queries.add(hp2);
+        }
+        var cleaned = t.replace(/[^\w\sğüşıöçĞÜŞİÖÇ]/gi, ' ').replace(/\s+/g, ' ').trim();
+        if (cleaned && cleaned.length >= 2) queries.add(cleaned);
+    }
 
-            if (!bestMatch) return [];
+    var allSearchResults = [];
+    var seenIds = new Set();
 
-            var vList = [];
-            if (mediaType === 'movie') {
-                vList = bestMatch.videos || [];
-            } else {
-                var s = (bestMatch.seasons || []).find(function(s) { 
-                    return parseInt(s.season_number) === parseInt(seasonNum); 
-                });
-                if (s && s.episodes) {
-                    var e = s.episodes.find(function(e) { 
-                        return parseInt(e.episode_number) === parseInt(episodeNum); 
-                    });
-                    if (e) vList = e.videos || [];
+    for (var q of queries) {
+        if (!q || q.length < 2) continue;
+        try {
+            var sRes = await fetch(API_BASE + '/search/' + encodeURIComponent(q) + '/' + API_KEY, { headers: API_HEADERS });
+            var sData = await sRes.json();
+            for (var item of (sData.search || [])) {
+                if (!seenIds.has(item.id)) {
+                    seenIds.add(item.id);
+                    allSearchResults.push(item);
                 }
             }
+            if (allSearchResults.length >= 10) break;
+        } catch (e) {}
+    }
 
-            return buildStreams(vList, bestMatch.name || title);
-        })
-        .catch(function() { return []; });
+    if (allSearchResults.length === 0) return [];
+
+    var detailedItems = await Promise.all(allSearchResults.map(async function(item) {
+        var path = 'media/detail';
+        if (item.type === 'anime') {
+            path = 'animes/show';
+        } else if (item.type === 'serie' || item.type === 'series' || mediaType === 'tv') {
+            path = 'series/show';
+        } else if (mediaType === 'movie') {
+            path = 'media/detail';
+        }
+
+        try {
+            var r = await fetch(API_BASE + '/' + path + '/' + item.id + '/' + API_KEY, { headers: API_HEADERS });
+            return await r.json();
+        } catch (e) {
+            return null;
+        }
+    }));
+
+    var bestMatch = detailedItems.find(function(item) {
+        if (!item) return false;
+        if (targetImdb && item.imdb_external_id && item.imdb_external_id === targetImdb) return true;
+        if (targetTmdb && item.tmdb_id && String(item.tmdb_id) === String(targetTmdb)) return true;
+
+        var itemYear = (item.release_date || item.first_air_date || '').split('-')[0];
+        var itemName = (item.title || item.name || item.original_title || item.original_name || '').toLowerCase();
+        var origLower = (originalTitle || '').toLowerCase();
+        var titleLower = (title || '').toLowerCase();
+
+        var exact = itemName === origLower || itemName === titleLower;
+        return exact && (!targetYear || !itemYear || itemYear === targetYear);
+    }) || detailedItems.find(function(item) {
+        if (!item) return false;
+        var itemYear = (item.release_date || item.first_air_date || '').split('-')[0];
+        if (targetYear && itemYear && Math.abs(parseInt(itemYear) - parseInt(targetYear)) > 1) return false;
+
+        var itemName = (item.title || item.name || item.original_title || item.original_name || '').toLowerCase();
+        var origLower = (originalTitle || '').toLowerCase();
+        var titleLower = (title || '').toLowerCase();
+
+        return (origLower && itemName.includes(origLower)) || (titleLower && itemName.includes(titleLower));
+    });
+
+    if (!bestMatch) return [];
+
+    var vList = [];
+    if (mediaType === 'movie') {
+        vList = bestMatch.videos || [];
+    } else {
+        var s = (bestMatch.seasons || []).find(function(s) { 
+            return parseInt(s.season_number) === parseInt(seasonNum); 
+        });
+        if (s && s.episodes) {
+            var e = s.episodes.find(function(e) { 
+                return parseInt(e.episode_number) === parseInt(episodeNum); 
+            });
+            if (e) vList = e.videos || [];
+        }
+    }
+
+    return buildStreams(vList, bestMatch.title || bestMatch.name || title);
 }
 
 async function resolveTmdbInfo(rawId, mediaType) {
-    var TMDB_KEY = '4ef0d7355d9ffb5151e987764708ce96';
     var cleanId = String(rawId).replace(/^tmdb:/, '').split(':')[0].trim();
     var isImdb = cleanId.startsWith('tt');
     var isTV = (mediaType === 'tv' || mediaType === 'series');
 
     try {
         if (isImdb) {
-            var findUrl = 'https://api.themoviedb.org/3/find/' + cleanId + '?api_key=' + TMDB_KEY + '&external_source=imdb_id';
+            var findUrl = 'https://api.themoviedb.org/3/find/' + cleanId + '?api_key=' + TMDB_KEY + '&external_source=imdb_id&language=tr-TR';
             var r = await fetch(findUrl);
             var d = await r.json();
-            var item = isTV ? (d.tv_results && d.tv_results[0]) : (d.movie_results && d.movie_results[0]);
+            var item = null;
+            var detectedType = mediaType;
+
+            if (isTV) {
+                item = (d.tv_results && d.tv_results[0]) || (d.tv_episode_results && d.tv_episode_results[0]);
+            } else if (mediaType === 'movie') {
+                item = d.movie_results && d.movie_results[0];
+            } else {
+                if (d.tv_results && d.tv_results.length > 0) {
+                    item = d.tv_results[0];
+                    detectedType = 'tv';
+                } else if (d.movie_results && d.movie_results.length > 0) {
+                    item = d.movie_results[0];
+                    detectedType = 'movie';
+                }
+            }
+
             if (!item) return null;
+
             return {
+                id: item.id,
+                tmdb_id: item.id,
                 title: item.title || item.name,
                 original_title: item.original_title || item.original_name,
                 release_date: item.release_date || item.first_air_date || '',
-                imdb_id: cleanId
+                imdb_id: cleanId,
+                media_type: detectedType || (item.title ? 'movie' : 'tv')
             };
         } else {
             var tmdbType = isTV ? 'tv' : 'movie';
             var tmdbUrl = 'https://api.themoviedb.org/3/' + tmdbType + '/' + cleanId + '?api_key=' + TMDB_KEY + '&language=tr-TR&append_to_response=external_ids';
             var res = await fetch(tmdbUrl);
-            var data = await res.json();
-            return data && (data.title || data.name) ? data : null;
+            var data = null;
+            if (res.ok) {
+                data = await res.json();
+            } else if (!mediaType) {
+                var altType = isTV ? 'movie' : 'tv';
+                var altUrl = 'https://api.themoviedb.org/3/' + altType + '/' + cleanId + '?api_key=' + TMDB_KEY + '&language=tr-TR&append_to_response=external_ids';
+                var altRes = await fetch(altUrl);
+                if (altRes.ok) {
+                    data = await altRes.json();
+                    tmdbType = altType;
+                }
+            }
+
+            if (data && (data.title || data.name)) {
+                return {
+                    id: data.id,
+                    tmdb_id: data.id,
+                    title: data.title || data.name,
+                    original_title: data.original_title || data.original_name,
+                    release_date: data.release_date || data.first_air_date || '',
+                    imdb_id: data.imdb_id || (data.external_ids && data.external_ids.imdb_id) || null,
+                    media_type: tmdbType
+                };
+            }
+            return null;
         }
     } catch (e) {
         return null;
@@ -252,7 +356,8 @@ async function getMeta(args) {
                         id: 'sinewix:ep:' + sId + ':' + sNum + ':' + eNum,
                         title: ep.name || (sNum + '. Sezon ' + eNum + '. Bölüm'),
                         season: sNum,
-                        episode: eNum
+                        episode: eNum,
+                        streams_raw: ep.videos || []
                     });
                 });
             });
@@ -277,34 +382,54 @@ async function getMeta(args) {
     }
 }
 
-async function getStreams(id, mediaType, seasonNum, episodeNum) {
+async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
     try {
-        if (typeof id === 'object' && id && id.id) {
-            return getStreams(id.id, mediaType, seasonNum, episodeNum);
+        var rawId = tmdbIdOrArgs;
+        var type = mediaType;
+        var season = seasonNum;
+        var episode = episodeNum;
+
+        if (typeof tmdbIdOrArgs === 'object' && tmdbIdOrArgs !== null) {
+            rawId = tmdbIdOrArgs.id;
+            type = tmdbIdOrArgs.type || type;
+            season = tmdbIdOrArgs.season || tmdbIdOrArgs.seasonNum || season;
+            episode = tmdbIdOrArgs.episode || tmdbIdOrArgs.episodeNum || episode;
         }
+
+        if (!rawId) return [];
+        var strId = String(rawId).trim();
 
         // Direct SineWix movie stream
-        if (typeof id === 'string' && id.startsWith('sinewix:movie:')) {
-            var mId = id.replace('sinewix:movie:', '');
+        if (strId.startsWith('sinewix:movie:')) {
+            var mId = strId.replace('sinewix:movie:', '');
             var mRes = await fetch(API_BASE + '/media/detail/' + mId + '/' + API_KEY, { headers: API_HEADERS });
             var mData = await mRes.json();
-            return buildStreams(mData.videos || [], mData.title || mData.name);
+            return buildStreams(mData.videos || [], mData.title || mData.name || 'SineWix');
         }
 
-        // Direct SineWix series stream fallback to episode 1
-        if (typeof id === 'string' && id.startsWith('sinewix:series:')) {
-            var showMeta = await getMeta(id);
-            if (showMeta && showMeta.meta && Array.isArray(showMeta.meta.videos) && showMeta.meta.videos.length > 0) {
-                return await getStreams(showMeta.meta.videos[0].id);
+        // Direct SineWix series stream fallback
+        if (strId.startsWith('sinewix:series:')) {
+            var sId = strId.replace('sinewix:series:', '');
+            var sRes = await fetch(API_BASE + '/series/show/' + sId + '/' + API_KEY, { headers: API_HEADERS });
+            var sData = await sRes.json();
+            var targetSeason = parseInt(season) || 1;
+            var targetEpisode = parseInt(episode) || 1;
+            var sObj = (sData.seasons || []).find(function(s) { return parseInt(s.season_number) === targetSeason; }) || (sData.seasons && sData.seasons[0]);
+            if (sObj && sObj.episodes) {
+                var eObj = sObj.episodes.find(function(e) { return parseInt(e.episode_number) === targetEpisode; }) || sObj.episodes[0];
+                if (eObj && eObj.videos) {
+                    return buildStreams(eObj.videos, sData.name || 'SineWix');
+                }
             }
+            return [];
         }
 
         // Direct SineWix episode stream: sinewix:ep:{showId}:{season}:{episode}
-        if (typeof id === 'string' && id.startsWith('sinewix:ep:')) {
-            var parts = id.replace('sinewix:ep:', '').split(':');
+        if (strId.startsWith('sinewix:ep:')) {
+            var parts = strId.replace('sinewix:ep:', '').split(':');
             var showId = parts[0];
-            var targetSeason = parseInt(parts[1]) || 1;
-            var targetEpisode = parseInt(parts[2]) || 1;
+            var targetSeason = parseInt(parts[1]) || parseInt(season) || 1;
+            var targetEpisode = parseInt(parts[2]) || parseInt(episode) || 1;
 
             var sRes = await fetch(API_BASE + '/series/show/' + showId + '/' + API_KEY, { headers: API_HEADERS });
             var sData = await sRes.json();
@@ -312,30 +437,51 @@ async function getStreams(id, mediaType, seasonNum, episodeNum) {
             if (targetSeasonObj && targetSeasonObj.episodes) {
                 var targetEpObj = targetSeasonObj.episodes.find(function(e) { return parseInt(e.episode_number) === targetEpisode; });
                 if (targetEpObj && targetEpObj.videos) {
-                    return buildStreams(targetEpObj.videos, sData.name);
+                    return buildStreams(targetEpObj.videos, sData.name || 'SineWix');
                 }
             }
             return [];
         }
 
-        var data = await resolveTmdbInfo(id, mediaType);
+        var cleanId = strId;
+        if (cleanId.startsWith('tmdb:')) {
+            cleanId = cleanId.slice(5);
+        }
+        if (cleanId.includes(':')) {
+            var colonParts = cleanId.split(':');
+            if (colonParts.length >= 3) {
+                cleanId = colonParts[0];
+                season = parseInt(colonParts[1]) || season || 1;
+                episode = parseInt(colonParts[2]) || episode || 1;
+                type = type || 'series';
+            }
+        }
+
+        var isTV = (type === 'tv' || type === 'series');
+        var data = await resolveTmdbInfo(cleanId, isTV ? 'tv' : (type === 'movie' ? 'movie' : null));
         if (!data) return [];
 
-        var ot = data.original_title || data.original_name || data.title || data.name;
+        var ot = data.original_title || data.original_name || data.title || data.name || '';
+        var trTitle = data.title || data.name || '';
         var releaseDate = data.release_date || data.first_air_date || '';
         var year = releaseDate ? releaseDate.split('-')[0] : '';
-        var targetImdb = data.imdb_id || (data.external_ids && data.external_ids.imdb_id);
+        var targetImdb = data.imdb_id || (cleanId.startsWith('tt') ? cleanId : null);
+        var targetTmdb = data.tmdb_id || data.id || (!cleanId.startsWith('tt') ? cleanId : null);
+        var finalType = (data.media_type === 'tv' || isTV) ? 'tv' : 'movie';
 
-        var streams = await searchAndFetch(data.title || data.name, ot, targetImdb, mediaType, seasonNum || 1, episodeNum || 1, year);
+        var streams = await searchAndFetch(trTitle, ot, targetImdb, targetTmdb, finalType, season || 1, episode || 1, year);
         return streams || [];
     } catch (e) {
         return [];
     }
 }
 
-if (typeof module !== 'undefined') module.exports = { getStreams, getMeta, getCatalog };
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { getStreams, getMeta, getCatalog, buildStreams };
+}
 if (typeof globalThis !== 'undefined') {
     globalThis.getStreams = getStreams;
     globalThis.getMeta = getMeta;
     globalThis.getCatalog = getCatalog;
+    globalThis.buildStreams = buildStreams;
 }

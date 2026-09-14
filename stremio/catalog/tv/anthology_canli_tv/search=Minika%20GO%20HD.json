@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:MinikaGo.tr",
+      "type": "tv",
+      "name": "Minika GO HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/minikago.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/minikago.png",
+      "description": "Minika GO HD Canlı Yayın",
+      "genres": [
+        "BELGESEL  ÇOCUK"
+      ]
+    }
+  ]
+}

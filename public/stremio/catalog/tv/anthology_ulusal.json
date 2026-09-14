@@ -175,6 +175,28 @@
       "genres": [
         "Ulusal"
       ]
+    },
+    {
+      "id": "tv:TVNET.tr",
+      "type": "tv",
+      "name": "TVNET HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tvnet.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tvnet.png",
+      "description": "TVNET HD Canlı Yayın",
+      "genres": [
+        "Ulusal"
+      ]
+    },
+    {
+      "id": "tv:UlkeTV.tr",
+      "type": "tv",
+      "name": "Ülke TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ulketv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ulketv.png",
+      "description": "Ülke TV HD Canlı Yayın",
+      "genres": [
+        "Ulusal"
+      ]
     }
   ]
 }

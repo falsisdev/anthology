@@ -10,6 +10,39 @@
       "genres": [
         "Haber"
       ]
+    },
+    {
+      "id": "tv:TRTWorld.tr",
+      "type": "tv",
+      "name": "TRT World HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtworld.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtworld.png",
+      "description": "TRT World HD Canlı Haber Yayını",
+      "genres": [
+        "Haber"
+      ]
+    },
+    {
+      "id": "tv:TRTKurdi.tr",
+      "type": "tv",
+      "name": "TRT Kurdî HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtkurdi.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtkurdi.png",
+      "description": "TRT Kurdî HD Canlı Haber Yayını",
+      "genres": [
+        "Haber"
+      ]
+    },
+    {
+      "id": "tv:TRTArabi.tr",
+      "type": "tv",
+      "name": "TRT Arabi HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtarabi.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtarabi.png",
+      "description": "TRT Arabi HD Canlı Haber Yayını",
+      "genres": [
+        "Haber"
+      ]
     }
   ]
 }

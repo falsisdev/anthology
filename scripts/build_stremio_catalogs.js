@@ -6,26 +6,16 @@ const STREMIO_DIR = path.join(ROOT_DIR, 'stremio');
 const PUBLIC_STREMIO_DIR = path.join(ROOT_DIR, 'public', 'stremio');
 
 const stremioManifest = {
-  id: "community.anthology.catalogs",
-  version: "1.7.0",
-  name: "Anthology — Türkçe Kataloglar",
-  description: "Canlı TV/Spor/Haber/Ulusal, SineWix, FilmModu, AnimeciX, DDizi ve DiziMom ana sayfa keşif katalogları.",
+  id: "community.anthology.canlitv",
+  version: "2.0.0",
+  name: "Anthology — Canlı TV",
+  description: "Türkiye Ulusal, Spor, Haber, Belgesel, Çocuk ve Müzik Canlı Yayınları.",
   resources: ["catalog", "meta", "stream"],
-  types: ["movie", "series", "tv", "channel"],
+  types: ["tv", "channel"],
   idPrefixes: [
     "tv:",
-    "dizimom:",
-    "ddizi:",
-    "sinewix:",
-    "filmmodu:",
-    "animecix:",
-    "setfilmizle:",
-    "kultfilmler:",
-    "hdfilmdelisi:",
-    "hdfilmizle:",
     "tv_",
-    "iptv_",
-    "tmdb:"
+    "iptv_"
   ],
   logo: "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
   background: "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
@@ -41,14 +31,14 @@ const stremioManifest = {
     },
     {
       type: "tv",
-      id: "anthology_canli_spor",
-      name: "⚽ Canlı Spor — BeIN / S Sport / Tivibu / Exxen",
+      id: "anthology_ulusal",
+      name: "🇹🇷 Ulusal Kanallar — TRT / ATV / Kanal D / Show / Star / NOW / TV8",
       extra: [{ name: "search", isRequired: false }]
     },
     {
       type: "tv",
-      id: "anthology_ulusal",
-      name: "🇹🇷 Ulusal Kanallar — TRT / ATV / Kanal D / Show / Star / NOW / TV8",
+      id: "anthology_canli_spor",
+      name: "⚽ Canlı Spor — TRT Spor / A Spor / HT Spor / FB TV",
       extra: [{ name: "search", isRequired: false }]
     },
     {
@@ -58,39 +48,15 @@ const stremioManifest = {
       extra: [{ name: "search", isRequired: false }]
     },
     {
-      type: "movie",
-      id: "anthology_sinewix_movies",
-      name: "🎬 SineWix — Popüler Filmler",
+      type: "tv",
+      id: "anthology_belgesel_cocuk",
+      name: "🦁 Belgesel & Çocuk — TRT Belgesel / Minika / EBA",
       extra: [{ name: "search", isRequired: false }]
     },
     {
-      type: "series",
-      id: "anthology_sinewix_series",
-      name: "📺 SineWix — Popüler Diziler",
-      extra: [{ name: "search", isRequired: false }]
-    },
-    {
-      type: "movie",
-      id: "anthology_filmmodu",
-      name: "🎞️ FilmModu — Son Eklenen Filmler",
-      extra: [{ name: "search", isRequired: false }]
-    },
-    {
-      type: "series",
-      id: "anthology_dizimom",
-      name: "🔥 DiziMom — Popüler Diziler",
-      extra: [{ name: "search", isRequired: false }]
-    },
-    {
-      type: "series",
-      id: "anthology_ddizi",
-      name: "🏠 DDizi — Yerli Diziler",
-      extra: [{ name: "search", isRequired: false }]
-    },
-    {
-      type: "series",
-      id: "anthology_animecix",
-      name: "🌸 AnimeciX — Animeler",
+      type: "tv",
+      id: "anthology_muzik",
+      name: "🎵 Müzik & Eğlence — Kral Pop / Power / Number 1",
       extra: [{ name: "search", isRequired: false }]
     }
   ]
@@ -104,16 +70,16 @@ const catalogConfigs = [
     args: { id: "anthology_m3u_list", type: "tv" }
   },
   {
-    catId: "anthology_canli_spor",
-    type: "tv",
-    file: "providers/anthology_spor.js",
-    args: { id: "anthology_spor_list", type: "tv" }
-  },
-  {
     catId: "anthology_ulusal",
     type: "tv",
     file: "providers/anthology_ulusal.js",
     args: { id: "anthology_ulusal_list", type: "tv" }
+  },
+  {
+    catId: "anthology_canli_spor",
+    type: "tv",
+    file: "providers/anthology_spor.js",
+    args: { id: "anthology_spor_list", type: "tv" }
   },
   {
     catId: "anthology_canli_haber",
@@ -122,45 +88,16 @@ const catalogConfigs = [
     args: { id: "anthology_haber_list", type: "tv" }
   },
   {
-    catId: "anthology_sinewix_movies",
-    type: "movie",
-    file: "providers/sinewix.js",
-    args: { id: "sinewix_movies", type: "movie" },
-    popularSearches: ["fight club", "godfather", "matrix", "interstellar", "inception", "oppenheimer", "barbie", "dune", "gladiator", "lord of the rings", "harry potter", "batman", "dark knight", "avengers", "iron man", "spider-man", "avatar", "pulp fiction", "forrest gump", "seven"]
+    catId: "anthology_belgesel_cocuk",
+    type: "tv",
+    file: "providers/anthology_belgesel_cocuk.js",
+    args: { id: "anthology_belgesel_cocuk_list", type: "tv" }
   },
   {
-    catId: "anthology_sinewix_series",
-    type: "series",
-    file: "providers/sinewix.js",
-    args: { id: "sinewix_series", type: "series" }
-  },
-  {
-    catId: "anthology_filmmodu",
-    type: "movie",
-    file: "providers/filmmodu.js",
-    args: { id: "filmmodu_movies", type: "movie" },
-    popularSearches: ["fight club", "godfather", "matrix", "interstellar", "inception", "oppenheimer", "barbie", "dune", "gladiator", "lord of the rings", "harry potter", "batman", "dark knight", "avengers", "iron man", "spider-man", "avatar", "pulp fiction", "forrest gump", "seven"]
-  },
-  {
-    catId: "anthology_dizimom",
-    type: "series",
-    file: "providers/dizimom.js",
-    args: { id: "dizimom_popular", type: "series" },
-    popularSearches: ["fatma", "bahar", "breaking bad", "game of thrones", "the boys", "stranger things", "dexter", "sherlock", "dark", "chernobyl", "fargo", "true detective", "sopranos", "peaky blinders", "vikings", "the walking dead", "house of the dragon", "better call saul", "the last of us", "the bear", "fallout"]
-  },
-  {
-    catId: "anthology_ddizi",
-    type: "series",
-    file: "providers/ddizi.js",
-    args: { id: "ddizi_popular", type: "series" },
-    popularSearches: ["kizilcik", "kızılcık", "bahar", "yali capkini", "inci taneleri", "gaddar", "kurulus", "yargi", "hudutsuz", "teskilat", "arka sokaklar", "gonul dagi", "sandik kokusu", "sahane hayat", "ataturk", "prens", "gibi", "kulup", "terzi", "bozkir", "magarsus", "kus ucusu", "saygi", "fatma"]
-  },
-  {
-    catId: "anthology_animecix",
-    type: "series",
-    file: "providers/animecix.js",
-    args: { id: "animecix_popular", type: "series" },
-    popularSearches: ["naruto", "one piece", "bleach", "attack on titan", "death note", "jujutsu kaisen", "demon slayer", "dragon ball", "hunter x hunter", "fullmetal", "my hero academia", "tokyo ghoul", "sword art online", "chainsaw man", "solo leveling"]
+    catId: "anthology_muzik",
+    type: "tv",
+    file: "providers/anthology_muzik.js",
+    args: { id: "anthology_muzik_list", type: "tv" }
   }
 ];
 
@@ -445,24 +382,26 @@ function generateSearchTerms(title) {
         }
       }
 
-      // If item is Live TV or provider supports getStreams, generate static /stream endpoint!
-      if (typeof mod.getStreams === 'function' && (item.id.startsWith('tv:') || metaData.type === 'tv')) {
+      function saveStaticStream(types, id, streams) {
+        if (!Array.isArray(streams) || streams.length === 0) return;
+        for (const st of types) {
+          const streamPath = path.join(STREMIO_DIR, 'stream', st, `${id}.json`);
+          writeJsonSync(streamPath, { streams });
+
+          const encodedId = encodeURIComponent(id);
+          if (encodedId !== id) {
+            const encodedStreamPath = path.join(STREMIO_DIR, 'stream', st, `${encodedId}.json`);
+            writeJsonSync(encodedStreamPath, { streams });
+          }
+        }
+      }
+
+      // 3. Generate static /stream endpoint for Live TV
+      if (typeof mod.getStreams === 'function') {
         try {
           const streamRes = await withTimeout(mod.getStreams({ id: item.id, type: item.type || cfg.type }), 6000);
           const streamsArray = Array.isArray(streamRes) ? streamRes : (streamRes && streamRes.streams ? streamRes.streams : []);
-          if (streamsArray.length > 0) {
-            const streamTypes = ['tv', 'channel', 'series'];
-            for (const st of streamTypes) {
-              const streamPath = path.join(STREMIO_DIR, 'stream', st, `${item.id}.json`);
-              writeJsonSync(streamPath, { streams: streamsArray });
-
-              const encodedId = encodeURIComponent(item.id);
-              if (encodedId !== item.id) {
-                const encodedStreamPath = path.join(STREMIO_DIR, 'stream', st, `${encodedId}.json`);
-                writeJsonSync(encodedStreamPath, { streams: streamsArray });
-              }
-            }
-          }
+          saveStaticStream(['tv', 'channel', 'series'], item.id, streamsArray);
         } catch (e) {
           console.warn(`   ⚠️ Warning: failed to fetch stream for ${item.id}:`, e.message);
         }

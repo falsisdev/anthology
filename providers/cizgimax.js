@@ -302,7 +302,7 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
                 const tauData = await tauRes.json();
                 if (tauData && Array.isArray(tauData.urls)) {
                   for (const u of tauData.urls) {
-                    if (u.url && !seenUrls.has(u.url)) {
+                    if (u.url && !seenUrls.has(u.url) && !u.url.includes('yhwach.icu')) {
                       seenUrls.add(u.url);
                       const quality = u.label || '1080p';
                       const strHeaders = {
