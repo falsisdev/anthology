@@ -1,6 +1,6 @@
 {
   "name": "Anthology",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "author": "falsisdev",
   "description": "Anthology - Türkçe Dizi, Film, Anime ve Canlı TV/Spor Eklenti Deposu",
   "scrapers": [
@@ -8,7 +8,7 @@
       "id": "AnthologyFilmM3U",
       "name": "Anthology Film (M3U)",
       "description": "Binlerce yerli ve yabancı HD film arşivi (Lunedor, Zerk, PowerBoard).",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
@@ -30,7 +30,7 @@
       "id": "AnthologyDiziM3U",
       "name": "Anthology Dizi (M3U)",
       "description": "Binlerce yerli ve yabancı dizi bölümü (Zerk, PowerBoard).",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "tv"
@@ -52,7 +52,7 @@
       "id": "sinewix",
       "name": "SineWix",
       "description": "5000+ HD film, dizi ve anime - Türkçe dublaj & altyazı, 1080p çift ses direct MKV.",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "movie",
@@ -102,7 +102,7 @@
       "id": "vidlink",
       "name": "Vidlink",
       "description": "TMDB entegrasyonlu global film ve dizi akış sağlayıcısı (4K/1080p direct MP4).",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "movie",
@@ -125,7 +125,7 @@
       "name": "Anthology Canlı TV",
       "description": "80+ Ulusal, Haber, Spor ve Canlı TV kanalı ve M3U kataloğu.",
       "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",
@@ -176,7 +176,7 @@
       "id": "filmmodu",
       "name": "FilmModu",
       "description": "Türkçe dublaj ve altyazılı 4K/1080p full HD film akışları (ImgsAPI).",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
@@ -214,7 +214,7 @@
       "id": "dizipal",
       "name": "DiziPal",
       "description": "En popüler yerli ve yabancı dizi/film içerikleri (Imagestoo & FormationFeed).",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "movie",
@@ -235,7 +235,7 @@
       "id": "sezonlukdizi",
       "name": "SezonlukDizi",
       "description": "VidMoly altyapısıyla Türkçe dublaj ve altyazılı geniş yabancı dizi arşivi.",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "tv"
@@ -255,7 +255,7 @@
       "id": "diziyou",
       "name": "DiziYou",
       "description": "DiziYou doğrudan depolama akışları ve Türkçe altyazı desteği.",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "tv"
@@ -275,7 +275,7 @@
       "id": "sinemacx",
       "name": "SinemaCX",
       "description": "Sinema.gg arşivi üzerinden doğrudan 1080p Filmizle HLS master akışları.",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
@@ -295,7 +295,7 @@
       "id": "jetfilmizle",
       "name": "JetFilmİzle",
       "description": "Videopark doğrudan MP4 ve PlayerX çok dilli HLS master akışları.",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
@@ -316,7 +316,7 @@
       "id": "animecix",
       "name": "AnimeciX",
       "description": "TauVideo altyapısıyla binlerce anime bölümü (1080p, 720p, 480p direct MP4).",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",
@@ -354,7 +354,7 @@
       "id": "cizgimax",
       "name": "ÇizgiMax",
       "description": "Çizgi diziler, animeler ve animasyon yapımları (TauVideo & Sibnet MP4).",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",
@@ -378,7 +378,7 @@
       "id": "turkanime",
       "name": "TurkAnime",
       "description": "Türkiye'nin en geniş anime arşivi - doğrudan Sibnet 1080p MP4 ve ArtPlayer HLS akışları.",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",
@@ -404,7 +404,7 @@
       "id": "anthology_spor",
       "name": "Anthology Canlı Spor",
       "description": "BeIN Sports 1-5, S Sport 1-2, Tivibu Spor, Exxen Spor ve 49 canlı spor kanalı (Anthology + NetVGold çok kaynaklı).",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",
@@ -447,7 +447,7 @@
       "id": "anthology_haber",
       "name": "Anthology Canlı Haber",
       "description": "NTV, Habertürk, TRT Haber, A Haber, CNN Türk, Sözcü TV ve 14 canlı haber kanalı.",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",
@@ -490,7 +490,7 @@
       "id": "anthology_ulusal",
       "name": "Anthology Ulusal Kanallar",
       "description": "TRT 1, ATV, Kanal D, Show TV, Star TV, NOW TV, TV8 ve 16 ulusal televizyon kanalı.",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",
@@ -619,7 +619,7 @@
       "id": "anthology_aksiyon",
       "name": "Anthology Aksiyon & Macera",
       "description": "Aksiyon, macera, suç ve gerilim sineması doğrudan HD HLS akışları.",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
@@ -639,7 +639,7 @@
       "id": "anthology_bilimkurgu",
       "name": "Anthology Bilim Kurgu",
       "description": "Bilim kurgu, fantastik ve uzay sineması doğrudan HD HLS akışları.",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
@@ -659,7 +659,7 @@
       "id": "anthology_korku",
       "name": "Anthology Korku & Gerilim",
       "description": "Korku, gerilim, gizem ve doğaüstü sineması doğrudan HD HLS akışları.",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
@@ -679,7 +679,7 @@
       "id": "anthology_komedi",
       "name": "Anthology Komedi",
       "description": "Yerli ve yabancı komedi filmleri için doğrudan HD HLS akışları.",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
@@ -699,7 +699,7 @@
       "id": "anthology_animasyon",
       "name": "Anthology Animasyon",
       "description": "Animasyon, anime ve çizgi sinema doğrudan HD HLS akışları.",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
@@ -719,7 +719,7 @@
       "id": "anthology_yerlifilm",
       "name": "Anthology Yerli Film & Yeşilçam",
       "description": "Klasik Yeşilçam, Türk sineması ve yerli başyapıtlar doğrudan HD HLS akışları.",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
@@ -739,7 +739,7 @@
       "id": "anthology_belgesel",
       "name": "Anthology Belgesel & Doğa",
       "description": "Belgeseller, doğa, bilim ve tarih yapımları doğrudan HD HLS akışları.",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "movie",
@@ -760,7 +760,7 @@
       "id": "anthology_cocuk",
       "name": "Anthology Çocuk & Aile",
       "description": "Çocuk filmleri, çizgi diziler ve aile sineması doğrudan HD HLS akışları.",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "movie",
@@ -781,7 +781,7 @@
       "id": "anthology_toprated",
       "name": "Anthology IMDb Top Rated",
       "description": "IMDb'nin en yüksek puanlı kült ve başyapıt filmleri doğrudan HD HLS akışları.",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
@@ -801,7 +801,7 @@
       "id": "anthology_yerlidizi",
       "name": "Anthology Yerli Dizi",
       "description": "Yerli diziler, Türk televizyon arşivi ve güncel Türk dizileri doğrudan MP4/HLS akışları.",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "tv"
@@ -822,7 +822,7 @@
       "id": "anthology_yabancidizi",
       "name": "Anthology Yabancı Dizi",
       "description": "Yabancı popüler diziler için doğrudan HD HLS master akışları.",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "tv"
@@ -842,7 +842,7 @@
       "id": "ddizi",
       "name": "DDizi",
       "description": "Yerli dizi arşivi, güncel bölümler kataloğu ve doğrudan Ciner/Yandex CDN MP4/HLS akışları.",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "tv"
@@ -881,7 +881,7 @@
       "id": "dizibox",
       "name": "DiziBox",
       "description": "Popüler yabancı diziler arşivi, güncel bölümler kataloğu ve doğrudan 1080p Molystream HLS master akışları.",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "tv"
@@ -905,7 +905,7 @@
       "id": "dizimom",
       "name": "DiziMom",
       "description": "Popüler yabancı diziler arşivi, güncel bölümler kataloğu ve doğrudan 1080p Fire HLS master akışları.",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "tv"
@@ -943,7 +943,7 @@
       "id": "vidmody",
       "name": "Vidmody",
       "description": "Doğrudan çoklu dil ve altyazı destekli HLS film ve dizi akış sağlayıcısı (1080p).",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "movie",
@@ -965,7 +965,7 @@
       "id": "webteizle",
       "name": "Webteİzle",
       "description": "Webteİzle arşivi üzerinden Türkçe Dublaj ve Altyazılı VidMoly 1080p master HLS akışları.",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
@@ -985,7 +985,7 @@
       "id": "yabancidizi",
       "name": "YabancıDizi",
       "description": "YabancıDizi arşivi üzerinden Türkçe Dublaj ve Altyazılı VidMoly 1080p master HLS akışları.",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "tv"
@@ -1006,7 +1006,7 @@
       "id": "setfilmizle",
       "name": "SetFilmIzle",
       "description": "SetFilmIzle arşivi üzerinden FastPlay 1080p HLS master akışları ve TR/EN altyazılar (film + dizi).",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "movie",
@@ -1056,7 +1056,7 @@
       "id": "kultfilmler",
       "name": "KultFilmler",
       "description": "KultFilmler arşivi üzerinden VidMoly/Vidpapi HLS akışları.",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
@@ -1094,7 +1094,7 @@
       "id": "hdfilmdelisi",
       "name": "HDFilmDelisi",
       "description": "HDFilmDelisi JSON API arşivi üzerinden VidMody 1080p HLS akışları.",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
@@ -1132,7 +1132,7 @@
       "id": "hdfilmizle",
       "name": "HDFilmIzle",
       "description": "HDFilmIzle (Ink/Vip) arşivi üzerinden FastPlay 1080p HLS master akışları ve TR/EN altyazılar.",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
@@ -1170,7 +1170,7 @@
       "id": "mahsundizi",
       "name": "Mahsun Dizi",
       "description": "Mahsun Dizi arşivi ve dosyaload BEPLAYER+ üzerinden 1080p HLS akışları ve Türkçe/İngilizce altyazılar.",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",

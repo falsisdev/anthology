@@ -15,13 +15,45 @@ var HEADERS = {
   'x-e-h': XEH_KEY
 };
 
-function ultraClean(str) {
+function timeoutSignal(ms) {
+  try {
+    if (typeof AbortSignal !== 'undefined' && AbortSignal.timeout) return AbortSignal.timeout(ms);
+  } catch (e) {}
+  return undefined;
+}
+
+// String.prototype.normalize olmayan ortamlar icin ascii fold (NFD yoksa TF-FR-de yoksa duz)
+var tkNormalizeMap = { a: 0xE0 | 0, e: 0xE8 | 0, i: 0xEC | 0, o: 0xF2 | 0, u: 0xF9 | 0, n: 0xF1 | 0 };
+function asciiFold(str) {
   if (!str) return '';
-  return str.toString().toLowerCase()
-    .replace(/[ıİ]/g, 'i').replace(/[üÜ]/g, 'u').replace(/[öÖ]/g, 'o')
-    .replace(/[şŞ]/g, 's').replace(/[ğĞ]/g, 'g').replace(/[çÇ]/g, 'c')
-    .replace(/[^a-z0-9]/g, '')
-    .trim();
+  var s = str.toString();
+  if (typeof s.normalize === 'function') {
+    try { return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]/gi, ''); } catch (e) {}
+  }
+  var out = '';
+  for (var i = 0; i < s.length; i++) {
+    var ch = s[i];
+    var lower = ch.toLowerCase();
+    if (/[\u00E0-\u00FF]/.test(lower)) {
+      var code = lower.charCodeAt(0);
+      var base = lower;
+      if (code >= 0xE0 && code <= 0xE5) base = 'a';
+      else if (code >= 0xE8 && code <= 0xEB) base = 'e';
+      else if (code >= 0xEC && code <= 0xEF) base = 'i';
+      else if (code >= 0xF2 && code <= 0xF6) base = 'o';
+      else if (code >= 0xF9 && code <= 0xFC) base = 'u';
+      else if (code === 0xF1) base = 'n';
+      else if (code === 0xE7) base = 'c';
+      out += base;
+    } else if (/[a-z0-9]/.test(lower)) {
+      out += lower;
+    }
+  }
+  return out;
+}
+
+function ultraClean(str) {
+  return asciiFold(str).replace(/[^a-z0-9]/g, '');
 }
 
 function formatTauStreams(urls, displayTitle, headers) {
@@ -215,7 +247,7 @@ async function resolveMediaInfo(idOrObj, mediaType, defaultSeason, defaultEpisod
       if (dataEn) {
         const normalizeTitle = (str) => {
           if (!str) return '';
-          return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+          return asciiFold(str).trim();
         };
 
         const nameEn = dataEn.name || dataEn.title || '';
@@ -286,14 +318,14 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
       const targetSeason = parseInt(parts[1]) || 1;
       const targetEp = parseInt(parts[2]) || 1;
       const videoUrl = `${BASE_URL}/secure/best-video?titleId=${titleId}&episode=${targetEp}&season=${targetSeason}`;
-      const bestRes = await fetch(videoUrl, { headers: HEADERS, redirect: 'follow', signal: AbortSignal.timeout(5000) });
+      const bestRes = await fetch(videoUrl, { headers: HEADERS, redirect: 'follow', signal: timeoutSignal(5000) });
       const finalUrl = bestRes.url || '';
       const m = finalUrl.match(/tau-video\.xyz\/embed\/([a-zA-Z0-9_-]+)/);
       if (!m) return [];
       const tauId = m[1];
       const tauRes = await fetch(`https://tau-video.xyz/api/video/${tauId}`, {
         headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': BASE_URL + '/' },
-        signal: AbortSignal.timeout(5000)
+        signal: timeoutSignal(5000)
       });
       if (!tauRes.ok) return [];
       let tauData;
@@ -310,7 +342,7 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
 
     for (const q of queries.slice(0, 10)) {
       try {
-        const searchRes = await fetch(`${BASE_URL}/secure/search/${encodeURIComponent(q)}?limit=15`, { headers: HEADERS, signal: AbortSignal.timeout(5000) });
+        const searchRes = await fetch(`${BASE_URL}/secure/search/${encodeURIComponent(q)}?limit=15`, { headers: HEADERS, signal: timeoutSignal(5000) });
         if (!searchRes.ok) continue;
         const sData = await searchRes.json();
         const results = sData.results || [];
@@ -377,7 +409,7 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
     // MOVIE EXTRACTION: AnimeciX movie video embeds reside in /secure/titles/{id}
     if (isMovie) {
       try {
-        const dRes = await fetch(`${BASE_URL}/secure/titles/${matchedItem.id}`, { headers: HEADERS, signal: AbortSignal.timeout(5000) });
+        const dRes = await fetch(`${BASE_URL}/secure/titles/${matchedItem.id}`, { headers: HEADERS, signal: timeoutSignal(5000) });
         if (dRes.ok) {
           const dData = await dRes.json();
           const titleObj = dData.title || {};
@@ -389,7 +421,7 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
                 try {
                   const tauRes = await fetch(`https://tau-video.xyz/api/video/${tauM[1]}`, {
                     headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': BASE_URL + '/' },
-                    signal: AbortSignal.timeout(5000)
+                    signal: timeoutSignal(5000)
                   });
                   if (tauRes.ok) {
                     const tauData = await tauRes.json();
@@ -422,7 +454,7 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
 
     // SERIES EXTRACTION: Use secure/best-video
     const videoUrl = `${BASE_URL}/secure/best-video?titleId=${matchedItem.id}&episode=${info.episode}&season=${info.season}`;
-    const bestRes = await fetch(videoUrl, { headers: HEADERS, redirect: 'follow', signal: AbortSignal.timeout(5000) });
+    const bestRes = await fetch(videoUrl, { headers: HEADERS, redirect: 'follow', signal: timeoutSignal(5000) });
     if (bestRes.ok) {
       const finalUrl = bestRes.url || '';
       const m = finalUrl.match(/tau-video\.xyz\/embed\/([a-zA-Z0-9_-]+)/);
@@ -433,7 +465,7 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
             'User-Agent': HEADERS['User-Agent'],
             'Referer': BASE_URL + '/'
           },
-          signal: AbortSignal.timeout(5000)
+          signal: timeoutSignal(5000)
         });
         if (tauRes.ok) {
           try {
@@ -448,7 +480,7 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
 
     // Fallback: If best-video failed or returned non-tau, check titles/{id} videos
     try {
-      const dRes = await fetch(`${BASE_URL}/secure/titles/${matchedItem.id}`, { headers: HEADERS, signal: AbortSignal.timeout(5000) });
+      const dRes = await fetch(`${BASE_URL}/secure/titles/${matchedItem.id}`, { headers: HEADERS, signal: timeoutSignal(5000) });
       if (dRes.ok) {
         const dData = await dRes.json();
         const titleObj = dData.title || {};
@@ -461,7 +493,7 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
             if (tauM) {
               const tauRes = await fetch(`https://tau-video.xyz/api/video/${tauM[1]}`, {
                 headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': BASE_URL + '/' },
-                signal: AbortSignal.timeout(5000)
+                signal: timeoutSignal(5000)
               });
               if (tauRes.ok) {
                 const tauData = await tauRes.json();

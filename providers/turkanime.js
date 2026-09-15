@@ -13,6 +13,13 @@ var HEADERS = {
   'Cookie': 'yasOnay=1'
 };
 
+function timeoutSignal(ms) {
+  try {
+    if (typeof AbortSignal !== 'undefined' && AbortSignal.timeout) return AbortSignal.timeout(ms);
+  } catch (e) {}
+  return undefined;
+}
+
 // ---- Saf-JS crypto (tarayıcı/statik eklenti ortamı; node crypto'ya bağımlı değil) ----
 // TurkAnime'nin /embed/#/url/<b64> şifreli embed formatı: {ct, iv, s} = CryptoJS AesJson.
 // Şifreleme: AES-256-CBC + EvpKDF(MD5, salt) + PKCS7. Anahtar chunk 0x1a0 modülünden çıkarıldı.
@@ -491,7 +498,7 @@ async function resolveYourUpload(iframeUrl, referer) {
         'User-Agent': HEADERS['User-Agent'],
         'Referer': referer || BASE_URL + '/'
       },
-      signal: AbortSignal.timeout(10000)
+      signal: timeoutSignal(10000)
     });
     if (!res.ok) return null;
     const html = await res.text();
