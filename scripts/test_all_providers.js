@@ -92,8 +92,8 @@ async function checkPlayability(streams) {
         testTarget = "Inception (27205)";
         streams = await mod.getStreams("27205", "movie");
       } else if (scraper.id === "anthology_korku") {
-        testTarget = "It (346364)";
-        streams = await mod.getStreams("346364", "movie");
+        testTarget = "Scream (4232)";
+        streams = await mod.getStreams("4232", "movie");
       } else if (scraper.id === "anthology_komedi") {
         testTarget = "G.O.R.A. (27275)";
         streams = await mod.getStreams("27275", "movie");
