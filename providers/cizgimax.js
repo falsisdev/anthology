@@ -242,7 +242,17 @@ async function resolveMediaInfo(idOrObj, mediaType, defaultSeason, defaultEpisod
       if (dataEn) {
         const normalizeTitle = (str) => {
           if (!str) return '';
-          return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+          // String.prototype.normalize her yerde (QuickJS) yok; ascii fold fallback'li
+          if (typeof str.normalize === 'function') {
+            try { return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim(); } catch (e) {}
+          }
+          return str.replace(/[\u00E0-\u00E5]/gi, 'a')
+            .replace(/[\u00E8-\u00EB]/gi, 'e')
+            .replace(/[\u00EC-\u00EF]/gi, 'i')
+            .replace(/[\u00F2-\u00F6]/gi, 'o')
+            .replace(/[\u00F9-\u00FC]/gi, 'u')
+            .replace(/\u00F1/gi, 'n').replace(/\u00E7/gi, 'c')
+            .replace(/[\u0300-\u036f]/g, '').trim();
         };
 
         const nameEn = dataEn.name || dataEn.title || '';
