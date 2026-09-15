@@ -1615,7 +1615,7 @@
             <span class="status-indicator-green"></span>
             <strong>🌟 Nuvio — Tüm Özellikler Sorunsuz &amp; Eksiksiz</strong>
           </div>
-          <p>Nuvio kullanıcıları, Anthology deposundaki <strong>34 doğrulanmış video motorunu</strong> (film, dizi,
+          <p>Nuvio kullanıcıları, Anthology deposundaki <strong>34 doğrulanmış video motorunun</strong> (film, dizi,
             anime, özel tür paketleri) yanı sıra <strong>6 Canlı TV kataloğunu ve 100 canlı yayın kanalını</strong>
             hiçbir kısıtlama olmadan tek çatı altında eksiksiz kullanabilir.</p>
         </div>
@@ -1827,7 +1827,7 @@
         <div class="filter-pills" id="providerFilterPills">
           <button class="filter-pill active" data-filter="all">
             <span>Tümü</span>
-            <span class="filter-count" id="countAll">41</span>
+            <span class="filter-count" id="countAll">34</span>
           </button>
           <button class="filter-pill" data-filter="movie">
             <span>🎬 Film</span>
@@ -2085,7 +2085,7 @@
 
       <div class="footer-nav">
         <a href="#install">Kurulum</a>
-        <a href="#providers">Eklentiler (41)</a>
+        <a href="#providers">Eklentiler</a>
         <a href="#live">Canlı TV (100)</a>
         <a href="https://github.com/falsisdev/anthology" target="_blank" rel="noopener">GitHub Deposu</a>
         <a href="https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json" target="_blank"
@@ -2161,4 +2161,262 @@
       { id: "hdfilmizle", name: "HDFilmIzle", cats: ["movie"], domain: "hdfilmizle.ink", logo: null, format: "1080p FastPlay HLS", desc: "HDFilmIzle arşivi üzerinden FastPlay 1080p HLS master akışları ve TR/EN altyazılar." broken: true},
       { id: "mahsundizi", name: "Mahsun Dizi", cats: ["tv", "movie"], domain: "mahsundizi8.com", logo: null, format: "1080p BEPLAYER+ HLS", desc: "Mahsun Dizi arşivi ve dosyaload BEPLAYER+ üzerinden 1080p HLS akışları ve altyazılar." broken: true}
     ];
-    ];
+
+    /* 100 LIVE CHANNELS */
+    const CHANNELS = [{ "id": "tv:TRT1.tr", "name": "TRT 1 HD", "logo": "assets/canli/trt1.png", "desc": "TRT 1 HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:ATV.tr", "name": "ATV HD", "logo": "assets/canli/atv.png", "desc": "ATV HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:KanalD.tr", "name": "Kanal D HD", "logo": "assets/canli/kanald.png", "desc": "Kanal D HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:ShowTV.tr", "name": "Show TV HD", "logo": "assets/canli/showtv.png", "desc": "Show TV HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:StarTV.tr", "name": "Star TV HD", "logo": "assets/canli/startv.png", "desc": "Star TV HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:NOW.tr", "name": "NOW TV HD", "logo": "assets/canli/now.png", "desc": "NOW TV HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:TV8.tr", "name": "TV8 HD", "logo": "assets/canli/tv8.png", "desc": "TV8 HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:Kanal7.tr", "name": "Kanal 7 HD", "logo": "assets/canli/kanal7.png", "desc": "Kanal 7 HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:BeyazTV.tr", "name": "Beyaz TV HD", "logo": "assets/canli/beyaztv.png", "desc": "Beyaz TV HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:Teve2.tr", "name": "Teve2 HD", "logo": "assets/canli/teve2.png", "desc": "Teve2 HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:A2.tr", "name": "A2 TV HD", "logo": "assets/canli/a2.png", "desc": "A2 TV HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:TV360.tr", "name": "360 TV HD", "logo": "assets/canli/tv360.png", "desc": "360 TV HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:TRT2.tr", "name": "TRT 2 Kültür & Sanat HD", "logo": "assets/canli/trt2.png", "desc": "TRT 2 Kültür & Sanat HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:TRTTurk.tr", "name": "TRT Türk HD", "logo": "assets/canli/trtturk.png", "desc": "TRT Türk HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:Kanal7Avrupa.tr", "name": "Kanal 7 Avrupa", "logo": "assets/canli/kanal7.png", "desc": "Kanal 7 Avrupa Canlı Yayın", "cat": "ulusal" }, { "id": "tv:TRTSpor.tr", "name": "TRT Spor HD", "logo": "assets/canli/trtspor.png", "desc": "TRT Spor HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TRTSporYildiz.tr", "name": "TRT Spor Yıldız HD", "logo": "assets/canli/trtsporyildiz.png", "desc": "TRT Spor Yıldız HD Canlı Yayın", "cat": "spor" }, { "id": "tv:ASpor.tr", "name": "A Spor HD", "logo": "assets/canli/aspor.png", "desc": "A Spor HD Canlı Yayın", "cat": "spor" }, { "id": "tv:HTSpor.tr", "name": "HT Spor HD", "logo": "assets/canli/htspor.png", "desc": "HT Spor HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TV85.tr", "name": "TV8.5 HD", "logo": "assets/canli/tv85.png", "desc": "TV8.5 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:FBTV.tr", "name": "FB TV HD", "logo": "assets/canli/fbtv.png", "desc": "FB TV HD Canlı Yayın", "cat": "spor" }, { "id": "tv:GSTV.tr", "name": "GS TV HD", "logo": "assets/canli/gstv.png", "desc": "GS TV HD Canlı Yayın", "cat": "spor" }, { "id": "tv:SportsTV.tr", "name": "Sports TV HD", "logo": "assets/canli/sportstv.png", "desc": "Sports TV HD Canlı Yayın", "cat": "spor" }, { "id": "tv:CBCSport.tr", "name": "CBC Sport HD", "logo": "assets/canli/cbcsport.png", "desc": "CBC Sport HD Canlı Yayın", "cat": "spor" }, { "id": "tv:IdmanTV.tr", "name": "iDMAN Tv HD", "logo": "assets/canli/idmantv.png", "desc": "iDMAN Tv HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TJKTV.tr", "name": "TJK TV HD", "logo": "assets/canli/tjktv.png", "desc": "TJK TV HD Canlı Yayın", "cat": "spor" }, { "id": "tv:NBATV.tr", "name": "NBA TV HD", "logo": "assets/canli/nbatv.png", "desc": "NBA TV HD Canlı Yayın", "cat": "spor" }, { "id": "tv:beINSports1.tr", "name": "BeIN Sports 1 HD", "logo": "assets/canli/beinsports.png", "desc": "BeIN Sports 1 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:beINSports2.tr", "name": "BeIN Sports 2 HD", "logo": "assets/canli/beinsports.png", "desc": "BeIN Sports 2 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:beINSports3.tr", "name": "BeIN Sports 3 HD", "logo": "assets/canli/beinsports.png", "desc": "BeIN Sports 3 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:beINSports4.tr", "name": "BeIN Sports 4 HD", "logo": "assets/canli/beinsports.png", "desc": "BeIN Sports 4 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:beINSports5.tr", "name": "BeIN Sports 5 HD", "logo": "assets/canli/beinsports.png", "desc": "BeIN Sports 5 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:beINSportsMax1.tr", "name": "BeIN Sports Max 1 HD", "logo": "assets/canli/beinsports.png", "desc": "BeIN Sports Max 1 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:beINSportsMax2.tr", "name": "BeIN Sports Max 2 HD", "logo": "assets/canli/beinsports.png", "desc": "BeIN Sports Max 2 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:SSport.tr", "name": "S Sport HD", "logo": "assets/canli/ssport.png", "desc": "S Sport HD Canlı Yayın", "cat": "spor" }, { "id": "tv:SSport2.tr", "name": "S Sport 2 HD", "logo": "assets/canli/ssport.png", "desc": "S Sport 2 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:SSportPlus.tr", "name": "S Sport Plus HD", "logo": "assets/canli/ssport.png", "desc": "S Sport Plus HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TivibuSpor.tr", "name": "Tivibu Spor HD", "logo": "assets/canli/tivibuspor.png", "desc": "Tivibu Spor HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TivibuSpor1.tr", "name": "Tivibu Spor 1 HD", "logo": "assets/canli/tivibuspor.png", "desc": "Tivibu Spor 1 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TivibuSpor2.tr", "name": "Tivibu Spor 2 HD", "logo": "assets/canli/tivibuspor.png", "desc": "Tivibu Spor 2 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TivibuSpor3.tr", "name": "Tivibu Spor 3 HD", "logo": "assets/canli/tivibuspor.png", "desc": "Tivibu Spor 3 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TivibuSpor4.tr", "name": "Tivibu Spor 4 HD", "logo": "assets/canli/tivibuspor.png", "desc": "Tivibu Spor 4 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:SmartSpor1.tr", "name": "Smart Spor 1 HD", "logo": "assets/canli/smartspor.png", "desc": "Smart Spor 1 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:SmartSpor2.tr", "name": "Smart Spor 2 HD", "logo": "assets/canli/smartspor.png", "desc": "Smart Spor 2 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:EuroSport1.tr", "name": "Euro Sport 1 HD", "logo": "assets/canli/eurosport.png", "desc": "Euro Sport 1 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:EuroSport2.tr", "name": "Euro Sport 2 HD", "logo": "assets/canli/eurosport.png", "desc": "Euro Sport 2 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:ExxenTV.tr", "name": "Exxen TV HD", "logo": "assets/canli/exxenspor.png", "desc": "Exxen TV HD Canlı Yayın", "cat": "spor" }, { "id": "tv:ExxenSports1.tr", "name": "Exxen Sports 1 HD", "logo": "assets/canli/exxenspor.png", "desc": "Exxen Sports 1 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:ExxenSports2.tr", "name": "Exxen Sports 2 HD", "logo": "assets/canli/exxenspor.png", "desc": "Exxen Sports 2 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:ExxenSports3.tr", "name": "Exxen Sports 3 HD", "logo": "assets/canli/exxenspor.png", "desc": "Exxen Sports 3 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:ExxenSports4.tr", "name": "Exxen Sports 4 HD", "logo": "assets/canli/exxenspor.png", "desc": "Exxen Sports 4 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:ExxenSports5.tr", "name": "Exxen Sports 5 HD", "logo": "assets/canli/exxenspor.png", "desc": "Exxen Sports 5 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:ExxenSports6.tr", "name": "Exxen Sports 6 HD", "logo": "assets/canli/exxenspor.png", "desc": "Exxen Sports 6 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:ExxenSports7.tr", "name": "Exxen Sports 7 HD", "logo": "assets/canli/exxenspor.png", "desc": "Exxen Sports 7 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:ExxenSports8.tr", "name": "Exxen Sports 8 HD", "logo": "assets/canli/exxenspor.png", "desc": "Exxen Sports 8 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TabiiSpor.tr", "name": "Tabii Spor HD", "logo": "assets/canli/tabiispor.png", "desc": "Tabii Spor HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TabiiSpor1.tr", "name": "Tabii Spor 1 HD", "logo": "assets/canli/tabiispor.png", "desc": "Tabii Spor 1 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TabiiSpor2.tr", "name": "Tabii Spor 2 HD", "logo": "assets/canli/tabiispor.png", "desc": "Tabii Spor 2 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TabiiSpor3.tr", "name": "Tabii Spor 3 HD", "logo": "assets/canli/tabiispor.png", "desc": "Tabii Spor 3 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TabiiSpor4.tr", "name": "Tabii Spor 4 HD", "logo": "assets/canli/tabiispor.png", "desc": "Tabii Spor 4 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TabiiSpor5.tr", "name": "Tabii Spor 5 HD", "logo": "assets/canli/tabiispor.png", "desc": "Tabii Spor 5 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TabiiSpor6.tr", "name": "Tabii Spor 6 HD", "logo": "assets/canli/tabiispor.png", "desc": "Tabii Spor 6 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TabiiSpor7.tr", "name": "Tabii Spor 7 HD", "logo": "assets/canli/tabiispor.png", "desc": "Tabii Spor 7 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TabiiSpor8.tr", "name": "Tabii Spor 8 HD", "logo": "assets/canli/tabiispor.png", "desc": "Tabii Spor 8 HD Canlı Yayın", "cat": "spor" }, { "id": "tv:TRTHaber.tr", "name": "TRT Haber HD", "logo": "assets/canli/trthaber.png", "desc": "TRT Haber HD Canlı Yayın", "cat": "haber" }, { "id": "tv:NTV.tr", "name": "NTV Haber HD", "logo": "assets/canli/ntv.png", "desc": "NTV Haber HD Canlı Yayın", "cat": "haber" }, { "id": "tv:HaberTurk.tr", "name": "Habertürk TV HD", "logo": "assets/canli/haberturk.png", "desc": "Habertürk TV HD Canlı Yayın", "cat": "haber" }, { "id": "tv:TV100.tr", "name": "TV100 HD", "logo": "assets/canli/tv100.png", "desc": "TV100 HD Canlı Yayın", "cat": "haber" }, { "id": "tv:AHaber.tr", "name": "A Haber HD", "logo": "assets/canli/ahaber.png", "desc": "A Haber HD Canlı Yayın", "cat": "haber" }, { "id": "tv:HalkTV.tr", "name": "Halk TV HD", "logo": "assets/canli/halktv.png", "desc": "Halk TV HD Canlı Yayın", "cat": "haber" }, { "id": "tv:Tele1.tr", "name": "Tele 1 HD", "logo": "assets/canli/tele1.png", "desc": "Tele 1 HD Canlı Yayın", "cat": "haber" }, { "id": "tv:TGRTHaber.tr", "name": "TGRT Haber HD", "logo": "assets/canli/tgrthaber.png", "desc": "TGRT Haber HD Canlı Yayın", "cat": "haber" }, { "id": "tv:HaberGlobal.tr", "name": "Haber Global HD", "logo": "assets/canli/haberglobal.png", "desc": "Haber Global HD Canlı Yayın", "cat": "haber" }, { "id": "tv:Kanal24.tr", "name": "24 TV HD", "logo": "assets/canli/24tv.png", "desc": "24 TV HD Canlı Yayın", "cat": "haber" }, { "id": "tv:BloombergHT.tr", "name": "Bloomberg HT Ekonomi HD", "logo": "assets/canli/bloomberght.png", "desc": "Bloomberg HT Ekonomi HD Canlı Yayın", "cat": "haber" }, { "id": "tv:TVNET.tr", "name": "TVNET HD", "logo": "assets/canli/tvnet.png", "desc": "TVNET HD Canlı Yayın", "cat": "haber" }, { "id": "tv:UlkeTV.tr", "name": "Ülke TV HD", "logo": "assets/canli/ulketv.png", "desc": "Ülke TV HD Canlı Yayın", "cat": "haber" }, { "id": "tv:Ekoturk.tr", "name": "Ekotürk Ekonomi HD", "logo": "assets/canli/ekoturk.png", "desc": "Ekotürk Ekonomi HD Canlı Yayın", "cat": "haber" }, { "id": "tv:BenguTurk.tr", "name": "Bengü Türk TV HD", "logo": "assets/canli/benguturk.png", "desc": "Bengü Türk TV HD Canlı Yayın", "cat": "haber" }, { "id": "tv:FlashHaber.tr", "name": "Flash Haber TV HD", "logo": "assets/canli/flashhaber.png", "desc": "Flash Haber TV HD Canlı Yayın", "cat": "haber" }, { "id": "tv:LiderHaber.tr", "name": "Lider Haber TV HD", "logo": "assets/canli/liderhaber.png", "desc": "Lider Haber TV HD Canlı Yayın", "cat": "haber" }, { "id": "tv:TurkHaber.tr", "name": "Türk Haber TV HD", "logo": "assets/canli/turkhaber.png", "desc": "Türk Haber TV HD Canlı Yayın", "cat": "haber" }, { "id": "tv:TRTBelgesel.tr", "name": "TRT Belgesel HD", "logo": "assets/canli/trtbelgesel.png", "desc": "TRT Belgesel HD Canlı Yayın", "cat": "belgesel_cocuk" }, { "id": "tv:TRTCocuk.tr", "name": "TRT Çocuk HD", "logo": "assets/canli/trtcocuk.png", "desc": "TRT Çocuk HD Canlı Yayın", "cat": "belgesel_cocuk" }, { "id": "tv:MinikaCocuk.tr", "name": "Minika Çocuk HD", "logo": "assets/canli/minikacocuk.png", "desc": "Minika Çocuk HD Canlı Yayın", "cat": "belgesel_cocuk" }, { "id": "tv:MinikaGo.tr", "name": "Minika GO HD", "logo": "assets/canli/minikago.png", "desc": "Minika GO HD Canlı Yayın", "cat": "belgesel_cocuk" }, { "id": "tv:TRTEBAIlkokul.tr", "name": "TRT EBA İlkokul HD", "logo": "assets/canli/trtebailkokul.png", "desc": "TRT EBA İlkokul HD Canlı Yayın", "cat": "belgesel_cocuk" }, { "id": "tv:TRTEBAOrtaokul.tr", "name": "TRT EBA Ortaokul HD", "logo": "assets/canli/trtebaortaokul.png", "desc": "TRT EBA Ortaokul HD Canlı Yayın", "cat": "belgesel_cocuk" }, { "id": "tv:TRTEBALise.tr", "name": "TRT EBA Lise HD", "logo": "assets/canli/trtebalise.png", "desc": "TRT EBA Lise HD Canlı Yayın", "cat": "belgesel_cocuk" }, { "id": "tv:KralPopTV.tr", "name": "Kral Pop TV HD", "logo": "assets/canli/kralpop.png", "desc": "Kral Pop TV HD Canlı Yayın", "cat": "muzik" }, { "id": "tv:PowerTurkTV.tr", "name": "PowerTürk TV HD", "logo": "assets/canli/powerturk.png", "desc": "PowerTürk TV HD Canlı Yayın", "cat": "muzik" }, { "id": "tv:PowerTV.tr", "name": "Power TV HD", "logo": "assets/canli/powertv.png", "desc": "Power TV HD Canlı Yayın", "cat": "muzik" }, { "id": "tv:Number1TV.tr", "name": "Number 1 TV HD", "logo": "assets/canli/number1.png", "desc": "Number 1 TV HD Canlı Yayın", "cat": "muzik" }, { "id": "tv:TRTMuzik.tr", "name": "TRT Müzik HD", "logo": "assets/canli/trtmuzik.png", "desc": "TRT Müzik HD Canlı Yayın", "cat": "muzik" }, { "id": "tv:PowerDance.tr", "name": "Power Dance HD", "logo": "assets/canli/powerdance.png", "desc": "Power Dance HD Canlı Yayın", "cat": "muzik" }, { "id": "tv:PowerLove.tr", "name": "Power Love HD", "logo": "assets/canli/powerlove.png", "desc": "Power Love HD Canlı Yayın", "cat": "muzik" }, { "id": "tv:TRTWorld.tr", "name": "TRT World HD", "logo": "assets/canli/trtworld.png", "desc": "TRT World HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:TRTAvaz.tr", "name": "TRT Avaz HD", "logo": "assets/canli/trtavaz.png", "desc": "TRT Avaz HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:TRTKurdi.tr", "name": "TRT Kurdî HD", "logo": "assets/canli/trtkurdi.png", "desc": "TRT Kurdî HD Canlı Yayın", "cat": "ulusal" }, { "id": "tv:TRTArabi.tr", "name": "TRT Arabi HD", "logo": "assets/canli/trtarabi.png", "desc": "TRT Arabi HD Canlı Yayın", "cat": "ulusal" }];
+
+    /* PROVIDERS FILTER & RENDER */
+    let currentProviderFilter = "all";
+    let currentProviderSearch = "";
+
+    function renderProviders() {
+      const grid = document.getElementById("providerGrid");
+      const countBar = document.getElementById("providerResultsText");
+      grid.innerHTML = "";
+
+      const q = currentProviderSearch.toLowerCase().trim();
+      let matches = 0;
+
+      PROVIDERS.forEach(p => {
+        const matchCat = currentProviderFilter === "all" || p.cats.includes(currentProviderFilter);
+        const matchSearch = !q ||
+          p.name.toLowerCase().includes(q) ||
+          p.desc.toLowerCase().includes(q) ||
+          (p.format && p.format.toLowerCase().includes(q)) ||
+          (p.domain && p.domain.toLowerCase().includes(q));
+
+        if (!matchCat || !matchSearch) return;
+        matches++;
+
+        const card = document.createElement("div");
+        card.className = "provider-card";
+
+        const brokenBadge = p.broken ? `<span class="tag tag-broken">Çalışmıyor</span>` : "";
+        const tagsHTML = p.cats.map(c => {
+          const cls = c === "movie" ? "tag-movie" : c === "live" ? "tag-live" : c === "anime" ? "tag-anime" : c === "genre" ? "tag-genre" : "tag-tv";
+          const label = c === "movie" ? "Film" : c === "live" ? "Canlı TV" : c === "anime" ? "Anime" : c === "genre" ? "Tür Paketi" : "Dizi";
+          return `<span class="tag ${cls}">${label}</span>`;
+        }).join("");
+
+        const logoSrc = p.logo ? p.logo : (p.domain ? `https://www.google.com/s2/favicons?domain=${p.domain}&sz=64` : FALLBACK_LOGO);
+        const linkHTML = p.domain ? `<a class="provider-ext-link" href="https://${p.domain}" target="_blank" rel="noopener" title="${p.domain}">↗ Web</a>` : "";
+
+        card.innerHTML = `
+      <div class="provider-logo-wrap">
+        <img class="provider-logo" src="${logoSrc}" alt="${p.name}" onerror="this.src='${FALLBACK_LOGO}'">
+      </div>
+      <div class="provider-content">
+        <div class="provider-top">
+          <div class="provider-title">
+            <span>${p.name}</span>
+            <span class="provider-format-badge">${p.format || '1080p'}</span>
+          </div>
+          ${linkHTML}
+        </div>
+        <p class="provider-desc">${p.desc}</p>
+        <div class="provider-tags">${tagsHTML}${brokenBadge}</div>
+      </div>
+    `;
+        grid.appendChild(card);
+      });
+
+      if (matches === 0) {
+        grid.innerHTML = `
+      <div class="empty-state">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+        <p>Aramanıza uygun bir eklenti bulunamadı.</p>
+        <button class="btn-reset" onclick="resetProviderFilters()">Filtreleri Temizle</button>
+      </div>
+    `;
+        countBar.textContent = "0 eklenti bulundu";
+      } else {
+        countBar.textContent = `${PROVIDERS.filter(p => !p.broken).length} aktif eklentiden ${matches} tanesi listeleniyor (${PROVIDERS.filter(p => p.broken).length} çalışmıyor)`;
+      }
+    }
+
+    function filterProviders() {
+      currentProviderSearch = document.getElementById("providerSearchInput").value;
+      renderProviders();
+    }
+
+    function resetProviderFilters() {
+      document.getElementById("providerSearchInput").value = "";
+      currentProviderSearch = "";
+      document.querySelectorAll("#providerFilterPills .filter-pill").forEach(p => p.classList.remove("active"));
+      document.querySelector('#providerFilterPills [data-filter="all"]').classList.add("active");
+      currentProviderFilter = "all";
+      renderProviders();
+    }
+
+    document.querySelectorAll("#providerFilterPills .filter-pill").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("#providerFilterPills .filter-pill").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentProviderFilter = btn.dataset.filter;
+        renderProviders();
+      });
+    });
+
+        document.addEventListener("DOMContentLoaded", () => {
+      const countOf = (cat, brokenOnly) => PROVIDERS.filter(p => p.cats.includes(cat) && p.broken === brokenOnly).length;
+      document.getElementById("countAll").textContent = PROVIDERS.filter(p => !p.broken).length;
+      document.getElementById("countMovie").textContent = countOf("movie", false);
+      document.getElementById("countTv").textContent = countOf("tv", false);
+      document.getElementById("countAnime").textContent = countOf("anime", false);
+      document.getElementById("countLive").textContent = countOf("live", false);
+      document.getElementById("countGenre").textContent = countOf("genre", false);
+    });
+
+    /* CHANNELS FILTER & RENDER */
+    let currentChannelCat = "all";
+    let currentChannelSearch = "";
+
+    function renderChannels() {
+      const grid = document.getElementById("channelsGrid");
+      const countBar = document.getElementById("channelResultsText");
+      grid.innerHTML = "";
+
+      const q = currentChannelSearch.toLowerCase().trim();
+      let matches = 0;
+
+      CHANNELS.forEach(ch => {
+        const matchCat = currentChannelCat === "all" || ch.cat === currentChannelCat;
+        const matchSearch = !q || ch.name.toLowerCase().includes(q) || (ch.desc && ch.desc.toLowerCase().includes(q));
+
+        if (!matchCat || !matchSearch) return;
+        matches++;
+
+        const card = document.createElement("div");
+        card.className = "channel-card";
+        card.innerHTML = `
+      <span class="channel-live-dot" title="Aktif Canlı Yayın"></span>
+      <div class="channel-logo-wrap">
+        <img class="channel-logo" src="${ch.logo}" alt="${ch.name}" onerror="this.src='assets/canli/default_tv.png'">
+      </div>
+      <div class="channel-name" title="${ch.name}">${ch.name}</div>
+      <div class="channel-source" title="${ch.desc}">${ch.desc}</div>
+    `;
+        grid.appendChild(card);
+      });
+
+      if (matches === 0) {
+        grid.innerHTML = `
+      <div class="empty-state">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+        <p>Aramanıza uygun canlı yayın kanalı bulunamadı.</p>
+        <button class="btn-reset" onclick="resetChannelFilters()">Tüm Kanalları Göster</button>
+      </div>
+    `;
+        countBar.textContent = "0 kanal bulundu";
+      } else {
+        countBar.textContent = `${CHANNELS.length} canlı kanaldan ${matches} tanesi listeleniyor`;
+      }
+    }
+
+    function filterChannels() {
+      currentChannelSearch = document.getElementById("channelSearchInput").value;
+      renderChannels();
+    }
+
+    function resetChannelFilters() {
+      document.getElementById("channelSearchInput").value = "";
+      currentChannelSearch = "";
+      document.querySelectorAll("#channelFilterPills .filter-pill").forEach(p => p.classList.remove("active"));
+      document.querySelector('#channelFilterPills [data-channel-cat="all"]').classList.add("active");
+      currentChannelCat = "all";
+      renderChannels();
+    }
+
+    document.querySelectorAll("#channelFilterPills .filter-pill").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("#channelFilterPills .filter-pill").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentChannelCat = btn.dataset.channelCat;
+        renderChannels();
+      });
+    });
+
+    /* PLATFORM TABS SWITCHER */
+    function switchPlatformTab(tabKey) {
+      document.querySelectorAll(".platform-tabs-nav .tab-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.tab === tabKey);
+      });
+      document.querySelectorAll(".platform-tab-pane").forEach(pane => {
+        pane.classList.toggle("active", pane.id === `tab-${tabKey}`);
+      });
+    }
+
+    /* FAQ ACCORDION */
+    function toggleFaq(btn) {
+      const item = btn.closest(".faq-item");
+      const wasActive = item.classList.contains("active");
+      document.querySelectorAll(".faq-item").forEach(i => i.classList.remove("active"));
+      if (!wasActive) {
+        item.classList.add("active");
+      }
+    }
+
+    /* MOBILE NAV TOGGLE */
+    function toggleMobileNav() {
+      const panel = document.getElementById("mobileNavPanel");
+      panel.classList.toggle("open");
+    }
+    document.getElementById("mobileMenuBtn").addEventListener("click", toggleMobileNav);
+
+    /* TOAST & CLIPBOARD HELPERS */
+    let toastTimeout;
+    function showToast(msg) {
+      const t = document.getElementById("toast");
+      const m = document.getElementById("toastMsg");
+      m.textContent = msg;
+      t.classList.add("show");
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        t.classList.remove("show");
+      }, 2800);
+    }
+
+    function copyNuvioManifest() {
+      copyText(NUVIO_MANIFEST_URL, "📋 Nuvio Depo URL kopyalandı!");
+      const heroBtn = document.getElementById("copyHeroBtn");
+      if (heroBtn) {
+        const original = heroBtn.innerHTML;
+        heroBtn.innerHTML = `<span>✓ Kopyalandı</span>`;
+        heroBtn.classList.add("copied");
+        setTimeout(() => {
+          heroBtn.innerHTML = original;
+          heroBtn.classList.remove("copied");
+        }, 2000);
+      }
+    }
+
+    function copyText(text, msg) {
+      const done = () => showToast(msg || "📋 Bağlantı kopyalandı!");
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopyText(text, done));
+      } else {
+        fallbackCopyText(text, done);
+      }
+    }
+
+    function fallbackCopyText(text, cb) {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.left = "-9999px";
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand("copy");
+      } catch (e) { }
+      document.body.removeChild(ta);
+      if (cb) cb();
+    }
+
+    /* INITIALIZE */
+    renderProviders();
+    renderChannels();
+  </script>
+</body>
+
+</html>
