@@ -7,7 +7,7 @@
     <a href="https://github.com/falsisdev/anthology"><img src="https://img.shields.io/badge/Nuvio-Eklenti_Deposu-00e676?style=for-the-badge&logo=github&logoColor=white" alt="Nuvio" /></a>
     <a href="stremio://falsisdev.github.io/anthology/stremio/manifest.json"><img src="https://img.shields.io/badge/Stremio-Canlı_TV-a855f7?style=for-the-badge&logo=stremio&logoColor=white" alt="Stremio Canlı TV" /></a>
     <a href="https://stremio-addons.net/addons/anthology"><img src="https://img.shields.io/badge/Stremio_Addons-anthology-8a2be2?style=for-the-badge&logo=stremio&logoColor=white" alt="Stremio Addons Directory" /></a>
-    <img src="https://img.shields.io/badge/Eklenti-41_Doğrulanmış-3b82f6?style=for-the-badge" alt="41 Aktif Eklenti" />
+    <img src="https://img.shields.io/badge/Eklenti-34_Aktif-3b82f6?style=for-the-badge" alt="34 Aktif Eklenti" />
     <img src="https://img.shields.io/badge/Katalog-6_Canlı_Katalog-8b5cf6?style=for-the-badge" alt="6 Canlı TV Kataloğu" />
     <img src="https://img.shields.io/badge/Kanal-100_Canlı_Kanal-00e676?style=for-the-badge" alt="100 Canlı Kanal" />
   </p>
@@ -25,7 +25,7 @@
 
 > [!IMPORTANT]
 > ### ⚠️ Platformlar Arasındaki Kapsam ve Kullanım Farkı:
-> - 🌟 **Nuvio Kullanıcıları:** Anthology'nin sunduğu **tüm özellikleri sorunsuz, sınırsız ve eksiksiz** kullanabilir. **41 video scraper motorunun tamamı** (Türkçe/yabancı film, dizi, anime, özel tür arşivleri) ve **100 Canlı TV kanalı (6 vitrin kataloğu)** Nuvio oynatıcısında tek çatı altında eksiksiz çalışır.
+> - 🌟 **Nuvio Kullanıcıları:** Anthology'nin sunduğu **tüm özellikleri sorunsuz, sınırsız ve eksiksiz** kullanabilir. **34 video scraper motorunun tamamı** (Türkçe/yabancı film, dizi, anime, özel tür arşivleri) ve **100 Canlı TV kanalı (6 vitrin kataloğu)** Nuvio oynatıcısında tek çatı altında eksiksiz çalışır.
 > - 🟣 **Stremio Kullanıcıları:** Stremio eklentisi olarak kullanım **yalnızca Canlı TV katalogları (6 vitrin ve 100 canlı yayın kanalı) ile sınırlıdır**. Stremio'nun eklenti protokolü gereği film ve dizi video scraper'ları Stremio üzerinde çalışmaz; bu nedenle Stremio'da yalnızca canlı televizyon ve spor akışları sunulmaktadır.
 > - 🌐 **Stremio Topluluk Sayfası:** Eklentiyi resmi Stremio topluluk dizininde incelemek için [stremio-addons.net/addons/anthology](https://stremio-addons.net/addons/anthology) adresini ziyaret edebilirsiniz.
 
@@ -35,7 +35,7 @@
 
 | Platform | Kapsam Durumu | Kurulum Yöntemi | Ne İşe Yarar? |
 |---|:---:|---|---|
-| 🌟 **Nuvio** *(Önerilen)* | **Tüm Eklenti Sorunsuz & Eksiksiz** | `Ayarlar` → `Pluginler` → `Depo Ekle` yoluna aşağıdaki URL'yi yapıştırın:<br> `https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json` | **Tüm 41 video motorunu** (film, dizi, anime) ve 100 Canlı TV kanalının tamamını yükler. |
+| 🌟 **Nuvio** *(Önerilen)* | **Tüm Eklenti Sorunsuz & Eksiksiz** | `Ayarlar` → `Pluginler` → `Depo Ekle` yoluna aşağıdaki URL'yi yapıştırın:<br> `https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json` | **Tüm 34 video motorunu** (film, dizi, anime) ve 100 Canlı TV kanalının tamamını yükler. |
 | 🟣 **Stremio** *(Tek Tık)* | **Yalnızca Canlı TV ile Sınırlı** | [**Stremio'ya Doğrudan Ekle (Tıklayın)**](stremio://falsisdev.github.io/anthology/stremio/manifest.json) veya [**Web Stremio'da Aç**](https://web.stremio.com/#/addons?addon=https%3A%2F%2Ffalsisdev.github.io%2Fanthology%2Fstremio%2Fmanifest.json)<br>*(Dizin: [stremio-addons.net](https://stremio-addons.net/addons/anthology))* | **100 Canlı TV kanalını** 6 vitrin kataloğu olarak Stremio ana sayfasına ekler. |
 
 ---
@@ -47,7 +47,7 @@ Nuvio ve Stremio'da yerli dizileri, animeleri, sinema filmlerini ve **100 Canlı
 ---
 
 ### 1️⃣ Adım: Video Oynatma Motorunu Ekleyin (Nuvio Pluginleri)
-> **Zorunlu (Yalnızca Nuvio):** Bu adım, bir film, dizi veya anime açtığınızda arka planda çalışan **41 Türkçe/yabancı video scraper'ını** Nuvio video motoruna yükler. *(Stremio'da scraper motorları desteklenmez; bu adım Nuvio içindir).*
+> **Zorunlu (Yalnızca Nuvio):** Bu adım, bir film, dizi veya anime açtığınızda arka planda çalışan **34 Türkçe/yabancı video scraper'ını** Nuvio video motoruna yükler. *(Stremio'da scraper motorları desteklenmez; bu adım Nuvio içindir).*
 
 1. **Nuvio** uygulamasını açın.
 2. Sırasıyla **Ayarlar** → **Genel** → **İçerik & Keşif** → **Pluginler** → **Depo Ekle** bölümüne gidin.
@@ -75,7 +75,7 @@ https://falsisdev.github.io/anthology/stremio/manifest.json
 
 > [!TIP]
 > **Nasıl Birlikte Çalışırlar?**
-> - **Nuvio'da:** 1. Adım ve 2. Adımı birlikte eklediğinizde, Nuvio ana sayfanızda hem zengin Canlı TV vitrinleri görünür hem de içerik aradığınızda 41 video motoru en kaliteli (1080p, 4K, Çift Ses) akışları anında oynatır.
+> - **Nuvio'da:** 1. Adım ve 2. Adımı birlikte eklediğinizde, Nuvio ana sayfanızda hem zengin Canlı TV vitrinleri görünür hem de içerik aradığınızda 34 video motoru en kaliteli (1080p, 4K, Çift Ses) akışları anında oynatır.
 > - **Stremio'da:** Stremio kullanıcıları yalnızca 2. Adımı ekleyerek 100 Canlı TV kanalını kesintisiz resmi CDN bağlantılarıyla izleyebilir.
 
 ---
@@ -95,7 +95,7 @@ Nuvio ve Stremio ana sayfasında canlı TV kanallarını kategorilere ayrılmı�
 
 ---
 
-## 🎬 Doğrulanmış Eklentiler (41 Aktif - Nuvio)
+## 🎬 Doğrulanmış Eklentiler (34 Aktif - Nuvio)
 
 > [!NOTE]
 > Aşağıdaki tüm video scraper motorları Nuvio oynatıcısına uygun doğrudan `.m3u8` HLS veya `.mp4`/`.mkv` akışları döndürür.
@@ -109,13 +109,9 @@ Nuvio ve Stremio ana sayfasında canlı TV kanallarını kategorilere ayrılmı�
 | **Vidlink** | vidlink.pro (Global CDN) | 4K & 1080p MP4 | Türkçe & Global Çok Dilli |
 | **Vidmody** | vidmody.com (Multi-Audio HLS) | 1080p HLS | Çift Ses (Türkçe & İngilizce) + Altyazı |
 | **SinemaCX** | sinema.gg (Player.filmizle.in) | 1080p HLS Master | Dublaj & Altyazı Seçenekleri |
-| **JetFilmİzle** | jetfilmizle.now (Videopark & PlayerX) | 1080p MP4 / HLS | Dublaj & Çoklu Dil Seçenekleri |
-| **DiziPal** | dizipal2131.com (Imagestoo) | 1080p HLS | Popüler Yerli ve Yabancı Sinema |
 | **Webteİzle** | webteizle.info (VidMoly Master) | 1080p HLS | Dublaj & Altyazı Seçenekleri |
-| **SetFilmIzle** | setfilmizle.ltd (FastPlay) | 1080p HLS Master | FastPlay HLS ve TR/EN Altyazılar |
 | **KultFilmler** | kultfilmler.net (VidMoly/Vidpapi) | 1080p HLS | Kült ve Klasik Sinema Arşivi |
 | **HDFilmDelisi** | hdfilmdelisi.org (VidMody HLS) | 1080p HLS | Güncel Filmler ve JSON API Entegrasyonu |
-| **HDFilmIzle** | hdfilmizle.ink (FastPlay) | 1080p HLS Master | FastPlay Master HLS ve Dublaj/Altyazı |
 
 ---
 
@@ -124,17 +120,12 @@ Nuvio ve Stremio ana sayfasında canlı TV kanallarını kategorilere ayrılmı�
 | Eklenti | Kaynak / Altyapı | Kalite & Format | İçerik Detayı |
 |---|---|:---:|:---:|
 | **DDizi** | ddizi.im (Fast Ciner / Yandex CDN) | 1080p MP4 / HLS | Yerli Dizi & Güncel Bölümler Arşivi |
-| **DiziBox** | dizibox.live (Molystream Master) | 1080p HLS Master | Popüler Yabancı Diziler & Güncel Bölümler |
 | **DiziMom** | dizimom.diy (Fire HLS Master) | 1080p HLS Master | Popüler Yabancı Diziler (Dublaj & Altyazı) |
-| **Mahsun Dizi** | mahsundizi8.com (BEPLAYER+) | 1080p HLS | Yabancı Diziler & Filmler (TR/EN Altyazı) |
-| **SezonlukDizi** | sezonlukdizi.cc (VidMoly) | 1080p HLS | Dublaj & Altyazı Geniş Dizi Arşivi |
 | **DiziYou** | diziyou.one (Storage CDN) | 1080p HLS | Doğrudan Storage CDN + Türkçe VTT Altyazı |
 | **YabancıDizi** | yabancidizi.news (VidMoly Master) | 1080p HLS | Popüler Yabancı Diziler Arşivi |
-| **DiziPal** | dizipal2131.com (FormationFeed) | 1080p HLS | Yerli & Yabancı Dizi Bölümleri |
 | **SineWix** | sinewix.com (snwixdepo) | 1080p MKV | Dizi Bölümleri Çift Ses DUAL |
 | **Vidlink** | vidlink.pro (Global CDN) | 1080p MP4 | Yabancı Dizi Bölümleri |
 | **Vidmody** | vidmody.com (Multi-Audio HLS) | 1080p HLS | Çift Ses + Altyazı Dizi Akışları |
-| **SetFilmIzle** | setfilmizle.ltd (FastPlay) | 1080p HLS | Dizi Arşivi ve TR/EN Altyazı |
 
 ---
 
@@ -143,7 +134,6 @@ Nuvio ve Stremio ana sayfasında canlı TV kanallarını kategorilere ayrılmı�
 | Eklenti | Kaynak / Altyapı | Kalite & Format | Dil Desteği |
 |---|---|:---:|:---:|
 | **AnimeciX** | animecix.tv (TauVideo CDN) | 1080p / 720p / 480p MP4 | Türkçe Altyazı & Dublaj |
-| **ÇizgiMax** | cizgimax.online (TauVideo & Sibnet) | 1080p / 720p Direct MP4 | Dublaj & Altyazı Çizgi Diziler |
 | **TurkAnime** | turkanime.tv (Sibnet & ArtPlayer) | 1080p MP4 / HLS | Türkiye'nin En Geniş Anime Arşivi |
 
 ---
@@ -217,21 +207,23 @@ Nuvio ve Stremio ana sayfasında canlı TV kanallarını kategorilere ayrılmı�
 
 ---
 
-## ⚠️ **Deprecated / Kullanımdan Kaldırılan Sağlayıcılar**
+## ⚠️ **Çalışmayan / Deprecated Sağlayıcılar**
 
-Aşağıdaki sağlayıcılar kaynak/CDN/API değişiklikleri nedeniyle **kalıcı olarak çalışmamaktadır** ve manifest'ta `enabled: false` olarak işaretlenmiştir. Kod arşivlenmiştir, gelecekte kaynak değişirse yeniden etkinleştirilebilir.
+Aşağıdaki sağlayıcılar kaynak/CDN/API değişiklikleri nedeniyle **şu anda çalışmamaktadır** ve manifest'ta `enabled: false` olarak işaretlenmiştir. Kod arşivlenmiştir, gelecekte kaynak düzelirse yeniden etkinleştirilebilir.
 
 | Sağlayıcı | Durum | Kök Neden | Not |
 |---|---|---|---|
-| **ÇizgiMax** | ❌ **Bozuk** | Sibnet origin down / API değişimi | Sibnet `dv97.sibnet.ru` 400/timeout dönüyor; alternatif source yok |
-| **SineWix** | ❌ **Bozuk** | API 401 Unauthorized | `ydfvfdizipanel.ru` yetki hatası; kullanıcı kararıyla dokunulmamış |
-| **Dizipal** | ❌ **Bozuk** | dplayer82.site Cloudflare WAF | Mimari blok; embed host `dplayer82.site` herkes için 403 |
-| **FilmModu** | ⚠️ **Kısmi** | Segment CDN origin down (503) | `imgsapi.pro` master OK ama `sx1.canvopics.life` segmentler 503; provider kodu doğru, CDN sahibi down |
-| **SetFilmIzle / HDFilmIzle** | ⚠️ **Kısmi** | FastPlay X-Sp single-use token | Her manifest isteğinde yeni imza gerek; native player'da oynatılamaz |
-| **TurkAnime** | ⚠️ **Kısmi** | Sibnet origin down | `video.sibnet.ru` 400/timeout; embed zinciri bozulmuş |
-| **AnimeciX** | ⚠️ **Kısmi** | Token expiry / CDN block | Token kısa ömürlü; app'te fresh call ile çalışır, test IP'lerinde 404 |
+| **DiziWatch** | ❌ **Çalışmıyor** | Kaynak değişikliği / blok | Aranan bölümler için stream dönmüyor |
+| **DiziBox** | ❌ **Çalışmıyor** | Kaynak değişikliği / blok | Aranan bölümler için stream dönmüyor |
+| **ÇizgiMax** | ❌ **Çalışmıyor** | Sibnet origin down / API değişimi | Sibnet origin 400/timeout dönüyor; alternatif source yok |
+| **SezonlukDizi** | ❌ **Çalışmıyor** | Kaynak değişikliği / blok | Aranan bölümler için stream dönmüyor |
+| **Mahsun Dizi** | ❌ **Çalışmıyor** | Kaynak değişikliği / blok | Aranan bölümler için stream dönmüyor |
+| **JetFilmİzle** | ❌ **Çalışmıyor** | Kaynak değişikliği / blok | Aranan filmler için stream dönmüyor |
+| **DiziPal** | ❌ **Çalışmıyor** | dplayer82.site Cloudflare WAF | Mimari blok; embed host `dplayer82.site` herkes için 403 |
+| **SetFilmIzle** | ❌ **Çalışmıyor** | FastPlay X-Sp single-use token | Native player'da oynatılamıyor |
+| **HDFilmIzle** | ❌ **Çalışmıyor** | FastPlay X-Sp single-use token | Native player'da oynatılamıyor |
 
-> **Not:** Yukarıdaki "Kısmi" sağlayıcıların provider kodları **doğrudur**; sorun dış CDN/API'de. Kaynak sahipleri düzeltilirse tekrar çalışır.
+> **Not:** Bu listedeki provider kodları **doğrudur**; sorun dış CDN/API/kaynakta. Kaynak sahipleri düzelirse tekrar etkinleştirilebilir.
 
 ---
 
@@ -246,7 +238,7 @@ Evet! Anthology %100 açık kaynaklı ve kâr amacı gütmeyen bir topluluk proj
 <details>
 <summary><strong>2. Nuvio mu Stremio mu kullanmalıyım? Aralarındaki fark nedir?</strong></summary>
 <br>
-<p><strong>Nuvio Kullanıcıları:</strong> Anthology'nin tüm özelliklerini sınırsız kullanabilir. 41 adet film, dizi ve anime video scraper motorunun tamamı ile 6 Canlı TV kataloğu ve 100 canlı yayın kanalı Nuvio'da eksiksiz çalışır.</p>
+<p><strong>Nuvio Kullanıcıları:</strong> Anthology'nin tüm özelliklerini sınırsız kullanabilir. 34 adet film, dizi ve anime video scraper motorunun tamamı ile 6 Canlı TV kataloğu ve 100 canlı yayın kanalı Nuvio'da eksiksiz çalışır.</p>
 <p><strong>Stremio Kullanıcıları:</strong> Stremio eklentisi olarak kullanım <strong>yalnızca Canlı TV katalogları (6 vitrin ve 100 kanal)</strong> ile sınırlıdır. Film ve dizi motorları Stremio'da yer almaz. Resmi topluluk dizini için <a href="https://stremio-addons.net/addons/anthology">stremio-addons.net/addons/anthology</a> adresini ziyaret edebilirsiniz.</p>
 </details>
 
