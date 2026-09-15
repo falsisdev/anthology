@@ -12,6 +12,8 @@ Thumbs.db
 bin/
 dist/
 netlify/functions/
+__pycache__/
+*.pyc
 
 # Node
 node_modules/

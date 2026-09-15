@@ -245,29 +245,6 @@ function safeB64Decode(str) {
     return '';
 }
 
-async function resolveHighestVariant(masterUrl, headers) {
-    try {
-        const r = await fetch(masterUrl, { headers: headers || HEADERS });
-        if (!r.ok) return masterUrl;
-        const txt = await r.text();
-        if (!txt.includes('#EXT-X-STREAM-INF')) return masterUrl;
-        const variants = [...txt.matchAll(/#EXT-X-STREAM-INF[^:]*:[^\n]*BANDWIDTH=(\d+)[^\n]*\n([^\n]+)/gi)]
-            .map(function(m) { return { bw: parseInt(m[1]) || 0, url: m[2].trim() }; })
-            .filter(function(v) { return v.url && !v.url.startsWith('#'); });
-        if (variants.length === 0) return masterUrl;
-        variants.sort(function(a,b){ return b.bw - a.bw; });
-        var best = variants[0].url;
-        if (best.startsWith('http')) return best;
-        var base = masterUrl.split('?')[0];
-        base = base.substring(0, base.lastIndexOf('/') + 1);
-        if (best.startsWith('/')) {
-            var origin = masterUrl.match(/^(https?:\/\/[^/]+)/);
-            return (origin ? origin[1] : '') + best;
-        }
-        return base + best;
-    } catch (e) { return masterUrl; }
-}
-
 async function extractMolystreamFromEpisodePage(epUrl) {
     try {
         const epRes = await fetch(epUrl, { headers: HEADERS });
@@ -311,8 +288,13 @@ async function extractMolystreamFromEpisodePage(epUrl) {
                             if (mRes.ok) {
                                 const mHtml = await mRes.text();
                                 const unescapeMatch = mHtml.match(/unescape\(["']([^"']+)/);
-                                if (unescapeMatch) {
-                                    const rawB64 = decodeURIComponent(unescapeMatch[1]);
+                                var rawB64 = '';
+                                try {
+                                    rawB64 = typeof unescape === 'function' ? unescape(unescapeMatch[1]) : decodeURIComponent(unescapeMatch[1]);
+                                } catch (e) {
+                                    try { rawB64 = decodeURIComponent(unescapeMatch[1]); } catch (e2) {}
+                                }
+                                if (rawB64) {
                                     const decoded = safeB64Decode(rawB64);
                                     const vmMatch = decoded.match(/https?:\/\/[^\s"'\\]*vidmoly\.[a-z0-9]+\/embed-[a-zA-Z0-9_-]+\.html/i);
                                     if (vmMatch) {
@@ -326,11 +308,10 @@ async function extractMolystreamFromEpisodePage(epUrl) {
                                                     'User-Agent': HEADERS['User-Agent'],
                                                     'Referer': 'https://vidmoly.biz/'
                                                 };
-                                                var finalVmUrl = await resolveHighestVariant(m3u8Match[1], vmHeaders);
                                                 streams.unshift({
                                                     name: 'DiziBox',
                                                     title: '⌜ DiziBox ⌟ | VidMoly (1080p HLS)',
-                                                    url: finalVmUrl,
+                                                    url: m3u8Match[1],
                                                     quality: '1080p',
                                                     provider: 'dizibox',
                                                     headers: vmHeaders,
@@ -344,32 +325,6 @@ async function extractMolystreamFromEpisodePage(epUrl) {
                                                     }
                                                 });
                                             }
-                                        }
-                                    }
-                                }
-                            }
-                        } catch (e) {}
-                    }
-
-                    // Source B: Haydi player (Odnok / OK.ru)
-                    if (src.includes('haydi.php')) {
-                        try {
-                            const vParam = src.match(/[?&]v=([^&#]+)/);
-                            if (vParam) {
-                                const decodedOkUrl = safeB64Decode(decodeURIComponent(vParam[1]));
-                                if (decodedOkUrl && decodedOkUrl.includes('ok.ru')) {
-                                    const okIdMatch = decodedOkUrl.match(/video(?:embed)?\/(\d+)/);
-                                    if (okIdMatch) {
-                                        const okWorkerUrl = `http://movie.okru.workers.dev/?ID=${okIdMatch[1]}`;
-                                        if (!seenUrls.has(okWorkerUrl)) {
-                                            seenUrls.add(okWorkerUrl);
-                                            streams.push({
-                                                name: 'DiziBox',
-                                                title: '⌜ DiziBox ⌟ | Odnok (1080p Direct)',
-                                                url: okWorkerUrl,
-                                                quality: '1080p',
-                                                provider: 'dizibox'
-                                            });
                                         }
                                     }
                                 }

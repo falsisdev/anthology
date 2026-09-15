@@ -135,18 +135,22 @@ function getStreams(args) {
 
                 if (cId === searchKey || cName === searchKey || (searchKey && (cName.includes(searchKey) || searchKey.includes(cName)))) {
                     var ytMatch = (ch.url || '').match(/(?:watch\?v=|embed\/|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
-                    var streamObj = {
-                        name: '⌜ Anthology Haber ⌟',
-                        title: ch.name + (ytMatch ? ' [Canlı HD · YouTube]' : ' [Canlı HD]'),
-                        url: ch.url,
-                        behaviorHints: { isLive: true }
-                    };
                     if (ytMatch) {
-                        streamObj.ytId = ytMatch[1];
+                        streams.push({
+                            name: '⌜ Anthology Haber ⌟',
+                            title: ch.name + ' [Canlı HD · YouTube]',
+                            ytId: ytMatch[1],
+                            behaviorHints: { isLive: true }
+                        });
                     } else {
-                        streamObj.headers = _HEADERS;
+                        streams.push({
+                            name: '⌜ Anthology Haber ⌟',
+                            title: ch.name + ' [Canlı HD]',
+                            url: ch.url,
+                            headers: _HEADERS,
+                            behaviorHints: { isLive: true }
+                        });
                     }
-                    streams.push(streamObj);
                     break;
                 }
             }

@@ -81,6 +81,27 @@ async function fetchM3U(url) {
     }
 }
 
+const BLOCKED_DOMAINS = [
+    'imagebin.pics',
+    'imagehub.pics',
+    'imagesbox.cloud',
+    'photogrids.site',
+    'picturebox.cloud',
+    'pixtureup.org',
+    'pixypost.art',
+    'pixtures.art',
+    'imglink.info',
+    'imglink.pro'
+];
+
+function isBlockedStream(url) {
+    if (!url) return true;
+    for (var i = 0; i < BLOCKED_DOMAINS.length; i++) {
+        if (url.includes(BLOCKED_DOMAINS[i])) return true;
+    }
+    return false;
+}
+
 async function searchFilmStreams(tmdbId, options = {}) {
     const {
         sourceName = 'Anthology Film',
@@ -128,6 +149,7 @@ async function searchFilmStreams(tmdbId, options = {}) {
                 if (line.startsWith('#EXTINF')) {
                     const nextLine = lines[i + 1] ? lines[i + 1].trim() : '';
                     if (!nextLine.startsWith('http')) continue;
+                    if (isBlockedStream(nextLine)) continue;
                     if (seenUrls.has(nextLine)) continue;
 
                     let authorMatch = line.match(/group-author="([^"]+)"/);
@@ -258,6 +280,7 @@ async function searchDiziStreams(rawId, type, seasonInput, episodeInput, options
                 if (line.startsWith('#EXTINF')) {
                     const nextLine = lines[i + 1] ? lines[i + 1].trim() : '';
                     if (!nextLine.startsWith('http')) continue;
+                    if (isBlockedStream(nextLine)) continue;
                     if (seenUrls.has(nextLine)) continue;
 
                     const cleanLine = ultraClean(line);

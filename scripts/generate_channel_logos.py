@@ -158,7 +158,10 @@ CHANNELS = [
     {
         "name": "TGRT Haber",
         "file": "tgrthaber.png",
-        "url": "https://i.imgur.com/PrxwKDw.png",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/TGRT_Haber_logosu.png",
+        "dark_to_white": True,
+        "max_w": 135,
+        "max_h": 70,
     },
     {
         "name": "Haber Global",
@@ -269,7 +272,10 @@ CHANNELS = [
     {
         "name": "Euro Sport",
         "file": "eurosport.png",
-        "url": "https://i.imgur.com/olQJgm7.png",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Eurosport_Logo_%282011-2015%29.svg",
+        "is_svg": True,
+        "max_w": 150,
+        "max_h": 60,
     },
     {
         "name": "Exxen Spor",
@@ -334,12 +340,156 @@ CHANNELS = [
         "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/TRT_%C3%87ocuk_logo_%282021%29.svg/960px-TRT_%C3%87ocuk_logo_%282021%29.svg.png",
     },
     {
+        "name": "Minika Çocuk",
+        "file": "minikacocuk.png",
+        "local": os.path.join(ROOT_DIR, "scratch", "raw_logos", "minikacocuk.png"),
+        "max_w": 145,
+        "max_h": 68,
+    },
+    {
+        "name": "Minika GO",
+        "file": "minikago.png",
+        "local": os.path.join(ROOT_DIR, "scratch", "raw_logos", "minikago.png"),
+        "max_w": 140,
+        "max_h": 70,
+    },
+    {
+        "name": "TRT EBA",
+        "file": "trteba.png",
+        "local": os.path.join(ROOT_DIR, "scratch", "raw_logos", "trteba.png"),
+        "dark_to_white": True,
+        "max_w": 145,
+        "max_h": 60,
+    },
+    {
+        "name": "TRT EBA İlkokul",
+        "file": "trtebailkokul.png",
+        "local": os.path.join(ROOT_DIR, "scratch", "raw_logos", "trtebailkokul.png"),
+        "dark_to_white": True,
+        "max_w": 145,
+        "max_h": 68,
+    },
+    {
+        "name": "TRT EBA Ortaokul",
+        "file": "trtebaortaokul.png",
+        "local": os.path.join(ROOT_DIR, "scratch", "raw_logos", "trtebaortaokul.png"),
+        "dark_to_white": True,
+        "max_w": 145,
+        "max_h": 68,
+    },
+    {
+        "name": "TRT EBA Lise",
+        "file": "trtebalise.png",
+        "local": os.path.join(ROOT_DIR, "scratch", "raw_logos", "trtebalise.png"),
+        "dark_to_white": True,
+        "max_w": 145,
+        "max_h": 68,
+    },
+    {
+        "name": "Kral Pop TV",
+        "file": "kralpop.png",
+        "local": os.path.join(ROOT_DIR, "scratch", "kralpop_raw.png"),
+        "remove_white_bg": True,
+        "max_w": 155,
+        "max_h": 55,
+    },
+    {
+        "name": "PowerTürk TV",
+        "file": "powerturk.png",
+        "local": os.path.join(ROOT_DIR, "scratch", "raw_logos", "powerturk.png"),
+        "max_w": 150,
+        "max_h": 65,
+    },
+    {
+        "name": "Power TV",
+        "file": "powertv.png",
+        "local": os.path.join(ROOT_DIR, "scratch", "raw_logos", "powertv.png"),
+        "remove_white_bg": True,
+        "max_w": 150,
+        "max_h": 50,
+    },
+    {
+        "name": "Number 1 TV",
+        "file": "number1.png",
+        "local": os.path.join(ROOT_DIR, "scratch", "raw_logos", "number1.png"),
+        "max_w": 135,
+        "max_h": 75,
+    },
+    {
         "name": "TRT Müzik",
         "file": "trtmuzik.png",
         "url": "https://upload.wikimedia.org/wikipedia/commons/f/f2/TRT_M%C3%BCzik_logo.svg",
         "is_svg": True,
         "max_w": 160,
         "max_h": 52,
+    },
+    {
+        "name": "Power Dance",
+        "file": "powerdance.png",
+        "local": os.path.join(ROOT_DIR, "assets", "canli", "powerdance.png"),
+        "already_composited": True,
+    },
+    {
+        "name": "Power Love",
+        "file": "powerlove.png",
+        "local": os.path.join(ROOT_DIR, "assets", "canli", "powerlove.png"),
+        "already_composited": True,
+    },
+
+    # --- Ek Ulusal / Haber Kanalları ---
+    {
+        "name": "TRT World",
+        "file": "trtworld.png",
+        "local": os.path.join(ROOT_DIR, "scratch", "raw_logos", "trtworld.png"),
+        "max_w": 145,
+        "max_h": 60,
+    },
+    {
+        "name": "TRT Kurdî",
+        "file": "trtkurdi.png",
+        "local": os.path.join(ROOT_DIR, "scratch", "raw_logos", "trtkurdi.png"),
+        "max_w": 145,
+        "max_h": 60,
+    },
+    {
+        "name": "TRT Arabi",
+        "file": "trtarabi.png",
+        "local": os.path.join(ROOT_DIR, "scratch", "raw_logos", "trtarabi.png"),
+        "max_w": 145,
+        "max_h": 60,
+    },
+    {
+        "name": "TV100",
+        "file": "tv100.png",
+        "url": "https://s.tv100.com/assets/web/images/logo.svg",
+        "is_svg": True,
+        "svg_recolor": [("#262626", "#ffffff")],
+        "max_w": 150,
+        "max_h": 60,
+    },
+    {
+        "name": "TVNET",
+        "file": "tvnet.png",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Tvnet_logo_%282022%29.svg",
+        "is_svg": True,
+        "max_w": 85,
+        "max_h": 85,
+    },
+    {
+        "name": "Ülke TV",
+        "file": "ulketv.png",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/%C3%9Clke_TV_logo.svg",
+        "is_svg": True,
+        "svg_recolor": [("#343433", "#ffffff")],
+        "max_w": 150,
+        "max_h": 50,
+    },
+    {
+        "name": "Ekotürk",
+        "file": "ekoturk.png",
+        "url": "https://www.ekoturk.com/wp-content/themes/eko-news/images/ekoturk-logo-v2.png",
+        "max_w": 155,
+        "max_h": 50,
     },
 
     # --- Anthology Default Fallback ---
@@ -372,7 +522,7 @@ def render_svg_resvg(svg_string, width=800):
 def remove_white_background(im, threshold=240):
     """Converts white or near-white background to transparent."""
     im = im.convert("RGBA")
-    data = im.getdata()
+    data = list(im.getdata())
     new_data = []
     for item in data:
         r, g, b, a = item
@@ -404,47 +554,63 @@ def remove_black_background(im, low_thresh=25, high_thresh=55):
     im.putdata(new_data)
     return im
 
+def dark_to_white(im, threshold=45):
+    """Converts dark / black text pixels to pure white while preserving alpha."""
+    im = im.convert("RGBA")
+    data = list(im.getdata())
+    new_data = []
+    for r, g, b, a in data:
+        if a > 30 and r < threshold and g < threshold and b < threshold:
+            new_data.append((255, 255, 255, a))
+        else:
+            new_data.append((r, g, b, a))
+    im.putdata(new_data)
+    return im
+
 def fetch_image(item):
     """Retrieves and prepares the logo Image object for an item."""
-    if "local" in item:
+    if item.get("already_composited"):
         return Image.open(item["local"]).convert("RGBA")
 
-    url = item["url"]
-    headers = {"User-Agent": USER_AGENT}
-    req = urllib.request.Request(url, headers=headers)
-    with urllib.request.urlopen(req, timeout=15) as resp:
-        content = resp.read()
+    if "local" in item:
+        im = Image.open(item["local"]).convert("RGBA")
+    else:
+        url = item["url"]
+        headers = {"User-Agent": USER_AGENT}
+        req = urllib.request.Request(url, headers=headers)
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            content = resp.read()
 
-    if item.get("is_svg") or url.endswith(".svg"):
-        svg_text = content.decode("utf-8")
-        if item.get("svg_remove_regex"):
-            svg_text = re.sub(item["svg_remove_regex"], "", svg_text)
-        if item.get("svg_recolor"):
-            for old_pat, new_pat in item["svg_recolor"]:
-                svg_text = svg_text.replace(old_pat, new_pat)
-        
-        im = render_svg_resvg(svg_text, width=800)
-        
-        if item.get("stack_h_split"):
-            split_x = item["stack_h_split"]
-            gap = item.get("gap", 10)
+        if item.get("is_svg") or url.endswith(".svg"):
+            svg_text = content.decode("utf-8")
+            if item.get("svg_remove_regex"):
+                svg_text = re.sub(item["svg_remove_regex"], "", svg_text)
+            if item.get("svg_recolor"):
+                for old_pat, new_pat in item["svg_recolor"]:
+                    svg_text = svg_text.replace(old_pat, new_pat)
             
-            im_left = im.crop((0, 0, split_x, im.height))
-            left_part = im_left.crop(im_left.getbbox()) if im_left.getbbox() else im_left
+            im = render_svg_resvg(svg_text, width=800)
             
-            im_right = im.crop((split_x, 0, im.width, im.height))
-            right_part = im_right.crop(im_right.getbbox()) if im_right.getbbox() else im_right
+            if item.get("stack_h_split"):
+                split_x = item["stack_h_split"]
+                gap = item.get("gap", 10)
+                
+                im_left = im.crop((0, 0, split_x, im.height))
+                left_part = im_left.crop(im_left.getbbox()) if im_left.getbbox() else im_left
+                
+                im_right = im.crop((split_x, 0, im.width, im.height))
+                right_part = im_right.crop(im_right.getbbox()) if im_right.getbbox() else im_right
+                
+                sw = max(left_part.width, right_part.width)
+                sh = left_part.height + gap + right_part.height
+                stacked = Image.new("RGBA", (sw, sh), (0, 0, 0, 0))
+                stacked.paste(left_part, ((sw - left_part.width) // 2, 0), left_part)
+                stacked.paste(right_part, ((sw - right_part.width) // 2, left_part.height + gap), right_part)
+                return stacked
             
-            sw = max(left_part.width, right_part.width)
-            sh = left_part.height + gap + right_part.height
-            stacked = Image.new("RGBA", (sw, sh), (0, 0, 0, 0))
-            stacked.paste(left_part, ((sw - left_part.width) // 2, 0), left_part)
-            stacked.paste(right_part, ((sw - right_part.width) // 2, left_part.height + gap), right_part)
-            return stacked
-        
-        return im
+            return im
 
-    im = Image.open(io.BytesIO(content)).convert("RGBA")
+        im = Image.open(io.BytesIO(content)).convert("RGBA")
     
     if item.get("crop_bbox"):
         im = im.crop(item["crop_bbox"])
@@ -453,6 +619,9 @@ def fetch_image(item):
         im = remove_white_background(im)
     elif item.get("remove_black_bg"):
         im = remove_black_background(im)
+    
+    if item.get("dark_to_white"):
+        im = dark_to_white(im)
         
     return im
 
