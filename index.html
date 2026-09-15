@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Anthology — Nuvio &amp; Stremio Türkçe Eklenti Deposu</title>
   <meta name="description"
-    content="Anthology — Nuvio ve Stremio için 41 doğrulanmış Türkçe film, dizi, anime, canlı TV eklentisi ve 100 canlı yayın kanalı.">
+    content="Anthology — Nuvio ve Stremio için 34 doğrulanmış Türkçe film, dizi, anime, canlı TV eklentisi ve 100 canlı yayın kanalı.">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <style>
     :root {
@@ -960,6 +960,48 @@
       gap: 16px;
     }
 
+    /* BROKEN PROVIDERS */
+    .broken-providers {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    .broken-provider {
+      background: rgba(248, 113, 113, 0.05);
+      border: 1px solid rgba(248, 113, 113, 0.18);
+      border-radius: var(--radius-md);
+      padding: 16px 18px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .broken-provider:hover {
+      border-color: rgba(248, 113, 113, 0.4);
+      background: rgba(248, 113, 113, 0.08);
+    }
+
+    .broken-name {
+      font-weight: 700;
+      font-size: 15px;
+      color: #f87171;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .broken-name::before {
+      content: "✕";
+      font-size: 12px;
+      color: rgba(248, 113, 113, 0.8);
+    }
+
+    .broken-reason {
+      font-size: 12.5px;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
     .provider-card {
       background: var(--surface-card);
       border: 1px solid var(--border);
@@ -978,6 +1020,16 @@
       transform: translateY(-2px);
       background: var(--surface2);
       box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    .provider-card-broken {
+      opacity: 0.55;
+      filter: grayscale(0.6);
+    }
+
+    .provider-card-broken:hover {
+      opacity: 0.85;
+      filter: grayscale(0.3);
     }
 
     .provider-logo-wrap {
@@ -1096,6 +1148,12 @@
       background: var(--cyan-dim);
       color: var(--cyan);
       border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    .tag-broken {
+      background: rgba(248, 113, 113, 0.14);
+      color: #f87171;
+      border: 1px solid rgba(248, 113, 113, 0.3);
     }
 
     /* CHANNELS SHOWCASE */
@@ -1444,7 +1502,7 @@
       </a>
       <div class="nav-links">
         <a href="#install">Kurulum</a>
-        <a href="#providers">Eklentiler (41)</a>
+        <a href="#providers">Eklentiler</a>
         <a href="#live">Canlı TV (100)</a>
         <a href="#faq">SSS</a>
         <a href="https://github.com/falsisdev/anthology" target="_blank" rel="noopener">GitHub</a>
@@ -1469,7 +1527,7 @@
   <!-- MOBILE NAVIGATION DRAWER -->
   <div class="mobile-nav-panel" id="mobileNavPanel">
     <a href="#install" onclick="toggleMobileNav()">📲 Kurulum Rehberi</a>
-    <a href="#providers" onclick="toggleMobileNav()">🎬 Eklentiler (41 Aktif)</a>
+    <a href="#providers" onclick="toggleMobileNav()">🎬 Eklentiler</a>
     <a href="#live" onclick="toggleMobileNav()">📺 Canlı TV (100 Kanal)</a>
     <a href="#faq" onclick="toggleMobileNav()">❓ Sıkça Sorulan Sorular</a>
     <a href="https://github.com/falsisdev/anthology" target="_blank" rel="noopener">⭐️ GitHub'da Görüntüle</a>
@@ -1481,7 +1539,7 @@
       <div class="hero-badge-wrap">
         <div class="hero-badge">
           <span class="pulse-dot"></span>
-          <span>41 Doğrulanmış Eklenti · 6 Canlı TV Kataloğu · 100 Canlı Kanal</span>
+          <span>34 Doğrulanmış Eklenti · 6 Canlı TV Kataloğu · 100 Canlı Kanal</span>
         </div>
       </div>
 
@@ -1531,7 +1589,7 @@
       <!-- STATS -->
       <div class="stats-container">
         <div class="stat-box">
-          <div class="stat-number">41</div>
+          <div class="stat-number">34</div>
           <div class="stat-label">Doğrulanmış Eklenti</div>
         </div>
         <div class="stat-box">
@@ -1567,7 +1625,7 @@
             <span class="status-indicator-green"></span>
             <strong>🌟 Nuvio — Tüm Özellikler Sorunsuz &amp; Eksiksiz</strong>
           </div>
-          <p>Nuvio kullanıcıları, Anthology deposundaki <strong>41 doğrulanmış video motorunun</strong> (film, dizi,
+          <p>Nuvio kullanıcıları, Anthology deposundaki <strong>34 doğrulanmış video motorunun</strong> (film, dizi,
             anime, özel tür paketleri) yanı sıra <strong>6 Canlı TV kataloğunu ve 100 canlı yayın kanalını</strong>
             hiçbir kısıtlama olmadan tek çatı altında eksiksiz kullanabilir.</p>
         </div>
@@ -1603,7 +1661,7 @@
               <div class="step-badge badge-nuvio">1. ADIM · ZORUNLU (VİDEO MOTORU)</div>
               <h3>Video Scraper Motorunu Ekleyin</h3>
               <p class="install-card-desc">
-                Bir film, dizi veya anime açtığınızda arka planda çalışan 41 Türkçe/yabancı video oynatma motorunu
+                Bir film, dizi veya anime açtığınızda arka planda çalışan 34 Türkçe/yabancı video oynatma motorunu
                 Nuvio'ya yükler.
               </p>
               <div class="route-pill">
@@ -1759,7 +1817,7 @@
     <div class="container">
       <div class="section-header">
         <div class="section-eyebrow">Doğrulanmış Kaynaklar</div>
-        <h2 class="section-title">Eklentiler (41 Aktif)</h2>
+        <h2 class="section-title">Eklentiler</h2>
         <p class="section-desc">
           Sadece gerçek, yüksek hızlı ve doğrudan çalışan HLS/MP4 akışları üreten resmi ve topluluk eklentileri.
         </p>
@@ -1805,11 +1863,62 @@
       </div>
 
       <div class="results-count-bar">
-        <span id="providerResultsText">41 eklentinin tümü listeleniyor</span>
+        <span id="providerResultsText">Eklentiler listeleniyor</span>
       </div>
 
       <!-- GRID -->
       <div class="providers-grid" id="providerGrid"></div>
+    </div>
+  </section>
+
+  <!-- BROKEN PROVIDERS SECTION -->
+  <section id="broken">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Kullanım Dışı</div>
+        <h2 class="section-title">Çalışmayan Sağlayıcılar</h2>
+        <p class="section-desc">
+          Kaynak/CDN/API değişiklikleri nedeniyle şu anda çalışmayan eklentiler. Kodları arşivlidir; kaynak düzelirse yeniden etkinleştirilir.
+        </p>
+      </div>
+      <div class="broken-providers">
+        <div class="broken-provider">
+          <div class="broken-name">DiziWatch</div>
+          <div class="broken-reason">Kaynak değişikliği / blok — aranan bölümler için stream dönmüyor</div>
+        </div>
+        <div class="broken-provider">
+          <div class="broken-name">DiziBox</div>
+          <div class="broken-reason">Kaynak değişikliği / blok — aranan bölümler için stream dönmüyor</div>
+        </div>
+        <div class="broken-provider">
+          <div class="broken-name">ÇizgiMax</div>
+          <div class="broken-reason">Sibnet origin 400/timeout — alternatif kaynak yok</div>
+        </div>
+        <div class="broken-provider">
+          <div class="broken-name">SezonlukDizi</div>
+          <div class="broken-reason">Kaynak değişikliği / blok — aranan bölümler için stream dönmüyor</div>
+        </div>
+        <div class="broken-provider">
+          <div class="broken-name">Mahsun Dizi</div>
+          <div class="broken-reason">Kaynak değişikliği / blok — aranan bölümler için stream dönmüyor</div>
+        </div>
+        <div class="broken-provider">
+          <div class="broken-name">JetFilmİzle</div>
+          <div class="broken-reason">Kaynak değişikliği / blok — aranan filmler için stream dönmüyor</div>
+        </div>
+        <div class="broken-provider">
+          <div class="broken-name">DiziPal</div>
+          <div class="broken-reason">dplayer82.site Cloudflare WAF — mimari blok (herkes için 403)</div>
+        </div>
+        <div class="broken-provider">
+          <div class="broken-name">SetFilmIzle</div>
+          <div class="broken-reason">FastPlay X-Sp single-use token — native player'da oynatılamıyor</div>
+        </div>
+        <div class="broken-provider">
+          <div class="broken-name">HDFilmIzle</div>
+          <div class="broken-reason">FastPlay X-Sp single-use token — native player'da oynatılamıyor</div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1986,7 +2095,7 @@
 
       <div class="footer-nav">
         <a href="#install">Kurulum</a>
-        <a href="#providers">Eklentiler (41)</a>
+        <a href="#providers">Eklentiler</a>
         <a href="#live">Canlı TV (100)</a>
         <a href="https://github.com/falsisdev/anthology" target="_blank" rel="noopener">GitHub Deposu</a>
         <a href="https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json" target="_blank"
@@ -2020,45 +2129,47 @@
     const PROVIDERS = [
       { id: "AnthologyFilmM3U", name: "Anthology Film (M3U)", cats: ["movie", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS", desc: "On binlerce yerli ve yabancı film arşivi (Lunedor, Zerk, PowerBoard altyapısı)." },
       { id: "AnthologyDiziM3U", name: "Anthology Dizi (M3U)", cats: ["tv", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p MP4 / HLS", desc: "On binlerce yerli ve yabancı dizi bölümü (Zerk, PowerBoard altyapısı)." },
-      { id: "sinewix", name: "SineWix", cats: ["movie", "tv"], domain: "sinewix.com", logo: null, format: "1080p MKV Çift Ses", desc: "5000+ HD film, dizi ve anime — 1080p çift ses doğrudan MKV akışları." },
-      { id: "vidlink", name: "Vidlink", cats: ["movie", "tv"], domain: "vidlink.pro", logo: null, format: "4K / 1080p MP4", desc: "TMDB tabanlı global 4K/1080p doğrudan HLS ve MP4 akışları." },
+      { id: "sinewix", name: "SineWix", cats: ["movie", "tv"], domain: "sinewix.com", logo: "assets/logo_1_transparent.png", format: "1080p MKV Çift Ses", desc: "5000+ HD film, dizi ve anime — 1080p çift ses doğrudan MKV akışları." },
+      { id: "vidlink", name: "Vidlink", cats: ["movie", "tv"], domain: "vidlink.pro", logo: "assets/logo_1_transparent.png", format: "4K / 1080p MP4", desc: "TMDB tabanlı global 4K/1080p doğrudan HLS ve MP4 akışları." },
       { id: "m3u.anthology.addon", name: "Anthology Canlı TV", cats: ["live"], domain: null, logo: "assets/logo_1_transparent.png", format: "100 Kanal M3U", desc: "100 canlı TV kanalı, spor, ulusal, haber ve belgesel M3U kataloğu (resmi CDN)." },
-      { id: "filmmodu", name: "FilmModu", cats: ["movie"], domain: "filmmodu.one", logo: null, format: "4K / 1080p HLS", desc: "Türkçe dublaj ve altyazılı 4K/1080p Full HD ImgsAPI doğrudan HLS akışları." },
-      { id: "dizipal", name: "DiziPal", cats: ["movie", "tv"], domain: "dizipal2131.com", logo: null, format: "1080p HLS", desc: "Popüler yerli ve yabancı dizi/filmler (Imagestoo & FormationFeed HLS altyapısı)." },
-      { id: "sezonlukdizi", name: "SezonlukDizi", cats: ["tv"], domain: "sezonlukdizi.cc", logo: null, format: "1080p HLS", desc: "VidMoly altyapısıyla Türkçe dublaj ve altyazılı geniş yabancı dizi arşivi." },
-      { id: "diziyou", name: "DiziYou", cats: ["tv"], domain: "diziyou.one", logo: null, format: "1080p HLS + VTT", desc: "DiziYou doğrudan depolama akışları ve Türkçe VTT altyazı desteği." },
-      { id: "sinemacx", name: "SinemaCX", cats: ["movie"], domain: "sinema.gg", logo: null, format: "1080p HLS Master", desc: "Sinema.gg ve Filmizle API üzerinden doğrudan 1080p master HLS akışları." },
-      { id: "jetfilmizle", name: "JetFilmİzle", cats: ["movie"], domain: "jetfilmizle.now", logo: null, format: "1080p MP4 / HLS", desc: "Videopark Google Drive doğrudan MP4 ve PlayerX çok dilli HLS master akışları." },
-      { id: "animecix", name: "AnimeciX", cats: ["anime", "tv", "movie"], domain: "animecix.tv", logo: null, format: "1080p / 720p MP4", desc: "TauVideo altyapısıyla binlerce anime bölümü (1080p, 720p, 480p doğrudan MP4)." },
-      { id: "cizgimax", name: "ÇizgiMax", cats: ["anime", "tv", "movie"], domain: "cizgimax.online", logo: null, format: "1080p Direct MP4", desc: "Çizgi diziler, animeler ve animasyon yapımları (TauVideo & Sibnet doğrudan MP4)." },
-      { id: "turkanime", name: "TurkAnime", cats: ["anime", "tv", "movie"], domain: "turkanime.tv", logo: null, format: "1080p MP4 / HLS", desc: "Türkiye'nin en geniş anime arşivi — Sibnet 1080p MP4 ve ArtPlayer HLS akışları." },
-      { id: "anthology_spor", name: "Anthology Canlı Spor", cats: ["live"], domain: null, logo: "assets/canli/aspor.png", format: "49 Canlı Kanal", desc: "BeIN Sports 1-5, S Sport 1-2, Tivibu Spor, Exxen Spor ve 49 canlı spor kanalı." },
-      { id: "anthology_haber", name: "Anthology Canlı Haber", cats: ["live"], domain: null, logo: "assets/canli/ntv.png", format: "18 Canlı Kanal", desc: "NTV, Habertürk, TRT Haber, A Haber, CNN Türk, Sözcü TV ve 18 canlı haber kanalı." },
-      { id: "anthology_ulusal", name: "Anthology Ulusal Kanallar", cats: ["live"], domain: null, logo: "assets/canli/trt1.png", format: "19 Canlı Kanal", desc: "TRT 1, ATV, Kanal D, Show TV, Star TV, NOW TV, TV8 ve 19 ulusal televizyon kanalı." },
-      { id: "anthology_belgesel_cocuk", name: "Anthology Belgesel & Çocuk", cats: ["live"], domain: null, logo: "assets/canli/trtcocuk.png", format: "7 Canlı Kanal", desc: "TRT Belgesel, Minika Çocuk, Minika GO, TRT Çocuk ve TRT EBA canlı yayınları." },
-      { id: "anthology_muzik", name: "Anthology Müzik & Eğlence", cats: ["live"], domain: null, logo: "assets/canli/kralpop.png", format: "7 Canlı Kanal", desc: "Kral Pop TV, Power TV, PowerTürk TV, Number 1 TV ve canlı müzik kanalları." },
+      { id: "filmmodu", name: "FilmModu", cats: ["movie"], domain: "filmmodu.one", logo: "assets/logo_1_transparent.png", format: "4K / 1080p HLS", desc: "Türkçe dublaj ve altyazılı 4K/1080p Full HD ImgsAPI doğrudan HLS akışları." },
+      { id: "dizipal", name: "DiziPal", cats: ["movie", "tv"], domain: "dizipal2131.com", logo: "assets/logo_1_transparent.png", format: "1080p HLS", desc: "Popüler yerli ve yabancı dizi/filmler (Imagestoo & FormationFeed HLS altyapısı).", broken: true },
+      { id: "sezonlukdizi", name: "SezonlukDizi", cats: ["tv"], domain: "sezonlukdizi.cc", logo: "assets/logo_1_transparent.png", format: "1080p HLS", desc: "VidMoly altyapısıyla Türkçe dublaj ve altyazılı geniş yabancı dizi arşivi.", broken: true },
+      { id: "diziyou", name: "DiziYou", cats: ["tv"], domain: "diziyou.one", logo: "assets/logo_1_transparent.png", format: "1080p HLS + VTT", desc: "DiziYou doğrudan depolama akışları ve Türkçe VTT altyazı desteği." },
+      { id: "sinemacx", name: "SinemaCX", cats: ["movie"], domain: "sinema.gg", logo: "assets/logo_1_transparent.png", format: "1080p HLS Master", desc: "Sinema.gg ve Filmizle API üzerinden doğrudan 1080p master HLS akışları." },
+      { id: "jetfilmizle", name: "JetFilmİzle", cats: ["movie"], domain: "jetfilmizle.now", logo: "assets/logo_1_transparent.png", format: "1080p MP4 / HLS", desc: "Videopark Google Drive doğrudan MP4 ve PlayerX çok dilli HLS master akışları.", broken: true },
+      { id: "animecix", name: "AnimeciX", cats: ["anime", "tv", "movie"], domain: "animecix.tv", logo: "assets/logo_1_transparent.png", format: "1080p / 720p MP4", desc: "TauVideo altyapısıyla binlerce anime bölümü (1080p, 720p, 480p doğrudan MP4)." },
+      { id: "cizgimax", name: "ÇizgiMax", cats: ["anime", "tv", "movie"], domain: "cizgimax.online", logo: "assets/logo_1_transparent.png", format: "1080p Direct MP4", desc: "Çizgi diziler, animeler ve animasyon yapımları (TauVideo & Sibnet doğrudan MP4).", broken: true },
+      { id: "turkanime", name: "TurkAnime", cats: ["anime", "tv", "movie"], domain: "turkanime.tv", logo: "assets/logo_1_transparent.png", format: "1080p MP4 / HLS", desc: "Türkiye'nin en geniş anime arşivi — Sibnet 1080p MP4 ve ArtPlayer HLS akışları." },
+      { id: "anthology_spor", name: "Anthology Canlı Spor", cats: ["live"], domain: null, logo: "assets/logo_1_transparent.png", format: "49 Canlı Kanal", desc: "BeIN Sports 1-5, S Sport 1-2, Tivibu Spor, Exxen Spor ve 49 canlı spor kanalı." },
+      { id: "anthology_haber", name: "Anthology Canlı Haber", cats: ["live"], domain: null, logo: "assets/logo_1_transparent.png", format: "18 Canlı Kanal", desc: "NTV, Habertürk, TRT Haber, A Haber, CNN Türk, Sözcü TV ve 18 canlı haber kanalı." },
+      { id: "anthology_ulusal", name: "Anthology Ulusal Kanallar", cats: ["live"], domain: null, logo: "assets/logo_1_transparent.png", format: "19 Canlı Kanal", desc: "TRT 1, ATV, Kanal D, Show TV, Star TV, NOW TV, TV8 ve 19 ulusal televizyon kanalı." },
+      { id: "anthology_belgesel_cocuk", name: "Anthology Belgesel & Çocuk", cats: ["live"], domain: null, logo: "assets/logo_1_transparent.png", format: "7 Canlı Kanal", desc: "TRT Belgesel, Minika Çocuk, Minika GO, TRT Çocuk ve TRT EBA canlı yayınları." },
+      { id: "anthology_muzik", name: "Anthology Müzik & Eğlence", cats: ["live"], domain: null, logo: "assets/logo_1_transparent.png", format: "7 Canlı Kanal", desc: "Kral Pop TV, Power TV, PowerTürk TV, Number 1 TV ve canlı müzik kanalları." },
       { id: "anthology_aksiyon", name: "Anthology Aksiyon & Macera", cats: ["movie", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS", desc: "Aksiyon, macera, suç ve gerilim sineması doğrudan HD HLS akışları." },
       { id: "anthology_bilimkurgu", name: "Anthology Bilim Kurgu", cats: ["movie", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS", desc: "Bilim kurgu, fantastik ve uzay sineması doğrudan HD HLS akışları." },
       { id: "anthology_korku", name: "Anthology Korku & Gerilim", cats: ["movie", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS", desc: "Korku, gerilim, gizem ve doğaüstü sineması doğrudan HD HLS akışları." },
       { id: "anthology_komedi", name: "Anthology Komedi", cats: ["movie", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS", desc: "Yerli ve yabancı komedi filmleri için doğrudan HD HLS akışları." },
       { id: "anthology_animasyon", name: "Anthology Animasyon", cats: ["movie", "anime", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS", desc: "Animasyon, anime ve çizgi sinema doğrudan HD HLS akışları." },
       { id: "anthology_yerlifilm", name: "Anthology Yerli Film & Yeşilçam", cats: ["movie", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS / MP4", desc: "Klasik Yeşilçam, Türk sineması ve yerli başyapıtlar doğrudan HD HLS akışları." },
-      { id: "anthology_belgesel", name: "Anthology Belgesel & Doğa", cats: ["movie", "tv", "genre"], domain: null, logo: "assets/canli/trtbelgesel.png", format: "1080p HLS", desc: "Belgeseller, doğa, bilim ve tarih yapımları doğrudan HD HLS akışları." },
-      { id: "anthology_cocuk", name: "Anthology Çocuk & Aile", cats: ["movie", "tv", "genre"], domain: null, logo: "assets/canli/trtcocuk.png", format: "1080p HLS", desc: "Çocuk filmleri, çizgi diziler ve aile sineması doğrudan HD HLS akışları." },
+      { id: "anthology_belgesel", name: "Anthology Belgesel & Doğa", cats: ["movie", "tv", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS", desc: "Belgeseller, doğa, bilim ve tarih yapımları doğrudan HD HLS akışları." },
+      { id: "anthology_cocuk", name: "Anthology Çocuk & Aile", cats: ["movie", "tv", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS", desc: "Çocuk filmleri, çizgi diziler ve aile sineması doğrudan HD HLS akışları." },
       { id: "anthology_toprated", name: "Anthology IMDb Top Rated", cats: ["movie", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS Master", desc: "IMDb'nin en yüksek puanlı kült ve başyapıt filmleri doğrudan HD HLS akışları." },
       { id: "anthology_yerlidizi", name: "Anthology Yerli Dizi", cats: ["tv", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p MP4 / HLS", desc: "Yerli diziler, Türk televizyon arşivi ve güncel Türk dizileri doğrudan MP4/HLS akışları." },
       { id: "anthology_yabancidizi", name: "Anthology Yabancı Dizi", cats: ["tv", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS Master", desc: "Yabancı popüler diziler için doğrudan HD HLS master akışları." },
-      { id: "ddizi", name: "DDizi", cats: ["tv"], domain: "ddizi.im", logo: null, format: "1080p MP4 / HLS", desc: "Yerli dizi arşivi, güncel bölümler kataloğu ve doğrudan Ciner/Yandex CDN akışları." },
-      { id: "dizibox", name: "DiziBox", cats: ["tv"], domain: "dizibox.live", logo: null, format: "1080p HLS Master", desc: "Popüler yabancı diziler arşivi, güncel bölümler ve doğrudan 1080p Molystream akışları." },
-      { id: "dizimom", name: "DiziMom", cats: ["tv"], domain: "dizimom.diy", logo: null, format: "1080p HLS Master", desc: "Popüler yabancı diziler arşivi, güncel bölümler ve doğrudan 1080p Fire HLS akışları." },
-      { id: "vidmody", name: "Vidmody", cats: ["movie", "tv"], domain: "vidmody.com", logo: null, format: "1080p HLS Çift Ses", desc: "Doğrudan çoklu dil ve altyazı destekli HLS film ve dizi akış sağlayıcısı." },
-      { id: "webteizle", name: "Webteİzle", cats: ["movie"], domain: "webteizle.info", logo: null, format: "1080p VidMoly HLS", desc: "Webteİzle arşivi üzerinden Türkçe Dublaj ve Altyazılı VidMoly 1080p master HLS akışları." },
-      { id: "yabancidizi", name: "YabancıDizi", cats: ["tv"], domain: "yabancidizi.news", logo: null, format: "1080p VidMoly HLS", desc: "YabancıDizi arşivi üzerinden Türkçe Dublaj ve Altyazılı VidMoly 1080p master HLS akışları." },
-      { id: "setfilmizle", name: "SetFilmIzle", cats: ["movie", "tv"], domain: "setfilmizle.ltd", logo: null, format: "1080p FastPlay HLS", desc: "SetFilmIzle arşivi üzerinden FastPlay 1080p HLS master akışları ve TR/EN altyazılar." },
-      { id: "kultfilmler", name: "KultFilmler", cats: ["movie"], domain: "kultfilmler.net", logo: null, format: "1080p VidMoly HLS", desc: "KultFilmler arşivi üzerinden VidMoly/Vidpapi 1080p HLS akışları." },
-      { id: "hdfilmdelisi", name: "HDFilmDelisi", cats: ["movie"], domain: "hdfilmdelisi.org", logo: null, format: "1080p VidMody HLS", desc: "HDFilmDelisi JSON API arşivi üzerinden VidMody 1080p HLS akışları." },
-      { id: "hdfilmizle", name: "HDFilmIzle", cats: ["movie"], domain: "hdfilmizle.ink", logo: null, format: "1080p FastPlay HLS", desc: "HDFilmIzle arşivi üzerinden FastPlay 1080p HLS master akışları ve TR/EN altyazılar." },
-      { id: "mahsundizi", name: "Mahsun Dizi", cats: ["tv", "movie"], domain: "mahsundizi8.com", logo: null, format: "1080p BEPLAYER+ HLS", desc: "Mahsun Dizi arşivi ve dosyaload BEPLAYER+ üzerinden 1080p HLS akışları ve altyazılar." }
+      { id: "ddizi", name: "DDizi", cats: ["tv"], domain: "ddizi.im", logo: "assets/logo_1_transparent.png", format: "1080p MP4 / HLS", desc: "Yerli dizi arşivi, güncel bölümler kataloğu ve doğrudan Ciner/Yandex CDN akışları." },
+      { id: "dizibox", name: "DiziBox", cats: ["tv"], domain: "dizibox.live", logo: "assets/logo_1_transparent.png", format: "1080p HLS Master", desc: "Popüler yabancı diziler arşivi, güncel bölümler ve doğrudan 1080p Molystream akışları.", broken: true },
+      { id: "diziwatch", name: "DiziWatch", cats: ["tv"], domain: "diziwatch.live", logo: "assets/logo_1_transparent.png", format: "1080p HLS", desc: "Popüler yabancı diziler arşivi ve doğrudan 1080p HLS akışları.", broken: true },
+      { id: "dizibak", name: "DiziBak", cats: ["tv"], domain: "dizibak.com", logo: "assets/logo_1_transparent.png", format: "1080p HLS", desc: "Yerli ve yabancı dizi arşivi, doğrudan depolama HLS akışları." },
+      { id: "dizimom", name: "DiziMom", cats: ["tv"], domain: "dizimom.diy", logo: "assets/logo_1_transparent.png", format: "1080p HLS Master", desc: "Popüler yabancı diziler arşivi, güncel bölümler ve doğrudan 1080p Fire HLS akışları." },
+      { id: "vidmody", name: "Vidmody", cats: ["movie", "tv"], domain: "vidmody.com", logo: "assets/logo_1_transparent.png", format: "1080p HLS Çift Ses", desc: "Doğrudan çoklu dil ve altyazı destekli HLS film ve dizi akış sağlayıcısı." },
+      { id: "webteizle", name: "Webteİzle", cats: ["movie"], domain: "webteizle.info", logo: "assets/logo_1_transparent.png", format: "1080p VidMoly HLS", desc: "Webteİzle arşivi üzerinden Türkçe Dublaj ve Altyazılı VidMoly 1080p master HLS akışları." },
+      { id: "yabancidizi", name: "YabancıDizi", cats: ["tv"], domain: "yabancidizi.news", logo: "assets/logo_1_transparent.png", format: "1080p VidMoly HLS", desc: "YabancıDizi arşivi üzerinden Türkçe Dublaj ve Altyazılı VidMoly 1080p master HLS akışları." },
+      { id: "setfilmizle", name: "SetFilmIzle", cats: ["movie", "tv"], domain: "setfilmizle.ltd", logo: "assets/logo_1_transparent.png", format: "1080p FastPlay HLS", desc: "SetFilmIzle arşivi üzerinden FastPlay 1080p HLS master akışları ve TR/EN altyazılar.", broken: true },
+      { id: "kultfilmler", name: "KultFilmler", cats: ["movie"], domain: "kultfilmler.net", logo: "assets/logo_1_transparent.png", format: "1080p VidMoly HLS", desc: "KultFilmler arşivi üzerinden VidMoly/Vidpapi 1080p HLS akışları." },
+      { id: "hdfilmdelisi", name: "HDFilmDelisi", cats: ["movie"], domain: "hdfilmdelisi.org", logo: "assets/logo_1_transparent.png", format: "1080p VidMody HLS", desc: "HDFilmDelisi JSON API arşivi üzerinden VidMody 1080p HLS akışları." },
+      { id: "hdfilmizle", name: "HDFilmIzle", cats: ["movie"], domain: "hdfilmizle.ink", logo: "assets/logo_1_transparent.png", format: "1080p FastPlay HLS", desc: "HDFilmIzle arşivi üzerinden FastPlay 1080p HLS master akışları ve TR/EN altyazılar.", broken: true },
+      { id: "mahsundizi", name: "Mahsun Dizi", cats: ["tv", "movie"], domain: "mahsundizi8.com", logo: "assets/logo_1_transparent.png", format: "1080p BEPLAYER+ HLS", desc: "Mahsun Dizi arşivi ve dosyaload BEPLAYER+ üzerinden 1080p HLS akışları ve altyazılar.", broken: true }
     ];
 
     /* 100 LIVE CHANNELS */
@@ -2088,13 +2199,15 @@
         matches++;
 
         const card = document.createElement("div");
-        card.className = "provider-card";
+        card.className = "provider-card" + (p.broken ? " provider-card-broken" : "");
 
         const tagsHTML = p.cats.map(c => {
           const cls = c === "movie" ? "tag-movie" : c === "live" ? "tag-live" : c === "anime" ? "tag-anime" : c === "genre" ? "tag-genre" : "tag-tv";
           const label = c === "movie" ? "Film" : c === "live" ? "Canlı TV" : c === "anime" ? "Anime" : c === "genre" ? "Tür Paketi" : "Dizi";
           return `<span class="tag ${cls}">${label}</span>`;
         }).join("");
+
+        const brokenBadge = p.broken ? `<span class="tag tag-broken">Çalışmıyor</span>` : "";
 
         const logoSrc = p.logo ? p.logo : (p.domain ? `https://www.google.com/s2/favicons?domain=${p.domain}&sz=64` : FALLBACK_LOGO);
         const linkHTML = p.domain ? `<a class="provider-ext-link" href="https://${p.domain}" target="_blank" rel="noopener" title="${p.domain}">↗ Web</a>` : "";
@@ -2112,7 +2225,7 @@
           ${linkHTML}
         </div>
         <p class="provider-desc">${p.desc}</p>
-        <div class="provider-tags">${tagsHTML}</div>
+        <div class="provider-tags">${tagsHTML}${brokenBadge}</div>
       </div>
     `;
         grid.appendChild(card);
@@ -2128,9 +2241,19 @@
     `;
         countBar.textContent = "0 eklenti bulundu";
       } else {
-        countBar.textContent = `41 eklentiden ${matches} tanesi listeleniyor`;
+        countBar.textContent = `${PROVIDERS.filter(p => !p.broken).length} aktif eklentiden ${matches} tanesi listeleniyor (${PROVIDERS.filter(p => p.broken).length} çalışmıyor)`;
       }
     }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const countOf = (cat, brokenOnly) => PROVIDERS.filter(p => p.cats.includes(cat) && p.broken === brokenOnly).length;
+      document.getElementById("countAll").textContent = PROVIDERS.filter(p => !p.broken).length;
+      document.getElementById("countMovie").textContent = countOf("movie", false);
+      document.getElementById("countTv").textContent = countOf("tv", false);
+      document.getElementById("countAnime").textContent = countOf("anime", false);
+      document.getElementById("countLive").textContent = countOf("live", false);
+      document.getElementById("countGenre").textContent = countOf("genre", false);
+    });
 
     function filterProviders() {
       currentProviderSearch = document.getElementById("providerSearchInput").value;
