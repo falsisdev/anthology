@@ -3,13 +3,11 @@
  * Yabancı dizi arşivi, güncel bölümler kataloğu ve Molystream/Sheila üzerinden doğrudan 1080p HLS akışları.
  */
 
-var CONFIG = (typeof require !== 'undefined' ? (function(){ try { return require('./config'); } catch(e) { return require('./urls'); } })() : null) || (typeof globalThis !== 'undefined' ? (globalThis.CONFIG || globalThis.URLS) : null) || {};
-var URLS = CONFIG.urls || CONFIG;
-var BASE_URL = (URLS.dizibox && URLS.dizibox.base) || 'https://www.dizibox.live';
+var BASE_URL = 'https://www.dizibox.live';
 var TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
 
 var HEADERS = {
-    'User-Agent': (CONFIG.headers && CONFIG.headers.desktop_user_agent) || 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36',
     'Cookie': 'LockUser=true; isTrustedUser=true; dbxu=1744054959089',
     'Referer': BASE_URL + '/'
 };
@@ -247,6 +245,28 @@ function safeB64Decode(str) {
     return '';
 }
 
+async function resolveHighestVariant(masterUrl, headers) {
+    try {
+        const r = await fetch(masterUrl, { headers: headers || HEADERS });
+        if (!r.ok) return masterUrl;
+        const txt = await r.text();
+        if (!txt.includes('#EXT-X-STREAM-INF')) return masterUrl;
+        const variants = [...txt.matchAll(/#EXT-X-STREAM-INF[^:]*:[^\n]*BANDWIDTH=(\d+)[^\n]*\n([^\n]+)/gi)]
+            .map(function(m) { return { bw: parseInt(m[1]) || 0, url: m[2].trim() }; })
+            .filter(function(v) { return v.url && !v.url.startsWith('#'); });
+        if (variants.length === 0) return masterUrl;
+        variants.sort(function(a,b){ return b.bw - a.bw; });
+        var best = variants[0].url;
+        if (best.startsWith('http')) return best;
+        var base = masterUrl.split('?')[0];
+        base = base.substring(0, base.lastIndexOf('/') + 1);
+        if (best.startsWith('/')) {
+            var origin = masterUrl.match(/^(https?:\/\/[^/]+)/);
+            return (origin ? origin[1] : '') + best;
+        }
+        return base + best;
+    } catch (e) { return masterUrl; }
+}
 
 async function extractMolystreamFromEpisodePage(epUrl) {
     try {
@@ -306,10 +326,11 @@ async function extractMolystreamFromEpisodePage(epUrl) {
                                                     'User-Agent': HEADERS['User-Agent'],
                                                     'Referer': 'https://vidmoly.biz/'
                                                 };
-                                                streams.push({
+                                                var finalVmUrl = await resolveHighestVariant(m3u8Match[1], vmHeaders);
+                                                streams.unshift({
                                                     name: 'DiziBox',
                                                     title: '⌜ DiziBox ⌟ | VidMoly (1080p HLS)',
-                                                    url: m3u8Match[1],
+                                                    url: finalVmUrl,
                                                     quality: '1080p',
                                                     provider: 'dizibox',
                                                     headers: vmHeaders,
@@ -347,9 +368,7 @@ async function extractMolystreamFromEpisodePage(epUrl) {
                                                 title: '⌜ DiziBox ⌟ | Odnok (1080p Direct)',
                                                 url: okWorkerUrl,
                                                 quality: '1080p',
-                                                provider: 'dizibox',
-                                                format: 'mp4',
-                                                isHls: false
+                                                provider: 'dizibox'
                                             });
                                         }
                                     }
@@ -389,16 +408,6 @@ async function extractMolystreamFromEpisodePage(epUrl) {
                 }
             } catch (e) {}
         }
-
-        // Sort streams: Direct unbroken MP4s (Odnok, direct MP4) first, then 1080p down
-        streams.sort((a, b) => {
-            const aIsDirectMp4 = (a.format === 'mp4' || (!a.isHls && a.url && a.url.includes('.mp4') && !a.url.includes('.m3u8'))) ? 1 : 0;
-            const bIsDirectMp4 = (b.format === 'mp4' || (!b.isHls && b.url && b.url.includes('.mp4') && !b.url.includes('.m3u8'))) ? 1 : 0;
-            if (bIsDirectMp4 !== aIsDirectMp4) return bIsDirectMp4 - aIsDirectMp4;
-            const aQ = parseInt(a.quality) || 0;
-            const bQ = parseInt(b.quality) || 0;
-            return bQ - aQ;
-        });
 
         return streams;
     } catch (e) {

@@ -4,9 +4,7 @@
  * Altta (title): ⌜ SEZONLUKDIZI ⌟ | Kaynak | Dil Bilgisi
  */
 
-var CONFIG = (typeof require !== 'undefined' ? (function(){ try { return require('./config'); } catch(e) { return require('./urls'); } })() : null) || (typeof globalThis !== 'undefined' ? (globalThis.CONFIG || globalThis.URLS) : null) || {};
-var URLS = CONFIG.urls || CONFIG;
-var BASE_URL = (URLS.sezonlukdizi && URLS.sezonlukdizi.base) || 'https://sezonlukdizi.cc';
+var BASE_URL     = 'https://sezonlukdizi.cc';
 var TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
 
 var HEADERS = {

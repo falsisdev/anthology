@@ -3,9 +3,7 @@
  * 80+ Ulusal, Haber, Spor ve Canlı TV kanalı
  */
 
-var CONFIG = (typeof require !== 'undefined' ? (function(){ try { return require('../config'); } catch(e) { return require('../urls'); } })() : null) || (typeof globalThis !== 'undefined' ? (globalThis.CONFIG || globalThis.URLS) : null) || {};
-var URLS = CONFIG.urls || CONFIG;
-var M3U_URL = (URLS.live && URLS.live.m3u_remote) || "https://raw.githubusercontent.com/falsisdev/anthology/main/providers/M3U/Liste/canli.m3u";
+var M3U_URL = "https://raw.githubusercontent.com/falsisdev/anthology/main/providers/M3U/Liste/canli.m3u";
 
 var _HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36',

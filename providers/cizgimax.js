@@ -3,25 +3,13 @@
  * Çizgi diziler, animeler ve animasyon filmleri için doğrudan TauVideo & Sibnet akışları sağlar.
  */
 
-var CONFIG = (typeof require !== 'undefined' ? (function(){ try { return require('./config'); } catch(e) { return require('./urls'); } })() : null) || (typeof globalThis !== 'undefined' ? (globalThis.CONFIG || globalThis.URLS) : null) || {};
-var URLS = CONFIG.urls || CONFIG;
-var BASE_URL = (URLS.cizgimax && URLS.cizgimax.base) || 'https://cizgimax.online';
+var BASE_URL = 'https://cizgimax.online';
 var TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
 
 var HEADERS = {
   'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/122.0.0.0 Safari/537.36',
   'Referer': BASE_URL + '/'
 };
-
-async function fetchWithTimeout(url, options = {}, timeoutMs = 5000) {
-  const opts = Object.assign({}, options);
-  if (!opts.signal) {
-    try {
-      opts.signal = AbortSignal.timeout(timeoutMs);
-    } catch (e) {}
-  }
-  return fetch(url, opts);
-}
 
 function ultraClean(str) {
   if (!str) return '';
@@ -46,46 +34,52 @@ function decodeHtmlEntities(str) {
     .trim();
 }
 
-function qualityWeight(q) {
-  if (!q) return 100;
-  var s = String(q).toLowerCase();
-  if (s.includes('2160') || s.includes('4k')) return 4000;
-  if (s.includes('1080')) return 1080;
-  if (s.includes('720')) return 720;
-  if (s.includes('480')) return 480;
-  if (s.includes('hd')) return 500;
-  return 100;
-}
-
-async function resolveVidmoly(embedUrl, referer) {
+async function resolveTmdbInfo(id, mediaType) {
   try {
-    const fullUrl = embedUrl.startsWith('//') ? 'https:' + embedUrl : embedUrl;
-    const res = await fetchWithTimeout(fullUrl, {
-      headers: {
-        'User-Agent': HEADERS['User-Agent'],
-        'Referer': referer || 'https://vidmoly.biz/'
-      }
-    });
-    if (!res.ok) return null;
-    const html = await res.text();
-    const m = html.match(/file\s*:\s*['"](https?:\/\/[^'"<>]+\.m3u8[^'"<>]*)['"]/i);
-    if (m) {
-      return {
-        url: m[1],
-        headers: {
-          'User-Agent': HEADERS['User-Agent'],
-          'Referer': 'https://vidmoly.biz/'
+    let cleanId = String(id || '').trim();
+    if (cleanId.includes(':')) cleanId = cleanId.split(':')[0];
+
+    let numericId = null;
+    let title = '';
+    let origTitle = '';
+
+    if (cleanId.startsWith('tt')) {
+      const findRes = await fetch(`https://api.themoviedb.org/3/find/${cleanId}?api_key=${TMDB_API_KEY}&external_source=imdb_id`);
+      if (findRes.ok) {
+        const fData = await findRes.json();
+        const item = (mediaType === 'tv' || mediaType === 'series')
+          ? (fData.tv_results && fData.tv_results[0])
+          : (fData.movie_results && fData.movie_results[0]);
+        if (item) {
+          numericId = item.id;
+          title = item.name || item.title || '';
+          origTitle = item.original_name || item.original_title || '';
         }
-      };
+      }
+    } else {
+      numericId = cleanId;
     }
-  } catch (e) {}
-  return null;
+
+    if (numericId && (!title || !origTitle)) {
+      const type = (mediaType === 'tv' || mediaType === 'series') ? 'tv' : 'movie';
+      const tRes = await fetch(`https://api.themoviedb.org/3/${type}/${numericId}?api_key=${TMDB_API_KEY}&language=tr-TR`);
+      if (tRes.ok) {
+        const tData = await tRes.json();
+        title = tData.name || tData.title || title;
+        origTitle = tData.original_name || tData.original_title || origTitle;
+      }
+    }
+
+    return { title, origTitle, numericId };
+  } catch (e) {
+    return { title: '', origTitle: '', numericId: id };
+  }
 }
 
 async function resolveSibnet(iframeUrl) {
   try {
     const fullUrl = iframeUrl.startsWith('//') ? 'https:' + iframeUrl : iframeUrl;
-    const res = await fetchWithTimeout(fullUrl, {
+    const res = await fetch(fullUrl, {
       headers: {
         'User-Agent': HEADERS['User-Agent'],
         'Referer': BASE_URL + '/'
@@ -108,210 +102,45 @@ async function resolveSibnet(iframeUrl) {
   return null;
 }
 
-async function resolveKitsu(kitsuId) {
-  try {
-    const cleanId = String(kitsuId).replace(/^kitsu:/, '').split(':')[0];
-    const res = await fetchWithTimeout(`https://kitsu.io/api/edge/anime/${cleanId}`);
-    if (!res.ok) return null;
-    const data = await res.json();
-    const attr = data && data.data && data.data.attributes;
-    if (!attr) return null;
-    const titles = [];
-    if (attr.titles) {
-      if (attr.titles.en_jp) titles.push(attr.titles.en_jp);
-      if (attr.titles.en) titles.push(attr.titles.en);
-      if (attr.titles.en_us) titles.push(attr.titles.en_us);
-    }
-    if (attr.canonicalTitle && !titles.includes(attr.canonicalTitle)) {
-      titles.push(attr.canonicalTitle);
-    }
-    if (Array.isArray(attr.abbreviatedTitles)) {
-      titles.push(...attr.abbreviatedTitles);
-    }
-    return {
-      title: attr.canonicalTitle || titles[0] || '',
-      origTitle: (attr.titles && attr.titles.en_jp) || titles[0] || '',
-      queries: [...new Set(titles.filter(Boolean))]
-    };
-  } catch (e) {
-    return null;
-  }
-}
-
-async function resolveMediaInfo(idOrObj, mediaType, defaultSeason, defaultEpisode) {
-  let id = idOrObj;
-  let type = mediaType || 'tv';
-  let season = parseInt(defaultSeason) || 1;
-  let episode = parseInt(defaultEpisode) || 1;
-
-  if (typeof idOrObj === 'object' && idOrObj !== null) {
-    id = idOrObj.id || idOrObj.imdbId || idOrObj.tmdbId || '';
-    type = idOrObj.type || type;
-    if (idOrObj.season !== undefined) season = parseInt(idOrObj.season) || season;
-    if (idOrObj.episode !== undefined) episode = parseInt(idOrObj.episode) || episode;
-  }
-
-  id = String(id || '').trim();
-  const isTv = (type === 'tv' || type === 'series');
-
-  if (id.includes(':')) {
-    const parts = id.split(':');
-    if (id.startsWith('kitsu:')) {
-      season = 1;
-      episode = parts.length >= 3 ? (parseInt(parts[2]) || 1) : (parseInt(parts[1]) || 1);
-    } else {
-      if (parts.length >= 3) {
-        season = parseInt(parts[parts.length - 2]) || season;
-        episode = parseInt(parts[parts.length - 1]) || episode;
-      } else if (parts.length === 2 && !isNaN(parseInt(parts[1]))) {
-        episode = parseInt(parts[1]) || episode;
-      }
-    }
-  }
-
-  if (id.startsWith('kitsu:')) {
-    const kitsuData = await resolveKitsu(id);
-    if (kitsuData) {
-      return {
-        numericId: null,
-        title: kitsuData.title,
-        origTitle: kitsuData.origTitle,
-        queries: kitsuData.queries,
-        season,
-        episode,
-        isTv
-      };
-    }
-  }
-
-  let cleanId = id;
-  if (cleanId.includes(':')) cleanId = cleanId.split(':')[0];
-
-  let numericId = null;
-  let title = '';
-  let origTitle = '';
-  const queries = [];
-
-  if (cleanId.startsWith('tt')) {
-    try {
-      const fRes = await fetch(`https://api.themoviedb.org/3/find/${cleanId}?api_key=${TMDB_API_KEY}&external_source=imdb_id`);
-      if (fRes.ok) {
-        const fData = await fRes.json();
-        const item = isTv ? (fData.tv_results && fData.tv_results[0]) : (fData.movie_results && fData.movie_results[0]);
-        if (item) {
-          numericId = item.id;
-          title = item.name || item.title || '';
-          origTitle = item.original_name || item.original_title || '';
-        } else {
-          const revItem = isTv ? (fData.movie_results && fData.movie_results[0]) : (fData.tv_results && fData.tv_results[0]);
-          if (revItem) {
-            numericId = revItem.id;
-            title = revItem.name || revItem.title || '';
-            origTitle = revItem.original_name || revItem.original_title || '';
-          }
-        }
-      }
-    } catch (e) {}
-  } else if (!isNaN(parseInt(cleanId))) {
-    numericId = parseInt(cleanId);
-  }
-
-  if (numericId) {
-    const endpointType = isTv ? 'tv' : 'movie';
-    try {
-      const [resEn, resTr] = await Promise.all([
-        fetchWithTimeout(`https://api.themoviedb.org/3/${endpointType}/${numericId}?api_key=${TMDB_API_KEY}&language=en-US&append_to_response=alternative_titles`),
-        fetchWithTimeout(`https://api.themoviedb.org/3/${endpointType}/${numericId}?api_key=${TMDB_API_KEY}&language=tr-TR`)
-      ]);
-
-      let dataEn = resEn.ok ? await resEn.json() : null;
-      let dataTr = resTr.ok ? await resTr.json() : null;
-
-      if (!dataEn && !dataTr && isTv) {
-        const mRes = await fetchWithTimeout(`https://api.themoviedb.org/3/movie/${numericId}?api_key=${TMDB_API_KEY}&language=en-US&append_to_response=alternative_titles`);
-        if (mRes.ok) dataEn = await mRes.json();
-      }
-
-      if (dataTr) {
-        const nameTr = dataTr.name || dataTr.title || '';
-        if (nameTr && !queries.includes(nameTr)) {
-          queries.push(nameTr);
-        }
-      }
-
-      if (dataEn) {
-        const normalizeTitle = (str) => {
-          if (!str) return '';
-          // String.prototype.normalize her yerde (QuickJS) yok; ascii fold fallback'li
-          if (typeof str.normalize === 'function') {
-            try { return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim(); } catch (e) {}
-          }
-          return str.replace(/[\u00E0-\u00E5]/gi, 'a')
-            .replace(/[\u00E8-\u00EB]/gi, 'e')
-            .replace(/[\u00EC-\u00EF]/gi, 'i')
-            .replace(/[\u00F2-\u00F6]/gi, 'o')
-            .replace(/[\u00F9-\u00FC]/gi, 'u')
-            .replace(/\u00F1/gi, 'n').replace(/\u00E7/gi, 'c')
-            .replace(/[\u0300-\u036f]/g, '').trim();
-        };
-
-        const nameEn = dataEn.name || dataEn.title || '';
-        if (nameEn && !queries.includes(nameEn)) queries.push(nameEn);
-        const origName = dataEn.original_name || dataEn.original_title || '';
-        if (origName) {
-          const cleanOrig = normalizeTitle(origName);
-          if (cleanOrig && /^[a-zA-Z0-9\s:;.,'\"!?-]+$/.test(cleanOrig) && !queries.includes(cleanOrig)) {
-            queries.push(cleanOrig);
-          }
-        }
-        title = nameEn || title;
-        origTitle = origName || origTitle;
-
-        const alts = dataEn.alternative_titles ? (dataEn.alternative_titles.results || dataEn.alternative_titles.titles || []) : [];
-        for (const a of alts) {
-          const rawT = a.title || a.name || '';
-          if (!rawT) continue;
-          const t = normalizeTitle(rawT);
-          if (t && /^[a-zA-Z0-9\s:;.,'\"!?-]+$/.test(t) && !queries.includes(t)) {
-            queries.push(t);
-          }
-        }
-      }
-    } catch (e) {}
-  }
-
-  return {
-    numericId,
-    title,
-    origTitle,
-    queries: [...new Set(queries.filter(Boolean))],
-    season,
-    episode,
-    isTv
-  };
-}
-
 async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
   try {
-    if (typeof tmdbId === 'object' && tmdbId !== null) {
-      const obj = tmdbId;
-      return getStreams(
-        obj.id || obj.imdbId || obj.tmdbId,
-        mediaType || obj.type,
-        seasonNum !== undefined ? seasonNum : obj.season,
-        episodeNum !== undefined ? episodeNum : obj.episode
-      );
+    const isTv = (mediaType === 'tv' || mediaType === 'series');
+    let finalSeason = parseInt(seasonNum) || 1;
+    let finalEpisode = parseInt(episodeNum) || 1;
+
+    // cizgimax:ep:slug:season:episode veya cizgimax:show:slug formatı
+    if (typeof tmdbId === 'string' && tmdbId.startsWith('cizgimax:ep:')) {
+      const rest = tmdbId.replace('cizgimax:ep:', '');
+      // Son iki segment :season:episode olabilir
+      const lastColonIdx2 = rest.lastIndexOf(':');
+      if (lastColonIdx2 > 0) {
+        const maybeEp = parseInt(rest.substring(lastColonIdx2 + 1));
+        const beforeEp = rest.substring(0, lastColonIdx2);
+        const lastColonIdx1 = beforeEp.lastIndexOf(':');
+        if (lastColonIdx1 > 0 && !isNaN(maybeEp)) {
+          const maybeSeason = parseInt(beforeEp.substring(lastColonIdx1 + 1));
+          if (!isNaN(maybeSeason)) {
+            finalSeason = maybeSeason;
+            finalEpisode = maybeEp;
+          }
+        }
+      }
+    } else if (typeof tmdbId === 'string' && !tmdbId.startsWith('cizgimax:')) {
+      // TMDB/IMDb ID — season:episode positional parse
+      if (typeof tmdbId === 'string' && tmdbId.includes(':')) {
+        const parts = tmdbId.split(':');
+        if (parts.length >= 3) {
+          const s = parseInt(parts[parts.length - 2]);
+          const e = parseInt(parts[parts.length - 1]);
+          if (!isNaN(s)) finalSeason = s;
+          if (!isNaN(e)) finalEpisode = e;
+        }
+      }
     }
 
-    const mediaInfo = await resolveMediaInfo(tmdbId, mediaType, seasonNum, episodeNum);
-    const isTv = mediaInfo.isTv;
-    let finalSeason = mediaInfo.season;
-    let finalEpisode = mediaInfo.episode;
-
-    // cizgimax:ep:slug or cizgimax:show:slug format
-    let rawId = typeof tmdbId === 'string' ? tmdbId : '';
-    if (rawId.startsWith('cizgimax:show:')) {
-      const showMeta = await getMeta(rawId);
+    // cizgimax:show: fallback — resolve episode 1 via getMeta
+    if (typeof tmdbId === 'string' && tmdbId.startsWith('cizgimax:show:')) {
+      const showMeta = await getMeta(tmdbId);
       if (showMeta && showMeta.meta && Array.isArray(showMeta.meta.videos) && showMeta.meta.videos.length > 0) {
         return await getStreams(showMeta.meta.videos[0].id, mediaType, seasonNum, episodeNum);
       }
@@ -319,126 +148,64 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
 
     let matchedHref = null;
 
-    if (rawId.startsWith('cizgimax:')) {
-      const slug = rawId.replace(/^cizgimax:(?:show:|ep:)?/, '').replace(/^diziler\//, '');
-      matchedHref = rawId.startsWith('cizgimax:ep:') ? `/${slug.replace(/^\//, '')}` : `/diziler/${slug.replace(/^\//, '')}`;
+    if (typeof tmdbId === 'string' && tmdbId.startsWith('cizgimax:')) {
+      const slug = tmdbId.replace(/^cizgimax:(?:show:|ep:)?/, '').replace(/^diziler\//, '');
+      matchedHref = tmdbId.startsWith('cizgimax:ep:') ? `/${slug.replace(/^\//, '')}` : `/diziler/${slug.replace(/^\//, '')}`;
     } else {
-      // 1. For movies with TMDB numeric ID, test direct movie URL
-      if (!isTv && mediaInfo.numericId) {
-        try {
-          const probeRes = await fetchWithTimeout(`${BASE_URL}/film/film-${mediaInfo.numericId}-izle/`, { headers: HEADERS });
-          if (probeRes.ok) {
-            matchedHref = `/film/film-${mediaInfo.numericId}-izle/`;
-          }
-        } catch (e) {}
-      }
+      const info = await resolveTmdbInfo(tmdbId, mediaType);
+      const queries = [info.title, info.origTitle].filter(Boolean);
+      if (!queries.length) return [];
 
-      // 2. Search ÇizgiMax using queries
-      if (!matchedHref) {
-        const searchQueries = mediaInfo.queries.length > 0
-          ? mediaInfo.queries
-          : [mediaInfo.title, mediaInfo.origTitle].filter(Boolean);
+      const targetTr = ultraClean(info.title);
+      const targetEn = ultraClean(info.origTitle);
 
-        const targetCleans = searchQueries.map(q => ultraClean(q)).filter(Boolean);
-        const seenCleanQueries = new Set();
-        const deduplicatedQueries = [];
-        for (const q of searchQueries) {
-          const c = ultraClean(q);
-          if (c && !seenCleanQueries.has(c) && deduplicatedQueries.length < 3) {
-            seenCleanQueries.add(c);
-            deduplicatedQueries.push(q);
-          }
-        }
+      for (const q of queries) {
+        const searchRes = await fetch(`${BASE_URL}/ara/?q=${encodeURIComponent(q)}`, { headers: HEADERS });
+        if (!searchRes.ok) continue;
+      const searchHtml = await searchRes.text();
 
-        const allItems = [];
-
-        for (const q of deduplicatedQueries) {
-          try {
-            let searchRes = await fetchWithTimeout(`${BASE_URL}/ara/?q=${encodeURIComponent(q)}`, { headers: HEADERS });
-            if (searchRes.status === 429) {
-              await new Promise(r => setTimeout(r, 1000));
-              searchRes = await fetchWithTimeout(`${BASE_URL}/ara/?q=${encodeURIComponent(q)}`, { headers: HEADERS });
-            }
-            if (!searchRes.ok) continue;
-            const searchHtml = await searchRes.text();
-
-            const linkRegex = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
-            let m;
-            while ((m = linkRegex.exec(searchHtml)) !== null) {
-              const attrs = m[1];
-              const text = m[2].replace(/<[^>]+>/g, '').trim();
-              if (/class=["'][^"']*film-name[^"']*["']/i.test(attrs)) {
-                const hrefMatch = attrs.match(/href=["']([^"']+)["']/i);
-                if (hrefMatch) {
-                  allItems.push({ href: hrefMatch[1], title: text });
-                }
-              }
-            }
-
-            // Early break if an exact title match is already found
-            if (allItems.some(it => targetCleans.includes(ultraClean(it.title)))) {
-              break;
-            }
-          } catch (e) {}
-        }
-
-        // Phase 1: Exact clean title match
-        for (const item of allItems) {
-          const itemClean = ultraClean(item.title);
-          if (targetCleans.includes(itemClean)) {
-            matchedHref = item.href;
-            break;
-          }
-        }
-
-        // Phase 2: Exact clean slug match
-        if (!matchedHref) {
-          for (const item of allItems) {
-            const itemClean = ultraClean(item.title);
-            for (const tc of targetCleans) {
-              if (item.href.includes(`/${tc}-izle/`)) {
-                matchedHref = item.href;
-                break;
-              }
-            }
-            if (matchedHref) break;
-          }
-        }
-
-        // Phase 3: Prefix or partial match
-        if (!matchedHref) {
-          for (const item of allItems) {
-            const itemClean = ultraClean(item.title);
-            for (const tc of targetCleans) {
-              if (itemClean.includes(tc) || tc.includes(itemClean)) {
-                if (tc === 'attackontitan' && (itemClean.includes('chibi') || itemClean.includes('junior'))) continue;
-                if (finalSeason === 1 && (itemClean.includes('season2') || itemClean.includes('season3') || itemClean.includes('season4') || itemClean.includes('finalseason'))) continue;
-                matchedHref = item.href;
-                break;
-              }
-            }
-            if (matchedHref) break;
+      // Robust link parsing
+      const items = [];
+      const linkRegex = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
+      let m;
+      while ((m = linkRegex.exec(searchHtml)) !== null) {
+        const attrs = m[1];
+        const text = m[2].replace(/<[^>]+>/g, '').trim();
+        if (/class=["'][^"']*film-name[^"']*["']/i.test(attrs)) {
+          const hrefMatch = attrs.match(/href=["']([^"']+)["']/i);
+          if (hrefMatch) {
+            items.push({ href: hrefMatch[1], title: text });
           }
         }
       }
+
+      for (const item of items) {
+        const itemClean = ultraClean(item.title);
+        if (itemClean === targetTr || itemClean === targetEn ||
+            (targetTr && itemClean.includes(targetTr)) ||
+            (targetEn && itemClean.includes(targetEn))) {
+          matchedHref = item.href;
+          break;
+        }
+      }
+
+      if (matchedHref) break;
     }
+  }
 
     if (!matchedHref) return [];
 
-    let detailUrl = matchedHref.startsWith('http') ? matchedHref : `${BASE_URL}${matchedHref.endsWith('/') ? matchedHref : matchedHref + '/'}`;
+    const detailUrl = matchedHref.startsWith('http') ? matchedHref : `${BASE_URL}${matchedHref}`;
     let targetPageUrl = detailUrl;
 
-    const isDirectEpisode = rawId.startsWith('cizgimax:ep:') || matchedHref.includes('/episode-') || matchedHref.includes('-bolum');
+    const isDirectEpisode = (typeof tmdbId === 'string' && tmdbId.startsWith('cizgimax:ep:')) || matchedHref.includes('/episode-');
 
     if (isTv && !isDirectEpisode) {
-      let detailRes = await fetchWithTimeout(detailUrl, { headers: HEADERS });
-      if (!detailRes.ok) {
-        await new Promise(r => setTimeout(r, 400));
-        detailRes = await fetchWithTimeout(detailUrl, { headers: HEADERS });
-      }
+      const detailRes = await fetch(detailUrl, { headers: HEADERS });
       if (!detailRes.ok) return [];
       const detailHtml = await detailRes.text();
 
+      // Look for episode links
       let epHref = null;
       const btnRegex = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
       let bMatch;
@@ -451,6 +218,7 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
           if (hrefMatch) {
             const h = hrefMatch[1];
             candidates.push({ href: h, text });
+            // Check season & episode in href or text
             const seasonRegex = new RegExp(`[/-]${finalSeason}-sezon[-/]|s0*${finalSeason}e`, 'i');
             const epRegex = new RegExp(`[/-]${finalEpisode}-bolum[-/]|e0*${finalEpisode}(?:/|$)`, 'i');
             if (seasonRegex.test(h) && epRegex.test(h)) {
@@ -462,28 +230,24 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
       }
 
       if (!epHref && candidates.length > 0) {
+        // Find by text matching episode number
         for (const c of candidates) {
-          const sMatch = c.href.match(/(\d+)-sezon/i) || c.href.match(/s(\d+)/i);
-          const eMatch = c.href.match(/(\d+)-bolum/i) || c.href.match(/e(\d+)/i);
-          const sNum = sMatch ? parseInt(sMatch[1]) : 1;
-          const eNum = eMatch ? parseInt(eMatch[1]) : parseInt(c.text);
-          if (sNum === finalSeason && eNum === finalEpisode) {
+          const epNum = parseInt(c.text);
+          if (epNum === finalEpisode) {
             epHref = c.href;
             break;
           }
         }
       }
 
+
+
       if (!epHref) return [];
-      targetPageUrl = epHref.startsWith('http') ? epHref : `${BASE_URL}${epHref.endsWith('/') ? epHref : epHref + '/'}`;
+      targetPageUrl = epHref.startsWith('http') ? epHref : `${BASE_URL}${epHref}`;
     }
 
     // Now fetch player page
-    let pageRes = await fetchWithTimeout(targetPageUrl, { headers: HEADERS });
-    if (!pageRes.ok) {
-      await new Promise(r => setTimeout(r, 400));
-      pageRes = await fetchWithTimeout(targetPageUrl, { headers: HEADERS });
-    }
+    const pageRes = await fetch(targetPageUrl, { headers: HEADERS });
     if (!pageRes.ok) return [];
     const pageHtml = await pageRes.text();
 
@@ -512,45 +276,31 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
       } catch (e) {}
     }
 
-    const uniqueServers = [];
-    const seenServerKeys = new Set();
-    for (const s of serverList) {
-      const key = s.resolveUrl || s.streamUrl || s.src || `${s.label}_${s.type}_${s.embedId}`;
-      if (!seenServerKeys.has(key)) {
-        seenServerKeys.add(key);
-        uniqueServers.push(s);
-      }
-    }
-
     const streams = [];
     const seenUrls = new Set();
 
-    for (const server of uniqueServers) {
-      let label = server.label || server.type || 'ÇizgiMax';
-      if (server.lang === 'dub' && !label.toLowerCase().includes('dub')) label += ' [TR Dublaj]';
-      else if (server.lang === 'sub' && !label.toLowerCase().includes('alty')) label += ' [TR Altyazı]';
+    for (const server of serverList) {
+      const label = server.label || server.type || 'ÇizgiMax';
 
       // 1. Resolve URL -> TauVideo
       if (server.resolveUrl) {
         try {
           const rUrl = server.resolveUrl.startsWith('http') ? server.resolveUrl : `${BASE_URL}${server.resolveUrl}`;
-          const rRes = await fetchWithTimeout(rUrl, {
+          const rRes = await fetch(rUrl, {
             headers: {
               'User-Agent': HEADERS['User-Agent'],
               'Referer': targetPageUrl
             }
           });
           if (rRes.ok) {
-            let rData = null;
-            try { rData = await rRes.json(); } catch(e) {}
+            const rData = await rRes.json();
             if (rData && rData.id) {
-              const tauRes = await fetchWithTimeout(`https://tau-video.xyz/api/video/${rData.id}`);
+              const tauRes = await fetch(`https://tau-video.xyz/api/video/${rData.id}`);
               if (tauRes.ok) {
-                let tauData = null;
-                try { tauData = await tauRes.json(); } catch(e) {}
+                const tauData = await tauRes.json();
                 if (tauData && Array.isArray(tauData.urls)) {
                   for (const u of tauData.urls) {
-                    if (u.url && !seenUrls.has(u.url) && !u.url.includes('yhwach.icu')) {
+                    if (u.url && !seenUrls.has(u.url)) {
                       seenUrls.add(u.url);
                       const quality = u.label || '1080p';
                       const strHeaders = {
@@ -562,7 +312,6 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
                         title: `ÇizgiMax | ${label} (${quality})`,
                         url: u.url,
                         quality: quality,
-                        provider: 'cizgimax',
                         headers: strHeaders,
                         behaviorHints: {
                           notWebReady: true,
@@ -580,172 +329,53 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
         } catch (e) {}
       }
 
-      // 2. Stream URL -> 302 Redirect (Sibnet, VidMoly or direct video)
+      // 2. Stream URL -> 302 Redirect (Sibnet or direct video)
       if (server.streamUrl) {
         try {
           const stUrl = server.streamUrl.startsWith('http') ? server.streamUrl : `${BASE_URL}${server.streamUrl}`;
-          const headRes = await fetchWithTimeout(stUrl, {
+          const headRes = await fetch(stUrl, {
             headers: {
               'User-Agent': HEADERS['User-Agent'],
-              'Referer': targetPageUrl
+              'Referer': `${BASE_URL}/`
             },
             redirect: 'manual'
           });
           const loc = headRes.headers.get('location');
-          if (loc) {
-            if (loc.includes('vidmoly')) {
-              const vRes = await resolveVidmoly(loc, BASE_URL + '/');
-              if (vRes && vRes.url && !seenUrls.has(vRes.url)) {
-                seenUrls.add(vRes.url);
-                streams.push({
-                  name: `ÇizgiMax - ${label} [1080p]`,
-                  title: `ÇizgiMax | ${label} (1080p)`,
-                  url: vRes.url,
-                  quality: '1080p',
-                  provider: 'cizgimax',
-                  headers: vRes.headers,
-                  behaviorHints: {
-                    notWebReady: true,
-                    proxyHeaders: {
-                      request: vRes.headers
-                    }
-                  }
-                });
-              }
-            } else if (!seenUrls.has(loc)) {
-              seenUrls.add(loc);
-              const isSib = loc.includes('sibnet.ru');
-              const locHeaders = {
-                'Referer': isSib ? 'https://video.sibnet.ru/' : `${BASE_URL}/`,
-                'User-Agent': HEADERS['User-Agent']
-              };
-              streams.push({
-                name: `ÇizgiMax - ${label}`,
-                title: `ÇizgiMax | ${label} [HD]`,
-                url: loc,
-                quality: 'HD',
-                provider: 'cizgimax',
-                headers: locHeaders,
-                behaviorHints: {
-                  notWebReady: true,
-                  proxyHeaders: {
-                    request: locHeaders
-                  }
+          if (loc && !seenUrls.has(loc)) {
+            seenUrls.add(loc);
+            const isSib = loc.includes('sibnet.ru');
+            const locHeaders = {
+              'Referer': isSib ? 'https://video.sibnet.ru/' : `${BASE_URL}/`,
+              'User-Agent': HEADERS['User-Agent']
+            };
+            streams.push({
+              name: `ÇizgiMax - ${label}`,
+              title: `ÇizgiMax | ${label}`,
+              url: loc,
+              quality: 'HD',
+              headers: locHeaders,
+              behaviorHints: {
+                notWebReady: true,
+                proxyHeaders: {
+                  request: locHeaders
                 }
-              });
-            }
-          }
-        } catch (e) {}
-      }
-
-      // 3. Iframe src -> VidMoly, Sibnet resolver
-      if (server.src) {
-        try {
-          if (server.src.includes('/oynat/')) {
-            const oynatUrl = server.src.startsWith('http') ? server.src : `${BASE_URL}${server.src}`;
-            const oRes = await fetch(oynatUrl, {
-              headers: {
-                'User-Agent': HEADERS['User-Agent'],
-                'Referer': targetPageUrl
-              },
-              redirect: 'manual'
+              }
             });
-            const loc = oRes.headers.get('location');
-            if (loc) {
-              if (loc.includes('vidmoly')) {
-                const vRes = await resolveVidmoly(loc, BASE_URL + '/');
-                if (vRes && vRes.url && !seenUrls.has(vRes.url)) {
-                  seenUrls.add(vRes.url);
-                  streams.push({
-                    name: `ÇizgiMax - ${label} [1080p]`,
-                    title: `ÇizgiMax | ${label} (1080p)`,
-                    url: vRes.url,
-                    quality: '1080p',
-                    provider: 'cizgimax',
-                    headers: vRes.headers,
-                    behaviorHints: {
-                      notWebReady: true,
-                      proxyHeaders: {
-                        request: vRes.headers
-                      }
-                    }
-                  });
-                }
-              } else if (loc.includes('sibnet')) {
-                const sRes = await resolveSibnet(loc);
-                if (sRes && sRes.url && !seenUrls.has(sRes.url)) {
-                  seenUrls.add(sRes.url);
-                  streams.push({
-                    name: `ÇizgiMax - ${label}`,
-                    title: `ÇizgiMax | ${label} [HD]`,
-                    url: sRes.url,
-                    quality: 'HD',
-                    provider: 'cizgimax',
-                    headers: sRes.headers,
-                    behaviorHints: {
-                      notWebReady: true,
-                      proxyHeaders: {
-                        request: sRes.headers
-                      }
-                    }
-                  });
-                }
-              }
-            }
-          } else if (server.src.includes('vidmoly')) {
-            const vRes = await resolveVidmoly(server.src, BASE_URL + '/');
-            if (vRes && vRes.url && !seenUrls.has(vRes.url)) {
-              seenUrls.add(vRes.url);
-              streams.push({
-                name: `ÇizgiMax - ${label} [1080p]`,
-                title: `ÇizgiMax | ${label} (1080p)`,
-                url: vRes.url,
-                quality: '1080p',
-                provider: 'cizgimax',
-                headers: vRes.headers,
-                behaviorHints: {
-                  notWebReady: true,
-                  proxyHeaders: {
-                    request: vRes.headers
-                  }
-                }
-              });
-            }
-          } else if (server.src.includes('sibnet.ru') || server.src.includes('shell.php')) {
-            const sibRes = await resolveSibnet(server.src);
-            if (sibRes && sibRes.url && !seenUrls.has(sibRes.url)) {
-              seenUrls.add(sibRes.url);
-              streams.push({
-                name: `ÇizgiMax - ${label}`,
-                title: `ÇizgiMax | ${label} [HD]`,
-                url: sibRes.url,
-                quality: 'HD',
-                provider: 'cizgimax',
-                headers: sibRes.headers,
-                behaviorHints: {
-                  notWebReady: true,
-                  proxyHeaders: {
-                    request: sibRes.headers
-                  }
-                }
-              });
-            }
           }
         } catch (e) {}
       }
 
-      // 4. Fallback for Sibnet videoId if streamUrl didn't fire
-      if (server.videoId && (server.type === 'sibnet' || (server.label && server.label.toLowerCase().includes('sibnet')))) {
+      // 3. Iframe src -> Sibnet resolver
+      if (server.src && (server.src.includes('sibnet.ru') || server.src.includes('shell.php'))) {
         try {
-          const sibRes = await resolveSibnet(`https://video.sibnet.ru/shell.php?videoid=${server.videoId}`);
+          const sibRes = await resolveSibnet(server.src);
           if (sibRes && sibRes.url && !seenUrls.has(sibRes.url)) {
             seenUrls.add(sibRes.url);
             streams.push({
-              name: `ÇizgiMax - ${label}`,
-              title: `ÇizgiMax | ${label} [HD]`,
+              name: `ÇizgiMax - Sibnet`,
+              title: `ÇizgiMax | Sibnet [HD]`,
               url: sibRes.url,
               quality: 'HD',
-              provider: 'cizgimax',
               headers: sibRes.headers,
               behaviorHints: {
                 notWebReady: true,
@@ -759,11 +389,14 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
       }
     }
 
-    return streams.sort((a, b) => qualityWeight(b.quality) - qualityWeight(a.quality));
+    return streams;
   } catch (err) {
     return [];
   }
 }
+
+if (typeof module !== 'undefined') module.exports = { getStreams };
+if (typeof globalThis !== 'undefined') globalThis.getStreams = getStreams;
 
 // ── Catalog & Meta Entegrasyonu ──────────────────────────────
 async function getCatalog(args) {
