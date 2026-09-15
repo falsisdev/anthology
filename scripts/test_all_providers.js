@@ -1,6 +1,36 @@
 const manifest = require("../manifest.json");
 const path = require("path");
 
+// Playability check: HEAD first stream's master URL + first segment with provider headers
+async function checkPlayability(streams) {
+  if (!streams || !streams.length) return { playable: false, reason: "no streams" };
+  const s = streams[0];
+  const headers = { ...(s.headers || {}), ...(s.behaviorHints?.proxyHeaders?.request || {}) };
+  const url = s.url;
+  try {
+    // HEAD master
+    const mr = await fetch(url, { method: "HEAD", headers, signal: AbortSignal.timeout(12000) });
+    if (!mr.ok) return { playable: false, reason: `master ${mr.status}` };
+    
+    // If direct mp4 (not m3u8), consider playable if master 200
+    const ct = mr.headers.get("content-type") || "";
+    if (ct.includes("video/") || url.endsWith(".mp4") || url.includes(".mp4?")) {
+      return { playable: true, reason: `direct ${mr.status} ${ct}` };
+    }
+    
+    // m3u8: get first segment
+    const txt = await fetch(url, { headers, signal: AbortSignal.timeout(12000) }).then(r => r.text());
+    const lines = txt.split("\n").filter(l => l && !l.startsWith("#"));
+    if (!lines.length) return { playable: true, reason: "master ok, no segments (direct?)" };
+    const segUrl = lines[0].startsWith("http") ? lines[0] : new URL(lines[0], url).href;
+    const sr = await fetch(segUrl, { method: "HEAD", headers, signal: AbortSignal.timeout(8000) });
+    if (sr.ok) return { playable: true, reason: `segment ${sr.status}` };
+    return { playable: false, reason: `segment ${sr.status}` };
+  } catch (e) {
+    return { playable: false, reason: `error: ${e.message}` };
+  }
+}
+
 (async () => {
   console.log(`========================================`);
   console.log(`Testing all ${manifest.scrapers.length} providers from manifest.json`);
@@ -9,6 +39,10 @@ const path = require("path");
   const results = [];
 
   for (const scraper of manifest.scrapers) {
+    if (scraper.enabled === false) {
+      console.log(`[${scraper.name}] -> SKIP ⏭️ (disabled in manifest)`);
+      continue;
+    }
     const fullPath = path.resolve(__dirname, "..", scraper.filename);
     try {
       const mod = require(fullPath);
@@ -90,16 +124,29 @@ const path = require("path");
       const isWorking = count > 0;
       const sample = count > 0 ? (streams[0].url || streams[0].name || "") : "None";
 
+      let playability = { playable: false, reason: "not tested" };
+      // Test playability for stream providers (not catalog/live)
+      const isStreamProvider = count > 0 && (s = streams[0]) && s.url && !scraper.id.startsWith("anthology_") || scraper.id === "AnthologyFilmM3U" || scraper.id === "AnthologyDiziM3U";
+      // Actually, let's test all providers that return streams with URLs
+      if (isWorking && streams[0]?.url) {
+        playability = await checkPlayability(streams);
+      }
+
+      const statusIcon = isWorking ? (playability.playable ? "PASS ✅" : "PASS ⚠️") : "FAIL ❌";
+      const playNote = isWorking ? (playability.playable ? " 🎬" : ` ⚠️ ${playability.reason}`) : "";
+
       results.push({
         id: scraper.id,
         name: scraper.name,
         target: testTarget,
-        status: isWorking ? "PASS ✅" : "FAIL ❌",
+        status: statusIcon,
         count: count,
-        sample: sample.slice(0, 60) + (sample.length > 60 ? "..." : "")
+        sample: sample.slice(0, 60) + (sample.length > 60 ? "..." : ""),
+        playable: playability.playable,
+        playReason: playability.reason
       });
 
-      console.log(`[${scraper.name}] -> ${isWorking ? "PASS ✅" : "FAIL ❌"} (${count} items found) | Target: ${testTarget}`);
+      console.log(`[${scraper.name}] -> ${statusIcon} (${count} items found)${playNote} | Target: ${testTarget}`);
       if (isWorking) {
         console.log(`   Sample: ${sample.slice(0, 80)}`);
       }
@@ -118,14 +165,27 @@ const path = require("path");
 
   console.log("\n========================================");
   console.log("FINAL TEST SUMMARY:");
-  console.table(results);
+  const displayResults = results.map(r => ({
+    id: r.id,
+    name: r.name,
+    target: r.target,
+    status: r.status,
+    count: r.count,
+    sample: r.sample,
+    playable: r.playable ? "✅" : (r.playable === false ? "❌" : "—")
+  }));
+  console.table(displayResults);
   console.log("========================================");
 
-  const failed = results.filter(r => !r.status.includes("PASS"));
-  if (failed.length > 0) {
-    console.error(`\n❌ TEST SUITE FAILED: ${failed.length} providers failed.`);
+  const failed = results.filter(r => r.status.startsWith("FAIL"));
+  const unplayable = results.filter(r => r.playable === false);
+  if (failed.length > 0 || unplayable.length > 0) {
+    console.error(`\n❌ TEST SUITE: ${failed.length} failed, ${unplayable.length} unplayable.`);
+    if (unplayable.length) {
+      console.log("Unplayable:", unplayable.map(u => `${u.name} (${u.playReason})`).join(", "));
+    }
     process.exit(1);
   } else {
-    console.log(`\n🎉 SUCCESS: All ${results.length} providers passed with 100% success rate!`);
+    console.log(`\n🎉 SUCCESS: All ${results.length} providers passed with 100% playability!`);
   }
 })();

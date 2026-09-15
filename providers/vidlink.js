@@ -214,21 +214,33 @@ function getTmdbInfo(tmdbId, mediaType) {
 
 
 // Encrypt TMDB ID using enc-dec.app API
+// enc-dec.app is flaky (5xx bursts / slow responses), so retry up to 4 times
 function encryptTmdbId(tmdbId) {
     console.log(`[Vidlink] Encrypting TMDB ID: ${tmdbId}`);
     
-    return makeRequest(`${ENC_DEC_API}/enc-vidlink?text=${tmdbId}`)
-    .then(response => response.json())
-    .then(data => {
-        if (data && data.result) {
-            console.log(`[Vidlink] Successfully encrypted TMDB ID`);
-            return data.result;
-        } else {
+    function attempt(n) {
+        return makeRequest(`${ENC_DEC_API}/enc-vidlink?text=${tmdbId}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data && data.result) {
+                console.log(`[Vidlink] Successfully encrypted TMDB ID (attempt ${n})`);
+                return data.result;
+            }
             throw new Error('Invalid encryption response format');
-        }
-    })
+        })
+        .catch(error => {
+            console.error(`[Vidlink] Encryption attempt ${n} failed: ${error.message}`);
+            if (n < 4) {
+                return new Promise(resolve => setTimeout(resolve, 1500 * n))
+                    .then(() => attempt(n + 1));
+            }
+            throw error;
+        });
+    }
+    
+    return attempt(1)
     .catch(error => {
-        console.error(`[Vidlink] Encryption failed: ${error.message}`);
+        console.error(`[Vidlink] Encryption failed after retries: ${error.message}`);
         throw error;
     });
 }
