@@ -14,6 +14,7 @@ function ultraClean(s) {
     return s.toString().toLowerCase()
         .replace(/[ıİ]/g, 'i').replace(/[üÜ]/g, 'u').replace(/[öÖ]/g, 'o')
         .replace(/[şŞ]/g, 's').replace(/[ğĞ]/g, 'g').replace(/[çÇ]/g, 'c')
+        .replace(/[âÂ]/g, 'a').replace(/[îÎ]/g, 'i').replace(/[ûÛ]/g, 'u')
         .replace(/[^a-z0-9]/g, '').trim();
 }
 
