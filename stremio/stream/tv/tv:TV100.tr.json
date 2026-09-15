@@ -3,11 +3,10 @@
     {
       "name": "⌜ Anthology Haber ⌟",
       "title": "TV100 HD [Canlı HD · YouTube]",
-      "url": "https://www.youtube.com/watch?v=4WSvLRk83-c",
+      "ytId": "4WSvLRk83-c",
       "behaviorHints": {
         "isLive": true
-      },
-      "ytId": "4WSvLRk83-c"
+      }
     }
   ]
 }
