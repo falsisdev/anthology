@@ -5,9 +5,7 @@
  */
 
 var PROVIDER_NAME = 'Webteİzle';
-var CONFIG = (typeof require !== 'undefined' ? (function(){ try { return require('./config'); } catch(e) { return require('./urls'); } })() : null) || (typeof globalThis !== 'undefined' ? (globalThis.CONFIG || globalThis.URLS) : null) || {};
-var URLS = CONFIG.urls || CONFIG;
-var BASE_URL = (URLS.webteizle && URLS.webteizle.base) || 'https://webteizle.info';
+var BASE_URL     = 'https://webteizle.info';
 var TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
 
 var HEADERS = {
