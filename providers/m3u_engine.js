@@ -103,6 +103,48 @@ function isBlockedStream(url) {
     return false;
 }
 
+/**
+ * Tokenizes a title into lowercase Turkish-folded word tokens (length >= 3).
+ */
+function titleTokens(s) {
+    if (!s) return null;
+    const folded = String(s).toLowerCase()
+        .replace(/[ıİ]/g, 'i').replace(/[üÜ]/g, 'u').replace(/[öÖ]/g, 'o')
+        .replace(/[şŞ]/g, 's').replace(/[ğĞ]/g, 'g').replace(/[çÇ]/g, 'c')
+        .replace(/[âÂ]/g, 'a').replace(/[îÎ]/g, 'i').replace(/[ûÛ]/g, 'u');
+    return folded.split(/[^a-z0-9]+/)
+        .map(t => t.replace(/[^a-z0-9]/g, ''))
+        .filter(t => t.length >= 3);
+}
+
+/**
+ * Word-aware title matcher.
+ * Returns true when the M3U movie name (before '(' / '-') starts with one of the
+ * target titles' token sequences. This prevents short titles like "O" (IT) from
+ * matching hundreds of unrelated entries, and keeps "Baba" from matching
+ * "Babam ve Oğlum" / "Dağları Deviren Baba".
+ */
+function titleBoundaryMatch(rawName, targets) {
+    if (!rawName) return false;
+    const nameTokens = titleTokens(rawName.split('(')[0].split('-')[0]);
+    if (!nameTokens || !nameTokens.length) return false;
+    for (const t of targets) {
+        if (!t) continue;
+        let targetTokens = titleTokens(t);
+        if (!targetTokens || !targetTokens.length) continue;
+        while (targetTokens[0] && /^(the|a|an)$/.test(targetTokens[0])) targetTokens.shift();
+        if (!targetTokens.length) continue;
+        if (targetTokens.length === 1 && targetTokens[0].length < 4) continue;
+        if (targetTokens.length > nameTokens.length) continue;
+        let ok = true;
+        for (let i = 0; i < targetTokens.length; i++) {
+            if (nameTokens[i] !== targetTokens[i]) { ok = false; break; }
+        }
+        if (ok) return true;
+    }
+    return false;
+}
+
 async function searchFilmStreams(tmdbId, options = {}) {
     const {
         sourceName = 'Anthology Film',
@@ -186,7 +228,7 @@ async function searchFilmStreams(tmdbId, options = {}) {
                             isMatch = true;
                             score = (m3uYear === targetYear) ? 100 : 90;
                         }
-                    } else if (cleanM3U.length > 3 && (cleanM3U.includes(targetTr) || (targetEn && cleanM3U.includes(targetEn)))) {
+                    } else if (cleanM3U.length > 3 && titleBoundaryMatch(rawName, [d.title, d.original_title])) {
                         if (!m3uYear || m3uYear === targetYear) {
                             isMatch = true;
                             score = 80;
@@ -284,13 +326,15 @@ async function searchDiziStreams(rawId, type, seasonInput, episodeInput, options
                     if (isBlockedStream(nextLine)) continue;
                     if (seenUrls.has(nextLine)) continue;
 
-                    const cleanLine = ultraClean(line);
+                    const parts2 = line.split(',');
+                    const diziname = parts2[parts2.length - 1].trim();
                     const authorMatch = line.match(/group-author="([^"]+)"/);
                     const sourceTag = authorMatch ? authorMatch[1].replace(/[\[\]]/g, '').trim() : 'M3U';
 
-                    const nameMatch = cleanLine.includes(targetTr) || (targetEn && cleanLine.includes(targetEn));
+                    const nameMatch = titleBoundaryMatch(diziname, [d.name, d.original_name]);
                     if (!nameMatch) continue;
 
+                    const cleanLine = ultraClean(line);
                     let epMatch = false;
                     for (const pat of searchPatterns) {
                         if (cleanLine.includes(ultraClean(pat))) {
