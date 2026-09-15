@@ -1,6 +1,6 @@
 {
   "name": "anthology",
-  "version": "1.7.2",
+  "version": "1.7.3",
   "description": "Anthology - Nuvio ve Stremio için Doğrulanmış Türkçe Film, Dizi, Anime ve Canlı TV Eklenti Deposu",
   "main": "config.js",
   "scripts": {
@@ -23,5 +23,8 @@
   "license": "MIT",
   "dependencies": {
     "cheerio-without-node-native": "^0.20.2"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
   }
 }

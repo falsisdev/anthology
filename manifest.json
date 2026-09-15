@@ -1,6 +1,6 @@
 {
   "name": "Anthology",
-  "version": "1.7.2",
+  "version": "1.7.3",
   "author": "falsisdev",
   "description": "Anthology - Türkçe Dizi, Film, Anime ve Canlı TV/Spor Eklenti Deposu",
   "scrapers": [
@@ -8,12 +8,12 @@
       "id": "AnthologyFilmM3U",
       "name": "Anthology Film (M3U)",
       "description": "Binlerce yerli ve yabancı HD film arşivi (Lunedor, Zerk, PowerBoard).",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
       ],
-      "filename": "providers/AnthologyFilmM3U.js",
+      "filename": "build/providers/AnthologyFilmM3U.js",
       "enabled": true,
       "formats": [
         "mp4",
@@ -30,12 +30,12 @@
       "id": "AnthologyDiziM3U",
       "name": "Anthology Dizi (M3U)",
       "description": "Binlerce yerli ve yabancı dizi bölümü (Zerk, PowerBoard).",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "tv"
       ],
-      "filename": "providers/AnthologyDiziM3U.js",
+      "filename": "build/providers/AnthologyDiziM3U.js",
       "enabled": true,
       "formats": [
         "mp4",
@@ -52,13 +52,13 @@
       "id": "sinewix",
       "name": "SineWix",
       "description": "5000+ HD film, dizi ve anime - Türkçe dublaj & altyazı, 1080p çift ses direct MKV.",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "movie",
         "tv"
       ],
-      "filename": "providers/sinewix.js",
+      "filename": "build/providers/sinewix.js",
       "enabled": true,
       "formats": [
         "mp4",
@@ -102,13 +102,13 @@
       "id": "vidlink",
       "name": "Vidlink",
       "description": "TMDB entegrasyonlu global film ve dizi akış sağlayıcısı (4K/1080p direct MP4).",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "movie",
         "tv"
       ],
-      "filename": "providers/vidlink.js",
+      "filename": "build/providers/vidlink.js",
       "enabled": true,
       "formats": [
         "mp4",
@@ -125,7 +125,7 @@
       "name": "Anthology Canlı TV",
       "description": "80+ Ulusal, Haber, Spor ve Canlı TV kanalı ve M3U kataloğu.",
       "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",
@@ -160,7 +160,7 @@
         "meta",
         "stream"
       ],
-      "filename": "providers/M3U/ListM3u.js",
+      "filename": "build/providers/M3U/ListM3u.js",
       "enabled": true,
       "formats": [
         "mp4",
@@ -176,12 +176,12 @@
       "id": "filmmodu",
       "name": "FilmModu",
       "description": "Türkçe dublaj ve altyazılı 4K/1080p full HD film akışları (ImgsAPI).",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
       ],
-      "filename": "providers/filmmodu.js",
+      "filename": "build/providers/filmmodu.js",
       "enabled": true,
       "formats": [
         "hls",
@@ -214,13 +214,13 @@
       "id": "dizipal",
       "name": "DiziPal",
       "description": "En popüler yerli ve yabancı dizi/film içerikleri (Imagestoo & FormationFeed).",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "movie",
         "tv"
       ],
-      "filename": "providers/dizipal.js",
+      "filename": "build/providers/dizipal.js",
       "enabled": true,
       "formats": [
         "hls",
@@ -235,12 +235,12 @@
       "id": "sezonlukdizi",
       "name": "SezonlukDizi",
       "description": "VidMoly altyapısıyla Türkçe dublaj ve altyazılı geniş yabancı dizi arşivi.",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "tv"
       ],
-      "filename": "providers/sezonlukdizi.js",
+      "filename": "build/providers/sezonlukdizi.js",
       "enabled": true,
       "formats": [
         "hls",
@@ -255,12 +255,12 @@
       "id": "diziyou",
       "name": "DiziYou",
       "description": "DiziYou doğrudan depolama akışları ve Türkçe altyazı desteği.",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "tv"
       ],
-      "filename": "providers/diziyou.js",
+      "filename": "build/providers/diziyou.js",
       "enabled": true,
       "formats": [
         "hls",
@@ -275,12 +275,12 @@
       "id": "sinemacx",
       "name": "SinemaCX",
       "description": "Sinema.gg arşivi üzerinden doğrudan 1080p Filmizle HLS master akışları.",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
       ],
-      "filename": "providers/sinemacx.js",
+      "filename": "build/providers/sinemacx.js",
       "enabled": true,
       "formats": [
         "hls",
@@ -295,12 +295,12 @@
       "id": "jetfilmizle",
       "name": "JetFilmİzle",
       "description": "Videopark doğrudan MP4 ve PlayerX çok dilli HLS master akışları.",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
       ],
-      "filename": "providers/jetfilmizle.js",
+      "filename": "build/providers/jetfilmizle.js",
       "enabled": true,
       "formats": [
         "mp4",
@@ -316,13 +316,13 @@
       "id": "animecix",
       "name": "AnimeciX",
       "description": "TauVideo altyapısıyla binlerce anime bölümü (1080p, 720p, 480p direct MP4).",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",
         "movie"
       ],
-      "filename": "providers/animecix.js",
+      "filename": "build/providers/animecix.js",
       "enabled": true,
       "formats": [
         "mp4"
@@ -354,13 +354,13 @@
       "id": "cizgimax",
       "name": "ÇizgiMax",
       "description": "Çizgi diziler, animeler ve animasyon yapımları (TauVideo & Sibnet MP4).",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",
         "movie"
       ],
-      "filename": "providers/cizgimax.js",
+      "filename": "build/providers/cizgimax.js",
       "enabled": true,
       "formats": [
         "mp4"
@@ -378,13 +378,13 @@
       "id": "turkanime",
       "name": "TurkAnime",
       "description": "Türkiye'nin en geniş anime arşivi - doğrudan Sibnet 1080p MP4 ve ArtPlayer HLS akışları.",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",
         "movie"
       ],
-      "filename": "providers/turkanime.js",
+      "filename": "build/providers/turkanime.js",
       "enabled": true,
       "formats": [
         "mp4",
@@ -404,13 +404,13 @@
       "id": "anthology_spor",
       "name": "Anthology Canlı Spor",
       "description": "BeIN Sports 1-5, S Sport 1-2, Tivibu Spor, Exxen Spor ve 49 canlı spor kanalı (Anthology + NetVGold çok kaynaklı).",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",
         "channel"
       ],
-      "filename": "providers/anthology_spor.js",
+      "filename": "build/providers/anthology_spor.js",
       "enabled": true,
       "formats": [
         "hls",
@@ -447,13 +447,13 @@
       "id": "anthology_haber",
       "name": "Anthology Canlı Haber",
       "description": "NTV, Habertürk, TRT Haber, A Haber, CNN Türk, Sözcü TV ve 14 canlı haber kanalı.",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",
         "channel"
       ],
-      "filename": "providers/anthology_haber.js",
+      "filename": "build/providers/anthology_haber.js",
       "enabled": true,
       "formats": [
         "hls",
@@ -490,13 +490,13 @@
       "id": "anthology_ulusal",
       "name": "Anthology Ulusal Kanallar",
       "description": "TRT 1, ATV, Kanal D, Show TV, Star TV, NOW TV, TV8 ve 16 ulusal televizyon kanalı.",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",
         "channel"
       ],
-      "filename": "providers/anthology_ulusal.js",
+      "filename": "build/providers/anthology_ulusal.js",
       "enabled": true,
       "formats": [
         "hls",
@@ -533,13 +533,13 @@
       "id": "anthology_belgesel_cocuk",
       "name": "Anthology Belgesel & Çocuk",
       "description": "TRT Belgesel, Minika Çocuk, Minika GO, TRT Çocuk ve TRT EBA canlı kanalları.",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",
         "channel"
       ],
-      "filename": "providers/anthology_belgesel_cocuk.js",
+      "filename": "build/providers/anthology_belgesel_cocuk.js",
       "enabled": true,
       "formats": [
         "hls",
@@ -576,13 +576,13 @@
       "id": "anthology_muzik",
       "name": "Anthology Müzik & Eğlence",
       "description": "Kral Pop TV, Power TV, PowerTürk, Number 1 TV ve canlı müzik kanalları.",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",
         "channel"
       ],
-      "filename": "providers/anthology_muzik.js",
+      "filename": "build/providers/anthology_muzik.js",
       "enabled": true,
       "formats": [
         "hls",
@@ -619,12 +619,12 @@
       "id": "anthology_aksiyon",
       "name": "Anthology Aksiyon & Macera",
       "description": "Aksiyon, macera, suç ve gerilim sineması doğrudan HD HLS akışları.",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
       ],
-      "filename": "providers/anthology_aksiyon.js",
+      "filename": "build/providers/anthology_aksiyon.js",
       "enabled": true,
       "formats": [
         "hls",
@@ -639,12 +639,12 @@
       "id": "anthology_bilimkurgu",
       "name": "Anthology Bilim Kurgu",
       "description": "Bilim kurgu, fantastik ve uzay sineması doğrudan HD HLS akışları.",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
       ],
-      "filename": "providers/anthology_bilimkurgu.js",
+      "filename": "build/providers/anthology_bilimkurgu.js",
       "enabled": true,
       "formats": [
         "hls",
@@ -659,12 +659,12 @@
       "id": "anthology_korku",
       "name": "Anthology Korku & Gerilim",
       "description": "Korku, gerilim, gizem ve doğaüstü sineması doğrudan HD HLS akışları.",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
       ],
-      "filename": "providers/anthology_korku.js",
+      "filename": "build/providers/anthology_korku.js",
       "enabled": true,
       "formats": [
         "hls",
@@ -679,12 +679,12 @@
       "id": "anthology_komedi",
       "name": "Anthology Komedi",
       "description": "Yerli ve yabancı komedi filmleri için doğrudan HD HLS akışları.",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
       ],
-      "filename": "providers/anthology_komedi.js",
+      "filename": "build/providers/anthology_komedi.js",
       "enabled": true,
       "formats": [
         "hls",
@@ -699,12 +699,12 @@
       "id": "anthology_animasyon",
       "name": "Anthology Animasyon",
       "description": "Animasyon, anime ve çizgi sinema doğrudan HD HLS akışları.",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
       ],
-      "filename": "providers/anthology_animasyon.js",
+      "filename": "build/providers/anthology_animasyon.js",
       "enabled": true,
       "formats": [
         "hls",
@@ -719,12 +719,12 @@
       "id": "anthology_yerlifilm",
       "name": "Anthology Yerli Film & Yeşilçam",
       "description": "Klasik Yeşilçam, Türk sineması ve yerli başyapıtlar doğrudan HD HLS akışları.",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
       ],
-      "filename": "providers/anthology_yerlifilm.js",
+      "filename": "build/providers/anthology_yerlifilm.js",
       "enabled": true,
       "formats": [
         "hls",
@@ -739,13 +739,13 @@
       "id": "anthology_belgesel",
       "name": "Anthology Belgesel & Doğa",
       "description": "Belgeseller, doğa, bilim ve tarih yapımları doğrudan HD HLS akışları.",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "movie",
         "tv"
       ],
-      "filename": "providers/anthology_belgesel.js",
+      "filename": "build/providers/anthology_belgesel.js",
       "enabled": true,
       "formats": [
         "hls",
@@ -760,13 +760,13 @@
       "id": "anthology_cocuk",
       "name": "Anthology Çocuk & Aile",
       "description": "Çocuk filmleri, çizgi diziler ve aile sineması doğrudan HD HLS akışları.",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "movie",
         "tv"
       ],
-      "filename": "providers/anthology_cocuk.js",
+      "filename": "build/providers/anthology_cocuk.js",
       "enabled": true,
       "formats": [
         "hls",
@@ -781,12 +781,12 @@
       "id": "anthology_toprated",
       "name": "Anthology IMDb Top Rated",
       "description": "IMDb'nin en yüksek puanlı kült ve başyapıt filmleri doğrudan HD HLS akışları.",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
       ],
-      "filename": "providers/anthology_toprated.js",
+      "filename": "build/providers/anthology_toprated.js",
       "enabled": true,
       "formats": [
         "hls",
@@ -801,12 +801,12 @@
       "id": "anthology_yerlidizi",
       "name": "Anthology Yerli Dizi",
       "description": "Yerli diziler, Türk televizyon arşivi ve güncel Türk dizileri doğrudan MP4/HLS akışları.",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "tv"
       ],
-      "filename": "providers/anthology_yerlidizi.js",
+      "filename": "build/providers/anthology_yerlidizi.js",
       "enabled": true,
       "formats": [
         "mp4",
@@ -822,12 +822,12 @@
       "id": "anthology_yabancidizi",
       "name": "Anthology Yabancı Dizi",
       "description": "Yabancı popüler diziler için doğrudan HD HLS master akışları.",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "tv"
       ],
-      "filename": "providers/anthology_yabancidizi.js",
+      "filename": "build/providers/anthology_yabancidizi.js",
       "enabled": true,
       "formats": [
         "hls",
@@ -842,12 +842,12 @@
       "id": "ddizi",
       "name": "DDizi",
       "description": "Yerli dizi arşivi, güncel bölümler kataloğu ve doğrudan Ciner/Yandex CDN MP4/HLS akışları.",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "tv"
       ],
-      "filename": "providers/ddizi.js",
+      "filename": "build/providers/ddizi.js",
       "enabled": true,
       "formats": [
         "mp4",
@@ -881,12 +881,12 @@
       "id": "dizibox",
       "name": "DiziBox",
       "description": "Popüler yabancı diziler arşivi, güncel bölümler kataloğu ve doğrudan 1080p Molystream HLS master akışları.",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "tv"
       ],
-      "filename": "providers/dizibox.js",
+      "filename": "build/providers/dizibox.js",
       "enabled": true,
       "formats": [
         "hls",
@@ -905,12 +905,12 @@
       "id": "dizimom",
       "name": "DiziMom",
       "description": "Popüler yabancı diziler arşivi, güncel bölümler kataloğu ve doğrudan 1080p Fire HLS master akışları.",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "tv"
       ],
-      "filename": "providers/dizimom.js",
+      "filename": "build/providers/dizimom.js",
       "enabled": true,
       "formats": [
         "hls",
@@ -943,13 +943,13 @@
       "id": "vidmody",
       "name": "Vidmody",
       "description": "Doğrudan çoklu dil ve altyazı destekli HLS film ve dizi akış sağlayıcısı (1080p).",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "movie",
         "tv"
       ],
-      "filename": "providers/vidmody.js",
+      "filename": "build/providers/vidmody.js",
       "enabled": true,
       "formats": [
         "hls",
@@ -965,12 +965,12 @@
       "id": "webteizle",
       "name": "Webteİzle",
       "description": "Webteİzle arşivi üzerinden Türkçe Dublaj ve Altyazılı VidMoly 1080p master HLS akışları.",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
       ],
-      "filename": "providers/webteizle.js",
+      "filename": "build/providers/webteizle.js",
       "enabled": true,
       "formats": [
         "hls",
@@ -985,12 +985,12 @@
       "id": "yabancidizi",
       "name": "YabancıDizi",
       "description": "YabancıDizi arşivi üzerinden Türkçe Dublaj ve Altyazılı VidMoly 1080p master HLS akışları.",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "tv"
       ],
-      "filename": "providers/yabancidizi.js",
+      "filename": "build/providers/yabancidizi.js",
       "enabled": true,
       "formats": [
         "hls",
@@ -1006,13 +1006,13 @@
       "id": "setfilmizle",
       "name": "SetFilmIzle",
       "description": "SetFilmIzle arşivi üzerinden FastPlay 1080p HLS master akışları ve TR/EN altyazılar (film + dizi).",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "movie",
         "tv"
       ],
-      "filename": "providers/setfilmizle.js",
+      "filename": "build/providers/setfilmizle.js",
       "enabled": true,
       "formats": [
         "hls",
@@ -1056,12 +1056,12 @@
       "id": "kultfilmler",
       "name": "KultFilmler",
       "description": "KultFilmler arşivi üzerinden VidMoly/Vidpapi HLS akışları.",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
       ],
-      "filename": "providers/kultfilmler.js",
+      "filename": "build/providers/kultfilmler.js",
       "enabled": true,
       "formats": [
         "hls",
@@ -1094,12 +1094,12 @@
       "id": "hdfilmdelisi",
       "name": "HDFilmDelisi",
       "description": "HDFilmDelisi JSON API arşivi üzerinden VidMody 1080p HLS akışları.",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
       ],
-      "filename": "providers/hdfilmdelisi.js",
+      "filename": "build/providers/hdfilmdelisi.js",
       "enabled": true,
       "formats": [
         "hls",
@@ -1132,12 +1132,12 @@
       "id": "hdfilmizle",
       "name": "HDFilmIzle",
       "description": "HDFilmIzle (Ink/Vip) arşivi üzerinden FastPlay 1080p HLS master akışları ve TR/EN altyazılar.",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
       ],
-      "filename": "providers/hdfilmizle.js",
+      "filename": "build/providers/hdfilmizle.js",
       "enabled": true,
       "formats": [
         "hls",
@@ -1170,13 +1170,13 @@
       "id": "mahsundizi",
       "name": "Mahsun Dizi",
       "description": "Mahsun Dizi arşivi ve dosyaload BEPLAYER+ üzerinden 1080p HLS akışları ve Türkçe/İngilizce altyazılar.",
-      "version": "1.7.2",
+      "version": "1.7.3",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",
         "movie"
       ],
-      "filename": "providers/mahsundizi.js",
+      "filename": "build/providers/mahsundizi.js",
       "enabled": true,
       "formats": [
         "hls",
