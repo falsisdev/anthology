@@ -989,7 +989,7 @@
         "tv"
       ],
       "filename": "providers/setfilmizle.js",
-      "enabled": false,
+      "enabled": true,
       "formats": [
         "hls",
         "m3u8"
@@ -1114,7 +1114,7 @@
         "movie"
       ],
       "filename": "providers/hdfilmizle.js",
-      "enabled": false,
+      "enabled": true,
       "formats": [
         "hls",
         "m3u8"
