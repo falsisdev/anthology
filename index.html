@@ -1837,7 +1837,7 @@
         <div class="filter-pills" id="providerFilterPills">
           <button class="filter-pill active" data-filter="all">
             <span>Tümü</span>
-            <span class="filter-count" id="countAll">41</span>
+            <span class="filter-count" id="countAll">34</span>
           </button>
           <button class="filter-pill" data-filter="movie">
             <span>🎬 Film</span>
@@ -1920,7 +1920,58 @@
         </div>
       </div>
     </div>
+  
+  <!-- BROKEN PROVIDERS SECTION -->
+  <section id="broken">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Kullanım Dışı</div>
+        <h2 class="section-title">Çalışmayan Sağlayıcılar</h2>
+        <p class="section-desc">
+          Kaynak/CDN/API değişiklikleri nedeniyle şu anda çalışmayan eklentiler. Kodları arşivlidir; kaynak düzelirse yeniden etkinleştirilir.
+        </p>
+      </div>
+      <div class="broken-providers">
+        <div class="broken-provider">
+          <div class="broken-name">DiziWatch</div>
+          <div class="broken-reason">Kaynak değişikliği / blok — aranan bölümler için stream dönmüyor</div>
+        </div>
+        <div class="broken-provider">
+          <div class="broken-name">DiziBox</div>
+          <div class="broken-reason">Kaynak değişikliği / blok — aranan bölümler için stream dönmüyor</div>
+        </div>
+        <div class="broken-provider">
+          <div class="broken-name">ÇizgiMax</div>
+          <div class="broken-reason">Sibnet origin 400/timeout — alternatif kaynak yok</div>
+        </div>
+        <div class="broken-provider">
+          <div class="broken-name">SezonlukDizi</div>
+          <div class="broken-reason">Kaynak değişikliği / blok — aranan bölümler için stream dönmüyor</div>
+        </div>
+        <div class="broken-provider">
+          <div class="broken-name">Mahsun Dizi</div>
+          <div class="broken-reason">Kaynak değişikliği / blok — aranan bölümler için stream dönmüyor</div>
+        </div>
+        <div class="broken-provider">
+          <div class="broken-name">JetFilmİzle</div>
+          <div class="broken-reason">Kaynak değişikliği / blok — aranan filmler için stream dönmüyor</div>
+        </div>
+        <div class="broken-provider">
+          <div class="broken-name">DiziPal</div>
+          <div class="broken-reason">dplayer82.site Cloudflare WAF — mimari blok (herkes için 403)</div>
+        </div>
+        <div class="broken-provider">
+          <div class="broken-name">SetFilmIzle</div>
+          <div class="broken-reason">FastPlay X-Sp single-use token — native player'da oynatılamıyor</div>
+        </div>
+        <div class="broken-provider">
+          <div class="broken-name">HDFilmIzle</div>
+          <div class="broken-reason">FastPlay X-Sp single-use token — native player'da oynatılamıyor</div>
+        </div>
+      </div>
+    </div>
   </section>
+</section>
 
   <!-- LIVE CHANNELS SECTION -->
   <section id="live">
@@ -2015,7 +2066,7 @@
             </svg>
           </button>
           <div class="faq-body">
-            <p><strong>Nuvio (Tam Kapsam):</strong> Anthology'nin ana platformudur. Nuvio kullanıcıları 41 doğrulanmış
+            <p><strong>Nuvio (Tam Kapsam):</strong> Anthology'nin ana platformudur. Nuvio kullanıcıları 34 doğrulanmış
               film, dizi ve anime video scraper motorunun tamamını, 6 Canlı TV kataloğunu ve 100 canlı yayın kanalını
               hiçbir sınırlama olmaksızın sorunsuz ve eksiksiz kullanabilir.</p>
             <br>
@@ -2125,7 +2176,7 @@
     const STREMIO_MANIFEST_URL = "https://falsisdev.github.io/anthology/stremio/manifest.json";
     const FALLBACK_LOGO = "assets/logo_1_transparent.png";
 
-    /* 41 SCRAPERS / PLUGINS */
+    /* 43 SCRAPERS / PLUGINS */
     const PROVIDERS = [
       { id: "AnthologyFilmM3U", name: "Anthology Film (M3U)", cats: ["movie", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS", desc: "On binlerce yerli ve yabancı film arşivi (Lunedor, Zerk, PowerBoard altyapısı)." },
       { id: "AnthologyDiziM3U", name: "Anthology Dizi (M3U)", cats: ["tv", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p MP4 / HLS", desc: "On binlerce yerli ve yabancı dizi bölümü (Zerk, PowerBoard altyapısı)." },
