@@ -194,11 +194,15 @@ function getStreams(args) {
                 // Alternatif yedek akışlar
                 var key = cleanKey(matched.id.replace(/^tv:/, ''));
                 var backupUrl = null;
-                if (key.includes('beinsports1')) backupUrl = 'https://andro.evrenesoglu99.click/checklist/androstreamlivebs1.m3u8';
-                else if (key.includes('beinsports2')) backupUrl = 'https://andro.evrenesoglu99.click/checklist/androstreamlivebs2.m3u8';
-                else if (key.includes('beinsports3')) backupUrl = 'https://andro.evrenesoglu99.click/checklist/androstreamlivebs3.m3u8';
-                else if (key.includes('beinsports4')) backupUrl = 'https://andro.evrenesoglu99.click/checklist/androstreamlivebs4.m3u8';
-                else if (key.includes('beinsports5')) backupUrl = 'https://andro.evrenesoglu99.click/checklist/androstreamlivebs5.m3u8';
+                if (key.includes('beinsportsmax1')) backupUrl = 'https://andro.evrenesoglu101.click/checklist/androstreamlivebsm1.m3u8';
+                else if (key.includes('beinsportsmax2')) backupUrl = 'https://andro.evrenesoglu101.click/checklist/androstreamlivebsm2.m3u8';
+                else if (key.includes('beinsports1')) backupUrl = 'https://andro.evrenesoglu101.click/checklist/androstreamlivebs1.m3u8';
+                else if (key.includes('beinsports2')) backupUrl = 'https://andro.evrenesoglu101.click/checklist/androstreamlivebs2.m3u8';
+                else if (key.includes('beinsports3')) backupUrl = 'https://andro.evrenesoglu101.click/checklist/androstreamlivebs3.m3u8';
+                else if (key.includes('beinsports4')) backupUrl = 'https://andro.evrenesoglu101.click/checklist/androstreamlivebs4.m3u8';
+                else if (key.includes('beinsports5')) backupUrl = 'https://andro.evrenesoglu101.click/checklist/androstreamlivebs5.m3u8';
+                else if (key.includes('ssportplus')) backupUrl = 'https://andro.evrenesoglu101.click/checklist/batutest.m3u8';
+                else if (key.includes('ssport2')) backupUrl = 'https://andro.evrenesoglu101.click/checklist/androstreamlivess2.m3u8';
                 else if (key.includes('ssport')) backupUrl = 'https://andro.evrenesoglu99.click/checklist/batutest.m3u8';
 
                 if (backupUrl && backupUrl !== matched.url) {
