@@ -27,6 +27,12 @@ const path = require("path");
       } else if (scraper.id === "animecix") {
         testTarget = "Solo Leveling (127532 S01E01)";
         streams = await mod.getStreams("127532", "tv", 1, 1);
+      } else if (scraper.id === "dizibak") {
+        testTarget = "Breaking Bad (1396 S01E01)";
+        streams = await mod.getStreams("1396", "tv", 1, 1);
+      } else if (scraper.id === "diziwatch") {
+        testTarget = "Solo Leveling (127532 S01E01)";
+        streams = await mod.getStreams("127532", "tv", 1, 1);
       } else if (scraper.id === "turkanime") {
         testTarget = "Death Note (13916 S01E01)";
         streams = await mod.getStreams("13916", "tv", 1, 1);
@@ -45,18 +51,27 @@ const path = require("path");
       } else if (scraper.id === "anthology_yerlifilm") {
         testTarget = "G.O.R.A. (27275)";
         streams = await mod.getStreams("27275", "movie");
+      } else if (scraper.id === "anthology_aksiyon") {
+        testTarget = "John Wick (245891)";
+        streams = await mod.getStreams("245891", "movie");
+      } else if (scraper.id === "anthology_bilimkurgu") {
+        testTarget = "Inception (27205)";
+        streams = await mod.getStreams("27205", "movie");
       } else if (scraper.id === "anthology_korku") {
-        testTarget = "Saw (176)";
-        streams = await mod.getStreams("176", "movie");
+        testTarget = "It (346364)";
+        streams = await mod.getStreams("346364", "movie");
       } else if (scraper.id === "anthology_komedi") {
-        testTarget = "The Mask (854)";
-        streams = await mod.getStreams("854", "movie");
+        testTarget = "G.O.R.A. (27275)";
+        streams = await mod.getStreams("27275", "movie");
       } else if (scraper.id === "anthology_animasyon" || scraper.id === "anthology_cocuk") {
         testTarget = "Shrek 2 (809)";
         streams = await mod.getStreams("809", "movie");
       } else if (scraper.id === "anthology_belgesel") {
-        testTarget = "Rüzgâr Gibi Geçti (770)";
-        streams = await mod.getStreams("770", "movie");
+        testTarget = "Mantarların Gizemli Dünyası (612654)";
+        streams = await mod.getStreams("612654", "movie");
+      } else if (scraper.id === "anthology_toprated" || scraper.id === "AnthologyFilmM3U") {
+        testTarget = "The Godfather (238)";
+        streams = await mod.getStreams("238", "movie");
       } else if (scraper.supportedTypes && scraper.supportedTypes.includes("movie")) {
         testTarget = "The Matrix (603)";
         streams = await mod.getStreams("603", "movie");
