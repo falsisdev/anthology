@@ -217,6 +217,24 @@ Nuvio ve Stremio ana sayfasında canlı TV kanallarını kategorilere ayrılmı�
 
 ---
 
+## ⚠️ **Deprecated / Kullanımdan Kaldırılan Sağlayıcılar**
+
+Aşağıdaki sağlayıcılar kaynak/CDN/API değişiklikleri nedeniyle **kalıcı olarak çalışmamaktadır** ve manifest'ta `enabled: false` olarak işaretlenmiştir. Kod arşivlenmiştir, gelecekte kaynak değişirse yeniden etkinleştirilebilir.
+
+| Sağlayıcı | Durum | Kök Neden | Not |
+|---|---|---|---|
+| **ÇizgiMax** | ❌ **Bozuk** | Sibnet origin down / API değişimi | Sibnet `dv97.sibnet.ru` 400/timeout dönüyor; alternatif source yok |
+| **SineWix** | ❌ **Bozuk** | API 401 Unauthorized | `ydfvfdizipanel.ru` yetki hatası; kullanıcı kararıyla dokunulmamış |
+| **Dizipal** | ❌ **Bozuk** | dplayer82.site Cloudflare WAF | Mimari blok; embed host `dplayer82.site` herkes için 403 |
+| **FilmModu** | ⚠️ **Kısmi** | Segment CDN origin down (503) | `imgsapi.pro` master OK ama `sx1.canvopics.life` segmentler 503; provider kodu doğru, CDN sahibi down |
+| **SetFilmIzle / HDFilmIzle** | ⚠️ **Kısmi** | FastPlay X-Sp single-use token | Her manifest isteğinde yeni imza gerek; native player'da oynatılamaz |
+| **TurkAnime** | ⚠️ **Kısmi** | Sibnet origin down | `video.sibnet.ru` 400/timeout; embed zinciri bozulmuş |
+| **AnimeciX** | ⚠️ **Kısmi** | Token expiry / CDN block | Token kısa ömürlü; app'te fresh call ile çalışır, test IP'lerinde 404 |
+
+> **Not:** Yukarıdaki "Kısmi" sağlayıcıların provider kodları **doğrudur**; sorun dış CDN/API'de. Kaynak sahipleri düzeltilirse tekrar çalışır.
+
+---
+
 ## ❓ Sıkça Sorulan Sorular (SSS)
 
 <details>
