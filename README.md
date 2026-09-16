@@ -25,7 +25,7 @@
 
 > [!IMPORTANT]
 > ### ⚠️ Platformlar Arasındaki Kapsam ve Kullanım Farkı:
-> - 🌟 **Nuvio Kullanıcıları:** Anthology'nin sunduğu **tüm özellikleri sorunsuz, sınırsız ve eksiksiz** kullanabilir. **34 video scraper motorunun tamamı** (Türkçe/yabancı film, dizi, anime, özel tür arşivleri) ve **100 Canlı TV kanalı (6 vitrin kataloğu)** Nuvio oynatıcısında tek çatı altında eksiksiz çalışır.
+> - 🌟 **Nuvio Kullanıcıları:** Anthology'nin sunduğu **tüm özellikleri sorunsuz, sınırsız ve eksiksiz** kullanabilir. **37 video scraper motorunun tamamı** (Türkçe/yabancı film, dizi, anime, özel tür arşivleri) ve **100 Canlı TV kanalı (6 vitrin kataloğu)** Nuvio oynatıcısında tek çatı altında eksiksiz çalışır.
 > - 🟣 **Stremio Kullanıcıları:** Stremio eklentisi olarak kullanım **yalnızca Canlı TV katalogları (6 vitrin ve 100 canlı yayın kanalı) ile sınırlıdır**. Stremio'nun eklenti protokolü gereği film ve dizi video scraper'ları Stremio üzerinde çalışmaz; bu nedenle Stremio'da yalnızca canlı televizyon ve spor akışları sunulmaktadır.
 > - 🌐 **Stremio Topluluk Sayfası:** Eklentiyi resmi Stremio topluluk dizininde incelemek için [stremio-addons.net/addons/anthology](https://stremio-addons.net/addons/anthology) adresini ziyaret edebilirsiniz.
 
@@ -214,13 +214,6 @@ Aşağıdaki sağlayıcılar kaynak/CDN/API değişiklikleri nedeniyle **şu and
 
 | Sağlayıcı | Durum | Kök Neden | Not |
 |---|---|---|---|
-| **DiziWatch** | ❌ **Çalışmıyor** | Kaynak değişikliği / blok | Aranan bölümler için stream dönmüyor |
-| **DiziBox** | ❌ **Çalışmıyor** | Kaynak değişikliği / blok | Aranan bölümler için stream dönmüyor |
-| **ÇizgiMax** | ❌ **Çalışmıyor** | Sibnet origin down / API değişimi | Sibnet origin 400/timeout dönüyor; alternatif source yok |
-| **SezonlukDizi** | ❌ **Çalışmıyor** | Kaynak değişikliği / blok | Aranan bölümler için stream dönmüyor |
-| **Mahsun Dizi** | ❌ **Çalışmıyor** | Kaynak değişikliği / blok | Aranan bölümler için stream dönmüyor |
-| **JetFilmİzle** | ❌ **Çalışmıyor** | Kaynak değişikliği / blok | Aranan filmler için stream dönmüyor |
-| **DiziPal** | ❌ **Çalışmıyor** | dplayer82.site Cloudflare WAF | Mimari blok; embed host `dplayer82.site` herkes için 403 |
 | **SetFilmIzle** | ❌ **Çalışmıyor** | FastPlay X-Sp single-use token | Native player'da oynatılamıyor |
 | **HDFilmIzle** | ❌ **Çalışmıyor** | FastPlay X-Sp single-use token | Native player'da oynatılamıyor |
 
@@ -239,7 +232,7 @@ Evet! Anthology %100 açık kaynaklı ve kâr amacı gütmeyen bir topluluk proj
 <details>
 <summary><strong>2. Nuvio mu Stremio mu kullanmalıyım? Aralarındaki fark nedir?</strong></summary>
 <br>
-<p><strong>Nuvio Kullanıcıları:</strong> Anthology'nin tüm özelliklerini sınırsız kullanabilir. 34 adet film, dizi ve anime video scraper motorunun tamamı ile 6 Canlı TV kataloğu ve 100 canlı yayın kanalı Nuvio'da eksiksiz çalışır.</p>
+<p><strong>Nuvio Kullanıcıları:</strong> Anthology'nin tüm özelliklerini sınırsız kullanabilir. 37 adet film, dizi ve anime video scraper motorunun tamamı ile 6 Canlı TV kataloğu ve 100 canlı yayın kanalı Nuvio'da eksiksiz çalışır.</p>
 <p><strong>Stremio Kullanıcıları:</strong> Stremio eklentisi olarak kullanım <strong>yalnızca Canlı TV katalogları (6 vitrin ve 100 kanal)</strong> ile sınırlıdır. Film ve dizi motorları Stremio'da yer almaz. Resmi topluluk dizini için <a href="https://stremio-addons.net/addons/anthology">stremio-addons.net/addons/anthology</a> adresini ziyaret edebilirsiniz.</p>
 </details>
 

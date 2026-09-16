@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "name": "Anthology",
-  "version": "1.7.17",
+  "version": "1.7.18",
   "description": "Anthology - Merkezi Eklenti, API, URL, Oynatıcı ve Sistem Yapılandırması",
   "branding": {
     "name": "Anthology",
@@ -59,10 +59,6 @@
           "https://www.hdfilmizle.vip"
         ]
       },
-      "jetfilmizle": {
-        "base": "https://jetfilmizle.now",
-        "player": "https://playerx.info"
-      },
       "kultfilmler": {
         "base": "https://kultfilmler.net",
         "player": "https://vidpapi.xyz/player/index.php"
@@ -89,9 +85,6 @@
       "ddizi": {
         "base": "https://www.ddizi.im"
       },
-      "dizibox": {
-        "base": "https://www.dizibox.live"
-      },
       "dizibak": {
         "base": "https://dizibak.net",
         "player": "https://player.dizibak.net"
@@ -99,25 +92,9 @@
       "dizimom": {
         "base": "https://www.dizimom.diy"
       },
-      "diziwatch": {
-        "base": "https://diziwatch8.com",
-        "embed": "https://videoplay.vip"
-      },
-      "dizipal": {
-        "base": "https://dizipal2131.com",
-        "player": "https://imagestoo.com/player/index.php"
-      },
       "diziyou": {
         "base": "https://www.diziyou.one",
         "storage": "https://storage.diziyou.one"
-      },
-      "mahsundizi": {
-        "base": "https://mahsundizi8.com",
-        "storage": "https://dosyaload.com"
-      },
-      "sezonlukdizi": {
-        "base": "https://sezonlukdizi.cc",
-        "sibnet": "https://video.sibnet.ru"
       },
       "yabancidizi": {
         "base": "https://yabancidizi.news"
@@ -129,12 +106,6 @@
       },
       "turkanime": {
         "base": "https://www.turkanime.tv"
-      }
-    },
-    "cartoons": {
-      "cizgimax": {
-        "base": "https://cizgimax.online",
-        "tau_video": "https://tau-video.xyz/api/video"
       }
     },
     "meta_resolvers": {
