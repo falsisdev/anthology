@@ -1,7 +1,7 @@
 /**
  * Anthology - Anizium Provider
  * 4K & 1080p Türkçe Dublaj ve Altyazılı Anime Kaynağı
- * Doğrudan Backblaze / Cloudflare CDN MP4 akışları sunar.
+ * Doğrudan Backblaze / Cloudflare CDN MP4 akışları ve WebVTT altyazıları sunar.
  */
 
 var BASE_URL = 'https://api.anizium.co';
@@ -99,6 +99,53 @@ async function aniziumFetch(endpoint, params) {
   var res = await fetch(url, { headers: headers });
   if (!res.ok) return null;
   return await res.json();
+}
+
+/**
+ * Altyazı dil kodlarını Stremio, Nuvio ve ExoPlayer standartlarına dönüştürür
+ */
+function mapLangCode(group) {
+  var g = (group || '').toLowerCase();
+  switch (g) {
+    case 'tr': return { id: 'tr', lang: 'tur', language: 'tr', label: 'Türkçe' };
+    case 'en': return { id: 'en', lang: 'eng', language: 'en', label: 'İngilizce' };
+    case 'de': return { id: 'de', lang: 'ger', language: 'de', label: 'Almanca' };
+    case 'fr': return { id: 'fr', lang: 'fre', language: 'fr', label: 'Fransızca' };
+    case 'es': return { id: 'es', lang: 'spa', language: 'es', label: 'İspanyolca' };
+    case 'it': return { id: 'it', lang: 'ita', language: 'it', label: 'İtalyanca' };
+    case 'ar': return { id: 'ar', lang: 'ara', language: 'ar', label: 'Arapça' };
+    default:   return { id: g || 'unknown', lang: g || 'und', language: g || 'und', label: (g ? g.toUpperCase() : 'Altyazı') };
+  }
+}
+
+/**
+ * Ham Anizium altyazı dizisini zenginleştirir
+ */
+function formatSubtitles(rawSubs) {
+  if (!rawSubs || rawSubs.length === 0) return [];
+  var subs = [];
+  for (var i = 0; i < rawSubs.length; i++) {
+    var s = rawSubs[i];
+    if (!s || !s.link) continue;
+    var info = mapLangCode(s.group);
+    var label = s.name || info.label;
+
+    subs.push({
+      id: info.id + '_' + (i + 1),
+      url: s.link,
+      file: s.link,
+      link: s.link,
+      lang: info.lang,
+      language: info.language,
+      label: label,
+      name: label,
+      title: label,
+      format: 'vtt',
+      type: 'text/vtt',
+      mimeType: 'text/vtt'
+    });
+  }
+  return subs;
 }
 
 /**
@@ -218,7 +265,7 @@ async function searchAnizium(queries) {
 }
 
 /**
- * Video akışlarını çeker
+ * Video akışlarını çeker (Her stream'e tam altyazı listesini iliştirir)
  */
 async function getStreams(id, mediaType, season, episode) {
   try {
@@ -270,27 +317,19 @@ async function getStreams(id, mediaType, season, episode) {
       return [];
     }
 
-    // Altyazıları hazırla
-    var subtitles = [];
-    if (srcData.subtitles && srcData.subtitles.length > 0) {
-      for (var s = 0; s < srcData.subtitles.length; s++) {
-        var sub = srcData.subtitles[s];
-        if (sub && sub.link) {
-          subtitles.push({
-            id: sub.group || 'tr',
-            lang: sub.group === 'tr' ? 'tur' : 'eng',
-            url: sub.link
-          });
-        }
-      }
-    }
+    // Altyazıları standart formatta hazırla
+    var subtitles = formatSubtitles(srcData.subtitles);
 
     var streams = [];
     var groups = srcData.groups;
 
     for (var g = 0; g < groups.length; g++) {
       var group = groups[g];
-      var groupName = group.name || (group.group === 'trdub' ? 'Türkçe Dublaj' : (group.group === 'original' ? 'Japonca' : 'İngilizce Dublaj'));
+      var isDub = group.group === 'trdub';
+      var isOriginal = group.group === 'original';
+      var isEnDub = group.group === 'endub';
+
+      var groupTag = isDub ? 'Türkçe Dublaj' : (isOriginal ? 'Japonca [TR Altyazılı]' : (isEnDub ? 'İngilizce Dublaj' : (group.name || 'Japonca')));
       var items = group.items || [];
 
       // En yüksek kalite en başta olacak şekilde sırala (2160p -> 1080p -> ...)
@@ -306,12 +345,15 @@ async function getStreams(id, mediaType, season, episode) {
 
         streams.push({
           name: 'Anizium',
-          title: '⌜ Anizium ⌟ | ' + groupName + ' [' + qLabel + ']',
+          title: '⌜ Anizium ⌟ | ' + groupTag + ' [' + qLabel + ']',
           url: item.link,
           quality: qLabel,
           format: item.type || 'mp4',
           isHls: item.type === 'hls',
           provider: 'anizium',
+          behaviorHints: {
+            notWebReady: false
+          },
           subtitles: subtitles.length > 0 ? subtitles : undefined
         });
       }
@@ -320,6 +362,55 @@ async function getStreams(id, mediaType, season, episode) {
     return streams;
   } catch (e) {
     return [];
+  }
+}
+
+/**
+ * Harici altyazı çekme endpoint'i (Stremio / Nuvio Subtitles Resource API)
+ */
+async function getSubtitles(id, mediaType, season, episode) {
+  try {
+    var rawId = String(id || '').trim();
+    var isTv = mediaType === 'tv' || mediaType === 'series';
+    var sNum = parseInt(season) || 1;
+    var eNum = parseInt(episode) || 1;
+
+    var aniziumId = null;
+    var isSeries = isTv;
+
+    if (rawId.indexOf('anizium:ep:') === 0) {
+      var parts = rawId.split(':');
+      aniziumId = parts[2];
+      sNum = parseInt(parts[3]) || 1;
+      eNum = parseInt(parts[4]) || 1;
+      isSeries = true;
+    } else if (rawId.indexOf('anizium:movie:') === 0) {
+      aniziumId = rawId.replace('anizium:movie:', '');
+      isSeries = false;
+    } else if (rawId.indexOf('anizium:anime:') === 0) {
+      aniziumId = rawId.replace('anizium:anime:', '');
+    } else {
+      var tmdbInfo = await resolveTmdbInfo(rawId, mediaType);
+      var matched = await searchAnizium(tmdbInfo.uniqueQueries);
+      if (!matched) return { subtitles: [] };
+      aniziumId = matched.ID;
+      if (matched.type === 'movie') isSeries = false;
+    }
+
+    if (!aniziumId) return { subtitles: [] };
+
+    var sourceParams = { id: aniziumId, site: 'main', server: '1' };
+    if (isSeries) {
+      sourceParams.season = sNum;
+      sourceParams.episode = eNum;
+    }
+
+    var srcData = await aniziumFetch('/anime/source', sourceParams);
+    if (!srcData || !srcData.subtitles) return { subtitles: [] };
+
+    return { subtitles: formatSubtitles(srcData.subtitles) };
+  } catch (e) {
+    return { subtitles: [] };
   }
 }
 
@@ -418,10 +509,16 @@ async function getMeta(args) {
 }
 
 if (typeof module !== 'undefined') {
-  module.exports = { getStreams: getStreams, getCatalog: getCatalog, getMeta: getMeta };
+  module.exports = {
+    getStreams: getStreams,
+    getSubtitles: getSubtitles,
+    getCatalog: getCatalog,
+    getMeta: getMeta
+  };
 }
 if (typeof globalThis !== 'undefined') {
   globalThis.getStreams = getStreams;
+  globalThis.getSubtitles = getSubtitles;
   globalThis.getCatalog = getCatalog;
   globalThis.getMeta = getMeta;
 }
