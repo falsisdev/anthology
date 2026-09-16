@@ -76,6 +76,9 @@ async function checkPlayability(streams) {
       } else if (scraper.id === "asyaanimeleri") {
         testTarget = "Solo Leveling (127532 S01E01)";
         streams = await mod.getStreams("127532", "tv", 1, 1);
+      } else if (scraper.id === "diziboxizle") {
+        testTarget = "Amadeus (246864 S01E01)";
+        streams = await mod.getStreams("246864", "tv", 1, 1);
       } else if (scraper.id === "dizibak") {
         testTarget = "Breaking Bad (1396 S01E01)";
         streams = await mod.getStreams("1396", "tv", 1, 1);
