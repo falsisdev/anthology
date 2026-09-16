@@ -67,15 +67,9 @@ async function checkPlayability(streams) {
       } else if (scraper.id === "dizibak") {
         testTarget = "Breaking Bad (1396 S01E01)";
         streams = await mod.getStreams("1396", "tv", 1, 1);
-      } else if (scraper.id === "diziwatch") {
-        testTarget = "Solo Leveling (127532 S01E01)";
-        streams = await mod.getStreams("127532", "tv", 1, 1);
       } else if (scraper.id === "turkanime") {
         testTarget = "Death Note (13916 S01E01)";
         streams = await mod.getStreams("13916", "tv", 1, 1);
-      } else if (scraper.id === "cizgimax") {
-        testTarget = "Avatar (246 S01E01)";
-        streams = await mod.getStreams("246", "tv", 1, 1);
       } else if (scraper.id === "AnthologyDiziM3U" || scraper.id === "anthology_yerlidizi") {
         testTarget = "Bahar (245914 S01E01)";
         streams = await mod.getStreams("245914", "tv", 1, 1);
@@ -115,9 +109,6 @@ async function checkPlayability(streams) {
       } else if (scraper.id === "yabancidizi") {
         testTarget = "Dexter (1405 S01E01)";
         streams = await mod.getStreams("1405", "tv", 1, 1);
-      } else if (scraper.id === "mahsundizi") {
-        testTarget = "Breaking Bad (1396 S01E01)";
-        streams = await mod.getStreams("1396", "tv", 1, 1);
       } else if (scraper.supportedTypes && scraper.supportedTypes.includes("tv")) {
         testTarget = "Breaking Bad (1396 S01E01)";
         streams = await mod.getStreams("1396", "tv", 1, 1);
