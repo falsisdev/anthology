@@ -61,6 +61,9 @@ async function checkPlayability(streams) {
       } else if (scraper.id === "animecix") {
         testTarget = "Solo Leveling (127532 S01E01)";
         streams = await mod.getStreams("127532", "tv", 1, 1);
+      } else if (scraper.id === "anizium") {
+        testTarget = "Naruto Shippuden (31910 S01E01)";
+        streams = await mod.getStreams("31910", "series", 1, 1);
       } else if (scraper.id === "dizibak") {
         testTarget = "Breaking Bad (1396 S01E01)";
         streams = await mod.getStreams("1396", "tv", 1, 1);
