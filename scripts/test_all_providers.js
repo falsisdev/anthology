@@ -1,3 +1,4 @@
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 const manifest = require("../manifest.json");
 const path = require("path");
 
@@ -9,10 +10,18 @@ async function checkPlayability(streams) {
   const url = s.url;
   try {
     // HEAD master
-    const mr = await fetch(url, { method: "HEAD", headers, signal: AbortSignal.timeout(12000) });
-    if (!mr.ok) return { playable: false, reason: `master ${mr.status}` };
+    let mr = await fetch(url, { method: "HEAD", headers, signal: AbortSignal.timeout(12000) }).catch(() => null);
+    // Fallback: If HEAD fails (e.g. 400/405 from Sibnet or other CDNs that only allow GET), try GET Range
+    if (!mr || !mr.ok) {
+      const getHeaders = { ...headers, Range: "bytes=0-100" };
+      const gr = await fetch(url, { method: "GET", headers: getHeaders, signal: AbortSignal.timeout(12000) }).catch(() => null);
+      if (gr && (gr.ok || gr.status === 206)) {
+        mr = gr;
+      }
+    }
+    if (!mr || (!mr.ok && mr.status !== 206)) return { playable: false, reason: `master ${mr ? mr.status : 'ERR'}` };
     
-    // If direct mp4 (not m3u8), consider playable if master 200
+    // If direct mp4 (not m3u8), consider playable if master 200 or 206
     const ct = mr.headers.get("content-type") || "";
     if (ct.includes("video/") || url.endsWith(".mp4") || url.includes(".mp4?")) {
       return { playable: true, reason: `direct ${mr.status} ${ct}` };
@@ -64,6 +73,9 @@ async function checkPlayability(streams) {
       } else if (scraper.id === "anizium") {
         testTarget = "Naruto Shippuden (31910 S01E01)";
         streams = await mod.getStreams("31910", "series", 1, 1);
+      } else if (scraper.id === "asyaanimeleri") {
+        testTarget = "Solo Leveling (127532 S01E01)";
+        streams = await mod.getStreams("127532", "tv", 1, 1);
       } else if (scraper.id === "dizibak") {
         testTarget = "Breaking Bad (1396 S01E01)";
         streams = await mod.getStreams("1396", "tv", 1, 1);
