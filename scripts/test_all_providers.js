@@ -79,6 +79,9 @@ async function checkPlayability(streams) {
       } else if (scraper.id === "dizibak") {
         testTarget = "Breaking Bad (1396 S01E01)";
         streams = await mod.getStreams("1396", "tv", 1, 1);
+      } else if (scraper.id === "dizipod") {
+        testTarget = "Breaking Bad (1396 S01E01)";
+        streams = await mod.getStreams("1396", "tv", 1, 1);
       } else if (scraper.id === "turkanime") {
         testTarget = "Death Note (13916 S01E01)";
         streams = await mod.getStreams("13916", "tv", 1, 1);

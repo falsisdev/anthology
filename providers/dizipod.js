@@ -1,0 +1,753 @@
+/**
+ * Anthology - DiziPod Provider
+ * dizipod.com ve player.dizipod.com üzerinden
+ * popüler dizi ve filmler için doğrudan HLS master (gomindex.m3u8) akışları sunar.
+ */
+
+var cheerio = (function() {
+  try { return require('cheerio-without-node-native'); } catch (e) {
+    try { return require('cheerio'); } catch (e2) { return null; }
+  }
+})();
+
+var PROVIDER_NAME = 'DiziPod';
+var BASE_URL = 'https://dizipod.com';
+var PLAYER_URL = 'https://player.dizipod.com';
+var TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
+
+var HEADERS = {
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'Referer': BASE_URL + '/'
+};
+
+// ── Yardımcı: Güvenli Zaman Aşımı Sinyali ────────────────────────────────
+function timeoutSignal(ms) {
+  if (typeof AbortSignal !== 'undefined' && typeof AbortSignal.timeout === 'function') {
+    return AbortSignal.timeout(ms);
+  }
+  var controller = new AbortController();
+  setTimeout(function() { controller.abort(); }, ms);
+  return controller.signal;
+}
+
+// ── Yardımcı: Aksan ve Türkçe Karakter Katlama ───────────────────────────
+function asciiFold(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/[ıİ]/g, 'i')
+    .replace(/[öÖ]/g, 'o')
+    .replace(/[üÜ]/g, 'u')
+    .replace(/[çÇ]/g, 'c')
+    .replace(/[şŞ]/g, 's')
+    .replace(/[ğĞ]/g, 'g')
+    .replace(/[âîûÂÎÛ]/g, function(m) {
+      return { 'â': 'a', 'î': 'i', 'û': 'u', 'Â': 'a', 'Î': 'i', 'Û': 'u' }[m] || m;
+    })
+    .toLowerCase();
+}
+
+function cleanTitle(str) {
+  if (!str) return '';
+  return asciiFold(str)
+    .replace(/[^a-z0-9\s]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function titleToSlug(str) {
+  if (!str) return '';
+  return asciiFold(str)
+    .replace(/[^a-z0-9\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-');
+}
+
+// ── Saf JS Dean Edwards Unpacker (QuickJS / Nuvio Uyumlu) ────────────────
+function unpackDeanEdwards(str) {
+  if (!str || typeof str !== 'string') return null;
+  var match = str.match(/eval\(function\(p,a,c,k,e,[rd]\)\s*\{.+?\}\s*\(\s*([x\x27\x22].+?)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*([x\x27\x22].+?)\.split\(\s*[\x27\x22]\|[\x27\x22]\s*\)/s);
+  if (!match) return null;
+
+  var p = match[1];
+  if ((p.startsWith("'") && p.endsWith("'")) || (p.startsWith('"') && p.endsWith('"'))) {
+    p = p.slice(1, -1);
+  }
+  p = p.replace(/\\x27/g, "'").replace(/\\"/g, '"').replace(/\\\\/g, '\\');
+
+  var a = parseInt(match[2], 10);
+  var c = parseInt(match[3], 10);
+  var kStr = match[4];
+  if ((kStr.startsWith("'") && kStr.endsWith("'")) || (kStr.startsWith('"') && kStr.endsWith('"'))) {
+    kStr = kStr.slice(1, -1);
+  }
+  var k = kStr.split('|');
+
+  function baseN(val, radix) {
+    if (radix === 10) return String(val);
+    var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var res = '';
+    do {
+      res = chars[val % radix] + res;
+      val = Math.floor(val / radix);
+    } while (val > 0);
+    return res;
+  }
+
+  for (var i = c - 1; i >= 0; i--) {
+    var key = baseN(i, a);
+    var val = k[i] || key;
+    if (val !== key) {
+      var reg = new RegExp('\\b' + key + '\\b', 'g');
+      p = p.replace(reg, val);
+    }
+  }
+  return p;
+}
+
+// ── TMDB & IMDb Metadata Çözümleme ───────────────────────────────────────
+async function resolveTmdbInfo(id, mediaType) {
+  try {
+    var cleanId = String(id || '').trim();
+    if (cleanId.includes(':')) cleanId = cleanId.split(':')[0];
+
+    var numericId = null;
+    var title = '';
+    var origTitle = '';
+    var year = '';
+
+    var isTv = (mediaType === 'tv' || mediaType === 'series');
+
+    if (cleanId.startsWith('tt')) {
+      var findUrl = 'https://api.themoviedb.org/3/find/' + cleanId + '?api_key=' + TMDB_API_KEY + '&external_source=imdb_id';
+      var findRes = await fetch(findUrl, { signal: timeoutSignal(7000) });
+      if (findRes.ok) {
+        var fData = await findRes.json();
+        var item = isTv ? (fData.tv_results && fData.tv_results[0]) : (fData.movie_results && fData.movie_results[0]);
+        if (item) {
+          numericId = item.id;
+          title = item.name || item.title || '';
+          origTitle = item.original_name || item.original_title || '';
+          var dateStr = item.first_air_date || item.release_date || '';
+          year = dateStr.slice(0, 4);
+        }
+      }
+    } else {
+      numericId = cleanId;
+    }
+
+    if (numericId && (!title || !origTitle)) {
+      var tType = isTv ? 'tv' : 'movie';
+      var tUrl = 'https://api.themoviedb.org/3/' + tType + '/' + numericId + '?api_key=' + TMDB_API_KEY + '&language=tr-TR';
+      var tRes = await fetch(tUrl, { signal: timeoutSignal(7000) });
+      if (tRes.ok) {
+        var tData = await tRes.json();
+        title = tData.name || tData.title || title;
+        origTitle = tData.original_name || tData.original_title || origTitle;
+        var dateStr2 = tData.first_air_date || tData.release_date || '';
+        if (!year && dateStr2) year = dateStr2.slice(0, 4);
+      }
+    }
+
+    return {
+      titleTr: (title || '').trim(),
+      titleEn: (origTitle || '').trim(),
+      year: year || '',
+      numericId: numericId || id
+    };
+  } catch (e) {
+    return { titleTr: '', titleEn: '', year: '', numericId: id };
+  }
+}
+
+// ── Canlı Arama (Live Search) ────────────────────────────────────────────
+async function liveSearch(query) {
+  if (!query || !query.trim()) return { films: [], series: [] };
+  try {
+    var bodyData = 'action=dp_live_search&q=' + encodeURIComponent(query.trim());
+    var res = await fetch(BASE_URL + '/wp/wp-admin/admin-ajax.php', {
+      method: 'POST',
+      headers: {
+        'User-Agent': HEADERS['User-Agent'],
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'Referer': BASE_URL + '/',
+        'X-Requested-With': 'XMLHttpRequest'
+      },
+      body: bodyData,
+      signal: timeoutSignal(8000)
+    });
+    if (!res.ok) return { films: [], series: [] };
+    var json = await res.json();
+    if (json && json.success && json.data) {
+      return {
+        films: Array.isArray(json.data.films) ? json.data.films : [],
+        series: Array.isArray(json.data.series) ? json.data.series : []
+      };
+    }
+    return { films: [], series: [] };
+  } catch (e) {
+    return { films: [], series: [] };
+  }
+}
+
+// ── Standart WordPress Arama Fallback (?s=) ──────────────────────────────
+async function fallbackSearch(query, isTv) {
+  if (!query || !query.trim()) return [];
+  try {
+    var searchUrl = BASE_URL + '/?s=' + encodeURIComponent(query.trim());
+    var res = await fetch(searchUrl, {
+      headers: HEADERS,
+      signal: timeoutSignal(8000)
+    });
+    if (!res.ok) return [];
+    var html = await res.text();
+    var results = [];
+
+    var pattern = isTv
+      ? /href="(https:\/\/dizipod\.com\/diziler\/[^"]+)"[^>]*>.*?<div class="title">([^<]+)<\/div>/gs
+      : /href="(https:\/\/dizipod\.com\/film\/[^"]+)"[^>]*>.*?<div class="title">([^<]+)<\/div>/gs;
+
+    var m;
+    while ((m = pattern.exec(html)) !== null) {
+      results.push({
+        url: m[1],
+        title: m[2].replace(/&#8211;/g, '-').replace(/&#8217;/g, "'").trim()
+      });
+    }
+    return results;
+  } catch (e) {
+    return [];
+  }
+}
+
+// ── Başlık Eşleştirme Skoru ──────────────────────────────────────────────
+function calculateMatchScore(candidateTitle, candidateUrl, targetTitle, targetYear) {
+  var candNorm = cleanTitle(candidateTitle);
+  var targetNorm = cleanTitle(targetTitle);
+  if (!candNorm || !targetNorm) return 0;
+
+  var candSlug = titleToSlug(candidateUrl.replace(/\/$/, '').split('/').pop() || '');
+  var targetSlug = titleToSlug(targetTitle);
+
+  var score = 0;
+  if (candSlug === targetSlug) score += 100;
+  if (candNorm === targetNorm) score += 80;
+  else if (candNorm.startsWith(targetNorm)) score += 50;
+  else if (candNorm.includes(targetNorm)) score += 30;
+
+  if (targetYear && candidateUrl.includes(targetYear)) score += 20;
+
+  var candWords = candNorm.split(' ');
+  var targetWords = targetNorm.split(' ');
+  if (candWords.length > targetWords.length && !candNorm.includes('sezon')) {
+    score -= (candWords.length - targetWords.length) * 10;
+  }
+
+  return score;
+}
+
+// ── En İyi Dizi veya Film Sayfasını Bul ───────────────────────────────────
+async function findMediaUrl(tmdbInfo, isTv) {
+  var titles = [];
+  if (tmdbInfo.titleEn) titles.push(tmdbInfo.titleEn);
+  if (tmdbInfo.titleTr && tmdbInfo.titleTr !== tmdbInfo.titleEn) titles.push(tmdbInfo.titleTr);
+
+  // 1. Doğrudan slug ile HEAD kontrolü (en hızlı ve kesin yol)
+  for (var t = 0; t < titles.length; t++) {
+    var slug = titleToSlug(titles[t]);
+    if (!slug) continue;
+    var directUrl = isTv ? (BASE_URL + '/diziler/' + slug + '/') : (BASE_URL + '/film/' + slug + '/');
+    try {
+      var headRes = await fetch(directUrl, {
+        method: 'HEAD',
+        headers: HEADERS,
+        signal: timeoutSignal(4000)
+      });
+      if (headRes.ok) {
+        return { url: directUrl, slug: slug };
+      }
+    } catch (e) {}
+  }
+
+  // 2. Canlı AJAX Araması
+  var bestScore = -1;
+  var bestUrl = null;
+  var bestSlug = null;
+
+  for (var i = 0; i < titles.length; i++) {
+    var q = titles[i];
+    var searchRes = await liveSearch(q);
+    var candidates = isTv ? searchRes.series : searchRes.films;
+
+    if (!candidates.length) {
+      candidates = await fallbackSearch(q, isTv);
+    }
+
+    for (var c = 0; c < candidates.length; c++) {
+      var item = candidates[c];
+      var candUrl = item.url || '';
+      if (!candUrl) continue;
+      var cScore = calculateMatchScore(item.title, candUrl, q, tmdbInfo.year);
+      if (cScore > bestScore) {
+        bestScore = cScore;
+        bestUrl = candUrl;
+        var sMatch = candUrl.match(/\/(diziler|film)\/([^/]+)/);
+        bestSlug = sMatch ? sMatch[2] : titleToSlug(item.title);
+      }
+    }
+
+    if (bestScore >= 80) break;
+  }
+
+  if (bestUrl) {
+    return { url: bestUrl, slug: bestSlug };
+  }
+  return null;
+}
+
+// ── Bölüm Post ID'sini Bul ───────────────────────────────────────────────
+async function findEpisodePostId(mediaInfo, season, episode) {
+  var slug = mediaInfo.slug;
+  if (!slug) return null;
+
+  // 1. Doğrudan standart bölüm URL'sini dene: /{slug}-{season}-sezon-{episode}-bolum/
+  var directEpUrl = BASE_URL + '/' + slug + '-' + season + '-sezon-' + episode + '-bolum/';
+  try {
+    var epRes = await fetch(directEpUrl, { headers: HEADERS, signal: timeoutSignal(6000) });
+    if (epRes.ok) {
+      var epHtml = await epRes.text();
+      var m = epHtml.match(/data-post-id="(\d+)"/);
+      if (m && m[1]) return m[1];
+    }
+  } catch (e) {}
+
+  // 2. Dizi ana sayfasından veya sezon sayfasından bölüm bağlantısını tara
+  var seasonPageUrl = BASE_URL + '/dizi/' + slug + '/' + slug + '-' + season + '-sezon/';
+  try {
+    var sRes = await fetch(seasonPageUrl, { headers: HEADERS, signal: timeoutSignal(6000) });
+    var sHtml = sRes.ok ? await sRes.text() : '';
+    if (!sHtml && mediaInfo.url) {
+      var mainRes = await fetch(mediaInfo.url, { headers: HEADERS, signal: timeoutSignal(6000) });
+      if (mainRes.ok) sHtml = await mainRes.text();
+    }
+
+    if (sHtml) {
+      var epRegex = new RegExp('href="([^"]+-' + season + '-sezon-' + episode + '-bolum\\/?)"', 'i');
+      var epMatch = sHtml.match(epRegex);
+      if (epMatch && epMatch[1]) {
+        var matchedUrl = epMatch[1].startsWith('http') ? epMatch[1] : (BASE_URL + epMatch[1]);
+        var targetRes = await fetch(matchedUrl, { headers: HEADERS, signal: timeoutSignal(6000) });
+        if (targetRes.ok) {
+          var targetHtml = await targetRes.text();
+          var postM = targetHtml.match(/data-post-id="(\d+)"/);
+          if (postM && postM[1]) return postM[1];
+        }
+      }
+    }
+  } catch (e) {}
+
+  return null;
+}
+
+// ── Film Post ID'sini Bul ────────────────────────────────────────────────
+async function findMoviePostId(filmUrl) {
+  try {
+    var res = await fetch(filmUrl, { headers: HEADERS, signal: timeoutSignal(7000) });
+    if (!res.ok) return null;
+    var html = await res.text();
+    var m = html.match(/data-post-id="(\d+)"/);
+    if (m && m[1]) return m[1];
+  } catch (e) {}
+  return null;
+}
+
+// ── Oynatıcıdan gomindex.m3u8 Akışlarını Çöz ──────────────────────────────
+async function extractStreamFromPostId(postId, pageReferer, displayName) {
+  if (!postId) return [];
+  try {
+    var ajaxUrl = BASE_URL + '/wp/wp-admin/admin-ajax.php?action=get_episode_player&post_id=' + postId;
+    var playerRes = await fetch(ajaxUrl, {
+      headers: {
+        'User-Agent': HEADERS['User-Agent'],
+        'Referer': pageReferer || (BASE_URL + '/'),
+        'X-Requested-With': 'XMLHttpRequest'
+      },
+      signal: timeoutSignal(7000)
+    });
+
+    if (!playerRes.ok) return [];
+    var playerJson = await playerRes.json();
+    if (!playerJson || !playerJson.success || !playerJson.data) return [];
+
+    var iframeMatch = playerJson.data.match(/src=\\"([^"]+)\\"/) || playerJson.data.match(/src="([^"]+)"/);
+    if (!iframeMatch || !iframeMatch[1]) return [];
+
+    var embedUrl = iframeMatch[1].replace(/\\/g, '');
+    if (!embedUrl.startsWith('http')) {
+      embedUrl = PLAYER_URL + embedUrl;
+    }
+
+    var embedRes = await fetch(embedUrl, {
+      headers: {
+        'User-Agent': HEADERS['User-Agent'],
+        'Referer': BASE_URL + '/'
+      },
+      signal: timeoutSignal(7000)
+    });
+
+    if (!embedRes.ok) return [];
+    var embedHtml = await embedRes.text();
+
+    var streams = [];
+    var parsedSources = [];
+
+    // Dean Edwards paketini çöz
+    var unpacked = unpackDeanEdwards(embedHtml);
+    if (unpacked) {
+      var srcMatch = unpacked.match(/sources:\s*(\[\{.+?\}\])/);
+      if (srcMatch && srcMatch[1]) {
+        try {
+          var cleanJson = srcMatch[1].replace(/([{,]\s*)([a-zA-Z0-9_]+)\s*:/g, '$1"$2":');
+          parsedSources = JSON.parse(cleanJson);
+        } catch (je) {
+          var fileM = srcMatch[1].match(/"file"\s*:\s*"([^"]+)"/);
+          var labelM = srcMatch[1].match(/"label"\s*:\s*"([^"]+)"/);
+          if (fileM && fileM[1]) {
+            parsedSources.push({
+              file: fileM[1].replace(/\\/g, ''),
+              label: labelM ? labelM[1] : '720p'
+            });
+          }
+        }
+      }
+    }
+
+    // Doğrudan regex fallback
+    if (!parsedSources.length) {
+      var directFileM = embedHtml.match(/https?:\\\/\\\/[a-zA-Z0-9.-]+\.tyuopix\.com[^\s"']+\.m3u8/g) ||
+                         embedHtml.match(/https?:\/\/[a-zA-Z0-9.-]+\.tyuopix\.com[^\s"']+\.m3u8/g);
+      if (directFileM) {
+        for (var f = 0; f < directFileM.length; f++) {
+          parsedSources.push({
+            file: directFileM[f].replace(/\\\//g, '/').replace(/\\/g, ''),
+            label: '720p'
+          });
+        }
+      }
+    }
+
+    for (var s = 0; s < parsedSources.length; s++) {
+      var item = parsedSources[s];
+      var fileUrl = (item.file || '').replace(/\\/g, '');
+      if (!fileUrl || !fileUrl.includes('.m3u8')) continue;
+
+      var qLabel = item.label || '720p';
+      var streamHeaders = {
+        'Referer': PLAYER_URL + '/',
+        'User-Agent': HEADERS['User-Agent']
+      };
+
+      streams.push({
+        name: '⌜ ' + PROVIDER_NAME + ' ⌟',
+        title: '⌜ ' + PROVIDER_NAME + ' ⌟ | Türkçe Altyazılı [' + qLabel + ']',
+        url: fileUrl,
+        quality: qLabel,
+        format: 'hls',
+        isHls: true,
+        headers: streamHeaders,
+        behaviorHints: {
+          notWebReady: true,
+          proxyHeaders: {
+            request: streamHeaders
+          }
+        }
+      });
+    }
+
+    return streams;
+  } catch (e) {
+    return [];
+  }
+}
+
+// ── Ana Stream Getirme Fonksiyonu ────────────────────────────────────────
+async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
+  try {
+    if (typeof tmdbId === 'object' && tmdbId !== null) {
+      mediaType = tmdbId.type || mediaType;
+      seasonNum = tmdbId.season || seasonNum;
+      episodeNum = tmdbId.episode || episodeNum;
+      tmdbId = tmdbId.id;
+    }
+
+    var isTv = (mediaType === 'tv' || mediaType === 'series');
+    var sNum = parseInt(seasonNum, 10) || 1;
+    var eNum = parseInt(episodeNum, 10) || 1;
+
+    // Doğrudan DiziPod ID formatı kontrolü (dizipod:ep:slug:season:episode veya dizipod:movie:slug)
+    var cleanId = String(tmdbId || '').trim();
+    var mediaMatch = null;
+
+    if (cleanId.startsWith('dizipod:ep:')) {
+      var epParts = cleanId.split(':');
+      var directSlug = epParts[2];
+      if (epParts[3]) sNum = parseInt(epParts[3], 10) || sNum;
+      if (epParts[4]) eNum = parseInt(epParts[4], 10) || eNum;
+      isTv = true;
+      mediaMatch = { url: BASE_URL + '/diziler/' + directSlug + '/', slug: directSlug };
+    } else if (cleanId.startsWith('dizipod:movie:') || cleanId.startsWith('dizipod:show:')) {
+      var mParts = cleanId.split(':');
+      var mKind = mParts[1];
+      var mSlug = mParts[2];
+      isTv = (mKind === 'show');
+      mediaMatch = {
+        url: isTv ? (BASE_URL + '/diziler/' + mSlug + '/') : (BASE_URL + '/film/' + mSlug + '/'),
+        slug: mSlug
+      };
+    } else {
+      var tmdbInfo = await resolveTmdbInfo(cleanId, isTv ? 'tv' : 'movie');
+      mediaMatch = await findMediaUrl(tmdbInfo, isTv);
+    }
+
+    if (!mediaMatch || !mediaMatch.url) return [];
+
+    var postId = null;
+    var pageUrl = mediaMatch.url;
+
+    if (isTv) {
+      postId = await findEpisodePostId(mediaMatch, sNum, eNum);
+      pageUrl = BASE_URL + '/' + mediaMatch.slug + '-' + sNum + '-sezon-' + eNum + '-bolum/';
+    } else {
+      postId = await findMoviePostId(mediaMatch.url);
+    }
+
+    if (!postId) return [];
+
+    var displayName = mediaMatch.slug || 'İçerik';
+    var streams = await extractStreamFromPostId(postId, pageUrl, displayName);
+    return streams;
+  } catch (e) {
+    return [];
+  }
+}
+
+// ── Katalog (Popüler Dizi & Filmler) ──────────────────────────────────────
+async function getCatalog(args) {
+  try {
+    var type = (args && args.type) || 'series';
+    var catUrl = type === 'movie' ? (BASE_URL + '/filmler/') : (BASE_URL + '/trendler/');
+    var res = await fetch(catUrl, { headers: HEADERS, signal: timeoutSignal(8000) });
+    if (!res.ok) return { metas: [] };
+    var html = await res.text();
+
+    var metas = [];
+    var seen = {};
+
+    var pattern = /<a[^>]+href="https:\/\/dizipod\.com\/(?:diziler|film)\/([^"/]+)\/?"[^>]*>.*?<img[^>]+(?:data-)?src="([^"]+)".*?<div class="title">([^<]+)<\/div>/gs;
+    for (var m of html.matchAll(pattern)) {
+      var slug = m[1];
+      if (!seen[slug]) {
+        seen[slug] = true;
+        metas.push({
+          id: 'dizipod:' + (type === 'movie' ? 'movie' : 'show') + ':' + slug,
+          type: type === 'movie' ? 'movie' : 'series',
+          name: m[3].replace(/&#8211;/g, '-').replace(/&#8217;/g, "'").trim(),
+          poster: m[2],
+          description: 'DiziPod ' + (type === 'movie' ? 'filmler arşivi.' : 'popüler diziler kataloğu.')
+        });
+      }
+    }
+
+    // Film için fallback: Eğer az sonuç geldiyse ana sayfadaki dp-film-card'ları da ekle
+    if (type === 'movie' && metas.length < 10) {
+      try {
+        var homeRes = await fetch(BASE_URL + '/', { headers: HEADERS, signal: timeoutSignal(6000) });
+        if (homeRes.ok) {
+          var homeHtml = await homeRes.text();
+          var cardPattern = /<a[^>]+class="[^"]*dp-film-card[^"]*"[^>]+href="https:\/\/dizipod\.com\/film\/([^"/]+)\/?"[^>]*aria-label="([^"]+)".*?<img[^>]+src="([^"]+)"/gs;
+          for (var cm of homeHtml.matchAll(cardPattern)) {
+            var cSlug = cm[1];
+            if (!seen[cSlug]) {
+              seen[cSlug] = true;
+              metas.push({
+                id: 'dizipod:movie:' + cSlug,
+                type: 'movie',
+                name: cm[2].replace(/&#8211;/g, '-').replace(/&#8217;/g, "'").trim(),
+                poster: cm[3],
+                description: 'DiziPod filmler arşivi.'
+              });
+            }
+          }
+        }
+      } catch (he) {}
+    }
+
+    return { metas: metas };
+  } catch (e) {
+    return { metas: [] };
+  }
+}
+
+// ── Meta Bilgisi (Dizi / Film Detayları) ──────────────────────────────────
+async function getMeta(args) {
+  try {
+    var id = (args && args.id) || '';
+    if (!id.startsWith('dizipod:')) return { meta: null };
+
+    var parts = id.split(':');
+    var kind = parts[1]; // show / movie
+    var slug = parts[2];
+    if (!slug) return { meta: null };
+
+    var pageUrl = kind === 'movie' ? (BASE_URL + '/film/' + slug + '/') : (BASE_URL + '/diziler/' + slug + '/');
+    var res = await fetch(pageUrl, { headers: HEADERS, signal: timeoutSignal(8000) });
+    if (!res.ok) return { meta: null };
+    var html = await res.text();
+
+    var titleMatch = html.match(/<h1[^>]*>([^<]+)<\/h1>/);
+    var title = titleMatch ? titleMatch[1].replace(/&#8211;/g, '-').replace(/&#8217;/g, "'").trim() : slug;
+    var posterMatch = html.match(/class="item".*?<img[^>]+(?:data-)?src="([^"]+)"/s) ||
+                      html.match(/<img[^>]+src="([^"]*(?:thetvdb|tmdb)[^"]*)"/i) ||
+                      html.match(/<img[^>]+src="([^"]+)"/);
+    var poster = posterMatch ? posterMatch[1] : '';
+
+    var videos = [];
+    if (kind === 'show') {
+      var epPattern = /href="https:\/\/dizipod\.com\/[a-z0-9-]+-(\d+)-sezon-(\d+)-bolum\/"/g;
+      var seen = {};
+
+      // 1. Ana sayfadaki bölümler
+      for (var em of html.matchAll(epPattern)) {
+        var s = parseInt(em[1], 10);
+        var ep = parseInt(em[2], 10);
+        var key = s + ':' + ep;
+        if (!seen[key]) {
+          seen[key] = true;
+          videos.push({
+            id: 'dizipod:ep:' + slug + ':' + s + ':' + ep,
+            title: s + '. Sezon ' + ep + '. Bölüm',
+            season: s,
+            episode: ep
+          });
+        }
+      }
+
+      // 2. Diğer sezon bağlantılarını tara
+      var seasonLinks = [...new Set([...html.matchAll(/href="(https:\/\/dizipod\.com\/dizi\/[^\/]+\/[^\/]+-([0-9]+)-sezon\/?)"/g)].map(function(m) {
+        return m[1];
+      }))];
+
+      if (seasonLinks.length > 0) {
+        var seasonPages = await Promise.all(seasonLinks.map(function(sUrl) {
+          return fetch(sUrl, { headers: HEADERS, signal: timeoutSignal(5000) })
+            .then(function(r) { return r.ok ? r.text() : ''; })
+            .catch(function() { return ''; });
+        }));
+
+        for (var sIdx = 0; sIdx < seasonPages.length; sIdx++) {
+          var sHtml = seasonPages[sIdx];
+          if (!sHtml) continue;
+          for (var sem of sHtml.matchAll(epPattern)) {
+            var ss = parseInt(sem[1], 10);
+            var sep = parseInt(sem[2], 10);
+            var skey = ss + ':' + sep;
+            if (!seen[skey]) {
+              seen[skey] = true;
+              videos.push({
+                id: 'dizipod:ep:' + slug + ':' + ss + ':' + sep,
+                title: ss + '. Sezon ' + sep + '. Bölüm',
+                season: ss,
+                episode: sep
+              });
+            }
+          }
+        }
+      }
+
+      videos.sort(function(a, b) {
+        return a.season !== b.season ? a.season - b.season : a.episode - b.episode;
+      });
+    }
+
+    return {
+      meta: {
+        id: id,
+        type: kind === 'movie' ? 'movie' : 'series',
+        name: title,
+        poster: poster,
+        videos: videos
+      }
+    };
+  } catch (e) {
+    return { meta: null };
+  }
+}
+
+// ── Evrensel Kalite Sıralama Motoru ──────────────────────────────────────
+function sortStreamsByQuality(streams) {
+  if (!Array.isArray(streams) || streams.length <= 1) return streams || [];
+  function getQualityScore(s) {
+    if (!s) return 0;
+    var score = 0;
+    if (s.quality) {
+      var q = String(s.quality).toLowerCase().trim();
+      if (/\b(4k|2160p?|uhd)\b/.test(q)) score = 2160;
+      else if (/\b(2k|1440p?|qhd)\b/.test(q)) score = 1440;
+      else if (/\b(1080p?|fhd|full[\s-]?hd)\b/.test(q)) score = 1080;
+      else if (/\b(720p?|hd)\b/.test(q)) score = 720;
+      else if (/\b(540p?)\b/.test(q)) score = 540;
+      else if (/\b(480p?|sd)\b/.test(q)) score = 480;
+      else if (/\b(360p?)\b/.test(q)) score = 360;
+      else if (/\b(240p?)\b/.test(q)) score = 240;
+    }
+    if (!score) {
+      var text = [s.title, s.name, s.resolution].filter(Boolean).join(' ').toLowerCase();
+      if (/\b(4k|2160p|uhd)\b/.test(text)) score = 2160;
+      else if (/\b(2k|1440p|qhd)\b/.test(text)) score = 1440;
+      else if (/\b(1080p|fhd|full[\s-]?hd)\b/.test(text)) score = 1080;
+      else if (/\b(720p)\b/.test(text)) score = 720;
+      else if (/\b(540p)\b/.test(text)) score = 540;
+      else if (/\b(480p)\b/.test(text)) score = 480;
+      else if (/\b(360p)\b/.test(text)) score = 360;
+      else if (/\b(240p)\b/.test(text)) score = 240;
+      else if (/\b(hd)\b/.test(text) && !/\b(full[\s-]?hd)\b/.test(text)) score = 720;
+      else if (/\b(sd)\b/.test(text)) score = 480;
+    }
+    if (!score && s.url) {
+      var u = String(s.url).toLowerCase();
+      if (/[\/_.-](2160p?|4k)[\/_.-]/.test(u)) score = 2160;
+      else if (/[\/_.-](1440p?|2k)[\/_.-]/.test(u)) score = 1440;
+      else if (/[\/_.-](1080p?|fhd)[\/_.-]/.test(u)) score = 1080;
+      else if (/[\/_.-](720p?|hd)[\/_.-]/.test(u)) score = 720;
+      else if (/[\/_.-](480p?|sd)[\/_.-]/.test(u)) score = 480;
+      else if (/[\/_.-](360p?)[\/_.-]/.test(u)) score = 360;
+    }
+    var isDirectMp4 = s.format === 'mp4' || s.type === 'mp4' || (!s.isHls && s.url && (s.url.endsWith('.mp4') || s.url.includes('.mp4?')));
+    if (isDirectMp4 && score > 0) score += 1;
+    return score;
+  }
+  return streams.slice().sort(function(a, b) {
+    return getQualityScore(b) - getQualityScore(a);
+  });
+}
+
+if (typeof getStreams === 'function') {
+  var _origGetStreams = getStreams;
+  getStreams = async function() {
+    var res = await _origGetStreams.apply(this, arguments);
+    return sortStreamsByQuality(res);
+  };
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = {
+    getStreams: getStreams,
+    getCatalog: getCatalog,
+    getMeta: getMeta
+  };
+}
+if (typeof globalThis !== 'undefined') {
+  globalThis.getStreams = getStreams;
+  globalThis.getCatalog = getCatalog;
+  globalThis.getMeta = getMeta;
+}
