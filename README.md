@@ -120,7 +120,9 @@ Nuvio ve Stremio ana sayfasında canlı TV kanallarını kategorilere ayrılmı�
 | Eklenti | Kaynak / Altyapı | Kalite & Format | İçerik Detayı |
 |---|---|:---:|:---:|
 | **DDizi** | ddizi.im (Fast Ciner / Yandex CDN) | 1080p MP4 / HLS | Yerli Dizi & Güncel Bölümler Arşivi |
+| **DiziBak** | dizibak.com (Storage HLS) | 1080p HLS | Yerli ve Yabancı Dizi Arşivi |
 | **DiziMom** | dizimom.diy (Fire HLS Master) | 1080p HLS Master | Popüler Yabancı Diziler (Dublaj & Altyazı) |
+| **DiziPod** | dizipod.com (player.dizipod.com) | 1080p / 720p HLS | Popüler Yabancı ve Yerli Dizi/Filmler (Altyazı) |
 | **DiziYou** | diziyou.one (Storage CDN) | 1080p HLS | Doğrudan Storage CDN + Türkçe VTT Altyazı |
 | **YabancıDizi** | yabancidizi.news (VidMoly Master) | 1080p HLS | Popüler Yabancı Diziler Arşivi |
 | **SineWix** | sinewix.com (snwixdepo) | 1080p MKV | Dizi Bölümleri Çift Ses DUAL |
@@ -135,6 +137,7 @@ Nuvio ve Stremio ana sayfasında canlı TV kanallarını kategorilere ayrılmı�
 |---|---|:---:|:---:|
 | **AnimeciX** | animecix.tv (TauVideo CDN) | 1080p / 720p / 480p MP4 | Türkçe Altyazı & Dublaj |
 | **Anizium** | api.anizium.co (Backblaze CDN) | 4K UHD / 1080p MP4 | Türkçe Dublaj & Senkron WebVTT Altyazı |
+| **AsyaAnimeleri** | asyaanimeleri.top (Sibnet & Ok.ru) | 1080p MP4 / HLS | Anime & Donghua Geniş Arşivi |
 | **TurkAnime** | turkanime.tv (Sibnet & ArtPlayer) | 1080p MP4 / HLS | Türkiye'nin En Geniş Anime Arşivi |
 
 ---
