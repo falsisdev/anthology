@@ -142,7 +142,11 @@ function formatSubtitles(rawSubs) {
       title: label,
       format: 'vtt',
       type: 'text/vtt',
-      mimeType: 'text/vtt'
+      mimeType: 'text/vtt',
+      headers: {
+        'Referer': 'https://anizium.co/',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
+      }
     });
   }
   return subs;
@@ -343,6 +347,8 @@ async function getStreams(id, mediaType, season, episode) {
 
         var qLabel = item.quality === 2160 ? '4K UHD' : (item.quality === 1440 ? '2K QHD' : item.quality + 'p');
 
+        var contentLang = isDub ? 'tr' : (isEnDub ? 'en' : 'ja');
+
         streams.push({
           name: 'Anizium',
           title: '⌜ Anizium ⌟ | ' + groupTag + ' [' + qLabel + ']',
@@ -350,6 +356,7 @@ async function getStreams(id, mediaType, season, episode) {
           quality: qLabel,
           format: item.type || 'mp4',
           isHls: item.type === 'hls',
+          contentLanguage: contentLang,
           provider: 'anizium',
           behaviorHints: {
             notWebReady: false
