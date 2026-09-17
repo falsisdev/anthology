@@ -25,20 +25,25 @@ function resolveMediaFireLink(link) {
 }
 
 function buildStreams(videos, sinewixName) {
+    if (!Array.isArray(videos)) return Promise.resolve([]);
     return Promise.all(
         videos.map(function(v) {
             var link = v.link;
             var serverName = v.server || 'Sunucu';
-            var isMF = link.includes('mediafire.com');
-            var displayTitle = '⌜ SİNEWİX ⌟ | ' + (isMF ? 'MEDİAFİRE' : serverName.toUpperCase());
+            var isMF = link && link.includes('mediafire.com');
+            var isDual = (v.lang && /dual/i.test(v.lang)) || (link && /dual/i.test(link));
+            var langStr = isDual ? 'DUAL (TR/EN)' : (v.lang || 'Türkçe');
+            var displayTitle = '⌜ SİNEWİX ⌟ | ' + (isMF ? 'MEDİAFİRE' : serverName.toUpperCase()) + ' (' + langStr + ' - 1080p MKV)';
 
             if (isMF) {
                 return resolveMediaFireLink(link).then(function(finalUrl) {
                     return {
-                        name: sinewixName,
+                        name: 'SineWix',
                         title: displayTitle,
                         url: finalUrl,
-                        quality: "Auto",
+                        quality: "1080p",
+                        format: "mkv",
+                        isHls: false,
                         headers: STREAM_HEADERS,
                         behaviorHints: {
                             notWebReady: true,
@@ -49,10 +54,12 @@ function buildStreams(videos, sinewixName) {
                 });
             }
             return Promise.resolve({
-                name: sinewixName,
+                name: 'SineWix',
                 title: displayTitle,
                 url: link,
-                quality: "Auto",
+                quality: "1080p",
+                format: "mkv",
+                isHls: false,
                 headers: STREAM_HEADERS,
                 behaviorHints: {
                     notWebReady: true,
@@ -64,51 +71,74 @@ function buildStreams(videos, sinewixName) {
     );
 }
 
-function searchAndFetch(title, originalTitle, targetImdb, mediaType, seasonNum, episodeNum, targetYear) {
-    var searchUrl = API_BASE + '/search/' + encodeURIComponent(originalTitle) + '/' + API_KEY;
-    
-    return fetch(searchUrl, { headers: API_HEADERS })
-        .then(function(res) { return res.json(); })
-        .then(function(data) {
-            var results = data.search || [];
-            var path = (mediaType === 'movie') ? 'media/detail' : 'series/show';
+async function searchAndFetch(title, originalTitle, targetImdb, mediaType, seasonNum, episodeNum, targetYear, targetTmdbId) {
+    try {
+        var query = originalTitle || title || '';
+        if (!query) return [];
+        var searchUrl = API_BASE + '/search/' + encodeURIComponent(query) + '/' + API_KEY;
+        var res = await fetch(searchUrl, { headers: API_HEADERS });
+        var data = await res.json().catch(function() { return {}; });
+        var results = data.search || [];
 
-            return Promise.all(results.map(function(item) {
-                return fetch(API_BASE + '/' + path + '/' + item.id + '/' + API_KEY, { headers: API_HEADERS })
-                    .then(function(r) { return r.json(); })
-                    .catch(function() { return null; });
-            }));
-        })
-        .then(function(detailedItems) {
-            var bestMatch = detailedItems.find(function(item) {
+        if (results.length === 0 && title && title.toLowerCase() !== query.toLowerCase()) {
+            var fUrl = API_BASE + '/search/' + encodeURIComponent(title) + '/' + API_KEY;
+            var fRes = await fetch(fUrl, { headers: API_HEADERS });
+            var fData = await fRes.json().catch(function() { return {}; });
+            results = fData.search || [];
+        }
+
+        if (!results || results.length === 0) return [];
+
+        var path = (mediaType === 'movie') ? 'media/detail' : 'series/show';
+
+        var detailedItems = await Promise.all(results.map(function(item) {
+            return fetch(API_BASE + '/' + path + '/' + item.id + '/' + API_KEY, { headers: API_HEADERS })
+                .then(function(r) { return r.json(); })
+                .catch(function() { return null; });
+        }));
+
+        var cleanTmdb = targetTmdbId ? String(targetTmdbId) : null;
+        var bestMatch = detailedItems.find(function(item) {
+            if (!item) return false;
+            if (cleanTmdb && item.tmdb_id && String(item.tmdb_id) === cleanTmdb) return true;
+            if (targetImdb && item.imdb_external_id && item.imdb_external_id === targetImdb) return true;
+            var itemYear = (item.release_date || item.first_air_date || '').split('-')[0];
+            var itemTitle = (item.title || item.name || '').toLowerCase().trim();
+            var origMatch = originalTitle && itemTitle === originalTitle.toLowerCase().trim();
+            var titleMatch = title && itemTitle === title.toLowerCase().trim();
+            return (origMatch || titleMatch) && (!targetYear || !itemYear || itemYear === targetYear);
+        });
+
+        if (!bestMatch && detailedItems.length > 0) {
+            bestMatch = detailedItems.find(function(item) {
                 if (!item) return false;
-                if (item.imdb_external_id && targetImdb && item.imdb_external_id === targetImdb) return true;
-                var itemYear = (item.release_date || item.first_air_date || '').split('-')[0];
-                var nameMatch = (item.name || '').toLowerCase() === (originalTitle || '').toLowerCase() 
-                             || (item.name || '').toLowerCase() === (title || '').toLowerCase();
-                return nameMatch && (!targetYear || !itemYear || itemYear === targetYear);
+                var itemTitle = (item.title || item.name || '').toLowerCase().trim();
+                return (originalTitle && itemTitle.includes(originalTitle.toLowerCase().trim()))
+                    || (title && itemTitle.includes(title.toLowerCase().trim()));
             });
+        }
 
-            if (!bestMatch) return [];
+        if (!bestMatch) return [];
 
-            var vList = [];
-            if (mediaType === 'movie') {
-                vList = bestMatch.videos || [];
-            } else {
-                var s = (bestMatch.seasons || []).find(function(s) { 
-                    return parseInt(s.season_number) === parseInt(seasonNum); 
+        var vList = [];
+        if (mediaType === 'movie') {
+            vList = bestMatch.videos || [];
+        } else {
+            var s = (bestMatch.seasons || []).find(function(sea) { 
+                return parseInt(sea.season_number) === parseInt(seasonNum); 
+            });
+            if (s && s.episodes) {
+                var e = s.episodes.find(function(ep) { 
+                    return parseInt(ep.episode_number) === parseInt(episodeNum); 
                 });
-                if (s && s.episodes) {
-                    var e = s.episodes.find(function(e) { 
-                        return parseInt(e.episode_number) === parseInt(episodeNum); 
-                    });
-                    if (e) vList = e.videos || [];
-                }
+                if (e) vList = e.videos || [];
             }
+        }
 
-            return buildStreams(vList, bestMatch.name || title);
-        })
-        .catch(function() { return []; });
+        return await buildStreams(vList, bestMatch.title || bestMatch.name || title);
+    } catch (e) {
+        return [];
+    }
 }
 
 async function resolveTmdbInfo(rawId, mediaType) {
@@ -125,6 +155,8 @@ async function resolveTmdbInfo(rawId, mediaType) {
             var item = isTV ? (d.tv_results && d.tv_results[0]) : (d.movie_results && d.movie_results[0]);
             if (!item) return null;
             return {
+                id: item.id,
+                tmdb_id: item.id,
                 title: item.title || item.name,
                 original_title: item.original_title || item.original_name,
                 release_date: item.release_date || item.first_air_date || '',
@@ -135,7 +167,9 @@ async function resolveTmdbInfo(rawId, mediaType) {
             var tmdbUrl = 'https://api.themoviedb.org/3/' + tmdbType + '/' + cleanId + '?api_key=' + TMDB_KEY + '&language=tr-TR&append_to_response=external_ids';
             var res = await fetch(tmdbUrl);
             var data = await res.json();
-            return data && (data.title || data.name) ? data : null;
+            if (!data || (!data.title && !data.name)) return null;
+            data.tmdb_id = data.id;
+            return data;
         }
     } catch (e) {
         return null;
@@ -277,8 +311,26 @@ async function getMeta(args) {
 
 async function getStreams(id, mediaType, seasonNum, episodeNum) {
     try {
-        if (typeof id === 'object' && id && id.id) {
-            return getStreams(id.id, mediaType, seasonNum, episodeNum);
+        if (typeof id === 'object' && id) {
+            seasonNum = id.season || seasonNum;
+            episodeNum = id.episode || episodeNum;
+            mediaType = id.type || mediaType;
+            id = id.id || id.tmdb_id;
+        }
+
+        if (typeof id === 'string' && !id.startsWith('sinewix:')) {
+            var cleanId = id.trim();
+            if (cleanId.includes(':')) {
+                var p = cleanId.split(':');
+                id = p[0];
+                if (p[1]) seasonNum = p[1];
+                if (p[2]) episodeNum = p[2];
+                if (seasonNum) mediaType = 'tv';
+            }
+        }
+
+        if (!mediaType) {
+            mediaType = (seasonNum || episodeNum) ? 'tv' : 'movie';
         }
 
         // Direct SineWix movie stream
@@ -286,7 +338,7 @@ async function getStreams(id, mediaType, seasonNum, episodeNum) {
             var mId = id.replace('sinewix:movie:', '');
             var mRes = await fetch(API_BASE + '/media/detail/' + mId + '/' + API_KEY, { headers: API_HEADERS });
             var mData = await mRes.json();
-            return buildStreams(mData.videos || [], mData.title || mData.name);
+            return await buildStreams(mData.videos || [], mData.title || mData.name);
         }
 
         // Direct SineWix series stream fallback to episode 1
@@ -310,7 +362,7 @@ async function getStreams(id, mediaType, seasonNum, episodeNum) {
             if (targetSeasonObj && targetSeasonObj.episodes) {
                 var targetEpObj = targetSeasonObj.episodes.find(function(e) { return parseInt(e.episode_number) === targetEpisode; });
                 if (targetEpObj && targetEpObj.videos) {
-                    return buildStreams(targetEpObj.videos, sData.name);
+                    return await buildStreams(targetEpObj.videos, sData.name);
                 }
             }
             return [];
@@ -323,8 +375,9 @@ async function getStreams(id, mediaType, seasonNum, episodeNum) {
         var releaseDate = data.release_date || data.first_air_date || '';
         var year = releaseDate ? releaseDate.split('-')[0] : '';
         var targetImdb = data.imdb_id || (data.external_ids && data.external_ids.imdb_id);
+        var targetTmdbId = data.tmdb_id || data.id;
 
-        var streams = await searchAndFetch(data.title || data.name, ot, targetImdb, mediaType, seasonNum || 1, episodeNum || 1, year);
+        var streams = await searchAndFetch(data.title || data.name, ot, targetImdb, mediaType, seasonNum || 1, episodeNum || 1, year, targetTmdbId);
         return streams || [];
     } catch (e) {
         return [];
