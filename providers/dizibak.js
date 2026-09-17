@@ -260,6 +260,7 @@ async function resolveShowForStreams(showHtml, season, episode, showUri) {
   if (embedUrl.indexOf('http') !== 0) embedUrl = 'https:' + embedUrl;
 
   var urls = await extractStreamFromEmbed(embedUrl, epUrl);
+  var showTitle = (showHtml.match(/<h1[^>]*>([^<]+)<\/h1>/) || ['', 'DiziBak'])[1].trim();
   var seen = {};
   for (var ui = 0; ui < urls.length; ui++) {
     var u = urls[ui];
@@ -267,7 +268,7 @@ async function resolveShowForStreams(showHtml, season, episode, showUri) {
     seen[u] = true;
     var isHls = u.indexOf('.m3u8') !== -1;
     streams.push({
-      name: 'Breaking Bad S' + season + 'E' + episode,
+      name: showTitle + ' S' + season + 'E' + episode,
       title: '⌜ DiziBak ⌟ | ' + (isHls ? 'HLS' : 'MP4'),
       url: u,
       quality: '1080p',

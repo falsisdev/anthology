@@ -17,6 +17,13 @@ var HEADERS = {
   'Referer': BASE_URL + '/'
 };
 
+// ── Güvenli Cheerio Yükleyici (QuickJS uyumlu) ────────────────
+var cheerio = (function() {
+  try { if (typeof require !== 'undefined') return require('cheerio-without-node-native'); } catch (e) {}
+  try { if (typeof require !== 'undefined') return require('cheerio'); } catch (e2) {}
+  return null;
+})();
+
 // ── Yardımcı: Zaman aşımı sinyali (QuickJS uyumlu) ───────────
 function timeoutSignal(ms) {
   if (typeof AbortSignal !== 'undefined' && typeof AbortSignal.timeout === 'function') {
@@ -173,7 +180,7 @@ function searchFilmModu(rawTitle, year) {
       if (result.redirectUrl) return result.redirectUrl;
       if (!result.html) return null;
 
-      var cheerio = require('cheerio-without-node-native');
+      
       var $ = cheerio.load(result.html);
 
       // Sayfa zaten bir film sayfası mı? (div.alternates varsa)
@@ -215,7 +222,7 @@ function fetchAlternateLinks(filmUrl) {
       return r.text();
     })
     .then(function(html) {
-      var cheerio = require('cheerio-without-node-native');
+      
       var $ = cheerio.load(html);
       var links = [];
 
@@ -417,7 +424,7 @@ function fetchStreamsFromLive(rawTitle, year) {
     .then(function(r) { return r.ok ? r.text() : ''; })
     .then(function(html) {
       if (!html) return [];
-      var cheerio = require('cheerio-without-node-native');
+      
       var $ = cheerio.load(html);
 
       var filmHref = null;
@@ -504,7 +511,7 @@ function fetchStreamsFromLive(rawTitle, year) {
             .then(function(er) { return er.ok ? er.text() : ''; })
             .then(function(eHtml) {
               if (!eHtml) return [];
-              var jsonMatch = eHtml.match(/window\.__PLAYER__\s*=\s*(\{.*?\});<\/script>/s) || eHtml.match(/window\.__PLAYER__\s*=\s*(\{.*?\});/);
+              var jsonMatch = eHtml.match(/window\.__PLAYER__\s*=\s*(\{[\s\S]*?\});<\/script>/) || eHtml.match(/window\.__PLAYER__\s*=\s*(\{.*?\});/);
               if (!jsonMatch) return [];
 
               var pData = null;
@@ -739,10 +746,10 @@ if (typeof getStreams === "function") {
 }
 
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { getStreams };
-} else {
-  global.getStreams = getStreams;
-                    }
+  module.exports = { getStreams: getStreams };
+} else if (typeof globalThis !== 'undefined') {
+  globalThis.getStreams = getStreams;
+}
 
 // ── Catalog & Meta Entegrasyonu ──────────────────────────────
 function getCatalog(args) {
@@ -752,7 +759,7 @@ function getCatalog(args) {
   return fetch(targetUrl, { headers: HEADERS })
     .then(function(res) { return res.text(); })
     .then(function(html) {
-      var cheerio = require('cheerio-without-node-native');
+      
       var $ = cheerio.load(html);
       var metas = [];
       var seen = new Set();
@@ -794,7 +801,7 @@ function getMeta(args) {
   return fetch(filmUrl, { headers: HEADERS })
     .then(function(res) { return res.text(); })
     .then(function(html) {
-      var cheerio = require('cheerio-without-node-native');
+      
       var $ = cheerio.load(html);
       var title = $('h1').first().text().trim() || $('title').first().text().replace(/film izle.*/i, '').trim();
       var poster = $('img[itemprop="image"]').attr('src')
@@ -826,11 +833,10 @@ function getMeta(args) {
     .catch(function() { return { meta: null }; });
 }
 
-// ── Export Güncellemesi ───────────────────────────────────────
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { getStreams: getStreams, getCatalog: getCatalog, getMeta: getMeta };
-} else {
-  global.getStreams = getStreams;
-  global.getCatalog = getCatalog;
-  global.getMeta = getMeta;
+} else if (typeof globalThis !== 'undefined') {
+  globalThis.getStreams = getStreams;
+  globalThis.getCatalog = getCatalog;
+  globalThis.getMeta = getMeta;
 }
