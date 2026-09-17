@@ -113,6 +113,7 @@ Nuvio ve Stremio ana sayfasında canlı TV kanallarını kategorilere ayrılmı�
 | **Webteİzle** | webteizle.info (VidMoly Master) | 1080p HLS | Dublaj & Altyazı Seçenekleri |
 | **KultFilmler** | kultfilmler.net (VidMoly/Vidpapi) | 1080p HLS | Kült ve Klasik Sinema Arşivi |
 | **HDFilmDelisi** | hdfilmdelisi.org (VidMody HLS) | 1080p HLS | Güncel Filmler ve JSON API Entegrasyonu |
+| **HDFilmIzle** | hdfilmizle.vip (Vidrame/Vidmoxy/FastPlay) | 1080p HLS Master | Çift Ses DUAL (TR Dublaj & Altyazı) + Çoklu VTT |
 
 ---
 
@@ -127,6 +128,7 @@ Nuvio ve Stremio ana sayfasında canlı TV kanallarını kategorilere ayrılmı�
 | **DiziBoxİzle** | diziboxizle.com (VidMoly & Ok.ru) | 1080p HLS / MP4 | Güncel Yabancı Diziler & Bölümler Arşivi |
 | **DiziWatch** | diziwatch.ac (Pichive Player / Embed) | 1080p HLS / MP4 | Güncel Anime ve Yabancı Diziler Arşivi |
 | **DiziYou** | diziyou.one (Storage CDN) | 1080p HLS | Doğrudan Storage CDN + Türkçe VTT Altyazı |
+| **SetFilmIzle** | setfilmizle.ltd (FastPlay/SetPlay) | 1080p HLS Master | Çift Ses DUAL + Türkçe/İngilizce Altyazı (Film & Dizi) |
 | **YabancıDizi** | yabancidizi.news (VidMoly Master) | 1080p HLS | Popüler Yabancı Diziler Arşivi |
 | **SineWix** | sinewix.com (snwixdepo) | 1080p MKV | Dizi Bölümleri Çift Ses DUAL |
 | **Vidlink** | vidlink.pro (Global CDN) | 1080p MP4 | Yabancı Dizi Bölümleri |
@@ -216,14 +218,9 @@ Nuvio ve Stremio ana sayfasında canlı TV kanallarını kategorilere ayrılmı�
 
 ## ⚠️ **Çalışmayan / Deprecated Sağlayıcılar**
 
-Aşağıdaki sağlayıcılar kaynak/CDN/API değişiklikleri nedeniyle **şu anda çalışmamaktadır** ve manifest'ta `enabled: false` olarak işaretlenmiştir. Kod arşivlenmiştir, gelecekte kaynak düzelirse yeniden etkinleştirilebilir.
+Şu anda repoda yer alan tüm video sağlayıcıları aktif olarak çalışmaktadır. Daha önce FastPlay X-Sp belirteci nedeniyle sorun yaşayan **SetFilmIzle** ve **HDFilmIzle** eklentileri yerel oynatıcı UA mimarisi ve Vidrame/Vidmoxy çözücüleri ile tamamen düzeltilmiş ve aktif listeye alınmıştır.
 
-| Sağlayıcı | Durum | Kök Neden | Not |
-|---|---|---|---|
-| **SetFilmIzle** | ❌ **Çalışmıyor** | FastPlay X-Sp single-use token | Native player'da oynatılamıyor |
-| **HDFilmIzle** | ❌ **Çalışmıyor** | FastPlay X-Sp single-use token | Native player'da oynatılamıyor |
-
-> **Not:** Bu listedeki provider kodları **doğrudur**; sorun dış CDN/API/kaynakta. Kaynak sahipleri düzelirse tekrar etkinleştirilebilir.
+Yalnızca **SineWix** (`sinewix.com`) kaynak sunucu değişiklikleri nedeniyle geçici olarak devre dışı bırakılmıştır (`enabled: false`).
 
 ---
 

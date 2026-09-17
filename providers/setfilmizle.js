@@ -179,19 +179,61 @@ async function resolveFastplay(fastplayUrl, fastplayRef) {
         var spMatch = fpHtml.match(/"sp"\s*:\s*"([^"]+)"/);
         var spTMatch = fpHtml.match(/"spT"\s*:\s*(\d+)/);
         var manMatch = fpHtml.match(/(?:src|stream)\s*:\s*"(\/manifests\/[^"]+)"/);
-        if (!spMatch || !spTMatch || !manMatch) return null;
+        if (!manMatch) return null;
 
-        var sp = spMatch[1];
-        var spT = spTMatch[1];
+        var sp = spMatch ? spMatch[1] : '';
+        var spT = spTMatch ? spTMatch[1] : 0;
         var manPath = manMatch[1].replace(/&amp;/g, '&');
         var fpOrigin = fastplayUrl.match(/^(https?:\/\/[^/]+)/)[1];
         var manifestUrl = manPath.startsWith('http') ? manPath : (fpOrigin + manPath);
 
         var subs = [];
-        var subRe = /"file"\s*:\s*"(https?:[^"]+\.vtt)"\s*,\s*"label"\s*:\s*"([^"]+)"\s*,\s*"lang"\s*:\s*"([^"]+)"/gi;
-        var sm;
-        while ((sm = subRe.exec(fpHtml)) !== null) {
-            subs.push({ id: sm[3], lang: sm[3], url: sm[1].replace(/\\\//g, '/') });
+        var subMatch = fpHtml.match(/subtitles\s*:\s*(\[[\s\S]*?\])/);
+        if (subMatch) {
+            try {
+                var arr = JSON.parse(subMatch[1]);
+                for (var si = 0; si < arr.length; si++) {
+                    var item = arr[si];
+                    if (item && item.file && item.file.indexOf('.vtt') !== -1) {
+                        var lCode = item.lang === 'tur' ? 'tr' : (item.lang === 'eng' ? 'en' : (item.lang || 'tr'));
+                        subs.push({
+                            id: item.lang || 'sub_' + si,
+                            url: item.file,
+                            file: item.file,
+                            link: item.file,
+                            lang: item.lang || 'tur',
+                            language: lCode,
+                            label: item.label || (lCode === 'tr' ? 'Türkçe' : 'English'),
+                            name: item.label || (lCode === 'tr' ? 'Türkçe' : 'English'),
+                            title: item.label || (lCode === 'tr' ? 'Türkçe' : 'English'),
+                            format: 'vtt',
+                            type: 'text/vtt',
+                            mimeType: 'text/vtt'
+                        });
+                    }
+                }
+            } catch (e) {}
+        }
+        if (subs.length === 0) {
+            var subRe = /"file"\s*:\s*"(https?:[^"]+\.vtt)"\s*,\s*"label"\s*:\s*"([^"]+)"\s*,\s*"lang"\s*:\s*"([^"]+)"/gi;
+            var sm;
+            while ((sm = subRe.exec(fpHtml)) !== null) {
+                var langCode = sm[3] === 'tur' ? 'tr' : (sm[3] === 'eng' ? 'en' : sm[3]);
+                subs.push({
+                    id: sm[3],
+                    url: sm[1].replace(/\\\//g, '/'),
+                    file: sm[1].replace(/\\\//g, '/'),
+                    link: sm[1].replace(/\\\//g, '/'),
+                    lang: sm[3],
+                    language: langCode,
+                    label: sm[2],
+                    name: sm[2],
+                    title: sm[2],
+                    format: 'vtt',
+                    type: 'text/vtt',
+                    mimeType: 'text/vtt'
+                });
+            }
         }
 
         return { manifestUrl: manifestUrl, sp: sp, spT: spT, subtitles: subs, referer: fpRes.url || fastplayUrl };
@@ -278,6 +320,7 @@ async function extractStreamsFromContentPage(pageUrl) {
                     headers: {
                         'User-Agent': HEADERS['User-Agent'],
                         'Referer': pageUrl,
+                        'Origin': BASE_URL,
                         'X-Requested-With': 'XMLHttpRequest',
                         'Content-Type': 'application/x-www-form-urlencoded'
                     },
@@ -314,11 +357,9 @@ async function extractStreamsFromContentPage(pageUrl) {
                 var fp = await resolveFastplay(fastplayUrl, spRes.url || setplayUrl);
                 if (!fp || !fp.manifestUrl) continue;
 
-                var xsp = makeXSp(fp.sp, fp.spT);
                 var sHeaders = {
-                    'User-Agent': HEADERS['User-Agent'],
-                    'Referer': fp.referer,
-                    'X-Sp': xsp
+                    'User-Agent': 'ExoPlayerLib/2.19.1',
+                    'Referer': fp.referer
                 };
                 streams.push({
                     name: 'SetFilmIzle',

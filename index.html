@@ -1861,7 +1861,7 @@
     </div>
   </section>
   <!-- BROKEN PROVIDERS SECTION -->
-  <section id="broken">
+  <section id="broken" style="display: none;">
     <div class="container">
       <div class="section-header">
         <div class="section-eyebrow">Kullanım Dışı</div>
@@ -2119,10 +2119,10 @@
       { id: "filmmodu", name: "FilmModu", cats: ["movie"], domain: "filmmodu.one", logo: null, format: "4K / 1080p HLS", desc: "Türkçe dublaj ve altyazılı 4K/1080p Full HD ImgsAPI doğrudan HLS akışları." },
       { id: "hdfilmcehennemi", name: "HDFilmCehennemi", cats: ["movie"], domain: "hdfilmcehennemi.nl", logo: null, format: "1080p CloseLoad HLS", desc: "Binlerce HD film — Türkçe dublaj & altyazı, 1080p CloseLoad adaptif HLS akışları." },
       { id: "hdfilmdelisi", name: "HDFilmDelisi", cats: ["movie"], domain: "hdfilmdelisi.org", logo: null, format: "1080p VidMody HLS", desc: "HDFilmDelisi JSON API arşivi üzerinden VidMody 1080p HLS akışları." },
-      { id: "hdfilmizle", broken: true, name: "HDFilmIzle", cats: ["movie"], domain: "hdfilmizle.ink", logo: null, format: "1080p FastPlay HLS", desc: "HDFilmIzle arşivi üzerinden FastPlay 1080p HLS master akışları ve TR/EN altyazılar." },
+      { id: "hdfilmizle", name: "HDFilmIzle", cats: ["movie"], domain: "hdfilmizle.vip", logo: null, format: "1080p HLS (Vidrame / Vidmoxy / FastPlay)", desc: "HDFilmIzle arşivi üzerinden Vidrame, Vidmoxy ve FastPlay 1080p HLS master akışları ve TR/EN altyazılar." },
       { id: "kultfilmler", name: "KultFilmler", cats: ["movie"], domain: "kultfilmler.net", logo: null, format: "1080p VidMoly HLS", desc: "KultFilmler arşivi üzerinden VidMoly/Vidpapi 1080p HLS akışları." },
       { id: "m3u.anthology.addon", name: "Anthology Canlı TV", cats: ["live"], domain: null, logo: "assets/logo_1_transparent.png", format: "100 Kanal M3U", desc: "100 canlı TV kanalı, spor, ulusal, haber ve belgesel M3U kataloğu (resmi CDN)." },
-      { id: "setfilmizle", broken: true, name: "SetFilmIzle", cats: ["movie", "tv"], domain: "setfilmizle.ltd", logo: null, format: "1080p FastPlay HLS", desc: "SetFilmIzle arşivi üzerinden FastPlay 1080p HLS master akışları ve TR/EN altyazılar." },
+      { id: "setfilmizle", name: "SetFilmIzle", cats: ["movie", "tv"], domain: "setfilmizle.ltd", logo: null, format: "1080p FastPlay HLS", desc: "SetFilmIzle arşivi üzerinden FastPlay 1080p HLS master akışları ve TR/EN altyazılar." },
       { id: "sinemacx", name: "SinemaCX", cats: ["movie"], domain: "sinema.gg", logo: null, format: "1080p HLS Master", desc: "Sinema.gg ve Filmizle API üzerinden doğrudan 1080p master HLS akışları." },
       { id: "sinewix", name: "SineWix", cats: ["movie", "tv"], domain: "sinewix.com", logo: null, format: "1080p MKV Çift Ses", desc: "5000+ HD film, dizi ve anime — 1080p çift ses doğrudan MKV akışları." },
       { id: "turkanime", name: "TurkAnime", cats: ["anime", "tv", "movie"], domain: "turkanime.tv", logo: null, format: "1080p MP4 / HLS", desc: "Türkiye'nin en geniş anime arşivi — Sibnet 1080p MP4 ve ArtPlayer HLS akışları." },
