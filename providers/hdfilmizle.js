@@ -1,12 +1,10 @@
 /**
- * Anthology - HDFilmIzle Provider (Ink + Vip)
- * https://www.hdfilmizle.ink / https://www.hdfilmizle.vip
- * Film arşivi; admin-ajax get_video_url köprüsü üzerinden setplay/fastplay
- * 1080p HLS master akışları (TR/EN altyazı).
- * Kaynak: Cloudstream HDFilmIzle (SetPlay) mantığının Nuvio JS uyarlaması.
+ * Anthology - HDFilmIzle Provider (Vip + Ink)
+ * https://www.hdfilmizle.vip / https://www.hdfilmizle.ink
+ * Film arşivi; Vidrame, Vidmoxy ve FastPlay 1080p HLS master akışları (TR/EN altyazı).
  */
 
-var BASES = ['https://www.hdfilmizle.ink', 'https://www.hdfilmizle.vip'];
+var BASES = ['https://www.hdfilmizle.vip', 'https://www.hdfilmizle.ink'];
 var TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
 
 var UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36';
@@ -39,12 +37,54 @@ function headersFor(base) {
     };
 }
 
+function base64Decode(str) {
+    try {
+        if (typeof atob === 'function') return atob(str);
+        if (typeof Buffer !== 'undefined') return Buffer.from(str, 'base64').toString('binary');
+    } catch (e) {}
+    return '';
+}
+
+function rot13(str) {
+    return str.replace(/[a-zA-Z]/g, function(c) {
+        var code = c.charCodeAt(0);
+        if (code >= 65 && code <= 90) return String.fromCharCode(((code - 65 + 13) % 26) + 65);
+        if (code >= 97 && code <= 122) return String.fromCharCode(((code - 97 + 13) % 26) + 97);
+        return c;
+    });
+}
+
+function decodeVidmoxy(encoded) {
+    try {
+        var b64 = base64Decode(encoded);
+        if (!b64) return null;
+        var reversed = b64.split('').reverse().join('');
+        return rot13(reversed);
+    } catch (e) {
+        return null;
+    }
+}
+
+function decodeVidrameXor(d, k) {
+    try {
+        var o = '';
+        for (var i = 0; i < d.length; i++) {
+            o += String.fromCharCode(d[i] ^ k.charCodeAt(i % k.length) ^ ((i * 17 + 13) & 255));
+        }
+        return o;
+    } catch (e) {
+        return null;
+    }
+}
+
+
 async function resolveTmdbInfo(id) {
     try {
         var cleanId = String(id || '').trim();
         if (cleanId.includes(':')) cleanId = cleanId.split(':')[0];
         var title = '';
         var origTitle = '';
+        var year = null;
         if (cleanId.startsWith('tt')) {
             var findRes = await fetchWithTimeout('https://api.themoviedb.org/3/find/' + cleanId + '?api_key=' + TMDB_API_KEY + '&external_source=imdb_id', {}, 10000);
             if (findRes.ok) {
@@ -53,6 +93,8 @@ async function resolveTmdbInfo(id) {
                 if (match) {
                     title = match.title || match.name || '';
                     origTitle = match.original_title || match.original_name || '';
+                    var rDate = match.release_date || match.first_air_date || '';
+                    if (rDate) year = parseInt(rDate.split('-')[0], 10);
                 }
             }
         } else {
@@ -61,17 +103,30 @@ async function resolveTmdbInfo(id) {
                 var td = await tRes.json();
                 title = td.title || '';
                 origTitle = td.original_title || '';
+                var rd = td.release_date || '';
+                if (rd) year = parseInt(rd.split('-')[0], 10);
             }
         }
-        return { title: title, origTitle: origTitle };
+        return { title: title, origTitle: origTitle, year: year };
     } catch (e) {
-        return { title: '', origTitle: '' };
+        return { title: '', origTitle: '', year: null };
     }
 }
 
 function parseCards(html, base) {
     var out = [];
     var seen = new Set();
+    var vipRe = /<a[^>]+href="(\/[^"\/]+\/)"[^>]+title="([^"]+)"[^>]+class="[^"]*poster[^"]*"[^>]*>([\s\S]*?)<\/a>/gi;
+    var vm;
+    while ((vm = vipRe.exec(html)) !== null) {
+        var href = base + vm[1];
+        if (seen.has(href)) continue;
+        var title = vm[2].trim();
+        var imgM = vm[3].match(/data-src="([^"]+)"/i) || vm[3].match(/data-srcset="([^",\s]+)/i) || vm[3].match(/src="([^"]+)"/i);
+        var poster = imgM ? (imgM[1].startsWith('http') ? imgM[1] : (base + imgM[1])) : '';
+        seen.add(href);
+        out.push({ title: title, href: href, poster: poster, base: base });
+    }
     var re = /<article[^>]+class="[^"]*\bitem\b[^"]*"[^>]*>([\s\S]*?)<\/article>/gi;
     var m;
     while ((m = re.exec(html)) !== null) {
@@ -93,7 +148,46 @@ function parseCards(html, base) {
     return out;
 }
 
+async function searchVip(query) {
+    try {
+        var base = 'https://www.hdfilmizle.vip';
+        var form = new URLSearchParams();
+        form.append('query', query);
+        var res = await fetchWithTimeout(base + '/search/', {
+            method: 'POST',
+            headers: {
+                'User-Agent': UA,
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Referer': base + '/'
+            },
+            body: form.toString()
+        }, 15000);
+        if (!res.ok) return [];
+        var items = await res.json();
+        if (!Array.isArray(items)) return [];
+        var out = [];
+        for (var i = 0; i < items.length; i++) {
+            var item = items[i];
+            if (!item || !item.slug) continue;
+            var href = base + '/' + item.slug.replace(/^\/+|\/+$/g, '') + '/';
+            var poster = item.thumb_url ? (item.thumb_url.startsWith('http') ? item.thumb_url : (base + item.thumb_url)) : '';
+            out.push({
+                title: item.name || '',
+                href: href,
+                poster: poster,
+                base: base,
+                year: item.year ? parseInt(item.year, 10) : null
+            });
+        }
+        return out;
+    } catch (e) {
+        return [];
+    }
+}
+
 async function searchAll(query) {
+    var vipCards = await searchVip(query);
+    if (vipCards && vipCards.length > 0) return vipCards;
     var all = [];
     for (var i = 0; i < BASES.length; i++) {
         try {
@@ -108,9 +202,19 @@ async function searchAll(query) {
     return all;
 }
 
-function pickBest(cards, title) {
+function pickBest(cards, title, year) {
     if (!cards || cards.length === 0) return null;
     var cleanTarget = ultraClean(title);
+    if (year) {
+        for (var y = 0; y < cards.length; y++) {
+            if (cards[y].year && cards[y].year === year) {
+                var cy = ultraClean(cards[y].title);
+                if (cy === cleanTarget || cy.includes(cleanTarget) || cleanTarget.includes(cy)) {
+                    return cards[y];
+                }
+            }
+        }
+    }
     for (var i = 0; i < cards.length; i++) {
         if (ultraClean(cards[i].title) === cleanTarget) return cards[i];
     }
@@ -143,18 +247,115 @@ function spgDecode(n, o) {
     }
 }
 
-function makeXSp(sp, spT) {
+async function resolveVidrame(vidrameUrl, ref) {
     try {
-        var rnd = Math.floor(Math.random() * 2176782336).toString(36);
-        var proof = sp + '|' + spT + '|' + rnd;
-        var h = 0x811c9dc5 >>> 0;
-        for (var i = 0; i < proof.length; i++) {
-            h ^= proof.charCodeAt(i);
-            h = Math.imul(h, 0x01000193) >>> 0;
+        var vRes = await fetchWithTimeout(vidrameUrl, {
+            headers: { 'User-Agent': UA, 'Referer': ref || 'https://www.hdfilmizle.vip/' }
+        }, 15000);
+        if (!vRes.ok) return null;
+        var vHtml = await vRes.text();
+
+        var streamUrl = '';
+        var srcMatch = vHtml.match(/sources\s*:\s*\[\{\s*file\s*:\s*\(function[\s\S]*?\)\((\[[^\]]+\])\s*,\s*["']([^"']+)["']\)/i);
+        if (srcMatch) {
+            try {
+                var d = JSON.parse(srcMatch[1]);
+                var k = srcMatch[2];
+                streamUrl = decodeVidrameXor(d, k);
+            } catch (e) {}
         }
-        return spT + '.' + rnd + '.' + h.toString(16);
+        if (!streamUrl) {
+            var anySrc = vHtml.match(/\(\s*(\[[0-9,\s]+\])\s*,\s*["']([a-zA-Z0-9]+)["']\s*\)/);
+            if (anySrc) {
+                try {
+                    streamUrl = decodeVidrameXor(JSON.parse(anySrc[1]), anySrc[2]);
+                } catch (e) {}
+            }
+        }
+        if (!streamUrl || !streamUrl.startsWith('http')) return null;
+
+        var subs = [];
+        var trMatch = vHtml.match(/configs\.tracks\s*=\s*(\[[\s\S]*?\]);/);
+        if (trMatch) {
+            try {
+                var trList = JSON.parse(trMatch[1]);
+                for (var ti = 0; ti < trList.length; ti++) {
+                    var t = trList[ti];
+                    if (t && t.fx && t.fx.d && t.fx.k) {
+                        var sUrl = decodeVidrameXor(t.fx.d, t.fx.k);
+                        if (sUrl && sUrl.startsWith('http')) {
+                            var lCode = t.language === 'tur' ? 'tr' : (t.language === 'eng' ? 'en' : (t.language || 'tr'));
+                            subs.push({
+                                id: t.language || 'sub_' + ti,
+                                url: sUrl,
+                                file: sUrl,
+                                link: sUrl,
+                                lang: t.language || 'tur',
+                                language: lCode,
+                                label: t.label || (lCode === 'tr' ? 'Türkçe' : 'English'),
+                                name: t.label || (lCode === 'tr' ? 'Türkçe' : 'English'),
+                                title: t.label || (lCode === 'tr' ? 'Türkçe' : 'English'),
+                                format: 'vtt',
+                                type: 'text/vtt',
+                                mimeType: 'text/vtt'
+                            });
+                        }
+                    }
+                }
+            } catch (e) {}
+        }
+        return { streamUrl: streamUrl, subtitles: subs };
     } catch (e) {
-        return '';
+        return null;
+    }
+}
+
+async function resolveVidmoxy(vidmoxyUrl, ref) {
+    try {
+        var mRes = await fetchWithTimeout(vidmoxyUrl, {
+            headers: { 'User-Agent': UA, 'Referer': ref || 'https://www.hdfilmizle.vip/' }
+        }, 15000);
+        if (!mRes.ok) return null;
+        var mHtml = await mRes.text();
+
+        var streamUrl = '';
+        var eeMatch = mHtml.match(/EE\.dd\s*\(\s*["']([^"']+)["']\s*\)/i);
+        if (eeMatch) {
+            streamUrl = decodeVidmoxy(eeMatch[1]);
+        }
+        if (!streamUrl || !streamUrl.startsWith('http')) return null;
+
+        var subs = [];
+        var trMatch = mHtml.match(/tracks\s*:\s*(\[[\s\S]*?\])/);
+        if (trMatch) {
+            try {
+                var trList = JSON.parse(trMatch[1]);
+                for (var ti = 0; ti < trList.length; ti++) {
+                    var t = trList[ti];
+                    if (t && t.file && typeof t.file === 'string' && t.file.indexOf('.vtt') !== -1) {
+                        var sUrl = t.file.startsWith('http') ? t.file : ('https://vidmoxy.net' + (t.file.startsWith('/') ? '' : '/') + t.file);
+                        var lCode = t.language === 'tur' ? 'tr' : (t.language === 'eng' ? 'en' : (t.language || 'tr'));
+                        subs.push({
+                            id: t.language || 'sub_' + ti,
+                            url: sUrl,
+                            file: sUrl,
+                            link: sUrl,
+                            lang: t.language || 'tur',
+                            language: lCode,
+                            label: t.label || (lCode === 'tr' ? 'Türkçe' : 'English'),
+                            name: t.label || (lCode === 'tr' ? 'Türkçe' : 'English'),
+                            title: t.label || (lCode === 'tr' ? 'Türkçe' : 'English'),
+                            format: 'vtt',
+                            type: 'text/vtt',
+                            mimeType: 'text/vtt'
+                        });
+                    }
+                }
+            } catch (e) {}
+        }
+        return { streamUrl: streamUrl, subtitles: subs };
+    } catch (e) {
+        return null;
     }
 }
 
@@ -165,19 +366,60 @@ async function resolveFastplay(fastplayUrl, fastplayRef) {
         }, 15000);
         if (!fpRes.ok) return null;
         var fpHtml = await fpRes.text();
-        var spMatch = fpHtml.match(/"sp"\s*:\s*"([^"]+)"/);
-        var spTMatch = fpHtml.match(/"spT"\s*:\s*(\d+)/);
         var manMatch = fpHtml.match(/(?:src|stream)\s*:\s*"(\/manifests\/[^"]+)"/);
-        if (!spMatch || !spTMatch || !manMatch) return null;
+        if (!manMatch) return null;
         var fpOrigin = fastplayUrl.match(/^(https?:\/\/[^/]+)/)[1];
         var manifestUrl = fpOrigin + manMatch[1].replace(/&amp;/g, '&');
+
         var subs = [];
-        var subRe = /"file"\s*:\s*"(https?:[^"]+\.vtt)"\s*,\s*"label"\s*:\s*"([^"]+)"\s*,\s*"lang"\s*:\s*"([^"]+)"/gi;
-        var sm;
-        while ((sm = subRe.exec(fpHtml)) !== null) {
-            subs.push({ id: sm[3], lang: sm[3], url: sm[1].replace(/\\\//g, '/') });
+        var subMatch = fpHtml.match(/subtitles\s*:\s*(\[[\s\S]*?\])/);
+        if (subMatch) {
+            try {
+                var arr = JSON.parse(subMatch[1]);
+                for (var si = 0; si < arr.length; si++) {
+                    var item = arr[si];
+                    if (item && item.file && item.file.indexOf('.vtt') !== -1) {
+                        var lCode = item.lang === 'tur' ? 'tr' : (item.lang === 'eng' ? 'en' : (item.lang || 'tr'));
+                        subs.push({
+                            id: item.lang || 'sub_' + si,
+                            url: item.file,
+                            file: item.file,
+                            link: item.file,
+                            lang: item.lang || 'tur',
+                            language: lCode,
+                            label: item.label || (lCode === 'tr' ? 'Türkçe' : 'English'),
+                            name: item.label || (lCode === 'tr' ? 'Türkçe' : 'English'),
+                            title: item.label || (lCode === 'tr' ? 'Türkçe' : 'English'),
+                            format: 'vtt',
+                            type: 'text/vtt',
+                            mimeType: 'text/vtt'
+                        });
+                    }
+                }
+            } catch (e) {}
         }
-        return { manifestUrl: manifestUrl, sp: spMatch[1], spT: spTMatch[1], subtitles: subs, referer: fpRes.url || fastplayUrl };
+        if (subs.length === 0) {
+            var subRe = /"file"\s*:\s*"(https?:[^"]+\.vtt)"\s*,\s*"label"\s*:\s*"([^"]+)"\s*,\s*"lang"\s*:\s*"([^"]+)"/gi;
+            var sm;
+            while ((sm = subRe.exec(fpHtml)) !== null) {
+                var langCode = sm[3] === 'tur' ? 'tr' : (sm[3] === 'eng' ? 'en' : sm[3]);
+                subs.push({
+                    id: sm[3],
+                    url: sm[1].replace(/\\\//g, '/'),
+                    file: sm[1].replace(/\\\//g, '/'),
+                    link: sm[1].replace(/\\\//g, '/'),
+                    lang: sm[3],
+                    language: langCode,
+                    label: sm[2],
+                    name: sm[2],
+                    title: sm[2],
+                    format: 'vtt',
+                    type: 'text/vtt',
+                    mimeType: 'text/vtt'
+                });
+            }
+        }
+        return { manifestUrl: manifestUrl, subtitles: subs, referer: fpRes.url || fastplayUrl };
     } catch (e) {
         return null;
     }
@@ -190,6 +432,91 @@ async function extractStreamsFromFilmPage(pageUrl, base) {
         if (!res.ok) return [];
         var html = await res.text();
 
+        // 1. Check for `let parts = [...]` on hdfilmizle.vip
+        var partsMatch = html.match(/let\s+parts\s*=\s*(\[[\s\S]*?\]);/);
+        if (partsMatch) {
+            try {
+                var parts = JSON.parse(partsMatch[1]);
+                if (Array.isArray(parts) && parts.length > 0) {
+                    for (var pi = 0; pi < parts.length; pi++) {
+                        var part = parts[pi];
+                        if (!part || !part.data) continue;
+                        var ifm = part.data.match(/src=["']([^"']+)["']/i);
+                        if (!ifm) continue;
+                        var iframeUrl = ifm[1].replace(/\\\//g, '/');
+                        var pLang = part.lang === 'tr' ? 'TR Dublaj' : (part.lang === 'dual' ? 'Dual (TR/EN)' : 'TR Altyazı');
+
+                        if (iframeUrl.indexOf('vidrame.') !== -1) {
+                            var vr = await resolveVidrame(iframeUrl, pageUrl);
+                            if (vr && vr.streamUrl) {
+                                var vrHeaders = { 'User-Agent': 'ExoPlayerLib/2.19.1', 'Referer': 'https://vidrame.pro/' };
+                                streams.push({
+                                    name: 'HDFilmIzle',
+                                    title: '⌜ HDFilmIzle ⌟ | Vidrame (' + pLang + ' - 1080p HLS)',
+                                    url: vr.streamUrl + (vr.streamUrl.indexOf('.m3u8') !== -1 ? '' : '#.m3u8'),
+                                    quality: '1080p',
+                                    provider: 'hdfilmizle',
+                                    headers: vrHeaders,
+                                    format: 'hls',
+                                    isHls: true,
+                                    behaviorHints: { notWebReady: true, proxyHeaders: { request: vrHeaders } },
+                                    subtitles: vr.subtitles || []
+                                });
+                            }
+                        } else if (iframeUrl.indexOf('vidmoxy.') !== -1) {
+                            var vm = await resolveVidmoxy(iframeUrl, pageUrl);
+                            if (vm && vm.streamUrl) {
+                                var vmHeaders = { 'User-Agent': 'ExoPlayerLib/2.19.1', 'Referer': 'https://vidmoxy.net/' };
+                                streams.push({
+                                    name: 'HDFilmIzle',
+                                    title: '⌜ HDFilmIzle ⌟ | Vidmoxy (' + pLang + ' - 1080p HLS)',
+                                    url: vm.streamUrl + (vm.streamUrl.indexOf('.m3u8') !== -1 ? '' : '#.m3u8'),
+                                    quality: '1080p',
+                                    provider: 'hdfilmizle',
+                                    headers: vmHeaders,
+                                    format: 'hls',
+                                    isHls: true,
+                                    behaviorHints: { notWebReady: true, proxyHeaders: { request: vmHeaders } },
+                                    subtitles: vm.subtitles || []
+                                });
+                            }
+                        } else if (iframeUrl.indexOf('fastplay.') !== -1 || iframeUrl.indexOf('setplay.') !== -1) {
+                            var fastUrl = iframeUrl;
+                            if (iframeUrl.indexOf('setplay.') !== -1) {
+                                var spRes = await fetchWithTimeout(iframeUrl, { headers: { 'User-Agent': UA, 'Referer': pageUrl } }, 15000);
+                                if (spRes.ok) {
+                                    var spHtml = await spRes.text();
+                                    var cerMatch = spHtml.match(/SPG\.cerceve\(\s*"[^"]*"\s*,\s*"([^"]+)"\s*,\s*"([^"]+)"\s*\)/);
+                                    fastUrl = cerMatch ? spgDecode(cerMatch[1], cerMatch[2]) : null;
+                                }
+                            }
+                            if (fastUrl) {
+                                var fp = await resolveFastplay(fastUrl, pageUrl);
+                                if (fp && fp.manifestUrl) {
+                                    var sHeaders = { 'User-Agent': 'ExoPlayerLib/2.19.1', 'Referer': fp.referer };
+                                    streams.push({
+                                        name: 'HDFilmIzle',
+                                        title: '⌜ HDFilmIzle ⌟ | FastPlay (' + pLang + ' - 1080p HLS)',
+                                        url: fp.manifestUrl + '#.m3u8',
+                                        quality: '1080p',
+                                        provider: 'hdfilmizle',
+                                        headers: sHeaders,
+                                        format: 'hls',
+                                        isHls: true,
+                                        behaviorHints: { notWebReady: true, proxyHeaders: { request: sHeaders } },
+                                        subtitles: fp.subtitles || []
+                                    });
+                                }
+                            }
+                        }
+                    }
+                }
+            } catch (e) {}
+        }
+
+        if (streams.length > 0) return streams;
+
+        // 2. Legacy / WordPress admin-ajax fallback (e.g. hdfilmizle.ink)
         var ajaxMatch = html.match(/["'](https?:[^"']*wp-admin\/admin-ajax\.php)["']/);
         var ajaxUrl = ajaxMatch ? ajaxMatch[1].replace(/\\\//g, '/') : (base + '/wp-admin/admin-ajax.php');
         var nonceMatches = [...html.matchAll(/data-nonce="([a-z0-9]+)"/gi)].map(function(m){return m[1];});
@@ -242,6 +569,7 @@ async function extractStreamsFromFilmPage(pageUrl, base) {
                     headers: {
                         'User-Agent': UA,
                         'Referer': pageUrl,
+                        'Origin': base,
                         'X-Requested-With': 'XMLHttpRequest',
                         'Content-Type': 'application/x-www-form-urlencoded'
                     },
@@ -272,8 +600,7 @@ async function extractStreamsFromFilmPage(pageUrl, base) {
                 var fp = await resolveFastplay(fastplayUrl, spRes.url || setplayUrl);
                 if (!fp || !fp.manifestUrl) continue;
 
-                var xsp = makeXSp(fp.sp, fp.spT);
-                var sHeaders = { 'User-Agent': UA, 'Referer': fp.referer, 'X-Sp': xsp };
+                var sHeaders = { 'User-Agent': 'ExoPlayerLib/2.19.1', 'Referer': fp.referer };
                 streams.push({
                     name: 'HDFilmIzle',
                     title: '⌜ HDFilmIzle ⌟ | FastPlay (1080p HLS)',
@@ -298,11 +625,23 @@ async function extractStreamsFromFilmPage(pageUrl, base) {
 async function getCatalog(args) {
     try {
         var query = (args && args.search) || (args && args.extra && args.extra.search) || (args && args.query) || '';
-        var base = BASES[0];
-        var url = query ? (base + '/?s=' + encodeURIComponent(query)) : (base + '/film/');
-        var res = await fetchWithTimeout(url, { headers: headersFor(base) }, 15000);
-        if (!res.ok) return { metas: [] };
-        var cards = parseCards(await res.text(), base);
+        var cards = [];
+        if (query) {
+            cards = await searchAll(query);
+        } else {
+            var base = BASES[0];
+            var url = base.indexOf('vip') !== -1 ? (base + '/') : (base + '/film/');
+            var res = await fetchWithTimeout(url, { headers: headersFor(base) }, 15000);
+            if (res.ok) {
+                cards = parseCards(await res.text(), base);
+            }
+            if (cards.length === 0 && BASES[1]) {
+                var b2 = BASES[1];
+                var u2 = b2.indexOf('vip') !== -1 ? (b2 + '/') : (b2 + '/film/');
+                var r2 = await fetchWithTimeout(u2, { headers: headersFor(b2) }, 15000);
+                if (r2.ok) cards = parseCards(await r2.text(), b2);
+            }
+        }
         var metas = cards.slice(0, 30).map(function(c) {
             return {
                 id: 'hdfilmizle:movie:' + encodeURIComponent(c.href),
@@ -370,7 +709,7 @@ async function getStreams(tmdbIdOrArgs, mediaType) {
         for (var t = 0; t < searchTitles.length; t++) {
             var cards = await searchAll(searchTitles[t]);
             if (!cards || cards.length === 0) continue;
-            var best = pickBest(cards, searchTitles[t]);
+            var best = pickBest(cards, searchTitles[t], info.year);
             if (!best) continue;
             var streams = await extractStreamsFromFilmPage(best.href, best.base);
             if (streams.length > 0) return streams;
