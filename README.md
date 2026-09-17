@@ -95,7 +95,7 @@ Nuvio ve Stremio ana sayfasında canlı TV kanallarını kategorilere ayrılmı�
 
 ---
 
-## 🎬 Doğrulanmış Eklentiler (34 Aktif - Nuvio)
+## 🎬 Doğrulanmış Eklentiler (35 Aktif - Nuvio)
 
 > [!NOTE]
 > Aşağıdaki tüm video scraper motorları Nuvio oynatıcısına uygun doğrudan `.m3u8` HLS veya `.mp4`/`.mkv` akışları döndürür.
@@ -105,6 +105,7 @@ Nuvio ve Stremio ana sayfasında canlı TV kanallarını kategorilere ayrılmı�
 | Eklenti | Kaynak / Altyapı | Kalite & Format | İçerik Detayı |
 |---|---|:---:|:---:|
 | **SineWix** | sinewix.com (snwixdepo) | 1080p Direct MKV | Çift Ses DUAL (Türkçe Dublaj & Altyazı) |
+| **HDFilmCehennemi** | hdfilmcehennemi.nl (CloseLoad) | 1080p HLS Master | Çift Ses DUAL (TR Dublaj & Orijinal) + Çoklu Altyazı |
 | **FilmModu** | filmmodu.one (ImgsAPI) | 4K & 1080p HLS | Dublaj & Altyazı Seçenekleri |
 | **Vidlink** | vidlink.pro (Global CDN) | 4K & 1080p MP4 | Türkçe & Global Çok Dilli |
 | **Vidmody** | vidmody.com (Multi-Audio HLS) | 1080p HLS | Çift Ses (Türkçe & İngilizce) + Altyazı |
