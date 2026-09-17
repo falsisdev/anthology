@@ -124,6 +124,9 @@ async function checkPlayability(streams) {
       } else if (scraper.id === "anthology_toprated" || scraper.id === "AnthologyFilmM3U") {
         testTarget = "The Godfather (238)";
         streams = await mod.getStreams("238", "movie");
+      } else if (scraper.id === "filmmodu") {
+        testTarget = "Extraction 2 (697843)";
+        streams = await mod.getStreams("697843", "movie");
       } else if (scraper.supportedTypes && scraper.supportedTypes.includes("movie")) {
         testTarget = "The Matrix (603)";
         streams = await mod.getStreams("603", "movie");
