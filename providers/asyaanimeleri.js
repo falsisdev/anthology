@@ -664,6 +664,12 @@ async function getMeta(args) {
  */
 async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
   try {
+    if (typeof tmdbId === 'object' && tmdbId !== null) {
+      mediaType = tmdbId.type || mediaType;
+      seasonNum = tmdbId.season || seasonNum;
+      episodeNum = tmdbId.episode || episodeNum;
+      tmdbId = tmdbId.id;
+    }
     var isTv = (mediaType === 'tv' || mediaType === 'series');
     var finalSeason = parseInt(seasonNum) || 1;
     var finalEpisode = parseInt(episodeNum) || 1;

@@ -101,13 +101,26 @@ async function extractFromHDPlayer(embedUrl, referer) {
 }
 
 async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
-  // DiziMom sadece dizileri destekler
-  if (mediaType === 'movie') return [];
-
   try {
-    if (typeof tmdbId === 'object' && tmdbId && tmdbId.id) {
-      return getStreams(tmdbId.id, mediaType, seasonNum, episodeNum);
+    if (typeof tmdbId === 'object' && tmdbId !== null) {
+      mediaType = tmdbId.type || mediaType;
+      seasonNum = tmdbId.season || seasonNum;
+      episodeNum = tmdbId.episode || episodeNum;
+      tmdbId = tmdbId.id;
     }
+    if (typeof tmdbId === 'string' && tmdbId.indexOf(':') !== -1 && !tmdbId.startsWith('dizimom:')) {
+      var parts = tmdbId.split(':');
+      if (parts.length >= 3) {
+        var s = parseInt(parts[parts.length - 2]);
+        var e = parseInt(parts[parts.length - 1]);
+        if (!isNaN(s)) seasonNum = s;
+        if (!isNaN(e)) episodeNum = e;
+        tmdbId = parts[0];
+      }
+    }
+    // DiziMom sadece dizileri destekler
+    if (mediaType === 'movie') return [];
+    if (!mediaType) mediaType = 'tv';
 
     if (typeof tmdbId === 'string' && tmdbId.startsWith('dizimom:show:')) {
       const showMeta = await getMeta(tmdbId);

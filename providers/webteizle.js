@@ -252,6 +252,15 @@ async function processEmbed(embedData, dilAd, movieTitle) {
 // Ana Fonksiyon
 async function getStreams(tmdbId, mediaType, season, episode) {
   try {
+    if (typeof tmdbId === 'object' && tmdbId !== null) {
+      mediaType = tmdbId.type || mediaType;
+      season = tmdbId.season || season;
+      episode = tmdbId.episode || episode;
+      tmdbId = tmdbId.id;
+    }
+    if (typeof tmdbId === 'string' && tmdbId.indexOf(':') !== -1 && !tmdbId.startsWith('webteizle:')) {
+      tmdbId = tmdbId.split(':')[0];
+    }
     var isTV = (mediaType === 'tv' || mediaType === 'series');
     if (isTV) return []; // Webteİzle film odaklıdır
 

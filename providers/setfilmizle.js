@@ -497,8 +497,22 @@ async function getMeta(args) {
 
 async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
     try {
-        if (typeof tmdbIdOrArgs === 'object' && tmdbIdOrArgs && tmdbIdOrArgs.id) {
-            return getStreams(tmdbIdOrArgs.id, mediaType, seasonNum, episodeNum);
+        if (typeof tmdbIdOrArgs === 'object' && tmdbIdOrArgs !== null) {
+            mediaType = tmdbIdOrArgs.type || mediaType;
+            seasonNum = tmdbIdOrArgs.season || seasonNum;
+            episodeNum = tmdbIdOrArgs.episode || episodeNum;
+            tmdbIdOrArgs = tmdbIdOrArgs.id;
+        }
+        if (typeof tmdbIdOrArgs === 'string' && tmdbIdOrArgs.indexOf(':') !== -1 && !tmdbIdOrArgs.startsWith('setfilmizle:')) {
+            var parts = tmdbIdOrArgs.split(':');
+            if (parts.length >= 3) {
+                var s = parseInt(parts[parts.length - 2]);
+                var e = parseInt(parts[parts.length - 1]);
+                if (!isNaN(s)) seasonNum = s;
+                if (!isNaN(e)) episodeNum = e;
+                mediaType = 'tv';
+                tmdbIdOrArgs = parts[0];
+            }
         }
         if (typeof tmdbIdOrArgs === 'string' && tmdbIdOrArgs.startsWith('setfilmizle:ep:')) {
             var epHref = decodeURIComponent(tmdbIdOrArgs.replace('setfilmizle:ep:', ''));

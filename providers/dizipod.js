@@ -486,6 +486,17 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
 
     // Doğrudan DiziPod ID formatı kontrolü (dizipod:ep:slug:season:episode veya dizipod:movie:slug)
     var cleanId = String(tmdbId || '').trim();
+    if (cleanId.indexOf(':') !== -1 && !cleanId.startsWith('dizipod:')) {
+      var cParts = cleanId.split(':');
+      if (cParts.length >= 3) {
+        var s = parseInt(cParts[cParts.length - 2], 10);
+        var e = parseInt(cParts[cParts.length - 1], 10);
+        if (!isNaN(s)) sNum = s;
+        if (!isNaN(e)) eNum = e;
+        isTv = true;
+        cleanId = cParts[0];
+      }
+    }
     var mediaMatch = null;
 
     if (cleanId.startsWith('dizipod:ep:')) {
