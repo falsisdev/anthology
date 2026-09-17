@@ -66,7 +66,7 @@ function titleToSlug(str) {
 // ── Saf JS Dean Edwards Unpacker (QuickJS / Nuvio Uyumlu) ────────────────
 function unpackDeanEdwards(str) {
   if (!str || typeof str !== 'string') return null;
-  var match = str.match(/eval\(function\(p,a,c,k,e,[rd]\)\s*\{.+?\}\s*\(\s*([x\x27\x22].+?)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*([x\x27\x22].+?)\.split\(\s*[\x27\x22]\|[\x27\x22]\s*\)/s);
+  var match = str.match(/eval\(function\(p,a,c,k,e,[rd]\)\s*\{.+?\}\s*\(\s*([x\x27\x22].+?)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*([x\x27\x22].+?)\.split\(\s*[\x27\x22]\|[\x27\x22]\s*\)/);
   if (!match) return null;
 
   var p = match[1];
@@ -204,8 +204,8 @@ async function fallbackSearch(query, isTv) {
     var results = [];
 
     var pattern = isTv
-      ? /href="(https:\/\/dizipod\.com\/diziler\/[^"]+)"[^>]*>.*?<div class="title">([^<]+)<\/div>/gs
-      : /href="(https:\/\/dizipod\.com\/film\/[^"]+)"[^>]*>.*?<div class="title">([^<]+)<\/div>/gs;
+      ? /href="(https:\/\/dizipod\.com\/diziler\/[^"]+)"[^>]*>[\s\S]*?<div class="title">([^<]+)<\/div>/g
+      : /href="(https:\/\/dizipod\.com\/film\/[^"]+)"[^>]*>[\s\S]*?<div class="title">([^<]+)<\/div>/g;
 
     var m;
     while ((m = pattern.exec(html)) !== null) {
@@ -554,16 +554,17 @@ async function getCatalog(args) {
     var metas = [];
     var seen = {};
 
-    var pattern = /<a[^>]+href="https:\/\/dizipod\.com\/(?:diziler|film)\/([^"/]+)\/?"[^>]*>.*?<img[^>]+(?:data-)?src="([^"]+)".*?<div class="title">([^<]+)<\/div>/gs;
-    for (var m of html.matchAll(pattern)) {
+    var pattern = /<a[^>]+href="https:\/\/dizipod\.com\/(?:diziler|film)\/([^"/]+)\/?("[^>]*>[\s\S]*?<img[^>]+(?:data-)?src="([^"]+)"[\s\S]*?<div class="title">([^<]+)<\/div>)/g;
+    var m;
+    while ((m = pattern.exec(html)) !== null) {
       var slug = m[1];
       if (!seen[slug]) {
         seen[slug] = true;
         metas.push({
           id: 'dizipod:' + (type === 'movie' ? 'movie' : 'show') + ':' + slug,
           type: type === 'movie' ? 'movie' : 'series',
-          name: m[3].replace(/&#8211;/g, '-').replace(/&#8217;/g, "'").trim(),
-          poster: m[2],
+          name: m[4].replace(/&#8211;/g, '-').replace(/&#8217;/g, "'").trim(),
+          poster: m[3],
           description: 'DiziPod ' + (type === 'movie' ? 'filmler arşivi.' : 'popüler diziler kataloğu.')
         });
       }
@@ -575,16 +576,17 @@ async function getCatalog(args) {
         var homeRes = await fetch(BASE_URL + '/', { headers: HEADERS, signal: timeoutSignal(6000) });
         if (homeRes.ok) {
           var homeHtml = await homeRes.text();
-          var cardPattern = /<a[^>]+class="[^"]*dp-film-card[^"]*"[^>]+href="https:\/\/dizipod\.com\/film\/([^"/]+)\/?"[^>]*aria-label="([^"]+)".*?<img[^>]+src="([^"]+)"/gs;
-          for (var cm of homeHtml.matchAll(cardPattern)) {
+          var cardPattern = /<a[^>]+class="[^"]*dp-film-card[^"]*"[^>]+href="https:\/\/dizipod\.com\/film\/([^"/]+)\/?("[^>]*aria-label="([^"]+)"[\s\S]*?<img[^>]+src="([^"]+)")/g;
+          var cm;
+          while ((cm = cardPattern.exec(homeHtml)) !== null) {
             var cSlug = cm[1];
             if (!seen[cSlug]) {
               seen[cSlug] = true;
               metas.push({
                 id: 'dizipod:movie:' + cSlug,
                 type: 'movie',
-                name: cm[2].replace(/&#8211;/g, '-').replace(/&#8217;/g, "'").trim(),
-                poster: cm[3],
+                name: cm[3].replace(/&#8211;/g, '-').replace(/&#8217;/g, "'").trim(),
+                poster: cm[4],
                 description: 'DiziPod filmler arşivi.'
               });
             }
@@ -617,7 +619,7 @@ async function getMeta(args) {
 
     var titleMatch = html.match(/<h1[^>]*>([^<]+)<\/h1>/);
     var title = titleMatch ? titleMatch[1].replace(/&#8211;/g, '-').replace(/&#8217;/g, "'").trim() : slug;
-    var posterMatch = html.match(/class="item".*?<img[^>]+(?:data-)?src="([^"]+)"/s) ||
+    var posterMatch = html.match(/class="item"[\s\S]*?<img[^>]+(?:data-)?src="([^"]+)"/) ||
                       html.match(/<img[^>]+src="([^"]*(?:thetvdb|tmdb)[^"]*)"/i) ||
                       html.match(/<img[^>]+src="([^"]+)"/);
     var poster = posterMatch ? posterMatch[1] : '';
@@ -628,7 +630,8 @@ async function getMeta(args) {
       var seen = {};
 
       // 1. Ana sayfadaki bölümler
-      for (var em of html.matchAll(epPattern)) {
+      var em;
+      while ((em = epPattern.exec(html)) !== null) {
         var s = parseInt(em[1], 10);
         var ep = parseInt(em[2], 10);
         var key = s + ':' + ep;
@@ -644,9 +647,16 @@ async function getMeta(args) {
       }
 
       // 2. Diğer sezon bağlantılarını tara
-      var seasonLinks = [...new Set([...html.matchAll(/href="(https:\/\/dizipod\.com\/dizi\/[^\/]+\/[^\/]+-([0-9]+)-sezon\/?)"/g)].map(function(m) {
-        return m[1];
-      }))];
+      var seasonLinkPattern = /href="(https:\/\/dizipod\.com\/dizi\/[^\/]+\/[^\/]+-([0-9]+)-sezon\/?)"/g;
+      var slm;
+      var seasonSeen = {};
+      var seasonLinks = [];
+      while ((slm = seasonLinkPattern.exec(html)) !== null) {
+        if (!seasonSeen[slm[1]]) {
+          seasonSeen[slm[1]] = true;
+          seasonLinks.push(slm[1]);
+        }
+      }
 
       if (seasonLinks.length > 0) {
         var seasonPages = await Promise.all(seasonLinks.map(function(sUrl) {
@@ -658,7 +668,9 @@ async function getMeta(args) {
         for (var sIdx = 0; sIdx < seasonPages.length; sIdx++) {
           var sHtml = seasonPages[sIdx];
           if (!sHtml) continue;
-          for (var sem of sHtml.matchAll(epPattern)) {
+          var epPattern2 = /href="https:\/\/dizipod\.com\/[a-z0-9-]+-(\d+)-sezon-(\d+)-bolum\/"/g;
+          var sem;
+          while ((sem = epPattern2.exec(sHtml)) !== null) {
             var ss = parseInt(sem[1], 10);
             var sep = parseInt(sem[2], 10);
             var skey = ss + ':' + sep;
