@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: hdfilmdelisi
  * Built from src/hdfilmdelisi/index.js
- * Build Date: 2026-09-18T16:40:17.334Z
+ * Build Date: 2026-09-18T20:22:18.777Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {

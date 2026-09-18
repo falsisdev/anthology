@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: webteizle
  * Built from src/webteizle/index.js
- * Build Date: 2026-09-18T16:40:17.365Z
+ * Build Date: 2026-09-18T20:22:18.808Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
