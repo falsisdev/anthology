@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: vidmody
  * Built from src/vidmody/index.js
- * Build Date: 2026-09-18T16:40:17.363Z
+ * Build Date: 2026-09-18T20:22:18.806Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {

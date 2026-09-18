@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: diziyou
  * Built from src/diziyou/index.js
- * Build Date: 2026-09-18T16:40:17.325Z
+ * Build Date: 2026-09-18T20:22:18.769Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {

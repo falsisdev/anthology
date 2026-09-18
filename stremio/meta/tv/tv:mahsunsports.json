@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:mahsunsports",
+    "type": "tv",
+    "name": "Mahsun Sports",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/mahsunsports.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/mahsunsports.png",
+    "description": "Mahsun Sports Canlı Spor Yayını",
+    "genres": [
+      "Spor"
+    ],
+    "videos": [
+      {
+        "id": "tv:mahsunsports",
+        "title": "Mahsun Sports"
+      }
+    ]
+  }
+}

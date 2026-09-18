@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: m3u_list
  * Built from src/m3u_list/index.js
- * Build Date: 2026-09-18T16:50:47.148Z
+ * Build Date: 2026-09-18T20:22:18.784Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -277,6 +277,34 @@ function cleanKey(s) {
 function getMeta(args) {
   var targetId = typeof args === "string" ? args : args && args.id ? args.id : null;
   if (!targetId) return Promise.resolve({ meta: null });
+  var cleanM = String(targetId).toLowerCase();
+  if (cleanM.indexOf("tv:mahsunsports") === 0) {
+    return fetchMahsunMatches().then(function(matches) {
+      var videos = [];
+      var titleCount = {};
+      for (var i = 0; i < matches.length; i++) {
+        var m = matches[i];
+        titleCount[m.title] = (titleCount[m.title] || 0) + 1;
+        var st = (SPORT_LABEL[m.sport] || "\u25B6") + " | " + m.title;
+        if (titleCount[m.title] > 1) st += " (Ak\u0131\u015F " + titleCount[m.title] + ")";
+        videos.push({ id: "tv:mahsunsports:" + i, title: st, released: (/* @__PURE__ */ new Date()).toISOString() });
+      }
+      return {
+        meta: {
+          id: "tv:mahsunsports",
+          type: "tv",
+          name: "Mahsun Sports",
+          poster: "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/mahsunsports.png",
+          background: "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/mahsunsports.png",
+          description: "Mahsun Sports canl\u0131 ma\xE7 yay\u0131nlar\u0131 \u2014 Futbol, Basketbol, Voleybol ve Tenis",
+          genres: ["Spor"],
+          videos
+        }
+      };
+    }).catch(function() {
+      return { meta: null };
+    });
+  }
   return fetchChannels().then(function(content) {
     var lines = content.split("\n");
     var name = targetId.replace(/^tv:/, "");
@@ -412,6 +440,21 @@ function extractNamedArray(script, name) {
   }
   return "";
 }
+var SPORT_LABEL = { F: "\u26BD\uFE0F F", B: "\u{1F3C0} B", V: "\u{1F3D0} V", T: "\u{1F3BE} T" };
+var SPORT_ORDER = { F: 0, B: 1, V: 2, T: 3 };
+function sportOfMatch(m, catSets) {
+  var ct = cleanKey(m.title);
+  if (catSets.F.has(ct)) return "F";
+  if (catSets.B.has(ct)) return "B";
+  if (catSets.V.has(ct)) return "V";
+  if (catSets.T.has(ct)) return "T";
+  var lg = String(m.league || "") + " " + String(m.title || "");
+  lg = lg.toLowerCase();
+  if (/(tenis|tennis|davis|atp|wta)/i.test(lg)) return "T";
+  if (/(voley|volley|legends cup)/i.test(lg)) return "V";
+  if (/(basket|basketbol|nba|wnba|euroliga|euro ?league|berna vindita|lacb)/i.test(lg)) return "B";
+  return "F";
+}
 function parseScript4(script) {
   var idMap = {};
   var pairsRe = /\{\s*title:\s*"([^"]+)",\s*url:\s*"\/event\.html\?id=([^"]+)"\s*\}/g;
@@ -420,20 +463,31 @@ function parseScript4(script) {
     var nk = cleanKey(p[1]);
     if (nk && !idMap[nk]) idMap[nk] = p[2];
   }
-  var CATS = [
-    { label: "Futbol", array: "futbolMatches" },
-    { label: "Basketbol", array: "basketbolMatches" },
-    { label: "Voleybol", array: "voleybolMatches" },
-    { label: "Tenis", array: "tenisMatches" },
-    { label: "\xD6ne \xC7\u0131kan", array: "karsilasmalar" }
+  var CAT_ARRAYS = [
+    { sport: "F", array: "futbolMatches" },
+    { sport: "B", array: "basketbolMatches" },
+    { sport: "V", array: "voleybolMatches" },
+    { sport: "T", array: "tenisMatches" }
   ];
-  var matchList = [];
-  var seenIds = {};
-  for (var ci = 0; ci < CATS.length; ci++) {
-    var cat = CATS[ci];
-    var body = extractNamedArray(script, cat.array);
-    if (!body) continue;
-    var objs = body.match(/\{[^{}]*\}/g) || [];
+  var catSets = {};
+  for (var ci = 0; ci < CAT_ARRAYS.length; ci++) {
+    var ca = CAT_ARRAYS[ci];
+    var caSet = /* @__PURE__ */ new Set();
+    var catBody = extractNamedArray(script, ca.array);
+    if (catBody) {
+      var catObjs = catBody.match(/\{[^{}]*\}/g) || [];
+      for (var co = 0; co < catObjs.length; co++) {
+        var ctM = catObjs[co].match(/"title"\s*:\s*"([^"]*)"/);
+        if (ctM && ctM[1]) caSet.add(cleanKey(ctM[1].trim()));
+      }
+    }
+    catSets[ca.sport] = caSet;
+  }
+  var featBody = extractNamedArray(script, "karsilasmalar");
+  var matches = [];
+  var seenIdsArr = {};
+  if (featBody) {
+    var objs = featBody.match(/\{[^{}]*\}/g) || [];
     for (var oi = 0; oi < objs.length; oi++) {
       var o = objs[oi];
       var t = o.match(/"title"\s*:\s*"([^"]*)"/);
@@ -444,65 +498,28 @@ function parseScript4(script) {
       if (!t || !u) continue;
       var title = t[1].trim();
       var id = u[1];
-      if (id === "None" || id.indexOf("chNone") !== -1) continue;
+      if (!title || !id || id === "None" || id.indexOf("chNone") !== -1) continue;
       var key = id + "|" + title;
-      if (seenIds[key]) continue;
-      seenIds[key] = true;
-      matchList.push({
+      if (seenIdsArr[key]) continue;
+      seenIdsArr[key] = true;
+      matches.push({
         title,
         id,
         league: l ? l[1].trim() : "",
         live: lv ? lv[1] === "true" : false,
         time: tm ? tm[1].trim() : "",
-        cat: cat.label
+        sport: sportOfMatch({ title, league: l ? l[1].trim() : "" }, catSets)
       });
     }
   }
-  var groups = {};
-  for (var mi = 0; mi < matchList.length; mi++) {
-    var mm = matchList[mi];
-    var gk = cleanKey(mm.title);
-    if (!groups[gk]) groups[gk] = { title: mm.title, cat: mm.cat, entries: [] };
-    groups[gk].entries.push(mm);
-  }
-  var groupArr = [];
-  for (var gk2 in groups) {
-    var g2 = groups[gk2];
-    var ana = null, yedek = [];
-    for (var ei = 0; ei < g2.entries.length; ei++) {
-      var e = g2.entries[ei];
-      if (!ana && e.league.indexOf("Yedek") === -1) ana = e;
-      else if (e.league.indexOf("Yedek") !== -1) yedek.push(e);
-      else if (!ana) ana = e;
-    }
-    if (!ana) ana = g2.entries[0];
-    for (var yi = 0; yi < g2.entries.length; yi++) {
-      if (g2.entries[yi] === ana) continue;
-      if (yedek.indexOf(g2.entries[yi]) === -1) yedek.push(g2.entries[yi]);
-    }
-    groupArr.push({
-      title: g2.title,
-      cat: ana ? ana.cat : g2.cat,
-      live: ana ? ana.live : false,
-      time: ana ? ana.time : "",
-      ana,
-      yedek: yedek.slice(0, 2)
-    });
-  }
-  function isRealFeedId(id2) {
-    return /^(androstreamlive)?(bs\d+|s\d+|ss\d+|ssplus\d+|cbcs|sbs|exn\d+|trts\d*|ts\d*|ht|idm|sifir|ttt\d+|sm\d*|bsm\d*)/i.test(String(id2 || ""));
-  }
-  var order = { "\xD6ne \xC7\u0131kan": 0, "Futbol": 1, "Basketbol": 2, "Voleybol": 3, "Tenis": 4 };
-  groupArr.sort(function(a, b) {
-    var ra = isRealFeedId(a.ana && a.ana.id) ? 0 : 1;
-    var rb = isRealFeedId(b.ana && b.ana.id) ? 0 : 1;
-    if (ra !== rb) return ra - rb;
-    var oc = (order[a.cat] !== void 0 ? order[a.cat] : 9) - (order[b.cat] !== void 0 ? order[b.cat] : 9);
-    if (oc !== 0) return oc;
+  matches.sort(function(a, b) {
+    var oa = SPORT_ORDER[a.sport] !== void 0 ? SPORT_ORDER[a.sport] : 9;
+    var ob = SPORT_ORDER[b.sport] !== void 0 ? SPORT_ORDER[b.sport] : 9;
+    if (oa !== ob) return oa - ob;
     if (a.live !== b.live) return a.live ? -1 : 1;
     return a.time < b.time ? -1 : a.time > b.time ? 1 : 0;
   });
-  return { idMap, groups: groupArr };
+  return { idMap, matches };
 }
 function fetchMahsunData() {
   var now = Date.now();
@@ -517,31 +534,23 @@ function fetchMahsunData() {
         scriptUrl = sm[1].indexOf("http") === 0 ? sm[1] : MAHSUN_SITE.replace(/\/+$/, "") + "/" + sm[1].replace(/^\/+/, "");
       }
       if (!scriptUrl) {
-        mahsunCache = { time: now, bases, idMap: {}, groups: [] };
+        mahsunCache = { time: now, bases, idMap: {}, matches: [] };
         return mahsunCache;
       }
       return mahsunFetchText(scriptUrl).then(function(script) {
         var parsed = parseScript4(script);
-        var perCat = {}, picked = [];
-        for (var pi = 0; pi < parsed.groups.length && picked.length < 60; pi++) {
-          var g2 = parsed.groups[pi];
-          var cnt = perCat[g2.cat] || 0;
-          if (cnt >= (g2.cat === "\xD6ne \xC7\u0131kan" ? 24 : g2.cat === "Futbol" ? 16 : 8)) continue;
-          perCat[g2.cat] = cnt + 1;
-          picked.push(g2);
-        }
-        mahsunCache = { time: now, bases, idMap: parsed.idMap, groups: picked };
+        mahsunCache = { time: now, bases, idMap: parsed.idMap, matches: parsed.matches };
         return mahsunCache;
       });
     });
   }).catch(function() {
-    mahsunCache = { time: now, bases: [], idMap: {}, groups: [] };
+    mahsunCache = { time: now, bases: [], idMap: {}, matches: [] };
     return mahsunCache;
   });
 }
 function fetchMahsunMatches() {
   return fetchMahsunData().then(function(data) {
-    return data.groups || [];
+    return data.matches || [];
   });
 }
 function mahsunMakeStream(name, title, url) {
@@ -553,32 +562,25 @@ function mahsunMakeStream(name, title, url) {
     behaviorHints: { isLive: true }
   };
 }
-function buildMahsunMatchStreams(groups, onlyIndex) {
+function buildMahsunMatchStreams(matches, onlyIndex) {
   var streams = [];
-  var base = "";
   var bases = mahsunCache && mahsunCache.bases && mahsunCache.bases.length ? mahsunCache.bases : [];
-  if (bases.length) base = bases[0];
-  for (var i = 0; i < groups.length; i++) {
-    var g2 = groups[i];
+  if (!bases.length) return streams;
+  var base = bases[0];
+  var titleCount = {};
+  for (var i = 0; i < matches.length; i++) {
     if (onlyIndex !== null && onlyIndex !== void 0 && i !== onlyIndex) continue;
-    var liveTag = g2.live ? "Canl\u0131" : g2.time || "";
-    var suffix = liveTag ? " \xB7 " + liveTag : "";
-    if (g2.ana && g2.ana.id && base) {
-      streams.push(mahsunMakeStream(
-        "\u231C Mahsunsports \xB7 " + g2.cat + " \u231F",
-        g2.title + " [Ana Yay\u0131n" + suffix + "]",
-        base + g2.ana.id + ".m3u8"
-      ));
-    }
-    for (var yi = 0; yi < g2.yedek.length; yi++) {
-      var yd = g2.yedek[yi];
-      if (!yd.id || !base) continue;
-      streams.push(mahsunMakeStream(
-        "\u231C Mahsunsports \xB7 " + g2.cat + " \xB7 Yedek \u231F",
-        g2.title + " [Yedek Ak\u0131\u015F " + (yi + 1) + suffix + "]",
-        base + yd.id + ".m3u8"
-      ));
-    }
+    var m = matches[i];
+    if (!m.id || !m.title) continue;
+    var label = SPORT_LABEL[m.sport] || "\u25B6";
+    titleCount[m.title] = (titleCount[m.title] || 0) + 1;
+    var st = label + " | " + m.title;
+    if (titleCount[m.title] > 1) st += " (Ak\u0131\u015F " + titleCount[m.title] + ")";
+    streams.push(mahsunMakeStream(
+      "\u231C Mahsun Sports \u231F",
+      st,
+      base + m.id + ".m3u8"
+    ));
   }
   return streams;
 }

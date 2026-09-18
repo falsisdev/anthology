@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: diziwatch
  * Built from src/diziwatch/index.js
- * Build Date: 2026-09-18T16:40:17.323Z
+ * Build Date: 2026-09-18T20:22:18.766Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {

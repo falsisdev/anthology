@@ -389,7 +389,7 @@ function generateSearchTerms(title) {
       // 3. Generate static /stream endpoint for Live TV
       if (typeof mod.getStreams === 'function') {
         try {
-          const streamRes = await withTimeout(mod.getStreams({ id: item.id, type: item.type || cfg.type }), 6000);
+          const streamRes = await withTimeout(mod.getStreams({ id: item.id, type: item.type || cfg.type }), 25000);
           const streamsArray = Array.isArray(streamRes) ? streamRes : (streamRes && streamRes.streams ? streamRes.streams : []);
           saveStaticStream(['tv', 'channel', 'series'], item.id, streamsArray);
         } catch (e) {

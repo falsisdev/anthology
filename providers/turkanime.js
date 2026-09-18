@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: turkanime
  * Built from src/turkanime/index.js
- * Build Date: 2026-09-18T16:40:17.357Z
+ * Build Date: 2026-09-18T20:22:18.799Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {

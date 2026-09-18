@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: sinemacx
  * Built from src/sinemacx/index.js
- * Build Date: 2026-09-18T16:40:17.350Z
+ * Build Date: 2026-09-18T20:22:18.793Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
