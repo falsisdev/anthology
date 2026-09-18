@@ -50,6 +50,9 @@ https://livetv.radyotvonline.net/kanal7live/kanal7avr/playlist.m3u8
 # ==============================================================================
 # SPOR KANALLARI
 # ==============================================================================
+#EXTINF:-1 tvg-id="mahsunsports" tvg-name="Mahsunsports" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/mahsunsports.png" group-title="🇹🇷 SPOR KANALLARI",Mahsunsports
+https://mahsunsports80.xyz/
+
 #EXTINF:-1 tvg-id="TRTSpor.tr" tvg-name="TRT Spor" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtspor.png" group-title="🇹🇷 SPOR KANALLARI",TRT Spor HD
 https://trt.daioncdn.net/trtspor/master.m3u8?app=web&platform=trtspor
 
