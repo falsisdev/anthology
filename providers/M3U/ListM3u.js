@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: m3u_list
  * Built from src/m3u_list/index.js
- * Build Date: 2026-09-18T16:40:17.342Z
+ * Build Date: 2026-09-18T16:50:47.148Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -374,6 +374,272 @@ function androIdFromUrl(url) {
   var m = String(url || "").match(/\/checklist\/([A-Za-z0-9]+)\.m3u8/);
   return m ? m[1] : null;
 }
+var MAHSUN_DATA_TTL = 15 * 60 * 1e3;
+var mahsunCache = null;
+function mahsunFetchText(url) {
+  return fetch(url, { headers: _MAHSUN_HEADERS }).then(function(res) {
+    return res.text();
+  }).catch(function() {
+    return "";
+  });
+}
+function extractNamedArray(script, name) {
+  var re = new RegExp("(?:const|var|let)\\s+" + name + "\\s*=\\s*\\[");
+  var m = script.match(re);
+  if (!m) return "";
+  var start = m.index + m[0].length - 1;
+  var depth = 0, inStr = false, quote = "";
+  for (var i = start; i < script.length; i++) {
+    var c = script[i];
+    if (inStr) {
+      if (c === "\\") {
+        i++;
+        continue;
+      }
+      if (c === quote) inStr = false;
+      continue;
+    }
+    if (c === '"' || c === "'") {
+      inStr = true;
+      quote = c;
+      continue;
+    }
+    if (c === "[") depth++;
+    else if (c === "]") {
+      depth--;
+      if (depth === 0) return script.slice(start, i + 1);
+    }
+  }
+  return "";
+}
+function parseScript4(script) {
+  var idMap = {};
+  var pairsRe = /\{\s*title:\s*"([^"]+)",\s*url:\s*"\/event\.html\?id=([^"]+)"\s*\}/g;
+  var p;
+  while ((p = pairsRe.exec(script)) !== null) {
+    var nk = cleanKey(p[1]);
+    if (nk && !idMap[nk]) idMap[nk] = p[2];
+  }
+  var CATS = [
+    { label: "Futbol", array: "futbolMatches" },
+    { label: "Basketbol", array: "basketbolMatches" },
+    { label: "Voleybol", array: "voleybolMatches" },
+    { label: "Tenis", array: "tenisMatches" },
+    { label: "\xD6ne \xC7\u0131kan", array: "karsilasmalar" }
+  ];
+  var matchList = [];
+  var seenIds = {};
+  for (var ci = 0; ci < CATS.length; ci++) {
+    var cat = CATS[ci];
+    var body = extractNamedArray(script, cat.array);
+    if (!body) continue;
+    var objs = body.match(/\{[^{}]*\}/g) || [];
+    for (var oi = 0; oi < objs.length; oi++) {
+      var o = objs[oi];
+      var t = o.match(/"title"\s*:\s*"([^"]*)"/);
+      var u = o.match(/"url"\s*:\s*"\/?event\.html\?id=([A-Za-z0-9]+)"/);
+      var l = o.match(/"league"\s*:\s*"([^"]*)"/);
+      var lv = o.match(/"live"\s*:\s*(true|false)/);
+      var tm = o.match(/"time"\s*:\s*"([^"]*)"/);
+      if (!t || !u) continue;
+      var title = t[1].trim();
+      var id = u[1];
+      if (id === "None" || id.indexOf("chNone") !== -1) continue;
+      var key = id + "|" + title;
+      if (seenIds[key]) continue;
+      seenIds[key] = true;
+      matchList.push({
+        title,
+        id,
+        league: l ? l[1].trim() : "",
+        live: lv ? lv[1] === "true" : false,
+        time: tm ? tm[1].trim() : "",
+        cat: cat.label
+      });
+    }
+  }
+  var groups = {};
+  for (var mi = 0; mi < matchList.length; mi++) {
+    var mm = matchList[mi];
+    var gk = cleanKey(mm.title);
+    if (!groups[gk]) groups[gk] = { title: mm.title, cat: mm.cat, entries: [] };
+    groups[gk].entries.push(mm);
+  }
+  var groupArr = [];
+  for (var gk2 in groups) {
+    var g2 = groups[gk2];
+    var ana = null, yedek = [];
+    for (var ei = 0; ei < g2.entries.length; ei++) {
+      var e = g2.entries[ei];
+      if (!ana && e.league.indexOf("Yedek") === -1) ana = e;
+      else if (e.league.indexOf("Yedek") !== -1) yedek.push(e);
+      else if (!ana) ana = e;
+    }
+    if (!ana) ana = g2.entries[0];
+    for (var yi = 0; yi < g2.entries.length; yi++) {
+      if (g2.entries[yi] === ana) continue;
+      if (yedek.indexOf(g2.entries[yi]) === -1) yedek.push(g2.entries[yi]);
+    }
+    groupArr.push({
+      title: g2.title,
+      cat: ana ? ana.cat : g2.cat,
+      live: ana ? ana.live : false,
+      time: ana ? ana.time : "",
+      ana,
+      yedek: yedek.slice(0, 2)
+    });
+  }
+  function isRealFeedId(id2) {
+    return /^(androstreamlive)?(bs\d+|s\d+|ss\d+|ssplus\d+|cbcs|sbs|exn\d+|trts\d*|ts\d*|ht|idm|sifir|ttt\d+|sm\d*|bsm\d*)/i.test(String(id2 || ""));
+  }
+  var order = { "\xD6ne \xC7\u0131kan": 0, "Futbol": 1, "Basketbol": 2, "Voleybol": 3, "Tenis": 4 };
+  groupArr.sort(function(a, b) {
+    var ra = isRealFeedId(a.ana && a.ana.id) ? 0 : 1;
+    var rb = isRealFeedId(b.ana && b.ana.id) ? 0 : 1;
+    if (ra !== rb) return ra - rb;
+    var oc = (order[a.cat] !== void 0 ? order[a.cat] : 9) - (order[b.cat] !== void 0 ? order[b.cat] : 9);
+    if (oc !== 0) return oc;
+    if (a.live !== b.live) return a.live ? -1 : 1;
+    return a.time < b.time ? -1 : a.time > b.time ? 1 : 0;
+  });
+  return { idMap, groups: groupArr };
+}
+function fetchMahsunData() {
+  var now = Date.now();
+  if (mahsunCache && now - mahsunCache.time < MAHSUN_DATA_TTL) {
+    return Promise.resolve(mahsunCache);
+  }
+  return fetchMahsunBases().then(function(bases) {
+    return mahsunFetchText(MAHSUN_SITE).then(function(pageHtml) {
+      var scriptUrl = null;
+      var sm = pageHtml.match(/src=["']([^"']*script4\.js[^"']*)["']/i);
+      if (sm) {
+        scriptUrl = sm[1].indexOf("http") === 0 ? sm[1] : MAHSUN_SITE.replace(/\/+$/, "") + "/" + sm[1].replace(/^\/+/, "");
+      }
+      if (!scriptUrl) {
+        mahsunCache = { time: now, bases, idMap: {}, groups: [] };
+        return mahsunCache;
+      }
+      return mahsunFetchText(scriptUrl).then(function(script) {
+        var parsed = parseScript4(script);
+        var perCat = {}, picked = [];
+        for (var pi = 0; pi < parsed.groups.length && picked.length < 60; pi++) {
+          var g2 = parsed.groups[pi];
+          var cnt = perCat[g2.cat] || 0;
+          if (cnt >= (g2.cat === "\xD6ne \xC7\u0131kan" ? 24 : g2.cat === "Futbol" ? 16 : 8)) continue;
+          perCat[g2.cat] = cnt + 1;
+          picked.push(g2);
+        }
+        mahsunCache = { time: now, bases, idMap: parsed.idMap, groups: picked };
+        return mahsunCache;
+      });
+    });
+  }).catch(function() {
+    mahsunCache = { time: now, bases: [], idMap: {}, groups: [] };
+    return mahsunCache;
+  });
+}
+function fetchMahsunMatches() {
+  return fetchMahsunData().then(function(data) {
+    return data.groups || [];
+  });
+}
+function mahsunMakeStream(name, title, url) {
+  return {
+    name,
+    title,
+    url,
+    headers: _MAHSUN_HEADERS,
+    behaviorHints: { isLive: true }
+  };
+}
+function buildMahsunMatchStreams(groups, onlyIndex) {
+  var streams = [];
+  var base = "";
+  var bases = mahsunCache && mahsunCache.bases && mahsunCache.bases.length ? mahsunCache.bases : [];
+  if (bases.length) base = bases[0];
+  for (var i = 0; i < groups.length; i++) {
+    var g2 = groups[i];
+    if (onlyIndex !== null && onlyIndex !== void 0 && i !== onlyIndex) continue;
+    var liveTag = g2.live ? "Canl\u0131" : g2.time || "";
+    var suffix = liveTag ? " \xB7 " + liveTag : "";
+    if (g2.ana && g2.ana.id && base) {
+      streams.push(mahsunMakeStream(
+        "\u231C Mahsunsports \xB7 " + g2.cat + " \u231F",
+        g2.title + " [Ana Yay\u0131n" + suffix + "]",
+        base + g2.ana.id + ".m3u8"
+      ));
+    }
+    for (var yi = 0; yi < g2.yedek.length; yi++) {
+      var yd = g2.yedek[yi];
+      if (!yd.id || !base) continue;
+      streams.push(mahsunMakeStream(
+        "\u231C Mahsunsports \xB7 " + g2.cat + " \xB7 Yedek \u231F",
+        g2.title + " [Yedek Ak\u0131\u015F " + (yi + 1) + suffix + "]",
+        base + yd.id + ".m3u8"
+      ));
+    }
+  }
+  return streams;
+}
+function mahsunCheckUrl(url) {
+  var ctrl = null;
+  if (typeof AbortController !== "undefined") ctrl = new AbortController();
+  var timer = setTimeout(function() {
+    if (ctrl) ctrl.abort();
+  }, 5e3);
+  var opts = {
+    method: "GET",
+    headers: {
+      "User-Agent": _HEADERS["User-Agent"],
+      "Referer": MAHSUN_SITE,
+      "Range": "bytes=0-1024"
+    }
+  };
+  if (ctrl) opts.signal = ctrl.signal;
+  return fetch(url, opts).then(function(res) {
+    clearTimeout(timer);
+    var code = res.status;
+    return { url, ok: code === 200 || code === 206 };
+  }).catch(function() {
+    clearTimeout(timer);
+    return { url, ok: true };
+  });
+}
+function verifyMahsunStreams(streams) {
+  if (!streams || !streams.length) return Promise.resolve(streams);
+  var groupsArr = [];
+  var seen = {};
+  for (var i = 0; i < streams.length; i++) {
+    var u = streams[i].url;
+    if (!seen[u]) {
+      seen[u] = true;
+      groupsArr.push({ url: u, idxs: [i] });
+    } else {
+      groupsArr[groupsArr.length - 1].idxs.push(i);
+    }
+  }
+  var results = {};
+  function worker(queue) {
+    if (!queue.length) return Promise.resolve();
+    var cur = queue.shift();
+    return mahsunCheckUrl(cur.url).then(function(r) {
+      for (var j = 0; j < cur.idxs.length; j++) results[cur.idxs[j]] = r.ok;
+      return worker(queue);
+    });
+  }
+  var pool = Math.min(8, groupsArr.length);
+  var jobs = [];
+  var q = groupsArr.slice();
+  for (var p = 0; p < pool; p++) jobs.push(worker(q));
+  return Promise.all(jobs).then(function() {
+    var kept = [];
+    for (var k = 0; k < streams.length; k++) {
+      if (results[k] !== false) kept.push(streams[k]);
+    }
+    return kept;
+  });
+}
 function getStreams(args) {
   return __async(this, null, function* () {
     var targetId = typeof args === "string" ? args : args ? args.id : "";
@@ -394,6 +660,17 @@ function getStreams(args) {
     var streams = [];
     var seenUrls = {};
     var searchKey = cleanKey(targetId.replace(/^tv:/, ""));
+    if (searchKey === "mahsunsports") {
+      var subIdx = String(targetId.replace(/^tv:mahsunsports:?/i, ""));
+      var only = subIdx && /^\d+$/.test(subIdx) ? parseInt(subIdx, 10) : null;
+      return fetchMahsunMatches().then(function(groups) {
+        var mStreams = buildMahsunMatchStreams(groups, only);
+        return verifyMahsunStreams(mStreams).then(function(kept) {
+          kept.streams = kept;
+          return kept;
+        });
+      });
+    }
     var androPrimary = null;
     var matchedBackup = "";
     var matchedName = "";
