@@ -1,10 +1,12 @@
 /**
- * Anthology Film M3U Motoru
- * binlerce yerli ve yabancı film arşivi (Lunedor, Zerk, PowerBoard vb.)
+ * Anthology M3U
+ * Binlerce yerli ve yabancı film ve dizi arşivi doğrudan HD HLS akışları.
+ * (Lunedor, Zerk, PowerBoard vb. çok kaynaklı M3U altyapısı)
  */
 
-const BASE_DIR = 'https://raw.githubusercontent.com/mooncrown04/m3ubirlestir/main/nuvio_parcalari/';
 const TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
+const FILM_BASE_URL = 'https://raw.githubusercontent.com/mooncrown04/m3ubirlestir/main/nuvio_parcalari/';
+const DIZI_BASE_URL = 'https://raw.githubusercontent.com/mooncrown04/m3ubirlestir/main/nuvio_dizi_parcalari/';
 
 const cache = {};
 const cacheTime = {};
@@ -15,7 +17,8 @@ function ultraClean(s) {
         .replace(/[ıİ]/g, 'i').replace(/[üÜ]/g, 'u').replace(/[öÖ]/g, 'o')
         .replace(/[şŞ]/g, 's').replace(/[ğĞ]/g, 'g').replace(/[çÇ]/g, 'c')
         .replace(/[âÂ]/g, 'a').replace(/[îÎ]/g, 'i').replace(/[ûÛ]/g, 'u')
-        .replace(/[^a-z0-9]/g, '').trim();
+        .replace(/[^a-z0-9]/g, '')
+        .trim();
 }
 
 function getLetterGroup(title) {
@@ -38,7 +41,25 @@ async function resolveTmdbMovie(rawId) {
         } else {
             const res = await fetch(`https://api.themoviedb.org/3/movie/${cleanId}?api_key=${TMDB_API_KEY}&language=tr-TR&append_to_response=external_ids`);
             const data = await res.json();
-            return data && data.title ? data : null;
+            return data && (data.title || data.original_title) ? data : null;
+        }
+    } catch (e) {
+        return null;
+    }
+}
+
+async function resolveTmdbShow(rawId) {
+    let cleanId = String(rawId).replace(/^tmdb:/, '').split(':')[0].trim();
+    const isImdb = cleanId.startsWith('tt');
+    try {
+        if (isImdb) {
+            const res = await fetch(`https://api.themoviedb.org/3/find/${cleanId}?api_key=${TMDB_API_KEY}&external_source=imdb_id`);
+            const data = await res.json();
+            return data.tv_results && data.tv_results[0] ? data.tv_results[0] : null;
+        } else {
+            const res = await fetch(`https://api.themoviedb.org/3/tv/${cleanId}?api_key=${TMDB_API_KEY}&language=tr-TR&append_to_response=external_ids`);
+            const data = await res.json();
+            return data && (data.name || data.original_name) ? data : null;
         }
     } catch (e) {
         return null;
@@ -51,7 +72,7 @@ async function fetchM3U(url) {
         return cache[url];
     }
     try {
-        const res = await fetch(url);
+        const res = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0' } });
         if (!res.ok) return null;
         const text = await res.text();
         cache[url] = text;
@@ -77,15 +98,12 @@ const BLOCKED_DOMAINS = [
 
 function isBlockedStream(url) {
     if (!url) return true;
-    for (var i = 0; i < BLOCKED_DOMAINS.length; i++) {
+    for (let i = 0; i < BLOCKED_DOMAINS.length; i++) {
         if (url.includes(BLOCKED_DOMAINS[i])) return true;
     }
     return false;
 }
 
-/**
- * Tokenizes a title into lowercase Turkish-folded word tokens (length >= 3).
- */
 function titleTokens(s) {
     if (!s) return null;
     const folded = String(s).toLowerCase()
@@ -97,9 +115,6 @@ function titleTokens(s) {
         .filter(t => t.length >= 3);
 }
 
-/**
- * Word-aware title matcher (see m3u_engine.js).
- */
 function titleBoundaryMatch(rawName, targets) {
     if (!rawName) return false;
     const nameTokens = titleTokens(rawName.split('(')[0].split('-')[0]);
@@ -121,9 +136,7 @@ function titleBoundaryMatch(rawName, targets) {
     return false;
 }
 
-async function getStreams(tmdbId, mediaType) {
-    if (mediaType === 'tv' || mediaType === 'series') return [];
-
+async function searchFilmStreams(tmdbId) {
     try {
         const d = await resolveTmdbMovie(tmdbId);
         if (!d) return [];
@@ -144,7 +157,7 @@ async function getStreams(tmdbId, mediaType) {
         const seenUrls = new Set();
 
         for (const grp of targetGroups) {
-            const m3uUrl = `${BASE_DIR}nuvio_${grp}.m3u`;
+            const m3uUrl = `${FILM_BASE_URL}nuvio_${grp}.m3u`;
             const content = await fetchM3U(m3uUrl);
             if (!content) continue;
 
@@ -185,13 +198,15 @@ async function getStreams(tmdbId, mediaType) {
                         }
                     }
 
-                    if (isMatch) {
+                    if (isMatch && score >= 70) {
                         seenUrls.add(nextLine);
                         results.push({
                             name: `${d.title || d.original_title} (${m3uYear || targetYear})`,
-                            title: `⌜ Anthology ⌟ | ${sourceTag} [HD]`,
+                            title: `⌜ Anthology M3U ⌟ | ${sourceTag} [HD]`,
                             url: nextLine,
                             quality: sourceTag || 'HD',
+                            format: nextLine.includes('.m3u8') ? 'hls' : 'mp4',
+                            isHls: nextLine.includes('.m3u8'),
                             score: score
                         });
                     }
@@ -201,6 +216,99 @@ async function getStreams(tmdbId, mediaType) {
 
         return results.sort((a, b) => b.score - a.score);
     } catch (e) {
+        return [];
+    }
+}
+
+async function searchDiziStreams(rawId, seasonInput, episodeInput) {
+    let finalSeason = parseInt(seasonInput) || 1;
+    let finalEpisode = parseInt(episodeInput) || 1;
+
+    if (typeof rawId === 'string' && rawId.includes(':')) {
+        const parts = rawId.split(':');
+        if (parts.length >= 3) {
+            finalSeason = parseInt(parts[1]) || finalSeason;
+            finalEpisode = parseInt(parts[2]) || finalEpisode;
+        }
+    }
+
+    try {
+        const d = await resolveTmdbShow(rawId);
+        if (!d) return [];
+
+        const sPad = finalSeason.toString().padStart(2, '0');
+        const ePad = finalEpisode.toString().padStart(2, '0');
+
+        const searchPatterns = [
+            `s${sPad}e${ePad}`,
+            `s${sPad} e${ePad}`,
+            `s${finalSeason}e${finalEpisode}`,
+            `s${finalSeason} e${finalEpisode}`,
+            `${finalSeason}x${ePad}`,
+            `${finalSeason}x${finalEpisode}`,
+            `bolum${finalEpisode}`,
+            `bolum ${finalEpisode}`
+        ];
+
+        const targetGroups = new Set([
+            getLetterGroup(d.name),
+            getLetterGroup(d.original_name),
+            '0_9_rakam',
+            'diger'
+        ]);
+
+        const results = [];
+        const seenUrls = new Set();
+
+        for (const grp of targetGroups) {
+            const fileName = `dizi_${grp}_s${finalSeason}.m3u`;
+            const m3uUrl = `${DIZI_BASE_URL}${fileName}`;
+            const content = await fetchM3U(m3uUrl);
+            if (!content) continue;
+
+            const lines = content.split('\n');
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i].trim();
+                if (line.startsWith('#EXTINF')) {
+                    const nextLine = lines[i + 1] ? lines[i + 1].trim() : '';
+                    if (!nextLine.startsWith('http')) continue;
+                    if (isBlockedStream(nextLine)) continue;
+                    if (seenUrls.has(nextLine)) continue;
+
+                    const parts2 = line.split(',');
+                    const diziname = parts2[parts2.length - 1].trim();
+                    const authorMatch = line.match(/group-author="([^"]+)"/);
+                    const sourceTag = authorMatch ? authorMatch[1].replace(/[\[\]]/g, '').trim() : 'M3U';
+
+                    const nameMatch = titleBoundaryMatch(diziname, [d.name, d.original_name]);
+                    if (!nameMatch) continue;
+
+                    const cleanLine = ultraClean(line);
+                    let epMatch = false;
+                    for (const pat of searchPatterns) {
+                        if (cleanLine.includes(ultraClean(pat))) {
+                            epMatch = true;
+                            break;
+                        }
+                    }
+
+                    if (epMatch) {
+                        seenUrls.add(nextLine);
+                        results.push({
+                            name: `${d.name || d.original_name} S${sPad}E${ePad}`,
+                            title: `⌜ Anthology M3U ⌟ | ${sourceTag} [HD]`,
+                            url: nextLine,
+                            quality: sourceTag || 'HD',
+                            format: nextLine.includes('.m3u8') ? 'hls' : 'mp4',
+                            isHls: nextLine.includes('.m3u8')
+                        });
+                    }
+                }
+            }
+        }
+
+        return results;
+    } catch (err) {
         return [];
     }
 }
@@ -253,13 +361,49 @@ function sortStreamsByQuality(streams) {
     });
 }
 
-if (typeof getStreams === "function") {
-    var _origGetStreams = getStreams;
-    getStreams = async function() {
-        var res = await _origGetStreams.apply(this, arguments);
-        return sortStreamsByQuality(res);
-    };
+async function getStreams(id, mediaType, season, episode) {
+    let finalId = id;
+    let finalType = mediaType;
+    let finalSeason = season;
+    let finalEpisode = episode;
+
+    if (id && typeof id === 'object') {
+        finalType = id.type || id.mediaType || mediaType;
+        finalSeason = id.season || season;
+        finalEpisode = id.episode || episode;
+        finalId = id.id || id.tmdbId || id.imdbId;
+    }
+
+    if (typeof finalId === 'string' && finalId.includes(':')) {
+        const parts = finalId.split(':');
+        if (parts.length >= 3) {
+            finalSeason = parts[1];
+            finalEpisode = parts[2];
+            finalId = parts[0];
+            if (!finalType || finalType === 'movie') finalType = 'series';
+        }
+    }
+
+    const isSeries = finalType === 'tv' || finalType === 'series' || (finalSeason !== undefined && finalEpisode !== undefined && finalSeason !== null);
+
+    let streams = [];
+    if (isSeries) {
+        streams = await searchDiziStreams(finalId, finalSeason, finalEpisode);
+    } else {
+        streams = await searchFilmStreams(finalId);
+    }
+
+    return sortStreamsByQuality(streams);
 }
 
-if (typeof module !== 'undefined') module.exports = { getStreams };
-if (typeof globalThis !== 'undefined') globalThis.getStreams = getStreams;
+if (typeof module !== 'undefined') {
+    module.exports = {
+        getStreams,
+        searchFilmStreams,
+        searchDiziStreams,
+        sortStreamsByQuality
+    };
+}
+if (typeof globalThis !== 'undefined') {
+    globalThis.getStreams = getStreams;
+}

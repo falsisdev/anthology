@@ -154,23 +154,11 @@ Nuvio ve Stremio ana sayfasında canlı TV kanallarını kategorilere ayrılmı�
 
 ---
 
-### 📦 Özel Anthology Tür Paketleri
+### 📦 Anthology M3U Paketi
 
 | Eklenti | Tür | Kalite | Açıklama |
 |---|:---:|:---:|---|
-| <img src="assets/logo_1_transparent.png" width="16" height="16" valign="middle" /> **Anthology Film (M3U)** | Film | 1080p HLS | Lunedor, Zerk ve PowerBoard dublaj/altyazı film arşivi |
-| <img src="assets/logo_1_transparent.png" width="16" height="16" valign="middle" /> **Anthology Dizi (M3U)** | Dizi | 1080p MP4/HLS | Zerk ve PowerBoard yerli/yabancı dizi arşivi |
-| <img src="assets/logo_1_transparent.png" width="16" height="16" valign="middle" /> **Anthology Aksiyon & Macera** | Tür | 1080p HLS | Aksiyon, macera, suç ve gerilim sineması |
-| <img src="assets/logo_1_transparent.png" width="16" height="16" valign="middle" /> **Anthology Bilim Kurgu** | Tür | 1080p HLS | Bilim kurgu, uzay ve fantastik sinema |
-| <img src="assets/logo_1_transparent.png" width="16" height="16" valign="middle" /> **Anthology Korku & Gerilim** | Tür | 1080p HLS | Korku, gerilim, gizem ve doğaüstü |
-| <img src="assets/logo_1_transparent.png" width="16" height="16" valign="middle" /> **Anthology Komedi** | Tür | 1080p HLS | Yerli & yabancı komedi filmleri |
-| <img src="assets/logo_1_transparent.png" width="16" height="16" valign="middle" /> **Anthology Animasyon** | Tür | 1080p HLS | Animasyon, anime ve çizgi sinema |
-| <img src="assets/logo_1_transparent.png" width="16" height="16" valign="middle" /> **Anthology Yerli Film & Yeşilçam** | Tür | 1080p HLS/MP4 | Klasik Yeşilçam & Türk Sineması başyapıtları |
-| <img src="assets/canli/trtbelgesel.png" width="16" height="16" valign="middle" /> **Anthology Belgesel & Doğa** | Tür | 1080p HLS | Doğa, bilim ve tarih belgeselleri |
-| <img src="assets/canli/trtcocuk.png" width="16" height="16" valign="middle" /> **Anthology Çocuk & Aile** | Tür | 1080p HLS | Çocuk filmleri ve aile sineması |
-| <img src="assets/logo_1_transparent.png" width="16" height="16" valign="middle" /> **Anthology IMDb Top Rated** | Tür | 1080p HLS Master | IMDb Top 250 ve en yüksek puanlı ödüllü filmler |
-| <img src="assets/logo_1_transparent.png" width="16" height="16" valign="middle" /> **Anthology Yerli Dizi** | Tür | 1080p MP4/HLS | Ciner & Zerk CDN yerli televizyon dizileri |
-| <img src="assets/logo_1_transparent.png" width="16" height="16" valign="middle" /> **Anthology Yabancı Dizi** | Tür | 1080p HLS Master | Popüler yabancı diziler dublaj & altyazılı |
+| <img src="assets/logo_1_transparent.png" width="16" height="16" valign="middle" /> **Anthology M3U** | Film / Dizi | 1080p HLS / MP4 | Lunedor, Zerk ve PowerBoard dublaj/altyazı on binlerce yerli & yabancı film ve dizi arşivi |
 
 ---
 
@@ -225,7 +213,7 @@ Nuvio ve Stremio ana sayfasında canlı TV kanallarını kategorilere ayrılmı�
 
 ## ⚠️ **Çalışmayan / Deprecated Sağlayıcılar**
 
-Şu anda repoda yer alan **tüm 36 video sağlayıcısı ve 7 Canlı TV kategorisi (toplam 43 eklenti)** (%100) aktif ve doğrulanmış olarak çalışmaktadır.
+Şu anda repoda yer alan **tüm 26 video sağlayıcısı ve 6 Canlı TV kategorisi (toplam 32 eklenti)** (%100) aktif ve doğrulanmış olarak çalışmaktadır.
 - **SineWix (`sinewix.com`):** 5000+ film, dizi ve anime arşiviyle 1080p DUAL MKV akışları, popüler film/dizi katalogları ve TMDB/IMDb çözümleyicisiyle tamamen aktiftir.
 - **SetFilmIzle & HDFilmIzle:** FastPlay yerel oynatıcı UA whitelist muafiyeti (`ExoPlayerLib`), Vidrame ve Vidmoxy çözücüleri ile eksiksiz aktiftir.
 

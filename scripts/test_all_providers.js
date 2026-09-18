@@ -97,39 +97,9 @@ async function checkPlayability(streams) {
       } else if (scraper.id === "turkanime") {
         testTarget = "Death Note (13916 S01E01)";
         streams = await mod.getStreams("13916", "tv", 1, 1);
-      } else if (scraper.id === "AnthologyDiziM3U" || scraper.id === "anthology_yerlidizi") {
+      } else if (scraper.id === "anthology_m3u") {
         testTarget = "Bahar (245914 S01E01)";
         streams = await mod.getStreams("245914", "tv", 1, 1);
-      } else if (scraper.id === "ddizi") {
-        testTarget = "Çirkin (315179 S01E01)";
-        streams = await mod.getStreams("315179", "tv", 1, 1);
-      } else if (scraper.id === "anthology_yabancidizi") {
-        testTarget = "Better Call Saul (60059 S01E01)";
-        streams = await mod.getStreams("60059", "tv", 1, 1);
-      } else if (scraper.id === "anthology_yerlifilm") {
-        testTarget = "G.O.R.A. (27275)";
-        streams = await mod.getStreams("27275", "movie");
-      } else if (scraper.id === "anthology_aksiyon") {
-        testTarget = "John Wick (245891)";
-        streams = await mod.getStreams("245891", "movie");
-      } else if (scraper.id === "anthology_bilimkurgu") {
-        testTarget = "Inception (27205)";
-        streams = await mod.getStreams("27205", "movie");
-      } else if (scraper.id === "anthology_korku") {
-        testTarget = "Scream (4232)";
-        streams = await mod.getStreams("4232", "movie");
-      } else if (scraper.id === "anthology_komedi") {
-        testTarget = "G.O.R.A. (27275)";
-        streams = await mod.getStreams("27275", "movie");
-      } else if (scraper.id === "anthology_animasyon" || scraper.id === "anthology_cocuk") {
-        testTarget = "Shrek 2 (809)";
-        streams = await mod.getStreams("809", "movie");
-      } else if (scraper.id === "anthology_belgesel") {
-        testTarget = "Mantarların Gizemli Dünyası (612654)";
-        streams = await mod.getStreams("612654", "movie");
-      } else if (scraper.id === "anthology_toprated" || scraper.id === "AnthologyFilmM3U") {
-        testTarget = "The Godfather (238)";
-        streams = await mod.getStreams("238", "movie");
       } else if (scraper.id === "filmmodu") {
         testTarget = "Extraction 2 (697843)";
         streams = await mod.getStreams("697843", "movie");
@@ -148,9 +118,7 @@ async function checkPlayability(streams) {
       const isWorking = count > 0;
       const sample = count > 0 ? (streams[0].url || streams[0].name || "") : "None";
 
-      let playability = { playable: false, reason: "not tested" };
-      // Test playability for stream providers (not catalog/live)
-      const isStreamProvider = count > 0 && (s = streams[0]) && s.url && !scraper.id.startsWith("anthology_") || scraper.id === "AnthologyFilmM3U" || scraper.id === "AnthologyDiziM3U";
+      const isStreamProvider = count > 0 && (s = streams[0]) && s.url && (!scraper.id.startsWith("anthology_") || scraper.id === "anthology_m3u");
       // Actually, let's test all providers that return streams with URLs
       if (isWorking && streams[0]?.url) {
         playability = await checkPlayability(streams);

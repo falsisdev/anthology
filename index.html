@@ -1977,7 +1977,7 @@
             </svg>
           </button>
           <div class="faq-body">
-            <p><strong>Nuvio (Tam Kapsam):</strong> Anthology'nin ana platformudur. Nuvio kullanıcıları 43 doğrulanmış
+            <p><strong>Nuvio (Tam Kapsam):</strong> Anthology'nin ana platformudur. Nuvio kullanıcıları 32 doğrulanmış
               film, dizi ve anime video scraper motorunun tamamını, 6 Canlı TV kataloğunu ve 100 canlı yayın kanalını
               hiçbir sınırlama olmaksızın sorunsuz ve eksiksiz kullanabilir.</p>
             <br>
@@ -2087,30 +2087,13 @@
     const STREMIO_MANIFEST_URL = "https://falsisdev.github.io/anthology/stremio/manifest.json";
     const FALLBACK_LOGO = "assets/logo_1_transparent.png";
 
-    /* 44 SCRAPERS / PLUGINS */
+    /* 32 SCRAPERS / PLUGINS */
     const PROVIDERS = [      { id: "animecix", name: "AnimeciX", cats: ["anime", "tv", "movie"], domain: "animecix.tv", logo: null, format: "1080p / 720p MP4", desc: "TauVideo altyapısıyla binlerce anime bölümü (1080p, 720p, 480p doğrudan MP4)." },
       { id: "anizium", name: "Anizium", cats: ["anime", "tv", "movie"], domain: "anizium.co", logo: "assets/anizium.png", format: "4K / 1080p MP4 + VTT", desc: "4K UHD ve 1080p Türkçe Dublaj & senkron WebVTT Altyazılı doğrudan anime MP4 akışları." },
       { id: "asyaanimeleri", name: "AsyaAnimeleri", cats: ["anime", "tv", "movie"], domain: "asyaanimeleri.top", logo: null, format: "1080p MP4 / HLS", desc: "Anime ve donghua arşivi — Sibnet, Ok.ru, Mail.ru ve Rumble üzerinden doğrudan MP4 ve HLS akışları." },
       { id: "seicode", name: "SeiCode", cats: ["anime", "tv", "movie"], domain: "seicode.net", logo: null, format: "1080p MP4 / HLS", desc: "SeiCode anime platformu — TauVideo, Ok.ru, Sibnet, VidMoly ve MP4Upload üzerinden 1080p doğrudan MP4 ve HLS akışları." },
       { id: "sonanime", name: "SonAnime", cats: ["anime", "tv", "movie"], domain: "sonanime.com", logo: null, format: "1080p / 720p / 480p MP4", desc: "SonAnime Türkçe anime ve film arşivi — Doğrudan Backblaze B2 ve Cloudflare CDN üzerinden 1080p doğrudan MP4 akışları." },
-      { id: "anthology_aksiyon", name: "Anthology Aksiyon & Macera", cats: ["movie", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS", desc: "Aksiyon, macera, suç ve gerilim sineması doğrudan HD HLS akışları." },
-      { id: "anthology_animasyon", name: "Anthology Animasyon", cats: ["movie", "anime", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS", desc: "Animasyon, anime ve çizgi sinema doğrudan HD HLS akışları." },
-      { id: "anthology_belgesel", name: "Anthology Belgesel & Doğa", cats: ["movie", "tv", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS", desc: "Belgeseller, doğa, bilim ve tarih yapımları doğrudan HD HLS akışları." },
-      { id: "anthology_belgesel_cocuk", name: "Anthology Belgesel & Çocuk", cats: ["live"], domain: null, logo: "assets/logo_1_transparent.png", format: "7 Canlı Kanal", desc: "TRT Belgesel, Minika Çocuk, Minika GO, TRT Çocuk ve TRT EBA canlı yayınları." },
-      { id: "anthology_bilimkurgu", name: "Anthology Bilim Kurgu", cats: ["movie", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS", desc: "Bilim kurgu, fantastik ve uzay sineması doğrudan HD HLS akışları." },
-      { id: "anthology_cocuk", name: "Anthology Çocuk & Aile", cats: ["movie", "tv", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS", desc: "Çocuk filmleri, çizgi diziler ve aile sineması doğrudan HD HLS akışları." },
-      { id: "anthology_haber", name: "Anthology Canlı Haber", cats: ["live"], domain: null, logo: "assets/logo_1_transparent.png", format: "18 Canlı Kanal", desc: "NTV, Habertürk, TRT Haber, A Haber, CNN Türk, Sözcü TV ve 18 canlı haber kanalı." },
-      { id: "anthology_komedi", name: "Anthology Komedi", cats: ["movie", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS", desc: "Yerli ve yabancı komedi filmleri için doğrudan HD HLS akışları." },
-      { id: "anthology_korku", name: "Anthology Korku & Gerilim", cats: ["movie", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS", desc: "Korku, gerilim, gizem ve doğaüstü sineması doğrudan HD HLS akışları." },
-      { id: "anthology_muzik", name: "Anthology Müzik & Eğlence", cats: ["live"], domain: null, logo: "assets/logo_1_transparent.png", format: "7 Canlı Kanal", desc: "Kral Pop TV, Power TV, PowerTürk TV, Number 1 TV ve canlı müzik kanalları." },
-      { id: "anthology_spor", name: "Anthology Canlı Spor", cats: ["live"], domain: null, logo: "assets/logo_1_transparent.png", format: "49 Canlı Kanal", desc: "BeIN Sports 1-5, S Sport 1-2, Tivibu Spor, Exxen Spor ve 49 canlı spor kanalı." },
-      { id: "anthology_toprated", name: "Anthology IMDb Top Rated", cats: ["movie", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS Master", desc: "IMDb'nin en yüksek puanlı kült ve başyapıt filmleri doğrudan HD HLS akışları." },
-      { id: "anthology_ulusal", name: "Anthology Ulusal Kanallar", cats: ["live"], domain: null, logo: "assets/logo_1_transparent.png", format: "19 Canlı Kanal", desc: "TRT 1, ATV, Kanal D, Show TV, Star TV, NOW TV, TV8 ve 19 ulusal televizyon kanalı." },
-      { id: "anthology_yabancidizi", name: "Anthology Yabancı Dizi", cats: ["tv", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS Master", desc: "Yabancı popüler diziler için doğrudan HD HLS master akışları." },
-      { id: "anthology_yerlidizi", name: "Anthology Yerli Dizi", cats: ["tv", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p MP4 / HLS", desc: "Yerli diziler, Türk televizyon arşivi ve güncel Türk dizileri doğrudan MP4/HLS akışları." },
-      { id: "anthology_yerlifilm", name: "Anthology Yerli Film & Yeşilçam", cats: ["movie", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS / MP4", desc: "Klasik Yeşilçam, Türk sineması ve yerli başyapıtlar doğrudan HD HLS akışları." },
-      { id: "AnthologyDiziM3U", name: "Anthology Dizi (M3U)", cats: ["tv", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p MP4 / HLS", desc: "On binlerce yerli ve yabancı dizi bölümü (Zerk, PowerBoard altyapısı)." },
-      { id: "AnthologyFilmM3U", name: "Anthology Film (M3U)", cats: ["movie", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS", desc: "On binlerce yerli ve yabancı film arşivi (Lunedor, Zerk, PowerBoard altyapısı)." },
+      { id: "anthology_m3u", name: "Anthology M3U", cats: ["movie", "tv"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS / MP4", desc: "On binlerce yerli ve yabancı film ve dizi arşivi (Lunedor, Zerk, PowerBoard çok kaynaklı altyapı)." },
       { id: "ddizi", name: "DDizi", cats: ["tv"], domain: "ddizi.im", logo: null, format: "1080p MP4 / HLS", desc: "Yerli dizi arşivi, güncel bölümler kataloğu ve doğrudan Ciner/Yandex CDN akışları." },
       { id: "dizibak", name: "DiziBak", cats: ["tv"], domain: "dizibak.com", logo: null, format: "1080p HLS", desc: "Yerli ve yabancı dizi arşivi, doğrudan depolama HLS akışları." },
       { id: "dizimom", name: "DiziMom", cats: ["tv"], domain: "dizimom.diy", logo: null, format: "1080p HLS Master", desc: "Popüler yabancı diziler arşivi, güncel bölümler ve doğrudan 1080p Fire HLS akışları." },
@@ -2124,6 +2107,11 @@
       { id: "hdfilmizle", name: "HDFilmIzle", cats: ["movie"], domain: "hdfilmizle.vip", logo: null, format: "1080p HLS (Vidrame / Vidmoxy / FastPlay)", desc: "HDFilmIzle arşivi üzerinden Vidrame, Vidmoxy ve FastPlay 1080p HLS master akışları ve TR/EN altyazılar." },
       { id: "kultfilmler", name: "KultFilmler", cats: ["movie"], domain: "kultfilmler.net", logo: null, format: "1080p VidMoly HLS", desc: "KultFilmler arşivi üzerinden VidMoly/Vidpapi 1080p HLS akışları." },
       { id: "m3u.anthology.addon", name: "Anthology Canlı TV", cats: ["live"], domain: null, logo: "assets/logo_1_transparent.png", format: "100 Kanal M3U", desc: "100 canlı TV kanalı, spor, ulusal, haber ve belgesel M3U kataloğu (resmi CDN)." },
+      { id: "anthology_ulusal", name: "Anthology Ulusal Kanallar", cats: ["live"], domain: null, logo: "assets/logo_1_transparent.png", format: "19 Canlı Kanal", desc: "TRT 1, ATV, Kanal D, Show TV, Star TV, NOW TV, TV8 ve 19 ulusal televizyon kanalı." },
+      { id: "anthology_spor", name: "Anthology Canlı Spor", cats: ["live"], domain: null, logo: "assets/logo_1_transparent.png", format: "49 Canlı Kanal", desc: "BeIN Sports 1-5, S Sport 1-2, Tivibu Spor, Exxen Spor ve 49 canlı spor kanalı." },
+      { id: "anthology_haber", name: "Anthology Canlı Haber", cats: ["live"], domain: null, logo: "assets/logo_1_transparent.png", format: "18 Canlı Kanal", desc: "NTV, Habertürk, TRT Haber, A Haber, CNN Türk, Sözcü TV ve 18 canlı haber kanalı." },
+      { id: "anthology_belgesel_cocuk", name: "Anthology Belgesel & Çocuk", cats: ["live"], domain: null, logo: "assets/logo_1_transparent.png", format: "7 Canlı Kanal", desc: "TRT Belgesel, Minika Çocuk, Minika GO, TRT Çocuk ve TRT EBA canlı yayınları." },
+      { id: "anthology_muzik", name: "Anthology Müzik & Eğlence", cats: ["live"], domain: null, logo: "assets/logo_1_transparent.png", format: "7 Canlı Kanal", desc: "Kral Pop TV, Power TV, PowerTürk TV, Number 1 TV ve canlı müzik kanalları." },
       { id: "setfilmizle", name: "SetFilmIzle", cats: ["movie", "tv"], domain: "setfilmizle.ltd", logo: null, format: "1080p FastPlay HLS", desc: "SetFilmIzle arşivi üzerinden FastPlay 1080p HLS master akışları ve TR/EN altyazılar." },
       { id: "sinemacx", name: "SinemaCX", cats: ["movie"], domain: "sinema.gg", logo: null, format: "1080p HLS Master", desc: "Sinema.gg ve Filmizle API üzerinden doğrudan 1080p master HLS akışları." },
       { id: "sinewix", name: "SineWix", cats: ["movie", "tv"], domain: "sinewix.com", logo: null, format: "1080p MKV Çift Ses", desc: "5000+ HD film, dizi ve anime — 1080p çift ses doğrudan MKV akışları." },
