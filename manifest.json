@@ -1,6 +1,6 @@
 {
   "name": "Anthology",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "author": "falsisdev",
   "description": "Anthology - Türkçe Dizi, Film, Anime ve Canlı TV/Spor Eklenti Deposu",
   "scrapers": [
@@ -8,7 +8,7 @@
       "id": "anthology_m3u",
       "name": "Anthology M3U",
       "description": "Binlerce yerli ve yabancı film ve dizi arşivi doğrudan HD HLS akışları.",
-      "version": "1.8.0",
+      "version": "1.8.1",
       "author": "falsisdev",
       "supportedTypes": [
         "movie",
