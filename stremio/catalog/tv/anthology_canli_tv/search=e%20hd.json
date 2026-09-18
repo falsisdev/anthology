@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:CNBCe.tr",
+      "type": "tv",
+      "name": "CNBC-e HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cnbce.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cnbce.png",
+      "description": "CNBC-e HD Canlı Yayın",
+      "genres": [
+        "HABER KANALLARI"
+      ]
+    }
+  ]
+}

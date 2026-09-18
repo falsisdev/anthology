@@ -12,6 +12,17 @@
       ]
     },
     {
+      "id": "tv:TYTTurk.tr",
+      "type": "tv",
+      "name": "TYT Türk HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png",
+      "description": "TYT Türk HD Canlı Yayın",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
       "id": "tv:BenguTurk.tr",
       "type": "tv",
       "name": "Bengü Türk TV HD",
@@ -31,6 +42,28 @@
       "description": "Türk Haber TV HD Canlı Yayın",
       "genres": [
         "HABER KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:FinansTurk.tr",
+      "type": "tv",
+      "name": "Finans Türk",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png",
+      "description": "Finans Türk Canlı Yayın",
+      "genres": [
+        "HABER KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:DreamTurk.tr",
+      "type": "tv",
+      "name": "Dream Türk HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dreamturk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dreamturk.png",
+      "description": "Dream Türk HD Canlı Yayın",
+      "genres": [
+        "MÜZİK  EĞLENCE"
       ]
     }
   ]

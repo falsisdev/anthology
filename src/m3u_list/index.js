@@ -1,5 +1,6 @@
 const { sortStreamsByQuality } = require("../shared/quality.js");
 const { loadConfig, val, wrapAll } = require("../shared/config.js");
+const { getNowPlayingInfo } = require("../shared/epg.js");
 
 var _cfgReady = null;
 function cfgReady() {
@@ -159,6 +160,7 @@ function getMeta(args) {
                 }
             }
 
+            var epg = getNowPlayingInfo(cleanTarget, name);
             return {
                 meta: {
                     id: targetId,
@@ -166,10 +168,10 @@ function getMeta(args) {
                     name: name,
                     poster: logo,
                     background: logo,
-                    description: name + " Canlı Yayın",
+                    description: (epg && epg.formattedText) ? epg.formattedText : (name + " Canlı Yayın"),
                     videos: [{
                         id: targetId,
-                        title: name,
+                        title: (epg && epg.current) ? epg.current : name,
                         released: new Date().toISOString()
                     }]
                 }
@@ -731,18 +733,30 @@ async function getStreams(args) {
                     if (urlLine.indexOf("#EXTINF") === 0) break;
                 }
 
-                // Kullanıcı canli.m3u satırına tvg-backup="..." verdiyse o kullanılır;
-                // aksi halde resmi KNOWN_BACKUPS yedek olarak eklenir.
-                if (matchedBackup) {
-                    if (!seenUrls[matchedBackup] && matchedBackup !== urlLine) {
-                        seenUrls[matchedBackup] = true;
-                        streams.push({
-                            name: '⌜ Anthology ⌟',
-                            title: aliasName + ' [Yedek Akış]',
-                            url: matchedBackup,
-                            headers: encrypted ? _MAHSUN_HEADERS : _HEADERS,
-                            behaviorHints: { isLive: true }
-                        });
+                // Kullanıcı canli.m3u satırına tvg-backup="..." (tek veya pipe | ile çoklu)
+                // ya da tvg-backup2/3 verdiyse hepsi [Yedek Akış N] olarak eklenir.
+                var backups = [];
+                var b1 = line.match(/tvg-backup="([^"]+)"/i);
+                var b2 = line.match(/tvg-backup2="([^"]+)"/i);
+                var b3 = line.match(/tvg-backup3="([^"]+)"/i);
+                if (b1) b1[1].split('|').forEach(function(u) { if (u && u.trim()) backups.push(u.trim()); });
+                if (b2) b2[1].split('|').forEach(function(u) { if (u && u.trim()) backups.push(u.trim()); });
+                if (b3) b3[1].split('|').forEach(function(u) { if (u && u.trim()) backups.push(u.trim()); });
+
+                if (backups.length > 0) {
+                    for (var bkIdx = 0; bkIdx < backups.length; bkIdx++) {
+                        var bUrl = backups[bkIdx];
+                        if (!seenUrls[bUrl] && bUrl !== urlLine) {
+                            seenUrls[bUrl] = true;
+                            var bLabel = aliasName + (backups.length > 1 ? (' [Yedek Akış ' + (bkIdx + 1) + ']') : ' [Yedek Akış]');
+                            streams.push({
+                                name: encrypted ? '⌜ Anthology Spor ⌟' : '⌜ Anthology ⌟',
+                                title: bLabel,
+                                url: bUrl,
+                                headers: encrypted ? _MAHSUN_HEADERS : _HEADERS,
+                                behaviorHints: { isLive: true }
+                            });
+                        }
                     }
                 } else {
                     for (var bk in KNOWN_BACKUPS) {

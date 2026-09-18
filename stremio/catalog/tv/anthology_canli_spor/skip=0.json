@@ -89,17 +89,6 @@
       ]
     },
     {
-      "id": "tv:GSTV.tr",
-      "type": "tv",
-      "name": "GS TV HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/gstv.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/gstv.png",
-      "description": "GS TV HD Canlı Spor Yayını",
-      "genres": [
-        "Spor"
-      ]
-    },
-    {
       "id": "tv:SportsTV.tr",
       "type": "tv",
       "name": "Sports TV HD",
@@ -557,6 +546,28 @@
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
       "description": "Tabii Spor 8 HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:EkolSports.tr",
+      "type": "tv",
+      "name": "Ekol Sports HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ekolsports.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ekolsports.png",
+      "description": "Ekol Sports HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:TayTV.tr",
+      "type": "tv",
+      "name": "Tay TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/taytv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/taytv.png",
+      "description": "Tay TV HD Canlı Spor Yayını",
       "genres": [
         "Spor"
       ]

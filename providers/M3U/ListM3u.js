@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: m3u_list
  * Built from src/m3u_list/index.js
- * Build Date: 2026-09-18T21:07:40.273Z
+ * Build Date: 2026-09-18T21:18:00.198Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -185,9 +185,130 @@ var require_config = __commonJS({
   }
 });
 
+// src/shared/epg.js
+var require_epg = __commonJS({
+  "src/shared/epg.js"(exports2, module2) {
+    var SAMPLE_SCHEDULES = {
+      "trt1": [
+        { start: "06:00", end: "09:00", title: "Sabah Haberleri & G\xFCndem" },
+        { start: "09:00", end: "10:30", title: "Ali\u015Fan ile Hayata G\xFCl\xFCmse" },
+        { start: "10:30", end: "13:00", title: "Yerli Dizi / Sinema Ku\u015Fa\u011F\u0131" },
+        { start: "13:00", end: "14:00", title: "TRT 1 G\xFCn Ortas\u0131 Haberleri" },
+        { start: "14:00", end: "17:00", title: "G\xF6n\xFCl Da\u011F\u0131 / Nostalji Ku\u015Fa\u011F\u0131" },
+        { start: "17:00", end: "19:00", title: "Ana Haber \xD6ncesi Akt\xFCalite" },
+        { start: "19:00", end: "20:00", title: "TRT 1 Ana Haber" },
+        { start: "20:00", end: "23:30", title: "Te\u015Fkilat / Kud\xFCs Fatihi Selahaddin Eyyubi" },
+        { start: "23:30", end: "02:00", title: "Gece Ku\u015Fa\u011F\u0131 / Sinema" }
+      ],
+      "trtgenc": [
+        { start: "08:00", end: "10:00", title: "Gen\xE7 Bak\u0131\u015F & Teknoloji Trendleri" },
+        { start: "10:00", end: "12:00", title: "Oyun D\xFCnyas\u0131 & Espor G\xFCndemi" },
+        { start: "12:00", end: "14:00", title: "Gen\xE7lik Dizileri Ku\u015Fa\u011F\u0131" },
+        { start: "14:00", end: "16:00", title: "Bilim, Sanat ve Giri\u015Fimcilik" },
+        { start: "16:00", end: "18:00", title: "Kamp\xFCs Hayat\u0131 & \xDCniversite Sohbetleri" },
+        { start: "18:00", end: "20:00", title: "M\xFCzik & Gen\xE7 Ritimler" },
+        { start: "20:00", end: "22:00", title: "Gelecek Sensin! \xD6zel Gen\xE7lik Program\u0131" },
+        { start: "22:00", end: "00:00", title: "Espor Kar\u015F\u0131la\u015Fmalar\u0131 & Konserler" }
+      ],
+      "atv": [
+        { start: "06:30", end: "10:00", title: "Kahvalt\u0131 Haberleri" },
+        { start: "10:00", end: "13:00", title: "M\xFCge Anl\u0131 ile Tatl\u0131 Sert" },
+        { start: "13:00", end: "14:00", title: "atv G\xFCn Ortas\u0131" },
+        { start: "14:00", end: "16:00", title: "Mutfak Bahane" },
+        { start: "16:00", end: "19:00", title: "Esra Erol'da" },
+        { start: "19:00", end: "20:00", title: "atv Ana Haber" },
+        { start: "20:00", end: "23:30", title: "Kurulu\u015F Osman / Aldatmak" },
+        { start: "23:30", end: "02:00", title: "Gece Ku\u015Fa\u011F\u0131 Dizisi" }
+      ],
+      "kanald": [
+        { start: "07:00", end: "09:00", title: "Kanal D Sabah Haberleri" },
+        { start: "09:00", end: "11:00", title: "Neler Oluyor Hayatta?" },
+        { start: "11:00", end: "13:00", title: "Gelinim Mutfakta" },
+        { start: "13:00", end: "16:00", title: "Arka Sokaklar Ku\u015Fa\u011F\u0131" },
+        { start: "16:00", end: "19:00", title: "Bizi Birle\u015Ftiren Hayat" },
+        { start: "19:00", end: "20:00", title: "Kanal D Ana Haber" },
+        { start: "20:00", end: "23:30", title: "\u0130nci Taneleri / Yarg\u0131" },
+        { start: "23:30", end: "02:00", title: "Yabanc\u0131 Sinema Ku\u015Fa\u011F\u0131" }
+      ],
+      "trtspor": [
+        { start: "07:00", end: "10:00", title: "\u0130lk Bask\u0131 & Sabah Sporu" },
+        { start: "10:00", end: "12:00", title: "Spor B\xFClteni & S\xFCper Lig \xD6zetleri" },
+        { start: "12:00", end: "14:00", title: "G\xFCn\xFCn \u0130\xE7inden & Transfer G\xFCndemi" },
+        { start: "14:00", end: "17:00", title: "Canl\u0131 Ma\xE7 Ku\u015Fa\u011F\u0131 / 1. Lig & Voleybol" },
+        { start: "17:00", end: "19:00", title: "Spor St\xFCdyosu" },
+        { start: "19:00", end: "21:00", title: "Ma\xE7 \xD6n\xFC & \xD6zel R\xF6portajlar" },
+        { start: "21:00", end: "23:30", title: "Futbol Akl\u0131 / Canl\u0131 Ma\xE7 Yay\u0131n\u0131" },
+        { start: "23:30", end: "01:30", title: "Teknik Analiz & Gece Sporu" }
+      ]
+    };
+    function parseTimeToMinutes(t) {
+      if (!t) return 0;
+      var parts = t.split(":");
+      return parseInt(parts[0], 10) * 60 + parseInt(parts[1] || "0", 10);
+    }
+    function getNowPlayingInfo2(channelKey, channelName) {
+      var key = (channelKey || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+      var sched = SAMPLE_SCHEDULES[key];
+      if (!sched) {
+        for (var k in SAMPLE_SCHEDULES) {
+          if (key.indexOf(k) !== -1 || k.indexOf(key) !== -1) {
+            sched = SAMPLE_SCHEDULES[k];
+            break;
+          }
+        }
+      }
+      if (!sched || !sched.length) {
+        return {
+          current: channelName + " 7/24 Kesintisiz Canl\u0131 Yay\u0131n",
+          next: "Yay\u0131n Ak\u0131\u015F\u0131 Devam Ediyor",
+          timeSlot: "CANLI",
+          formattedText: channelName + " Canl\u0131 HD Yay\u0131n."
+        };
+      }
+      var now = /* @__PURE__ */ new Date();
+      var istanbulHour = (now.getUTCHours() + 3) % 24;
+      var istanbulMin = now.getUTCMinutes();
+      var currentMin = istanbulHour * 60 + istanbulMin;
+      var cur = null;
+      var nxt = null;
+      for (var i = 0; i < sched.length; i++) {
+        var sMin = parseTimeToMinutes(sched[i].start);
+        var eMin = parseTimeToMinutes(sched[i].end);
+        if (eMin < sMin) {
+          if (currentMin >= sMin || currentMin < eMin) {
+            cur = sched[i];
+            nxt = sched[(i + 1) % sched.length];
+            break;
+          }
+        } else if (currentMin >= sMin && currentMin < eMin) {
+          cur = sched[i];
+          nxt = sched[(i + 1) % sched.length];
+          break;
+        }
+      }
+      if (!cur) {
+        cur = sched[sched.length - 1];
+        nxt = sched[0];
+      }
+      var timeStr = cur.start + " - " + cur.end;
+      var formatted = "\u{1F534} YAYINDA: " + cur.title + " (" + timeStr + ")\n\u25B6 SIRADAK\u0130: " + (nxt ? nxt.title + " [" + nxt.start + "]" : "Program Ak\u0131\u015F\u0131");
+      return {
+        current: cur.title,
+        next: nxt ? nxt.title : "",
+        timeSlot: timeStr,
+        formattedText: formatted
+      };
+    }
+    module2.exports = {
+      getNowPlayingInfo: getNowPlayingInfo2
+    };
+  }
+});
+
 // src/m3u_list/index.js
 var { sortStreamsByQuality } = require_quality();
 var { loadConfig, val, wrapAll } = require_config();
+var { getNowPlayingInfo } = require_epg();
 var _cfgReady = null;
 function cfgReady() {
   if (!_cfgReady) {
@@ -330,6 +451,7 @@ function getMeta(args) {
         }
       }
     }
+    var epg = getNowPlayingInfo(cleanTarget, name);
     return {
       meta: {
         id: targetId,
@@ -337,10 +459,10 @@ function getMeta(args) {
         name,
         poster: logo,
         background: logo,
-        description: name + " Canl\u0131 Yay\u0131n",
+        description: epg && epg.formattedText ? epg.formattedText : name + " Canl\u0131 Yay\u0131n",
         videos: [{
           id: targetId,
-          title: name,
+          title: epg && epg.current ? epg.current : name,
           released: (/* @__PURE__ */ new Date()).toISOString()
         }]
       }
@@ -857,16 +979,33 @@ function getStreams(args) {
             }
             if (urlLine.indexOf("#EXTINF") === 0) break;
           }
-          if (matchedBackup) {
-            if (!seenUrls[matchedBackup] && matchedBackup !== urlLine) {
-              seenUrls[matchedBackup] = true;
-              streams.push({
-                name: "\u231C Anthology \u231F",
-                title: aliasName + " [Yedek Ak\u0131\u015F]",
-                url: matchedBackup,
-                headers: encrypted ? _MAHSUN_HEADERS : _HEADERS,
-                behaviorHints: { isLive: true }
-              });
+          var backups = [];
+          var b1 = line.match(/tvg-backup="([^"]+)"/i);
+          var b2 = line.match(/tvg-backup2="([^"]+)"/i);
+          var b3 = line.match(/tvg-backup3="([^"]+)"/i);
+          if (b1) b1[1].split("|").forEach(function(u) {
+            if (u && u.trim()) backups.push(u.trim());
+          });
+          if (b2) b2[1].split("|").forEach(function(u) {
+            if (u && u.trim()) backups.push(u.trim());
+          });
+          if (b3) b3[1].split("|").forEach(function(u) {
+            if (u && u.trim()) backups.push(u.trim());
+          });
+          if (backups.length > 0) {
+            for (var bkIdx = 0; bkIdx < backups.length; bkIdx++) {
+              var bUrl = backups[bkIdx];
+              if (!seenUrls[bUrl] && bUrl !== urlLine) {
+                seenUrls[bUrl] = true;
+                var bLabel = aliasName + (backups.length > 1 ? " [Yedek Ak\u0131\u015F " + (bkIdx + 1) + "]" : " [Yedek Ak\u0131\u015F]");
+                streams.push({
+                  name: encrypted ? "\u231C Anthology Spor \u231F" : "\u231C Anthology \u231F",
+                  title: bLabel,
+                  url: bUrl,
+                  headers: encrypted ? _MAHSUN_HEADERS : _HEADERS,
+                  behaviorHints: { isLive: true }
+                });
+              }
             }
           } else {
             for (var bk in KNOWN_BACKUPS) {

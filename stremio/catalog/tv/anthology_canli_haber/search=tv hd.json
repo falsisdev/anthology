@@ -87,6 +87,28 @@
       "genres": [
         "Haber"
       ]
+    },
+    {
+      "id": "tv:EkolTV.tr",
+      "type": "tv",
+      "name": "Ekol TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ekoltv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ekoltv.png",
+      "description": "Ekol TV HD Canlı Haber Yayını",
+      "genres": [
+        "Haber"
+      ]
+    },
+    {
+      "id": "tv:AkitTV.tr",
+      "type": "tv",
+      "name": "Akit TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/akittv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/akittv.png",
+      "description": "Akit TV HD Canlı Haber Yayını",
+      "genres": [
+        "Haber"
+      ]
     }
   ]
 }

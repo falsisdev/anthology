@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:FX.tr",
+    "type": "tv",
+    "name": "FX HD",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fx.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fx.png",
+    "description": "FX HD Canlı Yayın",
+    "genres": [
+      "SİNEMA  DİZİ KANALLARI"
+    ],
+    "videos": [
+      {
+        "id": "tv:FX.tr",
+        "title": "FX HD"
+      }
+    ]
+  }
+}

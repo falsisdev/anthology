@@ -145,7 +145,7 @@
     {
       "id": "m3u.anthology.addon",
       "name": "Anthology Canlı TV",
-      "description": "80+ Ulusal, Haber, Spor ve Canlı TV kanalı ve M3U kataloğu.",
+      "description": "136+ Ulusal, Haber, Spor, Belgesel, Müzik ve Sinema Canlı TV kanalı ve M3U kataloğu.",
       "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
       "version": "1.8.7",
       "author": "falsisdev",
@@ -625,7 +625,7 @@
     {
       "id": "anthology_haber",
       "name": "Anthology Canlı Haber",
-      "description": "NTV, Habertürk, TRT Haber, A Haber, CNN Türk, Sözcü TV ve 14 canlı haber kanalı.",
+      "description": "NTV, Habertürk, TRT Haber, A Haber, CNBC-e, Ekol TV, TBMM TV ve 23 canlı haber kanalı.",
       "version": "1.8.7",
       "author": "falsisdev",
       "supportedTypes": [
@@ -669,7 +669,7 @@
     {
       "id": "anthology_ulusal",
       "name": "Anthology Ulusal Kanallar",
-      "description": "TRT 1, ATV, Kanal D, Show TV, Star TV, NOW TV, TV8 ve 16 ulusal televizyon kanalı.",
+      "description": "TRT 1, ATV, Kanal D, Show TV, Star TV, NOW TV, TV8, TRT Genç, TLC, DMAX, Euro D, TV4 ve 27 ulusal televizyon kanalı.",
       "version": "1.8.7",
       "author": "falsisdev",
       "supportedTypes": [
@@ -1026,7 +1026,7 @@
     {
       "id": "anthology_belgesel_cocuk",
       "name": "Anthology Belgesel & Çocuk",
-      "description": "TRT Belgesel, Minika Çocuk, Minika GO, TRT Çocuk ve TRT EBA canlı kanalları.",
+      "description": "TRT Belgesel, TRT Çocuk, Minika, TRT Diyanet Çocuk, Çiftçi TV ve canlı çocuk & belgesel kanalları.",
       "version": "1.8.7",
       "author": "falsisdev",
       "supportedTypes": [
@@ -1070,7 +1070,7 @@
     {
       "id": "anthology_muzik",
       "name": "Anthology Müzik & Eğlence",
-      "description": "Kral Pop TV, Power TV, PowerTürk, Number 1 TV ve canlı müzik kanalları.",
+      "description": "Kral Pop, Power, Number 1, Dream Türk, TMB TV, Show Max ve canlı müzik & eğlence kanalları.",
       "version": "1.8.7",
       "author": "falsisdev",
       "supportedTypes": [

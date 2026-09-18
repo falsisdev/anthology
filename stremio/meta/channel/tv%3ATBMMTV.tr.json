@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:TBMMTV.tr",
+    "type": "tv",
+    "name": "TBMM TV",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tbmmtv.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tbmmtv.png",
+    "description": "TBMM TV Canlı Haber Yayını",
+    "genres": [
+      "Haber"
+    ],
+    "videos": [
+      {
+        "id": "tv:TBMMTV.tr",
+        "title": "TBMM TV"
+      }
+    ]
+  }
+}

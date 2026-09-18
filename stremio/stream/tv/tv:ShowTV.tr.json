@@ -11,6 +11,18 @@
       "behaviorHints": {
         "isLive": true
       }
+    },
+    {
+      "name": "⌜ Anthology Ulusal ⌟",
+      "title": "Show TV HD [Yedek Akış]",
+      "url": "https://yakala.atakann.workers.dev/?url=https://www.showtv.com.tr/canli-yayin&ext=m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
     }
   ]
 }

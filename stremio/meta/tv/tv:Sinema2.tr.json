@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:Sinema2.tr",
+    "type": "tv",
+    "name": "Sinema TV 2 HD",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinema2.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinema2.png",
+    "description": "Sinema TV 2 HD Canlı Yayın",
+    "genres": [
+      "SİNEMA  DİZİ KANALLARI"
+    ],
+    "videos": [
+      {
+        "id": "tv:Sinema2.tr",
+        "title": "Sinema TV 2 HD"
+      }
+    ]
+  }
+}

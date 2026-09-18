@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: setfilmizle
  * Built from src/setfilmizle/index.js
- * Build Date: 2026-09-18T20:38:10.191Z
+ * Build Date: 2026-09-18T21:18:00.206Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {

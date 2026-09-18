@@ -1,0 +1,92 @@
+{
+  "metas": [
+    {
+      "id": "tv:SinemaTV.tr",
+      "type": "tv",
+      "name": "Sinema TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinematv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinematv.png",
+      "description": "Sinema TV HD Canlı Yayın",
+      "genres": [
+        "SİNEMA  DİZİ KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:Sinema2.tr",
+      "type": "tv",
+      "name": "Sinema TV 2 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinema2.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinema2.png",
+      "description": "Sinema TV 2 HD Canlı Yayın",
+      "genres": [
+        "SİNEMA  DİZİ KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:SinemaAile.tr",
+      "type": "tv",
+      "name": "Sinema TV Aile HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaile.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaile.png",
+      "description": "Sinema TV Aile HD Canlı Yayın",
+      "genres": [
+        "SİNEMA  DİZİ KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:SinemaAksiyon.tr",
+      "type": "tv",
+      "name": "Sinema TV Aksiyon HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaksiyon.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaksiyon.png",
+      "description": "Sinema TV Aksiyon HD Canlı Yayın",
+      "genres": [
+        "SİNEMA  DİZİ KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:SinemaAksiyon2.tr",
+      "type": "tv",
+      "name": "Sinema TV Aksiyon 2 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaksiyon.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaksiyon.png",
+      "description": "Sinema TV Aksiyon 2 HD Canlı Yayın",
+      "genres": [
+        "SİNEMA  DİZİ KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:SinemaKomedi.tr",
+      "type": "tv",
+      "name": "Sinema TV Komedi HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemakomedi.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemakomedi.png",
+      "description": "Sinema TV Komedi HD Canlı Yayın",
+      "genres": [
+        "SİNEMA  DİZİ KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:Sinema1001.tr",
+      "type": "tv",
+      "name": "Sinema TV 1001 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinema1001.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinema1001.png",
+      "description": "Sinema TV 1001 HD Canlı Yayın",
+      "genres": [
+        "SİNEMA  DİZİ KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:Sinema1002.tr",
+      "type": "tv",
+      "name": "Sinema TV 1002 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinema1002.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinema1002.png",
+      "description": "Sinema TV 1002 HD Canlı Yayın",
+      "genres": [
+        "SİNEMA  DİZİ KANALLARI"
+      ]
+    }
+  ]
+}
