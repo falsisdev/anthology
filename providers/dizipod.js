@@ -1,8 +1,16 @@
 /**
  * Anthology Provider: dizipod
  * Built from src/dizipod/index.js
- * Build Date: 2026-09-18T12:02:20.310Z
+ * Build Date: 2026-09-18T16:40:17.320Z
  */
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __commonJS = (cb, mod) => function __require() {
+  try {
+    return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
+  } catch (e) {
+    throw mod = 0, e;
+  }
+};
 var __async = (__this, __arguments, generator) => {
   return new Promise((resolve, reject) => {
     var fulfilled = (value) => {
@@ -24,7 +32,122 @@ var __async = (__this, __arguments, generator) => {
   });
 };
 
+// src/shared/config.js
+var require_config = __commonJS({
+  "src/shared/config.js"(exports2, module2) {
+    var CONFIG_URL = "https://raw.githubusercontent.com/falsisdev/anthology/main/config.json";
+    var CONFIG_TTL_MS = 10 * 60 * 1e3;
+    var _cfg = null;
+    var _cfgTime = 0;
+    function _cfgLocalRead() {
+      try {
+        if (typeof require === "undefined") return null;
+        var fs = require("fs");
+        var path = require("path");
+        if (!fs || !path || typeof fs.existsSync !== "function") return null;
+        var dir = typeof __dirname !== "undefined" ? __dirname : "";
+        var candidates = [
+          path.resolve(dir, "..", "config.json"),
+          // providers/<name>.js
+          path.resolve(dir, "..", "..", "config.json"),
+          // src/<name>/index.js
+          path.resolve(dir, "config.json")
+        ];
+        for (var i = 0; i < candidates.length; i++) {
+          if (fs.existsSync(candidates[i])) {
+            return JSON.parse(fs.readFileSync(candidates[i], "utf8"));
+          }
+        }
+      } catch (e) {
+        return null;
+      }
+      return null;
+    }
+    function _cfgFetch() {
+      return fetch(CONFIG_URL, {
+        headers: {
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+          "Accept": "application/json"
+        }
+      }).then(function(res) {
+        if (!res || !res.ok) throw new Error("config.json " + (res && res.status));
+        if (typeof res.json === "function") return res.json();
+        return res.text().then(function(t) {
+          return JSON.parse(t);
+        });
+      });
+    }
+    function loadConfig2() {
+      var now = Date.now();
+      if (_cfg && now - _cfgTime < CONFIG_TTL_MS) return Promise.resolve(_cfg);
+      var local = _cfgLocalRead();
+      if (local && typeof local === "object") {
+        _cfg = local;
+        _cfgTime = now;
+        return Promise.resolve(_cfg);
+      }
+      return _cfgFetch().then(function(c) {
+        _cfg = c && typeof c === "object" ? c : {};
+        _cfgTime = now;
+        return _cfg;
+      }).catch(function() {
+        _cfg = null;
+        _cfgTime = now;
+        return _cfg;
+      });
+    }
+    function val2(pathStr) {
+      if (!_cfg || !pathStr) return void 0;
+      var parts = String(pathStr).split(".");
+      var cur = _cfg;
+      for (var i = 0; i < parts.length; i++) {
+        if (cur == null || typeof cur !== "object") return void 0;
+        cur = cur[parts[i]];
+      }
+      return cur;
+    }
+    function wrapAll2(obj, pre) {
+      var out = {};
+      for (var k in obj) {
+        if (Object.prototype.hasOwnProperty.call(obj, k)) {
+          if (typeof obj[k] === "function") {
+            (function(name, fn) {
+              out[name] = function() {
+                var self = this;
+                var args = arguments;
+                var chain = pre ? pre() : Promise.resolve();
+                return chain.then(function() {
+                  return fn.apply(self, args);
+                });
+              };
+            })(k, obj[k]);
+          } else {
+            out[k] = obj[k];
+          }
+        }
+      }
+      return out;
+    }
+    if (typeof module2 !== "undefined" && module2.exports) {
+      module2.exports = { loadConfig: loadConfig2, val: val2, wrapAll: wrapAll2 };
+    }
+  }
+});
+
 // src/dizipod/index.js
+var { loadConfig, val, wrapAll } = require_config();
+var _cfgReady = null;
+function cfgReady() {
+  if (!_cfgReady) {
+    _cfgReady = loadConfig().then(function() {
+      var v;
+      v = val("urls.series.dizipod.base");
+      if (v) BASE_URL = String(v).replace(/\/+$/, "");
+      if (HEADERS) HEADERS.Referer = BASE_URL + "/";
+    });
+  }
+  return _cfgReady;
+}
 var cheerio = (function() {
   try {
     return require("cheerio-without-node-native");
@@ -85,22 +208,22 @@ function unpackDeanEdwards(str) {
     kStr = kStr.slice(1, -1);
   }
   var k = kStr.split("|");
-  function baseN(val2, radix) {
-    if (radix === 10) return String(val2);
+  function baseN(val3, radix) {
+    if (radix === 10) return String(val3);
     var chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     var res = "";
     do {
-      res = chars[val2 % radix] + res;
-      val2 = Math.floor(val2 / radix);
-    } while (val2 > 0);
+      res = chars[val3 % radix] + res;
+      val3 = Math.floor(val3 / radix);
+    } while (val3 > 0);
     return res;
   }
   for (var i = c - 1; i >= 0; i--) {
     var key = baseN(i, a);
-    var val = k[i] || key;
-    if (val !== key) {
+    var val2 = k[i] || key;
+    if (val2 !== key) {
       var reg = new RegExp("\\b" + key + "\\b", "g");
-      p = p.replace(reg, val);
+      p = p.replace(reg, val2);
     }
   }
   return p;
@@ -696,11 +819,11 @@ if (typeof getStreams === "function") {
 }
 var _origGetStreams;
 if (typeof module !== "undefined" && module.exports) {
-  module.exports = {
+  module.exports = wrapAll({
     getStreams,
     getCatalog,
     getMeta
-  };
+  }, cfgReady);
 }
 if (typeof globalThis !== "undefined") {
   globalThis.getStreams = getStreams;

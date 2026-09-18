@@ -1,4 +1,18 @@
 const { sortStreamsByQuality } = require("../shared/quality.js");
+const { loadConfig, val, wrapAll } = require("../shared/config.js");
+
+var _cfgReady = null;
+function cfgReady() {
+    if (!_cfgReady) {
+        _cfgReady = loadConfig().then(function () {
+            var v;
+            v = val('urls.series.ddizi.base'); if (v) BASE_URL = String(v).replace(/\/+$/, '');
+            if (HEADERS) HEADERS.Referer = BASE_URL + '/';
+        });
+    }
+    return _cfgReady;
+}
+
 /**
  * Anthology - DDizi Provider
  * Yerli dizi arşivi, güncel bölümler kataloğu ve doğrudan Ciner/Yandex CDN MP4/HLS ve resmi yayın akışları.
@@ -629,7 +643,7 @@ if (typeof getStreams === "function") {
 }
 
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { getStreams, getMeta, getCatalog };
+    module.exports = wrapAll({ getStreams, getMeta, getCatalog }, cfgReady);
 }
 if (typeof globalThis !== 'undefined') {
     globalThis.getStreams = getStreams;

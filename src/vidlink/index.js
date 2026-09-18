@@ -1,19 +1,36 @@
 const { sortStreamsByQuality } = require("../shared/quality.js");
+const { loadConfig, val, wrapAll } = require("../shared/config.js");
+
+var _cfgReady = null;
+function cfgReady() {
+    if (!_cfgReady) {
+        _cfgReady = loadConfig().then(function () {
+            var v;
+            v = val('urls.meta_resolvers.vidlink.api'); if (v) VIDLINK_API = String(v).replace(/\/+$/, '');
+            v = val('urls.meta_resolvers.vidlink.enc_dec'); if (v) ENC_DEC_API = String(v).replace(/\/+$/, '');
+            v = val('urls.meta_resolvers.vidlink.base'); if (v) VIDLINK_ORIGIN = String(v).replace(/\/+$/, '');
+            if (VIDLINK_HEADERS) { VIDLINK_HEADERS.Referer = VIDLINK_ORIGIN + "/"; VIDLINK_HEADERS.Origin = VIDLINK_ORIGIN; }
+        });
+    }
+    return _cfgReady;
+}
+
 // Vidlink Scraper for Nuvio Local Scrapers
 // React Native compatible version - Standalone (no external dependencies)
 // Converted to Promise-based syntax for sandbox compatibility
 
 // Constants
-const TMDB_API_KEY = "68e094699525b18a70bab2f86b1fa706";
-const ENC_DEC_API = "https://enc-dec.app/api";
-const VIDLINK_API = "https://vidlink.pro/api/b";
+var TMDB_API_KEY = "68e094699525b18a70bab2f86b1fa706";
+var ENC_DEC_API = "https://enc-dec.app/api";
+var VIDLINK_API = "https://vidlink.pro/api/b";
+var VIDLINK_ORIGIN = "https://vidlink.pro";
 
 // Required headers for Vidlink API requests
 const VIDLINK_HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/137.0.0.0 Safari/537.36",
     "Connection": "keep-alive",
-    "Referer": "https://vidlink.pro/",
-    "Origin": "https://vidlink.pro"
+    "Referer": VIDLINK_ORIGIN + "/",
+    "Origin": VIDLINK_ORIGIN
 };
 
 // Clean headers for video playback (CDN blocks browser User-Agent with 428 and Referer: vidlink.pro with 429)
@@ -488,7 +505,7 @@ if (typeof getStreams === "function") {
 }
 
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { getStreams };
+    module.exports = wrapAll({ getStreams }, cfgReady);
 } else {
     global.VidlinkScraperModule = { getStreams };
 }

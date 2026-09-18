@@ -1,4 +1,19 @@
 const { sortStreamsByQuality } = require("../shared/quality.js");
+const { loadConfig, val, wrapAll } = require("../shared/config.js");
+
+var _cfgReady = null;
+function cfgReady() {
+    if (!_cfgReady) {
+        _cfgReady = loadConfig().then(function () {
+            var v;
+            v = val('urls.series.diziyou.base'); if (v) BASE_URL = String(v).replace(/\/+$/, '');
+            v = val('urls.series.diziyou.storage'); if (v) STORAGE_URL = String(v).replace(/\/+$/, '');
+            if (WORKING_HEADERS) WORKING_HEADERS.Referer = BASE_URL + '/';
+        });
+    }
+    return _cfgReady;
+}
+
 /**
  * Anthology - DiziYou Provider
  * diziyou.one arşivi ve storage.diziyou.one üzerinden
@@ -8,8 +23,8 @@ const { sortStreamsByQuality } = require("../shared/quality.js");
 var cheerio = require('cheerio-without-node-native');
 
 const PROVIDER_NAME = 'DiziYou';
-const BASE_URL = 'https://www.diziyou.one'; 
-const STORAGE_URL = 'https://storage.diziyou.one';
+var BASE_URL = 'https://www.diziyou.one'; 
+var STORAGE_URL = 'https://storage.diziyou.one';
 const TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
 
 const WORKING_HEADERS = {
@@ -196,7 +211,7 @@ if (typeof getStreams === "function") {
 }
 
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { getStreams: getStreams };
+  module.exports = wrapAll({ getStreams: getStreams }, cfgReady);
 }
 if (typeof globalThis !== 'undefined') {
   globalThis.getStreams = getStreams;

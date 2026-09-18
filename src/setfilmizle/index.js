@@ -1,4 +1,18 @@
 const { sortStreamsByQuality } = require("../shared/quality.js");
+const { loadConfig, val, wrapAll } = require("../shared/config.js");
+
+var _cfgReady = null;
+function cfgReady() {
+    if (!_cfgReady) {
+        _cfgReady = loadConfig().then(function () {
+            var v;
+            v = val('urls.movies.setfilmizle.base'); if (v) BASE_URL = String(v).replace(/\/+$/, '');
+            if (HEADERS) HEADERS.Referer = BASE_URL + '/';
+        });
+    }
+    return _cfgReady;
+}
+
 /**
  * Anthology - SetFilmIzle Provider
  * https://www.setfilmizle.ltd
@@ -583,7 +597,7 @@ if (typeof getStreams === "function") {
 }
 
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { getStreams, getMeta, getCatalog };
+    module.exports = wrapAll({ getStreams, getMeta, getCatalog }, cfgReady);
 }
 if (typeof globalThis !== 'undefined') {
     globalThis.getStreams = getStreams;

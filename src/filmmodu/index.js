@@ -1,4 +1,20 @@
 const { sortStreamsByQuality } = require("../shared/quality.js");
+const { loadConfig, val, wrapAll } = require("../shared/config.js");
+
+var _cfgReady = null;
+function cfgReady() {
+    if (!_cfgReady) {
+        _cfgReady = loadConfig().then(function () {
+            var v;
+            v = val('urls.movies.filmmodu.base'); if (v) BASE_URL = String(v).replace(/\/+$/, '');
+            v = val('urls.movies.filmmodu.live'); if (v) LIVE_URL = String(v).replace(/\/+$/, '');
+            v = val('urls.movies.filmmodu.player'); if (v) PLAYER_HOST = String(v).replace(/\/+$/, '');
+            if (HEADERS) HEADERS.Referer = BASE_URL + '/';
+        });
+    }
+    return _cfgReady;
+}
+
 // ============================================================
 //  FilmModu — Nuvio Provider
 //  CloudStream (Kotlin) → Nuvio (JavaScript) port
@@ -9,6 +25,7 @@ const { sortStreamsByQuality } = require("../shared/quality.js");
 
 var BASE_URL = 'https://www.filmmodu.one';
 var LIVE_URL = 'https://filmmodu.live';
+var PLAYER_HOST = 'https://play2.pilavyerplay.top';
 var TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
 
 var HEADERS = {
@@ -502,7 +519,7 @@ function fetchStreamsFromLive(rawTitle, year) {
           var pvMatch = pHtml.match(/data-pv="([^"]+)"/);
           if (!pvMatch) return [];
           var pv = pvMatch[1];
-          var playerEmbedUrl = 'https://play2.pilavyerplay.top/assets/js/s.php?s=' + encodeURIComponent(pv);
+          var playerEmbedUrl = PLAYER_HOST + '/assets/js/s.php?s=' + encodeURIComponent(pv);
 
           var sigEmb = timeoutSignal(5000);
           var embOpts = { headers: { 'Referer': LIVE_URL + '/', 'User-Agent': HEADERS['User-Agent'] } };
@@ -540,7 +557,7 @@ function fetchStreamsFromLive(rawTitle, year) {
 
               var liveStreams = [];
               var streamHeaders = {
-                'Referer':    'https://play2.pilavyerplay.top/',
+                'Referer':    PLAYER_HOST + '/',
                 'User-Agent': HEADERS['User-Agent']
               };
 
@@ -788,7 +805,7 @@ function getMeta(args) {
 }
 
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { getStreams: getStreams, getCatalog: getCatalog, getMeta: getMeta };
+  module.exports = wrapAll({ getStreams: getStreams, getCatalog: getCatalog, getMeta: getMeta }, cfgReady);
 } else if (typeof globalThis !== 'undefined') {
   globalThis.getStreams = getStreams;
   globalThis.getCatalog = getCatalog;

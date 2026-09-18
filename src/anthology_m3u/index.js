@@ -5,10 +5,23 @@
  */
 
 const { sortStreamsByQuality } = require('../shared/quality');
+const { loadConfig, val, wrapAll } = require('../shared/config');
 
-const TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
-const FILM_BASE_URL = 'https://raw.githubusercontent.com/mooncrown04/m3ubirlestir/main/nuvio_parcalari/';
-const DIZI_BASE_URL = 'https://raw.githubusercontent.com/mooncrown04/m3ubirlestir/main/nuvio_dizi_parcalari/';
+var _cfgReady = null;
+function cfgReady() {
+    if (!_cfgReady) {
+        _cfgReady = loadConfig().then(function () {
+            var v;
+            v = val('urls.m3u.film_base'); if (v) FILM_BASE_URL = v;
+            v = val('urls.m3u.dizi_base'); if (v) DIZI_BASE_URL = v;
+        });
+    }
+    return _cfgReady;
+}
+
+var TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
+var FILM_BASE_URL = 'https://raw.githubusercontent.com/mooncrown04/m3ubirlestir/main/nuvio_parcalari/';
+var DIZI_BASE_URL = 'https://raw.githubusercontent.com/mooncrown04/m3ubirlestir/main/nuvio_dizi_parcalari/';
 
 const cache = {};
 const cacheTime = {};
@@ -400,12 +413,12 @@ async function getStreams(id, mediaType, season, episode) {
 }
 
 if (typeof module !== 'undefined') {
-    module.exports = {
+    module.exports = wrapAll({
         getStreams,
         searchFilmStreams,
         searchDiziStreams,
         sortStreamsByQuality
-    };
+    }, cfgReady);
 }
 if (typeof globalThis !== 'undefined') {
     globalThis.getStreams = getStreams;

@@ -1,3 +1,18 @@
+const { loadConfig, val, wrapAll } = require("../shared/config.js");
+
+var _cfgReady = null;
+function cfgReady() {
+    if (!_cfgReady) {
+        _cfgReady = loadConfig().then(function () {
+            var v;
+            v = val('urls.movies.sinewix.api_base'); if (v) API_BASE = String(v).replace(/\/+$/, '');
+            v = val('urls.movies.sinewix.panel_base'); if (v) PANEL_BASE = String(v).replace(/\/+$/, '');
+            if (STREAM_HEADERS) { STREAM_HEADERS.Referer = PANEL_BASE + "/"; STREAM_HEADERS.Origin = PANEL_BASE; }
+        });
+    }
+    return _cfgReady;
+}
+
 /**
  * Anthology Provider: sinewix
  * Built from src/sinewix/index.js
@@ -86,6 +101,7 @@ var require_quality = __commonJS({
 // src/sinewix/index.js
 var { sortStreamsByQuality } = require_quality();
 var API_BASE = "https://ydfvfdizipanel.ru/public/api";
+var PANEL_BASE = "https://ydfvfdizipanel.ru";
 var API_KEY = "9iQNC5HQwPlaFuJDkhncJ5XTJ8feGXOJatAA";
 var API_HEADERS = {
   "hash256": "711bff4afeb47f07ab08a0b07e85d3835e739295e8a6361db77eebd93d96306b",
@@ -95,8 +111,8 @@ var API_HEADERS = {
 };
 var STREAM_HEADERS = {
   "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-  "Referer": "https://ydfvfdizipanel.ru/",
-  "Origin": "https://ydfvfdizipanel.ru"
+  "Referer": PANEL_BASE + "/",
+  "Origin": PANEL_BASE
 };
 function resolveMediaFireLink(link) {
   return fetch(link).then(function(res) {
@@ -459,7 +475,7 @@ if (typeof getStreams === "function") {
   };
 }
 var _origGetStreams;
-if (typeof module !== "undefined") module.exports = { getStreams, getMeta, getCatalog };
+if (typeof module !== "undefined") module.exports = wrapAll({ getStreams, getMeta, getCatalog }, cfgReady);
 if (typeof globalThis !== "undefined") {
   globalThis.getStreams = getStreams;
   globalThis.getMeta = getMeta;

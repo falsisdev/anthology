@@ -1,4 +1,18 @@
 const { sortStreamsByQuality } = require("../shared/quality.js");
+const { loadConfig, val, wrapAll } = require("../shared/config.js");
+
+var _cfgReady = null;
+function cfgReady() {
+    if (!_cfgReady) {
+        _cfgReady = loadConfig().then(function () {
+            var v;
+            v = val('urls.movies.vidmody.base'); if (v) BASE_URL = String(v).replace(/\/+$/, '');
+            if (STREAM_HEADERS) STREAM_HEADERS.Referer = BASE_URL + '/';
+        });
+    }
+    return _cfgReady;
+}
+
 /**
  * Anthology - Vidmody Provider
  * Vidmody.com arşivi üzerinden doğrudan çift sesli (Türkçe & İngilizce)
@@ -6,10 +20,11 @@ const { sortStreamsByQuality } = require("../shared/quality.js");
  */
 
 var PROVIDER_NAME = 'Vidmody';
+var BASE_URL = 'https://vidmody.com';
 var TMDB_API_KEY  = '500330721680edb6d5f7f12ba7cd9023';
 
 var STREAM_HEADERS = {
-    'Referer': 'https://vidmody.com/',
+    'Referer': BASE_URL + '/',
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/137.0.0.0 Safari/537.36'
 };
 
@@ -54,14 +69,14 @@ async function getStreams(tmdbId, mediaType, season, episode) {
         var streamTitle = '⌜ Vidmody ⌟ | Çoklu Dil (1080p HLS)';
 
         if (!isTV) {
-            targetUrl = 'https://vidmody.com/vs/' + imdbId;
+            targetUrl = BASE_URL + '/vs/' + imdbId;
             if (releaseYear) displayTitle += ' (' + releaseYear + ')';
         } else {
             var sNum = parseInt(season) || 1;
             var eNum = parseInt(episode) || 1;
             var sStr = 's' + sNum;
             var eStr = 'e' + (eNum < 10 ? '0' + eNum : eNum);
-            targetUrl = 'https://vidmody.com/vs/' + imdbId + '/' + sStr + '/' + eStr;
+            targetUrl = BASE_URL + '/vs/' + imdbId + '/' + sStr + '/' + eStr;
             displayTitle += ' - S' + String(sNum).padStart(2, '0') + 'E' + String(eNum).padStart(2, '0');
         }
 
@@ -107,7 +122,7 @@ if (typeof getStreams === "function") {
 }
 
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { getStreams: getStreams };
+    module.exports = wrapAll({ getStreams: getStreams }, cfgReady);
 } else {
     global.VidmodyProvider = { getStreams: getStreams };
 }
