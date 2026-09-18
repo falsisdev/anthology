@@ -1529,7 +1529,7 @@
       <div class="hero-badge-wrap">
         <div class="hero-badge">
           <span class="pulse-dot"></span>
-          <span>37 Doğrulanmış Eklenti · 6 Canlı TV Kataloğu · 100 Canlı Kanal</span>
+          <span>44 Doğrulanmış Eklenti · 6 Canlı TV Kataloğu · 100 Canlı Kanal</span>
         </div>
       </div>
 
@@ -1579,7 +1579,7 @@
       <!-- STATS -->
       <div class="stats-container">
         <div class="stat-box">
-          <div class="stat-number">34</div>
+          <div class="stat-number">44</div>
           <div class="stat-label">Doğrulanmış Eklenti</div>
         </div>
         <div class="stat-box">
@@ -1615,7 +1615,7 @@
             <span class="status-indicator-green"></span>
             <strong>🌟 Nuvio — Tüm Özellikler Sorunsuz &amp; Eksiksiz</strong>
           </div>
-          <p>Nuvio kullanıcıları, Anthology deposundaki <strong>37 doğrulanmış video motorunun</strong> (film, dizi,
+          <p>Nuvio kullanıcıları, Anthology deposundaki <strong>38 doğrulanmış video motorunun</strong> (film, dizi,
             anime, özel tür paketleri) yanı sıra <strong>6 Canlı TV kataloğunu ve 100 canlı yayın kanalını</strong>
             hiçbir kısıtlama olmadan tek çatı altında eksiksiz kullanabilir.</p>
         </div>
@@ -1651,7 +1651,7 @@
               <div class="step-badge badge-nuvio">1. ADIM · ZORUNLU (VİDEO MOTORU)</div>
               <h3>Video Scraper Motorunu Ekleyin</h3>
               <p class="install-card-desc">
-                Bir film, dizi veya anime açtığınızda arka planda çalışan 34 Türkçe/yabancı video oynatma motorunu
+                Bir film, dizi veya anime açtığınızda arka planda çalışan 38 Türkçe/yabancı video oynatma motorunu
                 Nuvio'ya yükler.
               </p>
               <div class="route-pill">
@@ -1827,19 +1827,19 @@
         <div class="filter-pills" id="providerFilterPills">
           <button class="filter-pill active" data-filter="all">
             <span>Tümü</span>
-            <span class="filter-count" id="countAll">34</span>
+            <span class="filter-count" id="countAll">44</span>
           </button>
           <button class="filter-pill" data-filter="movie">
             <span>🎬 Film</span>
-            <span class="filter-count" id="countMovie">26</span>
+            <span class="filter-count" id="countMovie">28</span>
           </button>
           <button class="filter-pill" data-filter="tv">
             <span>📺 Dizi</span>
-            <span class="filter-count" id="countTv">20</span>
+            <span class="filter-count" id="countTv">23</span>
           </button>
           <button class="filter-pill" data-filter="anime">
             <span>⛩️ Anime &amp; Çizgi</span>
-            <span class="filter-count" id="countAnime">4</span>
+            <span class="filter-count" id="countAnime">8</span>
           </button>
           <button class="filter-pill" data-filter="live">
             <span>📡 Canlı TV &amp; Spor</span>
@@ -1853,7 +1853,7 @@
       </div>
 
       <div class="results-count-bar">
-        <span id="providerResultsText">34 eklentinin tümü listeleniyor</span>
+        <span id="providerResultsText">44 eklentinin tümü listeleniyor</span>
       </div>
 
       <!-- GRID -->
@@ -2202,7 +2202,7 @@
     `;
         countBar.textContent = "0 eklenti bulundu";
       } else {
-        countBar.textContent = `34 eklentiden ${matches} tanesi listeleniyor`;
+        countBar.textContent = `${PROVIDERS.length} eklentiden ${matches} tanesi listeleniyor`;
       }
     }
 
@@ -2229,15 +2229,23 @@
       });
     });
 
-        document.addEventListener("DOMContentLoaded", () => {
-      const countOf = (cat, brokenOnly) => PROVIDERS.filter(p => p.cats.includes(cat) && p.broken === brokenOnly).length;
-      document.getElementById("countAll").textContent = PROVIDERS.filter(p => !p.broken).length;
-      document.getElementById("countMovie").textContent = countOf("movie", false);
-      document.getElementById("countTv").textContent = countOf("tv", false);
-      document.getElementById("countAnime").textContent = countOf("anime", false);
-      document.getElementById("countLive").textContent = countOf("live", false);
-      document.getElementById("countGenre").textContent = countOf("genre", false);
-    });
+        function updateProviderCounts() {
+      const countOf = (cat) => PROVIDERS.filter(p => p.cats.includes(cat) && !p.broken).length;
+      const countAllEl = document.getElementById("countAll");
+      if (countAllEl) countAllEl.textContent = PROVIDERS.filter(p => !p.broken).length;
+      const countMovieEl = document.getElementById("countMovie");
+      if (countMovieEl) countMovieEl.textContent = countOf("movie");
+      const countTvEl = document.getElementById("countTv");
+      if (countTvEl) countTvEl.textContent = countOf("tv");
+      const countAnimeEl = document.getElementById("countAnime");
+      if (countAnimeEl) countAnimeEl.textContent = countOf("anime");
+      const countLiveEl = document.getElementById("countLive");
+      if (countLiveEl) countLiveEl.textContent = countOf("live");
+      const countGenreEl = document.getElementById("countGenre");
+      if (countGenreEl) countGenreEl.textContent = countOf("genre");
+    }
+
+    document.addEventListener("DOMContentLoaded", updateProviderCounts);
 
     /* CHANNELS FILTER & RENDER */
     let currentChannelCat = "all";
@@ -2386,6 +2394,7 @@
     }
 
     /* INITIALIZE */
+    updateProviderCounts();
     renderProviders();
     renderChannels();
   </script>
