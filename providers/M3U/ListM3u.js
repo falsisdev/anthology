@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: m3u_list
  * Built from src/m3u_list/index.js
- * Build Date: 2026-09-18T20:38:10.181Z
+ * Build Date: 2026-09-18T21:07:40.273Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -285,7 +285,9 @@ function getMeta(args) {
       for (var i = 0; i < matches.length; i++) {
         var m = matches[i];
         titleCount[m.title] = (titleCount[m.title] || 0) + 1;
-        var st = (SPORT_LABEL[m.sport] || "\u25B6") + " | " + m.title;
+        var st;
+        if (m.isChannelFeed) st = "\u{1F534} " + m.title;
+        else st = (SPORT_LABEL[m.sport] || "\u25B6") + " | " + m.title;
         if (titleCount[m.title] > 1) st += " (Ak\u0131\u015F " + titleCount[m.title] + ")";
         videos.push({ id: "tv:mahsunsports:" + i, title: st, released: (/* @__PURE__ */ new Date()).toISOString() });
       }
@@ -441,7 +443,7 @@ function extractNamedArray(script, name) {
   return "";
 }
 var SPORT_LABEL = { F: "\u26BD\uFE0F F", B: "\u{1F3C0} B", V: "\u{1F3D0} V", T: "\u{1F3BE} T" };
-var SPORT_ORDER = { F: 0, B: 1, V: 2, T: 3 };
+var SPORT_ORDER = { F: 0, B: 1, V: 2, T: 3, C: 4 };
 function sportOfMatch(m, catSets) {
   var ct = cleanKey(m.title);
   if (catSets.F.has(ct)) return "F";
@@ -508,11 +510,13 @@ function filterCurrentChannelSlots(featured) {
 }
 function parseScript4(script) {
   var idMap = {};
+  var chanById = {};
   var pairsRe = /\{\s*title:\s*"([^"]+)",\s*url:\s*"\/event\.html\?id=([^"]+)"\s*\}/g;
   var p;
   while ((p = pairsRe.exec(script)) !== null) {
     var nk = cleanKey(p[1]);
     if (nk && !idMap[nk]) idMap[nk] = p[2];
+    if (p[2] && !chanById[p[2]]) chanById[p[2]] = p[1];
   }
   var CAT_ARRAYS = [
     { sport: "F", array: "futbolMatches" },
@@ -588,15 +592,40 @@ function parseScript4(script) {
     }
   }
   var keptFeatured = filterCurrentChannelSlots(featured);
+  var activeFeedIds = {};
+  featured.forEach(function(m) {
+    activeFeedIds[m.id] = true;
+  });
   var featIds = {};
   keptFeatured.forEach(function(m) {
     featIds[m.id] = true;
   });
+  var chanKeys = Object.keys(chanById);
+  var channelFeedAdds = [];
+  for (var ck = 0; ck < chanKeys.length; ck++) {
+    var cid = chanKeys[ck];
+    if (!activeFeedIds[cid]) continue;
+    if (featIds[cid]) continue;
+    if (cid.indexOf("facebooklive") !== -1) continue;
+    if (/ch\d+$/i.test(cid)) continue;
+    channelFeedAdds.push({
+      title: chanById[cid],
+      id: cid,
+      league: "",
+      live: true,
+      time: "",
+      tarih: "",
+      sport: "C",
+      _ts: null,
+      isChannelFeed: true
+    });
+  }
   var matches = keptFeatured.slice();
   for (var kk = 0; kk < catEvents.length; kk++) {
     if (featIds[catEvents[kk].id]) continue;
     matches.push(catEvents[kk]);
   }
+  for (var af = 0; af < channelFeedAdds.length; af++) matches.push(channelFeedAdds[af]);
   matches.sort(function(a, b) {
     var oa = SPORT_ORDER[a.sport] !== void 0 ? SPORT_ORDER[a.sport] : 9;
     var ob = SPORT_ORDER[b.sport] !== void 0 ? SPORT_ORDER[b.sport] : 9;
@@ -657,9 +686,11 @@ function buildMahsunMatchStreams(matches, onlyIndex) {
     if (onlyIndex !== null && onlyIndex !== void 0 && i !== onlyIndex) continue;
     var m = matches[i];
     if (!m.id || !m.title) continue;
-    var label = SPORT_LABEL[m.sport] || "\u25B6";
+    var label;
+    if (m.isChannelFeed) label = "\u{1F534} " + m.title;
+    else label = (SPORT_LABEL[m.sport] || "\u25B6") + " | " + m.title;
     titleCount[m.title] = (titleCount[m.title] || 0) + 1;
-    var st = label + " | " + m.title;
+    var st = label;
     if (titleCount[m.title] > 1) st += " (Ak\u0131\u015F " + titleCount[m.title] + ")";
     streams.push(mahsunMakeStream(
       "\u231C Mahsun Sports \u231F",

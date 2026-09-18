@@ -110,7 +110,9 @@ function getMeta(args) {
             for (var i = 0; i < matches.length; i++) {
                 var m = matches[i];
                 titleCount[m.title] = (titleCount[m.title] || 0) + 1;
-                var st = (SPORT_LABEL[m.sport] || '▶') + ' | ' + m.title;
+                var st;
+                if (m.isChannelFeed) st = '🔴 ' + m.title;
+                else st = (SPORT_LABEL[m.sport] || '▶') + ' | ' + m.title;
                 if (titleCount[m.title] > 1) st += ' (Akış ' + titleCount[m.title] + ')';
                 videos.push({ id: 'tv:mahsunsports:' + i, title: st, released: new Date().toISOString() });
             }
@@ -277,7 +279,7 @@ function extractNamedArray(script, name) {
 // Kanal ID haritası (name -> andro id) ve aktif canlı maç grupları çıkarır.
 // Spor haritası: etiket (emoji + harf) ve görüntülenme sırası.
 var SPORT_LABEL = { F: '⚽️ F', B: '🏀 B', V: '🏐 V', T: '🎾 T' };
-var SPORT_ORDER = { F: 0, B: 1, V: 2, T: 3 };
+var SPORT_ORDER = { F: 0, B: 1, V: 2, T: 3, C: 4 };
 
 // Bir maçın sporunu belirler: önce site'nin F/B/V/T listelerinde birebir
 // başlık, yoksa lig/başlık anahtar kelimeleri, son çare futbol.
@@ -348,11 +350,13 @@ function filterCurrentChannelSlots(featured) {
 
 function parseScript4(script) {
     var idMap = {};
+    var chanById = {};
     var pairsRe = /\{\s*title:\s*"([^"]+)",\s*url:\s*"\/event\.html\?id=([^"]+)"\s*\}/g;
     var p;
     while ((p = pairsRe.exec(script)) !== null) {
         var nk = cleanKey(p[1]);
         if (nk && !idMap[nk]) idMap[nk] = p[2];
+        if (p[2] && !chanById[p[2]]) chanById[p[2]] = p[1];
     }
 
     var CAT_ARRAYS = [
@@ -433,14 +437,44 @@ function parseScript4(script) {
     // Sabit kanallar: sadece şu an oynayan maç. ch#/facebook: hepsi.
     var keptFeatured = filterCurrentChannelSlots(featured);
 
-    // Featured'da zaten olan event'leri kategoriden düş (çift girmesin).
+    // Kanal adıyla fallback: bir sabit kanal featured'da vardır ama o an
+    // başlamış maç slotu yoktur (günün programı listelenir). Kanal yine de
+    // CANLI beslemedir — maç etiketi yalanına düşmeden kanal adıyla eklenir.
+    // Yalnızca featured'da GÖRÜNEN beslemeler eklenir (site aktif kanalları);
+    // Trt1/Atv/Tjk gibi genel kanallar checklist üzerinde boştur — eklenmez.
+    // Verify (CDN 200) gerçekten yayında olanları tutar, ölüleri eler.
+    var activeFeedIds = {};
+    featured.forEach(function(m) { activeFeedIds[m.id] = true; });
     var featIds = {};
     keptFeatured.forEach(function(m) { featIds[m.id] = true; });
+    var chanKeys = Object.keys(chanById);
+    var channelFeedAdds = [];
+    for (var ck = 0; ck < chanKeys.length; ck++) {
+        var cid = chanKeys[ck];
+        if (!activeFeedIds[cid]) continue;
+        if (featIds[cid]) continue;
+        if (cid.indexOf('facebooklive') !== -1) continue;
+        if (/ch\d+$/i.test(cid)) continue;
+        channelFeedAdds.push({
+            title: chanById[cid],
+            id: cid,
+            league: '',
+            live: true,
+            time: '',
+            tarih: '',
+            sport: 'C',
+            _ts: null,
+            isChannelFeed: true
+        });
+    }
+
+    // Featured'da zaten olan event'leri kategoriden düş (çift girmesin).
     var matches = keptFeatured.slice();
     for (var kk = 0; kk < catEvents.length; kk++) {
         if (featIds[catEvents[kk].id]) continue;
         matches.push(catEvents[kk]);
     }
+    for (var af = 0; af < channelFeedAdds.length; af++) matches.push(channelFeedAdds[af]);
 
     // Spor grubuna göre sırala (F → B → V → T), sonra canlı, sonra saat.
     matches.sort(function(a, b) {
@@ -512,9 +546,11 @@ function buildMahsunMatchStreams(matches, onlyIndex) {
         if (onlyIndex !== null && onlyIndex !== undefined && i !== onlyIndex) continue;
         var m = matches[i];
         if (!m.id || !m.title) continue;
-        var label = SPORT_LABEL[m.sport] || '▶';
+        var label;
+        if (m.isChannelFeed) label = '🔴 ' + m.title;
+        else label = (SPORT_LABEL[m.sport] || '▶') + ' | ' + m.title;
         titleCount[m.title] = (titleCount[m.title] || 0) + 1;
-        var st = label + ' | ' + m.title;
+        var st = label;
         if (titleCount[m.title] > 1) st += ' (Akış ' + titleCount[m.title] + ')';
         streams.push(mahsunMakeStream(
             '⌜ Mahsun Sports ⌟',

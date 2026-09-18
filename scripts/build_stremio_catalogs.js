@@ -6,7 +6,7 @@ const STREMIO_DIR = path.join(ROOT_DIR, 'stremio');
 
 const stremioManifest = {
   id: "community.anthology.canlitv",
-  version: "2.0.2",
+  version: "2.0.3",
   name: "Anthology — Canlı TV",
   description: "Türkiye Ulusal, Spor, Haber, Belgesel, Çocuk ve Müzik Canlı Yayınları.",
   resources: ["catalog", "meta", "stream"],
