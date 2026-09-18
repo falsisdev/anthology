@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: m3u_list
  * Built from src/m3u_list/index.js
- * Build Date: 2026-09-18T21:18:00.198Z
+ * Build Date: 2026-09-18T21:28:18.435Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -501,6 +501,51 @@ var _MAHSUN_HEADERS = {
   "Origin": MAHSUN_SITE
 };
 var mahsunBasesCache = null;
+function baseProbe(url) {
+  var ctrl = null;
+  if (typeof AbortController !== "undefined") ctrl = new AbortController();
+  var timer = setTimeout(function() {
+    if (ctrl) ctrl.abort();
+  }, 5e3);
+  var opts = {
+    method: "GET",
+    headers: {
+      "User-Agent": _HEADERS["User-Agent"],
+      "Referer": MAHSUN_SITE,
+      "Range": "bytes=0-2048"
+    }
+  };
+  if (ctrl) opts.signal = ctrl.signal;
+  return fetch(url, opts).then(function(res) {
+    clearTimeout(timer);
+    var code = res.status;
+    return code === 200 || code === 206;
+  }).catch(function() {
+    clearTimeout(timer);
+    return false;
+  });
+}
+function findWorkingBase(prefer) {
+  var seen = {};
+  var cands = [];
+  function add(b) {
+    b = String(b || "");
+    if (!b || seen[b]) return;
+    seen[b] = true;
+    cands.push(b);
+  }
+  (prefer || []).forEach(add);
+  for (var n = 99; n <= 112; n++) add("https://andro.evrenesoglu" + n + ".click/checklist/");
+  var i = 0;
+  function next() {
+    if (i >= cands.length) return Promise.resolve(prefer && prefer[0] ? prefer[0] : "");
+    var b = cands[i++];
+    return baseProbe(b + "androstreamlivebs3.m3u8").then(function(alive) {
+      return alive ? b : next();
+    });
+  }
+  return next();
+}
 function fetchMahsunBases() {
   var now = Date.now();
   if (mahsunBasesCache && now - mahsunBasesCache.time < 15 * 60 * 1e3) {
@@ -588,48 +633,6 @@ function parseTimeMs(o) {
   var ts = Date.parse((d || "1970-01-01") + "T" + tm[1] + ":" + tm[2] + ":00+03:00");
   return isNaN(ts) ? null : ts;
 }
-function filterCurrentChannelSlots(featured) {
-  var byId = {};
-  var order = [];
-  for (var a = 0; a < featured.length; a++) {
-    var m = featured[a];
-    if (!byId[m.id]) {
-      byId[m.id] = [];
-      order.push(m.id);
-    }
-    byId[m.id].push(m);
-  }
-  var out = [];
-  var nowMs = Date.now();
-  for (var i = 0; i < order.length; i++) {
-    var id = order[i];
-    var arr = byId[id];
-    var isChannelFeed = id.indexOf("facebooklive") === -1 && !/ch\d+$/i.test(id);
-    if (!isChannelFeed) {
-      out = out.concat(arr);
-      continue;
-    }
-    var started = [];
-    var untimed = [];
-    for (var j = 0; j < arr.length; j++) {
-      var ts = arr[j]._ts;
-      if (ts === null) {
-        untimed.push(arr[j]);
-        continue;
-      }
-      if (ts <= nowMs) started.push(arr[j]);
-    }
-    if (started.length) {
-      started.sort(function(x, y) {
-        return x._ts - y._ts;
-      });
-      out.push(started[started.length - 1]);
-    } else if (untimed.length) {
-      out = out.concat(untimed);
-    }
-  }
-  return out;
-}
 function parseScript4(script) {
   var idMap = {};
   var chanById = {};
@@ -713,21 +716,15 @@ function parseScript4(script) {
       featured.push(fobj);
     }
   }
-  var keptFeatured = filterCurrentChannelSlots(featured);
   var activeFeedIds = {};
   featured.forEach(function(m) {
     activeFeedIds[m.id] = true;
-  });
-  var featIds = {};
-  keptFeatured.forEach(function(m) {
-    featIds[m.id] = true;
   });
   var chanKeys = Object.keys(chanById);
   var channelFeedAdds = [];
   for (var ck = 0; ck < chanKeys.length; ck++) {
     var cid = chanKeys[ck];
     if (!activeFeedIds[cid]) continue;
-    if (featIds[cid]) continue;
     if (cid.indexOf("facebooklive") !== -1) continue;
     if (/ch\d+$/i.test(cid)) continue;
     channelFeedAdds.push({
@@ -742,11 +739,7 @@ function parseScript4(script) {
       isChannelFeed: true
     });
   }
-  var matches = keptFeatured.slice();
-  for (var kk = 0; kk < catEvents.length; kk++) {
-    if (featIds[catEvents[kk].id]) continue;
-    matches.push(catEvents[kk]);
-  }
+  var matches = catEvents.slice();
   for (var af = 0; af < channelFeedAdds.length; af++) matches.push(channelFeedAdds[af]);
   matches.sort(function(a, b) {
     var oa = SPORT_ORDER[a.sport] !== void 0 ? SPORT_ORDER[a.sport] : 9;
@@ -763,20 +756,31 @@ function fetchMahsunData() {
     return Promise.resolve(mahsunCache);
   }
   return fetchMahsunBases().then(function(bases) {
-    return mahsunFetchText(MAHSUN_SITE).then(function(pageHtml) {
-      var scriptUrl = null;
-      var sm = pageHtml.match(/src=["']([^"']*script4\.js[^"']*)["']/i);
-      if (sm) {
-        scriptUrl = sm[1].indexOf("http") === 0 ? sm[1] : MAHSUN_SITE.replace(/\/+$/, "") + "/" + sm[1].replace(/^\/+/, "");
+    return findWorkingBase(bases).then(function(wb) {
+      if (wb) {
+        var bs = bases.slice();
+        var wbIdx = bs.indexOf(wb);
+        if (wbIdx > 0) {
+          bs.splice(wbIdx, 1);
+          bs.unshift(wb);
+        }
+        bases = bs;
       }
-      if (!scriptUrl) {
-        mahsunCache = { time: now, bases, idMap: {}, matches: [] };
-        return mahsunCache;
-      }
-      return mahsunFetchText(scriptUrl).then(function(script) {
-        var parsed = parseScript4(script);
-        mahsunCache = { time: now, bases, idMap: parsed.idMap, matches: parsed.matches };
-        return mahsunCache;
+      return mahsunFetchText(MAHSUN_SITE).then(function(pageHtml) {
+        var scriptUrl = null;
+        var sm = pageHtml.match(/src=["']([^"']*script4\.js[^"']*)["']/i);
+        if (sm) {
+          scriptUrl = sm[1].indexOf("http") === 0 ? sm[1] : MAHSUN_SITE.replace(/\/+$/, "") + "/" + sm[1].replace(/^\/+/, "");
+        }
+        if (!scriptUrl) {
+          mahsunCache = { time: now, bases, idMap: {}, matches: [] };
+          return mahsunCache;
+        }
+        return mahsunFetchText(scriptUrl).then(function(script) {
+          var parsed = parseScript4(script);
+          mahsunCache = { time: now, bases, idMap: parsed.idMap, matches: parsed.matches };
+          return mahsunCache;
+        });
       });
     });
   }).catch(function() {
