@@ -159,91 +159,167 @@ function isEncryptedChannel(name, id) {
     return /bein|ssport|sspor|tivibu|smartspor|smarts|exxen|tabii|eurosport|nba/.test(key);
 }
 
-function getStreams(args) {
+// ── MahsunSports yedek akış motoru (host dinamik, kodda sabit yedek host yok) ──
+var MAHSUN_SITE = "https://mahsunsports80.xyz/";
+var ANDRO_URL_RE = /https:\/\/andro\.evrenesoglu\d+\.click\/checklist\//g;
+var _MAHSUN_HEADERS = {
+    'User-Agent': _HEADERS['User-Agent'],
+    'Referer': MAHSUN_SITE,
+    'Origin': MAHSUN_SITE
+};
+var mahsunBasesCache = null;
+
+function fetchMahsunBases() {
+    var now = Date.now();
+    if (mahsunBasesCache && (now - mahsunBasesCache.time < 15 * 60 * 1000)) {
+        return Promise.resolve(mahsunBasesCache.bases);
+    }
+    return fetch(MAHSUN_SITE + "event.html?id=androstreamlivebs1", { headers: _MAHSUN_HEADERS })
+        .then(function(res) { return res.text(); })
+        .then(function(txt) {
+            var bases = [];
+            var m;
+            ANDRO_URL_RE.lastIndex = 0;
+            while ((m = ANDRO_URL_RE.exec(txt)) !== null) {
+                if (bases.indexOf(m[0]) === -1) bases.push(m[0]);
+            }
+            mahsunBasesCache = { time: now, bases: bases };
+            return bases;
+        })
+        .catch(function() {
+            mahsunBasesCache = { time: now, bases: [] };
+            return [];
+        });
+}
+
+function androIdFromUrl(url) {
+    var m = String(url || '').match(/\/checklist\/([A-Za-z0-9]+)\.m3u8/);
+    return m ? m[1] : null;
+}
+
+async function getStreams(args) {
     var targetId = (typeof args === 'string') ? args : (args ? args.id : "");
     if (!targetId) {
-        var empty = [];
-        empty.streams = [];
-        return Promise.resolve(empty);
+        var e = [];
+        e.streams = [];
+        return e;
     }
 
-    return fetchChannels()
-        .then(function(content) {
-            var lines = content.split('\n');
-            var streams = [];
-            var seenUrls = {};
-            var searchKey = cleanKey(targetId.replace(/^tv:/, ''));
+    var content;
+    try {
+        content = await fetchChannels();
+    } catch (err) {
+        var ec = [];
+        ec.streams = [];
+        return ec;
+    }
 
-            for (var i = 0; i < lines.length; i++) {
-                var line = lines[i].trim();
-                if (line.indexOf("#EXTINF") !== -1) {
-                    var tvgIdMatch = line.match(/tvg-id="([^"]+)"/i);
-                    var tvgNameMatch = line.match(/tvg-name="([^"]+)"/i);
-                    var nameMatch = line.match(/"\s*,\s*(.+)$/);
-                    var aliasName = nameMatch ? nameMatch[1].trim() : line.split(',').pop().trim();
+    var lines = content.split('\n');
+    var streams = [];
+    var seenUrls = {};
+    var searchKey = cleanKey(targetId.replace(/^tv:/, ''));
+    var androPrimary = null;
+    var matchedBackup = '';
+    var matchedName = '';
 
-                    var cId = cleanKey(tvgIdMatch ? tvgIdMatch[1] : "");
-                    var cName = cleanKey(tvgNameMatch ? tvgNameMatch[1] : "");
-                    var aName = cleanKey(aliasName);
+    for (var i = 0; i < lines.length; i++) {
+        var line = lines[i].trim();
+        if (line.indexOf("#EXTINF") !== -1) {
+            var tvgIdMatch = line.match(/tvg-id="([^"]+)"/i);
+            var tvgNameMatch = line.match(/tvg-name="([^"]+)"/i);
+            var nameMatch = line.match(/"\s*,\s*(.+)$/);
+            var backupMatch = line.match(/tvg-backup="([^"]+)"/i);
+            var aliasName = nameMatch ? nameMatch[1].trim() : line.split(',').pop().trim();
 
-                    if (cId === searchKey || cName === searchKey || aName === searchKey || (aName.length > 2 && (aName.includes(searchKey) || searchKey.includes(aName)))) {
-                        var encrypted = isEncryptedChannel(aliasName, cId);
-                        for (var j = i + 1; j < lines.length; j++) {
-                            var urlLine = lines[j].trim();
-                            if (urlLine && urlLine.indexOf("http") === 0) {
-                                if (!seenUrls[urlLine]) {
-                                    seenUrls[urlLine] = true;
-                                    var ytMatch = urlLine.match(/(?:watch\?v=|embed\/|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
-                                    var sObj = {
-                                        name: encrypted ? '⌜ Anthology Spor ⌟' : '⌜ Anthology ⌟',
-                                        title: aliasName + (ytMatch ? ' [Canlı HD · YouTube]' : ' [Canlı HD]'),
-                                        url: urlLine,
-                                        behaviorHints: { isLive: true }
-                                    };
-                                    if (ytMatch) {
-                                        sObj.ytId = ytMatch[1];
-                                    } else if (encrypted) {
-                                        sObj.headers = {
-                                            'User-Agent': _HEADERS['User-Agent'],
-                                            'Referer': 'https://mahsunsports80.xyz/',
-                                            'Origin': 'https://mahsunsports80.xyz'
-                                        };
-                                    } else {
-                                        sObj.headers = _HEADERS;
-                                    }
-                                    streams.push(sObj);
-                                }
-                                break;
+            var cId = cleanKey(tvgIdMatch ? tvgIdMatch[1] : "");
+            var cName = cleanKey(tvgNameMatch ? tvgNameMatch[1] : "");
+            var aName = cleanKey(aliasName);
+
+            if (cId === searchKey || cName === searchKey || aName === searchKey || (aName.length > 2 && (aName.includes(searchKey) || searchKey.includes(aName)))) {
+                if (!matchedName) matchedName = aliasName;
+                var encrypted = isEncryptedChannel(aliasName, cId);
+                var backupAttr = backupMatch ? backupMatch[1] : '';
+                if (backupAttr) matchedBackup = backupAttr;
+                for (var j = i + 1; j < lines.length; j++) {
+                    var urlLine = lines[j].trim();
+                    if (urlLine && urlLine.indexOf("http") === 0) {
+                        if (!seenUrls[urlLine]) {
+                            seenUrls[urlLine] = true;
+                            var ytMatch = urlLine.match(/(?:watch\?v=|embed\/|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+                            var sObj = {
+                                name: encrypted ? '⌜ Anthology Spor ⌟' : '⌜ Anthology ⌟',
+                                title: aliasName + (ytMatch ? ' [Canlı HD · YouTube]' : ' [Canlı HD]'),
+                                url: urlLine,
+                                behaviorHints: { isLive: true }
+                            };
+                            if (ytMatch) {
+                                sObj.ytId = ytMatch[1];
+                            } else if (encrypted) {
+                                sObj.headers = _MAHSUN_HEADERS;
+                                if (androIdFromUrl(urlLine)) androPrimary = urlLine;
+                            } else {
+                                sObj.headers = _HEADERS;
                             }
-                            if (urlLine.indexOf("#EXTINF") === 0) break;
+                            streams.push(sObj);
                         }
+                        break;
+                    }
+                    if (urlLine.indexOf("#EXTINF") === 0) break;
+                }
 
-                        // Add verified backup if available
-                        for (var bk in KNOWN_BACKUPS) {
-                            if ((cId === bk || searchKey === bk) && !seenUrls[KNOWN_BACKUPS[bk]] && KNOWN_BACKUPS[bk] !== urlLine) {
-                                seenUrls[KNOWN_BACKUPS[bk]] = true;
-                                streams.push({
-                                    name: '⌜ Anthology ⌟',
-                                    title: aliasName + ' [Yedek Akış]',
-                                    url: KNOWN_BACKUPS[bk],
-                                    headers: _HEADERS,
-                                    behaviorHints: { isLive: true }
-                                });
-                            }
+                // Kullanıcı canli.m3u satırına tvg-backup="..." verdiyse o kullanılır;
+                // aksi halde resmi KNOWN_BACKUPS yedek olarak eklenir.
+                if (matchedBackup) {
+                    if (!seenUrls[matchedBackup] && matchedBackup !== urlLine) {
+                        seenUrls[matchedBackup] = true;
+                        streams.push({
+                            name: '⌜ Anthology ⌟',
+                            title: aliasName + ' [Yedek Akış]',
+                            url: matchedBackup,
+                            headers: encrypted ? _MAHSUN_HEADERS : _HEADERS,
+                            behaviorHints: { isLive: true }
+                        });
+                    }
+                } else {
+                    for (var bk in KNOWN_BACKUPS) {
+                        if ((cId === bk || searchKey === bk) && !seenUrls[KNOWN_BACKUPS[bk]] && KNOWN_BACKUPS[bk] !== urlLine) {
+                            seenUrls[KNOWN_BACKUPS[bk]] = true;
+                            streams.push({
+                                name: '⌜ Anthology ⌟',
+                                title: aliasName + ' [Yedek Akış]',
+                                url: KNOWN_BACKUPS[bk],
+                                headers: _HEADERS,
+                                behaviorHints: { isLive: true }
+                            });
                         }
                     }
                 }
-                if (streams.length >= 3) break;
             }
+        }
+        if (streams.length >= 4) break;
+    }
 
-            streams.streams = streams;
-            return streams;
-        })
-        .catch(function() {
-            var empty = [];
-            empty.streams = [];
-            return empty;
-        });
+    // Şifreli kanallar için MahsunSports'tan dinamik andro yedek.
+    if (androPrimary && !matchedBackup) {
+        var bases = await fetchMahsunBases();
+        var androId = androIdFromUrl(androPrimary);
+        for (var bi = 0; bi < bases.length; bi++) {
+            var bu = bases[bi] + androId + ".m3u8";
+            if (bu !== androPrimary && !seenUrls[bu]) {
+                seenUrls[bu] = true;
+                streams.push({
+                    name: '⌜ Anthology Spor · Yedek ⌟',
+                    title: (matchedName || 'Yedek') + ' [Yedek Akış]',
+                    url: bu,
+                    headers: _MAHSUN_HEADERS,
+                    behaviorHints: { isLive: true }
+                });
+            }
+        }
+    }
+
+    streams.streams = streams;
+    return streams;
 }
 
 // --- EXPORTS ---
