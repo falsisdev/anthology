@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: anthology_spor
  * Built from src/anthology_spor/index.js
- * Build Date: 2026-09-18T21:18:00.148Z
+ * Build Date: 2026-09-18T21:28:18.302Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -401,48 +401,6 @@ function parseTimeMs(o) {
   var ts = Date.parse((d || "1970-01-01") + "T" + tm[1] + ":" + tm[2] + ":00+03:00");
   return isNaN(ts) ? null : ts;
 }
-function filterCurrentChannelSlots(featured) {
-  var byId = {};
-  var order = [];
-  for (var a = 0; a < featured.length; a++) {
-    var m = featured[a];
-    if (!byId[m.id]) {
-      byId[m.id] = [];
-      order.push(m.id);
-    }
-    byId[m.id].push(m);
-  }
-  var out = [];
-  var nowMs = Date.now();
-  for (var i = 0; i < order.length; i++) {
-    var id = order[i];
-    var arr = byId[id];
-    var isChannelFeed = id.indexOf("facebooklive") === -1 && !/ch\d+$/i.test(id);
-    if (!isChannelFeed) {
-      out = out.concat(arr);
-      continue;
-    }
-    var started = [];
-    var untimed = [];
-    for (var j = 0; j < arr.length; j++) {
-      var ts = arr[j]._ts;
-      if (ts === null) {
-        untimed.push(arr[j]);
-        continue;
-      }
-      if (ts <= nowMs) started.push(arr[j]);
-    }
-    if (started.length) {
-      started.sort(function(x, y) {
-        return x._ts - y._ts;
-      });
-      out.push(started[started.length - 1]);
-    } else if (untimed.length) {
-      out = out.concat(untimed);
-    }
-  }
-  return out;
-}
 function parseScript4(script) {
   var idMap = {};
   var chanById = {};
@@ -526,21 +484,15 @@ function parseScript4(script) {
       featured.push(fobj);
     }
   }
-  var keptFeatured = filterCurrentChannelSlots(featured);
   var activeFeedIds = {};
   featured.forEach(function(m) {
     activeFeedIds[m.id] = true;
-  });
-  var featIds = {};
-  keptFeatured.forEach(function(m) {
-    featIds[m.id] = true;
   });
   var chanKeys = Object.keys(chanById);
   var channelFeedAdds = [];
   for (var ck = 0; ck < chanKeys.length; ck++) {
     var cid = chanKeys[ck];
     if (!activeFeedIds[cid]) continue;
-    if (featIds[cid]) continue;
     if (cid.indexOf("facebooklive") !== -1) continue;
     if (/ch\d+$/i.test(cid)) continue;
     channelFeedAdds.push({
@@ -555,11 +507,7 @@ function parseScript4(script) {
       isChannelFeed: true
     });
   }
-  var matches = keptFeatured.slice();
-  for (var kk = 0; kk < catEvents.length; kk++) {
-    if (featIds[catEvents[kk].id]) continue;
-    matches.push(catEvents[kk]);
-  }
+  var matches = catEvents.slice();
   for (var af = 0; af < channelFeedAdds.length; af++) matches.push(channelFeedAdds[af]);
   matches.sort(function(a, b) {
     var oa = SPORT_ORDER[a.sport] !== void 0 ? SPORT_ORDER[a.sport] : 9;

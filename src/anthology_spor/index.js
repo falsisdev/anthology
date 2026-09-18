@@ -253,44 +253,6 @@ function parseTimeMs(o) {
     return isNaN(ts) ? null : ts;
 }
 
-// Sabit kanal gruplarında yalnızca en son başlamış (≥ kickoff) maçı tutar.
-function filterCurrentChannelSlots(featured) {
-    var byId = {};
-    var order = [];
-    for (var a = 0; a < featured.length; a++) {
-        var m = featured[a];
-        if (!byId[m.id]) { byId[m.id] = []; order.push(m.id); }
-        byId[m.id].push(m);
-    }
-    var out = [];
-    var nowMs = Date.now();
-    for (var i = 0; i < order.length; i++) {
-        var id = order[i];
-        var arr = byId[id];
-        // ch# = per-event (yayın saatinde canlanır), facebooklive = mirror feed.
-        // Bunlar tek maça ayrılmıştır → hepsi korunur.
-        var isChannelFeed = (id.indexOf('facebooklive') === -1) && !/ch\d+$/i.test(id);
-        if (!isChannelFeed) {
-            out = out.concat(arr);
-            continue;
-        }
-        var started = [];
-        var untimed = [];
-        for (var j = 0; j < arr.length; j++) {
-            var ts = arr[j]._ts;
-            if (ts === null) { untimed.push(arr[j]); continue; }
-            if (ts <= nowMs) started.push(arr[j]);
-        }
-        if (started.length) {
-            started.sort(function(x, y) { return x._ts - y._ts; });
-            out.push(started[started.length - 1]);
-        } else if (untimed.length) {
-            out = out.concat(untimed); // saati bilinmiyor → fail-open
-        }
-    }
-    return out;
-}
-
 function parseScript4(script) {
     var idMap = {};
     var chanById = {};
@@ -377,25 +339,25 @@ function parseScript4(script) {
         }
     }
 
-    // Sabit kanallar: sadece şu an oynayan maç. ch#/facebook: hepsi.
-    var keptFeatured = filterCurrentChannelSlots(featured);
-
-    // Kanal adıyla fallback: bir sabit kanal featured'da vardır ama o an
-    // başlamış maç slotu yoktur (günün programı listelenir). Kanal yine de
-    // CANLI beslemedir — maç etiketi yalanına düşmeden kanal adıyla eklenir.
-    // Yalnızca featured'da GÖRÜNEN beslemeler eklenir (site aktif kanalları);
-    // Trt1/Atv/Tjk gibi genel kanallar checklist üzerinde boştur — eklenmez.
-    // Verify (CDN 200) gerçekten yayında olanları tutar, ölüleri eler.
+    // DİKKAT: karsilasmalar bir çağrı listesi DEĞİL, kanalın günlük maç
+    // programıdır (live bayrağı hemen her zaman false, ileri tarihli maçlar
+    // dahil). Buradan "şu an maç şu kanalda" eşleştirmesi yapmak YALAN
+    // etikete yol açar ("Bayern" kanalda o an başka yayın). Bu yüzden
+    // karsilasmalar yalnızca HANGİ sabit kanal beslemesinin site tarafından
+    // aktif kabul edildiğini bulmak için kullanılır; kanal adıyla gösterilir.
+    // Gerçek maç etiketleri yalnızca per-event (ch#) feed'lerden gelir —
+    // onlar maça özel URL'dir ve 200 dönene kadar zaten gösterilmez.
     var activeFeedIds = {};
     featured.forEach(function(m) { activeFeedIds[m.id] = true; });
-    var featIds = {};
-    keptFeatured.forEach(function(m) { featIds[m.id] = true; });
+
+    // Sabit kanallar: featured'da GÖRÜNEN beslemeler kanal adıyla eklenir.
+    // ch# = kategoride ayrıca işlenir; facebooklive/None = yok sayılır.
+    // Verify (CDN 200) gerçekten yayında olanları tutar, ölüleri eler.
     var chanKeys = Object.keys(chanById);
     var channelFeedAdds = [];
     for (var ck = 0; ck < chanKeys.length; ck++) {
         var cid = chanKeys[ck];
         if (!activeFeedIds[cid]) continue;
-        if (featIds[cid]) continue;
         if (cid.indexOf('facebooklive') !== -1) continue;
         if (/ch\d+$/i.test(cid)) continue;
         channelFeedAdds.push({
@@ -411,12 +373,8 @@ function parseScript4(script) {
         });
     }
 
-    // Featured'da zaten olan event'leri kategoriden düş (çift girmesin).
-    var matches = keptFeatured.slice();
-    for (var kk = 0; kk < catEvents.length; kk++) {
-        if (featIds[catEvents[kk].id]) continue;
-        matches.push(catEvents[kk]);
-    }
+    // Per-event (ch#) maçlar maç adıyla — bunlar maça özel yayındır.
+    var matches = catEvents.slice();
     for (var af = 0; af < channelFeedAdds.length; af++) matches.push(channelFeedAdds[af]);
 
     // Spor grubuna göre sırala (F → B → V → T), sonra canlı, sonra saat.
