@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "name": "Anthology",
-  "version": "1.8.2",
+  "version": "1.8.3",
   "description": "Anthology - Merkezi Eklenti, API, URL, Oynatıcı ve Sistem Yapılandırması",
   "branding": {
     "name": "Anthology",
@@ -38,7 +38,8 @@
     "live": {
       "m3u_remote": "https://raw.githubusercontent.com/falsisdev/anthology/main/providers/M3U/Liste/canli.m3u",
       "netvgold_remote": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/catalogs/netvgold.json",
-      "assets_base": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/"
+      "assets_base": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/",
+      "mahsunsports": "https://mahsunsports80.xyz/"
     },
     "m3u": {
       "film_base": "https://raw.githubusercontent.com/mooncrown04/m3ubirlestir/main/nuvio_parcalari/",
@@ -46,7 +47,12 @@
     },
     "movies": {
       "filmmodu": {
-        "base": "https://www.filmmodu.one"
+        "base": "https://www.filmmodu.one",
+        "live": "https://filmmodu.live",
+        "player": "https://play2.pilavyerplay.top"
+      },
+      "hdfilmcehennemi": {
+        "base": "https://www.hdfilmcehennemi.nl"
       },
       "hdfilmdelisi": {
         "base": "https://hdfilmdelisi.one",
@@ -96,6 +102,15 @@
         "base": "https://www.diziyou.one",
         "storage": "https://storage.diziyou.one"
       },
+      "diziboxizle": {
+        "base": "https://diziboxizle.com"
+      },
+      "dizipod": {
+        "base": "https://dizipod.com"
+      },
+      "diziwatch": {
+        "base": "https://diziwatch.ac"
+      },
       "yabancidizi": {
         "base": "https://yabancidizi.news"
       }
@@ -117,6 +132,10 @@
       "seicode": {
         "base": "https://seicode.net",
         "api_base": "https://next.seicode.net"
+      },
+      "anizium": {
+        "base": "https://api.anizium.co",
+        "site": "https://anizium.co"
       }
     },
     "meta_resolvers": {

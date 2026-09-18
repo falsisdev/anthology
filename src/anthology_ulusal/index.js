@@ -1,4 +1,17 @@
 const { sortStreamsByQuality } = require("../shared/quality.js");
+const { loadConfig, val, wrapAll } = require("../shared/config.js");
+
+var _cfgReady = null;
+function cfgReady() {
+    if (!_cfgReady) {
+        _cfgReady = loadConfig().then(function () {
+            var v;
+            v = val('urls.live.m3u_remote'); if (v) M3U_REMOTE = String(v).replace(/\/+$/, '');
+        });
+    }
+    return _cfgReady;
+}
+
 /**
  * Anthology Ulusal Kanallar Paketi
  * TRT 1, ATV, Kanal D, Show TV, Star TV, NOW TV, TV8, Kanal 7 vb.
@@ -176,7 +189,7 @@ if (typeof getStreams === "function") {
 }
 
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { getStreams: getStreams, getCatalog: getCatalog };
+    module.exports = wrapAll({ getStreams: getStreams, getCatalog: getCatalog }, cfgReady);
 } else {
     var g = (typeof globalThis !== 'undefined') ? globalThis : (typeof global !== 'undefined') ? global : window;
     g.getStreams = getStreams; g.getCatalog = getCatalog;

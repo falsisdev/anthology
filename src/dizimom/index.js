@@ -1,4 +1,18 @@
 const { sortStreamsByQuality } = require("../shared/quality.js");
+const { loadConfig, val, wrapAll } = require("../shared/config.js");
+
+var _cfgReady = null;
+function cfgReady() {
+    if (!_cfgReady) {
+        _cfgReady = loadConfig().then(function () {
+            var v;
+            v = val('urls.series.dizimom.base'); if (v) BASE_URL = String(v).replace(/\/+$/, '');
+            if (HEADERS) HEADERS.Referer = BASE_URL + '/';
+        });
+    }
+    return _cfgReady;
+}
+
 /**
  * Anthology - DiziMom Provider
  * DiziMom arşivi ve HDPlayerSystem / HDStreamable API üzerinden
@@ -487,7 +501,7 @@ if (typeof getStreams === "function") {
 }
 
 if (typeof module !== 'undefined') {
-  module.exports = { getStreams, getCatalog, getMeta };
+  module.exports = wrapAll({ getStreams, getCatalog, getMeta }, cfgReady);
 }
 if (typeof globalThis !== 'undefined') {
   globalThis.getStreams = getStreams;

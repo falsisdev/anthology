@@ -1,4 +1,17 @@
 const { sortStreamsByQuality } = require("../shared/quality.js");
+const { loadConfig, val, wrapAll } = require("../shared/config.js");
+
+var _cfgReady = null;
+function cfgReady() {
+    if (!_cfgReady) {
+        _cfgReady = loadConfig().then(function () {
+            var v;
+            v = val('urls.live.m3u_remote'); if (v) M3U_REMOTE = String(v).replace(/\/+$/, '');
+        });
+    }
+    return _cfgReady;
+}
+
 /**
  * Anthology Müzik & Eğlence Paketi
  * Kral Pop TV, Power TV, PowerTürk TV, Number 1 TV, Power Dance, Power Love, TRT Müzik
@@ -200,7 +213,7 @@ if (typeof getStreams === "function") {
 }
 
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { getStreams: getStreams, getCatalog: getCatalog, getMeta: getMeta };
+    module.exports = wrapAll({ getStreams: getStreams, getCatalog: getCatalog, getMeta: getMeta }, cfgReady);
 } else {
     var g = (typeof globalThis !== 'undefined') ? globalThis : (typeof global !== 'undefined') ? global : window;
     g.getStreams = getStreams; g.getCatalog = getCatalog; g.getMeta = getMeta;

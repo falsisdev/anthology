@@ -1,3 +1,17 @@
+const { loadConfig, val, wrapAll } = require("../shared/config.js");
+
+var _cfgReady = null;
+function cfgReady() {
+    if (!_cfgReady) {
+        _cfgReady = loadConfig().then(function () {
+            var v;
+            v = val('urls.anime.sonanime.base'); if (v) BASE_URL = String(v).replace(/\/+$/, '');
+            v = val('urls.anime.sonanime.api_base'); if (v) API_BASE = String(v).replace(/\/+$/, '');
+        });
+    }
+    return _cfgReady;
+}
+
 /**
  * Anthology - SonAnime Provider
  * 1080p, 720p, 480p Doğrudan Türkçe Altyazılı Anime Akışları
@@ -494,11 +508,11 @@ if (typeof getStreams === 'function') {
 }
 
 if (typeof module !== 'undefined') {
-  module.exports = {
+  module.exports = wrapAll({
     getStreams: getStreams,
     getCatalog: getCatalog,
     getMeta: getMeta
-  };
+  }, cfgReady);
 }
 if (typeof globalThis !== 'undefined') {
   globalThis.getStreams = getStreams;

@@ -1,4 +1,19 @@
 const { sortStreamsByQuality } = require("../shared/quality.js");
+const { loadConfig, val, wrapAll } = require("../shared/config.js");
+
+var _cfgReady = null;
+function cfgReady() {
+    if (!_cfgReady) {
+        _cfgReady = loadConfig().then(function () {
+            var v;
+            v = val('urls.live.m3u_remote'); if (v) M3U_URL = String(v).replace(/\/+$/, '');
+            v = val('urls.live.mahsunsports'); if (v) MAHSUN_SITE = v;
+            if (_MAHSUN_HEADERS) { _MAHSUN_HEADERS.Referer = MAHSUN_SITE; _MAHSUN_HEADERS.Origin = MAHSUN_SITE; }
+        });
+    }
+    return _cfgReady;
+}
+
 /**
  * Anthology Canlı TV & M3U Katalog Motoru
  * 80+ Ulusal, Haber, Spor ve Canlı TV kanalı
@@ -333,7 +348,7 @@ if (typeof getStreams === "function") {
 }
 
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { getStreams: getStreams, getMeta: getMeta, getCatalog: getCatalog };
+    module.exports = wrapAll({ getStreams: getStreams, getMeta: getMeta, getCatalog: getCatalog }, cfgReady);
 } else {
     var g = (typeof globalThis !== 'undefined') ? globalThis : (typeof global !== 'undefined') ? global : window;
     g.getStreams = getStreams; g.getMeta = getMeta; g.getCatalog = getCatalog;

@@ -1,4 +1,19 @@
 const { sortStreamsByQuality } = require("../shared/quality.js");
+const { loadConfig, val, wrapAll } = require("../shared/config.js");
+
+var _cfgReady = null;
+function cfgReady() {
+    if (!_cfgReady) {
+        _cfgReady = loadConfig().then(function () {
+            var v;
+            v = val('urls.anime.anizium.base'); if (v) BASE_URL = String(v).replace(/\/+$/, '');
+            v = val('urls.anime.anizium.site'); if (v) SITE_ORIGIN = String(v).replace(/\/+$/, '');
+            if (DEFAULT_HEADERS) { DEFAULT_HEADERS.Origin = SITE_ORIGIN; DEFAULT_HEADERS.Referer = SITE_ORIGIN + '/'; }
+        });
+    }
+    return _cfgReady;
+}
+
 /**
  * Anthology - Anizium Provider
  * 4K & 1080p Türkçe Dublaj ve Altyazılı Anime Kaynağı
@@ -6,6 +21,7 @@ const { sortStreamsByQuality } = require("../shared/quality.js");
  */
 
 var BASE_URL = 'https://api.anizium.co';
+var SITE_ORIGIN = 'https://anizium.co';
 var TOKEN_KEY = 'hlxjl1c2w281ax473rt1ofgrvhyjvi';
 var CLIENT_KEY = '16ghkdz5qnwinkyebwopbd94b49xhs';
 var TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
@@ -13,7 +29,7 @@ var TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
 var DEFAULT_HEADERS = {
   'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
   'Origin': 'https://anizium.co',
-  'Referer': 'https://anizium.co/',
+  'Referer': SITE_ORIGIN + '/',
   'Accept': 'application/json, text/plain, */*'
 };
 
@@ -145,7 +161,7 @@ function formatSubtitles(rawSubs) {
       type: 'text/vtt',
       mimeType: 'text/vtt',
       headers: {
-        'Referer': 'https://anizium.co/',
+        'Referer': SITE_ORIGIN + '/',
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
       }
     });
@@ -526,12 +542,12 @@ if (typeof getStreams === "function") {
 }
 
 if (typeof module !== 'undefined') {
-  module.exports = {
+  module.exports = wrapAll({
     getStreams: getStreams,
     getSubtitles: getSubtitles,
     getCatalog: getCatalog,
     getMeta: getMeta
-  };
+  }, cfgReady);
 }
 if (typeof globalThis !== 'undefined') {
   globalThis.getStreams = getStreams;

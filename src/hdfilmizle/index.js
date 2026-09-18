@@ -1,4 +1,19 @@
 const { sortStreamsByQuality } = require("../shared/quality.js");
+const { loadConfig, val, wrapAll } = require("../shared/config.js");
+
+var _cfgReady = null;
+function cfgReady() {
+    if (!_cfgReady) {
+        _cfgReady = loadConfig().then(function () {
+            var v = val('urls.movies.hdfilmizle.bases');
+            if (v && Object.prototype.toString.call(v) === '[object Array]' && v.length) {
+                BASES = v.map(function (s) { return String(s).replace(/\/+$/, ''); });
+            }
+        });
+    }
+    return _cfgReady;
+}
+
 /**
  * Anthology - HDFilmIzle Provider (Vip + Ink)
  * https://www.hdfilmizle.vip / https://www.hdfilmizle.ink
@@ -151,7 +166,7 @@ function parseCards(html, base) {
 
 async function searchVip(query) {
     try {
-        var base = 'https://www.hdfilmizle.vip';
+        var base = (BASES && BASES[0]) || 'https://www.hdfilmizle.vip';
         var form = new URLSearchParams();
         form.append('query', query);
         var res = await fetchWithTimeout(base + '/search/', {
@@ -251,7 +266,7 @@ function spgDecode(n, o) {
 async function resolveVidrame(vidrameUrl, ref) {
     try {
         var vRes = await fetchWithTimeout(vidrameUrl, {
-            headers: { 'User-Agent': UA, 'Referer': ref || 'https://www.hdfilmizle.vip/' }
+            headers: { 'User-Agent': UA, 'Referer': ref || ((BASES && BASES[0]) || 'https://www.hdfilmizle.vip') + '/' }
         }, 15000);
         if (!vRes.ok) return null;
         var vHtml = await vRes.text();
@@ -314,7 +329,7 @@ async function resolveVidrame(vidrameUrl, ref) {
 async function resolveVidmoxy(vidmoxyUrl, ref) {
     try {
         var mRes = await fetchWithTimeout(vidmoxyUrl, {
-            headers: { 'User-Agent': UA, 'Referer': ref || 'https://www.hdfilmizle.vip/' }
+            headers: { 'User-Agent': UA, 'Referer': ref || ((BASES && BASES[0]) || 'https://www.hdfilmizle.vip') + '/' }
         }, 15000);
         if (!mRes.ok) return null;
         var mHtml = await mRes.text();
@@ -731,7 +746,7 @@ if (typeof getStreams === "function") {
 }
 
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { getStreams, getMeta, getCatalog };
+    module.exports = wrapAll({ getStreams, getMeta, getCatalog }, cfgReady);
 }
 if (typeof globalThis !== 'undefined') {
     globalThis.getStreams = getStreams;

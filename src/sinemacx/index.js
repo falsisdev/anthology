@@ -1,4 +1,18 @@
 const { sortStreamsByQuality } = require("../shared/quality.js");
+const { loadConfig, val, wrapAll } = require("../shared/config.js");
+
+var _cfgReady = null;
+function cfgReady() {
+    if (!_cfgReady) {
+        _cfgReady = loadConfig().then(function () {
+            var v;
+            v = val('urls.movies.sinemacx.base'); if (v) BASE_URL = String(v).replace(/\/+$/, '');
+            if (WORKING_HEADERS) WORKING_HEADERS.Referer = BASE_URL + '/';
+        });
+    }
+    return _cfgReady;
+}
+
 /**
  * Anthology - SinemaCX Provider
  * Sinema.gg arşivi ve player.filmizle.in API üzerinden
@@ -8,7 +22,7 @@ const { sortStreamsByQuality } = require("../shared/quality.js");
 var cheerio = require('cheerio-without-node-native');
 
 const PROVIDER_NAME = 'SinemaCX';
-const BASE_URL = 'https://www.sinema.gg';
+var BASE_URL = 'https://www.sinema.gg';
 const TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
 
 const WORKING_HEADERS = {
@@ -228,7 +242,7 @@ if (typeof getStreams === "function") {
 }
 
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { getStreams: getStreams };
+  module.exports = wrapAll({ getStreams: getStreams }, cfgReady);
 }
 if (typeof globalThis !== 'undefined') {
   globalThis.getStreams = getStreams;

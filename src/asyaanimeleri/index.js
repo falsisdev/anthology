@@ -1,3 +1,17 @@
+const { loadConfig, val, wrapAll } = require("../shared/config.js");
+
+var _cfgReady = null;
+function cfgReady() {
+    if (!_cfgReady) {
+        _cfgReady = loadConfig().then(function () {
+            var v;
+            v = val('urls.anime.asyaanimeleri.base'); if (v) BASE_URL = String(v).replace(/\/+$/, '');
+            if (HEADERS) HEADERS.Referer = BASE_URL + '/';
+        });
+    }
+    return _cfgReady;
+}
+
 /**
  * Anthology - AsyaAnimeleri Provider
  * Anime ve donghua serileri/filmleri için Sibnet, Ok.ru, Mail.ru ve Rumble doğrudan akışları sağlar.
@@ -784,7 +798,7 @@ if (typeof getStreams === 'function') {
   };
 }
 
-if (typeof module !== 'undefined') module.exports = { getStreams, getCatalog, getMeta };
+if (typeof module !== 'undefined') module.exports = wrapAll({ getStreams, getCatalog, getMeta }, cfgReady);
 if (typeof globalThis !== 'undefined') {
   globalThis.getStreams = getStreams;
   globalThis.getCatalog = getCatalog;

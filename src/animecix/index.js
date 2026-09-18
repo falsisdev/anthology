@@ -1,4 +1,18 @@
 const { sortStreamsByQuality } = require("../shared/quality.js");
+const { loadConfig, val, wrapAll } = require("../shared/config.js");
+
+var _cfgReady = null;
+function cfgReady() {
+    if (!_cfgReady) {
+        _cfgReady = loadConfig().then(function () {
+            var v;
+            v = val('urls.anime.animecix.base'); if (v) BASE_URL = String(v).replace(/\/+$/, '');
+            if (HEADERS) HEADERS.Referer = BASE_URL + '/';
+        });
+    }
+    return _cfgReady;
+}
+
 /**
  * Anthology - AnimeciX Provider
  * Anime dizi ve filmleri için doğrudan TauVideo MP4 akışları sunar.
@@ -322,7 +336,7 @@ async function getMeta(args) {
 }
 
 if (typeof module !== 'undefined') {
-  module.exports = { getStreams, getCatalog, getMeta };
+  module.exports = wrapAll({ getStreams, getCatalog, getMeta }, cfgReady);
 }
 if (typeof globalThis !== 'undefined') {
   globalThis.getStreams = getStreams;
