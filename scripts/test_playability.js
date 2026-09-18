@@ -75,7 +75,7 @@ async function checkHttp(url, headers = {}) {
         streams = await mod.getStreams("31910", "series", 1, 1);
       } else if (scraper.id === "asyaanimeleri") {
         streams = await mod.getStreams("127532", "tv", 1, 1);
-      } else if (scraper.id === "AnthologyDiziM3U" || scraper.id === "anthology_yerlidizi") {
+      } else if (scraper.id === "anthology_m3u") {
         streams = await mod.getStreams("245914", "tv", 1, 1);
       } else if (scraper.id === "ddizi") {
         streams = await mod.getStreams("315179", "tv", 1, 1);
@@ -87,8 +87,6 @@ async function checkHttp(url, headers = {}) {
         streams = await mod.getStreams({ id: "tv:NTV.tr", type: "tv" });
       } else if (scraper.id === "m3u.anthology.addon") {
         streams = await mod.getStreams({ id: "tv:ATV.tr", type: "tv" });
-      } else if (scraper.id === "anthology_yabancidizi") {
-        streams = await mod.getStreams("60059", "tv", 1, 1);
       } else if (scraper.supportedTypes && scraper.supportedTypes.includes("movie")) {
         streams = await mod.getStreams("603", "movie");
       } else if (scraper.supportedTypes && scraper.supportedTypes.includes("tv")) {
