@@ -435,6 +435,12 @@ CHANNELS = [
         "local": os.path.join(ROOT_DIR, "assets", "canli", "powerlove.png"),
         "already_composited": True,
     },
+    {
+        "name": "Mahsunsports",
+        "file": "mahsunsports.png",
+        "local": os.path.join(ROOT_DIR, "assets", "canli", "mahsunsports.png"),
+        "already_composited": True,
+    },
 
     # --- Ek Ulusal / Haber Kanalları ---
     {

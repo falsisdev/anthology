@@ -1,6 +1,6 @@
 {
   "name": "Anthology",
-  "version": "1.8.1",
+  "version": "1.8.2",
   "author": "falsisdev",
   "description": "Anthology - Türkçe Dizi, Film, Anime ve Canlı TV/Spor Eklenti Deposu",
   "scrapers": [
@@ -147,7 +147,7 @@
       "name": "Anthology Canlı TV",
       "description": "80+ Ulusal, Haber, Spor ve Canlı TV kanalı ve M3U kataloğu.",
       "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
-      "version": "1.8.0",
+      "version": "1.8.2",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",
@@ -581,8 +581,8 @@
     {
       "id": "anthology_spor",
       "name": "Anthology Canlı Spor",
-      "description": "BeIN Sports 1-5, S Sport 1-2, Tivibu Spor, Exxen Spor ve 49 canlı spor kanalı (Anthology + NetVGold çok kaynaklı).",
-      "version": "1.8.0",
+      "description": "BeIN Sports 1-5, S Sport 1-2, Tivibu Spor, Exxen Spor ve 49 canlı spor kanalı (Anthology + NetVGold çok kaynaklı). Mahsunsports maç yayınları dahil.",
+      "version": "1.8.2",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",

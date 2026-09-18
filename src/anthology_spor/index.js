@@ -2,6 +2,7 @@ const { sortStreamsByQuality } = require("../shared/quality.js");
 /**
  * Anthology Canlı Spor Paketi
  * TRT Spor, A Spor, TV8.5, BeIN Sports, S Sport, Tivibu Spor, Exxen Spor vb.
+ * Mahsunsports maç yayınları (Futbol, Basketbol, Voleybol, Tenis) ayrı bir kanal olarak.
  */
 
 var path = typeof require !== 'undefined' ? require('path') : null;
@@ -9,15 +10,20 @@ var fs = typeof require !== 'undefined' ? require('fs') : null;
 
 var M3U_REMOTE = "https://raw.githubusercontent.com/falsisdev/anthology/main/providers/M3U/Liste/canli.m3u";
 
+// TEK DEĞİŞTİRİLECEK SİTE AYARI: MahsunSports giriş adresi.
+var MAHSUN_SITE = "https://mahsunsports80.xyz/";
+
+var MAHSUN_LOGO = "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/mahsunsports.png";
+
 var _HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36',
     'Accept': '*/*'
 };
 
 var _MAHSUN_HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36',
-    'Referer': 'https://mahsunsports80.xyz/',
-    'Origin': 'https://mahsunsports80.xyz'
+    'User-Agent': _HEADERS['User-Agent'],
+    'Referer': MAHSUN_SITE,
+    'Origin': MAHSUN_SITE
 };
 
 var cachedText = null;
@@ -67,6 +73,7 @@ function parseSportChannels(content) {
                 var tvgIdMatch = line.match(/tvg-id="([^"]+)"/i);
                 var tvgNameMatch = line.match(/tvg-name="([^"]+)"/i);
                 var logoMatch = line.match(/tvg-logo="([^"]+)"/i);
+                var backupMatch = line.match(/tvg-backup="([^"]+)"/i);
                 var nameMatch = line.match(/"\s*,\s*(.+)$/);
                 var channelName = nameMatch ? nameMatch[1].trim() : line.split(',').pop().trim();
                 var rawId = tvgIdMatch && tvgIdMatch[1] ? tvgIdMatch[1].trim() : (tvgNameMatch ? tvgNameMatch[1].trim() : channelName);
@@ -87,7 +94,8 @@ function parseSportChannels(content) {
                     id: channelId,
                     name: channelName,
                     logo: logo,
-                    url: streamUrl
+                    url: streamUrl,
+                    backup: backupMatch ? backupMatch[1] : ''
                 });
             }
         }
@@ -98,6 +106,312 @@ function parseSportChannels(content) {
 function isEncryptedSport(channel) {
     var key = cleanKey((channel.id || '').replace(/^tv:/, '') + ' ' + (channel.name || ''));
     return /bein|ssport|sspor|tivibu|smartspor|smarts|exxen|tabii|eurosport|nba/.test(key);
+}
+
+// ── MahsunSports Yedek Akış Motoru ──────────────────────────────────
+// Kaynak yapısı: mahsunsports80.xyz/event.html?id=<id> oynatıcısı
+// gerçek akışı https://andro.evrenesoglu<NNN>.click/checklist/<id>.m3u8
+// adresinden çeker. Host adresleri scriptten dinamik okunur; kodda sabit
+// yedek host TUTULMAZ. Böylece tek kaynak dosyası (canli.m3u) üzerinden
+// kanal bağlantısı değiştirilir ve yedek host otomatik takip eder.
+
+var ANDRO_URL_RE = /https:\/\/andro\.evrenesoglu\d+\.click\/checklist\//g;
+var MAHSUN_DATA_TTL = 15 * 60 * 1000;    // backend + maç listesi 15 dk
+
+var mahsunCache = null;   // { time, bases: [], idMap: {}, groups: [] }
+
+function mahsunFetchText(url) {
+    return fetch(url, { headers: _MAHSUN_HEADERS })
+        .then(function(res) { return res.text(); })
+        .catch(function() { return ''; });
+}
+
+// Script4 içindeki "const NAME = [ ... ]" bloğunu string-farkındalıklı döner.
+function extractNamedArray(script, name) {
+    var re = new RegExp('(?:const|var|let)\\s+' + name + '\\s*=\\s*\\[');
+    var m = script.match(re);
+    if (!m) return '';
+    var start = m.index + m[0].length - 1;
+    var depth = 0, inStr = false, quote = '';
+    for (var i = start; i < script.length; i++) {
+        var c = script[i];
+        if (inStr) {
+            if (c === '\\') { i++; continue; }
+            if (c === quote) inStr = false;
+            continue;
+        }
+        if (c === '"' || c === "'") { inStr = true; quote = c; continue; }
+        if (c === '[') depth++;
+        else if (c === ']') { depth--; if (depth === 0) return script.slice(start, i + 1); }
+    }
+    return '';
+}
+
+// Kanal ID haritası (name -> andro id) ve aktif canlı maç grupları çıkarır.
+function parseScript4(script) {
+    var idMap = {};
+    var pairsRe = /\{\s*title:\s*"([^"]+)",\s*url:\s*"\/event\.html\?id=([^"]+)"\s*\}/g;
+    var p;
+    while ((p = pairsRe.exec(script)) !== null) {
+        var nk = cleanKey(p[1]);
+        if (nk && !idMap[nk]) idMap[nk] = p[2];
+    }
+
+    var CATS = [
+        { label: 'Futbol',     array: 'futbolMatches' },
+        { label: 'Basketbol',  array: 'basketbolMatches' },
+        { label: 'Voleybol',   array: 'voleybolMatches' },
+        { label: 'Tenis',      array: 'tenisMatches' },
+        { label: 'Öne Çıkan',  array: 'karsilasmalar' }
+    ];
+
+    var matchList = [];
+    var seenIds = {};
+    for (var ci = 0; ci < CATS.length; ci++) {
+        var cat = CATS[ci];
+        var body = extractNamedArray(script, cat.array);
+        if (!body) continue;
+        var objs = body.match(/\{[^{}]*\}/g) || [];
+        for (var oi = 0; oi < objs.length; oi++) {
+            var o = objs[oi];
+            var t = o.match(/"title"\s*:\s*"([^"]*)"/);
+            var u = o.match(/"url"\s*:\s*"\/?event\.html\?id=([A-Za-z0-9]+)"/);
+            var l = o.match(/"league"\s*:\s*"([^"]*)"/);
+            var lv = o.match(/"live"\s*:\s*(true|false)/);
+            var tm = o.match(/"time"\s*:\s*"([^"]*)"/);
+            if (!t || !u) continue;
+            var title = t[1].trim();
+            var id = u[1];
+            if (id === 'None' || id.indexOf('chNone') !== -1) continue;
+            var key = id + '|' + title;
+            if (seenIds[key]) continue;
+            seenIds[key] = true;
+            matchList.push({
+                title: title,
+                id: id,
+                league: l ? l[1].trim() : '',
+                live: lv ? lv[1] === 'true' : false,
+                time: tm ? tm[1].trim() : '',
+                cat: cat.label
+            });
+        }
+    }
+
+    // Aynı maç adına sahip kayıtları grup: ana yayın + yedek anime edilen.
+    var groups = {};
+    for (var mi = 0; mi < matchList.length; mi++) {
+        var mm = matchList[mi];
+        var gk = cleanKey(mm.title);
+        if (!groups[gk]) groups[gk] = { title: mm.title, cat: mm.cat, entries: [] };
+        groups[gk].entries.push(mm);
+    }
+
+    var groupArr = [];
+    for (var gk2 in groups) {
+        var g = groups[gk2];
+        var ana = null, yedek = [];
+        for (var ei = 0; ei < g.entries.length; ei++) {
+            var e = g.entries[ei];
+            if (!ana && e.league.indexOf('Yedek') === -1) ana = e;
+            else if (e.league.indexOf('Yedek') !== -1) yedek.push(e);
+            else if (!ana) ana = e;
+        }
+        if (!ana) ana = g.entries[0];
+        for (var yi = 0; yi < g.entries.length; yi++) {
+            if (g.entries[yi] === ana) continue;
+            if (yedek.indexOf(g.entries[yi]) === -1) yedek.push(g.entries[yi]);
+        }
+        groupArr.push({
+            title: g.title,
+            cat: ana ? ana.cat : g.cat,
+            live: ana ? ana.live : false,
+            time: ana ? ana.time : '',
+            ana: ana,
+            yedek: yedek.slice(0, 2)
+        });
+    }
+
+    // Kategori sırası + gerçek besleme önceliği + canlı önceliği + saat.
+    // "Öne Çıkan" (karsilasmalar) gerçek kanal id'leriyle (bs1/ss1/cbcs vb.)
+    // maç->kanal eşleşmesi içerir; ch# benzeri yer tutucu id'ler kotada öne geçmez.
+    function isRealFeedId(id) {
+        return /^(androstreamlive)?(bs\d+|s\d+|ss\d+|ssplus\d+|cbcs|sbs|exn\d+|trts\d*|ts\d*|ht|idm|sifir|ttt\d+|sm\d*|bsm\d*)/i.test(String(id || ''));
+    }
+    var order = { 'Öne Çıkan': 0, 'Futbol': 1, 'Basketbol': 2, 'Voleybol': 3, 'Tenis': 4 };
+    groupArr.sort(function(a, b) {
+        var ra = isRealFeedId(a.ana && a.ana.id) ? 0 : 1;
+        var rb = isRealFeedId(b.ana && b.ana.id) ? 0 : 1;
+        if (ra !== rb) return ra - rb;
+        var oc = (order[a.cat] !== undefined ? order[a.cat] : 9) - (order[b.cat] !== undefined ? order[b.cat] : 9);
+        if (oc !== 0) return oc;
+        if (a.live !== b.live) return a.live ? -1 : 1;
+        return (a.time < b.time) ? -1 : (a.time > b.time ? 1 : 0);
+    });
+
+    return { idMap: idMap, groups: groupArr };
+}
+
+function fetchMahsunData() {
+    var now = Date.now();
+    if (mahsunCache && (now - mahsunCache.time < MAHSUN_DATA_TTL)) {
+        return Promise.resolve(mahsunCache);
+    }
+    return mahsunFetchText(MAHSUN_SITE + "event.html?id=androstreamlivebs1")
+        .then(function(evtHtml) {
+            var bases = [];
+            var bm;
+            ANDRO_URL_RE.lastIndex = 0;
+            while ((bm = ANDRO_URL_RE.exec(evtHtml)) !== null) {
+                if (bases.indexOf(bm[0]) === -1) bases.push(bm[0]);
+            }
+            return mahsunFetchText(MAHSUN_SITE).then(function(pageHtml) {
+                var scriptUrl = null;
+                var sm = pageHtml.match(/src=["']([^"']*script4\.js[^"']*)["']/i);
+                if (sm) {
+                    scriptUrl = sm[1].indexOf('http') === 0 ? sm[1] : MAHSUN_SITE.replace(/\/+$/, '') + '/' + sm[1].replace(/^\/+/, '');
+                }
+                if (!scriptUrl) {
+                    mahsunCache = { time: now, bases: bases, idMap: {}, groups: [] };
+                    return mahsunCache;
+                }
+                return mahsunFetchText(scriptUrl).then(function(script) {
+                    var parsed = parseScript4(script);
+                    var groups = parsed.groups;
+                    // Kategori başına dengeli kota (her branştan yayın görünsün).
+                    var perCat = {}, picked = [];
+                    for (var pi = 0; pi < groups.length && picked.length < 60; pi++) {
+                        var g = groups[pi];
+                        var cnt = perCat[g.cat] || 0;
+                        if (cnt >= (g.cat === 'Öne Çıkan' ? 24 : (g.cat === 'Futbol' ? 16 : 8))) continue;
+                        perCat[g.cat] = cnt + 1;
+                        picked.push(g);
+                    }
+                    mahsunCache = { time: now, bases: bases, idMap: parsed.idMap, groups: picked };
+                    return mahsunCache;
+                });
+            });
+        })
+        .catch(function() {
+            mahsunCache = { time: now, bases: [], idMap: {}, groups: [] };
+            return mahsunCache;
+        });
+}
+
+// Yedek akış motoru için host + kanal-id haritası.
+function fetchMahsunBackend() {
+    return fetchMahsunData();
+}
+
+// Mahsunsports kanalı için canlı maç grupları.
+function fetchMahsunMatches() {
+    return fetchMahsunData().then(function(data) {
+        return data.groups || [];
+    });
+}
+
+function androIdFromUrl(url) {
+    var m = String(url || '').match(/\/checklist\/([A-Za-z0-9]+)\.m3u8/);
+    return m ? m[1] : null;
+}
+
+function buildAndroBackupUrls(channel, backend) {
+    var primary = channel.url || '';
+    var pId = androIdFromUrl(primary);
+    var id = null;
+    var k = cleanKey(channel.name || '');
+    var cand = cleanKey((channel.name || '').replace(/\s*HD$/i, '').trim());
+    if (backend.idMap && backend.idMap[k]) id = backend.idMap[k];
+    else if (backend.idMap && backend.idMap[cand]) id = backend.idMap[cand];
+    if (!id && backend.idMap) {
+        for (var kk in backend.idMap) {
+            if (kk && kk.length > 3 && (k.indexOf(kk) !== -1 || kk.indexOf(k) !== -1)) {
+                id = backend.idMap[kk];
+                break;
+            }
+        }
+    }
+    if (!id && pId) id = pId;
+    if (!id) return [];
+    var out = [];
+    var bases = (backend.bases && backend.bases.length) ? backend.bases : [];
+    for (var i = 0; i < bases.length; i++) {
+        var u = bases[i] + id + ".m3u8";
+        if (u !== primary && out.indexOf(u) === -1) out.push(u);
+    }
+    return out;
+}
+
+function makeStream(name, title, url, headers) {
+    return {
+        name: name,
+        title: title,
+        url: url,
+        headers: headers,
+        behaviorHints: { isLive: true }
+    };
+}
+
+// ── Ölü maç akışı filtresi ──────────────────────────────────────────
+// Mahsunsports maç listesindeki "ch#/None" beslemelerinin çoğu CDN'de
+// gerçekten yayında değildir (404). Oynatıcı çökmesin diye akış URL'lerini
+// hafif Range isteğiyle doğrular; kesin 404/410/400 olanları sessizce eler.
+// Ağ hatası/zaman aşımı (çevresel blok olabilir) durumunda akış KORUNUR.
+function mahsunCheckUrl(url) {
+    var ctrl = null;
+    if (typeof AbortController !== 'undefined') ctrl = new AbortController();
+    var timer = setTimeout(function() { if (ctrl) ctrl.abort(); }, 5000);
+    var opts = {
+        method: 'GET',
+        headers: {
+            'User-Agent': _HEADERS['User-Agent'],
+            'Referer': MAHSUN_SITE,
+            'Range': 'bytes=0-1024'
+        }
+    };
+    if (ctrl) opts.signal = ctrl.signal;
+    return fetch(url, opts).then(function(res) {
+        clearTimeout(timer);
+        var code = res.status;
+        return { url: url, ok: (code === 200 || code === 206) };
+    }).catch(function() {
+        clearTimeout(timer);
+        return { url: url, ok: true };
+    });
+}
+
+function verifyMahsunStreams(streams) {
+    if (!streams || !streams.length) return Promise.resolve(streams);
+    var groupsArr = [];
+    var seen = {};
+    for (var i = 0; i < streams.length; i++) {
+        var u = streams[i].url;
+        if (!seen[u]) {
+            seen[u] = true;
+            groupsArr.push({ url: u, idxs: [i] });
+        } else {
+            groupsArr[groupsArr.length - 1].idxs.push(i);
+        }
+    }
+    var results = {};
+    function worker(queue) {
+        if (!queue.length) return Promise.resolve();
+        var cur = queue.shift();
+        return mahsunCheckUrl(cur.url).then(function(r) {
+            for (var j = 0; j < cur.idxs.length; j++) results[cur.idxs[j]] = r.ok;
+            return worker(queue);
+        });
+    }
+    var pool = Math.min(8, groupsArr.length);
+    var jobs = [];
+    var q = groupsArr.slice();
+    for (var p = 0; p < pool; p++) jobs.push(worker(q));
+    return Promise.all(jobs).then(function() {
+        var kept = [];
+        for (var k = 0; k < streams.length; k++) {
+            if (results[k] !== false) kept.push(streams[k]);
+        }
+        return kept;
+    });
 }
 
 function getCatalog(args) {
@@ -115,6 +429,17 @@ function getCatalog(args) {
                     description: ch.name + " Canlı Spor Yayını"
                 };
             });
+
+            // Mahsunsports: 4 kategorideki canlı maç yayınlarını barındıran sanal kanal.
+            metas.unshift({
+                id: "tv:mahsunsports",
+                type: "tv",
+                name: "Mahsunsports",
+                poster: MAHSUN_LOGO,
+                background: MAHSUN_LOGO,
+                genres: ["Spor"],
+                description: "Mahsunsports canlı maç yayınları — Futbol, Basketbol, Voleybol ve Tenis"
+            });
             return { metas: metas };
         })
         .catch(function() {
@@ -130,6 +455,39 @@ var VERIFIED_BACKUPS = {
     'tv85': 'https://tv8.daioncdn.net/tv8bucuk/tv8bucuk.m3u8?app=tv8bucuk_web&ce=3'
 };
 
+function buildMahsunMatchStreams(groups, onlyIndex) {
+    var streams = [];
+    var base = '';
+    var bases = (mahsunCache && mahsunCache.bases && mahsunCache.bases.length) ? mahsunCache.bases : [];
+    if (bases.length) base = bases[0];
+
+    for (var i = 0; i < groups.length; i++) {
+        var g = groups[i];
+        if (onlyIndex !== null && onlyIndex !== undefined && i !== onlyIndex) continue;
+        var liveTag = g.live ? 'Canlı' : (g.time || '');
+        var suffix = liveTag ? ' · ' + liveTag : '';
+        if (g.ana && g.ana.id && base) {
+            streams.push(makeStream(
+                '⌜ Mahsunsports · ' + g.cat + ' ⌟',
+                g.title + ' [Ana Yayın' + suffix + ']',
+                base + g.ana.id + '.m3u8',
+                _MAHSUN_HEADERS
+            ));
+        }
+        for (var yi = 0; yi < g.yedek.length; yi++) {
+            var yd = g.yedek[yi];
+            if (!yd.id || !base) continue;
+            streams.push(makeStream(
+                '⌜ Mahsunsports · ' + g.cat + ' · Yedek ⌟',
+                g.title + ' [Yedek Akış ' + (yi + 1) + suffix + ']',
+                base + yd.id + '.m3u8',
+                _MAHSUN_HEADERS
+            ));
+        }
+    }
+    return streams;
+}
+
 function getStreams(args) {
     var targetId = (typeof args === 'string') ? args : (args ? (args.id || args.name) : "");
     var mediaType = (args && args.type) || (args && args.mediaType) || '';
@@ -143,19 +501,33 @@ function getStreams(args) {
         }
     }
 
+    // ── Mahsunsports sanal kanalı ──
+    var cleanT = String(targetId || '').toLowerCase();
+    if (cleanT.indexOf('tv:mahsunsports') === 0) {
+        var sub = cleanT.replace(/^tv:mahsunsports:?/, '');
+        var idx = (sub && /^\d+$/.test(sub)) ? parseInt(sub, 10) : null;
+        return fetchMahsunMatches().then(function(groups) {
+            var streams = buildMahsunMatchStreams(groups, idx);
+            streams.streams = streams;
+            return verifyMahsunStreams(streams).then(function(kept) {
+                kept.streams = kept;
+                return kept;
+            });
+        });
+    }
+
     return fetchChannels()
         .then(function(content) {
             var channels = parseSportChannels(content);
             if (!targetId && channels.length > 0) {
                 return channels.slice(0, 5).map(function(ch) {
                     var encrypted = isEncryptedSport(ch);
-                    return {
-                        name: '⌜ Anthology Spor ⌟',
-                        title: ch.name + ' [Canlı HD]',
-                        url: ch.url,
-                        headers: encrypted ? _MAHSUN_HEADERS : _HEADERS,
-                        behaviorHints: { isLive: true }
-                    };
+                    return makeStream(
+                        '⌜ Anthology Spor ⌟',
+                        ch.name + ' [Canlı HD]',
+                        ch.url,
+                        encrypted ? _MAHSUN_HEADERS : _HEADERS
+                    );
                 });
             }
 
@@ -183,59 +555,35 @@ function getStreams(args) {
             var encrypted = isEncryptedSport(matched);
 
             if (encrypted) {
-                // Şifreli kanallar: Canlı spor yayınları
-                streams.push({
-                    name: '⌜ Anthology Spor ⌟',
-                    title: matched.name + ' [Canlı HD]',
-                    url: matched.url,
-                    headers: _MAHSUN_HEADERS,
-                    behaviorHints: { isLive: true }
-                });
-
-                // Alternatif yedek akışlar
-                var key = cleanKey(matched.id.replace(/^tv:/, ''));
-                var backupUrl = null;
-                if (key.includes('beinsportsmax1')) backupUrl = 'https://andro.evrenesoglu101.click/checklist/androstreamlivebsm1.m3u8';
-                else if (key.includes('beinsportsmax2')) backupUrl = 'https://andro.evrenesoglu101.click/checklist/androstreamlivebsm2.m3u8';
-                else if (key.includes('beinsports1')) backupUrl = 'https://andro.evrenesoglu101.click/checklist/androstreamlivebs1.m3u8';
-                else if (key.includes('beinsports2')) backupUrl = 'https://andro.evrenesoglu101.click/checklist/androstreamlivebs2.m3u8';
-                else if (key.includes('beinsports3')) backupUrl = 'https://andro.evrenesoglu101.click/checklist/androstreamlivebs3.m3u8';
-                else if (key.includes('beinsports4')) backupUrl = 'https://andro.evrenesoglu101.click/checklist/androstreamlivebs4.m3u8';
-                else if (key.includes('beinsports5')) backupUrl = 'https://andro.evrenesoglu101.click/checklist/androstreamlivebs5.m3u8';
-                else if (key.includes('ssportplus')) backupUrl = 'https://andro.evrenesoglu101.click/checklist/batutest.m3u8';
-                else if (key.includes('ssport2')) backupUrl = 'https://andro.evrenesoglu101.click/checklist/androstreamlivess2.m3u8';
-                else if (key.includes('ssport')) backupUrl = 'https://andro.evrenesoglu99.click/checklist/batutest.m3u8';
-
-                if (backupUrl && backupUrl !== matched.url) {
-                    streams.push({
-                        name: '⌜ Anthology Spor · Yedek ⌟',
-                        title: matched.name + ' [Yedek Akış]',
-                        url: backupUrl,
-                        headers: _MAHSUN_HEADERS,
-                        behaviorHints: { isLive: true }
+                streams.push(makeStream('⌜ Anthology Spor ⌟', matched.name + ' [Canlı HD]', matched.url, _MAHSUN_HEADERS));
+                // kullanıcı canli.m3u satırına tvg-backup="..." verdiyse o kullanılır.
+                if (matched.backup && matched.backup !== matched.url) {
+                    streams.push(makeStream('⌜ Anthology Spor · Yedek ⌟', matched.name + ' [Yedek Akış]', matched.backup, _MAHSUN_HEADERS));
+                } else {
+                    return fetchMahsunBackend().then(function(backend) {
+                        var backups = buildAndroBackupUrls(matched, backend);
+                        for (var bi = 0; bi < backups.length; bi++) {
+                            streams.push(makeStream('⌜ Anthology Spor · Yedek ⌟', matched.name + ' [Yedek Akış]', backups[bi], _MAHSUN_HEADERS));
+                        }
+                        streams.streams = streams;
+                        return streams;
                     });
                 }
             } else {
-                // Şifresiz resmi spor kanalları
-                streams.push({
-                    name: '⌜ Anthology Spor ⌟',
-                    title: matched.name + ' [Canlı HD]',
-                    url: matched.url,
-                    headers: _HEADERS,
-                    behaviorHints: { isLive: true }
-                });
-
-                for (var bk in VERIFIED_BACKUPS) {
-                    if (cleanKey(matched.id).includes(bk) && VERIFIED_BACKUPS[bk] !== matched.url) {
-                        streams.push({
-                            name: '⌜ Anthology Spor · Yedek ⌟',
-                            title: matched.name + ' [Yedek Akış]',
-                            url: VERIFIED_BACKUPS[bk],
-                            headers: _HEADERS,
-                            behaviorHints: { isLive: true }
-                        });
-                        break;
+                streams.push(makeStream('⌜ Anthology Spor ⌟', matched.name + ' [Canlı HD]', matched.url, _HEADERS));
+                var extra = '';
+                if (matched.backup && matched.backup !== matched.url) {
+                    extra = matched.backup;
+                } else {
+                    for (var bk in VERIFIED_BACKUPS) {
+                        if (cleanKey(matched.id).includes(bk)) {
+                            extra = VERIFIED_BACKUPS[bk];
+                            break;
+                        }
                     }
+                }
+                if (extra) {
+                    streams.push(makeStream('⌜ Anthology Spor · Yedek ⌟', matched.name + ' [Yedek Akış]', extra, _HEADERS));
                 }
             }
 
@@ -252,11 +600,43 @@ function getStreams(args) {
 function getMeta(args) {
     var targetId = (typeof args === 'string') ? args : (args && args.id ? args.id : null);
     if (!targetId) return Promise.resolve({ meta: null });
+
+    var cleanT = String(targetId).toLowerCase();
+    if (cleanT.indexOf('tv:mahsunsports') === 0) {
+        return fetchMahsunMatches().then(function(groups) {
+            var videos = [];
+            for (var i = 0; i < groups.length; i++) {
+                var g = groups[i];
+                videos.push({
+                    id: 'tv:mahsunsports:' + i,
+                    title: g.title + (g.live ? ' [CANLI]' : (g.time ? ' · ' + g.time : '')),
+                    released: new Date().toISOString()
+                });
+            }
+            return {
+                meta: {
+                    id: 'tv:mahsunsports',
+                    type: "tv",
+                    name: "Mahsunsports",
+                    poster: MAHSUN_LOGO,
+                    background: MAHSUN_LOGO,
+                    description: "Mahsunsports canlı maç yayınları — Futbol, Basketbol, Voleybol ve Tenis",
+                    genres: ["Spor"],
+                    videos: videos
+                }
+            };
+        }).catch(function() {
+            return { meta: null };
+        });
+    }
+
     return fetchChannels()
         .then(function(content) {
             var channels = parseSportChannels(content);
             var cleanTarget = cleanKey(targetId.replace(/^tv:/, ''));
-            var ch = channels.find(function(c) { return c.id === targetId || cleanKey(c.id.replace(/^tv:/, '')) === cleanTarget || cleanKey(c.name) === cleanTarget; }) || channels[0];
+            var ch = channels.find(function(c) { return c.id === targetId || cleanKey(c.id.replace(/^tv:/, '')) === cleanTarget || cleanKey(c.name) === cleanTarget; });
+            if (!ch) ch = channels[0];
+            if (!ch) return { meta: null };
             return {
                 meta: {
                     id: targetId,
