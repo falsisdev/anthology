@@ -1,26 +1,42 @@
 /**
- * Anthology - HDFilmCehennemi Provider
- * https://www.hdfilmcehennemi.nl/
- * CloseLoad (hdfilmcehennemi.mobi) üzerinden 1080p çift ses (TR Dublaj & Orijinal) HLS akışları.
+ * Anthology Provider: hdfilmcehennemi
+ * Built from src/hdfilmcehennemi/index.js
+ * Build Date: 2026-09-18T12:02:20.321Z
  */
+var __async = (__this, __arguments, generator) => {
+  return new Promise((resolve, reject) => {
+    var fulfilled = (value) => {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var rejected = (value) => {
+      try {
+        step(generator.throw(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
+    step((generator = generator.apply(__this, __arguments)).next());
+  });
+};
 
-var BASE_URL = 'https://www.hdfilmcehennemi.nl';
-var TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
-
+// src/hdfilmcehennemi/index.js
+var BASE_URL = "https://www.hdfilmcehennemi.nl";
+var TMDB_API_KEY = "500330721680edb6d5f7f12ba7cd9023";
 var HEADERS = {
-  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
-  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
-  'Accept-Language': 'tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7',
-  'Referer': BASE_URL + '/'
+  "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+  "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
+  "Accept-Language": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7",
+  "Referer": BASE_URL + "/"
 };
-
 var CLOSELOAD_HEADERS = {
-  'User-Agent': HEADERS['User-Agent'],
-  'Referer': 'https://hdfilmcehennemi.mobi/'
+  "User-Agent": HEADERS["User-Agent"],
+  "Referer": "https://hdfilmcehennemi.mobi/"
 };
-
-// ==================== DOĞRULANMIŞ FİLM HARİTASI ====================
-
 var FILM_MAP = {
   // Top / Popüler Filmler
   "tt0133093": "hd-the-matrix-izle",
@@ -186,194 +202,155 @@ var FILM_MAP = {
   "tt3801934": "1-wild-city-izle-4",
   "tt1572168": "black-ransom-2010"
 };
-
-var SLUG_CACHE = new Map();
-
-// ==================== YARDIMCI FONKSİYONLAR ====================
-
+var SLUG_CACHE = /* @__PURE__ */ new Map();
 function fetchWithTimeout(url, options, ms) {
   var opts = options || {};
   try {
-    if (typeof AbortSignal !== 'undefined' && AbortSignal.timeout) {
-      opts.signal = AbortSignal.timeout(ms || 10000);
+    if (typeof AbortSignal !== "undefined" && AbortSignal.timeout) {
+      opts.signal = AbortSignal.timeout(ms || 1e4);
     }
-  } catch (e) {}
+  } catch (e) {
+  }
   return fetch(url, opts);
 }
-
 function slugify(text) {
-  if (!text) return '';
-  return text.toString().toLowerCase()
-    .replace(/[ıİ]/g, 'i').replace(/[üÜ]/g, 'u').replace(/[öÖ]/g, 'o')
-    .replace(/[şŞ]/g, 's').replace(/[ğĞ]/g, 'g').replace(/[çÇ]/g, 'c')
-    .replace(/[âÂ]/g, 'a').replace(/[îÎ]/g, 'i').replace(/[ûÛ]/g, 'u')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
+  if (!text) return "";
+  return text.toString().toLowerCase().replace(/[ıİ]/g, "i").replace(/[üÜ]/g, "u").replace(/[öÖ]/g, "o").replace(/[şŞ]/g, "s").replace(/[ğĞ]/g, "g").replace(/[çÇ]/g, "c").replace(/[âÂ]/g, "a").replace(/[îÎ]/g, "i").replace(/[ûÛ]/g, "u").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 }
-
 function ultraClean(str) {
-  if (!str) return '';
-  return str.toString().toLowerCase()
-    .replace(/[ıİ]/g, 'i').replace(/[üÜ]/g, 'u').replace(/[öÖ]/g, 'o')
-    .replace(/[şŞ]/g, 's').replace(/[ğĞ]/g, 'g').replace(/[çÇ]/g, 'c')
-    .replace(/[âÂ]/g, 'a').replace(/[îÎ]/g, 'i').replace(/[ûÛ]/g, 'u')
-    .replace(/[^a-z0-9]/g, '')
-    .trim();
+  if (!str) return "";
+  return str.toString().toLowerCase().replace(/[ıİ]/g, "i").replace(/[üÜ]/g, "u").replace(/[öÖ]/g, "o").replace(/[şŞ]/g, "s").replace(/[ğĞ]/g, "g").replace(/[çÇ]/g, "c").replace(/[âÂ]/g, "a").replace(/[îÎ]/g, "i").replace(/[ûÛ]/g, "u").replace(/[^a-z0-9]/g, "").trim();
 }
-
-// ==================== TMDB BİLGİ ÇÖZÜMLEME ====================
-
-async function resolveTmdbInfo(id) {
-  try {
-    var cleanId = String(id || '').trim();
-    if (cleanId.includes(':')) cleanId = cleanId.split(':')[0];
-
-    var titleTr = '';
-    var titleEn = '';
-    var year = '';
-    var imdbId = '';
-    var tmdbId = '';
-
-    if (cleanId.startsWith('tt')) {
-      imdbId = cleanId;
-      var findUrl = 'https://api.themoviedb.org/3/find/' + cleanId + '?api_key=' + TMDB_API_KEY + '&external_source=imdb_id&language=tr-TR';
-      var findRes = await fetchWithTimeout(findUrl, {}, 8000);
-      if (findRes.ok) {
-        var fd = await findRes.json();
-        var match = fd.movie_results && fd.movie_results[0];
-        if (match) {
-          titleTr = match.title || '';
-          titleEn = match.original_title || '';
-          year = (match.release_date || '').split('-')[0];
-          tmdbId = String(match.id || '');
-        }
-      }
-    } else if (/^\d+$/.test(cleanId)) {
-      tmdbId = cleanId;
-      var movieUrl = 'https://api.themoviedb.org/3/movie/' + cleanId + '?api_key=' + TMDB_API_KEY + '&language=tr-TR';
-      var mRes = await fetchWithTimeout(movieUrl, {}, 8000);
-      if (mRes.ok) {
-        var md = await mRes.json();
-        titleTr = md.title || '';
-        titleEn = md.original_title || '';
-        year = (md.release_date || '').split('-')[0];
-        imdbId = md.imdb_id || '';
-      }
-    }
-
-    return {
-      titleTr: titleTr,
-      titleEn: titleEn,
-      year: year,
-      imdbId: imdbId,
-      tmdbId: tmdbId
-    };
-  } catch (e) {
-    return { titleTr: '', titleEn: '', year: '', imdbId: '', tmdbId: '' };
-  }
-}
-
-// ==================== FİLM EŞLEŞTİRME (SLUG BULUCU) ====================
-
-async function findMovieSlug(tmdbIdOrSlug) {
-  var cleanId = String(tmdbIdOrSlug || '').trim();
-  if (cleanId.startsWith('hdfilmcehennemi:movie:')) {
-    return cleanId.replace('hdfilmcehennemi:movie:', '').trim();
-  }
-
-  // 1. Doğrudan FILM_MAP kontrolü
-  if (FILM_MAP[cleanId]) return FILM_MAP[cleanId];
-  if (cleanId.includes(':')) {
-    var rawId = cleanId.split(':')[0];
-    if (FILM_MAP[rawId]) return FILM_MAP[rawId];
-  }
-
-  // 2. Bellek Önbelleği (Cache) kontrolü
-  if (SLUG_CACHE.has(cleanId)) return SLUG_CACHE.get(cleanId);
-
-  // 3. TMDB Metadata Çözümleme
-  var info = await resolveTmdbInfo(cleanId);
-  if (info.imdbId && FILM_MAP[info.imdbId]) {
-    SLUG_CACHE.set(cleanId, FILM_MAP[info.imdbId]);
-    return FILM_MAP[info.imdbId];
-  }
-  if (info.tmdbId && FILM_MAP[info.tmdbId]) {
-    SLUG_CACHE.set(cleanId, FILM_MAP[info.tmdbId]);
-    return FILM_MAP[info.tmdbId];
-  }
-
-  // 4. Aday Slug Üretimi ve Doğrulama
-  var candidates = [];
-  var enSlug = slugify(info.titleEn);
-  var trSlug = slugify(info.titleTr);
-  var year = info.year;
-
-  if (enSlug) {
-    candidates.push(enSlug);
-    if (year) candidates.push(enSlug + '-' + year);
-    candidates.push('hd-' + enSlug + '-izle');
-    candidates.push('1-' + enSlug + '-izle-6');
-    candidates.push('1-' + enSlug + '-izle-7');
-    candidates.push('1-' + enSlug + '-izle-8');
-    candidates.push('1-' + enSlug + '-izle-10');
-    candidates.push(enSlug + '-izle');
-    candidates.push(enSlug + '-hdf');
-  }
-
-  if (trSlug && trSlug !== enSlug) {
-    candidates.push(trSlug);
-    if (year) candidates.push(trSlug + '-' + year);
-    candidates.push('hd-' + trSlug + '-izle');
-    candidates.push('1-' + trSlug + '-izle-6');
-    candidates.push('1-' + trSlug + '-izle-7');
-    candidates.push('1-' + trSlug + '-izle-8');
-    candidates.push('1-' + trSlug + '-izle-10');
-    candidates.push('1-' + trSlug + '-film-izle-hdf-hdf-6');
-    candidates.push('1-' + trSlug + '-film-izle-hdf-hdf-7');
-    candidates.push('1-' + trSlug + '-film-izle-hdf-hdf-8');
-    candidates.push('1-' + trSlug + '-film-izle-hdf-hdf-10');
-    candidates.push(trSlug + '-izle');
-    candidates.push(trSlug + '-hdf');
-  }
-
-  // Adayları teker teker veya küçük gruplarla doğrula
-  var cleanTargetEn = ultraClean(info.titleEn);
-  var cleanTargetTr = ultraClean(info.titleTr);
-
-  for (var i = 0; i < candidates.length; i++) {
-    var cand = candidates[i];
-    if (!cand) continue;
+function resolveTmdbInfo(id) {
+  return __async(this, null, function* () {
     try {
-      var res = await fetchWithTimeout(BASE_URL + '/' + cand + '/', { headers: HEADERS }, 5000);
-      if (res.status === 200) {
-        var html = await res.text();
-        var imdbMatch = html.match(/https:\/\/(?:www\.)?imdb\.com\/title\/(tt\d+)/i);
-        var pageImdb = imdbMatch ? imdbMatch[1] : null;
-
-        if (pageImdb && info.imdbId && pageImdb === info.imdbId) {
-          SLUG_CACHE.set(cleanId, cand);
-          if (info.imdbId) FILM_MAP[info.imdbId] = cand;
-          return cand;
-        }
-
-        // Başlık kontrolü
-        var titleMatch = html.match(/<title>([^<]+)<\/title>/i);
-        if (titleMatch) {
-          var pTitle = ultraClean(titleMatch[1]);
-          if ((cleanTargetEn && pTitle.includes(cleanTargetEn)) || (cleanTargetTr && pTitle.includes(cleanTargetTr))) {
-            SLUG_CACHE.set(cleanId, cand);
-            return cand;
+      var cleanId = String(id || "").trim();
+      if (cleanId.includes(":")) cleanId = cleanId.split(":")[0];
+      var titleTr = "";
+      var titleEn = "";
+      var year = "";
+      var imdbId = "";
+      var tmdbId = "";
+      if (cleanId.startsWith("tt")) {
+        imdbId = cleanId;
+        var findUrl = "https://api.themoviedb.org/3/find/" + cleanId + "?api_key=" + TMDB_API_KEY + "&external_source=imdb_id&language=tr-TR";
+        var findRes = yield fetchWithTimeout(findUrl, {}, 8e3);
+        if (findRes.ok) {
+          var fd = yield findRes.json();
+          var match = fd.movie_results && fd.movie_results[0];
+          if (match) {
+            titleTr = match.title || "";
+            titleEn = match.original_title || "";
+            year = (match.release_date || "").split("-")[0];
+            tmdbId = String(match.id || "");
           }
         }
+      } else if (/^\d+$/.test(cleanId)) {
+        tmdbId = cleanId;
+        var movieUrl = "https://api.themoviedb.org/3/movie/" + cleanId + "?api_key=" + TMDB_API_KEY + "&language=tr-TR";
+        var mRes = yield fetchWithTimeout(movieUrl, {}, 8e3);
+        if (mRes.ok) {
+          var md = yield mRes.json();
+          titleTr = md.title || "";
+          titleEn = md.original_title || "";
+          year = (md.release_date || "").split("-")[0];
+          imdbId = md.imdb_id || "";
+        }
       }
-    } catch (e) {}
-  }
-
-  return null;
+      return {
+        titleTr,
+        titleEn,
+        year,
+        imdbId,
+        tmdbId
+      };
+    } catch (e) {
+      return { titleTr: "", titleEn: "", year: "", imdbId: "", tmdbId: "" };
+    }
+  });
 }
-
-// ==================== CLOSELOAD ÇÖZÜMLEME MOTORU ====================
-
+function findMovieSlug(tmdbIdOrSlug) {
+  return __async(this, null, function* () {
+    var cleanId = String(tmdbIdOrSlug || "").trim();
+    if (cleanId.startsWith("hdfilmcehennemi:movie:")) {
+      return cleanId.replace("hdfilmcehennemi:movie:", "").trim();
+    }
+    if (FILM_MAP[cleanId]) return FILM_MAP[cleanId];
+    if (cleanId.includes(":")) {
+      var rawId = cleanId.split(":")[0];
+      if (FILM_MAP[rawId]) return FILM_MAP[rawId];
+    }
+    if (SLUG_CACHE.has(cleanId)) return SLUG_CACHE.get(cleanId);
+    var info = yield resolveTmdbInfo(cleanId);
+    if (info.imdbId && FILM_MAP[info.imdbId]) {
+      SLUG_CACHE.set(cleanId, FILM_MAP[info.imdbId]);
+      return FILM_MAP[info.imdbId];
+    }
+    if (info.tmdbId && FILM_MAP[info.tmdbId]) {
+      SLUG_CACHE.set(cleanId, FILM_MAP[info.tmdbId]);
+      return FILM_MAP[info.tmdbId];
+    }
+    var candidates = [];
+    var enSlug = slugify(info.titleEn);
+    var trSlug = slugify(info.titleTr);
+    var year = info.year;
+    if (enSlug) {
+      candidates.push(enSlug);
+      if (year) candidates.push(enSlug + "-" + year);
+      candidates.push("hd-" + enSlug + "-izle");
+      candidates.push("1-" + enSlug + "-izle-6");
+      candidates.push("1-" + enSlug + "-izle-7");
+      candidates.push("1-" + enSlug + "-izle-8");
+      candidates.push("1-" + enSlug + "-izle-10");
+      candidates.push(enSlug + "-izle");
+      candidates.push(enSlug + "-hdf");
+    }
+    if (trSlug && trSlug !== enSlug) {
+      candidates.push(trSlug);
+      if (year) candidates.push(trSlug + "-" + year);
+      candidates.push("hd-" + trSlug + "-izle");
+      candidates.push("1-" + trSlug + "-izle-6");
+      candidates.push("1-" + trSlug + "-izle-7");
+      candidates.push("1-" + trSlug + "-izle-8");
+      candidates.push("1-" + trSlug + "-izle-10");
+      candidates.push("1-" + trSlug + "-film-izle-hdf-hdf-6");
+      candidates.push("1-" + trSlug + "-film-izle-hdf-hdf-7");
+      candidates.push("1-" + trSlug + "-film-izle-hdf-hdf-8");
+      candidates.push("1-" + trSlug + "-film-izle-hdf-hdf-10");
+      candidates.push(trSlug + "-izle");
+      candidates.push(trSlug + "-hdf");
+    }
+    var cleanTargetEn = ultraClean(info.titleEn);
+    var cleanTargetTr = ultraClean(info.titleTr);
+    for (var i = 0; i < candidates.length; i++) {
+      var cand = candidates[i];
+      if (!cand) continue;
+      try {
+        var res = yield fetchWithTimeout(BASE_URL + "/" + cand + "/", { headers: HEADERS }, 5e3);
+        if (res.status === 200) {
+          var html = yield res.text();
+          var imdbMatch = html.match(/https:\/\/(?:www\.)?imdb\.com\/title\/(tt\d+)/i);
+          var pageImdb = imdbMatch ? imdbMatch[1] : null;
+          if (pageImdb && info.imdbId && pageImdb === info.imdbId) {
+            SLUG_CACHE.set(cleanId, cand);
+            if (info.imdbId) FILM_MAP[info.imdbId] = cand;
+            return cand;
+          }
+          var titleMatch = html.match(/<title>([^<]+)<\/title>/i);
+          if (titleMatch) {
+            var pTitle = ultraClean(titleMatch[1]);
+            if (cleanTargetEn && pTitle.includes(cleanTargetEn) || cleanTargetTr && pTitle.includes(cleanTargetTr)) {
+              SLUG_CACHE.set(cleanId, cand);
+              return cand;
+            }
+          }
+        }
+      } catch (e) {
+      }
+    }
+    return null;
+  });
+}
 function decryptCloseLoadScript(scriptContent) {
   try {
     var m = scriptContent.match(/var\s+([a-zA-Z0-9_$]+)\s*=\s*[a-zA-Z0-9_$]+\(\[[^\]]+\]\);/);
@@ -382,285 +359,243 @@ function decryptCloseLoadScript(scriptContent) {
     var code = [
       'var atob = (typeof globalThis.atob !== "undefined") ? globalThis.atob : function(s) {',
       '  return Buffer.from(s, "base64").toString("binary");',
-      '};',
+      "};",
       'var btoa = (typeof globalThis.btoa !== "undefined") ? globalThis.btoa : function(s) {',
       '  return Buffer.from(s, "binary").toString("base64");',
-      '};',
+      "};",
       scriptContent,
-      'return ' + varName + ';'
-    ].join('\n');
+      "return " + varName + ";"
+    ].join("\n");
     return new Function(code)();
   } catch (e) {
     return null;
   }
 }
-
-async function resolveCloseLoadStreams(pageUrl) {
-  try {
-    var res = await fetchWithTimeout(pageUrl, { headers: HEADERS }, 10000);
-    if (!res.ok) return null;
-    var html = await res.text();
-
-    var ifrMatch = html.match(/data-src="([^"]*video\/embed[^"]*)"/i) || html.match(/<iframe[^>]+src="([^"]*video\/embed[^"]*)"/i);
-    if (!ifrMatch) return null;
-    var embedUrl = ifrMatch[1];
-    if (embedUrl.startsWith('//')) embedUrl = 'https:' + embedUrl;
-
-    var eRes = await fetchWithTimeout(embedUrl, {
-      headers: {
-        'User-Agent': HEADERS['User-Agent'],
-        'Referer': BASE_URL + '/'
-      }
-    }, 10000);
-    if (!eRes.ok) return null;
-    var eHtml = await eRes.text();
-
-    // Script bloklarını tara
-    var scripts = Array.from(eHtml.matchAll(/<script[\s\S]*?<\/script>/gi)).map(function(m) { return m[0]; });
-    var streamUrl = null;
-    for (var i = 0; i < scripts.length; i++) {
-      var s = scripts[i];
-      if (s.includes('var ') && s.includes('([') && (s.includes('btoa') || s.includes('atob') || s.includes('join'))) {
-        var cleanScript = s.replace(/<script[^>]*>/i, '').replace(/<\/script>/i, '');
-        var dec = decryptCloseLoadScript(cleanScript);
-        if (dec && typeof dec === 'string' && dec.startsWith('http')) {
-          streamUrl = dec;
-          break;
+function resolveCloseLoadStreams(pageUrl) {
+  return __async(this, null, function* () {
+    try {
+      var res = yield fetchWithTimeout(pageUrl, { headers: HEADERS }, 1e4);
+      if (!res.ok) return null;
+      var html = yield res.text();
+      var ifrMatch = html.match(/data-src="([^"]*video\/embed[^"]*)"/i) || html.match(/<iframe[^>]+src="([^"]*video\/embed[^"]*)"/i);
+      if (!ifrMatch) return null;
+      var embedUrl = ifrMatch[1];
+      if (embedUrl.startsWith("//")) embedUrl = "https:" + embedUrl;
+      var eRes = yield fetchWithTimeout(embedUrl, {
+        headers: {
+          "User-Agent": HEADERS["User-Agent"],
+          "Referer": BASE_URL + "/"
         }
-      }
-    }
-
-    if (!streamUrl) return null;
-
-    // Altyazıları ayrıştır
-    var subtitles = [];
-    var tracksMatch = eHtml.match(/tracks:\s*(\[[^\]]+\])/i);
-    if (tracksMatch) {
-      try {
-        var rawTracks = JSON.parse(tracksMatch[1]);
-        for (var tIdx = 0; tIdx < rawTracks.length; tIdx++) {
-          var t = rawTracks[tIdx];
-          if (t.file && t.kind === 'captions') {
-            var label = t.label || 'Subtitle';
-            var lowerLabel = label.toLowerCase();
-            var langCode = 'tr';
-            var isoLang = 'tur';
-
-            if (lowerLabel.includes('eng') || lowerLabel.includes('ing')) {
-              langCode = 'en';
-              isoLang = 'eng';
-            } else if (lowerLabel.includes('tur') || lowerLabel.includes('türk')) {
-              langCode = 'tr';
-              isoLang = 'tur';
-            } else if (lowerLabel.includes('ger') || lowerLabel.includes('alm')) {
-              langCode = 'de';
-              isoLang = 'ger';
-            } else if (lowerLabel.includes('fre') || lowerLabel.includes('fra')) {
-              langCode = 'fr';
-              isoLang = 'fre';
-            } else if (lowerLabel.includes('spa') || lowerLabel.includes('isp')) {
-              langCode = 'es';
-              isoLang = 'spa';
-            }
-
-            subtitles.push({
-              id: 'hdfc_sub_' + tIdx,
-              url: t.file,
-              file: t.file,
-              link: t.file,
-              lang: isoLang,
-              language: langCode,
-              label: label,
-              name: label,
-              title: label,
-              format: 'vtt',
-              type: 'text/vtt',
-              mimeType: 'text/vtt',
-              headers: {
-                'User-Agent': HEADERS['User-Agent'],
-                'Referer': 'https://hdfilmcehennemi.mobi/'
-              }
-            });
+      }, 1e4);
+      if (!eRes.ok) return null;
+      var eHtml = yield eRes.text();
+      var scripts = Array.from(eHtml.matchAll(/<script[\s\S]*?<\/script>/gi)).map(function(m) {
+        return m[0];
+      });
+      var streamUrl = null;
+      for (var i = 0; i < scripts.length; i++) {
+        var s = scripts[i];
+        if (s.includes("var ") && s.includes("([") && (s.includes("btoa") || s.includes("atob") || s.includes("join"))) {
+          var cleanScript = s.replace(/<script[^>]*>/i, "").replace(/<\/script>/i, "");
+          var dec = decryptCloseLoadScript(cleanScript);
+          if (dec && typeof dec === "string" && dec.startsWith("http")) {
+            streamUrl = dec;
+            break;
           }
         }
-      } catch (e) {}
+      }
+      if (!streamUrl) return null;
+      var subtitles = [];
+      var tracksMatch = eHtml.match(/tracks:\s*(\[[^\]]+\])/i);
+      if (tracksMatch) {
+        try {
+          var rawTracks = JSON.parse(tracksMatch[1]);
+          for (var tIdx = 0; tIdx < rawTracks.length; tIdx++) {
+            var t = rawTracks[tIdx];
+            if (t.file && t.kind === "captions") {
+              var label = t.label || "Subtitle";
+              var lowerLabel = label.toLowerCase();
+              var langCode = "tr";
+              var isoLang = "tur";
+              if (lowerLabel.includes("eng") || lowerLabel.includes("ing")) {
+                langCode = "en";
+                isoLang = "eng";
+              } else if (lowerLabel.includes("tur") || lowerLabel.includes("t\xFCrk")) {
+                langCode = "tr";
+                isoLang = "tur";
+              } else if (lowerLabel.includes("ger") || lowerLabel.includes("alm")) {
+                langCode = "de";
+                isoLang = "ger";
+              } else if (lowerLabel.includes("fre") || lowerLabel.includes("fra")) {
+                langCode = "fr";
+                isoLang = "fre";
+              } else if (lowerLabel.includes("spa") || lowerLabel.includes("isp")) {
+                langCode = "es";
+                isoLang = "spa";
+              }
+              subtitles.push({
+                id: "hdfc_sub_" + tIdx,
+                url: t.file,
+                file: t.file,
+                link: t.file,
+                lang: isoLang,
+                language: langCode,
+                label,
+                name: label,
+                title: label,
+                format: "vtt",
+                type: "text/vtt",
+                mimeType: "text/vtt",
+                headers: {
+                  "User-Agent": HEADERS["User-Agent"],
+                  "Referer": "https://hdfilmcehennemi.mobi/"
+                }
+              });
+            }
+          }
+        } catch (e) {
+        }
+      }
+      return {
+        streamUrl,
+        subtitles
+      };
+    } catch (e) {
+      return null;
     }
-
-    return {
-      streamUrl: streamUrl,
-      subtitles: subtitles
-    };
-  } catch (e) {
-    return null;
-  }
+  });
 }
-
-// ==================== STREAMS API ====================
-
-async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
-  try {
-    var rawId = tmdbIdOrArgs;
-    if (typeof tmdbIdOrArgs === 'object' && tmdbIdOrArgs !== null) {
-      rawId = tmdbIdOrArgs.id || '';
-      mediaType = mediaType || tmdbIdOrArgs.type || tmdbIdOrArgs.mediaType;
-    }
-
-    if (!rawId) return [];
-
-    // Dizi isteklerini atla (HDFilmCehennemi film odaklıdır)
-    if (mediaType === 'tv' || mediaType === 'series') {
+function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
+  return __async(this, null, function* () {
+    try {
+      var rawId = tmdbIdOrArgs;
+      if (typeof tmdbIdOrArgs === "object" && tmdbIdOrArgs !== null) {
+        rawId = tmdbIdOrArgs.id || "";
+        mediaType = mediaType || tmdbIdOrArgs.type || tmdbIdOrArgs.mediaType;
+      }
+      if (!rawId) return [];
+      if (mediaType === "tv" || mediaType === "series") {
+        return [];
+      }
+      var slug = yield findMovieSlug(rawId);
+      if (!slug) return [];
+      var pageUrl = BASE_URL + "/" + slug + "/";
+      var resolved = yield resolveCloseLoadStreams(pageUrl);
+      if (!resolved || !resolved.streamUrl) return [];
+      var masterUrl = resolved.streamUrl;
+      var playUrl = masterUrl.includes("#") ? masterUrl : masterUrl + "#.m3u8";
+      var streams = [];
+      streams.push({
+        name: "HDFilmCehennemi [CloseLoad]",
+        title: "HDFilmCehennemi - 1080p [Dual: TR Dublaj / Orijinal]",
+        url: playUrl,
+        quality: "1080p",
+        format: "hls",
+        isHls: true,
+        contentLanguage: ["tr", "en"],
+        behaviorHints: {
+          headers: CLOSELOAD_HEADERS
+        },
+        headers: CLOSELOAD_HEADERS,
+        subtitles: resolved.subtitles
+      });
+      return streams;
+    } catch (e) {
       return [];
     }
-
-    var slug = await findMovieSlug(rawId);
-    if (!slug) return [];
-
-    var pageUrl = BASE_URL + '/' + slug + '/';
-    var resolved = await resolveCloseLoadStreams(pageUrl);
-    if (!resolved || !resolved.streamUrl) return [];
-
-    var masterUrl = resolved.streamUrl;
-    // Oynatıcıların HLS formatını garanti algılaması için #.m3u8 eki eklenir
-    var playUrl = masterUrl.includes('#') ? masterUrl : (masterUrl + '#.m3u8');
-
-    var streams = [];
-
-    streams.push({
-      name: 'HDFilmCehennemi [CloseLoad]',
-      title: 'HDFilmCehennemi - 1080p [Dual: TR Dublaj / Orijinal]',
-      url: playUrl,
-      quality: '1080p',
-      format: 'hls',
-      isHls: true,
-      contentLanguage: ['tr', 'en'],
-      behaviorHints: {
-        headers: CLOSELOAD_HEADERS
-      },
-      headers: CLOSELOAD_HEADERS,
-      subtitles: resolved.subtitles
-    });
-
-    return streams;
-  } catch (e) {
-    return [];
-  }
+  });
 }
-
-// ==================== KATALOG VE METADATA API ====================
-
-async function getCatalog(args) {
-  try {
-    var pages = [
-      BASE_URL + '/',
-      BASE_URL + '/imdb-7-puan-uzeri-filmler-2/',
-      BASE_URL + '/en-cok-yorumlananlar-2/',
-      BASE_URL + '/feed/'
-    ];
-
-    var metas = [];
-    var seenSlugs = new Set();
-
-    for (var i = 0; i < pages.length; i++) {
-      try {
-        var res = await fetchWithTimeout(pages[i], { headers: HEADERS }, 8000);
-        if (!res.ok) continue;
-        var html = await res.text();
-
-        var matches = Array.from(html.matchAll(/<a[^>]+href="https:\/\/www\.hdfilmcehennemi\.nl\/([^"\/]+)\/"[^>]*title="([^"]*)"/gi));
-        for (var mIdx = 0; mIdx < matches.length; mIdx++) {
-          var m = matches[mIdx];
-          var slug = m[1];
-          var rawTitle = m[2];
-
-          if (!slug || seenSlugs.has(slug)) continue;
-          if (slug.includes('category') || slug.includes('yil') || slug.includes('imdb') ||
-              slug.includes('yorum') || slug.includes('begeni') || slug.includes('robotu') ||
-              slug.includes('apk') || slug.includes('iletisim') || slug.includes('dizi/') ||
-              slug.includes('tur/') || slug.includes('dil/') || slug.includes('serifilmlerim') ||
-              slug.includes('film-istek')) {
-            continue;
+function getCatalog(args) {
+  return __async(this, null, function* () {
+    try {
+      var pages = [
+        BASE_URL + "/",
+        BASE_URL + "/imdb-7-puan-uzeri-filmler-2/",
+        BASE_URL + "/en-cok-yorumlananlar-2/",
+        BASE_URL + "/feed/"
+      ];
+      var metas = [];
+      var seenSlugs = /* @__PURE__ */ new Set();
+      for (var i = 0; i < pages.length; i++) {
+        try {
+          var res = yield fetchWithTimeout(pages[i], { headers: HEADERS }, 8e3);
+          if (!res.ok) continue;
+          var html = yield res.text();
+          var matches = Array.from(html.matchAll(/<a[^>]+href="https:\/\/www\.hdfilmcehennemi\.nl\/([^"\/]+)\/"[^>]*title="([^"]*)"/gi));
+          for (var mIdx = 0; mIdx < matches.length; mIdx++) {
+            var m = matches[mIdx];
+            var slug = m[1];
+            var rawTitle = m[2];
+            if (!slug || seenSlugs.has(slug)) continue;
+            if (slug.includes("category") || slug.includes("yil") || slug.includes("imdb") || slug.includes("yorum") || slug.includes("begeni") || slug.includes("robotu") || slug.includes("apk") || slug.includes("iletisim") || slug.includes("dizi/") || slug.includes("tur/") || slug.includes("dil/") || slug.includes("serifilmlerim") || slug.includes("film-istek")) {
+              continue;
+            }
+            seenSlugs.add(slug);
+            var title = rawTitle.replace(/&amp;/g, "&").replace(/&ouml;/gi, "\xF6").replace(/&uuml;/gi, "\xFC").replace(/&ccedil;/gi, "\xE7").replace(/&rsquo;/g, "\u2019").replace(/&Uuml;/gi, "\xDC").replace(/&Ouml;/gi, "\xD6").replace(/&Ccedil;/gi, "\xC7").replace(/&#039;/g, "'").replace(/\s*-\s*Hdfilmcehennemi.*$/i, "").trim();
+            metas.push({
+              id: "hdfilmcehennemi:movie:" + slug,
+              type: "movie",
+              name: title || slug,
+              poster: "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+              background: "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+              genres: ["Film", "HDFilmCehennemi"],
+              description: title + " - HDFilmCehennemi 1080p Dual Ak\u0131\u015F"
+            });
+            if (metas.length >= 50) break;
           }
-
-          seenSlugs.add(slug);
-          var title = rawTitle.replace(/&amp;/g, '&').replace(/&ouml;/gi, 'ö').replace(/&uuml;/gi, 'ü').replace(/&ccedil;/gi, 'ç')
-                              .replace(/&rsquo;/g, '’').replace(/&Uuml;/gi, 'Ü').replace(/&Ouml;/gi, 'Ö').replace(/&Ccedil;/gi, 'Ç')
-                              .replace(/&#039;/g, "'").replace(/\s*-\s*Hdfilmcehennemi.*$/i, '').trim();
-
-          metas.push({
-            id: 'hdfilmcehennemi:movie:' + slug,
-            type: 'movie',
-            name: title || slug,
-            poster: 'https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png',
-            background: 'https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png',
-            genres: ['Film', 'HDFilmCehennemi'],
-            description: title + ' - HDFilmCehennemi 1080p Dual Akış'
-          });
-
-          if (metas.length >= 50) break;
+        } catch (e) {
         }
-      } catch (e) {}
-      if (metas.length >= 50) break;
-    }
-
-    return { metas: metas };
-  } catch (e) {
-    return { metas: [] };
-  }
-}
-
-async function getMeta(args) {
-  try {
-    var rawId = (typeof args === 'string') ? args : (args && args.id ? args.id : '');
-    if (!rawId) return { meta: null };
-
-    var slug = rawId.startsWith('hdfilmcehennemi:movie:')
-      ? rawId.replace('hdfilmcehennemi:movie:', '')
-      : rawId;
-
-    var pageUrl = BASE_URL + '/' + slug + '/';
-    var res = await fetchWithTimeout(pageUrl, { headers: HEADERS }, 10000);
-    if (!res.ok) return { meta: null };
-    var html = await res.text();
-
-    var titleMatch = html.match(/<title>([^<]+)<\/title>/i);
-    var title = titleMatch ? titleMatch[1].split('|')[0].split('-')[0].trim() : slug;
-
-    var ogImg = html.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i);
-    var poster = ogImg ? ogImg[1] : 'https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png';
-
-    return {
-      meta: {
-        id: 'hdfilmcehennemi:movie:' + slug,
-        type: 'movie',
-        name: title,
-        poster: poster,
-        background: poster,
-        description: title + ' - HDFilmCehennemi',
-        genres: ['Film', 'HDFilmCehennemi'],
-        videos: [
-          {
-            id: 'hdfilmcehennemi:movie:' + slug,
-            title: title,
-            released: new Date().toISOString().split('T')[0]
-          }
-        ]
+        if (metas.length >= 50) break;
       }
-    };
-  } catch (e) {
-    return { meta: null };
-  }
+      return { metas };
+    } catch (e) {
+      return { metas: [] };
+    }
+  });
 }
-
-// ==================== EVRENSEL KALİTE SIRALAMASI ====================
-
+function getMeta(args) {
+  return __async(this, null, function* () {
+    try {
+      var rawId = typeof args === "string" ? args : args && args.id ? args.id : "";
+      if (!rawId) return { meta: null };
+      var slug = rawId.startsWith("hdfilmcehennemi:movie:") ? rawId.replace("hdfilmcehennemi:movie:", "") : rawId;
+      var pageUrl = BASE_URL + "/" + slug + "/";
+      var res = yield fetchWithTimeout(pageUrl, { headers: HEADERS }, 1e4);
+      if (!res.ok) return { meta: null };
+      var html = yield res.text();
+      var titleMatch = html.match(/<title>([^<]+)<\/title>/i);
+      var title = titleMatch ? titleMatch[1].split("|")[0].split("-")[0].trim() : slug;
+      var ogImg = html.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i);
+      var poster = ogImg ? ogImg[1] : "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png";
+      return {
+        meta: {
+          id: "hdfilmcehennemi:movie:" + slug,
+          type: "movie",
+          name: title,
+          poster,
+          background: poster,
+          description: title + " - HDFilmCehennemi",
+          genres: ["Film", "HDFilmCehennemi"],
+          videos: [
+            {
+              id: "hdfilmcehennemi:movie:" + slug,
+              title,
+              released: (/* @__PURE__ */ new Date()).toISOString().split("T")[0]
+            }
+          ]
+        }
+      };
+    } catch (e) {
+      return { meta: null };
+    }
+  });
+}
 function sortStreamsByQuality(streams) {
   if (!Array.isArray(streams) || streams.length <= 1) return streams || [];
-
   function getQualityScore(s) {
     if (!s) return 0;
     var score = 0;
-    var text = ((s.title || '') + ' ' + (s.name || '') + ' ' + (s.quality || '')).toLowerCase();
-
+    var text = ((s.title || "") + " " + (s.name || "") + " " + (s.quality || "")).toLowerCase();
     if (/\b(4k|2160p|uhd)\b/.test(text)) score = 2160;
     else if (/\b(2k|1440p|qhd)\b/.test(text)) score = 1440;
     else if (/\b(1080p|fhd|full[\s-]?hd)\b/.test(text)) score = 1080;
@@ -671,7 +606,6 @@ function sortStreamsByQuality(streams) {
     else if (/\b(240p)\b/.test(text)) score = 240;
     else if (/\b(hd)\b/.test(text) && !/\b(full[\s-]?hd)\b/.test(text)) score = 720;
     else if (/\b(sd)\b/.test(text)) score = 480;
-
     if (!score && s.url) {
       var u = String(s.url).toLowerCase();
       if (/[\/_.-](2160p?|4k)[\/_.-]/.test(u)) score = 2160;
@@ -681,28 +615,35 @@ function sortStreamsByQuality(streams) {
       else if (/[\/_.-](480p?|sd)[\/_.-]/.test(u)) score = 480;
       else if (/[\/_.-](360p?)[\/_.-]/.test(u)) score = 360;
     }
-
-    var isDirectMp4 = s.format === 'mp4' || s.type === 'mp4' || (!s.isHls && s.url && (s.url.endsWith('.mp4') || s.url.includes('.mp4?')));
+    var isDirectMp4 = s.format === "mp4" || s.type === "mp4" || !s.isHls && s.url && (s.url.endsWith(".mp4") || s.url.includes(".mp4?"));
     if (isDirectMp4 && score > 0) score += 1;
     return score;
   }
-
   return streams.slice().sort(function(a, b) {
     return getQualityScore(b) - getQualityScore(a);
   });
 }
-
-if (typeof getStreams === 'function') {
-  var _origGetStreams = getStreams;
-  getStreams = async function() {
-    var res = await _origGetStreams.apply(this, arguments);
-    return sortStreamsByQuality(res);
+if (typeof getStreams === "function") {
+  _origGetStreams = getStreams;
+  getStreams = function() {
+    return __async(this, arguments, function* () {
+      var res = yield _origGetStreams.apply(this, arguments);
+      return sortStreamsByQuality(res);
+    });
   };
 }
-
-if (typeof module !== 'undefined') module.exports = { getStreams, getCatalog, getMeta };
-if (typeof globalThis !== 'undefined') {
+var _origGetStreams;
+if (typeof module !== "undefined") module.exports = { getStreams, getCatalog, getMeta };
+if (typeof globalThis !== "undefined") {
   globalThis.getStreams = getStreams;
   globalThis.getCatalog = getCatalog;
   globalThis.getMeta = getMeta;
 }
+
+if (typeof globalThis !== 'undefined' && typeof module !== 'undefined' && module.exports) {
+    if (module.exports.getStreams) globalThis.getStreams = module.exports.getStreams;
+    if (module.exports.getCatalog) globalThis.getCatalog = module.exports.getCatalog;
+    if (module.exports.getMeta) globalThis.getMeta = module.exports.getMeta;
+    if (module.exports.getSubtitles) globalThis.getSubtitles = module.exports.getSubtitles;
+}
+

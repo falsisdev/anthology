@@ -1,0 +1,792 @@
+/**
+ * Anthology - AsyaAnimeleri Provider
+ * Anime ve donghua serileri/filmleri için Sibnet, Ok.ru, Mail.ru ve Rumble doğrudan akışları sağlar.
+ */
+
+var BASE_URL = 'https://asyaanimeleri.top';
+var TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
+
+var HEADERS = {
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+  'Referer': BASE_URL + '/'
+};
+
+function timeoutSignal(ms) {
+  if (typeof AbortSignal !== 'undefined' && typeof AbortSignal.timeout === 'function') {
+    return AbortSignal.timeout(ms);
+  }
+  var controller = new AbortController();
+  setTimeout(function() { controller.abort(); }, ms);
+  return controller.signal;
+}
+
+function ultraClean(str) {
+  if (!str) return '';
+  return str.toString().toLowerCase()
+    .replace(/[ıİ]/g, 'i').replace(/[üÜ]/g, 'u').replace(/[öÖ]/g, 'o')
+    .replace(/[şŞ]/g, 's').replace(/[ğĞ]/g, 'g').replace(/[çÇ]/g, 'c')
+    .replace(/[âîûÂÎÛ]/g, function(c) {
+      return { 'â': 'a', 'î': 'i', 'û': 'u', 'Â': 'a', 'Î': 'i', 'Û': 'u' }[c] || c;
+    })
+    .replace(/[^a-z0-9]/g, '')
+    .trim();
+}
+
+function decodeHtmlEntities(str) {
+  if (!str) return '';
+  return str.toString()
+    .replace(/&quot;/g, '"')
+    .replace(/&#039;/g, "'")
+    .replace(/&#39;/g, "'")
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&#8211;/g, '-')
+    .replace(/&#8217;/g, "'")
+    .replace(/&#8220;/g, '"')
+    .replace(/&#8221;/g, '"')
+    .replace(/&#(\d+);/g, function(match, dec) { return String.fromCharCode(dec); })
+    .trim();
+}
+
+function safeBase64Decode(str) {
+  try {
+    if (typeof atob === 'function') return atob(str);
+    if (typeof Buffer !== 'undefined') return Buffer.from(str, 'base64').toString('utf8');
+  } catch (e) {}
+  return '';
+}
+
+/**
+ * TMDB / IMDb ID'den çok dilli başlıkları toplar
+ */
+async function resolveTmdbInfo(id, mediaType) {
+  try {
+    var cleanId = String(id || '').trim();
+    if (cleanId.indexOf(':') !== -1) cleanId = cleanId.split(':')[0];
+
+    var numericId = null;
+    var titles = [];
+
+    if (cleanId.indexOf('tt') === 0) {
+      var findRes = await fetch('https://api.themoviedb.org/3/find/' + cleanId + '?api_key=' + TMDB_API_KEY + '&external_source=imdb_id', { signal: timeoutSignal(6000) });
+      if (findRes.ok) {
+        var fData = await findRes.json();
+        var item = (mediaType === 'tv' || mediaType === 'series')
+          ? (fData.tv_results && fData.tv_results[0])
+          : (fData.movie_results && fData.movie_results[0]);
+        if (item) {
+          numericId = item.id;
+          if (item.name) titles.push(item.name);
+          if (item.title) titles.push(item.title);
+          if (item.original_name) titles.push(item.original_name);
+          if (item.original_title) titles.push(item.original_title);
+        }
+      }
+    } else {
+      numericId = cleanId;
+    }
+
+    if (numericId) {
+      var type = (mediaType === 'tv' || mediaType === 'series') ? 'tv' : 'movie';
+      
+      // İngilizce ana başlık
+      var enRes = await fetch('https://api.themoviedb.org/3/' + type + '/' + numericId + '?api_key=' + TMDB_API_KEY, { signal: timeoutSignal(6000) });
+      if (enRes.ok) {
+        var enData = await enRes.json();
+        if (enData.name) titles.push(enData.name);
+        if (enData.title) titles.push(enData.title);
+        if (enData.original_name) titles.push(enData.original_name);
+        if (enData.original_title) titles.push(enData.original_title);
+      }
+
+      // Türkçe başlık
+      var trRes = await fetch('https://api.themoviedb.org/3/' + type + '/' + numericId + '?api_key=' + TMDB_API_KEY + '&language=tr-TR', { signal: timeoutSignal(6000) });
+      if (trRes.ok) {
+        var trData = await trRes.json();
+        if (trData.name) titles.push(trData.name);
+        if (trData.title) titles.push(trData.title);
+      }
+
+      // Alternatif başlıklar
+      var altRes = await fetch('https://api.themoviedb.org/3/' + type + '/' + numericId + '/alternative_titles?api_key=' + TMDB_API_KEY, { signal: timeoutSignal(6000) });
+      if (altRes.ok) {
+        var altData = await altRes.json();
+        var alts = altData.titles || altData.results || [];
+        for (var i = 0; i < alts.length; i++) {
+          var a = alts[i];
+          if (a.title && /^[a-zA-Z0-9\s:.,!?'-]+$/.test(a.title)) {
+            titles.push(a.title);
+          }
+        }
+      }
+    }
+
+    var seen = {};
+    var uniqueTitles = [];
+    for (var j = 0; j < titles.length; j++) {
+      var t = decodeHtmlEntities(titles[j]).trim();
+      var u = ultraClean(t);
+      if (u && !seen[u]) {
+        seen[u] = true;
+        uniqueTitles.push(t);
+      }
+    }
+    return { titles: uniqueTitles, numericId: numericId };
+  } catch (e) {
+    return { titles: [], numericId: id };
+  }
+}
+
+/**
+ * asyaanimeleri.top sitesinde seri arar
+ */
+async function searchSeries(query) {
+  try {
+    var url = BASE_URL + '/?s=' + encodeURIComponent(query);
+    var res = await fetch(url, { headers: HEADERS, signal: timeoutSignal(8000) });
+    if (!res.ok) return [];
+    var html = await res.text();
+
+    var listupdMatch = html.match(/<div class="listupd">([\s\S]*?)<div class="pagination">/i) || 
+                       html.match(/<div class="listupd">([\s\S]*?)<\/div>\s*<\/div>\s*<\/div>/i);
+    var targetArea = listupdMatch ? listupdMatch[1] : html;
+
+    var results = [];
+    var regex = /<a href="(https:\/\/asyaanimeleri\.top\/series\/[^"]+)"[^>]*title="([^"]+)"/gi;
+    var m;
+    var seenUrls = {};
+    while ((m = regex.exec(targetArea)) !== null) {
+      var sUrl = m[1];
+      var sTitle = decodeHtmlEntities(m[2]);
+      if (!seenUrls[sUrl]) {
+        seenUrls[sUrl] = true;
+        results.push({ url: sUrl, title: sTitle });
+      }
+    }
+    return results;
+  } catch (e) {
+    return [];
+  }
+}
+
+/**
+ * Arama sonuçları arasından en uygun seriyi seçer
+ */
+function pickBestSeries(candidates, targetTitle, targetSeason, isMovie) {
+  if (!candidates || !candidates.length) return null;
+  var cleanTarget = ultraClean(targetTitle);
+
+  if (isMovie) {
+    var movieCandidates = candidates.filter(function(c) {
+      return /movie|film/i.test(c.title) || /movie|film/i.test(c.url);
+    });
+    if (movieCandidates.length) return movieCandidates[0];
+  }
+
+  if (targetSeason > 1) {
+    var seasonRegex = new RegExp('(?:' + targetSeason + '\\.?[\\s-]*sezon|season[\\s-]*' + targetSeason + '|part[\\s-]*' + targetSeason + ')', 'i');
+    var sMatch = candidates.find(function(c) {
+      return seasonRegex.test(c.title) || seasonRegex.test(c.url);
+    });
+    if (sMatch) return sMatch;
+  } else {
+    // 1. Sezon: diğer sezon ekleri bulunmayan adayları önceliklendir
+    var nonOtherSeasons = candidates.filter(function(c) {
+      var isOther = /[2-9]\.?[\\s-]*sezon|season[\\s-]*[2-9]|part[\\s-]*[2-9]/i.test(c.title) || /[2-9]-sezon/i.test(c.url);
+      var isM = /movie|film/i.test(c.title) || /movie|film/i.test(c.url);
+      return !isOther && !isM;
+    });
+    if (nonOtherSeasons.length) {
+      var exact = nonOtherSeasons.find(function(c) {
+        return ultraClean(c.title) === cleanTarget;
+      });
+      return exact || nonOtherSeasons[0];
+    }
+  }
+
+  // Genel eşleşme: ultraClean tam veya kısmi
+  for (var i = 0; i < candidates.length; i++) {
+    var cClean = ultraClean(candidates[i].title);
+    if (cClean === cleanTarget || (cleanTarget && cClean.indexOf(cleanTarget) !== -1)) {
+      return candidates[i];
+    }
+  }
+
+  return candidates[0];
+}
+
+/**
+ * Seri detay sayfasındaki bölümleri ayrıştırır
+ */
+function parseEpisodes(detailHtml) {
+  var episodes = [];
+  var eplisterIdx = detailHtml.indexOf('class="eplister"');
+  if (eplisterIdx === -1) return episodes;
+
+  var sub = detailHtml.slice(eplisterIdx);
+  var endIdx = sub.indexOf('</ul>');
+  if (endIdx !== -1) sub = sub.slice(0, endIdx);
+
+  var liRegex = /<li[^>]*>\s*<a href="([^"]+)"[^>]*>([\s\S]*?)<\/a>\s*<\/li>/gi;
+  var m;
+  while ((m = liRegex.exec(sub)) !== null) {
+    var epUrl = m[1];
+    var inner = m[2];
+
+    var numMatch = inner.match(/<div class="epl-num">([^<]+)<\/div>/i);
+    var titleMatch = inner.match(/<div class="epl-title">([^<]+)<\/div>/i);
+    var dateMatch = inner.match(/<div class="epl-date">([^<]+)<\/div>/i);
+
+    var epNum = numMatch ? decodeHtmlEntities(numMatch[1]).trim() : '';
+    var epTitle = titleMatch ? decodeHtmlEntities(titleMatch[1]).trim() : '';
+    var epDate = dateMatch ? decodeHtmlEntities(dateMatch[1]).trim() : '';
+
+    episodes.push({
+      url: epUrl,
+      num: epNum,
+      title: epTitle,
+      date: epDate
+    });
+  }
+  return episodes;
+}
+
+/**
+ * Hedef bölüm numarasını listeden bulur
+ */
+function matchEpisode(episodes, targetEp, isMovie) {
+  if (!episodes || !episodes.length) return null;
+
+  if (isMovie) {
+    var movieEp = episodes.find(function(e) {
+      return /movie|film/i.test(e.num) || /movie|film/i.test(e.title) || /movie|film/i.test(e.url);
+    });
+    if (movieEp) return movieEp;
+    return episodes[0];
+  }
+
+  // 1. Doğrudan tekil tam sayı eşleşmesi (aralık paketlerini hariç tutarak)
+  for (var i = 0; i < episodes.length; i++) {
+    var numStr = String(episodes[i].num || '').trim();
+    if (numStr.indexOf('-') === -1) {
+      var num = parseInt(numStr);
+      if (!isNaN(num) && num === targetEp) return episodes[i];
+    }
+
+    var m = episodes[i].url.match(/-(\d+)-bolum/i);
+    if (m && parseInt(m[1]) === targetEp && episodes[i].url.indexOf('-' + targetEp + '-') === -1) {
+      return episodes[i];
+    }
+  }
+
+  // 2. Paket aralığı eşleşmesi (örn: "1-10", "11-20")
+  for (var j = 0; j < episodes.length; j++) {
+    var rangeMatch = episodes[j].num.match(/^(\d+)\s*-\s*(\d+)$/) || episodes[j].url.match(/(\d+)-(\d+)-bolum/i);
+    if (rangeMatch) {
+      var start = parseInt(rangeMatch[1]);
+      var end = parseInt(rangeMatch[2]);
+      if (targetEp >= start && targetEp <= end) return episodes[j];
+    }
+  }
+
+  return null;
+}
+
+// ==================== OYNATICI VE ÇÖZÜCÜLER ====================
+
+/**
+ * Sibnet Doğrudan MP4 Çözücü
+ */
+async function resolveSibnet(iframeUrl) {
+  try {
+    var fullUrl = iframeUrl.startsWith('//') ? 'https:' + iframeUrl : iframeUrl;
+    var res = await fetch(fullUrl, {
+      headers: Object.assign({}, HEADERS, { 'Referer': BASE_URL + '/' }),
+      signal: timeoutSignal(7000)
+    });
+    if (!res.ok) return null;
+    var html = await res.text();
+    var m = html.match(/player\.src\(\[\{src:\s*["']?([^"'\s>]+)/i);
+    if (m) {
+      var videoPath = m[1];
+      var videoUrl = videoPath.startsWith('http') ? videoPath : ('https://video.sibnet.ru' + videoPath);
+      var sibHeaders = {
+        'Referer': 'https://video.sibnet.ru/',
+        'User-Agent': HEADERS['User-Agent']
+      };
+      return {
+        name: 'AsyaAnimeleri',
+        title: '⌜ AsyaAnimeleri ⌟ | Sibnet [1080p MP4]',
+        url: videoUrl,
+        quality: '1080p',
+        format: 'mp4',
+        isHls: false,
+        headers: sibHeaders,
+        behaviorHints: {
+          notWebReady: false,
+          proxyHeaders: { request: sibHeaders }
+        }
+      };
+    }
+  } catch (e) {}
+  return null;
+}
+
+/**
+ * Ok.ru 1080p/720p/480p/360p MP4 ve HLS Çözücü
+ */
+async function resolveOkRu(iframeUrl) {
+  try {
+    var fullUrl = iframeUrl.startsWith('//') ? 'https:' + iframeUrl : iframeUrl;
+    var res = await fetch(fullUrl, {
+      headers: { 'User-Agent': HEADERS['User-Agent'] },
+      signal: timeoutSignal(7000)
+    });
+    if (!res.ok) return [];
+    var html = await res.text();
+    var m = html.match(/data-options=["']([^"']+)["']/i);
+    if (!m) return [];
+
+    var decoded = decodeHtmlEntities(m[1]);
+    var opts = JSON.parse(decoded);
+    var vids = (opts.flashvars && opts.flashvars.videos) ? opts.flashvars.videos : [];
+    var streams = [];
+
+    var nameMap = { 'full': '1080p', 'hd': '720p', 'sd': '480p', 'low': '360p', 'lowest': '240p', 'mobile': '240p' };
+
+    for (var i = 0; i < vids.length; i++) {
+      var v = vids[i];
+      if (!v.url) continue;
+      var q = nameMap[v.name] || v.name || '720p';
+      var okHeaders = { 'User-Agent': HEADERS['User-Agent'] };
+      streams.push({
+        name: 'AsyaAnimeleri',
+        title: '⌜ AsyaAnimeleri ⌟ | Ok.ru [' + q.toUpperCase() + ' MP4]',
+        url: v.url,
+        quality: q,
+        format: 'mp4',
+        isHls: false,
+        headers: okHeaders,
+        behaviorHints: {
+          notWebReady: false,
+          proxyHeaders: { request: okHeaders }
+        }
+      });
+    }
+
+    if (opts.flashvars && opts.flashvars.hlsManifestUrl) {
+      var okHlsHeaders = { 'User-Agent': HEADERS['User-Agent'] };
+      streams.push({
+        name: 'AsyaAnimeleri',
+        title: '⌜ AsyaAnimeleri ⌟ | Ok.ru [HLS Master]',
+        url: opts.flashvars.hlsManifestUrl,
+        quality: '1080p',
+        format: 'hls',
+        isHls: true,
+        headers: okHlsHeaders,
+        behaviorHints: {
+          notWebReady: false,
+          proxyHeaders: { request: okHlsHeaders }
+        }
+      });
+    }
+
+    return streams;
+  } catch (e) {}
+  return [];
+}
+
+/**
+ * Mail.ru Doğrudan MP4 Çözücü
+ */
+async function resolveMailRu(iframeUrl) {
+  try {
+    var m = iframeUrl.match(/\/embed\/(\d+)/) || iframeUrl.match(/meta\/(\d+)/);
+    if (!m) return [];
+    var vid = m[1];
+    var metaUrl = 'https://my.mail.ru/+/video/meta/' + vid;
+    var res = await fetch(metaUrl, {
+      headers: {
+        'User-Agent': HEADERS['User-Agent'],
+        'Referer': 'https://my.mail.ru/video/embed/' + vid
+      },
+      signal: timeoutSignal(7000)
+    });
+    if (!res.ok) return [];
+    var data = await res.json();
+    var streams = [];
+    var vids = data.videos || [];
+    for (var i = 0; i < vids.length; i++) {
+      var v = vids[i];
+      if (!v.url) continue;
+      var u = v.url.startsWith('//') ? ('https:' + v.url) : v.url;
+      var q = v.key || '1080p';
+      var mailHeaders = {
+        'Referer': 'https://my.mail.ru/video/embed/' + vid,
+        'User-Agent': HEADERS['User-Agent']
+      };
+      streams.push({
+        name: 'AsyaAnimeleri',
+        title: '⌜ AsyaAnimeleri ⌟ | Mail.ru [' + q.toUpperCase() + ' MP4]',
+        url: u,
+        quality: q,
+        format: 'mp4',
+        isHls: false,
+        headers: mailHeaders,
+        behaviorHints: {
+          notWebReady: false,
+          proxyHeaders: { request: mailHeaders }
+        }
+      });
+    }
+    return streams;
+  } catch (e) {}
+  return [];
+}
+
+/**
+ * Rumble 1080p HLS Master Playlist Çözücü
+ */
+async function resolveRumble(iframeUrl) {
+  try {
+    var m = iframeUrl.match(/rumble\.com\/embed\/([a-zA-Z0-9]+)/i);
+    if (!m) return [];
+    var vid = m[1];
+    var apiUrl = 'https://rumble.com/embedJS/u3/?request=video&ver=2&v=' + vid;
+    var res = await fetch(apiUrl, {
+      headers: { 'User-Agent': HEADERS['User-Agent'] },
+      signal: timeoutSignal(7000)
+    });
+    if (!res.ok) return [];
+    var data = await res.json();
+    var hlsUrl = (data.u && data.u.hls && data.u.hls.url) ||
+                 (data.ua && data.ua.hls && data.ua.hls.auto && data.ua.hls.auto.url) ||
+                 (typeof (data.u && data.u.hls) === 'string' ? data.u.hls : null);
+
+    if (hlsUrl && typeof hlsUrl === 'string') {
+      var rHeaders = { 'User-Agent': HEADERS['User-Agent'] };
+      return [{
+        name: 'AsyaAnimeleri',
+        title: '⌜ AsyaAnimeleri ⌟ | Rumble [1080p HLS Master]',
+        url: hlsUrl,
+        quality: '1080p',
+        format: 'hls',
+        isHls: true,
+        headers: rHeaders,
+        behaviorHints: {
+          notWebReady: false,
+          proxyHeaders: { request: rHeaders }
+        }
+      }];
+    }
+  } catch (e) {}
+  return [];
+}
+
+/**
+ * Bölüm sayfasından tüm oynatıcı kaynaklarını ayrıştırıp akışları çözer
+ */
+async function fetchEpisodeMirrors(episodeUrl) {
+  try {
+    var res = await fetch(episodeUrl, { headers: HEADERS, signal: timeoutSignal(8000) });
+    if (!res.ok) return [];
+    var html = await res.text();
+
+    var iframes = [];
+    var seenIframes = {};
+
+    // 1. Mirror seçeneklerini Base64 çöz
+    var mirrorRegex = /<option value="([A-Za-z0-9+/=]+)"[^>]*>\s*([^<\n\r]+)/g;
+    var m;
+    while ((m = mirrorRegex.exec(html)) !== null) {
+      try {
+        var decoded = safeBase64Decode(m[1]);
+        var srcMatch = decoded.match(/src=["']?([^"'\s>]+)/i);
+        if (srcMatch && !seenIframes[srcMatch[1]]) {
+          seenIframes[srcMatch[1]] = true;
+          iframes.push(srcMatch[1]);
+        }
+      } catch (e) {}
+    }
+
+    // 2. Varsayılan #pembed kontrolü
+    var pembedMatch = html.match(/id="pembed"[^>]*>[\s\S]*?<iframe[^>]+src=["']([^"']+)["']/i);
+    if (pembedMatch && !seenIframes[pembedMatch[1]]) {
+      seenIframes[pembedMatch[1]] = true;
+      iframes.push(pembedMatch[1]);
+    }
+
+    // 3. Paralel çözücü çalıştırma
+    var promises = iframes.map(async function(src) {
+      if (src.indexOf('sibnet.ru') !== -1) {
+        var s = await resolveSibnet(src);
+        return s ? [s] : [];
+      } else if (src.indexOf('ok.ru') !== -1) {
+        return await resolveOkRu(src);
+      } else if (src.indexOf('mail.ru') !== -1) {
+        return await resolveMailRu(src);
+      } else if (src.indexOf('rumble.com') !== -1) {
+        return await resolveRumble(src);
+      }
+      return [];
+    });
+
+    var results = await Promise.all(promises);
+    var allStreams = [];
+    var seenStreamUrls = {};
+    for (var i = 0; i < results.length; i++) {
+      var list = results[i];
+      for (var j = 0; j < list.length; j++) {
+        var st = list[j];
+        if (st && st.url && !seenStreamUrls[st.url]) {
+          seenStreamUrls[st.url] = true;
+          allStreams.push(st);
+        }
+      }
+    }
+    return allStreams;
+  } catch (e) {
+    return [];
+  }
+}
+
+// ==================== PROVIDER API METOTLARI ====================
+
+/**
+ * getCatalog: Ana sayfadaki güncel ve popüler animeleri döner
+ */
+async function getCatalog(args) {
+  try {
+    var page = 1;
+    if (args && args.extra && args.extra.skip) {
+      page = Math.floor(args.extra.skip / 20) + 1;
+    }
+    var query = (args && args.extra && args.extra.search) ? args.extra.search : '';
+
+    var url = '';
+    if (query) {
+      url = BASE_URL + '/?s=' + encodeURIComponent(query);
+    } else {
+      url = (page > 1) ? (BASE_URL + '/series/page/' + page + '/?order=popular') : (BASE_URL + '/series/?order=popular');
+    }
+
+    var res = await fetch(url, { headers: HEADERS, signal: timeoutSignal(8000) });
+    if (!res.ok) return { metas: [] };
+    var html = await res.text();
+
+    var metas = [];
+    var seen = {};
+    var artRegex = /<article class="bs"[^>]*>[\s\S]*?<a href="(https:\/\/asyaanimeleri\.top\/series\/[^"]+)"[^>]*title="([^"]+)"[\s\S]*?<img[^>]+src="([^"]+)"/gi;
+    var m;
+    while ((m = artRegex.exec(html)) !== null) {
+      var sUrl = m[1];
+      var sTitle = decodeHtmlEntities(m[2]);
+      var sPoster = m[3];
+      var slug = sUrl.replace('https://asyaanimeleri.top/series/', '').replace(/\/$/, '');
+
+      if (!seen[slug]) {
+        seen[slug] = true;
+        metas.push({
+          id: 'asyaanimeleri:show:' + slug,
+          type: 'series',
+          name: sTitle,
+          poster: sPoster,
+          posterShape: 'poster'
+        });
+      }
+    }
+    return { metas: metas };
+  } catch (e) {
+    return { metas: [] };
+  }
+}
+
+/**
+ * getMeta: Seri detayını ve tüm bölümlerini döner
+ */
+async function getMeta(args) {
+  try {
+    var rawId = (typeof args === 'object' && args !== null) ? args.id : args;
+    if (!rawId) return { meta: null };
+
+    var slug = rawId.replace(/^asyaanimeleri:(?:show:|ep:)?/, '').replace(/\/$/, '');
+    var detailUrl = BASE_URL + '/series/' + slug + '/';
+
+    var res = await fetch(detailUrl, { headers: HEADERS, signal: timeoutSignal(8000) });
+    if (!res.ok) return { meta: null };
+    var html = await res.text();
+
+    var titleMatch = html.match(/<h1 class="entry-title"[^>]*>([^<]+)<\/h1>/i) || html.match(/<title>([^<]+)<\/title>/i);
+    var title = titleMatch ? decodeHtmlEntities(titleMatch[1]).replace(/ - Asya Animeleri.*$/i, '').trim() : slug;
+
+    var posterMatch = html.match(/class="thumb"[^>]*>[\s\S]*?<img[^>]+src="([^"]+)"/i);
+    var poster = posterMatch ? posterMatch[1] : '';
+
+    var descMatch = html.match(/class="entry-content entry-content-single"[^>]*>([\s\S]*?)<\/div>/i);
+    var desc = descMatch ? decodeHtmlEntities(descMatch[1].replace(/<[^>]+>/g, '')).trim() : '';
+
+    var episodes = parseEpisodes(html);
+    var videos = [];
+    for (var i = 0; i < episodes.length; i++) {
+      var ep = episodes[i];
+      var epNum = parseInt(ep.num) || (episodes.length - i);
+      var epSlug = ep.url.replace(BASE_URL + '/', '').replace(/\/$/, '');
+      videos.push({
+        id: 'asyaanimeleri:ep:' + epSlug,
+        title: ep.title || ('Bölüm ' + ep.num),
+        season: 1,
+        episode: epNum,
+        released: ep.date
+      });
+    }
+
+    return {
+      meta: {
+        id: 'asyaanimeleri:show:' + slug,
+        type: 'series',
+        name: title,
+        poster: poster,
+        posterShape: 'poster',
+        background: poster,
+        description: desc,
+        videos: videos
+      }
+    };
+  } catch (e) {
+    return { meta: null };
+  }
+}
+
+/**
+ * getStreams: TMDB veya doğrudan ID üzerinden akış listesini çeker
+ */
+async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
+  try {
+    if (typeof tmdbId === 'object' && tmdbId !== null) {
+      mediaType = tmdbId.type || mediaType;
+      seasonNum = tmdbId.season || seasonNum;
+      episodeNum = tmdbId.episode || episodeNum;
+      tmdbId = tmdbId.id;
+    }
+    var isTv = (mediaType === 'tv' || mediaType === 'series');
+    var finalSeason = parseInt(seasonNum) || 1;
+    var finalEpisode = parseInt(episodeNum) || 1;
+
+    // 1. asyaanimeleri:ep:slug formatı
+    if (typeof tmdbId === 'string' && tmdbId.indexOf('asyaanimeleri:ep:') === 0) {
+      var epSlug = tmdbId.replace('asyaanimeleri:ep:', '').replace(/\/$/, '');
+      var epUrl = BASE_URL + '/' + epSlug + '/';
+      return await fetchEpisodeMirrors(epUrl);
+    }
+
+    // 2. asyaanimeleri:show:slug formatı
+    if (typeof tmdbId === 'string' && tmdbId.indexOf('asyaanimeleri:show:') === 0) {
+      var showMeta = await getMeta(tmdbId);
+      if (showMeta && showMeta.meta && Array.isArray(showMeta.meta.videos) && showMeta.meta.videos.length > 0) {
+        var matchedV = showMeta.meta.videos.find(function(v) { return v.episode === finalEpisode; }) || showMeta.meta.videos[0];
+        return await getStreams(matchedV.id, mediaType, seasonNum, episodeNum);
+      }
+    }
+
+    // 3. TMDB / IMDb ID Ayrıştırma
+    if (typeof tmdbId === 'string' && tmdbId.indexOf(':') !== -1) {
+      var parts = tmdbId.split(':');
+      if (parts.length >= 3) {
+        var s = parseInt(parts[parts.length - 2]);
+        var e = parseInt(parts[parts.length - 1]);
+        if (!isNaN(s)) finalSeason = s;
+        if (!isNaN(e)) finalEpisode = e;
+      }
+    }
+
+    var info = await resolveTmdbInfo(tmdbId, mediaType);
+    if (!info.titles || !info.titles.length) return [];
+
+    var matchedSeries = null;
+
+    // TMDB başlıklarıyla arama yap
+    for (var i = 0; i < info.titles.length; i++) {
+      var q = info.titles[i];
+      var list = await searchSeries(q);
+      if (list && list.length > 0) {
+        matchedSeries = pickBestSeries(list, q, finalSeason, !isTv);
+        if (matchedSeries) break;
+      }
+    }
+
+    if (!matchedSeries) return [];
+
+    // Seri sayfasından bölümleri al
+    var sRes = await fetch(matchedSeries.url, { headers: HEADERS, signal: timeoutSignal(8000) });
+    if (!sRes.ok) return [];
+    var sHtml = await sRes.text();
+
+    var epList = parseEpisodes(sHtml);
+    if (!epList.length) return [];
+
+    var targetEpisode = matchEpisode(epList, finalEpisode, !isTv);
+    if (!targetEpisode) return [];
+
+    return await fetchEpisodeMirrors(targetEpisode.url);
+  } catch (e) {
+    return [];
+  }
+}
+
+// ==================== EVRENSEL KALİTE SIRALAMASI ====================
+
+function sortStreamsByQuality(streams) {
+  if (!Array.isArray(streams) || streams.length <= 1) return streams || [];
+
+  function getQualityScore(s) {
+    if (!s) return 0;
+    var score = 0;
+    var text = ((s.title || '') + ' ' + (s.name || '') + ' ' + (s.quality || '')).toLowerCase();
+
+    if (/\b(4k|2160p|uhd)\b/.test(text)) score = 2160;
+    else if (/\b(2k|1440p|qhd)\b/.test(text)) score = 1440;
+    else if (/\b(1080p|fhd|full[\s-]?hd)\b/.test(text)) score = 1080;
+    else if (/\b(720p)\b/.test(text)) score = 720;
+    else if (/\b(540p)\b/.test(text)) score = 540;
+    else if (/\b(480p)\b/.test(text)) score = 480;
+    else if (/\b(360p)\b/.test(text)) score = 360;
+    else if (/\b(240p)\b/.test(text)) score = 240;
+    else if (/\b(hd)\b/.test(text) && !/\b(full[\s-]?hd)\b/.test(text)) score = 720;
+    else if (/\b(sd)\b/.test(text)) score = 480;
+
+    if (!score && s.url) {
+      var u = String(s.url).toLowerCase();
+      if (/[\/_.-](2160p?|4k)[\/_.-]/.test(u)) score = 2160;
+      else if (/[\/_.-](1440p?|2k)[\/_.-]/.test(u)) score = 1440;
+      else if (/[\/_.-](1080p?|fhd)[\/_.-]/.test(u)) score = 1080;
+      else if (/[\/_.-](720p?|hd)[\/_.-]/.test(u)) score = 720;
+      else if (/[\/_.-](480p?|sd)[\/_.-]/.test(u)) score = 480;
+      else if (/[\/_.-](360p?)[\/_.-]/.test(u)) score = 360;
+    }
+
+    var isDirectMp4 = s.format === 'mp4' || s.type === 'mp4' || (!s.isHls && s.url && (s.url.endsWith('.mp4') || s.url.includes('.mp4?')));
+    if (isDirectMp4 && score > 0) score += 1;
+    return score;
+  }
+
+  return streams.slice().sort(function(a, b) {
+    return getQualityScore(b) - getQualityScore(a);
+  });
+}
+
+if (typeof getStreams === 'function') {
+  var _origGetStreams = getStreams;
+  getStreams = async function() {
+    var res = await _origGetStreams.apply(this, arguments);
+    return sortStreamsByQuality(res);
+  };
+}
+
+if (typeof module !== 'undefined') module.exports = { getStreams, getCatalog, getMeta };
+if (typeof globalThis !== 'undefined') {
+  globalThis.getStreams = getStreams;
+  globalThis.getCatalog = getCatalog;
+  globalThis.getMeta = getMeta;
+}

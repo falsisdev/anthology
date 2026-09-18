@@ -1,57 +1,119 @@
 /**
- * Anthology - SeiCode Provider
- * Anime serileri için TauVideo, OkRu, Sibnet, VidMoly ve MP4Upload doğrudan akışları sağlar.
+ * Anthology Provider: seicode
+ * Built from src/seicode/index.js
+ * Build Date: 2026-09-18T12:02:20.335Z
  */
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __commonJS = (cb, mod) => function __require() {
+  try {
+    return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
+  } catch (e) {
+    throw mod = 0, e;
+  }
+};
+var __async = (__this, __arguments, generator) => {
+  return new Promise((resolve, reject) => {
+    var fulfilled = (value) => {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var rejected = (value) => {
+      try {
+        step(generator.throw(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
+    step((generator = generator.apply(__this, __arguments)).next());
+  });
+};
 
+// src/shared/quality.js
+var require_quality = __commonJS({
+  "src/shared/quality.js"(exports2, module2) {
+    function getQualityScore(s) {
+      if (!s) return 0;
+      var q = ((s.quality || "") + " " + (s.title || "") + " " + (s.name || "")).toLowerCase();
+      var score = 0;
+      if (/\b(4k|2160p?|uhd)\b/.test(q)) score = 2160;
+      else if (/\b(2k|1440p?|qhd)\b/.test(q)) score = 1440;
+      else if (/\b(1080p?|fhd)\b/.test(q)) score = 1080;
+      else if (/\b(720p?|hd)\b/.test(q)) score = 720;
+      else if (/\b(540p?)\b/.test(q)) score = 540;
+      else if (/\b(480p?|sd)\b/.test(q)) score = 480;
+      else if (/\b(360p?)\b/.test(q)) score = 360;
+      else if (/\b(240p?)\b/.test(q)) score = 240;
+      if (score === 0 && s.title) {
+        var text = s.title.toLowerCase();
+        if (/\b(4k|2160p|uhd)\b/.test(text)) score = 2160;
+        else if (/\b(2k|1440p|qhd)\b/.test(text)) score = 1440;
+        else if (/\b(1080p|fhd)\b/.test(text)) score = 1080;
+        else if (/\b(720p|hd)\b/.test(text)) score = 720;
+        else if (/\b(480p|sd)\b/.test(text)) score = 480;
+        else if (/\b(360p)\b/.test(text)) score = 360;
+        else if (/\b(240p)\b/.test(text)) score = 240;
+      }
+      if (score === 0 && s.url) {
+        var u = s.url.toLowerCase();
+        if (/[\/_.-](2160p?|4k)[\/_.-]/.test(u)) score = 2160;
+        else if (/[\/_.-](1440p?|2k)[\/_.-]/.test(u)) score = 1440;
+        else if (/[\/_.-](1080p?|fhd)[\/_.-]/.test(u)) score = 1080;
+        else if (/[\/_.-](720p?|hd)[\/_.-]/.test(u)) score = 720;
+        else if (/[\/_.-](480p?|sd)[\/_.-]/.test(u)) score = 480;
+        else if (/[\/_.-](360p?)[\/_.-]/.test(u)) score = 360;
+      }
+      var isDirectMp4 = s.format === "mp4" || s.type === "mp4" || !s.isHls && s.url && (s.url.endsWith(".mp4") || s.url.includes(".mp4?"));
+      if (isDirectMp4 && score > 0) score += 1;
+      return score;
+    }
+    function sortStreamsByQuality2(streams) {
+      if (!Array.isArray(streams) || streams.length === 0) return streams;
+      return streams.slice().sort(function(a, b) {
+        return getQualityScore(b) - getQualityScore(a);
+      });
+    }
+    module2.exports = {
+      getQualityScore,
+      sortStreamsByQuality: sortStreamsByQuality2
+    };
+  }
+});
+
+// src/seicode/index.js
+var { sortStreamsByQuality } = require_quality();
 var BASE_URL = "https://seicode.net";
 var API_BASE = "https://next.seicode.net";
 var TMDB_API_KEY = "500330721680edb6d5f7f12ba7cd9023";
-
 var HEADERS = {
   "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
   "Referer": BASE_URL + "/"
 };
-
 function timeoutSignal(ms) {
   if (typeof AbortSignal !== "undefined" && typeof AbortSignal.timeout === "function") {
     return AbortSignal.timeout(ms);
   }
   var controller = new AbortController();
-  setTimeout(function() { controller.abort(); }, ms);
+  setTimeout(function() {
+    controller.abort();
+  }, ms);
   return controller.signal;
 }
-
 function ultraClean(str) {
   if (!str) return "";
-  return str.toString().toLowerCase()
-    .replace(/[ıİ]/g, "i").replace(/[üÜ]/g, "u").replace(/[öÖ]/g, "o")
-    .replace(/[şŞ]/g, "s").replace(/[ğĞ]/g, "g").replace(/[çÇ]/g, "c")
-    .replace(/[âîûÂÎÛ]/g, function(c) {
-      return { "â": "a", "î": "i", "û": "u", "Â": "a", "Î": "i", "Û": "u" }[c] || c;
-    })
-    .replace(/[^a-z0-9]/g, "")
-    .trim();
+  return str.toString().toLowerCase().replace(/[ıİ]/g, "i").replace(/[üÜ]/g, "u").replace(/[öÖ]/g, "o").replace(/[şŞ]/g, "s").replace(/[ğĞ]/g, "g").replace(/[çÇ]/g, "c").replace(/[âîûÂÎÛ]/g, function(c) {
+    return { "\xE2": "a", "\xEE": "i", "\xFB": "u", "\xC2": "a", "\xCE": "i", "\xDB": "u" }[c] || c;
+  }).replace(/[^a-z0-9]/g, "").trim();
 }
-
 function decodeHtmlEntities(str) {
   if (!str) return "";
-  return str.toString()
-    .replace(/&quot;/g, '"')
-    .replace(/&#039;/g, "'")
-    .replace(/&#39;/g, "'")
-    .replace(/&amp;/g, "&")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">")
-    .replace(/&nbsp;/g, " ")
-    .replace(/&#8211;/g, "-")
-    .replace(/&#8217;/g, "'")
-    .replace(/&#8220;/g, '"')
-    .replace(/&#8221;/g, '"')
-    .replace(/&#(\d+);/g, function(match, dec) { return String.fromCharCode(dec); })
-    .trim();
+  return str.toString().replace(/&quot;/g, '"').replace(/&#039;/g, "'").replace(/&#39;/g, "'").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&nbsp;/g, " ").replace(/&#8211;/g, "-").replace(/&#8217;/g, "'").replace(/&#8220;/g, '"').replace(/&#8221;/g, '"').replace(/&#(\d+);/g, function(match, dec) {
+    return String.fromCharCode(dec);
+  }).trim();
 }
-
-// 180 Adet Doğrulanmış TMDB ID -> Slug Haritası
 var TMDB_MAP = {
   "30984": "bleach",
   "30991": "cowboy-bebop",
@@ -234,240 +296,378 @@ var TMDB_MAP = {
   "312849": "rich-girl-caretaker-im-secretly-the-caregiver-of-the-most-popular-girl-in-this-rich-kid-school",
   "312949": "chainsmoker-cat"
 };
-
-
-/**
- * TMDB / IMDb ID üzerinden çok dilli başlıkları çeker
- */
-async function resolveTmdbInfo(id, mediaType) {
-  try {
-    var cleanId = String(id || "").trim();
-    if (cleanId.indexOf(":") !== -1) cleanId = cleanId.split(":")[0];
-
-    var numericId = null;
-    var titles = [];
-
-    if (cleanId.indexOf("tt") === 0) {
-      var findUrl = "https://api.themoviedb.org/3/find/" + cleanId + "?api_key=" + TMDB_API_KEY + "&external_source=imdb_id";
-      var findRes = await fetch(findUrl, { signal: timeoutSignal(6000) });
-      if (findRes.ok) {
-        var fData = await findRes.json();
-        var item = null;
-        if (mediaType === "movie") {
-          item = (fData.movie_results && fData.movie_results[0]) || (fData.tv_results && fData.tv_results[0]);
-        } else {
-          item = (fData.tv_results && fData.tv_results[0]) || (fData.movie_results && fData.movie_results[0]);
+function resolveTmdbInfo(id, mediaType) {
+  return __async(this, null, function* () {
+    try {
+      var cleanId = String(id || "").trim();
+      if (cleanId.indexOf(":") !== -1) cleanId = cleanId.split(":")[0];
+      var numericId = null;
+      var titles = [];
+      if (cleanId.indexOf("tt") === 0) {
+        var findUrl = "https://api.themoviedb.org/3/find/" + cleanId + "?api_key=" + TMDB_API_KEY + "&external_source=imdb_id";
+        var findRes = yield fetch(findUrl, { signal: timeoutSignal(6e3) });
+        if (findRes.ok) {
+          var fData = yield findRes.json();
+          var item = null;
+          if (mediaType === "movie") {
+            item = fData.movie_results && fData.movie_results[0] || fData.tv_results && fData.tv_results[0];
+          } else {
+            item = fData.tv_results && fData.tv_results[0] || fData.movie_results && fData.movie_results[0];
+          }
+          if (item) {
+            numericId = item.id;
+            if (item.name) titles.push(item.name);
+            if (item.title) titles.push(item.title);
+            if (item.original_name) titles.push(item.original_name);
+            if (item.original_title) titles.push(item.original_title);
+          }
         }
-        if (item) {
-          numericId = item.id;
-          if (item.name) titles.push(item.name);
-          if (item.title) titles.push(item.title);
-          if (item.original_name) titles.push(item.original_name);
-          if (item.original_title) titles.push(item.original_title);
+      } else if (/^\d+$/.test(cleanId)) {
+        numericId = cleanId;
+      }
+      if (numericId) {
+        var type = mediaType === "tv" || mediaType === "series" ? "tv" : "movie";
+        var enRes = yield fetch("https://api.themoviedb.org/3/" + type + "/" + numericId + "?api_key=" + TMDB_API_KEY, { signal: timeoutSignal(6e3) });
+        if (enRes.ok) {
+          var enData = yield enRes.json();
+          if (enData.name) titles.push(enData.name);
+          if (enData.title) titles.push(enData.title);
+          if (enData.original_name) titles.push(enData.original_name);
+          if (enData.original_title) titles.push(enData.original_title);
+        }
+        var trRes = yield fetch("https://api.themoviedb.org/3/" + type + "/" + numericId + "?api_key=" + TMDB_API_KEY + "&language=tr-TR", { signal: timeoutSignal(6e3) });
+        if (trRes.ok) {
+          var trData = yield trRes.json();
+          if (trData.name) titles.push(trData.name);
+          if (trData.title) titles.push(trData.title);
+        }
+        var altRes = yield fetch("https://api.themoviedb.org/3/" + type + "/" + numericId + "/alternative_titles?api_key=" + TMDB_API_KEY, { signal: timeoutSignal(6e3) });
+        if (altRes.ok) {
+          var altData = yield altRes.json();
+          var alts = altData.titles || altData.results || [];
+          for (var i = 0; i < alts.length; i++) {
+            var a = alts[i];
+            if (a.title && /^[a-zA-Z0-9\s:.,!?'-]+$/.test(a.title)) {
+              titles.push(a.title);
+            }
+          }
         }
       }
-    } else if (/^\d+$/.test(cleanId)) {
-      numericId = cleanId;
+      var seen = {};
+      var uniqueTitles = [];
+      for (var j = 0; j < titles.length; j++) {
+        var t = decodeHtmlEntities(titles[j]).trim();
+        var u = ultraClean(t);
+        if (u && !seen[u]) {
+          seen[u] = true;
+          uniqueTitles.push(t);
+        }
+      }
+      return { titles: uniqueTitles, numericId };
+    } catch (e) {
+      return { titles: [], numericId: id };
     }
-
-    if (numericId) {
-      var type = (mediaType === "tv" || mediaType === "series") ? "tv" : "movie";
-
-      // İngilizce ana başlık
-      var enRes = await fetch("https://api.themoviedb.org/3/" + type + "/" + numericId + "?api_key=" + TMDB_API_KEY, { signal: timeoutSignal(6000) });
-      if (enRes.ok) {
-        var enData = await enRes.json();
-        if (enData.name) titles.push(enData.name);
-        if (enData.title) titles.push(enData.title);
-        if (enData.original_name) titles.push(enData.original_name);
-        if (enData.original_title) titles.push(enData.original_title);
-      }
-
-      // Türkçe başlık
-      var trRes = await fetch("https://api.themoviedb.org/3/" + type + "/" + numericId + "?api_key=" + TMDB_API_KEY + "&language=tr-TR", { signal: timeoutSignal(6000) });
-      if (trRes.ok) {
-        var trData = await trRes.json();
-        if (trData.name) titles.push(trData.name);
-        if (trData.title) titles.push(trData.title);
-      }
-
-      // Alternatif başlıklar
-      var altRes = await fetch("https://api.themoviedb.org/3/" + type + "/" + numericId + "/alternative_titles?api_key=" + TMDB_API_KEY, { signal: timeoutSignal(6000) });
-      if (altRes.ok) {
-        var altData = await altRes.json();
-        var alts = altData.titles || altData.results || [];
-        for (var i = 0; i < alts.length; i++) {
-          var a = alts[i];
-          if (a.title && /^[a-zA-Z0-9\s:.,!?'-]+$/.test(a.title)) {
-            titles.push(a.title);
+  });
+}
+function searchSeicode(query) {
+  return __async(this, null, function* () {
+    try {
+      var url = API_BASE + "/anime/search?q=" + encodeURIComponent(query);
+      var res = yield fetch(url, { headers: HEADERS, signal: timeoutSignal(7e3) });
+      if (!res.ok) return [];
+      var data = yield res.json();
+      return Array.isArray(data) ? data : [];
+    } catch (e) {
+      return [];
+    }
+  });
+}
+function fetchAnimeDetail(slug) {
+  return __async(this, null, function* () {
+    try {
+      if (!slug) return null;
+      var url = API_BASE + "/anime/" + encodeURIComponent(slug);
+      var res = yield fetch(url, { headers: HEADERS, signal: timeoutSignal(8e3) });
+      if (!res.ok) return null;
+      return yield res.json();
+    } catch (e) {
+      return null;
+    }
+  });
+}
+function resolveSlugFromTmdb(numericId, mediaType) {
+  return __async(this, null, function* () {
+    if (!numericId) return null;
+    var strId = String(numericId).trim();
+    if (TMDB_MAP[strId]) {
+      return TMDB_MAP[strId];
+    }
+    var info = yield resolveTmdbInfo(strId, mediaType);
+    if (!info.titles || !info.titles.length && !info.numericId) return null;
+    if (info.numericId && TMDB_MAP[String(info.numericId)]) {
+      TMDB_MAP[strId] = TMDB_MAP[String(info.numericId)];
+      return TMDB_MAP[String(info.numericId)];
+    }
+    for (var i = 0; i < info.titles.length; i++) {
+      var q = info.titles[i];
+      var list = yield searchSeicode(q);
+      if (list && list.length > 0) {
+        for (var j = 0; j < list.length; j++) {
+          var item = list[j];
+          if (!item || !item.slug) continue;
+          var det = yield fetchAnimeDetail(item.slug);
+          if (det && det.tmdbID && String(det.tmdbID) === strId) {
+            TMDB_MAP[strId] = item.slug;
+            return item.slug;
+          }
+          if (ultraClean(item.english) === ultraClean(q)) {
+            TMDB_MAP[strId] = item.slug;
+            return item.slug;
           }
         }
       }
     }
-
-    var seen = {};
-    var uniqueTitles = [];
-    for (var j = 0; j < titles.length; j++) {
-      var t = decodeHtmlEntities(titles[j]).trim();
-      var u = ultraClean(t);
-      if (u && !seen[u]) {
-        seen[u] = true;
-        uniqueTitles.push(t);
-      }
-    }
-    return { titles: uniqueTitles, numericId: numericId };
-  } catch (e) {
-    return { titles: [], numericId: id };
-  }
-}
-
-/**
- * SeiCode API üzerinden arama yapar
- */
-async function searchSeicode(query) {
-  try {
-    var url = API_BASE + "/anime/search?q=" + encodeURIComponent(query);
-    var res = await fetch(url, { headers: HEADERS, signal: timeoutSignal(7000) });
-    if (!res.ok) return [];
-    var data = await res.json();
-    return Array.isArray(data) ? data : [];
-  } catch (e) {
-    return [];
-  }
-}
-
-/**
- * Slug veya TMDB ID üzerinden anime detayını çeker
- */
-async function fetchAnimeDetail(slug) {
-  try {
-    if (!slug) return null;
-    var url = API_BASE + "/anime/" + encodeURIComponent(slug);
-    var res = await fetch(url, { headers: HEADERS, signal: timeoutSignal(8000) });
-    if (!res.ok) return null;
-    return await res.json();
-  } catch (e) {
     return null;
-  }
+  });
 }
-
-/**
- * TMDB ID'yi SeiCode anime slug'ına eşler
- */
-async function resolveSlugFromTmdb(numericId, mediaType) {
-  if (!numericId) return null;
-  var strId = String(numericId).trim();
-
-  // 1. Doğrudan TMDB_MAP kontrolü (0ms gecikme)
-  if (TMDB_MAP[strId]) {
-    return TMDB_MAP[strId];
-  }
-
-  // 2. TMDB başlıklarıyla dinamik arama
-  var info = await resolveTmdbInfo(strId, mediaType);
-  if (!info.titles || !info.titles.length && !info.numericId) return null;
-
-  if (info.numericId && TMDB_MAP[String(info.numericId)]) {
-    TMDB_MAP[strId] = TMDB_MAP[String(info.numericId)];
-    return TMDB_MAP[String(info.numericId)];
-  }
-
-  for (var i = 0; i < info.titles.length; i++) {
-    var q = info.titles[i];
-    var list = await searchSeicode(q);
-    if (list && list.length > 0) {
-      for (var j = 0; j < list.length; j++) {
-        var item = list[j];
-        if (!item || !item.slug) continue;
-        
-        // Detayını teyit et
-        var det = await fetchAnimeDetail(item.slug);
-        if (det && det.tmdbID && String(det.tmdbID) === strId) {
-          TMDB_MAP[strId] = item.slug;
-          return item.slug;
-        }
-
-        // Başlık benzerliği kontrolü
-        if (ultraClean(item.english) === ultraClean(q)) {
-          TMDB_MAP[strId] = item.slug;
-          return item.slug;
-        }
-      }
-    }
-  }
-
-  return null;
-}
-
-/**
- * Sezon ve bölüm numarasına göre anime bölümünü eşler
- */
 function matchEpisode(seasons, targetSeason, targetEpisode) {
   if (!Array.isArray(seasons) || !seasons.length) return null;
-
   var tS = parseInt(targetSeason) || 1;
   var tE = parseInt(targetEpisode) || 1;
-
-  // 1. Birebir Sezon ve Bölüm eşleşmesi
   for (var i = 0; i < seasons.length; i++) {
     var s = seasons[i];
     var sNum = parseInt(s.season_number) || 1;
     if (sNum === tS && Array.isArray(s.episodes)) {
-      var ep = s.episodes.find(function(e) { return parseInt(e.episode_number) === tE; });
+      var ep = s.episodes.find(function(e) {
+        return parseInt(e.episode_number) === tE;
+      });
       if (ep) return ep;
     }
   }
-
-  // 2. targetSeason bulunamadığında ve sitede tek sezon varsa, o sezonun targetEpisode'unu eşleştir
   if (seasons.length === 1 && Array.isArray(seasons[0].episodes)) {
-    var epSolo = seasons[0].episodes.find(function(e) { return parseInt(e.episode_number) === tE; });
+    var epSolo = seasons[0].episodes.find(function(e) {
+      return parseInt(e.episode_number) === tE;
+    });
     if (epSolo) return epSolo;
   }
-
-  // 3. Bölüm numarasını tüm sezonlarda ara
   for (var j = 0; j < seasons.length; j++) {
     var s2 = seasons[j];
     if (Array.isArray(s2.episodes)) {
-      var ep2 = s2.episodes.find(function(e) { return parseInt(e.episode_number) === tE; });
+      var ep2 = s2.episodes.find(function(e) {
+        return parseInt(e.episode_number) === tE;
+      });
       if (ep2) return ep2;
     }
   }
-
-  // 4. Fallback: Hedef sezonun veya ilk sezonun ilk bölümü
-  var targetSeasonObj = seasons.find(function(s) { return (parseInt(s.season_number) || 1) === tS; }) || seasons[0];
+  var targetSeasonObj = seasons.find(function(s3) {
+    return (parseInt(s3.season_number) || 1) === tS;
+  }) || seasons[0];
   if (targetSeasonObj && Array.isArray(targetSeasonObj.episodes) && targetSeasonObj.episodes.length > 0) {
     return targetSeasonObj.episodes[0];
   }
-
   return null;
 }
-
-// ==================== STREAM RESOLVERS ====================
-
-/**
- * TauVideo Doğrudan MP4 Çözücü (480p, 720p, 1080p)
- */
-async function resolveTauVideo(embedUrl) {
-  try {
-    var m = embedUrl.match(/tau-video\.xyz\/embed\/([a-zA-Z0-9_-]+)/i);
-    if (!m) return [];
-    var tauId = m[1];
-    var res = await fetch("https://tau-video.xyz/api/video/" + tauId, {
-      headers: { "User-Agent": HEADERS["User-Agent"], "Referer": "https://animecix.tv/" },
-      signal: timeoutSignal(7000)
-    });
-    if (!res.ok) return [];
-    var data = await res.json();
-    if (!data.urls || !data.urls.length) return [];
-
-    var sHeaders = { "Referer": "https://tau-video.xyz/", "User-Agent": HEADERS["User-Agent"] };
-    return data.urls.map(function(u) {
-      var q = (u.label || "1080p").toLowerCase();
-      return {
+function resolveTauVideo(embedUrl) {
+  return __async(this, null, function* () {
+    try {
+      var m = embedUrl.match(/tau-video\.xyz\/embed\/([a-zA-Z0-9_-]+)/i);
+      if (!m) return [];
+      var tauId = m[1];
+      var res = yield fetch("https://tau-video.xyz/api/video/" + tauId, {
+        headers: { "User-Agent": HEADERS["User-Agent"], "Referer": "https://animecix.tv/" },
+        signal: timeoutSignal(7e3)
+      });
+      if (!res.ok) return [];
+      var data = yield res.json();
+      if (!data.urls || !data.urls.length) return [];
+      var sHeaders = { "Referer": "https://tau-video.xyz/", "User-Agent": HEADERS["User-Agent"] };
+      return data.urls.map(function(u) {
+        var q = (u.label || "1080p").toLowerCase();
+        return {
+          name: "SeiCode",
+          title: "\u231C SeiCode \u231F | TauVideo [" + q.toUpperCase() + " MP4]",
+          url: u.url,
+          quality: q,
+          format: "mp4",
+          isHls: false,
+          headers: sHeaders,
+          behaviorHints: {
+            notWebReady: false,
+            proxyHeaders: { request: sHeaders }
+          }
+        };
+      });
+    } catch (e) {
+      return [];
+    }
+  });
+}
+function resolveOkRu(iframeUrl) {
+  return __async(this, null, function* () {
+    try {
+      var fullUrl = iframeUrl.startsWith("//") ? "https:" + iframeUrl : iframeUrl;
+      var res = yield fetch(fullUrl, { headers: { "User-Agent": HEADERS["User-Agent"] }, signal: timeoutSignal(7e3) });
+      if (!res.ok) return [];
+      var html = yield res.text();
+      var m = html.match(/data-options=["']([^"']+)["']/i);
+      if (!m) return [];
+      var decoded = decodeHtmlEntities(m[1]);
+      var opts = JSON.parse(decoded);
+      var flashvars = opts.flashvars || {};
+      var metadata = flashvars.metadata;
+      if (typeof metadata === "string") {
+        try {
+          metadata = JSON.parse(metadata);
+        } catch (e) {
+          metadata = {};
+        }
+      }
+      if (!metadata || typeof metadata !== "object") metadata = {};
+      var vids = metadata.videos || flashvars.videos || [];
+      var streams = [];
+      var nameMap = { "full": "1080p", "hd": "720p", "sd": "480p", "low": "360p", "lowest": "240p", "mobile": "240p" };
+      var okHeaders = { "User-Agent": HEADERS["User-Agent"] };
+      for (var i = 0; i < vids.length; i++) {
+        var v = vids[i];
+        if (!v.url) continue;
+        var q = nameMap[v.name] || v.name || "720p";
+        streams.push({
+          name: "SeiCode",
+          title: "\u231C SeiCode \u231F | Ok.ru [" + q.toUpperCase() + " MP4]",
+          url: v.url,
+          quality: q,
+          format: "mp4",
+          isHls: false,
+          headers: okHeaders,
+          behaviorHints: {
+            notWebReady: false,
+            proxyHeaders: { request: okHeaders }
+          }
+        });
+      }
+      var hlsUrl = metadata.hlsManifestUrl || flashvars.hlsManifestUrl;
+      if (hlsUrl) {
+        streams.push({
+          name: "SeiCode",
+          title: "\u231C SeiCode \u231F | Ok.ru [1080p HLS Master]",
+          url: hlsUrl,
+          quality: "1080p",
+          format: "hls",
+          isHls: true,
+          headers: okHeaders,
+          behaviorHints: {
+            notWebReady: false,
+            proxyHeaders: { request: okHeaders }
+          }
+        });
+      }
+      return streams;
+    } catch (e) {
+      return [];
+    }
+  });
+}
+function resolveSibnet(iframeUrl) {
+  return __async(this, null, function* () {
+    try {
+      var fullUrl = iframeUrl.startsWith("//") ? "https:" + iframeUrl : iframeUrl;
+      var res = yield fetch(fullUrl, {
+        headers: { "Referer": BASE_URL + "/", "User-Agent": HEADERS["User-Agent"] },
+        signal: timeoutSignal(7e3)
+      });
+      if (!res.ok) return [];
+      var html = yield res.text();
+      var m = html.match(/player\.src\(\[\{src:\s*["']?([^"'\s>]+)/i);
+      if (!m) return [];
+      var videoPath = m[1];
+      var videoUrl = videoPath.startsWith("http") ? videoPath : "https://video.sibnet.ru" + videoPath;
+      var sibHeaders = {
+        "Referer": "https://video.sibnet.ru/",
+        "User-Agent": HEADERS["User-Agent"]
+      };
+      return [{
         name: "SeiCode",
-        title: "⌜ SeiCode ⌟ | TauVideo [" + q.toUpperCase() + " MP4]",
-        url: u.url,
-        quality: q,
+        title: "\u231C SeiCode \u231F | Sibnet [1080p MP4]",
+        url: videoUrl,
+        quality: "1080p",
+        format: "mp4",
+        isHls: false,
+        headers: sibHeaders,
+        behaviorHints: {
+          notWebReady: false,
+          proxyHeaders: { request: sibHeaders }
+        }
+      }];
+    } catch (e) {
+      return [];
+    }
+  });
+}
+function resolveVidMoly(iframeUrl) {
+  return __async(this, null, function* () {
+    try {
+      var fullUrl = iframeUrl.startsWith("//") ? "https:" + iframeUrl : iframeUrl;
+      var mId = fullUrl.match(/vidmoly\.[a-z]+\/(?:v\/|embed-)?([a-zA-Z0-9]+)/i);
+      if (mId) {
+        fullUrl = "https://vidmoly.biz/embed-" + mId[1] + ".html";
+      }
+      var res = yield fetch(fullUrl, {
+        headers: { "User-Agent": HEADERS["User-Agent"] },
+        signal: timeoutSignal(7e3)
+      });
+      if (!res.ok) return [];
+      var html = yield res.text();
+      var m = html.match(/file\s*:\s*["'](https?:\/\/[^"'\s<>]+\.m3u8[^"'\s<>]*)["']/i);
+      if (!m) return [];
+      var streamUrl = m[1];
+      var sHeaders = {
+        "User-Agent": HEADERS["User-Agent"],
+        "Referer": "https://vidmoly.biz/"
+      };
+      return [{
+        name: "SeiCode",
+        title: "\u231C SeiCode \u231F | VidMoly [1080p HLS Master]",
+        url: streamUrl,
+        quality: "1080p",
+        format: "hls",
+        isHls: true,
+        headers: sHeaders,
+        behaviorHints: {
+          notWebReady: false,
+          proxyHeaders: { request: sHeaders }
+        }
+      }];
+    } catch (e) {
+      return [];
+    }
+  });
+}
+function resolveMp4Upload(iframeUrl) {
+  return __async(this, null, function* () {
+    try {
+      var fullUrl = iframeUrl.startsWith("//") ? "https:" + iframeUrl : iframeUrl;
+      var mId = fullUrl.match(/mp4upload\.com\/(?:embed-)?([a-zA-Z0-9]+)/i);
+      if (mId) {
+        fullUrl = "https://www.mp4upload.com/embed-" + mId[1] + ".html";
+      }
+      var res = yield fetch(fullUrl, {
+        headers: { "User-Agent": HEADERS["User-Agent"] },
+        signal: timeoutSignal(7e3)
+      });
+      if (!res.ok) return [];
+      var html = yield res.text();
+      var m = html.match(/src:\s*["'](https?:\/\/[^"'\s<>]+\.mp4[^"'\s<>]*)["']/i);
+      if (!m) return [];
+      var streamUrl = m[1];
+      var sHeaders = {
+        "User-Agent": HEADERS["User-Agent"],
+        "Referer": "https://www.mp4upload.com/"
+      };
+      return [{
+        name: "SeiCode",
+        title: "\u231C SeiCode \u231F | MP4Upload [1080p MP4]",
+        url: streamUrl,
+        quality: "1080p",
         format: "mp4",
         isHls: false,
         headers: sHeaders,
@@ -475,471 +675,208 @@ async function resolveTauVideo(embedUrl) {
           notWebReady: false,
           proxyHeaders: { request: sHeaders }
         }
-      };
-    });
-  } catch (e) {
-    return [];
-  }
-}
-
-/**
- * Ok.ru 1080p/720p/480p/360p Doğrudan MP4 ve HLS Çözücü
- */
-async function resolveOkRu(iframeUrl) {
-  try {
-    var fullUrl = iframeUrl.startsWith("//") ? "https:" + iframeUrl : iframeUrl;
-    var res = await fetch(fullUrl, { headers: { "User-Agent": HEADERS["User-Agent"] }, signal: timeoutSignal(7000) });
-    if (!res.ok) return [];
-    var html = await res.text();
-    var m = html.match(/data-options=["']([^"']+)["']/i);
-    if (!m) return [];
-
-    var decoded = decodeHtmlEntities(m[1]);
-    var opts = JSON.parse(decoded);
-    var flashvars = opts.flashvars || {};
-    var metadata = flashvars.metadata;
-    if (typeof metadata === "string") {
-      try { metadata = JSON.parse(metadata); } catch (e) { metadata = {}; }
+      }];
+    } catch (e) {
+      return [];
     }
-    if (!metadata || typeof metadata !== "object") metadata = {};
-
-    var vids = metadata.videos || flashvars.videos || [];
+  });
+}
+function fetchEpisodeStreams(videoLinks) {
+  return __async(this, null, function* () {
+    if (!videoLinks || typeof videoLinks !== "object") return [];
+    var promises = [];
+    for (var key in videoLinks) {
+      if (!Object.prototype.hasOwnProperty.call(videoLinks, key)) continue;
+      var rawUrl = videoLinks[key];
+      if (!rawUrl || typeof rawUrl !== "string") continue;
+      var url = rawUrl.trim();
+      if (!url.startsWith("http") && !url.startsWith("//")) continue;
+      var lowerUrl = url.toLowerCase();
+      var lowerKey = key.toLowerCase();
+      if (lowerKey === "tau-video.xyz" || lowerUrl.indexOf("tau-video.xyz/embed/") !== -1) {
+        promises.push(resolveTauVideo(url));
+      } else if (lowerKey === "okru" || lowerUrl.indexOf("ok.ru/videoembed/") !== -1) {
+        promises.push(resolveOkRu(url));
+      } else if (lowerKey === "sibnet" || lowerUrl.indexOf("video.sibnet.ru") !== -1) {
+        promises.push(resolveSibnet(url));
+      } else if (lowerKey.indexOf("vidmoly") !== -1 || lowerUrl.indexOf("vidmoly") !== -1) {
+        promises.push(resolveVidMoly(url));
+      } else if (lowerKey.indexOf("mp4upload") !== -1 || lowerUrl.indexOf("mp4upload") !== -1) {
+        promises.push(resolveMp4Upload(url));
+      }
+    }
+    var results = yield Promise.all(promises);
     var streams = [];
-    var nameMap = { "full": "1080p", "hd": "720p", "sd": "480p", "low": "360p", "lowest": "240p", "mobile": "240p" };
-
-    var okHeaders = { "User-Agent": HEADERS["User-Agent"] };
-    for (var i = 0; i < vids.length; i++) {
-      var v = vids[i];
-      if (!v.url) continue;
-      var q = nameMap[v.name] || v.name || "720p";
-      streams.push({
-        name: "SeiCode",
-        title: "⌜ SeiCode ⌟ | Ok.ru [" + q.toUpperCase() + " MP4]",
-        url: v.url,
-        quality: q,
-        format: "mp4",
-        isHls: false,
-        headers: okHeaders,
-        behaviorHints: {
-          notWebReady: false,
-          proxyHeaders: { request: okHeaders }
-        }
-      });
+    for (var i = 0; i < results.length; i++) {
+      var arr = results[i];
+      if (Array.isArray(arr) && arr.length > 0) {
+        streams = streams.concat(arr);
+      }
     }
-
-    var hlsUrl = metadata.hlsManifestUrl || flashvars.hlsManifestUrl;
-    if (hlsUrl) {
-      streams.push({
-        name: "SeiCode",
-        title: "⌜ SeiCode ⌟ | Ok.ru [1080p HLS Master]",
-        url: hlsUrl,
-        quality: "1080p",
-        format: "hls",
-        isHls: true,
-        headers: okHeaders,
-        behaviorHints: {
-          notWebReady: false,
-          proxyHeaders: { request: okHeaders }
-        }
-      });
-    }
-
     return streams;
-  } catch (e) {
-    return [];
-  }
+  });
 }
-
-/**
- * Sibnet Doğrudan MP4 Çözücü
- */
-async function resolveSibnet(iframeUrl) {
-  try {
-    var fullUrl = iframeUrl.startsWith("//") ? "https:" + iframeUrl : iframeUrl;
-    var res = await fetch(fullUrl, {
-      headers: { "Referer": BASE_URL + "/", "User-Agent": HEADERS["User-Agent"] },
-      signal: timeoutSignal(7000)
-    });
-    if (!res.ok) return [];
-    var html = await res.text();
-    var m = html.match(/player\.src\(\[\{src:\s*["']?([^"'\s>]+)/i);
-    if (!m) return [];
-
-    var videoPath = m[1];
-    var videoUrl = videoPath.startsWith("http") ? videoPath : ("https://video.sibnet.ru" + videoPath);
-    var sibHeaders = {
-      "Referer": "https://video.sibnet.ru/",
-      "User-Agent": HEADERS["User-Agent"]
-    };
-    return [{
-      name: "SeiCode",
-      title: "⌜ SeiCode ⌟ | Sibnet [1080p MP4]",
-      url: videoUrl,
-      quality: "1080p",
-      format: "mp4",
-      isHls: false,
-      headers: sibHeaders,
-      behaviorHints: {
-        notWebReady: false,
-        proxyHeaders: { request: sibHeaders }
-      }
-    }];
-  } catch (e) {
-    return [];
-  }
-}
-
-/**
- * VidMoly 1080p Adaptif HLS Master Çözücü
- */
-async function resolveVidMoly(iframeUrl) {
-  try {
-    var fullUrl = iframeUrl.startsWith("//") ? "https:" + iframeUrl : iframeUrl;
-    var mId = fullUrl.match(/vidmoly\.[a-z]+\/(?:v\/|embed-)?([a-zA-Z0-9]+)/i);
-    if (mId) {
-      fullUrl = "https://vidmoly.biz/embed-" + mId[1] + ".html";
-    }
-
-    var res = await fetch(fullUrl, {
-      headers: { "User-Agent": HEADERS["User-Agent"] },
-      signal: timeoutSignal(7000)
-    });
-    if (!res.ok) return [];
-    var html = await res.text();
-    var m = html.match(/file\s*:\s*["'](https?:\/\/[^"'\s<>]+\.m3u8[^"'\s<>]*)["']/i);
-    if (!m) return [];
-
-    var streamUrl = m[1];
-    var sHeaders = {
-      "User-Agent": HEADERS["User-Agent"],
-      "Referer": "https://vidmoly.biz/"
-    };
-    return [{
-      name: "SeiCode",
-      title: "⌜ SeiCode ⌟ | VidMoly [1080p HLS Master]",
-      url: streamUrl,
-      quality: "1080p",
-      format: "hls",
-      isHls: true,
-      headers: sHeaders,
-      behaviorHints: {
-        notWebReady: false,
-        proxyHeaders: { request: sHeaders }
-      }
-    }];
-  } catch (e) {
-    return [];
-  }
-}
-
-/**
- * MP4Upload Doğrudan MP4 Çözücü
- */
-async function resolveMp4Upload(iframeUrl) {
-  try {
-    var fullUrl = iframeUrl.startsWith("//") ? "https:" + iframeUrl : iframeUrl;
-    var mId = fullUrl.match(/mp4upload\.com\/(?:embed-)?([a-zA-Z0-9]+)/i);
-    if (mId) {
-      fullUrl = "https://www.mp4upload.com/embed-" + mId[1] + ".html";
-    }
-
-    var res = await fetch(fullUrl, {
-      headers: { "User-Agent": HEADERS["User-Agent"] },
-      signal: timeoutSignal(7000)
-    });
-    if (!res.ok) return [];
-    var html = await res.text();
-    var m = html.match(/src:\s*["'](https?:\/\/[^"'\s<>]+\.mp4[^"'\s<>]*)["']/i);
-    if (!m) return [];
-
-    var streamUrl = m[1];
-    var sHeaders = {
-      "User-Agent": HEADERS["User-Agent"],
-      "Referer": "https://www.mp4upload.com/"
-    };
-    return [{
-      name: "SeiCode",
-      title: "⌜ SeiCode ⌟ | MP4Upload [1080p MP4]",
-      url: streamUrl,
-      quality: "1080p",
-      format: "mp4",
-      isHls: false,
-      headers: sHeaders,
-      behaviorHints: {
-        notWebReady: false,
-        proxyHeaders: { request: sHeaders }
-      }
-    }];
-  } catch (e) {
-    return [];
-  }
-}
-
-/**
- * Bölümdeki video_links objesini tarayıp akışları çözer
- */
-async function fetchEpisodeStreams(videoLinks) {
-  if (!videoLinks || typeof videoLinks !== "object") return [];
-
-  var promises = [];
-
-  for (var key in videoLinks) {
-    if (!Object.prototype.hasOwnProperty.call(videoLinks, key)) continue;
-    var rawUrl = videoLinks[key];
-    if (!rawUrl || typeof rawUrl !== "string") continue;
-    var url = rawUrl.trim();
-    if (!url.startsWith("http") && !url.startsWith("//")) continue;
-
-    var lowerUrl = url.toLowerCase();
-    var lowerKey = key.toLowerCase();
-
-    if (lowerKey === "tau-video.xyz" || lowerUrl.indexOf("tau-video.xyz/embed/") !== -1) {
-      promises.push(resolveTauVideo(url));
-    } else if (lowerKey === "okru" || lowerUrl.indexOf("ok.ru/videoembed/") !== -1) {
-      promises.push(resolveOkRu(url));
-    } else if (lowerKey === "sibnet" || lowerUrl.indexOf("video.sibnet.ru") !== -1) {
-      promises.push(resolveSibnet(url));
-    } else if (lowerKey.indexOf("vidmoly") !== -1 || lowerUrl.indexOf("vidmoly") !== -1) {
-      promises.push(resolveVidMoly(url));
-    } else if (lowerKey.indexOf("mp4upload") !== -1 || lowerUrl.indexOf("mp4upload") !== -1) {
-      promises.push(resolveMp4Upload(url));
-    }
-  }
-
-  var results = await Promise.all(promises);
-  var streams = [];
-  for (var i = 0; i < results.length; i++) {
-    var arr = results[i];
-    if (Array.isArray(arr) && arr.length > 0) {
-      streams = streams.concat(arr);
-    }
-  }
-  return streams;
-}
-
-// ==================== KATALOG VE META ====================
-
-/**
- * getCatalog: Popüler / Son eklenen animeleri listeler
- */
-async function getCatalog(args) {
-  try {
-    args = args || {};
-    var extra = args.extra || {};
-    var search = extra.search || "";
-    var animes = [];
-
-    if (search) {
-      animes = await searchSeicode(search);
-    } else {
-      var page = (extra.skip ? Math.floor(extra.skip / 30) + 1 : 1);
-      var url = API_BASE + "/anime?page=" + page;
-      var res = await fetch(url, { headers: HEADERS, signal: timeoutSignal(8000) });
-      if (res.ok) {
-        var data = await res.json();
-        animes = data.animes || [];
-      }
-    }
-
-    var metas = [];
-    for (var i = 0; i < animes.length; i++) {
-      var a = animes[i];
-      if (!a || !a.slug) continue;
-      var poster = (a.pictures && (a.pictures.avatar || a.pictures.banner)) || "";
-      metas.push({
-        id: "seicode:show:" + a.slug,
-        type: "series",
-        name: a.english || a.slug,
-        poster: poster,
-        posterShape: "poster",
-        description: a.summary || ""
-      });
-    }
-
-    return { metas: metas };
-  } catch (e) {
-    return { metas: [] };
-  }
-}
-
-/**
- * getMeta: Anime detayını ve tüm bölüm listesini döner
- */
-async function getMeta(args) {
-  try {
-    var rawId = (typeof args === "object" && args !== null) ? args.id : args;
-    if (!rawId) return { meta: null };
-
-    var slug = "";
-    if (typeof rawId === "string") {
-      if (rawId.indexOf("seicode:show:") === 0) {
-        slug = rawId.replace("seicode:show:", "");
-      } else if (rawId.indexOf("seicode:ep:") === 0) {
-        var p = rawId.replace("seicode:ep:", "").split(":");
-        slug = p[0];
-      } else if (rawId.indexOf("seicode:") === 0) {
-        slug = rawId.replace("seicode:", "");
+function getCatalog(args) {
+  return __async(this, null, function* () {
+    try {
+      args = args || {};
+      var extra = args.extra || {};
+      var search = extra.search || "";
+      var animes = [];
+      if (search) {
+        animes = yield searchSeicode(search);
       } else {
-        slug = TMDB_MAP[rawId] || rawId;
+        var page = extra.skip ? Math.floor(extra.skip / 30) + 1 : 1;
+        var url = API_BASE + "/anime?page=" + page;
+        var res = yield fetch(url, { headers: HEADERS, signal: timeoutSignal(8e3) });
+        if (res.ok) {
+          var data = yield res.json();
+          animes = data.animes || [];
+        }
       }
+      var metas = [];
+      for (var i = 0; i < animes.length; i++) {
+        var a = animes[i];
+        if (!a || !a.slug) continue;
+        var poster = a.pictures && (a.pictures.avatar || a.pictures.banner) || "";
+        metas.push({
+          id: "seicode:show:" + a.slug,
+          type: "series",
+          name: a.english || a.slug,
+          poster,
+          posterShape: "poster",
+          description: a.summary || ""
+        });
+      }
+      return { metas };
+    } catch (e) {
+      return { metas: [] };
     }
-
-    var data = await fetchAnimeDetail(slug);
-    if (!data) return { meta: null };
-
-    var videos = [];
-    if (Array.isArray(data.seasons)) {
-      for (var s = 0; s < data.seasons.length; s++) {
-        var sObj = data.seasons[s];
-        var sNum = sObj.season_number || 1;
-        if (Array.isArray(sObj.episodes)) {
-          for (var e = 0; e < sObj.episodes.length; e++) {
-            var epObj = sObj.episodes[e];
-            var epNum = epObj.episode_number || (e + 1);
-            videos.push({
-              id: "seicode:ep:" + slug + ":" + sNum + ":" + epNum,
-              title: "S" + sNum + " B" + epNum,
-              season: sNum,
-              episode: epNum
-            });
+  });
+}
+function getMeta(args) {
+  return __async(this, null, function* () {
+    try {
+      var rawId = typeof args === "object" && args !== null ? args.id : args;
+      if (!rawId) return { meta: null };
+      var slug = "";
+      if (typeof rawId === "string") {
+        if (rawId.indexOf("seicode:show:") === 0) {
+          slug = rawId.replace("seicode:show:", "");
+        } else if (rawId.indexOf("seicode:ep:") === 0) {
+          var p = rawId.replace("seicode:ep:", "").split(":");
+          slug = p[0];
+        } else if (rawId.indexOf("seicode:") === 0) {
+          slug = rawId.replace("seicode:", "");
+        } else {
+          slug = TMDB_MAP[rawId] || rawId;
+        }
+      }
+      var data = yield fetchAnimeDetail(slug);
+      if (!data) return { meta: null };
+      var videos = [];
+      if (Array.isArray(data.seasons)) {
+        for (var s = 0; s < data.seasons.length; s++) {
+          var sObj = data.seasons[s];
+          var sNum = sObj.season_number || 1;
+          if (Array.isArray(sObj.episodes)) {
+            for (var e = 0; e < sObj.episodes.length; e++) {
+              var epObj = sObj.episodes[e];
+              var epNum = epObj.episode_number || e + 1;
+              videos.push({
+                id: "seicode:ep:" + slug + ":" + sNum + ":" + epNum,
+                title: "S" + sNum + " B" + epNum,
+                season: sNum,
+                episode: epNum
+              });
+            }
           }
         }
       }
+      return {
+        meta: {
+          id: "seicode:show:" + slug,
+          type: "series",
+          name: data.english || slug,
+          poster: data.pictures && data.pictures.avatar || "",
+          posterShape: "poster",
+          background: data.pictures && data.pictures.banner || "",
+          description: data.summary || "",
+          genres: data.genres || [],
+          videos
+        }
+      };
+    } catch (e2) {
+      return { meta: null };
     }
-
-    return {
-      meta: {
-        id: "seicode:show:" + slug,
-        type: "series",
-        name: data.english || slug,
-        poster: (data.pictures && data.pictures.avatar) || "",
-        posterShape: "poster",
-        background: (data.pictures && data.pictures.banner) || "",
-        description: data.summary || "",
-        genres: data.genres || [],
-        videos: videos
-      }
-    };
-  } catch (e) {
-    return { meta: null };
-  }
-}
-
-/**
- * getStreams: TMDB veya doğrudan ID üzerinden akış listesini çeker
- */
-async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
-  try {
-    if (typeof tmdbId === "object" && tmdbId !== null) {
-      mediaType = tmdbId.type || mediaType;
-      seasonNum = tmdbId.season || seasonNum;
-      episodeNum = tmdbId.episode || episodeNum;
-      tmdbId = tmdbId.id;
-    }
-
-    var finalSeason = parseInt(seasonNum) || 1;
-    var finalEpisode = parseInt(episodeNum) || 1;
-    var slug = null;
-
-    // 1. seicode:ep:slug:season:episode formatı
-    if (typeof tmdbId === "string" && tmdbId.indexOf("seicode:ep:") === 0) {
-      var epParts = tmdbId.replace("seicode:ep:", "").split(":");
-      slug = epParts[0];
-      if (epParts[1]) finalSeason = parseInt(epParts[1]) || finalSeason;
-      if (epParts[2]) finalEpisode = parseInt(epParts[2]) || finalEpisode;
-    }
-
-    // 2. seicode:show:slug formatı
-    if (typeof tmdbId === "string" && tmdbId.indexOf("seicode:show:") === 0) {
-      slug = tmdbId.replace("seicode:show:", "");
-    }
-
-    // 3. TMDB / IMDb colon formatı (örn: 127532:1:1 veya tt0409591:1:1)
-    if (typeof tmdbId === "string" && tmdbId.indexOf(":") !== -1 && !slug) {
-      var parts = tmdbId.split(":");
-      if (parts.length >= 3) {
-        var s = parseInt(parts[parts.length - 2]);
-        var e = parseInt(parts[parts.length - 1]);
-        if (!isNaN(s)) finalSeason = s;
-        if (!isNaN(e)) finalEpisode = e;
-      }
-      tmdbId = parts[0];
-    }
-
-    // 4. Slug'ı TMDB ID veya başlıktan çöz
-    if (!slug) {
-      slug = await resolveSlugFromTmdb(tmdbId, mediaType);
-    }
-
-    if (!slug) return [];
-
-    // 5. Anime detayını çek
-    var detail = await fetchAnimeDetail(slug);
-    if (!detail || !Array.isArray(detail.seasons) || !detail.seasons.length) return [];
-
-    // 6. Bölümü bul
-    var ep = matchEpisode(detail.seasons, finalSeason, finalEpisode);
-    if (!ep || !ep.video_links) return [];
-
-    // 7. Akışları çöz
-    return await fetchEpisodeStreams(ep.video_links);
-  } catch (e) {
-    return [];
-  }
-}
-
-// ==================== EVRENSEL KALİTE SIRALAMASI ====================
-
-function sortStreamsByQuality(streams) {
-  if (!Array.isArray(streams) || streams.length <= 1) return streams || [];
-
-  function getQualityScore(s) {
-    if (!s) return 0;
-    var score = 0;
-    var text = ((s.title || "") + " " + (s.name || "") + " " + (s.quality || "")).toLowerCase();
-
-    if (/\b(4k|2160p|uhd)\b/.test(text)) score = 2160;
-    else if (/\b(2k|1440p|qhd)\b/.test(text)) score = 1440;
-    else if (/\b(1080p|fhd|full[\s-]?hd)\b/.test(text)) score = 1080;
-    else if (/\b(720p)\b/.test(text)) score = 720;
-    else if (/\b(540p)\b/.test(text)) score = 540;
-    else if (/\b(480p)\b/.test(text)) score = 480;
-    else if (/\b(360p)\b/.test(text)) score = 360;
-    else if (/\b(240p)\b/.test(text)) score = 240;
-    else if (/\b(hd)\b/.test(text) && !/\b(full[\s-]?hd)\b/.test(text)) score = 720;
-    else if (/\b(sd)\b/.test(text)) score = 480;
-
-    if (!score && s.url) {
-      var u = String(s.url).toLowerCase();
-      if (/[\/_.-](2160p?|4k)[\/_.-]/.test(u)) score = 2160;
-      else if (/[\/_.-](1440p?|2k)[\/_.-]/.test(u)) score = 1440;
-      else if (/[\/_.-](1080p?|fhd)[\/_.-]/.test(u)) score = 1080;
-      else if (/[\/_.-](720p?|hd)[\/_.-]/.test(u)) score = 720;
-      else if (/[\/_.-](480p?|sd)[\/_.-]/.test(u)) score = 480;
-      else if (/[\/_.-](360p?)[\/_.-]/.test(u)) score = 360;
-    }
-
-    var isDirectMp4 = s.format === "mp4" || s.type === "mp4" || (!s.isHls && s.url && (s.url.endsWith(".mp4") || s.url.includes(".mp4?")));
-    if (isDirectMp4 && score > 0) score += 1;
-    return score;
-  }
-
-  return streams.slice().sort(function(a, b) {
-    return getQualityScore(b) - getQualityScore(a);
   });
 }
-
+function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
+  return __async(this, null, function* () {
+    try {
+      if (typeof tmdbId === "object" && tmdbId !== null) {
+        mediaType = tmdbId.type || mediaType;
+        seasonNum = tmdbId.season || seasonNum;
+        episodeNum = tmdbId.episode || episodeNum;
+        tmdbId = tmdbId.id;
+      }
+      var finalSeason = parseInt(seasonNum) || 1;
+      var finalEpisode = parseInt(episodeNum) || 1;
+      var slug = null;
+      if (typeof tmdbId === "string" && tmdbId.indexOf("seicode:ep:") === 0) {
+        var epParts = tmdbId.replace("seicode:ep:", "").split(":");
+        slug = epParts[0];
+        if (epParts[1]) finalSeason = parseInt(epParts[1]) || finalSeason;
+        if (epParts[2]) finalEpisode = parseInt(epParts[2]) || finalEpisode;
+      }
+      if (typeof tmdbId === "string" && tmdbId.indexOf("seicode:show:") === 0) {
+        slug = tmdbId.replace("seicode:show:", "");
+      }
+      if (typeof tmdbId === "string" && tmdbId.indexOf(":") !== -1 && !slug) {
+        var parts = tmdbId.split(":");
+        if (parts.length >= 3) {
+          var s = parseInt(parts[parts.length - 2]);
+          var e = parseInt(parts[parts.length - 1]);
+          if (!isNaN(s)) finalSeason = s;
+          if (!isNaN(e)) finalEpisode = e;
+        }
+        tmdbId = parts[0];
+      }
+      if (!slug) {
+        slug = yield resolveSlugFromTmdb(tmdbId, mediaType);
+      }
+      if (!slug) return [];
+      var detail = yield fetchAnimeDetail(slug);
+      if (!detail || !Array.isArray(detail.seasons) || !detail.seasons.length) return [];
+      var ep = matchEpisode(detail.seasons, finalSeason, finalEpisode);
+      if (!ep || !ep.video_links) return [];
+      return yield fetchEpisodeStreams(ep.video_links);
+    } catch (e2) {
+      return [];
+    }
+  });
+}
 if (typeof getStreams === "function") {
-  var _origGetStreams = getStreams;
-  getStreams = async function() {
-    var res = await _origGetStreams.apply(this, arguments);
-    return sortStreamsByQuality(res);
+  _origGetStreams = getStreams;
+  getStreams = function() {
+    return __async(this, arguments, function* () {
+      var res = yield _origGetStreams.apply(this, arguments);
+      return sortStreamsByQuality(res);
+    });
   };
 }
-
+var _origGetStreams;
 if (typeof module !== "undefined") module.exports = { getStreams, getCatalog, getMeta };
 if (typeof globalThis !== "undefined") {
   globalThis.getStreams = getStreams;
   globalThis.getCatalog = getCatalog;
   globalThis.getMeta = getMeta;
 }
+
+if (typeof globalThis !== 'undefined' && typeof module !== 'undefined' && module.exports) {
+    if (module.exports.getStreams) globalThis.getStreams = module.exports.getStreams;
+    if (module.exports.getCatalog) globalThis.getCatalog = module.exports.getCatalog;
+    if (module.exports.getMeta) globalThis.getMeta = module.exports.getMeta;
+    if (module.exports.getSubtitles) globalThis.getSubtitles = module.exports.getSubtitles;
+}
+
