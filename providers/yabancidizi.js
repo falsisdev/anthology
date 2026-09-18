@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: yabancidizi
  * Built from src/yabancidizi/index.js
- * Build Date: 2026-09-18T20:22:18.810Z
+ * Build Date: 2026-09-18T20:38:10.229Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {

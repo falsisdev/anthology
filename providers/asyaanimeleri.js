@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: asyaanimeleri
  * Built from src/asyaanimeleri/index.js
- * Build Date: 2026-09-18T20:22:18.748Z
+ * Build Date: 2026-09-18T20:38:10.143Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {

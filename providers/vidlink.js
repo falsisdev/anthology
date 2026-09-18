@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: vidlink
  * Built from src/vidlink/index.js
- * Build Date: 2026-09-18T20:22:18.804Z
+ * Build Date: 2026-09-18T20:38:10.220Z
  */
 var __defProp = Object.defineProperty;
 var __defProps = Object.defineProperties;

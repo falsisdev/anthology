@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: diziboxizle
  * Built from src/diziboxizle/index.js
- * Build Date: 2026-09-18T20:22:18.758Z
+ * Build Date: 2026-09-18T20:38:10.154Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
