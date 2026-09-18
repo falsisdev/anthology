@@ -183,9 +183,65 @@ function sportOfMatch(m, catSets) {
 }
 
 // Kanal ID haritası (name -> andro id) ve canlı maç listesini çıkarır.
-// Sitede bulunan 4 branş listesi (F/B/V/T) maçın sporunu etiketlemek için
-// başvuru tablosudur; oynanabilir yayınlar yalnızca karsilasmalar'da olur
-// (branş listelerindeki ch# id'leri yer tutucudur → CDN'de 404).
+// Site verisi 5 diziden gelir:
+//   - karsilasmalar:  yayın akışı — maçlar sabit kanallarda (ss/bs/exn/ht…)
+//     GÜN BOYU sırayla oynar. Aynı kanal için günün birçok maçı listelenir;
+//     bu yüzden sabit kanala işaret eden akışta YALNIZCA "o anda yayınlanan
+//     maç" gösterilir (saat penceresi). Aksi halde etiket ile kanal uyuşmaz
+//     ("Bayern" etiketi kanalda o anda oynayan başka maçı açar).
+//   - futbol/basketbol/voleybol/tenisMatches: her biri kendi event-id'li
+//     (androstreamlivech<N>) PER-MAÇ yayınıdır; yalnızca maç yayındayken
+//     checklist hostunda 200 döner. Bunlar B/V/T/F'nin TAM listesini verir
+//     (kanal rotasyonuna takılmaz) — canlı olduklarında stream üretimi
+//     verifyMahsunStreams tarafından tutulur.
+function parseTimeMs(o) {
+    var d = o.tarih || '';
+    var t = o.time || '';
+    if (!d && o._sort_key) d = String(o._sort_key).slice(0, 10);
+    var tm = String(t).match(/(\d{1,2}):(\d{2})/);
+    if (!tm) return null;
+    var ts = Date.parse((d || '1970-01-01') + 'T' + tm[1] + ':' + tm[2] + ':00+03:00');
+    return isNaN(ts) ? null : ts;
+}
+
+// Sabit kanal gruplarında yalnızca en son başlamış (≥ kickoff) maçı tutar.
+function filterCurrentChannelSlots(featured) {
+    var byId = {};
+    var order = [];
+    for (var a = 0; a < featured.length; a++) {
+        var m = featured[a];
+        if (!byId[m.id]) { byId[m.id] = []; order.push(m.id); }
+        byId[m.id].push(m);
+    }
+    var out = [];
+    var nowMs = Date.now();
+    for (var i = 0; i < order.length; i++) {
+        var id = order[i];
+        var arr = byId[id];
+        // ch# = per-event (yayın saatinde canlanır), facebooklive = mirror feed.
+        // Bunlar tek maça ayrılmıştır → hepsi korunur.
+        var isChannelFeed = (id.indexOf('facebooklive') === -1) && !/ch\d+$/i.test(id);
+        if (!isChannelFeed) {
+            out = out.concat(arr);
+            continue;
+        }
+        var started = [];
+        var untimed = [];
+        for (var j = 0; j < arr.length; j++) {
+            var ts = arr[j]._ts;
+            if (ts === null) { untimed.push(arr[j]); continue; }
+            if (ts <= nowMs) started.push(arr[j]);
+        }
+        if (started.length) {
+            started.sort(function(x, y) { return x._ts - y._ts; });
+            out.push(started[started.length - 1]);
+        } else if (untimed.length) {
+            out = out.concat(untimed); // saati bilinmiyor → fail-open
+        }
+    }
+    return out;
+}
+
 function parseScript4(script) {
     var idMap = {};
     var pairsRe = /\{\s*title:\s*"([^"]+)",\s*url:\s*"\/event\.html\?id=([^"]+)"\s*\}/g;
@@ -202,6 +258,7 @@ function parseScript4(script) {
         { sport: 'T', array: 'tenisMatches' }
     ];
     var catSets = {};
+    var catEvents = [];
     for (var ci = 0; ci < CAT_ARRAYS.length; ci++) {
         var ca = CAT_ARRAYS[ci];
         var caSet = new Set();
@@ -210,14 +267,32 @@ function parseScript4(script) {
             var catObjs = catBody.match(/\{[^{}]*\}/g) || [];
             for (var co = 0; co < catObjs.length; co++) {
                 var ctM = catObjs[co].match(/"title"\s*:\s*"([^"]*)"/);
+                var cu = catObjs[co].match(/"url"\s*:\s*"[^"]*id=([A-Za-z0-9]+)"/);
+                var ct = ctM && ctM[1] ? ctM[1].trim() : '';
+                var cid = cu ? cu[1] : '';
                 if (ctM && ctM[1]) caSet.add(cleanKey(ctM[1].trim()));
+                if (!ct || !cid || cid === 'None' || cid.indexOf('chNone') !== -1) continue;
+                var ctTimeM = catObjs[co].match(/"time"\s*:\s*"([^"]*)"/);
+                var ctSortM = catObjs[co].match(/"_sort_key"\s*:\s*"([^"]*)"/);
+                var ctObj = {
+                    title: ct,
+                    id: cid,
+                    league: '',
+                    live: true,
+                    time: ctTimeM ? ctTimeM[1] : '',
+                    _sort_key: ctSortM ? ctSortM[1] : '',
+                    sport: ca.sport,
+                    _ts: null
+                };
+                ctObj._ts = parseTimeMs(ctObj);
+                catEvents.push(ctObj);
             }
         }
         catSets[ca.sport] = caSet;
     }
 
     var featBody = extractNamedArray(script, 'karsilasmalar');
-    var matches = [];
+    var featured = [];
     var seenIdsArr = {};
     if (featBody) {
         var objs = featBody.match(/\{[^{}]*\}/g) || [];
@@ -228,6 +303,7 @@ function parseScript4(script) {
             var l = o.match(/"league"\s*:\s*"([^"]*)"/);
             var lv = o.match(/"live"\s*:\s*(true|false)/);
             var tm = o.match(/"time"\s*:\s*"([^"]*)"/);
+            var dd = o.match(/"tarih"\s*:\s*"([^"]*)"/);
             if (!t || !u) continue;
             var title = t[1].trim();
             var id = u[1];
@@ -235,15 +311,31 @@ function parseScript4(script) {
             var key = id + '|' + title;
             if (seenIdsArr[key]) continue;
             seenIdsArr[key] = true;
-            matches.push({
+            var fobj = {
                 title: title,
                 id: id,
                 league: l ? l[1].trim() : '',
                 live: lv ? lv[1] === 'true' : false,
                 time: tm ? tm[1].trim() : '',
-                sport: sportOfMatch({ title: title, league: l ? l[1].trim() : '' }, catSets)
-            });
+                tarih: dd ? dd[1].trim() : '',
+                sport: sportOfMatch({ title: title, league: l ? l[1].trim() : '' }, catSets),
+                _ts: null
+            };
+            fobj._ts = parseTimeMs(fobj);
+            featured.push(fobj);
         }
+    }
+
+    // Sabit kanallar: sadece şu an oynayan maç. ch#/facebook: hepsi.
+    var keptFeatured = filterCurrentChannelSlots(featured);
+
+    // Featured'da zaten olan event'leri kategoriden düş (çift girmesin).
+    var featIds = {};
+    keptFeatured.forEach(function(m) { featIds[m.id] = true; });
+    var matches = keptFeatured.slice();
+    for (var kk = 0; kk < catEvents.length; kk++) {
+        if (featIds[catEvents[kk].id]) continue;
+        matches.push(catEvents[kk]);
     }
 
     // Spor grubuna göre sırala (F → B → V → T), sonra canlı, sonra saat.
@@ -411,6 +503,33 @@ function verifyMahsunStreams(streams) {
     });
 }
 
+// Sadece GERÇEKTEN yayında olan (CDN 200/206) maçları döner. getMeta ve
+// getStreams aynı listeyi kullandığı için meta'da görünüp açılmayan maç olmaz.
+function mahsunVerifiedMatches(matches, onlyIndex) {
+    if (!matches || !Array.isArray(matches)) matches = [];
+    var streams = buildMahsunMatchStreams(matches, onlyIndex);
+    if (!streams.length) return Promise.resolve([]);
+    return verifyMahsunStreams(streams).then(function(kept) {
+        var keptUrls = {};
+        kept.forEach(function(s) { keptUrls[s.url] = true; });
+        var base = (mahsunCache && mahsunCache.bases && mahsunCache.bases.length) ? mahsunCache.bases[0] : '';
+        var out = [];
+        for (var i = 0; i < matches.length; i++) {
+            if (onlyIndex !== null && onlyIndex !== undefined && i !== onlyIndex) continue;
+            var m = matches[i];
+            if (!m.id || !m.title) continue;
+            if (keptUrls[base + m.id + '.m3u8']) out.push(m);
+        }
+        return out;
+    });
+}
+
+function fetchMahsunVerifiedMatches(onlyIndex) {
+    return fetchMahsunMatches().then(function(matches) {
+        return mahsunVerifiedMatches(matches, onlyIndex);
+    });
+}
+
 function getCatalog(args) {
     return fetchChannels()
         .then(function(content) {
@@ -497,13 +616,10 @@ function getStreams(args) {
     if (cleanT.indexOf('tv:mahsunsports') === 0) {
         var sub = cleanT.replace(/^tv:mahsunsports:?/, '');
         var idx = (sub && /^\d+$/.test(sub)) ? parseInt(sub, 10) : null;
-        return fetchMahsunMatches().then(function(groups) {
-            var streams = buildMahsunMatchStreams(groups, idx);
+        return fetchMahsunVerifiedMatches(idx).then(function(kept) {
+            var streams = buildMahsunMatchStreams(kept, null);
             streams.streams = streams;
-            return verifyMahsunStreams(streams).then(function(kept) {
-                kept.streams = kept;
-                return kept;
-            });
+            return streams;
         });
     }
 
@@ -594,7 +710,7 @@ function getMeta(args) {
 
     var cleanT = String(targetId).toLowerCase();
     if (cleanT.indexOf('tv:mahsunsports') === 0) {
-        return fetchMahsunMatches().then(function(matches) {
+        return fetchMahsunVerifiedMatches(null).then(function(matches) {
             var videos = [];
             var titleCount = {};
             for (var i = 0; i < matches.length; i++) {

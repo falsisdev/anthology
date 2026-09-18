@@ -213,7 +213,7 @@ https://dogus.daioncdn.net/ntv/ntv.m3u8?app=ntv_web
 https://rmtftbjlne.turknet.ercdn.net/bpeytmnqyp/haberturktv/haberturktv.m3u8
 
 #EXTINF:-1 tvg-id="TV100.tr" tvg-name="TV100" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv100.png" group-title="🇹🇷 HABER KANALLARI",TV100 HD
-https://www.youtube.com/watch?v=4WSvLRk83-c
+https://tv.ensonhaber.com/tv100/tv100.m3u8
 
 #EXTINF:-1 tvg-id="AHaber.tr" tvg-name="A Haber" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ahaber.png" group-title="🇹🇷 HABER KANALLARI",A Haber HD
 https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/ahaber/ahaber.m3u8
