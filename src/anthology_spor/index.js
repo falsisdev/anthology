@@ -141,6 +141,55 @@ function mahsunFetchText(url) {
         .catch(function() { return ''; });
 }
 
+// Checklist hostu canlı mı? (Range probu; WAF bloğu/404'te false)
+function baseProbe(url) {
+    var ctrl = null;
+    if (typeof AbortController !== 'undefined') ctrl = new AbortController();
+    var timer = setTimeout(function() { if (ctrl) ctrl.abort(); }, 5000);
+    var opts = {
+        method: 'GET',
+        headers: {
+            'User-Agent': _HEADERS['User-Agent'],
+            'Referer': MAHSUN_SITE,
+            'Range': 'bytes=0-2048'
+        }
+    };
+    if (ctrl) opts.signal = ctrl.signal;
+    return fetch(url, opts).then(function(res) {
+        clearTimeout(timer);
+        var code = res.status;
+        return (code === 200 || code === 206);
+    }).catch(function() {
+        clearTimeout(timer);
+        return false;
+    });
+}
+
+// Çalışan ilk checklist base'ini bulur: event.html'den gelen base'ler +
+// bilinen host aralığındaki aynalar sırayla denenir. Host rotasyonu/WAF
+// bloğu durumunda motor otomatik olarak canlı olan aynaya geçer.
+function findWorkingBase(prefer) {
+    var seen = {};
+    var cands = [];
+    function add(b) {
+        b = String(b || '');
+        if (!b || seen[b]) return;
+        seen[b] = true;
+        cands.push(b);
+    }
+    (prefer || []).forEach(add);
+    for (var n = 99; n <= 112; n++) add('https://andro.evrenesoglu' + n + '.click/checklist/');
+    var i = 0;
+    function next() {
+        if (i >= cands.length) return Promise.resolve(prefer && prefer[0] ? prefer[0] : '');
+        var b = cands[i++];
+        return baseProbe(b + 'androstreamlivebs3.m3u8').then(function(alive) {
+            return alive ? b : next();
+        });
+    }
+    return next();
+}
+
 // Script4 içindeki "const NAME = [ ... ]" bloğunu string-farkındalıklı döner.
 function extractNamedArray(script, name) {
     var re = new RegExp('(?:const|var|let)\\s+' + name + '\\s*=\\s*\\[');
@@ -164,7 +213,7 @@ function extractNamedArray(script, name) {
 
 // Spor haritası: etiket (emoji + harf) ve görüntülenme sırası.
 var SPORT_LABEL = { F: '⚽️ F', B: '🏀 B', V: '🏐 V', T: '🎾 T' };
-var SPORT_ORDER = { F: 0, B: 1, V: 2, T: 3 };
+var SPORT_ORDER = { F: 0, B: 1, V: 2, T: 3, C: 4 };
 
 // Bir maçın sporunu belirler: önce site'nin F/B/V/T listelerinde birebir
 // başlık, yoksa lig/başlık anahtar kelimeleri, son çare futbol.
@@ -244,11 +293,13 @@ function filterCurrentChannelSlots(featured) {
 
 function parseScript4(script) {
     var idMap = {};
+    var chanById = {};
     var pairsRe = /\{\s*title:\s*"([^"]+)",\s*url:\s*"\/event\.html\?id=([^"]+)"\s*\}/g;
     var p;
     while ((p = pairsRe.exec(script)) !== null) {
         var nk = cleanKey(p[1]);
         if (nk && !idMap[nk]) idMap[nk] = p[2];
+        if (p[2] && !chanById[p[2]]) chanById[p[2]] = p[1];
     }
 
     var CAT_ARRAYS = [
@@ -329,14 +380,44 @@ function parseScript4(script) {
     // Sabit kanallar: sadece şu an oynayan maç. ch#/facebook: hepsi.
     var keptFeatured = filterCurrentChannelSlots(featured);
 
-    // Featured'da zaten olan event'leri kategoriden düş (çift girmesin).
+    // Kanal adıyla fallback: bir sabit kanal featured'da vardır ama o an
+    // başlamış maç slotu yoktur (günün programı listelenir). Kanal yine de
+    // CANLI beslemedir — maç etiketi yalanına düşmeden kanal adıyla eklenir.
+    // Yalnızca featured'da GÖRÜNEN beslemeler eklenir (site aktif kanalları);
+    // Trt1/Atv/Tjk gibi genel kanallar checklist üzerinde boştur — eklenmez.
+    // Verify (CDN 200) gerçekten yayında olanları tutar, ölüleri eler.
+    var activeFeedIds = {};
+    featured.forEach(function(m) { activeFeedIds[m.id] = true; });
     var featIds = {};
     keptFeatured.forEach(function(m) { featIds[m.id] = true; });
+    var chanKeys = Object.keys(chanById);
+    var channelFeedAdds = [];
+    for (var ck = 0; ck < chanKeys.length; ck++) {
+        var cid = chanKeys[ck];
+        if (!activeFeedIds[cid]) continue;
+        if (featIds[cid]) continue;
+        if (cid.indexOf('facebooklive') !== -1) continue;
+        if (/ch\d+$/i.test(cid)) continue;
+        channelFeedAdds.push({
+            title: chanById[cid],
+            id: cid,
+            league: '',
+            live: true,
+            time: '',
+            tarih: '',
+            sport: 'C',
+            _ts: null,
+            isChannelFeed: true
+        });
+    }
+
+    // Featured'da zaten olan event'leri kategoriden düş (çift girmesin).
     var matches = keptFeatured.slice();
     for (var kk = 0; kk < catEvents.length; kk++) {
         if (featIds[catEvents[kk].id]) continue;
         matches.push(catEvents[kk]);
     }
+    for (var af = 0; af < channelFeedAdds.length; af++) matches.push(channelFeedAdds[af]);
 
     // Spor grubuna göre sırala (F → B → V → T), sonra canlı, sonra saat.
     matches.sort(function(a, b) {
@@ -375,8 +456,16 @@ function fetchMahsunData() {
                 }
                 return mahsunFetchText(scriptUrl).then(function(script) {
                     var parsed = parseScript4(script);
-                    mahsunCache = { time: now, bases: bases, idMap: parsed.idMap, matches: parsed.matches };
-                    return mahsunCache;
+                    return findWorkingBase(bases).then(function(wb) {
+                        var finalBases = bases.slice();
+                        if (wb && finalBases.indexOf(wb) !== -1) {
+                            finalBases.splice(finalBases.indexOf(wb), 1);
+                        }
+                        if (wb) finalBases.unshift(wb);
+                        if (!finalBases.length) finalBases.push(wb || '');
+                        mahsunCache = { time: now, bases: finalBases, idMap: parsed.idMap, matches: parsed.matches };
+                        return mahsunCache;
+                    });
                 });
             });
         })
@@ -584,9 +673,11 @@ function buildMahsunMatchStreams(matches, onlyIndex) {
         if (onlyIndex !== null && onlyIndex !== undefined && i !== onlyIndex) continue;
         var m = matches[i];
         if (!m.id || !m.title) continue;
-        var label = SPORT_LABEL[m.sport] || '▶';
+        var label;
+        if (m.isChannelFeed) label = '🔴 ' + m.title;
+        else label = (SPORT_LABEL[m.sport] || '▶') + ' | ' + m.title;
         titleCount[m.title] = (titleCount[m.title] || 0) + 1;
-        var st = label + ' | ' + m.title;
+        var st = label;
         if (titleCount[m.title] > 1) st += ' (Akış ' + titleCount[m.title] + ')';
         streams.push(makeStream(
             '⌜ Mahsun Sports ⌟',
@@ -716,7 +807,9 @@ function getMeta(args) {
             for (var i = 0; i < matches.length; i++) {
                 var g = matches[i];
                 titleCount[g.title] = (titleCount[g.title] || 0) + 1;
-                var st = (SPORT_LABEL[g.sport] || '▶') + ' | ' + g.title;
+                var st;
+                if (g.isChannelFeed) st = '🔴 ' + g.title;
+                else st = (SPORT_LABEL[g.sport] || '▶') + ' | ' + g.title;
                 if (titleCount[g.title] > 1) st += ' (Akış ' + titleCount[g.title] + ')';
                 videos.push({
                     id: 'tv:mahsunsports:' + i,
