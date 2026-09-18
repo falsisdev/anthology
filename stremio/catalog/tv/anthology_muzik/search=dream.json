@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:DreamTurk.tr",
+      "type": "tv",
+      "name": "Dream Türk HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dreamturk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dreamturk.png",
+      "description": "Dream Türk HD Canlı Müzik Yayını",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
+    }
+  ]
+}

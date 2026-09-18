@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:KanalAvrupa.tr",
+      "type": "tv",
+      "name": "Kanal Avrupa",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanalavrupa.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanalavrupa.png",
+      "description": "Kanal Avrupa Canlı Yayın",
+      "genres": [
+        "Ulusal"
+      ]
+    }
+  ]
+}

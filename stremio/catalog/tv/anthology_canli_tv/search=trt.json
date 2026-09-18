@@ -34,6 +34,17 @@
       ]
     },
     {
+      "id": "tv:TRTGenc.tr",
+      "type": "tv",
+      "name": "TRT Genç HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtgenc.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtgenc.png",
+      "description": "TRT Genç HD Canlı Yayın",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
       "id": "tv:TRTSpor.tr",
       "type": "tv",
       "name": "TRT Spor HD",
@@ -122,6 +133,17 @@
       ]
     },
     {
+      "id": "tv:TRTDiyanetCocuk.tr",
+      "type": "tv",
+      "name": "TRT Diyanet Çocuk HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtdiyanetcocuk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtdiyanetcocuk.png",
+      "description": "TRT Diyanet Çocuk HD Canlı Yayın",
+      "genres": [
+        "BELGESEL  ÇOCUK"
+      ]
+    },
+    {
       "id": "tv:TRTMuzik.tr",
       "type": "tv",
       "name": "TRT Müzik HD",
@@ -130,6 +152,17 @@
       "description": "TRT Müzik HD Canlı Yayın",
       "genres": [
         "MÜZİK  EĞLENCE"
+      ]
+    },
+    {
+      "id": "tv:TRTNostalji.tr",
+      "type": "tv",
+      "name": "TRT Nostalji HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtnostalji.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtnostalji.png",
+      "description": "TRT Nostalji HD Canlı Yayın",
+      "genres": [
+        "SİNEMA  DİZİ KANALLARI"
       ]
     },
     {

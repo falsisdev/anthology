@@ -166,6 +166,94 @@
       ]
     },
     {
+      "id": "tv:TRTGenc.tr",
+      "type": "tv",
+      "name": "TRT Genç HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtgenc.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtgenc.png",
+      "description": "TRT Genç HD Canlı Yayın",
+      "genres": [
+        "Ulusal"
+      ]
+    },
+    {
+      "id": "tv:TLC.tr",
+      "type": "tv",
+      "name": "TLC HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tlc.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tlc.png",
+      "description": "TLC HD Canlı Yayın",
+      "genres": [
+        "Ulusal"
+      ]
+    },
+    {
+      "id": "tv:DMAX.tr",
+      "type": "tv",
+      "name": "DMAX HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dmax.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dmax.png",
+      "description": "DMAX HD Canlı Yayın",
+      "genres": [
+        "Ulusal"
+      ]
+    },
+    {
+      "id": "tv:EuroD.tr",
+      "type": "tv",
+      "name": "Euro D HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurod.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurod.png",
+      "description": "Euro D HD Canlı Yayın",
+      "genres": [
+        "Ulusal"
+      ]
+    },
+    {
+      "id": "tv:TV4.tr",
+      "type": "tv",
+      "name": "TV4 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv4.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv4.png",
+      "description": "TV4 HD Canlı Yayın",
+      "genres": [
+        "Ulusal"
+      ]
+    },
+    {
+      "id": "tv:TYTTurk.tr",
+      "type": "tv",
+      "name": "TYT Türk HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png",
+      "description": "TYT Türk HD Canlı Yayın",
+      "genres": [
+        "Ulusal"
+      ]
+    },
+    {
+      "id": "tv:Cine1.tr",
+      "type": "tv",
+      "name": "Cine 1 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cine1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cine1.png",
+      "description": "Cine 1 HD Canlı Yayın",
+      "genres": [
+        "Ulusal"
+      ]
+    },
+    {
+      "id": "tv:KanalAvrupa.tr",
+      "type": "tv",
+      "name": "Kanal Avrupa",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanalavrupa.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanalavrupa.png",
+      "description": "Kanal Avrupa Canlı Yayın",
+      "genres": [
+        "Ulusal"
+      ]
+    },
+    {
       "id": "tv:TRTWorld.tr",
       "type": "tv",
       "name": "TRT World HD",

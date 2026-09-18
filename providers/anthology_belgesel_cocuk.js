@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: anthology_belgesel_cocuk
  * Built from src/anthology_belgesel_cocuk/index.js
- * Build Date: 2026-09-18T20:38:10.127Z
+ * Build Date: 2026-09-18T21:18:00.135Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -261,11 +261,21 @@ function parseChannels(content) {
           }
           if (u.indexOf("#EXTINF") === 0) break;
         }
+        var backups = [];
+        var b1 = line.match(/tvg-backup="([^"]+)"/i);
+        var b2 = line.match(/tvg-backup2="([^"]+)"/i);
+        if (b1) b1[1].split("|").forEach(function(u2) {
+          if (u2 && u2.trim()) backups.push(u2.trim());
+        });
+        if (b2) b2[1].split("|").forEach(function(u2) {
+          if (u2 && u2.trim()) backups.push(u2.trim());
+        });
         channels.push({
           id: channelId,
           name: channelName,
           logo,
-          url: streamUrl
+          url: streamUrl,
+          backups
         });
       }
     }
@@ -320,6 +330,21 @@ function getStreams(args) {
           headers: _HEADERS,
           behaviorHints: { isLive: true }
         });
+        if (ch.backups && ch.backups.length > 0) {
+          for (var bkIdx = 0; bkIdx < ch.backups.length; bkIdx++) {
+            var bUrl = ch.backups[bkIdx];
+            if (bUrl !== ch.url) {
+              var bLabel = ch.name + (ch.backups.length > 1 ? " [Yedek Ak\u0131\u015F " + (bkIdx + 1) + "]" : " [Yedek Ak\u0131\u015F]");
+              streams.push({
+                name: "\u231C Anthology Belgesel & \xC7ocuk \u231F",
+                title: bLabel,
+                url: bUrl,
+                headers: _HEADERS,
+                behaviorHints: { isLive: true }
+              });
+            }
+          }
+        }
         break;
       }
     }

@@ -21,6 +21,17 @@
       "genres": [
         "SPOR KANALLARI"
       ]
+    },
+    {
+      "id": "tv:ShowMax.tr",
+      "type": "tv",
+      "name": "Show Max",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/showmax.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/showmax.png",
+      "description": "Show Max Canlı Yayın",
+      "genres": [
+        "MÜZİK  EĞLENCE"
+      ]
     }
   ]
 }

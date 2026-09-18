@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:DMAX.tr",
+    "type": "tv",
+    "name": "DMAX HD",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dmax.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dmax.png",
+    "description": "DMAX HD Canlı Yayın",
+    "genres": [
+      "Ulusal"
+    ],
+    "videos": [
+      {
+        "id": "tv:DMAX.tr",
+        "title": "DMAX HD"
+      }
+    ]
+  }
+}

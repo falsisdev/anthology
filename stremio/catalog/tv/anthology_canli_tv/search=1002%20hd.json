@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:Sinema1002.tr",
+      "type": "tv",
+      "name": "Sinema TV 1002 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinema1002.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinema1002.png",
+      "description": "Sinema TV 1002 HD Canlı Yayın",
+      "genres": [
+        "SİNEMA  DİZİ KANALLARI"
+      ]
+    }
+  ]
+}

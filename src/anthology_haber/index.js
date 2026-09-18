@@ -87,11 +87,18 @@ function parseHaberChannels(content) {
                     if (u.indexOf('#EXTINF') === 0) break;
                 }
 
+                var backups = [];
+                var b1 = line.match(/tvg-backup="([^"]+)"/i);
+                var b2 = line.match(/tvg-backup2="([^"]+)"/i);
+                if (b1) b1[1].split('|').forEach(function(u) { if (u && u.trim()) backups.push(u.trim()); });
+                if (b2) b2[1].split('|').forEach(function(u) { if (u && u.trim()) backups.push(u.trim()); });
+
                 channels.push({
                     id: channelId,
                     name: channelName,
                     logo: logo,
-                    url: streamUrl
+                    url: streamUrl,
+                    backups: backups
                 });
             }
         }
@@ -164,6 +171,21 @@ function getStreams(args) {
                             headers: _HEADERS,
                             behaviorHints: { isLive: true }
                         });
+                    }
+                    if (ch.backups && ch.backups.length > 0) {
+                        for (var bkIdx = 0; bkIdx < ch.backups.length; bkIdx++) {
+                            var bUrl = ch.backups[bkIdx];
+                            if (bUrl !== ch.url) {
+                                var bLabel = ch.name + (ch.backups.length > 1 ? (' [Yedek Akış ' + (bkIdx + 1) + ']') : ' [Yedek Akış]');
+                                streams.push({
+                                    name: '⌜ Anthology Haber ⌟',
+                                    title: bLabel,
+                                    url: bUrl,
+                                    headers: _HEADERS,
+                                    behaviorHints: { isLive: true }
+                                });
+                            }
+                        }
                     }
                     break;
                 }

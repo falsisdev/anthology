@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:TayTV.tr",
+      "type": "tv",
+      "name": "Tay TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/taytv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/taytv.png",
+      "description": "Tay TV HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    }
+  ]
+}

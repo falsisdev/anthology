@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:EuroD.tr",
+      "type": "tv",
+      "name": "Euro D HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurod.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurod.png",
+      "description": "Euro D HD Canlı Yayın",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    }
+  ]
+}

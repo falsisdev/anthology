@@ -10,6 +10,28 @@
       "genres": [
         "ULUSAL KANALLAR"
       ]
+    },
+    {
+      "id": "tv:TYTTurk.tr",
+      "type": "tv",
+      "name": "TYT Türk HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png",
+      "description": "TYT Türk HD Canlı Yayın",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:DreamTurk.tr",
+      "type": "tv",
+      "name": "Dream Türk HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dreamturk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dreamturk.png",
+      "description": "Dream Türk HD Canlı Yayın",
+      "genres": [
+        "MÜZİK  EĞLENCE"
+      ]
     }
   ]
 }

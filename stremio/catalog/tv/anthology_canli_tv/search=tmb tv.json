@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:TMBTV.tr",
+      "type": "tv",
+      "name": "TMB TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tmbtv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tmbtv.png",
+      "description": "TMB TV HD Canlı Yayın",
+      "genres": [
+        "MÜZİK  EĞLENCE"
+      ]
+    }
+  ]
+}

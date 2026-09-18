@@ -186,6 +186,17 @@
       "genres": [
         "SPOR KANALLARI"
       ]
+    },
+    {
+      "id": "tv:EkolSports.tr",
+      "type": "tv",
+      "name": "Ekol Sports HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ekolsports.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ekolsports.png",
+      "description": "Ekol Sports HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
     }
   ]
 }

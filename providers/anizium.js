@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: anizium
  * Built from src/anizium/index.js
- * Build Date: 2026-09-18T20:38:10.123Z
+ * Build Date: 2026-09-18T21:18:00.131Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {

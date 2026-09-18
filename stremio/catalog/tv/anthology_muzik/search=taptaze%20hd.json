@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:PowerturkTaptaze.tr",
+      "type": "tv",
+      "name": "Powertürk Taptaze HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerturk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerturk.png",
+      "description": "Powertürk Taptaze HD Canlı Müzik Yayını",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
+    }
+  ]
+}

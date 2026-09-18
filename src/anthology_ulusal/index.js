@@ -1,5 +1,6 @@
 const { sortStreamsByQuality } = require("../shared/quality.js");
 const { loadConfig, val, wrapAll } = require("../shared/config.js");
+const { getNowPlayingInfo } = require("../shared/epg.js");
 
 var _cfgReady = null;
 function cfgReady() {
@@ -87,11 +88,18 @@ function parseUlusalChannels(content) {
                     if (u.indexOf('#EXTINF') === 0) break;
                 }
 
+                var backups = [];
+                var b1 = line.match(/tvg-backup="([^"]+)"/i);
+                var b2 = line.match(/tvg-backup2="([^"]+)"/i);
+                if (b1) b1[1].split('|').forEach(function(u) { if (u && u.trim()) backups.push(u.trim()); });
+                if (b2) b2[1].split('|').forEach(function(u) { if (u && u.trim()) backups.push(u.trim()); });
+
                 channels.push({
                     id: channelId,
                     name: channelName,
                     logo: logo,
-                    url: streamUrl
+                    url: streamUrl,
+                    backups: backups
                 });
             }
         }
@@ -155,6 +163,21 @@ function getStreams(args) {
                         headers: _HEADERS,
                         behaviorHints: { isLive: true }
                     });
+                    if (ch.backups && ch.backups.length > 0) {
+                        for (var bkIdx = 0; bkIdx < ch.backups.length; bkIdx++) {
+                            var bUrl = ch.backups[bkIdx];
+                            if (bUrl !== ch.url) {
+                                var bLabel = ch.name + (ch.backups.length > 1 ? (' [Yedek Akış ' + (bkIdx + 1) + ']') : ' [Yedek Akış]');
+                                streams.push({
+                                    name: '⌜ Anthology Ulusal ⌟',
+                                    title: bLabel,
+                                    url: bUrl,
+                                    headers: _HEADERS,
+                                    behaviorHints: { isLive: true }
+                                });
+                            }
+                        }
+                    }
                     break;
                 }
             }
@@ -203,6 +226,7 @@ function getMeta(args) {
             var channels = parseUlusalChannels(content);
             var cleanTarget = cleanKey(targetId.replace(/^tv:/, ''));
             var ch = channels.find(function(c) { return c.id === targetId || cleanKey(c.id.replace(/^tv:/, '')) === cleanTarget || cleanKey(c.name) === cleanTarget; }) || channels[0];
+            var epg = getNowPlayingInfo(cleanTarget, ch.name);
             return {
                 meta: {
                     id: targetId,
@@ -210,9 +234,9 @@ function getMeta(args) {
                     name: ch.name,
                     poster: ch.logo,
                     background: ch.logo,
-                    description: ch.name + " Canlı Ulusal Yayın",
+                    description: (epg && epg.formattedText) ? epg.formattedText : (ch.name + " Canlı Ulusal Yayın"),
                     genres: ["Ulusal"],
-                    videos: [{ id: targetId, title: ch.name, released: new Date().toISOString() }]
+                    videos: [{ id: targetId, title: (epg && epg.current) ? epg.current : ch.name, released: new Date().toISOString() }]
                 }
             };
         })

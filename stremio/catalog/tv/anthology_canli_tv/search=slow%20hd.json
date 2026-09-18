@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:PowerturkSlow.tr",
+      "type": "tv",
+      "name": "Powertürk Slow HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerturk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerturk.png",
+      "description": "Powertürk Slow HD Canlı Yayın",
+      "genres": [
+        "MÜZİK  EĞLENCE"
+      ]
+    }
+  ]
+}

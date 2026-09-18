@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:SinemaTV.tr",
+    "type": "tv",
+    "name": "Sinema TV HD",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinematv.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinematv.png",
+    "description": "Sinema TV HD Canlı Yayın",
+    "genres": [
+      "SİNEMA  DİZİ KANALLARI"
+    ],
+    "videos": [
+      {
+        "id": "tv:SinemaTV.tr",
+        "title": "Sinema TV HD"
+      }
+    ]
+  }
+}

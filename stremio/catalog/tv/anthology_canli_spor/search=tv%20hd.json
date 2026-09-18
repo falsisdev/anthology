@@ -12,17 +12,6 @@
       ]
     },
     {
-      "id": "tv:GSTV.tr",
-      "type": "tv",
-      "name": "GS TV HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/gstv.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/gstv.png",
-      "description": "GS TV HD Canlı Spor Yayını",
-      "genres": [
-        "Spor"
-      ]
-    },
-    {
       "id": "tv:SportsTV.tr",
       "type": "tv",
       "name": "Sports TV HD",
@@ -73,6 +62,17 @@
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
       "description": "Exxen TV HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:TayTV.tr",
+      "type": "tv",
+      "name": "Tay TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/taytv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/taytv.png",
+      "description": "Tay TV HD Canlı Spor Yayını",
       "genres": [
         "Spor"
       ]
