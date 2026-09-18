@@ -1977,7 +1977,7 @@
             </svg>
           </button>
           <div class="faq-body">
-            <p><strong>Nuvio (Tam Kapsam):</strong> Anthology'nin ana platformudur. Nuvio kullanıcıları 42 doğrulanmış
+            <p><strong>Nuvio (Tam Kapsam):</strong> Anthology'nin ana platformudur. Nuvio kullanıcıları 43 doğrulanmış
               film, dizi ve anime video scraper motorunun tamamını, 6 Canlı TV kataloğunu ve 100 canlı yayın kanalını
               hiçbir sınırlama olmaksızın sorunsuz ve eksiksiz kullanabilir.</p>
             <br>
@@ -2087,10 +2087,12 @@
     const STREMIO_MANIFEST_URL = "https://falsisdev.github.io/anthology/stremio/manifest.json";
     const FALLBACK_LOGO = "assets/logo_1_transparent.png";
 
-    /* 39 SCRAPERS / PLUGINS */
+    /* 44 SCRAPERS / PLUGINS */
     const PROVIDERS = [      { id: "animecix", name: "AnimeciX", cats: ["anime", "tv", "movie"], domain: "animecix.tv", logo: null, format: "1080p / 720p MP4", desc: "TauVideo altyapısıyla binlerce anime bölümü (1080p, 720p, 480p doğrudan MP4)." },
       { id: "anizium", name: "Anizium", cats: ["anime", "tv", "movie"], domain: "anizium.co", logo: "assets/anizium.png", format: "4K / 1080p MP4 + VTT", desc: "4K UHD ve 1080p Türkçe Dublaj & senkron WebVTT Altyazılı doğrudan anime MP4 akışları." },
       { id: "asyaanimeleri", name: "AsyaAnimeleri", cats: ["anime", "tv", "movie"], domain: "asyaanimeleri.top", logo: null, format: "1080p MP4 / HLS", desc: "Anime ve donghua arşivi — Sibnet, Ok.ru, Mail.ru ve Rumble üzerinden doğrudan MP4 ve HLS akışları." },
+      { id: "seicode", name: "SeiCode", cats: ["anime", "tv", "movie"], domain: "seicode.net", logo: null, format: "1080p MP4 / HLS", desc: "SeiCode anime platformu — TauVideo, Ok.ru, Sibnet, VidMoly ve MP4Upload üzerinden 1080p doğrudan MP4 ve HLS akışları." },
+      { id: "sonanime", name: "SonAnime", cats: ["anime", "tv", "movie"], domain: "sonanime.com", logo: null, format: "1080p / 720p / 480p MP4", desc: "SonAnime Türkçe anime ve film arşivi — Doğrudan Backblaze B2 ve Cloudflare CDN üzerinden 1080p doğrudan MP4 akışları." },
       { id: "anthology_aksiyon", name: "Anthology Aksiyon & Macera", cats: ["movie", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS", desc: "Aksiyon, macera, suç ve gerilim sineması doğrudan HD HLS akışları." },
       { id: "anthology_animasyon", name: "Anthology Animasyon", cats: ["movie", "anime", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS", desc: "Animasyon, anime ve çizgi sinema doğrudan HD HLS akışları." },
       { id: "anthology_belgesel", name: "Anthology Belgesel & Doğa", cats: ["movie", "tv", "genre"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS", desc: "Belgeseller, doğa, bilim ve tarih yapımları doğrudan HD HLS akışları." },
