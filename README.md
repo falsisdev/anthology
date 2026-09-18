@@ -7,7 +7,12 @@
     <a href="https://github.com/falsisdev/anthology"><img src="https://img.shields.io/badge/Nuvio-Eklenti_Deposu-00e676?style=for-the-badge&logo=github&logoColor=white" alt="Nuvio" /></a>
     <a href="stremio://falsisdev.github.io/anthology/stremio/manifest.json"><img src="https://img.shields.io/badge/Stremio-Canlı_TV-a855f7?style=for-the-badge&logo=stremio&logoColor=white" alt="Stremio Canlı TV" /></a>
     <a href="https://stremio-addons.net/addons/anthology"><img src="https://img.shields.io/badge/Stremio_Addons-anthology-8a2be2?style=for-the-badge&logo=stremio&logoColor=white" alt="Stremio Addons Directory" /></a>
-    <img src="https://img.shields.io/badge/Eklenti-42_Aktif-3b82f6?style=for-the-badge" alt="42 Aktif Eklenti" />
+  </p>
+
+  <p>
+    <img src="https://img.shields.io/badge/Sürüm-1.7.29-blue?style=for-the-badge" alt="Sürüm 1.7.29" />
+    <img src="https://img.shields.io/badge/Eklenti-43_Aktif-3b82f6?style=for-the-badge" alt="43 Aktif Eklenti" />
+    <img src="https://img.shields.io/badge/Lisans-MIT-green?style=for-the-badge" alt="MIT Lisansı" />
     <img src="https://img.shields.io/badge/Katalog-6_Canlı_Katalog-8b5cf6?style=for-the-badge" alt="6 Canlı TV Kataloğu" />
     <img src="https://img.shields.io/badge/Kanal-100_Canlı_Kanal-00e676?style=for-the-badge" alt="100 Canlı Kanal" />
   </p>
@@ -143,6 +148,7 @@ Nuvio ve Stremio ana sayfasında canlı TV kanallarını kategorilere ayrılmı�
 | **AnimeciX** | animecix.tv (TauVideo CDN) | 1080p / 720p / 480p MP4 | Türkçe Altyazı & Dublaj |
 | **Anizium** | api.anizium.co (Backblaze CDN) | 4K UHD / 1080p MP4 | Türkçe Dublaj & Senkron WebVTT Altyazı |
 | **AsyaAnimeleri** | asyaanimeleri.top (Sibnet & Ok.ru) | 1080p MP4 / HLS | Anime & Donghua Geniş Arşivi |
+| **SeiCode** | seicode.net (TauVideo, OkRu, Sibnet, VidMoly, MP4Upload) | 1080p MP4 / HLS | Güncel Anime Serileri & Doğrudan Akışlar |
 | **TurkAnime** | turkanime.tv (Sibnet & ArtPlayer) | 1080p MP4 / HLS | Türkiye'nin En Geniş Anime Arşivi |
 
 ---
@@ -218,7 +224,7 @@ Nuvio ve Stremio ana sayfasında canlı TV kanallarını kategorilere ayrılmı�
 
 ## ⚠️ **Çalışmayan / Deprecated Sağlayıcılar**
 
-Şu anda repoda yer alan **tüm 35 video sağlayıcısı ve 7 Canlı TV kategorisi (toplam 42 eklenti)** (%100) aktif ve doğrulanmış olarak çalışmaktadır.
+Şu anda repoda yer alan **tüm 36 video sağlayıcısı ve 7 Canlı TV kategorisi (toplam 43 eklenti)** (%100) aktif ve doğrulanmış olarak çalışmaktadır.
 - **SineWix (`sinewix.com`):** 5000+ film, dizi ve anime arşiviyle 1080p DUAL MKV akışları, popüler film/dizi katalogları ve TMDB/IMDb çözümleyicisiyle tamamen aktiftir.
 - **SetFilmIzle & HDFilmIzle:** FastPlay yerel oynatıcı UA whitelist muafiyeti (`ExoPlayerLib`), Vidrame ve Vidmoxy çözücüleri ile eksiksiz aktiftir.
 

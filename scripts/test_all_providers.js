@@ -76,6 +76,12 @@ async function checkPlayability(streams) {
       } else if (scraper.id === "asyaanimeleri") {
         testTarget = "Solo Leveling (127532 S01E01)";
         streams = await mod.getStreams("127532", "tv", 1, 1);
+      } else if (scraper.id === "seicode") {
+        testTarget = "Solo Leveling (127532 S01E01)";
+        streams = await mod.getStreams("127532", "tv", 1, 1);
+      } else if (scraper.id === "sonanime") {
+        testTarget = "Naruto (46260 S01E01)";
+        streams = await mod.getStreams("46260", "series", 1, 1);
       } else if (scraper.id === "diziboxizle") {
         testTarget = "Amadeus (246864 S01E01)";
         streams = await mod.getStreams("246864", "tv", 1, 1);

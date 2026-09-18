@@ -67,6 +67,14 @@ async function checkHttp(url, headers = {}) {
         streams = await mod.getStreams("127532", "tv", 1, 1);
       } else if (scraper.id === "turkanime") {
         streams = await mod.getStreams("13916", "tv", 1, 1);
+      } else if (scraper.id === "sonanime") {
+        streams = await mod.getStreams("46260", "series", 1, 1);
+      } else if (scraper.id === "diziboxizle") {
+        streams = await mod.getStreams("246864", "tv", 1, 1);
+      } else if (scraper.id === "anizium") {
+        streams = await mod.getStreams("31910", "series", 1, 1);
+      } else if (scraper.id === "asyaanimeleri") {
+        streams = await mod.getStreams("127532", "tv", 1, 1);
       } else if (scraper.id === "AnthologyDiziM3U" || scraper.id === "anthology_yerlidizi") {
         streams = await mod.getStreams("245914", "tv", 1, 1);
       } else if (scraper.id === "ddizi") {
