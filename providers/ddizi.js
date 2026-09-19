@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: ddizi
  * Built from src/ddizi/index.js
- * Build Date: 2026-09-19T20:38:09.268Z
+ * Build Date: 2026-09-19T20:48:55.136Z
  */
 var __defProp = Object.defineProperty;
 var __defProps = Object.defineProperties;
@@ -285,16 +285,31 @@ function resolveYouTubeMp4(ytId) {
       });
       if (res.ok) {
         const data = yield res.json();
-        if (data.streamingData && data.streamingData.formats) {
-          const formats = data.streamingData.formats.filter((f) => f.url && (f.mimeType || "").includes("mp4"));
-          if (formats.length > 0) {
+        if (data.streamingData) {
+          if (data.streamingData.hlsManifestUrl) {
             return {
-              url: formats[0].url,
-              quality: formats[0].qualityLabel || "360p",
+              url: data.streamingData.hlsManifestUrl,
+              quality: "1080p",
+              isHls: true,
+              format: "hls",
               headers: {
                 "User-Agent": "com.google.android.youtube/20.10.38 (Linux; U; Android 11) gzip"
               }
             };
+          }
+          if (data.streamingData.formats) {
+            const formats = data.streamingData.formats.filter((f) => f.url && (f.mimeType || "").includes("mp4"));
+            if (formats.length > 0) {
+              return {
+                url: formats[0].url,
+                quality: formats[0].qualityLabel || "360p",
+                isHls: false,
+                format: "mp4",
+                headers: {
+                  "User-Agent": "com.google.android.youtube/20.10.38 (Linux; U; Android 11) gzip"
+                }
+              };
+            }
           }
         }
       }
@@ -315,11 +330,13 @@ function resolveTmdbInfo(id, mediaType) {
       let numericId = null;
       let title = "";
       let origTitle = "";
+      let seasons = [];
+      const isTv = mediaType === "tv" || mediaType === "series" || mediaType === "show" || String(id || "").includes(":");
       if (cleanId.startsWith("tt")) {
         const findRes = yield fetch(`https://api.themoviedb.org/3/find/${cleanId}?api_key=${TMDB_API_KEY}&external_source=imdb_id`);
         if (findRes.ok) {
           const fData = yield findRes.json();
-          const item = mediaType === "tv" || mediaType === "series" ? fData.tv_results && fData.tv_results[0] : fData.movie_results && fData.movie_results[0];
+          const item = isTv ? fData.tv_results && fData.tv_results[0] : fData.movie_results && fData.movie_results[0];
           if (item) {
             numericId = item.id;
             title = item.name || item.title || "";
@@ -330,17 +347,18 @@ function resolveTmdbInfo(id, mediaType) {
         numericId = cleanId;
       }
       if (numericId && (!title || !origTitle)) {
-        const type = mediaType === "tv" || mediaType === "series" ? "tv" : "movie";
+        const type = isTv ? "tv" : "movie";
         const tRes = yield fetch(`https://api.themoviedb.org/3/${type}/${numericId}?api_key=${TMDB_API_KEY}&language=tr-TR`);
         if (tRes.ok) {
           const tData = yield tRes.json();
           title = tData.name || tData.title || title;
           origTitle = tData.original_name || tData.original_title || origTitle;
+          seasons = tData.seasons || [];
         }
       }
-      return { title, origTitle, numericId };
+      return { title, origTitle, numericId, seasons };
     } catch (e) {
-      return { title: "", origTitle: "", numericId: id };
+      return { title: "", origTitle: "", numericId: id, seasons: [] };
     }
   });
 }
@@ -638,15 +656,18 @@ function extractStreamsFromEpisodePage(epUrl) {
             const ytStream = yield resolveYouTubeMp4(ytId);
             if (ytStream && ytStream.url) {
               foundDirectMp4 = true;
+              const isHls2 = !!ytStream.isHls;
+              const fmt = ytStream.format || (isHls2 ? "hls" : "mp4");
+              const qualLabel = isHls2 ? `HLS (${ytStream.quality})` : `MP4 (${ytStream.quality})`;
               streams.push({
                 name: "DDizi",
-                title: `\u231C DDizi \u231F | YouTube MP4 (${ytStream.quality})`,
+                title: `\u231C DDizi \u231F | YouTube ${qualLabel}`,
                 url: ytStream.url,
                 quality: ytStream.quality,
                 provider: "ddizi",
                 headers: ytStream.headers,
-                format: "mp4",
-                isHls: false,
+                format: fmt,
+                isHls: isHls2,
                 behaviorHints: {
                   notWebReady: true,
                   proxyHeaders: {
@@ -760,7 +781,12 @@ function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
   return __async(this, null, function* () {
     try {
       if (typeof tmdbIdOrArgs === "object" && tmdbIdOrArgs && tmdbIdOrArgs.id) {
-        return getStreams(tmdbIdOrArgs.id, mediaType, seasonNum, episodeNum);
+        return getStreams(
+          tmdbIdOrArgs.id,
+          mediaType || tmdbIdOrArgs.type,
+          seasonNum || tmdbIdOrArgs.season,
+          episodeNum || tmdbIdOrArgs.episode
+        );
       }
       if (typeof tmdbIdOrArgs === "string" && tmdbIdOrArgs.startsWith("ddizi:show:")) {
         const showMeta = yield getMeta(tmdbIdOrArgs);
@@ -773,10 +799,34 @@ function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
         const epUrl = `${BASE_URL}/izle/${slug}`;
         return yield extractStreamsFromEpisodePage(epUrl);
       }
-      const episode = parseInt(episodeNum) || 1;
-      const info = yield resolveTmdbInfo(tmdbIdOrArgs, mediaType);
+      let id = tmdbIdOrArgs;
+      let season = parseInt(seasonNum) || 1;
+      let episode = parseInt(episodeNum) || 1;
+      if (typeof id === "string" && id.includes(":")) {
+        const parts = id.split(":");
+        id = parts[0];
+        if (parts.length >= 3) {
+          season = parseInt(parts[1]) || season;
+          episode = parseInt(parts[2]) || episode;
+        }
+      }
+      const info = yield resolveTmdbInfo(id, mediaType || "tv");
       const searchTitles = [info.title, info.origTitle].filter(Boolean);
       if (searchTitles.length === 0) return [];
+      let cumEpisode = episode;
+      if (season > 1 && Array.isArray(info.seasons) && info.seasons.length > 0) {
+        let sum = 0;
+        for (let s = 1; s < season; s++) {
+          const sObj = info.seasons.find((x) => x.season_number === s);
+          if (sObj && sObj.episode_count) {
+            sum += sObj.episode_count;
+          }
+        }
+        if (sum > 0) {
+          cumEpisode = sum + episode;
+        }
+      }
+      const candidateNums = cumEpisode !== episode ? [cumEpisode, episode] : [episode];
       for (const title of searchTitles) {
         const form = new URLSearchParams();
         form.append("arama", title);
@@ -799,6 +849,16 @@ function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
           if (sClean === cleanTarget) {
             matchedShowHref = sm[1];
             break;
+          }
+        }
+        if (!matchedShowHref) {
+          for (const sm of seriesMatches) {
+            const sName = sm[2].replace(/<[^>]+>/g, "").trim();
+            const sClean = ultraClean(sName);
+            if (sClean.startsWith(cleanTarget) || cleanTarget.startsWith(sClean)) {
+              matchedShowHref = sm[1];
+              break;
+            }
           }
         }
         if (!matchedShowHref) {
@@ -831,14 +891,29 @@ function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
           const epMatches = [...pageContent.matchAll(/<a href="([^"]*\/izle\/[^"]*)"[^>]*>([\s\S]*?)<\/a>/gi)];
           if (epMatches.length === 0) continue;
           let targetEpUrl = null;
-          const epRegex = new RegExp(`(?:^|\\s|\\.)${episode}\\.?\\s*b\xF6l\xFCm`, "i");
-          const epSlugRegex = new RegExp(`-${episode}-bolum`, "i");
-          for (const ep of epMatches) {
-            const epText = ep[2].replace(/<[^>]+>/g, "").toLowerCase().replace(/\s+/g, " ");
-            const epLink = ep[1].toLowerCase();
-            if (epRegex.test(epText) || epSlugRegex.test(epLink)) {
-              targetEpUrl = ep[1];
-              break;
+          for (const num of candidateNums) {
+            const epRegex = new RegExp(`(?:^|\\s|\\.|-)${num}\\.?\\s*b\xF6l\xFCm`, "i");
+            const epSlugRegex = new RegExp(`-${num}-bolum`, "i");
+            for (const ep of epMatches) {
+              const epText = ep[2].replace(/<[^>]+>/g, "").toLowerCase().replace(/\s+/g, " ");
+              const epLink = ep[1].toLowerCase();
+              if (epRegex.test(epText) || epSlugRegex.test(epLink)) {
+                targetEpUrl = ep[1];
+                break;
+              }
+            }
+            if (targetEpUrl) break;
+          }
+          if (!targetEpUrl && season > 1) {
+            const seasonRegex = new RegExp(`${season}\\.?\\s*sezon\\s*${episode}\\.?\\s*b\xF6l\xFCm`, "i");
+            const seasonSlugRegex = new RegExp(`(?:sezon-${season}-bolum-${episode}|${season}-sezon-${episode}-bolum)`, "i");
+            for (const ep of epMatches) {
+              const epText = ep[2].replace(/<[^>]+>/g, "").toLowerCase().replace(/\s+/g, " ");
+              const epLink = ep[1].toLowerCase();
+              if (seasonRegex.test(epText) || seasonSlugRegex.test(epLink)) {
+                targetEpUrl = ep[1];
+                break;
+              }
             }
           }
           if (targetEpUrl) {
