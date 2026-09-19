@@ -197,8 +197,8 @@
     },
     {
       "name": "⌜ Mahsun Sports ⌟",
-      "title": "🔴 iDMAN Tv",
-      "url": "https://andro.evrenesoglu107.click/checklist/androstreamliveidm.m3u8",
+      "title": "🔴 Smart Spor 2",
+      "url": "https://andro.evrenesoglu107.click/checklist/androstreamlivesm2.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Referer": "https://mahsunsports80.xyz/",
@@ -212,6 +212,19 @@
       "name": "⌜ Mahsun Sports ⌟",
       "title": "🔴 Trt Spor",
       "url": "https://andro.evrenesoglu107.click/checklist/androstreamlivetrts.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Referer": "https://mahsunsports80.xyz/",
+        "Origin": "https://mahsunsports80.xyz/"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Mahsun Sports ⌟",
+      "title": "🔴 Trt Spor Yıldız",
+      "url": "https://andro.evrenesoglu107.click/checklist/androstreamlivetrtsy.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Referer": "https://mahsunsports80.xyz/",
@@ -238,45 +251,6 @@
       "name": "⌜ Mahsun Sports ⌟",
       "title": "🔴 Cbc Sport",
       "url": "https://andro.evrenesoglu107.click/checklist/androstreamlivecbcs.m3u8",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Referer": "https://mahsunsports80.xyz/",
-        "Origin": "https://mahsunsports80.xyz/"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Mahsun Sports ⌟",
-      "title": "🔴 Exxen Sports 3",
-      "url": "https://andro.evrenesoglu107.click/checklist/androstreamliveexn3.m3u8",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Referer": "https://mahsunsports80.xyz/",
-        "Origin": "https://mahsunsports80.xyz/"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Mahsun Sports ⌟",
-      "title": "🔴 Exxen Sports 5",
-      "url": "https://andro.evrenesoglu107.click/checklist/androstreamliveexn5.m3u8",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Referer": "https://mahsunsports80.xyz/",
-        "Origin": "https://mahsunsports80.xyz/"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Mahsun Sports ⌟",
-      "title": "🔴 Exxen Sports 6",
-      "url": "https://andro.evrenesoglu107.click/checklist/androstreamliveexn6.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Referer": "https://mahsunsports80.xyz/",
