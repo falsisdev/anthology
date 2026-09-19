@@ -15,8 +15,8 @@
       "id": "tv:TYTTurk.tr",
       "type": "tv",
       "name": "TYT Türk HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tytturk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tytturk.png",
       "description": "TYT Türk HD Canlı Yayın",
       "genres": [
         "ULUSAL KANALLAR"

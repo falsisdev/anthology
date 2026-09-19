@@ -4,8 +4,8 @@
       "id": "tv:FinansTurk.tr",
       "type": "tv",
       "name": "Finans Türk",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/finansturk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/finansturk.png",
       "description": "Finans Türk Canlı Haber Yayını",
       "genres": [
         "Haber"

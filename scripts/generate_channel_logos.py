@@ -84,7 +84,8 @@ CHANNELS = [
     {
         "name": "A2 TV",
         "file": "a2.png",
-        "local": os.path.join(ROOT_DIR, "assets", "canli", "a2.png"),
+        "url": "https://iatv.tmgrup.com.tr/site/v2/a2tv/i/a2tv-logo.png",
+        "max_h": 80,
     },
     {
         "name": "360 TV",
@@ -102,18 +103,34 @@ CHANNELS = [
     {
         "name": "TRT Avaz",
         "file": "trtavaz.png",
-        "url": "https://upload.wikimedia.org/wikipedia/commons/5/54/TRT_Avaz_logo.svg",
-        "is_svg": True,
-        "svg_recolor": [("<path d=", '<path fill="#ffffff" d=')],
-        "stack_h_split": 260,
-        "gap": 10,
-        "max_w": 135,
-        "max_h": 68,
+        "local": os.path.join(ROOT_DIR, "assets", "canli", "trtavaz.png"),
+        "already_composited": True,
     },
     {
         "name": "TRT Türk",
         "file": "trtturk.png",
         "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/TRT_T%C3%BCrk_logo.svg/960px-TRT_T%C3%BCrk_logo.svg.png",
+    },
+    {
+        "name": "TRT Genç",
+        "file": "trtgenc.png",
+        "url": "https://cdn-i.pr.trt.com.tr/trtgenc/images/brand/trt-genc-logo.svg",
+        "is_svg": True,
+        "svg_recolor": [('fill="#EAEAEA"', 'fill="#FFFFFF"')],
+        "max_w": 160,
+        "max_h": 52,
+    },
+    {
+        "name": "DMAX",
+        "file": "dmax.png",
+        "local": os.path.join(ROOT_DIR, "assets", "canli", "dmax.png"),
+        "already_composited": True,
+    },
+    {
+        "name": "TYT Türk",
+        "file": "tytturk.png",
+        "local": os.path.join(ROOT_DIR, "assets", "canli", "tytturk.png"),
+        "already_composited": True,
     },
 
     # --- Haber Kanalları ---
@@ -197,14 +214,14 @@ CHANNELS = [
     {
         "name": "Türk Haber",
         "file": "turkhaber.png",
-        "url": "https://www.turkhaber.com/files/uploads/logo/7ddac8bdcb.svg",
-        "is_svg": True,
-        "svg_recolor": [("#292929", "#ffffff"), ("#373435", "#ffffff")],
-        "svg_remove_regex": r'<g>\s*<path class="fil2" d="M92\.994[\s\S]*?</g>',
-        "stack_h_split": 220,
-        "gap": 8,
-        "max_w": 130,
-        "max_h": 70,
+        "local": os.path.join(ROOT_DIR, "assets", "canli", "turkhaber.png"),
+        "already_composited": True,
+    },
+    {
+        "name": "Finans Türk",
+        "file": "finansturk.png",
+        "local": os.path.join(ROOT_DIR, "assets", "canli", "finansturk.png"),
+        "already_composited": True,
     },
 
     # --- Spor Kanalları ---
@@ -230,13 +247,8 @@ CHANNELS = [
     {
         "name": "TRT Spor Yıldız",
         "file": "trtsporyildiz.png",
-        "url": "https://upload.wikimedia.org/wikipedia/commons/c/ce/TRT_Spor_Y%C4%B1ld%C4%B1z_Logo.svg",
-        "is_svg": True,
-        "svg_recolor": [("fill:rgb(0%,0%,0%)", "fill:rgb(100%,100%,100%)")],
-        "stack_h_split": 260,
-        "gap": 10,
-        "max_w": 140,
-        "max_h": 64,
+        "local": os.path.join(ROOT_DIR, "assets", "canli", "trtsporyildiz.png"),
+        "already_composited": True,
     },
     {
         "name": "TV8,5",
@@ -298,7 +310,10 @@ CHANNELS = [
     {
         "name": "NBA TV",
         "file": "nbatv.png",
-        "url": "https://i.imgur.com/QmSc6kh.png",
+        "url": "https://upload.wikimedia.org/wikipedia/en/d/d2/NBA_TV.svg",
+        "is_svg": True,
+        "max_w": 80,
+        "max_h": 76,
     },
     {
         "name": "FB TV",
@@ -327,12 +342,26 @@ CHANNELS = [
         "file": "idmantv.png",
         "url": "https://i.imgur.com/fM9FOrZ.png",
     },
+    {
+        "name": "Ekol Sports",
+        "file": "ekolsports.png",
+        "local": os.path.join(ROOT_DIR, "assets", "canli", "ekolsports.png"),
+        "already_composited": True,
+    },
 
     # --- Belgesel & Çocuk & Müzik ---
     {
         "name": "TRT Belgesel",
         "file": "trtbelgesel.png",
         "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/TRT_Belgesel_logo_%282019-%29.svg/960px-TRT_Belgesel_logo_%282019-%29.svg.png",
+    },
+    {
+        "name": "Çiftçi TV",
+        "file": "ciftcitv.png",
+        "url": "https://www.ciftcitv.com/assets/images/logo_white.svg",
+        "is_svg": True,
+        "max_w": 145,
+        "max_h": 70,
     },
     {
         "name": "TRT Çocuk",
@@ -682,13 +711,16 @@ def main():
         print(f"[{idx}/{len(channels_to_run)}] Processing {name} ({filename})... ", end="", flush=True)
 
         try:
-            logo_im = fetch_image(item)
-            card = composite_on_background(
-                bg_base, 
-                logo_im, 
-                custom_max_w=item.get("max_w"), 
-                custom_max_h=item.get("max_h")
-            )
+            if item.get("already_composited"):
+                card = fetch_image(item)
+            else:
+                logo_im = fetch_image(item)
+                card = composite_on_background(
+                    bg_base, 
+                    logo_im, 
+                    custom_max_w=item.get("max_w"), 
+                    custom_max_h=item.get("max_h")
+                )
 
             target_files = [filename] + item.get("extra_files", [])
             for tf in target_files:
