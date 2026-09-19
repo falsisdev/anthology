@@ -223,9 +223,6 @@ https://andro.evrenesoglu103.click/checklist/androstreamlivetb7.m3u8
 #EXTINF:-1 tvg-id="TabiiSpor8.tr" tvg-name="Tabii Spor 8" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png" group-title="🇹🇷 SPOR KANALLARI",Tabii Spor 8 HD
 https://andro.evrenesoglu103.click/checklist/androstreamlivetb8.m3u8
 
-#EXTINF:-1 tvg-id="EkolSports.tr" tvg-name="Ekol Sports" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ekolsports.png" group-title="🇹🇷 SPOR KANALLARI",Ekol Sports HD
-https://ekoltv-live.ercdn.net/ekolsport/ekolsport_1080p.m3u8
-
 #EXTINF:-1 tvg-id="TayTV.tr" tvg-name="Tay TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/taytv.png" group-title="🇹🇷 SPOR KANALLARI",Tay TV HD
 https://duhnet.hipodrom.com/S2/HLS_LIVE/mislitaynp/playlist.m3u8
 
@@ -289,9 +286,6 @@ https://edge1.socialsmart.tv/turkhaber/bant1/playlist.m3u8
 
 #EXTINF:-1 tvg-id="CNBCe.tr" tvg-name="CNBC-e" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cnbce.png" group-title="🇹🇷 HABER KANALLARI",CNBC-e HD
 https://hnpsechtsc.turknet.ercdn.net/xpnvudnlsv/cnbc-e/cnbc-e.m3u8
-
-#EXTINF:-1 tvg-id="EkolTV.tr" tvg-name="Ekol TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ekoltv.png" group-title="🇹🇷 HABER KANALLARI",Ekol TV HD
-https://ekoltv-live.ercdn.net/ekoltv/ekoltv.m3u8
 
 #EXTINF:-1 tvg-id="AkitTV.tr" tvg-name="Akit TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/akittv.png" group-title="🇹🇷 HABER KANALLARI",Akit TV HD
 https://akittv-live.ercdn.net/akittv/akittv_720p.m3u8
