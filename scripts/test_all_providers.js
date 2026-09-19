@@ -109,6 +109,9 @@ async function checkPlayability(streams) {
       } else if (scraper.id === "yabancidizi") {
         testTarget = "Dexter (1405 S01E01)";
         streams = await mod.getStreams("1405", "tv", 1, 1);
+      } else if (scraper.id === "tvdiziler") {
+        testTarget = "Kızılcık Şerbeti (213194 S01E01)";
+        streams = await mod.getStreams("213194", "tv", 1, 1);
       } else if (scraper.supportedTypes && scraper.supportedTypes.includes("tv")) {
         testTarget = "Breaking Bad (1396 S01E01)";
         streams = await mod.getStreams("1396", "tv", 1, 1);

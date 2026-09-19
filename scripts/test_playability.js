@@ -79,6 +79,8 @@ async function checkHttp(url, headers = {}) {
         streams = await mod.getStreams("245914", "tv", 1, 1);
       } else if (scraper.id === "ddizi") {
         streams = await mod.getStreams("315179", "tv", 1, 1);
+      } else if (scraper.id === "tvdiziler") {
+        streams = await mod.getStreams("213194", "tv", 1, 1);
       } else if (scraper.id === "anthology_spor") {
         streams = await mod.getStreams({ id: "tv:beINSports1.tr", type: "tv" });
       } else if (scraper.id === "anthology_ulusal") {
