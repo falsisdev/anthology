@@ -50,16 +50,31 @@ async function resolveYouTubeMp4(ytId) {
 
         if (res.ok) {
             const data = await res.json();
-            if (data.streamingData && data.streamingData.formats) {
-                const formats = data.streamingData.formats.filter(f => f.url && (f.mimeType || '').includes('mp4'));
-                if (formats.length > 0) {
+            if (data.streamingData) {
+                if (data.streamingData.hlsManifestUrl) {
                     return {
-                        url: formats[0].url,
-                        quality: formats[0].qualityLabel || '360p',
+                        url: data.streamingData.hlsManifestUrl,
+                        quality: '1080p',
+                        isHls: true,
+                        format: 'hls',
                         headers: {
                             'User-Agent': 'com.google.android.youtube/20.10.38 (Linux; U; Android 11) gzip'
                         }
                     };
+                }
+                if (data.streamingData.formats) {
+                    const formats = data.streamingData.formats.filter(f => f.url && (f.mimeType || '').includes('mp4'));
+                    if (formats.length > 0) {
+                        return {
+                            url: formats[0].url,
+                            quality: formats[0].qualityLabel || '360p',
+                            isHls: false,
+                            format: 'mp4',
+                            headers: {
+                                'User-Agent': 'com.google.android.youtube/20.10.38 (Linux; U; Android 11) gzip'
+                            }
+                        };
+                    }
                 }
             }
         }
@@ -84,12 +99,15 @@ async function resolveTmdbInfo(id, mediaType) {
         let numericId = null;
         let title = '';
         let origTitle = '';
+        let seasons = [];
+
+        const isTv = (mediaType === 'tv' || mediaType === 'series' || mediaType === 'show' || String(id || '').includes(':'));
 
         if (cleanId.startsWith('tt')) {
             const findRes = await fetch(`https://api.themoviedb.org/3/find/${cleanId}?api_key=${TMDB_API_KEY}&external_source=imdb_id`);
             if (findRes.ok) {
                 const fData = await findRes.json();
-                const item = (mediaType === 'tv' || mediaType === 'series')
+                const item = isTv
                     ? (fData.tv_results && fData.tv_results[0])
                     : (fData.movie_results && fData.movie_results[0]);
                 if (item) {
@@ -103,18 +121,19 @@ async function resolveTmdbInfo(id, mediaType) {
         }
 
         if (numericId && (!title || !origTitle)) {
-            const type = (mediaType === 'tv' || mediaType === 'series') ? 'tv' : 'movie';
+            const type = isTv ? 'tv' : 'movie';
             const tRes = await fetch(`https://api.themoviedb.org/3/${type}/${numericId}?api_key=${TMDB_API_KEY}&language=tr-TR`);
             if (tRes.ok) {
                 const tData = await tRes.json();
                 title = tData.name || tData.title || title;
                 origTitle = tData.original_name || tData.original_title || origTitle;
+                seasons = tData.seasons || [];
             }
         }
 
-        return { title, origTitle, numericId };
+        return { title, origTitle, numericId, seasons };
     } catch (e) {
-        return { title: '', origTitle: '', numericId: id };
+        return { title: '', origTitle: '', numericId: id, seasons: [] };
     }
 }
 
@@ -453,15 +472,18 @@ streams.push({
                     const ytStream = await resolveYouTubeMp4(ytId);
                     if (ytStream && ytStream.url) {
                         foundDirectMp4 = true;
+                        const isHls = !!ytStream.isHls;
+                        const fmt = ytStream.format || (isHls ? 'hls' : 'mp4');
+                        const qualLabel = isHls ? `HLS (${ytStream.quality})` : `MP4 (${ytStream.quality})`;
                         streams.push({
                             name: 'DDizi',
-                            title: `⌜ DDizi ⌟ | YouTube MP4 (${ytStream.quality})`,
+                            title: `⌜ DDizi ⌟ | YouTube ${qualLabel}`,
                             url: ytStream.url,
                             quality: ytStream.quality,
                             provider: 'ddizi',
                             headers: ytStream.headers,
-                            format: 'mp4',
-                            isHls: false,
+                            format: fmt,
+                            isHls: isHls,
                             behaviorHints: {
                                 notWebReady: true,
                                 proxyHeaders: {
@@ -583,7 +605,12 @@ streams.push({
 async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
     try {
         if (typeof tmdbIdOrArgs === 'object' && tmdbIdOrArgs && tmdbIdOrArgs.id) {
-            return getStreams(tmdbIdOrArgs.id, mediaType, seasonNum, episodeNum);
+            return getStreams(
+                tmdbIdOrArgs.id,
+                mediaType || tmdbIdOrArgs.type,
+                seasonNum || tmdbIdOrArgs.season,
+                episodeNum || tmdbIdOrArgs.episode
+            );
         }
 
         if (typeof tmdbIdOrArgs === 'string' && tmdbIdOrArgs.startsWith('ddizi:show:')) {
@@ -599,10 +626,38 @@ async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
             return await extractStreamsFromEpisodePage(epUrl);
         }
 
-        const episode = parseInt(episodeNum) || 1;
-        const info = await resolveTmdbInfo(tmdbIdOrArgs, mediaType);
+        let id = tmdbIdOrArgs;
+        let season = parseInt(seasonNum) || 1;
+        let episode = parseInt(episodeNum) || 1;
+
+        if (typeof id === 'string' && id.includes(':')) {
+            const parts = id.split(':');
+            id = parts[0];
+            if (parts.length >= 3) {
+                season = parseInt(parts[1]) || season;
+                episode = parseInt(parts[2]) || episode;
+            }
+        }
+
+        const info = await resolveTmdbInfo(id, mediaType || 'tv');
         const searchTitles = [info.title, info.origTitle].filter(Boolean);
         if (searchTitles.length === 0) return [];
+
+        let cumEpisode = episode;
+        if (season > 1 && Array.isArray(info.seasons) && info.seasons.length > 0) {
+            let sum = 0;
+            for (let s = 1; s < season; s++) {
+                const sObj = info.seasons.find(x => x.season_number === s);
+                if (sObj && sObj.episode_count) {
+                    sum += sObj.episode_count;
+                }
+            }
+            if (sum > 0) {
+                cumEpisode = sum + episode;
+            }
+        }
+
+        const candidateNums = (cumEpisode !== episode) ? [cumEpisode, episode] : [episode];
 
         for (const title of searchTitles) {
             const form = new URLSearchParams();
@@ -625,6 +680,7 @@ async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
             const cleanTarget = ultraClean(title);
             let matchedShowHref = null;
 
+            // 1. Exact match
             for (const sm of seriesMatches) {
                 const sName = sm[2].replace(/<[^>]+>/g, '').trim();
                 const sClean = ultraClean(sName);
@@ -634,6 +690,19 @@ async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
                 }
             }
 
+            // 2. Starts with match
+            if (!matchedShowHref) {
+                for (const sm of seriesMatches) {
+                    const sName = sm[2].replace(/<[^>]+>/g, '').trim();
+                    const sClean = ultraClean(sName);
+                    if (sClean.startsWith(cleanTarget) || cleanTarget.startsWith(sClean)) {
+                        matchedShowHref = sm[1];
+                        break;
+                    }
+                }
+            }
+
+            // 3. Fallback contains match
             if (!matchedShowHref) {
                 for (const sm of seriesMatches) {
                     const sName = sm[2].replace(/<[^>]+>/g, '').trim();
@@ -656,7 +725,7 @@ async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
 
             const pageLinks = [...showHtml.matchAll(/href="([^"]*sayfa-(\d+)[^"]*)"/g)];
             const sortedPages = pageLinks.map(p => ({ url: p[1], num: parseInt(p[2]) }))
-                .sort((a, b) => b.num - a.num); // Check oldest pages first for ep 1
+                .sort((a, b) => b.num - a.num); // Check oldest pages first for early episodes
             for (const sp of sortedPages) {
                 if (!pagesToCheck.includes(sp.url)) pagesToCheck.push(sp.url);
             }
@@ -673,15 +742,33 @@ async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
                 if (epMatches.length === 0) continue;
 
                 let targetEpUrl = null;
-                const epRegex = new RegExp(`(?:^|\\s|\\.)${episode}\\.?\\s*bölüm`, 'i');
-                const epSlugRegex = new RegExp(`-${episode}-bolum`, 'i');
 
-                for (const ep of epMatches) {
-                    const epText = ep[2].replace(/<[^>]+>/g, '').toLowerCase().replace(/\s+/g, ' ');
-                    const epLink = ep[1].toLowerCase();
-                    if (epRegex.test(epText) || epSlugRegex.test(epLink)) {
-                        targetEpUrl = ep[1];
-                        break;
+                for (const num of candidateNums) {
+                    const epRegex = new RegExp(`(?:^|\\s|\\.|-)${num}\\.?\\s*bölüm`, 'i');
+                    const epSlugRegex = new RegExp(`-${num}-bolum`, 'i');
+
+                    for (const ep of epMatches) {
+                        const epText = ep[2].replace(/<[^>]+>/g, '').toLowerCase().replace(/\s+/g, ' ');
+                        const epLink = ep[1].toLowerCase();
+                        if (epRegex.test(epText) || epSlugRegex.test(epLink)) {
+                            targetEpUrl = ep[1];
+                            break;
+                        }
+                    }
+                    if (targetEpUrl) break;
+                }
+
+                // If season > 1, also try explicit season+episode pattern
+                if (!targetEpUrl && season > 1) {
+                    const seasonRegex = new RegExp(`${season}\\.?\\s*sezon\\s*${episode}\\.?\\s*bölüm`, 'i');
+                    const seasonSlugRegex = new RegExp(`(?:sezon-${season}-bolum-${episode}|${season}-sezon-${episode}-bolum)`, 'i');
+                    for (const ep of epMatches) {
+                        const epText = ep[2].replace(/<[^>]+>/g, '').toLowerCase().replace(/\s+/g, ' ');
+                        const epLink = ep[1].toLowerCase();
+                        if (seasonRegex.test(epText) || seasonSlugRegex.test(epLink)) {
+                            targetEpUrl = ep[1];
+                            break;
+                        }
                     }
                 }
 

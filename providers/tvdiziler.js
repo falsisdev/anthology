@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: tvdiziler
  * Built from src/tvdiziler/index.js
- * Build Date: 2026-09-19T20:38:09.207Z
+ * Build Date: 2026-09-19T20:48:55.243Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -320,18 +320,33 @@ function resolveYouTubeMp4(ytId) {
       }, 3500);
       if (res.ok) {
         var data = yield res.json();
-        if (data.streamingData && data.streamingData.formats) {
-          var formats = data.streamingData.formats.filter(function(f) {
-            return f.url && (f.mimeType || "").includes("mp4");
-          });
-          if (formats.length > 0) {
+        if (data.streamingData) {
+          if (data.streamingData.hlsManifestUrl) {
             return {
-              url: formats[0].url,
-              quality: formats[0].qualityLabel || "360p",
+              url: data.streamingData.hlsManifestUrl,
+              quality: "1080p",
+              isHls: true,
+              format: "hls",
               headers: {
                 "User-Agent": "com.google.android.youtube/20.10.38 (Linux; U; Android 11) gzip"
               }
             };
+          }
+          if (data.streamingData.formats) {
+            var formats = data.streamingData.formats.filter(function(f) {
+              return f.url && (f.mimeType || "").includes("mp4");
+            });
+            if (formats.length > 0) {
+              return {
+                url: formats[0].url,
+                quality: formats[0].qualityLabel || "360p",
+                isHls: false,
+                format: "mp4",
+                headers: {
+                  "User-Agent": "com.google.android.youtube/20.10.38 (Linux; U; Android 11) gzip"
+                }
+              };
+            }
           }
         }
       }
@@ -388,7 +403,7 @@ function searchTvDiziler(query) {
     try {
       var searchUrl = BASE_URL + "/search?qr=" + encodeURIComponent(query);
       var res = yield safeFetch(searchUrl, {
-        method: "POST",
+        method: "GET",
         headers: {
           "User-Agent": HEADERS["User-Agent"],
           "X-Requested-With": "XMLHttpRequest",
@@ -666,13 +681,16 @@ function extractStreamsFromEpisodePage(epUrl) {
               seenUrls.add(ytId);
               var ytStream = yield resolveYouTubeMp4(ytId);
               if (ytStream && ytStream.url) {
+                var isHls = !!ytStream.isHls;
+                var fmt = ytStream.format || (isHls ? "hls" : "mp4");
+                var qualLabel = isHls ? "HLS " + ytStream.quality : "MP4 " + ytStream.quality;
                 streams.push({
                   name: "TvDiziler",
-                  title: "\u231C TvDiziler \u231F | " + (label || "YouTube") + " (MP4 " + ytStream.quality + ")",
+                  title: "\u231C TvDiziler \u231F | " + (label || "YouTube") + " (" + qualLabel + ")",
                   url: ytStream.url,
                   quality: ytStream.quality,
-                  format: "mp4",
-                  isHls: false,
+                  format: fmt,
+                  isHls,
                   provider: "tvdiziler",
                   headers: ytStream.headers,
                   behaviorHints: {
@@ -704,13 +722,16 @@ function extractStreamsFromEpisodePage(epUrl) {
           seenUrls.add(ifrYtId);
           var ifrYtStream = yield resolveYouTubeMp4(ifrYtId);
           if (ifrYtStream && ifrYtStream.url) {
+            var ifrIsHls = !!ifrYtStream.isHls;
+            var ifrFmt = ifrYtStream.format || (ifrIsHls ? "hls" : "mp4");
+            var ifrQualLabel = ifrIsHls ? "HLS " + ifrYtStream.quality : "MP4 " + ifrYtStream.quality;
             streams.push({
               name: "TvDiziler",
-              title: "\u231C TvDiziler \u231F | YouTube (MP4 " + ifrYtStream.quality + ")",
+              title: "\u231C TvDiziler \u231F | YouTube (" + ifrQualLabel + ")",
               url: ifrYtStream.url,
               quality: ifrYtStream.quality,
-              format: "mp4",
-              isHls: false,
+              format: ifrFmt,
+              isHls: ifrIsHls,
               provider: "tvdiziler",
               headers: ifrYtStream.headers,
               behaviorHints: {
