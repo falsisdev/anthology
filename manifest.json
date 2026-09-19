@@ -1,6 +1,6 @@
 {
   "name": "Anthology",
-  "version": "1.8.13",
+  "version": "1.8.14",
   "author": "falsisdev",
   "description": "Anthology - Türkçe Dizi, Film, Anime ve Canlı TV/Spor Eklenti Deposu",
   "scrapers": [
@@ -714,7 +714,7 @@
       "id": "ddizi",
       "name": "DDizi",
       "description": "Yerli dizi arşivi, güncel bölümler kataloğu ve doğrudan Ciner/Yandex CDN MP4/HLS akışları.",
-      "version": "1.8.13",
+      "version": "1.8.14",
       "author": "falsisdev",
       "supportedTypes": [
         "tv"
@@ -859,7 +859,7 @@
       "id": "tvdiziler",
       "name": "TvDiziler",
       "description": "TvDiziler.tv yerli dizi arşivi üzerinden 1080p HLS (Twitter Amplify), doğrudan MP4 (Ciner/CDN) ve YouTube akışları.",
-      "version": "1.8.13",
+      "version": "1.8.14",
       "author": "falsisdev",
       "supportedTypes": [
         "tv"

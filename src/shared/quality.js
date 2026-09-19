@@ -7,6 +7,7 @@
 
 function getQualityScore(s) {
     if (!s) return 0;
+    if (!s.url) return 1;
     var q = ((s.quality || '') + ' ' + (s.title || '') + ' ' + (s.name || '')).toLowerCase();
     var score = 0;
     if (/\b(4k|2160p?|uhd)\b/.test(q)) score = 2160;
