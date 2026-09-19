@@ -28,7 +28,7 @@
 
 ---
 
-> [!ÖNEMLİ]
+> [!IMPORTANT]
 > ### ⚠️ Platformlar Arasındaki Kapsam ve Kullanım Farkı:
 > - 🌟 **Nuvio Kullanıcıları:** Anthology'nin sunduğu **tüm özellikleri sorunsuz, sınırsız ve eksiksiz** kullanabilir. **32 eklentinin tamamı** (Türkçe/yabancı film, dizi, anime, özel tür arşivleri) ve **100 Canlı TV kanalı (6 vitrin kataloğu)** Nuvio oynatıcısında tek çatı altında eksiksiz çalışır.
 > - 🟣 **Stremio Kullanıcıları:** Stremio eklentisi olarak kullanım **yalnızca Canlı TV katalogları (6 vitrin ve 100 canlı yayın kanalı) ile sınırlıdır**. Stremio'nun eklenti protokolü gereği film ve dizi video scraper'ları Stremio üzerinde çalışmaz; bu nedenle Stremio'da yalnızca canlı televizyon ve spor akışları sunulmaktadır.
@@ -78,7 +78,7 @@ https://falsisdev.github.io/anthology/stremio/manifest.json
 
 ---
 
-> [!İPUCU]
+> [!TIP]
 > **Nasıl Birlikte Çalışırlar?**
 > - **Nuvio'da:** 1. Adım ve 2. Adımı birlikte eklediğinizde, Nuvio ana sayfanızda hem zengin Canlı TV vitrinleri görünür hem de içerik aradığınızda 32 eklenti en kaliteli (1080p, 4K, Çift Ses) akışları anında oynatır.
 > - **Stremio'da:** Stremio kullanıcıları yalnızca 2. Adımı ekleyerek 100 Canlı TV kanalını kesintisiz resmi CDN bağlantılarıyla izleyebilir.
@@ -102,7 +102,7 @@ Nuvio ve Stremio ana sayfasında canlı TV kanallarını kategorilere ayrılmı�
 
 ## 🎬 Doğrulanmış Eklentiler (32 Aktif - Nuvio)
 
-> [!NOT]
+> [!NOTE]
 > Aşağıdaki tüm video scraper motorları Nuvio oynatıcısına uygun doğrudan `.m3u8` HLS veya `.mp4`/`.mkv` akışları döndürür.
 
 ### 🍿 Film Kaynakları & Arşivleri
@@ -273,5 +273,5 @@ node scripts/test_all_catalogs.js
 
 Bu proje [GPL-3.0](LICENSE) lisansı altında sunulmaktadır. Anthology sunucularında hiçbir video veya yayın barındırılmaz; proje yalnızca kamuya açık resmi CDN ve web kaynaklarını dizinleyen açık kaynaklı bir arayüz ve eklenti deposudur.
 
-> [!TELIF HAKKI]
+> [!IMPORTANT]
 > Anthology eklentisinin kullanıcıya sunduğu tüm içerikler “video paylaşım siteleri” aracılığıyla paylaşılmaktadır. Anthology kendi sunucularında herhangi bir içerik barındırmadığından, bu konuda bir telif hakkı sorumluluğu kabul etmemektedir.
