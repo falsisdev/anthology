@@ -1,5 +1,6 @@
 const { sortStreamsByQuality } = require("../shared/quality.js");
 const { loadConfig, val, wrapAll } = require("../shared/config.js");
+const { timeoutSignal } = require("../shared/http.js");
 
 var _cfgReady = null;
 function cfgReady() {
@@ -25,6 +26,46 @@ var HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/122.0.0.0 Safari/537.36',
     'Referer': BASE_URL + '/'
 };
+
+async function resolveYouTubeMp4(ytId) {
+    try {
+        const key = 'AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8';
+        const res = await fetch(`https://www.youtube.com/youtubei/v1/player?key=${key}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'User-Agent': 'com.google.android.youtube/20.10.38 (Linux; U; Android 11) gzip'
+            },
+            body: JSON.stringify({
+                context: {
+                    client: {
+                        clientName: 'ANDROID',
+                        clientVersion: '20.10.38'
+                    }
+                },
+                videoId: ytId
+            }),
+            signal: timeoutSignal(3500)
+        });
+
+        if (res.ok) {
+            const data = await res.json();
+            if (data.streamingData && data.streamingData.formats) {
+                const formats = data.streamingData.formats.filter(f => f.url && (f.mimeType || '').includes('mp4'));
+                if (formats.length > 0) {
+                    return {
+                        url: formats[0].url,
+                        quality: formats[0].qualityLabel || '360p',
+                        headers: {
+                            'User-Agent': 'com.google.android.youtube/20.10.38 (Linux; U; Android 11) gzip'
+                        }
+                    };
+                }
+            }
+        }
+    } catch (e) {}
+    return null;
+}
 
 function ultraClean(str) {
     if (!str) return '';
@@ -401,54 +442,79 @@ streams.push({
                 }
             }
 
-            // Type 3: Official YouTube player — extract direct MP4 stream via Invidious / Piped, or provide native ytId
+            // Type 3: Official YouTube player — extract direct MP4 stream via Innertube / Invidious, or provide native ytId
             if (src.includes('youtube.php') || src.includes('/player/telif/') || src.includes('youtube.com') || src.includes('youtu.be')) {
                 const ytMatch = src.match(/(?:youtube\.php\?id=|v=|youtu\.be\/|\/embed\/)([a-zA-Z0-9_-]{11})/);
                 if (ytMatch) {
                     const ytId = ytMatch[1];
-                    const invInstances = [
-                        'https://inv.nadeko.net',
-                        'https://invidious.nerdvpn.de',
-                        'https://vid.puffyan.us',
-                        'https://pipedapi.kavin.rocks',
-                        'https://api.piped.private.coffee'
-                    ];
-                    for (const inst of invInstances) {
-                        try {
-                            const invRes = await fetch(`${inst}/api/v1/videos/${ytId}?fields=formatStreams,title`, {
-                                headers: { 'User-Agent': HEADERS['User-Agent'] },
-                                signal: AbortSignal.timeout(2000)
-                            });
-                            if (!invRes.ok) continue;
-                            const invData = await invRes.json();
-                            // ONLY formatStreams contain combined audio + video
-                            const formats = (invData.formatStreams || []).filter(f => f.url && f.container === 'mp4');
-                            if (formats.length > 0) {
-                                formats.sort((a, b) => (parseInt(b.quality) || 0) - (parseInt(a.quality) || 0));
-                                for (const fmt of formats.slice(0, 2)) {
-                                    const ytHeaders = { 'User-Agent': HEADERS['User-Agent'] };
-                                    streams.push({
-                                        name: 'DDizi',
-                                        title: `⌜ DDizi ⌟ | YouTube MP4 (${fmt.qualityLabel || fmt.quality || 'HD'})`,
-                                        url: fmt.url,
-                                        quality: fmt.qualityLabel || '720p',
-                                        provider: 'ddizi',
-                                        headers: ytHeaders,
-                                        format: 'mp4',
-                                        behaviorHints: {
-                                            notWebReady: true,
-                                            proxyHeaders: {
-                                                request: ytHeaders
-                                            }
-                                        }
-                                    });
+                    let foundDirectMp4 = false;
+
+                    // 1. Direct Innertube Android MP4 (fast, official, IP-matched)
+                    const ytStream = await resolveYouTubeMp4(ytId);
+                    if (ytStream && ytStream.url) {
+                        foundDirectMp4 = true;
+                        streams.push({
+                            name: 'DDizi',
+                            title: `⌜ DDizi ⌟ | YouTube MP4 (${ytStream.quality})`,
+                            url: ytStream.url,
+                            quality: ytStream.quality,
+                            provider: 'ddizi',
+                            headers: ytStream.headers,
+                            format: 'mp4',
+                            isHls: false,
+                            behaviorHints: {
+                                notWebReady: true,
+                                proxyHeaders: {
+                                    request: ytStream.headers
                                 }
-                                break;
                             }
-                        } catch (e) {}
+                        });
                     }
 
-                    // Native Stremio / Nuvio YouTube player (using ytId instead of raw web URL)
+                    // 2. Invidious fallback if Innertube did not resolve
+                    if (!foundDirectMp4) {
+                        const invInstances = [
+                            'https://invidious.f5.si',
+                            'https://inv.nadeko.net',
+                            'https://invidious.nerdvpn.de'
+                        ];
+                        for (const inst of invInstances) {
+                            try {
+                                const invRes = await fetch(`${inst}/api/v1/videos/${ytId}?fields=formatStreams,title`, {
+                                    headers: { 'User-Agent': HEADERS['User-Agent'] },
+                                    signal: timeoutSignal(2500)
+                                });
+                                if (!invRes.ok) continue;
+                                const invData = await invRes.json();
+                                const formats = (invData.formatStreams || []).filter(f => f.url && f.container === 'mp4');
+                                if (formats.length > 0) {
+                                    formats.sort((a, b) => (parseInt(b.quality) || 0) - (parseInt(a.quality) || 0));
+                                    for (const fmt of formats.slice(0, 1)) {
+                                        const ytHeaders = { 'User-Agent': HEADERS['User-Agent'] };
+                                        streams.push({
+                                            name: 'DDizi',
+                                            title: `⌜ DDizi ⌟ | YouTube MP4 (${fmt.qualityLabel || fmt.quality || 'HD'})`,
+                                            url: fmt.url,
+                                            quality: fmt.qualityLabel || '720p',
+                                            provider: 'ddizi',
+                                            headers: ytHeaders,
+                                            format: 'mp4',
+                                            isHls: false,
+                                            behaviorHints: {
+                                                notWebReady: true,
+                                                proxyHeaders: {
+                                                    request: ytHeaders
+                                                }
+                                            }
+                                        });
+                                    }
+                                    break;
+                                }
+                            } catch (e) {}
+                        }
+                    }
+
+                    // 3. Native Stremio / Nuvio YouTube player fallback
                     streams.push({
                         name: 'DDizi',
                         title: '⌜ DDizi ⌟ | YouTube (Resmi Yayın)',
