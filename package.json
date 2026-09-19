@@ -1,6 +1,6 @@
 {
   "name": "anthology",
-  "version": "1.8.12",
+  "version": "1.8.13",
   "description": "Anthology - Nuvio ve Stremio için Doğrulanmış Türkçe Film, Dizi, Anime ve Canlı TV Eklenti Deposu",
   "main": "config.js",
   "scripts": {

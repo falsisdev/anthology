@@ -760,17 +760,6 @@
       ]
     },
     {
-      "id": "tv:EkolSports.tr",
-      "type": "tv",
-      "name": "Ekol Sports HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ekolsports.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ekolsports.png",
-      "description": "Ekol Sports HD Canlı Yayın",
-      "genres": [
-        "SPOR KANALLARI"
-      ]
-    },
-    {
       "id": "tv:TayTV.tr",
       "type": "tv",
       "name": "Tay TV HD",
@@ -986,17 +975,6 @@
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cnbce.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cnbce.png",
       "description": "CNBC-e HD Canlı Yayın",
-      "genres": [
-        "HABER KANALLARI"
-      ]
-    },
-    {
-      "id": "tv:EkolTV.tr",
-      "type": "tv",
-      "name": "Ekol TV HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ekoltv.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ekoltv.png",
-      "description": "Ekol TV HD Canlı Yayın",
       "genres": [
         "HABER KANALLARI"
       ]

@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: sonanime
  * Built from src/sonanime/index.js
- * Build Date: 2026-09-18T21:18:00.216Z
+ * Build Date: 2026-09-19T21:03:10.776Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {

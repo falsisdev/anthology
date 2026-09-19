@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: anthology_muzik
  * Built from src/anthology_muzik/index.js
- * Build Date: 2026-09-18T21:18:00.145Z
+ * Build Date: 2026-09-19T21:03:10.707Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {

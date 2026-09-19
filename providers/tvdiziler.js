@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: tvdiziler
  * Built from src/tvdiziler/index.js
- * Build Date: 2026-09-19T20:48:55.243Z
+ * Build Date: 2026-09-19T21:03:10.781Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
