@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: tvdiziler
  * Built from src/tvdiziler/index.js
- * Build Date: 2026-09-19T20:26:23.102Z
+ * Build Date: 2026-09-19T20:38:09.207Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -244,8 +244,9 @@ var HEADERS = {
   "Accept-Language": "tr-TR,tr;q=0.9,en;q=0.8",
   "Referer": BASE_URL + "/"
 };
-function safeFetch(url, options) {
+function safeFetch(url, options, ms) {
   options = options || {};
+  ms = ms || 1e4;
   if (typeof process !== "undefined" && process.versions && process.versions.node) {
     try {
       var https = require("https");
@@ -282,6 +283,9 @@ function safeFetch(url, options) {
             });
           });
         });
+        req.setTimeout(ms, function() {
+          req.destroy(new Error("Request timeout"));
+        });
         req.on("error", reject);
         if (options.body) req.write(options.body);
         req.end();
@@ -289,7 +293,52 @@ function safeFetch(url, options) {
     } catch (e) {
     }
   }
+  if (!options.signal) {
+    options.signal = timeoutSignal(ms);
+  }
   return fetch(url, options);
+}
+function resolveYouTubeMp4(ytId) {
+  return __async(this, null, function* () {
+    try {
+      var key = "AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8";
+      var res = yield safeFetch("https://www.youtube.com/youtubei/v1/player?key=" + key, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "User-Agent": "com.google.android.youtube/20.10.38 (Linux; U; Android 11) gzip"
+        },
+        body: JSON.stringify({
+          context: {
+            client: {
+              clientName: "ANDROID",
+              clientVersion: "20.10.38"
+            }
+          },
+          videoId: ytId
+        })
+      }, 3500);
+      if (res.ok) {
+        var data = yield res.json();
+        if (data.streamingData && data.streamingData.formats) {
+          var formats = data.streamingData.formats.filter(function(f) {
+            return f.url && (f.mimeType || "").includes("mp4");
+          });
+          if (formats.length > 0) {
+            return {
+              url: formats[0].url,
+              quality: formats[0].qualityLabel || "360p",
+              headers: {
+                "User-Agent": "com.google.android.youtube/20.10.38 (Linux; U; Android 11) gzip"
+              }
+            };
+          }
+        }
+      }
+    } catch (e) {
+    }
+    return null;
+  });
 }
 function ultraClean(str) {
   if (!str) return "";
@@ -578,9 +627,16 @@ function extractStreamsFromEpisodePage(epUrl) {
                     else if (streamUrl.includes("480")) quality = "480p";
                     else if (streamUrl.includes("360")) quality = "360p";
                     var streamHeaders = {
-                      "User-Agent": HEADERS["User-Agent"],
-                      "Referer": BASE_URL + "/"
+                      "User-Agent": HEADERS["User-Agent"]
                     };
+                    if (streamUrl.includes("twimg.com")) {
+                      streamHeaders["Referer"] = "https://twitter.com/";
+                      streamHeaders["Origin"] = "https://twitter.com";
+                    } else if (streamUrl.includes("ciner.com.tr")) {
+                      streamHeaders["Referer"] = "https://www.ciner.com.tr/";
+                    } else {
+                      streamHeaders["Referer"] = BASE_URL + "/";
+                    }
                     streams.push({
                       name: "TvDiziler",
                       title: "\u231C TvDiziler \u231F | " + label + " (" + (isHls ? "HLS" : "MP4") + " " + quality + ")",
@@ -608,6 +664,25 @@ function extractStreamsFromEpisodePage(epUrl) {
             var ytId = ytMatch[1];
             if (!seenUrls.has(ytId)) {
               seenUrls.add(ytId);
+              var ytStream = yield resolveYouTubeMp4(ytId);
+              if (ytStream && ytStream.url) {
+                streams.push({
+                  name: "TvDiziler",
+                  title: "\u231C TvDiziler \u231F | " + (label || "YouTube") + " (MP4 " + ytStream.quality + ")",
+                  url: ytStream.url,
+                  quality: ytStream.quality,
+                  format: "mp4",
+                  isHls: false,
+                  provider: "tvdiziler",
+                  headers: ytStream.headers,
+                  behaviorHints: {
+                    notWebReady: true,
+                    proxyHeaders: {
+                      request: ytStream.headers
+                    }
+                  }
+                });
+              }
               streams.push({
                 name: "TvDiziler",
                 title: "\u231C TvDiziler \u231F | YouTube (" + (label || "Resmi") + ")",
@@ -625,11 +700,31 @@ function extractStreamsFromEpisodePage(epUrl) {
         if (src.startsWith("//")) src = "https:" + src;
         var ytMatch = src.match(/(?:embed\/|v=)([a-zA-Z0-9_-]{11})/);
         if (ytMatch && !seenUrls.has(ytMatch[1])) {
-          seenUrls.add(ytMatch[1]);
+          var ifrYtId = ytMatch[1];
+          seenUrls.add(ifrYtId);
+          var ifrYtStream = yield resolveYouTubeMp4(ifrYtId);
+          if (ifrYtStream && ifrYtStream.url) {
+            streams.push({
+              name: "TvDiziler",
+              title: "\u231C TvDiziler \u231F | YouTube (MP4 " + ifrYtStream.quality + ")",
+              url: ifrYtStream.url,
+              quality: ifrYtStream.quality,
+              format: "mp4",
+              isHls: false,
+              provider: "tvdiziler",
+              headers: ifrYtStream.headers,
+              behaviorHints: {
+                notWebReady: true,
+                proxyHeaders: {
+                  request: ifrYtStream.headers
+                }
+              }
+            });
+          }
           streams.push({
             name: "TvDiziler",
             title: "\u231C TvDiziler \u231F | YouTube (Resmi)",
-            ytId: ytMatch[1],
+            ytId: ifrYtId,
             provider: "tvdiziler"
           });
         }

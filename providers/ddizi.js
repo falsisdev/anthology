@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: ddizi
  * Built from src/ddizi/index.js
- * Build Date: 2026-09-18T21:18:00.159Z
+ * Build Date: 2026-09-19T20:38:09.268Z
  */
 var __defProp = Object.defineProperty;
 var __defProps = Object.defineProperties;
@@ -204,9 +204,46 @@ var require_config = __commonJS({
   }
 });
 
+// src/shared/http.js
+var require_http = __commonJS({
+  "src/shared/http.js"(exports2, module2) {
+    var DEFAULT_UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36";
+    function timeoutSignal2(ms) {
+      if (typeof AbortSignal !== "undefined" && typeof AbortSignal.timeout === "function") {
+        return AbortSignal.timeout(ms);
+      }
+      var controller = new AbortController();
+      setTimeout(function() {
+        controller.abort();
+      }, ms);
+      return controller.signal;
+    }
+    function fetchWithTimeout(url, options, ms) {
+      ms = ms || 1e4;
+      options = options || {};
+      if (!options.signal) {
+        options.signal = timeoutSignal2(ms);
+      }
+      if (!options.headers) {
+        options.headers = {};
+      }
+      if (!options.headers["User-Agent"] && !options.headers["user-agent"]) {
+        options.headers["User-Agent"] = DEFAULT_UA;
+      }
+      return fetch(url, options);
+    }
+    module2.exports = {
+      DEFAULT_UA,
+      timeoutSignal: timeoutSignal2,
+      fetchWithTimeout
+    };
+  }
+});
+
 // src/ddizi/index.js
 var { sortStreamsByQuality } = require_quality();
 var { loadConfig, val, wrapAll } = require_config();
+var { timeoutSignal } = require_http();
 var _cfgReady = null;
 function cfgReady() {
   if (!_cfgReady) {
@@ -225,6 +262,47 @@ var HEADERS = {
   "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/122.0.0.0 Safari/537.36",
   "Referer": BASE_URL + "/"
 };
+function resolveYouTubeMp4(ytId) {
+  return __async(this, null, function* () {
+    try {
+      const key = "AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8";
+      const res = yield fetch(`https://www.youtube.com/youtubei/v1/player?key=${key}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "User-Agent": "com.google.android.youtube/20.10.38 (Linux; U; Android 11) gzip"
+        },
+        body: JSON.stringify({
+          context: {
+            client: {
+              clientName: "ANDROID",
+              clientVersion: "20.10.38"
+            }
+          },
+          videoId: ytId
+        }),
+        signal: timeoutSignal(3500)
+      });
+      if (res.ok) {
+        const data = yield res.json();
+        if (data.streamingData && data.streamingData.formats) {
+          const formats = data.streamingData.formats.filter((f) => f.url && (f.mimeType || "").includes("mp4"));
+          if (formats.length > 0) {
+            return {
+              url: formats[0].url,
+              quality: formats[0].qualityLabel || "360p",
+              headers: {
+                "User-Agent": "com.google.android.youtube/20.10.38 (Linux; U; Android 11) gzip"
+              }
+            };
+          }
+        }
+      }
+    } catch (e) {
+    }
+    return null;
+  });
+}
 function ultraClean(str) {
   if (!str) return "";
   return str.toString().toLowerCase().replace(/[ıİ]/g, "i").replace(/[üÜ]/g, "u").replace(/[öÖ]/g, "o").replace(/[şŞ]/g, "s").replace(/[ğĞ]/g, "g").replace(/[çÇ]/g, "c").replace(/[^a-z0-9]/g, "").trim();
@@ -556,45 +634,67 @@ function extractStreamsFromEpisodePage(epUrl) {
           const ytMatch = src.match(/(?:youtube\.php\?id=|v=|youtu\.be\/|\/embed\/)([a-zA-Z0-9_-]{11})/);
           if (ytMatch) {
             const ytId = ytMatch[1];
-            const invInstances = [
-              "https://inv.nadeko.net",
-              "https://invidious.nerdvpn.de",
-              "https://vid.puffyan.us",
-              "https://pipedapi.kavin.rocks",
-              "https://api.piped.private.coffee"
-            ];
-            for (const inst of invInstances) {
-              try {
-                const invRes = yield fetch(`${inst}/api/v1/videos/${ytId}?fields=formatStreams,title`, {
-                  headers: { "User-Agent": HEADERS["User-Agent"] },
-                  signal: AbortSignal.timeout(2e3)
-                });
-                if (!invRes.ok) continue;
-                const invData = yield invRes.json();
-                const formats = (invData.formatStreams || []).filter((f) => f.url && f.container === "mp4");
-                if (formats.length > 0) {
-                  formats.sort((a, b) => (parseInt(b.quality) || 0) - (parseInt(a.quality) || 0));
-                  for (const fmt of formats.slice(0, 2)) {
-                    const ytHeaders = { "User-Agent": HEADERS["User-Agent"] };
-                    streams.push({
-                      name: "DDizi",
-                      title: `\u231C DDizi \u231F | YouTube MP4 (${fmt.qualityLabel || fmt.quality || "HD"})`,
-                      url: fmt.url,
-                      quality: fmt.qualityLabel || "720p",
-                      provider: "ddizi",
-                      headers: ytHeaders,
-                      format: "mp4",
-                      behaviorHints: {
-                        notWebReady: true,
-                        proxyHeaders: {
-                          request: ytHeaders
-                        }
-                      }
-                    });
+            let foundDirectMp4 = false;
+            const ytStream = yield resolveYouTubeMp4(ytId);
+            if (ytStream && ytStream.url) {
+              foundDirectMp4 = true;
+              streams.push({
+                name: "DDizi",
+                title: `\u231C DDizi \u231F | YouTube MP4 (${ytStream.quality})`,
+                url: ytStream.url,
+                quality: ytStream.quality,
+                provider: "ddizi",
+                headers: ytStream.headers,
+                format: "mp4",
+                isHls: false,
+                behaviorHints: {
+                  notWebReady: true,
+                  proxyHeaders: {
+                    request: ytStream.headers
                   }
-                  break;
                 }
-              } catch (e) {
+              });
+            }
+            if (!foundDirectMp4) {
+              const invInstances = [
+                "https://invidious.f5.si",
+                "https://inv.nadeko.net",
+                "https://invidious.nerdvpn.de"
+              ];
+              for (const inst of invInstances) {
+                try {
+                  const invRes = yield fetch(`${inst}/api/v1/videos/${ytId}?fields=formatStreams,title`, {
+                    headers: { "User-Agent": HEADERS["User-Agent"] },
+                    signal: timeoutSignal(2500)
+                  });
+                  if (!invRes.ok) continue;
+                  const invData = yield invRes.json();
+                  const formats = (invData.formatStreams || []).filter((f) => f.url && f.container === "mp4");
+                  if (formats.length > 0) {
+                    formats.sort((a, b) => (parseInt(b.quality) || 0) - (parseInt(a.quality) || 0));
+                    for (const fmt of formats.slice(0, 1)) {
+                      const ytHeaders = { "User-Agent": HEADERS["User-Agent"] };
+                      streams.push({
+                        name: "DDizi",
+                        title: `\u231C DDizi \u231F | YouTube MP4 (${fmt.qualityLabel || fmt.quality || "HD"})`,
+                        url: fmt.url,
+                        quality: fmt.qualityLabel || "720p",
+                        provider: "ddizi",
+                        headers: ytHeaders,
+                        format: "mp4",
+                        isHls: false,
+                        behaviorHints: {
+                          notWebReady: true,
+                          proxyHeaders: {
+                            request: ytHeaders
+                          }
+                        }
+                      });
+                    }
+                    break;
+                  }
+                } catch (e) {
+                }
               }
             }
             streams.push({
