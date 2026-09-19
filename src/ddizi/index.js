@@ -82,6 +82,141 @@ async function resolveYouTubeMp4(ytId) {
     return null;
 }
 
+function getValidTmdbKey() {
+    if (typeof TMDB_API_KEY === 'string' && TMDB_API_KEY.length === 32 && !TMDB_API_KEY.startsWith('http')) {
+        return TMDB_API_KEY;
+    }
+    return '500330721680edb6d5f7f12ba7cd9023';
+}
+
+const KNOWN_SERIES = {
+    '213194': { title: 'Kızılcık Şerbeti', imdb: 'tt22262500' },
+    'tt22262500': { title: 'Kızılcık Şerbeti', tmdb: '213194' },
+    '115464': { title: 'Son Yaz', imdb: 'tt13410526' },
+    'tt13410526': { title: 'Son Yaz', tmdb: '115464' },
+    '111685': { title: 'Gönül Dağı', imdb: 'tt13247072' },
+    'tt13247072': { title: 'Gönül Dağı', tmdb: '111685' },
+    '245914': { title: 'Bahar', imdb: 'tt30825316' },
+    'tt30825316': { title: 'Bahar', tmdb: '245914' },
+    '119806': { title: 'Teşkilat', imdb: 'tt13853174' },
+    'tt13853174': { title: 'Teşkilat', tmdb: '119806' },
+    '241020': { title: 'Kızıl Goncalar', imdb: 'tt29584347' },
+    'tt29584347': { title: 'Kızıl Goncalar', tmdb: '241020' },
+    '210865': { title: 'Yalı Çapkını', imdb: 'tt21815598' },
+    'tt21815598': { title: 'Yalı Çapkını', tmdb: '210865' },
+    '243832': { title: 'İnci Taneleri', imdb: 'tt30397500' },
+    'tt30397500': { title: 'İnci Taneleri', tmdb: '243832' },
+    '274880': { title: 'Uzak Şehir', imdb: 'tt33479007' },
+    'tt33479007': { title: 'Uzak Şehir', tmdb: '274880' },
+    '74823': { title: 'Çukur', imdb: 'tt7366338' },
+    'tt7366338': { title: 'Çukur', tmdb: '74823' },
+    '6455': { title: 'Kurtlar Vadisi', imdb: 'tt0411008' },
+    'tt0411008': { title: 'Kurtlar Vadisi', tmdb: '6455' },
+    '69629': { title: 'İçerde', imdb: 'tt6506306' },
+    'tt6506306': { title: 'İçerde', tmdb: '69629' },
+    '30981': { title: 'Ezel', imdb: 'tt1826959' },
+    'tt1826959': { title: 'Ezel', tmdb: '30981' },
+    '2224': { title: 'Yaprak Dökümü', imdb: 'tt0496438' },
+    'tt0496438': { title: 'Yaprak Dökümü', tmdb: '2224' },
+    '2695': { title: 'Aşk-ı Memnu', imdb: 'tt0846548' },
+    'tt0846548': { title: 'Aşk-ı Memnu', tmdb: '2695' }
+};
+
+async function resolveOfficialYouTubeFallback(title, season, episode, cumEpisode) {
+    try {
+        const queries = [];
+        if (season > 1) {
+            queries.push(`${title} ${season}. Sezon ${episode}. Bölüm`);
+            if (cumEpisode && cumEpisode !== episode) {
+                queries.push(`${title} ${cumEpisode}. Bölüm`);
+            }
+        }
+        queries.push(`${title} ${episode}. Bölüm`);
+
+        const key = 'AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8';
+        for (const query of queries) {
+            try {
+                const res = await fetch(`https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`, {
+                    headers: {
+                        'User-Agent': HEADERS['User-Agent']
+                    },
+                    signal: timeoutSignal(3500)
+                });
+                if (!res.ok) continue;
+                const html = await res.text();
+                const vidMatches = [...html.matchAll(/"videoId":"([a-zA-Z0-9_-]{11})"/g)].map(m => m[1]);
+                const uniqueVids = [...new Set(vidMatches)].slice(0, 3);
+
+                for (const ytId of uniqueVids) {
+                    try {
+                        const pRes = await fetch(`https://www.youtube.com/youtubei/v1/player?key=${key}`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'User-Agent': 'com.google.android.youtube/20.10.38 (Linux; U; Android 11) gzip'
+                            },
+                            body: JSON.stringify({
+                                context: { client: { clientName: 'ANDROID', clientVersion: '20.10.38' } },
+                                videoId: ytId
+                            }),
+                            signal: timeoutSignal(3000)
+                        });
+                        if (!pRes.ok) continue;
+                        const data = await pRes.json();
+                        const duration = parseInt((data.videoDetails && data.videoDetails.lengthSeconds) || '0');
+                        const vTitle = (data.videoDetails && data.videoDetails.title) || '';
+
+                        // Duration must be at least 15 minutes (900 seconds) for a full episode
+                        if (duration >= 900) {
+                            const streams = [];
+                            if (data.streamingData && data.streamingData.hlsManifestUrl) {
+                                streams.push({
+                                    name: 'DDizi',
+                                    title: `⌜ DDizi ⌟ | Resmi YouTube HLS (${vTitle.slice(0, 50)})`,
+                                    url: data.streamingData.hlsManifestUrl,
+                                    quality: '1080p',
+                                    provider: 'ddizi',
+                                    format: 'hls',
+                                    isHls: true,
+                                    headers: {
+                                        'User-Agent': 'com.google.android.youtube/20.10.38 (Linux; U; Android 11) gzip'
+                                    }
+                                });
+                            }
+                            if (data.streamingData && data.streamingData.formats) {
+                                const formats = data.streamingData.formats.filter(f => f.url && (f.mimeType || '').includes('mp4'));
+                                if (formats.length > 0) {
+                                    streams.push({
+                                        name: 'DDizi',
+                                        title: `⌜ DDizi ⌟ | Resmi YouTube MP4 (${formats[0].qualityLabel || '720p'})`,
+                                        url: formats[0].url,
+                                        quality: formats[0].qualityLabel || '720p',
+                                        provider: 'ddizi',
+                                        format: 'mp4',
+                                        isHls: false,
+                                        headers: {
+                                            'User-Agent': 'com.google.android.youtube/20.10.38 (Linux; U; Android 11) gzip'
+                                        }
+                                    });
+                                }
+                            }
+                            // Native Stremio / Nuvio YouTube player fallback
+                            streams.push({
+                                name: 'DDizi',
+                                title: `⌜ DDizi ⌟ | YouTube (${vTitle.slice(0, 50)})`,
+                                ytId: ytId,
+                                provider: 'ddizi'
+                            });
+                            if (streams.length > 0) return streams;
+                        }
+                    } catch (e) {}
+                }
+            } catch (e) {}
+        }
+    } catch (e) {}
+    return null;
+}
+
 function ultraClean(str) {
     if (!str) return '';
     return str.toString().toLowerCase()
@@ -101,39 +236,52 @@ async function resolveTmdbInfo(id, mediaType) {
         let origTitle = '';
         let seasons = [];
 
-        const isTv = (mediaType === 'tv' || mediaType === 'series' || mediaType === 'show' || String(id || '').includes(':'));
-
-        if (cleanId.startsWith('tt')) {
-            const findRes = await fetch(`https://api.themoviedb.org/3/find/${cleanId}?api_key=${TMDB_API_KEY}&external_source=imdb_id`);
-            if (findRes.ok) {
-                const fData = await findRes.json();
-                const item = isTv
-                    ? (fData.tv_results && fData.tv_results[0])
-                    : (fData.movie_results && fData.movie_results[0]);
-                if (item) {
-                    numericId = item.id;
-                    title = item.name || item.title || '';
-                    origTitle = item.original_name || item.original_title || '';
-                }
-            }
-        } else {
-            numericId = cleanId;
+        // 1. Check known Turkish series dictionary for zero-network instantaneous matching
+        if (KNOWN_SERIES[cleanId]) {
+            title = KNOWN_SERIES[cleanId].title;
+            origTitle = KNOWN_SERIES[cleanId].title;
+            if (KNOWN_SERIES[cleanId].tmdb) numericId = KNOWN_SERIES[cleanId].tmdb;
         }
 
-        if (numericId && (!title || !origTitle)) {
-            const type = isTv ? 'tv' : 'movie';
-            const tRes = await fetch(`https://api.themoviedb.org/3/${type}/${numericId}?api_key=${TMDB_API_KEY}&language=tr-TR`);
-            if (tRes.ok) {
-                const tData = await tRes.json();
-                title = tData.name || tData.title || title;
-                origTitle = tData.original_name || tData.original_title || origTitle;
-                seasons = tData.seasons || [];
-            }
+        const isTv = (mediaType === 'tv' || mediaType === 'series' || mediaType === 'show' || String(id || '').includes(':'));
+        const apiKey = getValidTmdbKey();
+
+        if (cleanId.startsWith('tt')) {
+            try {
+                const findRes = await fetch(`https://api.themoviedb.org/3/find/${cleanId}?api_key=${apiKey}&external_source=imdb_id`);
+                if (findRes.ok) {
+                    const fData = await findRes.json();
+                    const item = isTv
+                        ? (fData.tv_results && fData.tv_results[0])
+                        : (fData.movie_results && fData.movie_results[0]);
+                    if (item) {
+                        numericId = item.id;
+                        title = item.name || item.title || title;
+                        origTitle = item.original_name || item.original_title || origTitle;
+                    }
+                }
+            } catch (e) {}
+        } else {
+            numericId = numericId || cleanId;
+        }
+
+        if (numericId && (!title || !origTitle || seasons.length === 0)) {
+            try {
+                const type = isTv ? 'tv' : 'movie';
+                const tRes = await fetch(`https://api.themoviedb.org/3/${type}/${numericId}?api_key=${apiKey}&language=tr-TR`);
+                if (tRes.ok) {
+                    const tData = await tRes.json();
+                    title = tData.name || tData.title || title;
+                    origTitle = tData.original_name || tData.original_title || origTitle;
+                    seasons = tData.seasons || [];
+                }
+            } catch (e) {}
         }
 
         return { title, origTitle, numericId, seasons };
     } catch (e) {
-        return { title: '', origTitle: '', numericId: id, seasons: [] };
+        const fallbackTitle = (KNOWN_SERIES[String(id || '').trim()] && KNOWN_SERIES[String(id || '').trim()].title) || '';
+        return { title: fallbackTitle, origTitle: fallbackTitle, numericId: id, seasons: [] };
     }
 }
 
@@ -680,34 +828,32 @@ async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
             const cleanTarget = ultraClean(title);
             let matchedShowHref = null;
 
-            // 1. Exact match
+            // 1. Exact match on title text (sm[3])
             for (const sm of seriesMatches) {
-                const sName = sm[2].replace(/<[^>]+>/g, '').trim();
-                const sClean = ultraClean(sName);
-                if (sClean === cleanTarget) {
+                const sName = (sm[3] || '').replace(/<[^>]+>/g, '').trim();
+                if (ultraClean(sName) === cleanTarget) {
                     matchedShowHref = sm[1];
                     break;
                 }
             }
 
-            // 2. Starts with match
+            // 2. Exact match on slug without ID (sm[2])
             if (!matchedShowHref) {
                 for (const sm of seriesMatches) {
-                    const sName = sm[2].replace(/<[^>]+>/g, '').trim();
-                    const sClean = ultraClean(sName);
-                    if (sClean.startsWith(cleanTarget) || cleanTarget.startsWith(sClean)) {
+                    const slugOnly = (sm[2] || '').split('/').pop().replace(/-\d+-son-bolum.*$/i, '').replace(/-izle.*$/i, '');
+                    if (ultraClean(slugOnly) === cleanTarget) {
                         matchedShowHref = sm[1];
                         break;
                     }
                 }
             }
 
-            // 3. Fallback contains match
+            // 3. Starts with or contains match
             if (!matchedShowHref) {
                 for (const sm of seriesMatches) {
-                    const sName = sm[2].replace(/<[^>]+>/g, '').trim();
+                    const sName = (sm[3] || '').replace(/<[^>]+>/g, '').trim();
                     const sClean = ultraClean(sName);
-                    if (sClean.includes(cleanTarget) || cleanTarget.includes(sClean)) {
+                    if (sClean.startsWith(cleanTarget) || cleanTarget.startsWith(sClean) || sClean.includes(cleanTarget)) {
                         matchedShowHref = sm[1];
                         break;
                     }
@@ -724,13 +870,16 @@ async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
             const showHtml = await showRes.text();
 
             const pageLinks = [...showHtml.matchAll(/href="([^"]*sayfa-(\d+)[^"]*)"/g)];
-            const sortedPages = pageLinks.map(p => ({ url: p[1], num: parseInt(p[2]) }))
-                .sort((a, b) => b.num - a.num); // Check oldest pages first for early episodes
+            const sortedPages = pageLinks.map(p => {
+                let pUrl = p[1];
+                if (!pUrl.startsWith('http')) pUrl = `${BASE_URL}${pUrl.startsWith('/') ? '' : '/'}${pUrl}`;
+                return { url: pUrl, num: parseInt(p[2]) };
+            }).sort((a, b) => b.num - a.num); // Check oldest pages first for early episodes
             for (const sp of sortedPages) {
                 if (!pagesToCheck.includes(sp.url)) pagesToCheck.push(sp.url);
             }
 
-            for (const pageUrl of pagesToCheck.slice(0, 20)) {
+            for (const pageUrl of pagesToCheck.slice(0, 30)) {
                 const pRes = (pageUrl === matchedShowHref) ? { ok: true, text: () => Promise.resolve(showHtml) } : await fetch(pageUrl, { headers: HEADERS });
                 if (!pRes.ok) continue;
                 const pHtml = await pRes.text();
@@ -777,6 +926,15 @@ async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
                     const streams = await extractStreamsFromEpisodePage(targetEpUrl);
                     if (streams.length > 0) return streams;
                 }
+            }
+        }
+
+        // Fallback: If no streams found from DDizi (e.g. video removed due to DMCA/telif like Son Yaz), search official YouTube full episode
+        if (searchTitles.length > 0) {
+            const mainTitle = searchTitles[0];
+            const ytStreams = await resolveOfficialYouTubeFallback(mainTitle, season, episode, cumEpisode);
+            if (ytStreams && ytStreams.length > 0) {
+                return ytStreams;
             }
         }
 
