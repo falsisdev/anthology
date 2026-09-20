@@ -94,15 +94,15 @@ async function checkPlayability(streams) {
       } else if (scraper.id === "dizipod") {
         testTarget = "Breaking Bad (1396 S01E01)";
         streams = await mod.getStreams("1396", "tv", 1, 1);
-      } else if (scraper.id === "turkanime") {
-        testTarget = "Death Note (13916 S01E01)";
-        streams = await mod.getStreams("13916", "tv", 1, 1);
       } else if (scraper.id === "anthology_m3u") {
         testTarget = "Bahar (245914 S01E01)";
         streams = await mod.getStreams("245914", "tv", 1, 1);
       } else if (scraper.id === "filmmodu") {
         testTarget = "Extraction 2 (697843)";
         streams = await mod.getStreams("697843", "movie");
+      } else if (scraper.id === "puhutv") {
+        testTarget = "Behzat Ç. (39176 S01E01)";
+        streams = await mod.getStreams({ id: "39176", type: "series", season: 1, episode: 1 });
       } else if (scraper.supportedTypes && scraper.supportedTypes.includes("movie")) {
         testTarget = "The Matrix (603)";
         streams = await mod.getStreams("603", "movie");
@@ -112,6 +112,12 @@ async function checkPlayability(streams) {
       } else if (scraper.id === "tvdiziler") {
         testTarget = "Kızılcık Şerbeti (213194 S01E01)";
         streams = await mod.getStreams("213194", "tv", 1, 1);
+      } else if (scraper.id === "anthology_diziler") {
+        testTarget = "Kızıl Goncalar (241020 S1E46)";
+        streams = await mod.getStreams({ id: "241020", type: "series", season: 1, episode: 46 });
+      } else if (scraper.id === "trdiziizle") {
+        testTarget = "Behzat Ç. (39176 S01E01)";
+        streams = await mod.getStreams({ id: "39176", type: "series", season: 1, episode: 1 });
       } else if (scraper.supportedTypes && scraper.supportedTypes.includes("tv")) {
         testTarget = "Breaking Bad (1396 S01E01)";
         streams = await mod.getStreams("1396", "tv", 1, 1);
