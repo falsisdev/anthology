@@ -13,7 +13,7 @@ function unpackDeanEdwards(str) {
     if ((p.startsWith("'") && p.endsWith("'")) || (p.startsWith('"') && p.endsWith('"'))) {
         p = p.slice(1, -1);
     }
-    p = p.replace(/\x27/g, "'").replace(/\"/g, '"').replace(/\\/g, '\');
+    p = p.replace(/\\x27/g, "'").replace(/\\"/g, '"').replace(/\\\\/g, '\\');
 
     var a = parseInt(match[2], 10);
     var c = parseInt(match[3], 10);

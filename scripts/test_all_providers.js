@@ -70,6 +70,15 @@ async function checkPlayability(streams) {
       } else if (scraper.id === "animecix") {
         testTarget = "Solo Leveling (127532 S01E01)";
         streams = await mod.getStreams("127532", "tv", 1, 1);
+      } else if (scraper.id === "anizm") {
+        testTarget = "Solo Leveling (127532 S01E01)";
+        streams = await mod.getStreams("127532", "tv", 1, 1);
+      } else if (scraper.id === "animom") {
+        testTarget = "Solo Leveling (127532 S01E01)";
+        streams = await mod.getStreams("127532", "tv", 1, 1);
+      } else if (scraper.id === "animeprax") {
+        testTarget = "Solo Leveling (127532 S01E01)";
+        streams = await mod.getStreams("127532", "tv", 1, 1);
       } else if (scraper.id === "anizium") {
         testTarget = "Naruto Shippuden (31910 S01E01)";
         streams = await mod.getStreams("31910", "series", 1, 1);

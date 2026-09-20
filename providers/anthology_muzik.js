@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: anthology_muzik
  * Built from src/anthology_muzik/index.js
- * Build Date: 2026-09-19T21:03:10.707Z
+ * Build Date: 2026-09-20T19:00:24.640Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -37,6 +37,7 @@ var require_quality = __commonJS({
   "src/shared/quality.js"(exports2, module2) {
     function getQualityScore(s) {
       if (!s) return 0;
+      if (!s.url) return 1;
       var q = ((s.quality || "") + " " + (s.title || "") + " " + (s.name || "")).toLowerCase();
       var score = 0;
       if (/\b(4k|2160p?|uhd)\b/.test(q)) score = 2160;

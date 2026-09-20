@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: vidlink
  * Built from src/vidlink/index.js
- * Build Date: 2026-09-19T21:03:10.787Z
+ * Build Date: 2026-09-20T19:00:24.712Z
  */
 var __defProp = Object.defineProperty;
 var __defProps = Object.defineProperties;
@@ -56,6 +56,7 @@ var require_quality = __commonJS({
   "src/shared/quality.js"(exports2, module2) {
     function getQualityScore(s) {
       if (!s) return 0;
+      if (!s.url) return 1;
       var q = ((s.quality || "") + " " + (s.title || "") + " " + (s.name || "")).toLowerCase();
       var score = 0;
       if (/\b(4k|2160p?|uhd)\b/.test(q)) score = 2160;

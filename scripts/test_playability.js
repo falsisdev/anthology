@@ -65,8 +65,6 @@ async function checkHttp(url, headers = {}) {
         streams = await mod.getStreams({ id: "603", type: "movie" });
       } else if (scraper.id === "animecix") {
         streams = await mod.getStreams("127532", "tv", 1, 1);
-      } else if (scraper.id === "turkanime") {
-        streams = await mod.getStreams("13916", "tv", 1, 1);
       } else if (scraper.id === "sonanime") {
         streams = await mod.getStreams("46260", "series", 1, 1);
       } else if (scraper.id === "diziboxizle") {
