@@ -1,6 +1,6 @@
 {
   "name": "Anthology",
-  "version": "1.8.17",
+  "version": "1.8.18",
   "author": "falsisdev",
   "description": "Anthology - Türkçe Dizi, Film, Anime ve Canlı TV/Spor Eklenti Deposu",
   "scrapers": [
@@ -109,6 +109,7 @@
       "version": "1.8.17",
       "author": "falsisdev",
       "supportedTypes": [
+        "movie",
         "tv"
       ],
       "filename": "providers/dizibak.js",
@@ -202,7 +203,8 @@
       "version": "1.8.17",
       "author": "falsisdev",
       "supportedTypes": [
-        "movie"
+        "movie",
+        "tv"
       ],
       "filename": "providers/filmmodu.js",
       "enabled": true,
@@ -241,7 +243,8 @@
       "version": "1.8.17",
       "author": "falsisdev",
       "supportedTypes": [
-        "movie"
+        "movie",
+        "tv"
       ],
       "filename": "providers/hdfilmcehennemi.js",
       "enabled": true,
@@ -281,6 +284,7 @@
       "version": "1.8.17",
       "author": "falsisdev",
       "supportedTypes": [
+        "movie",
         "tv"
       ],
       "filename": "providers/diziyou.js",
@@ -336,7 +340,8 @@
       "version": "1.8.17",
       "author": "falsisdev",
       "supportedTypes": [
-        "movie"
+        "movie",
+        "tv"
       ],
       "filename": "providers/sinemacx.js",
       "enabled": true,
@@ -641,6 +646,7 @@
       "version": "1.8.17",
       "author": "falsisdev",
       "supportedTypes": [
+        "movie",
         "tv"
       ],
       "filename": "providers/diziboxizle.js",
@@ -813,6 +819,7 @@
       "version": "1.8.17",
       "author": "falsisdev",
       "supportedTypes": [
+        "movie",
         "tv"
       ],
       "filename": "providers/ddizi.js",
@@ -853,6 +860,7 @@
       "version": "1.8.17",
       "author": "falsisdev",
       "supportedTypes": [
+        "movie",
         "tv"
       ],
       "filename": "providers/dizimom.js",
@@ -915,7 +923,8 @@
       "version": "1.8.17",
       "author": "falsisdev",
       "supportedTypes": [
-        "movie"
+        "movie",
+        "tv"
       ],
       "filename": "providers/webteizle.js",
       "enabled": true,
@@ -936,6 +945,7 @@
       "version": "1.8.17",
       "author": "falsisdev",
       "supportedTypes": [
+        "movie",
         "tv"
       ],
       "filename": "providers/yabancidizi.js",
@@ -958,6 +968,7 @@
       "version": "1.8.17",
       "author": "falsisdev",
       "supportedTypes": [
+        "movie",
         "tv"
       ],
       "filename": "providers/tvdiziler.js",
@@ -1049,7 +1060,8 @@
       "version": "1.8.17",
       "author": "falsisdev",
       "supportedTypes": [
-        "movie"
+        "movie",
+        "tv"
       ],
       "filename": "providers/kultfilmler.js",
       "enabled": true,
@@ -1088,7 +1100,8 @@
       "version": "1.8.17",
       "author": "falsisdev",
       "supportedTypes": [
-        "movie"
+        "movie",
+        "tv"
       ],
       "filename": "providers/hdfilmdelisi.js",
       "enabled": true,
@@ -1127,7 +1140,8 @@
       "version": "1.8.17",
       "author": "falsisdev",
       "supportedTypes": [
-        "movie"
+        "movie",
+        "tv"
       ],
       "filename": "providers/hdfilmizle.js",
       "enabled": true,
@@ -1254,6 +1268,7 @@
       "version": "1.8.17",
       "author": "falsisdev",
       "supportedTypes": [
+        "movie",
         "tv",
         "series",
         "anime"
@@ -1327,6 +1342,7 @@
       "name": "Anthology Dizi",
       "description": "NOW / Show TV / KanalD / Star TV / ATV / TRT1 resmi yayın arşivlerinden dinamik bölüm akışları — TMDB eşleştirmeli, sabit harita yok.",
       "supportedTypes": [
+        "movie",
         "tv"
       ],
       "filename": "providers/anthology_diziler.js",
@@ -1394,6 +1410,7 @@
       "name": "TR Dizi İzle",
       "description": "trdiziizle.xyz yerli dizi arşivi (Cloudflare koruması varsa boş döner).",
       "supportedTypes": [
+        "movie",
         "tv"
       ],
       "filename": "providers/trdiziizle.js",
