@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: anthology_diziler
  * Built from src/anthology_diziler/index.js
- * Build Date: 2026-09-20T19:00:24.631Z
+ * Build Date: 2026-09-20T20:49:56.187Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -521,6 +521,7 @@ function cfgReady() {
         if (v.atv) ATV_BASE = String(v.atv).replace(/\/+$/, "");
         if (v.star) STAR_BASE = String(v.star).replace(/\/+$/, "");
         if (v.trt1) TRT1_BASE = String(v.trt1).replace(/\/+$/, "");
+        if (v.tv2) TV2_BASE = String(v.tv2).replace(/\/+$/, "");
       }
     });
   }
@@ -532,6 +533,7 @@ var KANALD_BASE = "https://kanald.com.tr";
 var ATV_BASE = "https://www.atv.com.tr";
 var STAR_BASE = "https://www.startv.com.tr";
 var TRT1_BASE = "https://www.trt1.com.tr";
+var TV2_BASE = "https://www.tv2.com.tr";
 var TMDB_API_KEY = "500330721680edb6d5f7f12ba7cd9023";
 var HEADERS = {
   "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
@@ -689,7 +691,7 @@ function parseShowHorMedia(html) {
 function showEpisodePage(showSlug, seasonNum, episodeNum) {
   return __async(this, null, function* () {
     try {
-      var listing = yield fetchText(SHOW_BASE + "/" + showSlug);
+      var listing = yield fetchText(SHOW_BASE + "/kanal/dizi/tum_bolumler/" + showSlug);
       if (listing) {
         var slugEsc = String(showSlug).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
         var re = new RegExp("(\\/dizi\\/tum_bolumler\\/" + slugEsc + "-sezon-(\\d+)-bolum-(\\d+)-izle\\/\\d+)", "gi");
@@ -710,15 +712,36 @@ function showEpisodePage(showSlug, seasonNum, episodeNum) {
           }
         }
       }
-      var candidates = [];
-      for (var s = 3; s >= 1; s--) {
-        candidates.push(SHOW_BASE + "/dizi/tum_bolumler/" + showSlug + "-sezon-" + s + "-bolum-" + episodeNum + "-izle");
-      }
-      for (var i = 0; i < candidates.length; i++) {
-        var h2 = yield fetchText(candidates[i]);
-        if (!h2) continue;
-        var srcEnd = parseShowHorMedia(h2);
-        if (srcEnd) return mkStream(srcEnd, "Show TV | " + showSlug + " S" + seasonNum + "E" + episodeNum, "hls", true, "1080p", { "User-Agent": HEADERS["User-Agent"], "Referer": SHOW_BASE + "/" });
+      var listingAll = yield fetchText(SHOW_BASE + "/kanal/dizi/tum_bolumler/" + showSlug);
+      if (listingAll) {
+        var reAll = new RegExp("(\\/dizi\\/tum_bolumler\\/" + slugEsc + "-sezon-(\\d+)-bolum-(\\d+)-izle\\/\\d+)", "gi");
+        var allM, sBest = null, eBest = null, uBest = "";
+        while ((allM = reAll.exec(listingAll)) !== null) {
+          var sA = parseInt(allM[2], 10);
+          var eA = parseInt(allM[3], 10);
+          var wantS = parseInt(seasonNum, 10);
+          var wantE = parseInt(episodeNum, 10);
+          if (sA === wantS && eA === wantE) {
+            sBest = sA;
+            eBest = eA;
+            uBest = allM[1];
+            break;
+          }
+          if (sA === wantS) {
+            if (sBest === null || Math.abs(eA - wantE) < Math.abs(eBest - wantE)) {
+              sBest = sA;
+              eBest = eA;
+              uBest = allM[1];
+            }
+          }
+        }
+        if (uBest) {
+          var htmlB = yield fetchText(SHOW_BASE + uBest);
+          if (htmlB) {
+            var srcB = parseShowHorMedia(htmlB);
+            if (srcB) return mkStream(srcB, "Show TV | " + showSlug + " S" + seasonNum + "E" + episodeNum, "hls", true, "1080p", { "User-Agent": HEADERS["User-Agent"], "Referer": SHOW_BASE + "/" });
+          }
+        }
       }
     } catch (e) {
     }
@@ -787,9 +810,9 @@ function atvEpisode(showSlug, episodeNum) {
     try {
       var html = yield fetchText(ATV_BASE + "/" + showSlug + "/" + episodeNum + "-bolum/izle");
       if (!html) return null;
-      var vid = (html.match(/name="videoId"\s+value="([^"]+)"/) || [])[1] || (html.match(/data-video[-]?id["']?\s*[:=]\s*["']?([a-f0-9-]{36})/i) || [])[1];
+      var vid = (html.match(/name="videoId"\s+value="([^"]+)"/) || [])[1] || (html.match(/data-video[-]?id["']?\s*[:=]\s*["']?([a-f0-9-]{6,})/i) || [])[1];
       if (!vid) {
-        var alt = (html.match(/videoId["']?\s*[:=]\s*["']?([a-f0-9-]{36})/i) || [])[1];
+        var alt = (html.match(/videoId["']?\s*[:=]\s*["']?([a-f0-9-]{6,})/i) || [])[1];
         if (alt) vid = alt;
       }
       if (!vid) return null;
@@ -797,6 +820,49 @@ function atvEpisode(showSlug, episodeNum) {
       if (gv && gv.video && gv.video.VideoUrl && gv.video.VideoUrl.indexOf("http") === 0) {
         return mkStream(gv.video.VideoUrl, "ATV | " + showSlug + " EP" + episodeNum, "hls", true, "1080p", { "User-Agent": HEADERS["User-Agent"], "Referer": ATV_BASE + "/" });
       }
+    } catch (e) {
+    }
+    return null;
+  });
+}
+function tv2Episode(showSlug, episodeNum, seasonNum) {
+  return __async(this, null, function* () {
+    try {
+      var paths = [
+        "/diziler/guncel/" + showSlug + "/bolumler",
+        "/programlar/guncel/" + showSlug + "/bolumler"
+      ];
+      var url, foundPage = "", hadListing = false;
+      for (var p = 0; p < paths.length; p++) {
+        url = TV2_BASE + paths[p];
+        var listing = yield fetchText(url);
+        if (!listing) continue;
+        hadListing = true;
+        var re = new RegExp("(\\/diziler\\/guncel\\/" + String(showSlug).replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\/bolumler\\/" + String(showSlug).replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "-[" + String(episodeNum) + "]+-bolum)", "gi");
+        var m;
+        while ((m = re.exec(listing)) !== null) {
+          var num = m[1].match(/-(\d+)-bolum$/);
+          if (num && parseInt(num[1], 10) === parseInt(episodeNum, 10)) {
+            foundPage = m[1];
+            break;
+          }
+        }
+        if (foundPage) break;
+      }
+      if (!foundPage) return null;
+      var html = yield fetchText(TV2_BASE + foundPage);
+      if (!html) return null;
+      var cid = (html.match(/data-id="([a-zA-Z0-9]{20,})"/) || [])[1] || (html.match(/data-id\s*=\s*"([a-zA-Z0-9]{20,})"/) || [])[1];
+      if (!cid) return null;
+      var j = yield fetchJson(TV2_BASE + "/action/media/" + cid, { "Referer": TV2_BASE + "/" }, 15e3);
+      if (!j || j.Status !== "Success" || !j.Media || !j.Media.Link || !j.Media.Link.SecurePath) return null;
+      var secure = j.Media.Link.SecurePath || "";
+      var defaultSvc = (j.Media.Link.DefaultServiceUrl || "https://tv2vod.duhnet.tv").replace(/\/+$/, "");
+      var full;
+      if (/^https?:/i.test(secure)) full = secure;
+      else if (secure.indexOf("//") === 0) full = "https:" + secure;
+      else full = defaultSvc + "/" + secure.replace(/^\/+/, "");
+      return mkStream(full, "TV2 | " + showSlug + " EP" + episodeNum, "hls", true, "1080p", { "User-Agent": HEADERS["User-Agent"], "Referer": TV2_BASE + "/" });
     } catch (e) {
     }
     return null;
@@ -993,6 +1059,7 @@ function getStreams(_0) {
         else if (raw.indexOf(":star:") !== -1) canal = "star";
         else if (raw.indexOf(":atv:") !== -1) canal = "atv";
         else if (raw.indexOf(":trt1:") !== -1) canal = "trt1";
+        else if (raw.indexOf(":tv2:") !== -1) canal = "tv2";
         var parsed = parseRawId(raw);
         slug = parsed.slug;
         var marker = "anthology_diziler:" + canal + ":";
@@ -1047,9 +1114,13 @@ function getStreams(_0) {
         var at = yield atvEpisode(showSlug, episode);
         if (at) all.push(at);
       }
-      if (canal === "trt1") {
+      if (!canal || canal === "trt1" || !canal && all.length === 0) {
         var tr = yield trt1Episode(title, episode);
         if (tr) for (var y = 0; y < tr.length; y++) all.push(tr[y]);
+      }
+      if (!canal || canal === "tv2") {
+        var t2 = yield tv2Episode(showSlug, episode);
+        if (t2) all.push(t2);
       }
       return all;
     } catch (e) {
