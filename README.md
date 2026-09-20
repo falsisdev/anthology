@@ -10,7 +10,7 @@
   </p>
 
   <p>
-    <img src="https://img.shields.io/badge/Sürüm-1.8.17-blue?style=for-the-badge" alt="Sürüm 1.8.17" />
+    <img src="https://img.shields.io/badge/Sürüm-1.8.19-blue?style=for-the-badge" alt="Sürüm 1.8.19" />
     <img src="https://img.shields.io/badge/Eklenti-38_Aktif-3b82f6?style=for-the-badge" alt="38 Aktif Eklenti" />
     <img src="https://img.shields.io/badge/Lisans-MIT-green?style=for-the-badge" alt="MIT Lisansı" />
     <img src="https://img.shields.io/badge/Katalog-6_Canlı_Katalog-8b5cf6?style=for-the-badge" alt="6 Canlı TV Kataloğu" />
