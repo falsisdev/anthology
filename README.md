@@ -136,6 +136,9 @@ Nuvio ve Stremio ana sayfasında canlı TV kanallarını kategorilere ayrılmı�
 | **SetFilmIzle** | setfilmizle.ltd (FastPlay/SetPlay) | 1080p HLS Master | Çift Ses DUAL + Türkçe/İngilizce Altyazı (Film & Dizi) |
 | **YabancıDizi** | yabancidizi.news (VidMoly Master) | 1080p HLS | Popüler Yabancı Diziler Arşivi |
 | **TvDiziler** | tvdiziler.tv (Twitter Amplify / Ciner / YouTube) | 1080p HLS / MP4 | Yerli TV Dizileri & Güncel Bölümler Arşivi |
+| **Anthology Dizi** | NOW / Show TV / KanalD / Star TV / ATV / TRT1 (resmi arşivler) | 1080p HLS | TV Ağı bölümleri — TMDB eşleştirmeli, sabit harita yok |
+| **PuhuTV** | puhutv.com (DYG → mncdn) | 1080p HLS | PuhuTV arşivi + Türkçe altyazı |
+| **TR Dizi İzle** | trdiziizle.xyz (WP + embed) | HLS / MP4 | Yerli dizi arşivi (Cloudflare korumalı ise boş) |
 | **SineWix** | sinewix.com (snwixdepo) | 1080p MKV | Dizi Bölümleri Çift Ses DUAL |
 | **Vidlink** | vidlink.pro (Global CDN) | 1080p MP4 | Yabancı Dizi Bölümleri |
 | **Vidmody** | vidmody.com (Multi-Audio HLS) | 1080p HLS | Çift Ses + Altyazı Dizi Akışları |
@@ -151,7 +154,6 @@ Nuvio ve Stremio ana sayfasında canlı TV kanallarını kategorilere ayrılmı�
 | **AsyaAnimeleri** | asyaanimeleri.top (Sibnet & Ok.ru) | 1080p MP4 / HLS | Anime & Donghua Geniş Arşivi |
 | **SeiCode** | seicode.net (TauVideo, OkRu, Sibnet, VidMoly, MP4Upload) | 1080p MP4 / HLS | Güncel Anime Serileri & Doğrudan Akışlar |
 | **SonAnime** | sonanime.com (Backblaze B2 & Cloudflare CDN) | 1080p / 720p / 480p MP4 | Türkçe Altyazılı Geniş Anime & Film Arşivi |
-| **TurkAnime** | turkanime.tv (Sibnet & ArtPlayer) | 1080p MP4 / HLS | Türkiye'nin En Geniş Anime Arşivi |
 
 ---
 

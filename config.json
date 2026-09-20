@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "name": "Anthology",
-  "version": "1.8.14",
+  "version": "1.8.15",
   "description": "Anthology - Merkezi Eklenti, API, URL, Oynatıcı ve Sistem Yapılandırması",
   "branding": {
     "name": "Anthology",
@@ -116,11 +116,35 @@
       },
       "tvdiziler": {
         "base": "https://tvdiziler.tv"
+      },
+      "anthology_diziler": {
+        "now": "https://www.nowtv.com.tr",
+        "show": "https://www.showtv.com.tr",
+        "kanald": "https://kanald.com.tr",
+        "atv": "https://www.atv.com.tr",
+        "star": "https://www.startv.com.tr",
+        "trt1": "https://www.trt1.com.tr"
+      },
+      "puhutv": {
+        "base": "https://puhutv.com"
+      },
+      "trdiziizle": {
+        "base": "https://www.trdiziizle.xyz"
       }
     },
     "anime": {
       "animecix": {
         "base": "https://animecix.tv"
+      },
+      "animom": {
+        "base": "https://animom.org"
+      },
+      "anizm": {
+        "base": "https://anizm.net",
+        "player_api": "https://anizmplayer.com"
+      },
+      "animeprax": {
+        "base": "https://animeprax.com"
       },
       "asyaanimeleri": {
         "base": "https://asyaanimeleri.top"
@@ -128,9 +152,6 @@
       "sonanime": {
         "base": "https://sonanime.com",
         "api_base": "https://api.sonanime.com"
-      },
-      "turkanime": {
-        "base": "https://www.turkanime.tv"
       },
       "seicode": {
         "base": "https://seicode.net",
