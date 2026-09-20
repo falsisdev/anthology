@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: diziyou
  * Built from src/diziyou/index.js
- * Build Date: 2026-09-20T19:00:24.669Z
+ * Build Date: 2026-09-20T20:49:56.234Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -251,7 +251,6 @@ function resolveTmdbInfo(id, mediaType) {
 function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
   return __async(this, null, function* () {
     try {
-      if (mediaType !== "tv" && mediaType !== "series") return [];
       const info = yield resolveTmdbInfo(tmdbId, mediaType);
       const trTitle = (info.title || "").trim();
       const orgTitle = (info.origTitle || "").trim();

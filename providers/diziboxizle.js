@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: diziboxizle
  * Built from src/diziboxizle/index.js
- * Build Date: 2026-09-20T19:00:24.656Z
+ * Build Date: 2026-09-20T20:49:56.223Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -763,7 +763,6 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
   return __async(this, null, function* () {
     try {
       var isTv = mediaType === "tv" || mediaType === "series";
-      if (mediaType === "movie") return [];
       if (typeof tmdbId === "object" && tmdbId && tmdbId.id) {
         return getStreams(tmdbId.id, tmdbId.type || mediaType, tmdbId.season || seasonNum, tmdbId.episode || episodeNum);
       }

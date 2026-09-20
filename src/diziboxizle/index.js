@@ -730,7 +730,6 @@ async function getMeta(args) {
 async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
   try {
     var isTv = (mediaType === 'tv' || mediaType === 'series');
-    if (mediaType === 'movie') return [];
 
     // 1. Obje parametresi desteği
     if (typeof tmdbId === 'object' && tmdbId && tmdbId.id) {

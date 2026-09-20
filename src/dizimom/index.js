@@ -133,8 +133,6 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
         tmdbId = parts[0];
       }
     }
-    // DiziMom sadece dizileri destekler
-    if (mediaType === 'movie') return [];
     if (!mediaType) mediaType = 'tv';
 
     if (typeof tmdbId === 'string' && tmdbId.startsWith('dizimom:show:')) {
