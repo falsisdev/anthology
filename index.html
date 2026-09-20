@@ -1853,7 +1853,7 @@
       </div>
 
       <div class="results-count-bar">
-        <span id="providerResultsText">32 eklentinin tümü listeleniyor</span>
+        <span id="providerResultsText">38 eklentinin tümü listeleniyor</span>
       </div>
 
       <!-- GRID -->
@@ -1861,23 +1861,19 @@
     </div>
   </section>
   <!-- BROKEN PROVIDERS SECTION -->
-  <section id="broken" style="display: none;">
+  <section id="broken">
     <div class="container">
       <div class="section-header">
-        <div class="section-eyebrow">Kullanım Dışı</div>
-        <h2 class="section-title">Çalışmayan Sağlayıcılar</h2>
+        <div class="section-eyebrow">Doğrulanamayan</div>
+        <h2 class="section-title">Çalışmayan / Kısıtlı Sağlayıcılar</h2>
         <p class="section-desc">
-          Kaynak/CDN/API değişiklikleri nedeniyle şu anda çalışmayan eklentiler. Kodları arşivlidir; kaynak düzelirse yeniden etkinleştirilir.
+          Kaynak/CDN/API değişiklikleri veya ağ koruması (Cloudflare vb.) nedeniyle bu sunucudan doğrulanamayan eklentiler. Ev ağında çalışabilirler; kaynak düzelirse tam aktif edilir.
         </p>
       </div>
       <div class="broken-providers">
         <div class="broken-provider">
-          <div class="broken-name">SetFilmIzle</div>
-          <div class="broken-reason">FastPlay X-Sp single-use token — native player'da oynatılamıyor</div>
-        </div>
-        <div class="broken-provider">
-          <div class="broken-name">HDFilmIzle</div>
-          <div class="broken-reason">FastPlay X-Sp single-use token — native player'da oynatılamıyor</div>
+          <div class="broken-name">Anizm</div>
+          <div class="broken-reason">Player rotaları (<code>/video/…</code>, <code>/player/…</code>) Cloudflare challenge'lı — sunucudan doğrulanamıyor; ev ağında çalışabilir</div>
         </div>
       </div>
     </div>
@@ -2091,14 +2087,14 @@
     const PROVIDERS = [      { id: "animecix", name: "AnimeciX", cats: ["anime", "tv", "movie"], domain: "animecix.tv", logo: null, format: "1080p / 720p MP4", desc: "TauVideo altyapısıyla binlerce anime bölümü (1080p, 720p, 480p doğrudan MP4)." },
       { id: "anizium", name: "Anizium", cats: ["anime", "tv", "movie"], domain: "anizium.co", logo: "assets/anizium.png", format: "4K / 1080p MP4 + VTT", desc: "4K UHD ve 1080p Türkçe Dublaj & senkron WebVTT Altyazılı doğrudan anime MP4 akışları." },
       { id: "asyaanimeleri", name: "AsyaAnimeleri", cats: ["anime", "tv", "movie"], domain: "asyaanimeleri.top", logo: null, format: "1080p MP4 / HLS", desc: "Anime ve donghua arşivi — Sibnet, Ok.ru, Mail.ru ve Rumble üzerinden doğrudan MP4 ve HLS akışları." },
-      { id: "anizm", name: "Anizm", cats: ["anime", "tv", "movie"], domain: "anizm.net", logo: null, format: "720p HLS / MP4", desc: "AnizmPlayer (FirePlayer HLS), OK.ru ve Sibnet üzerinden Türkçe anime akışları." },
+      { id: "anizm", name: "Anizm", cats: ["anime", "tv", "movie"], domain: "anizm.net", logo: null, broken: true, format: "720p HLS / MP4", desc: "AnizmPlayer (FirePlayer HLS), OK.ru ve Sibnet üzerinden Türkçe anime akışları. Player rotaları Cloudflare korumalı." },
       { id: "animom", name: "AniMOM", cats: ["anime", "tv", "movie"], domain: "animom.org", logo: null, format: "720p HLS / MP4", desc: "HDPlayer HLS, Sibnet ve YourUpload üzerinden Türkçe anime akışları." },
       { id: "animeprax", name: "AnimePraX", cats: ["anime", "tv", "movie"], domain: "animeprax.com", logo: null, format: "1080p MP4 / HLS", desc: "Sibnet, OK.ru ve Dailymotion üzerinden Türkçe anime akışları." },
       { id: "seicode", name: "SeiCode", cats: ["anime", "tv", "movie"], domain: "seicode.net", logo: null, format: "1080p MP4 / HLS", desc: "SeiCode anime platformu — TauVideo, Ok.ru, Sibnet, VidMoly ve MP4Upload üzerinden 1080p doğrudan MP4 ve HLS akışları." },
       { id: "sonanime", name: "SonAnime", cats: ["anime", "tv", "movie"], domain: "sonanime.com", logo: null, format: "1080p / 720p / 480p MP4", desc: "SonAnime Türkçe anime ve film arşivi — Doğrudan Backblaze B2 ve Cloudflare CDN üzerinden 1080p doğrudan MP4 akışları." },
       { id: "anthology_m3u", name: "Anthology M3U", cats: ["movie", "tv"], domain: null, logo: "assets/logo_1_transparent.png", format: "1080p HLS / MP4", desc: "On binlerce yerli ve yabancı film ve dizi arşivi (Lunedor, Zerk, PowerBoard çok kaynaklı altyapı)." },
       { id: "ddizi", name: "DDizi", cats: ["tv"], domain: "ddizi.im", logo: null, format: "1080p MP4 / HLS", desc: "Yerli dizi arşivi, güncel bölümler kataloğu ve doğrudan Ciner/Yandex CDN akışları." },
-      { id: "dizibak", name: "DiziBak", cats: ["tv"], domain: "dizibak.com", logo: null, format: "1080p HLS", desc: "Yerli ve yabancı dizi arşivi, doğrudan depolama HLS akışları." },
+      { id: "dizibak", name: "DiziBak", cats: ["tv"], domain: "dizibak.net", logo: null, format: "1080p HLS", desc: "Yerli ve yabancı dizi arşivi, doğrudan depolama HLS akışları." },
       { id: "dizimom", name: "DiziMom", cats: ["tv"], domain: "dizimom.diy", logo: null, format: "1080p HLS Master", desc: "Popüler yabancı diziler arşivi, güncel bölümler ve doğrudan 1080p Fire HLS akışları." },
       { id: "diziboxizle", name: "DiziBoxİzle", cats: ["tv"], domain: "diziboxizle.com", logo: null, format: "1080p HLS / MP4", desc: "Güncel yabancı diziler arşivi, VidMoly ve Ok.ru üzerinden doğrudan 1080p HLS ve MP4 akışları." },
       { id: "diziwatch", name: "DiziWatch", cats: ["tv", "anime"], domain: "diziwatch.ac", logo: null, format: "1080p HLS / MP4", desc: "diziwatch.ac arşivi üzerinden güncel anime ve yabancı dizi akışları sunar." },
@@ -2123,9 +2119,9 @@
       { id: "webteizle", name: "Webteİzle", cats: ["movie"], domain: "webteizle.info", logo: null, format: "1080p VidMoly HLS", desc: "Webteİzle arşivi üzerinden Türkçe Dublaj ve Altyazılı VidMoly 1080p master HLS akışları." },
       { id: "yabancidizi", name: "YabancıDizi", cats: ["tv"], domain: "yabancidizi.news", logo: null, format: "1080p VidMoly HLS", desc: "YabancıDizi arşivi üzerinden Türkçe Dublaj ve Altyazılı VidMoly 1080p master HLS akışları." },
       { id: "tvdiziler", name: "TvDiziler", cats: ["tv"], domain: "tvdiziler.tv", logo: null, format: "1080p Twitter HLS / MP4", desc: "TvDiziler.tv yerli dizi arşivi üzerinden 1080p HLS (Twitter Amplify), doğrudan MP4 ve YouTube akışları." },
-      { id: "anthology_diziler", name: "Anthology Dizi", cats: ["tv"], domain: "nowtv.com.tr", logo: null, format: "1080p HLS (canlı arşiv)", desc: "NOW / Show TV / KanalD / Star TV / ATV / TRT1 resmi yayın arşivlerinden dinamik bölüm akışları — TMDB eşleştirmeli." },
+      { id: "anthology_diziler", name: "Anthology Dizi", cats: ["tv"], domain: "nowtv.com.tr", logo: "assets/logo_1_transparent.png", format: "1080p HLS (canlı arşiv)", desc: "NOW / Show TV / KanalD / Star TV / ATV / TRT1 resmi yayın arşivlerinden dinamik bölüm akışları — TMDB eşleştirmeli." },
       { id: "puhutv", name: "PuhuTV", cats: ["tv", "movie"], domain: "puhutv.com", logo: null, format: "1080p HLS", desc: "puhutv.com arşivi — DYG video_info üzerinden mncdn 1080p HLS ve Türkçe altyazı." },
-      { id: "trdiziizle", name: "TR Dizi İzle", cats: ["tv"], domain: "trdiziizle.xyz", logo: null, format: "HLS / MP4", desc: "trdiziizle.xyz yerli dizi arşivi (Cloudflare koruması varsa boş döner)." }
+      { id: "trdiziizle", name: "TR Dizi İzle", cats: ["tv"], domain: "www.trdiziizle.tv", logo: "https://www.google.com/s2/favicons?domain=www.trdiziizle.tv&sz=128", format: "HLS / MP4", desc: "trdiziizle.tv yerli dizi arşivi (Cloudflare korumalı yollardan sunucuda boş döner, ev ağında çalışabilir)." }
     ];
 
     /* 134 LIVE CHANNELS */

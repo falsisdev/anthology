@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: trdiziizle
  * Built from src/trdiziizle/index.js
- * Build Date: 2026-09-20T19:00:24.703Z
+ * Build Date: 2026-09-20T19:24:57.427Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -508,7 +508,7 @@ function cfgReady() {
   }
   return _cfgReady;
 }
-var BASE_URL = "https://www.trdiziizle.xyz";
+var BASE_URL = "https://www.trdiziizle.tv/tr2";
 var TMDB_API_KEY = "500330721680edb6d5f7f12ba7cd9023";
 var HEADERS = {
   "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
@@ -723,7 +723,7 @@ function getCatalog(args) {
         var title = decodeHtmlEntities(m[2].replace(/<[^>]+>/g, " ")).trim();
         if (!title || title.length < 3) continue;
         var href = m[1];
-        if (!/\/(?:category|tag|dizi|liste|yabanci-dizi|yerli-dizi)\//i.test(href)) continue;
+        if (!/\/(?:category|tag|dizi|diziler|liste|yabanci-dizi|yerli-dizi)\//i.test(href)) continue;
         if (seen[href]) continue;
         seen[href] = true;
         metas.push({ id: "trdiziizle:link:" + encodeURIComponent(href), type: "series", name: title });
