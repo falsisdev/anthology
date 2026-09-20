@@ -18,16 +18,14 @@ function cfgReady() {
 
 /**
  * Anthology - TrDiziİzle Provider
- * https://www.trdiziizle.xyz/  (Cloudflare WAF korumalı)
+ * https://www.trdiziizle.tv/tr2/  (WordPress + embed iframe)
  * WordPress tabanlı yerli/yabancı dizi arşivi.
  * Standart (scraper standartlarına uygun) WP arama + iframe oynatıcı çözümü.
- * DURUM: Cloudflare clearence token'sız kelimenin tam anlamıyla 403 döndüğü için
- * provider ağdan erişilemez durumdadır; kod doğru WF şablonunu kullanır ve
- * cloudflare koruması kalktığında (veya temiz bir Session token'la) çalışır.
+ * DURUM: .xyz domain'i öldü; doğru site www.trdiziizle.tv/tr2/ — buradan erişilebilir.
  * Bilinçli olarak mantıkta hiçbir sahte/yanlış akış yoktur — bulunamayan her şey [] döner.
  */
 
-var BASE_URL = 'https://www.trdiziizle.xyz';
+var BASE_URL = 'https://www.trdiziizle.tv/tr2';
 var TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
 
 var HEADERS = {
@@ -252,7 +250,7 @@ async function getCatalog(args) {
             var title = decodeHtmlEntities(m[2].replace(/<[^>]+>/g, ' ')).trim();
             if (!title || title.length < 3) continue;
             var href = m[1];
-            if (!/\/(?:category|tag|dizi|liste|yabanci-dizi|yerli-dizi)\//i.test(href)) continue;
+            if (!/\/(?:category|tag|dizi|diziler|liste|yabanci-dizi|yerli-dizi)\//i.test(href)) continue;
             if (seen[href]) continue;
             seen[href] = true;
             metas.push({ id: 'trdiziizle:link:' + encodeURIComponent(href), type: 'series', name: title });
