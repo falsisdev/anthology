@@ -152,6 +152,9 @@ Nuvio ve Stremio ana sayfasında canlı TV kanallarını kategorilere ayrılmı�
 | **AnimeciX** | animecix.tv (TauVideo CDN) | 1080p / 720p / 480p MP4 | Türkçe Altyazı & Dublaj |
 | **Anizium** | api.anizium.co (Backblaze CDN) | 4K UHD / 1080p MP4 | Türkçe Dublaj & Senkron WebVTT Altyazı |
 | **AsyaAnimeleri** | asyaanimeleri.top (Sibnet & Ok.ru) | 1080p MP4 / HLS | Anime & Donghua Geniş Arşivi |
+| **Anizm** | anizm.net (AnizmPlayer & Ok.ru & Sibnet) | 720p HLS / MP4 | Türkçe Anime Akışları |
+| **AniMOM** | animom.org (HDPlayer & Sibnet & YourUpload) | 720p HLS / MP4 | Türkçe Anime Akışları |
+| **AnimePraX** | animeprax.com (Sibnet & Ok.ru & Dailymotion) | 1080p MP4 / HLS | Türkçe Anime Akışları |
 | **SeiCode** | seicode.net (TauVideo, OkRu, Sibnet, VidMoly, MP4Upload) | 1080p MP4 / HLS | Güncel Anime Serileri & Doğrudan Akışlar |
 | **SonAnime** | sonanime.com (Backblaze B2 & Cloudflare CDN) | 1080p / 720p / 480p MP4 | Türkçe Altyazılı Geniş Anime & Film Arşivi |
 

@@ -3,7 +3,7 @@
     {
       "name": "⌜ Mahsun Sports ⌟",
       "title": "🔴 BeIN Sports 1",
-      "url": "https://andro.evrenesoglu117.click/checklist/androstreamlivebs1.m3u8",
+      "url": "https://andro.evrenesoglu121.click/checklist/androstreamlivebs1.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Referer": "https://mahsunsports80.xyz/",
@@ -16,7 +16,7 @@
     {
       "name": "⌜ Mahsun Sports ⌟",
       "title": "🔴 BeIN Sports 2",
-      "url": "https://andro.evrenesoglu117.click/checklist/androstreamlivebs2.m3u8",
+      "url": "https://andro.evrenesoglu121.click/checklist/androstreamlivebs2.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Referer": "https://mahsunsports80.xyz/",
@@ -29,7 +29,7 @@
     {
       "name": "⌜ Mahsun Sports ⌟",
       "title": "🔴 BeIN Sports 3",
-      "url": "https://andro.evrenesoglu117.click/checklist/androstreamlivebs3.m3u8",
+      "url": "https://andro.evrenesoglu121.click/checklist/androstreamlivebs3.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Referer": "https://mahsunsports80.xyz/",
@@ -42,7 +42,7 @@
     {
       "name": "⌜ Mahsun Sports ⌟",
       "title": "🔴 BeIN Sports 4",
-      "url": "https://andro.evrenesoglu117.click/checklist/androstreamlivebs4.m3u8",
+      "url": "https://andro.evrenesoglu121.click/checklist/androstreamlivebs4.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Referer": "https://mahsunsports80.xyz/",
@@ -55,7 +55,20 @@
     {
       "name": "⌜ Mahsun Sports ⌟",
       "title": "🔴 BeIN Sports 5",
-      "url": "https://andro.evrenesoglu117.click/checklist/androstreamlivebs5.m3u8",
+      "url": "https://andro.evrenesoglu121.click/checklist/androstreamlivebs5.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Referer": "https://mahsunsports80.xyz/",
+        "Origin": "https://mahsunsports80.xyz/"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Mahsun Sports ⌟",
+      "title": "🔴 BeIN Sports Max 1",
+      "url": "https://andro.evrenesoglu121.click/checklist/androstreamlivebsm1.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Referer": "https://mahsunsports80.xyz/",
@@ -68,7 +81,7 @@
     {
       "name": "⌜ Mahsun Sports ⌟",
       "title": "🔴 BeIN Sports Max 2",
-      "url": "https://andro.evrenesoglu117.click/checklist/androstreamlivebsm2.m3u8",
+      "url": "https://andro.evrenesoglu121.click/checklist/androstreamlivebsm2.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Referer": "https://mahsunsports80.xyz/",
@@ -81,7 +94,7 @@
     {
       "name": "⌜ Mahsun Sports ⌟",
       "title": "🔴 S Sport",
-      "url": "https://andro.evrenesoglu117.click/checklist/androstreamlivess1.m3u8",
+      "url": "https://andro.evrenesoglu121.click/checklist/androstreamlivess1.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Referer": "https://mahsunsports80.xyz/",
@@ -94,7 +107,7 @@
     {
       "name": "⌜ Mahsun Sports ⌟",
       "title": "🔴 S Sport 2",
-      "url": "https://andro.evrenesoglu117.click/checklist/androstreamlivess2.m3u8",
+      "url": "https://andro.evrenesoglu121.click/checklist/androstreamlivess2.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Referer": "https://mahsunsports80.xyz/",
@@ -107,46 +120,7 @@
     {
       "name": "⌜ Mahsun Sports ⌟",
       "title": "🔴 S Sport Plus",
-      "url": "https://andro.evrenesoglu117.click/checklist/androstreamlivessplus1.m3u8",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Referer": "https://mahsunsports80.xyz/",
-        "Origin": "https://mahsunsports80.xyz/"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Mahsun Sports ⌟",
-      "title": "🔴 Tivibu Spor 1",
-      "url": "https://andro.evrenesoglu117.click/checklist/androstreamlivets1.m3u8",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Referer": "https://mahsunsports80.xyz/",
-        "Origin": "https://mahsunsports80.xyz/"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Mahsun Sports ⌟",
-      "title": "🔴 Tivibu Spor 2",
-      "url": "https://andro.evrenesoglu117.click/checklist/androstreamlivets2.m3u8",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Referer": "https://mahsunsports80.xyz/",
-        "Origin": "https://mahsunsports80.xyz/"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Mahsun Sports ⌟",
-      "title": "🔴 Tivibu Spor 3",
-      "url": "https://andro.evrenesoglu117.click/checklist/androstreamlivets3.m3u8",
+      "url": "https://andro.evrenesoglu121.click/checklist/androstreamlivessplus1.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Referer": "https://mahsunsports80.xyz/",
@@ -159,7 +133,7 @@
     {
       "name": "⌜ Mahsun Sports ⌟",
       "title": "🔴 Smart Spor 1",
-      "url": "https://andro.evrenesoglu117.click/checklist/androstreamlivesm1.m3u8",
+      "url": "https://andro.evrenesoglu121.click/checklist/androstreamlivesm1.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Referer": "https://mahsunsports80.xyz/",
@@ -172,7 +146,7 @@
     {
       "name": "⌜ Mahsun Sports ⌟",
       "title": "🔴 Smart Spor 2",
-      "url": "https://andro.evrenesoglu117.click/checklist/androstreamlivesm2.m3u8",
+      "url": "https://andro.evrenesoglu121.click/checklist/androstreamlivesm2.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Referer": "https://mahsunsports80.xyz/",
@@ -185,7 +159,7 @@
     {
       "name": "⌜ Mahsun Sports ⌟",
       "title": "🔴 iDMAN Tv",
-      "url": "https://andro.evrenesoglu117.click/checklist/androstreamliveidm.m3u8",
+      "url": "https://andro.evrenesoglu121.click/checklist/androstreamliveidm.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Referer": "https://mahsunsports80.xyz/",
@@ -198,7 +172,7 @@
     {
       "name": "⌜ Mahsun Sports ⌟",
       "title": "🔴 Trt Spor",
-      "url": "https://andro.evrenesoglu117.click/checklist/androstreamlivetrts.m3u8",
+      "url": "https://andro.evrenesoglu121.click/checklist/androstreamlivetrts.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Referer": "https://mahsunsports80.xyz/",
@@ -210,8 +184,8 @@
     },
     {
       "name": "⌜ Mahsun Sports ⌟",
-      "title": "🔴 Cbc Sport",
-      "url": "https://andro.evrenesoglu117.click/checklist/androstreamlivecbcs.m3u8",
+      "title": "🔴 Tabi Spor 1",
+      "url": "https://andro.evrenesoglu121.click/checklist/androstreamlivetb1.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Referer": "https://mahsunsports80.xyz/",
@@ -223,8 +197,21 @@
     },
     {
       "name": "⌜ Mahsun Sports ⌟",
-      "title": "🔴 Exxen Sports 4",
-      "url": "https://andro.evrenesoglu117.click/checklist/androstreamliveexn4.m3u8",
+      "title": "🔴 Exxen Sports 1",
+      "url": "https://andro.evrenesoglu121.click/checklist/androstreamliveexn1.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Referer": "https://mahsunsports80.xyz/",
+        "Origin": "https://mahsunsports80.xyz/"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Mahsun Sports ⌟",
+      "title": "🔴 Exxen Sports 2",
+      "url": "https://andro.evrenesoglu121.click/checklist/androstreamliveexn2.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Referer": "https://mahsunsports80.xyz/",

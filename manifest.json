@@ -1,6 +1,6 @@
 {
   "name": "Anthology",
-  "version": "1.8.15",
+  "version": "1.8.16",
   "author": "falsisdev",
   "description": "Anthology - Türkçe Dizi, Film, Anime ve Canlı TV/Spor Eklenti Deposu",
   "scrapers": [
@@ -8,7 +8,7 @@
       "id": "anthology_m3u",
       "name": "Anthology M3U",
       "description": "Binlerce yerli ve yabancı film ve dizi arşivi doğrudan HD HLS akışları.",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "author": "falsisdev",
       "supportedTypes": [
         "movie",
@@ -32,7 +32,7 @@
       "id": "sinewix",
       "name": "SineWix",
       "description": "5000+ HD film, dizi ve anime - Türkçe dublaj & altyazı, 1080p çift ses direct MKV.",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "author": "falsisdev",
       "supportedTypes": [
         "movie",
@@ -83,7 +83,7 @@
       "id": "vidlink",
       "name": "Vidlink",
       "description": "TMDB entegrasyonlu global film ve dizi akış sağlayıcısı (4K/1080p direct MP4).",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "author": "falsisdev",
       "supportedTypes": [
         "movie",
@@ -106,7 +106,7 @@
       "id": "dizibak",
       "name": "DiziBak",
       "description": "Yabancı dizi arşivi, güncel bölümler kataloğu ve doğrudan d1iz-b0ok.xyz 1080p HLS master akışları.",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "author": "falsisdev",
       "supportedTypes": [
         "tv"
@@ -147,7 +147,7 @@
       "name": "Anthology Canlı TV",
       "description": "134+ Ulusal, Haber, Spor, Belgesel, Müzik ve Sinema Canlı TV kanalı ve M3U kataloğu.",
       "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",
@@ -199,7 +199,7 @@
       "id": "filmmodu",
       "name": "FilmModu",
       "description": "Türkçe dublaj ve altyazılı 4K/1080p full HD film akışları (ImgsAPI).",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
@@ -238,7 +238,7 @@
       "id": "hdfilmcehennemi",
       "name": "HDFilmCehennemi",
       "description": "Binlerce HD film - Türkçe dublaj & altyazı, 1080p CloseLoad adaptif HLS akışları.",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
@@ -278,7 +278,7 @@
       "id": "diziyou",
       "name": "DiziYou",
       "description": "DiziYou doğrudan depolama akışları ve Türkçe altyazı desteği.",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "author": "falsisdev",
       "supportedTypes": [
         "tv"
@@ -299,7 +299,7 @@
       "id": "dizipod",
       "name": "DiziPod",
       "description": "Popüler yabancı ve yerli dizi/film arşivi — Doğrudan HLS master akışları ve Türkçe altyazı desteği.",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",
@@ -333,7 +333,7 @@
       "id": "sinemacx",
       "name": "SinemaCX",
       "description": "Sinema.gg arşivi üzerinden doğrudan 1080p Filmizle HLS master akışları.",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
@@ -354,7 +354,7 @@
       "id": "animecix",
       "name": "AnimeciX",
       "description": "TauVideo altyapısıyla binlerce anime bölümü (1080p, 720p, 480p direct MP4).",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",
@@ -390,10 +390,133 @@
       "supportsExternalPlayer": true
     },
     {
+      "id": "anizm",
+      "name": "Anizm",
+      "description": "AnizmPlayer (FirePlayer HLS), OK.ru ve Sibnet üzerinden Türkçe anime akışları.",
+      "version": "1.8.16",
+      "author": "falsisdev",
+      "supportedTypes": [
+        "tv",
+        "movie",
+        "anime"
+      ],
+      "filename": "providers/anizm.js",
+      "enabled": true,
+      "formats": [
+        "mp4",
+        "hls"
+      ],
+      "logo": "https://www.google.com/s2/favicons?domain=anizm.net&sz=128",
+      "contentLanguage": [
+        "tr"
+      ],
+      "catalogs": [
+        {
+          "type": "tv",
+          "id": "anthology_anizm",
+          "name": "Anizm — Popüler Animeler",
+          "extra": [
+            {
+              "name": "search",
+              "isRequired": false
+            }
+          ]
+        }
+      ],
+      "resources": [
+        "catalog",
+        "meta",
+        "stream"
+      ],
+      "supportsExternalPlayer": true
+    },
+    {
+      "id": "animom",
+      "name": "AniMOM",
+      "description": "HDPlayer HLS, Sibnet ve YourUpload üzerinden Türkçe anime akışları.",
+      "version": "1.8.16",
+      "author": "falsisdev",
+      "supportedTypes": [
+        "tv",
+        "movie",
+        "anime"
+      ],
+      "filename": "providers/animom.js",
+      "enabled": true,
+      "formats": [
+        "mp4",
+        "hls"
+      ],
+      "logo": "https://www.google.com/s2/favicons?domain=animom.org&sz=128",
+      "contentLanguage": [
+        "tr"
+      ],
+      "catalogs": [
+        {
+          "type": "tv",
+          "id": "anthology_animom",
+          "name": "AniMOM — Popüler Animeler",
+          "extra": [
+            {
+              "name": "search",
+              "isRequired": false
+            }
+          ]
+        }
+      ],
+      "resources": [
+        "catalog",
+        "meta",
+        "stream"
+      ],
+      "supportsExternalPlayer": true
+    },
+    {
+      "id": "animeprax",
+      "name": "AnimePraX",
+      "description": "Sibnet, OK.ru ve Dailymotion üzerinden Türkçe anime akışları.",
+      "version": "1.8.16",
+      "author": "falsisdev",
+      "supportedTypes": [
+        "tv",
+        "movie",
+        "anime"
+      ],
+      "filename": "providers/animeprax.js",
+      "enabled": true,
+      "formats": [
+        "mp4",
+        "hls"
+      ],
+      "logo": "https://www.google.com/s2/favicons?domain=animeprax.com&sz=128",
+      "contentLanguage": [
+        "tr"
+      ],
+      "catalogs": [
+        {
+          "type": "tv",
+          "id": "anthology_animeprax",
+          "name": "AnimePraX — Popüler Animeler",
+          "extra": [
+            {
+              "name": "search",
+              "isRequired": false
+            }
+          ]
+        }
+      ],
+      "resources": [
+        "catalog",
+        "meta",
+        "stream"
+      ],
+      "supportsExternalPlayer": true
+    },
+    {
       "id": "anizium",
       "name": "Anizium",
       "description": "4K & 1080p Türkçe Dublaj ve Altyazılı Anime Kaynağı (Doğrudan MP4 + WebVTT).",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",
@@ -435,7 +558,7 @@
       "id": "asyaanimeleri",
       "name": "AsyaAnimeleri",
       "description": "Anime ve donghua arşivi — Sibnet, Ok.ru, Mail.ru ve Rumble üzerinden 1080p doğrudan MP4 ve HLS akışları.",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",
@@ -476,7 +599,7 @@
       "id": "sonanime",
       "name": "SonAnime",
       "description": "SonAnime Türkçe anime arşivi — Doğrudan Backblaze B2 ve Cloudflare CDN üzerinden 1080p, 720p ve 480p Türkçe altyazılı MP4 akışları.",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",
@@ -515,7 +638,7 @@
       "id": "diziboxizle",
       "name": "DiziBoxİzle",
       "description": "Güncel yabancı dizi arşivi — VidMoly ve Ok.ru üzerinden 1080p doğrudan HLS ve MP4 akışları.",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "author": "falsisdev",
       "supportedTypes": [
         "tv"
@@ -555,7 +678,7 @@
       "id": "anthology_spor",
       "name": "Anthology Canlı Spor",
       "description": "BeIN Sports 1-5, S Sport 1-2, Tivibu Spor, Exxen Spor ve 48 canlı spor kanalı (Anthology + NetVGold çok kaynaklı). Mahsunsports maç yayınları dahil.",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",
@@ -599,7 +722,7 @@
       "id": "anthology_haber",
       "name": "Anthology Canlı Haber",
       "description": "NTV, Habertürk, TRT Haber, A Haber, CNBC-e, TBMM TV ve 22 canlı haber kanalı.",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",
@@ -643,7 +766,7 @@
       "id": "anthology_ulusal",
       "name": "Anthology Ulusal Kanallar",
       "description": "TRT 1, ATV, Kanal D, Show TV, Star TV, NOW TV, TV8, TRT Genç, TLC, DMAX, Euro D, TV4 ve 27 ulusal televizyon kanalı.",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",
@@ -687,7 +810,7 @@
       "id": "ddizi",
       "name": "DDizi",
       "description": "Yerli dizi arşivi, güncel bölümler kataloğu ve doğrudan Ciner/Yandex CDN MP4/HLS akışları.",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "author": "falsisdev",
       "supportedTypes": [
         "tv"
@@ -727,7 +850,7 @@
       "id": "dizimom",
       "name": "DiziMom",
       "description": "Popüler yabancı diziler arşivi, güncel bölümler kataloğu ve doğrudan 1080p Fire HLS master akışları.",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "author": "falsisdev",
       "supportedTypes": [
         "tv"
@@ -766,7 +889,7 @@
       "id": "vidmody",
       "name": "Vidmody",
       "description": "Doğrudan çoklu dil ve altyazı destekli HLS film ve dizi akış sağlayıcısı (1080p).",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "author": "falsisdev",
       "supportedTypes": [
         "movie",
@@ -789,7 +912,7 @@
       "id": "webteizle",
       "name": "Webteİzle",
       "description": "Webteİzle arşivi üzerinden Türkçe Dublaj ve Altyazılı VidMoly 1080p master HLS akışları.",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
@@ -810,7 +933,7 @@
       "id": "yabancidizi",
       "name": "YabancıDizi",
       "description": "YabancıDizi arşivi üzerinden Türkçe Dublaj ve Altyazılı VidMoly 1080p master HLS akışları.",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "author": "falsisdev",
       "supportedTypes": [
         "tv"
@@ -832,7 +955,7 @@
       "id": "tvdiziler",
       "name": "TvDiziler",
       "description": "TvDiziler.tv yerli dizi arşivi üzerinden 1080p HLS (Twitter Amplify), doğrudan MP4 (Ciner/CDN) ve YouTube akışları.",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "author": "falsisdev",
       "supportedTypes": [
         "tv"
@@ -872,7 +995,7 @@
       "id": "setfilmizle",
       "name": "SetFilmIzle",
       "description": "SetFilmIzle arşivi üzerinden FastPlay 1080p HLS master akışları ve TR/EN altyazılar (film + dizi).",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "author": "falsisdev",
       "supportedTypes": [
         "movie",
@@ -923,7 +1046,7 @@
       "id": "kultfilmler",
       "name": "KultFilmler",
       "description": "KultFilmler arşivi üzerinden VidMoly/Vidpapi HLS akışları.",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
@@ -962,7 +1085,7 @@
       "id": "hdfilmdelisi",
       "name": "HDFilmDelisi",
       "description": "HDFilmDelisi JSON API arşivi üzerinden VidMody 1080p HLS akışları.",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
@@ -1001,7 +1124,7 @@
       "id": "hdfilmizle",
       "name": "HDFilmIzle",
       "description": "HDFilmIzle (Ink/Vip) arşivi üzerinden FastPlay 1080p HLS master akışları ve TR/EN altyazılar.",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "author": "falsisdev",
       "supportedTypes": [
         "movie"
@@ -1040,7 +1163,7 @@
       "id": "anthology_belgesel_cocuk",
       "name": "Anthology Belgesel & Çocuk",
       "description": "TRT Belgesel, TRT Çocuk, Minika, TRT Diyanet Çocuk, Çiftçi TV ve canlı çocuk & belgesel kanalları.",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",
@@ -1084,7 +1207,7 @@
       "id": "anthology_muzik",
       "name": "Anthology Müzik & Eğlence",
       "description": "Kral Pop, Power, Number 1, Dream Türk, TMB TV, Show Max ve canlı müzik & eğlence kanalları.",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",
@@ -1128,7 +1251,7 @@
       "id": "diziwatch",
       "name": "DiziWatch",
       "description": "diziwatch.ac arşivi üzerinden güncel anime ve yabancı dizi akışları sunar.",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",
@@ -1157,7 +1280,7 @@
       "id": "seicode",
       "name": "SeiCode",
       "description": "SeiCode anime platformu — TauVideo, Ok.ru, Sibnet, VidMoly ve MP4Upload üzerinden 1080p doğrudan MP4 ve HLS akışları.",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "author": "falsisdev",
       "supportedTypes": [
         "tv",
@@ -1197,7 +1320,7 @@
     },
     {
       "author": "falsisdev",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "enabled": true,
       "supportsExternalPlayer": true,
       "id": "anthology_diziler",
@@ -1230,7 +1353,7 @@
     },
     {
       "author": "falsisdev",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "enabled": true,
       "supportsExternalPlayer": true,
       "id": "puhutv",
@@ -1264,7 +1387,7 @@
     },
     {
       "author": "falsisdev",
-      "version": "1.8.15",
+      "version": "1.8.16",
       "enabled": true,
       "supportsExternalPlayer": true,
       "id": "trdiziizle",

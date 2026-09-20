@@ -1,6 +1,7 @@
 const { sortStreamsByQuality } = require("../shared/quality.js");
 const { loadConfig, val, wrapAll } = require("../shared/config.js");
 const { timeoutSignal } = require("../shared/http.js");
+const { normalizeSeriesId, seriesSearchTitles, resolveSeriesInfo } = require("../shared/turkish_series.js");
 
 var _cfgReady = null;
 function cfgReady() {
@@ -88,39 +89,6 @@ function getValidTmdbKey() {
     }
     return '500330721680edb6d5f7f12ba7cd9023';
 }
-
-const KNOWN_SERIES = {
-    '213194': { title: 'Kızılcık Şerbeti', imdb: 'tt22262500' },
-    'tt22262500': { title: 'Kızılcık Şerbeti', tmdb: '213194' },
-    '115464': { title: 'Son Yaz', imdb: 'tt13410526' },
-    'tt13410526': { title: 'Son Yaz', tmdb: '115464' },
-    '111685': { title: 'Gönül Dağı', imdb: 'tt13247072' },
-    'tt13247072': { title: 'Gönül Dağı', tmdb: '111685' },
-    '245914': { title: 'Bahar', imdb: 'tt30825316' },
-    'tt30825316': { title: 'Bahar', tmdb: '245914' },
-    '119806': { title: 'Teşkilat', imdb: 'tt13853174' },
-    'tt13853174': { title: 'Teşkilat', tmdb: '119806' },
-    '241020': { title: 'Kızıl Goncalar', imdb: 'tt29584347' },
-    'tt29584347': { title: 'Kızıl Goncalar', tmdb: '241020' },
-    '210865': { title: 'Yalı Çapkını', imdb: 'tt21815598' },
-    'tt21815598': { title: 'Yalı Çapkını', tmdb: '210865' },
-    '243832': { title: 'İnci Taneleri', imdb: 'tt30397500' },
-    'tt30397500': { title: 'İnci Taneleri', tmdb: '243832' },
-    '274880': { title: 'Uzak Şehir', imdb: 'tt33479007' },
-    'tt33479007': { title: 'Uzak Şehir', tmdb: '274880' },
-    '74823': { title: 'Çukur', imdb: 'tt7366338' },
-    'tt7366338': { title: 'Çukur', tmdb: '74823' },
-    '6455': { title: 'Kurtlar Vadisi', imdb: 'tt0411008' },
-    'tt0411008': { title: 'Kurtlar Vadisi', tmdb: '6455' },
-    '69629': { title: 'İçerde', imdb: 'tt6506306' },
-    'tt6506306': { title: 'İçerde', tmdb: '69629' },
-    '30981': { title: 'Ezel', imdb: 'tt1826959' },
-    'tt1826959': { title: 'Ezel', tmdb: '30981' },
-    '2224': { title: 'Yaprak Dökümü', imdb: 'tt0496438' },
-    'tt0496438': { title: 'Yaprak Dökümü', tmdb: '2224' },
-    '2695': { title: 'Aşk-ı Memnu', imdb: 'tt0846548' },
-    'tt0846548': { title: 'Aşk-ı Memnu', tmdb: '2695' }
-};
 
 async function resolveOfficialYouTubeFallback(title, season, episode, cumEpisode) {
     try {
@@ -228,60 +196,18 @@ function ultraClean(str) {
 
 async function resolveTmdbInfo(id, mediaType) {
     try {
-        let cleanId = String(id || '').trim();
-        if (cleanId.includes(':')) cleanId = cleanId.split(':')[0];
-
-        let numericId = null;
-        let title = '';
-        let origTitle = '';
-        let seasons = [];
-
-        // 1. Check known Turkish series dictionary for zero-network instantaneous matching
-        if (KNOWN_SERIES[cleanId]) {
-            title = KNOWN_SERIES[cleanId].title;
-            origTitle = KNOWN_SERIES[cleanId].title;
-            if (KNOWN_SERIES[cleanId].tmdb) numericId = KNOWN_SERIES[cleanId].tmdb;
-        }
-
-        const isTv = (mediaType === 'tv' || mediaType === 'series' || mediaType === 'show' || String(id || '').includes(':'));
-        const apiKey = getValidTmdbKey();
-
-        if (cleanId.startsWith('tt')) {
-            try {
-                const findRes = await fetch(`https://api.themoviedb.org/3/find/${cleanId}?api_key=${apiKey}&external_source=imdb_id`);
-                if (findRes.ok) {
-                    const fData = await findRes.json();
-                    const item = isTv
-                        ? (fData.tv_results && fData.tv_results[0])
-                        : (fData.movie_results && fData.movie_results[0]);
-                    if (item) {
-                        numericId = item.id;
-                        title = item.name || item.title || title;
-                        origTitle = item.original_name || item.original_title || origTitle;
-                    }
-                }
-            } catch (e) {}
-        } else {
-            numericId = numericId || cleanId;
-        }
-
-        if (numericId && (!title || !origTitle || seasons.length === 0)) {
-            try {
-                const type = isTv ? 'tv' : 'movie';
-                const tRes = await fetch(`https://api.themoviedb.org/3/${type}/${numericId}?api_key=${apiKey}&language=tr-TR`);
-                if (tRes.ok) {
-                    const tData = await tRes.json();
-                    title = tData.name || tData.title || title;
-                    origTitle = tData.original_name || tData.original_title || origTitle;
-                    seasons = tData.seasons || [];
-                }
-            } catch (e) {}
-        }
-
-        return { title, origTitle, numericId, seasons };
+        const info = await resolveSeriesInfo(id, mediaType, getValidTmdbKey());
+        return {
+            title: info.title,
+            origTitle: info.origTitle,
+            numericId: info.numericId || null,
+            seasons: info.seasons,
+            aliases: info.aliases,
+            kind: info.kind,
+            type: info.type
+        };
     } catch (e) {
-        const fallbackTitle = (KNOWN_SERIES[String(id || '').trim()] && KNOWN_SERIES[String(id || '').trim()].title) || '';
-        return { title: fallbackTitle, origTitle: fallbackTitle, numericId: id, seasons: [] };
+        return { title: '', origTitle: '', numericId: null, seasons: [], aliases: [], kind: 'unknown', type: 'tv' };
     }
 }
 
@@ -778,7 +704,13 @@ async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
         let season = parseInt(seasonNum) || 1;
         let episode = parseInt(episodeNum) || 1;
 
-        if (typeof id === 'string' && id.includes(':')) {
+        // Normalize Nuvio/CineMata id shapes: prefixes, colon season:episode, raw titles
+        const nrm = normalizeSeriesId(id);
+        if (nrm.season > 0) season = nrm.season;
+        if (nrm.episode > 0) episode = nrm.episode;
+        if (nrm.kind === 'title') id = nrm.id;
+        else if (nrm.id) id = nrm.id;
+        else if (typeof id === 'string' && id.includes(':')) {
             const parts = id.split(':');
             id = parts[0];
             if (parts.length >= 3) {
@@ -788,7 +720,8 @@ async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
         }
 
         const info = await resolveTmdbInfo(id, mediaType || 'tv');
-        const searchTitles = [info.title, info.origTitle].filter(Boolean);
+        const searchTitles = seriesSearchTitles(info);
+        if (nrm.kind === 'title' && searchTitles.length === 0) searchTitles.push(String(id || '').trim());
         if (searchTitles.length === 0) return [];
 
         let cumEpisode = episode;
