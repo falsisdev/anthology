@@ -624,12 +624,6 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
         });
     });
   }
-  // FilmModu sadece film içeriği sunar
-  if (mediaType && mediaType !== 'movie') {
-    console.log('[FilmModu] Sadece film destekleniyor, mediaType: ' + mediaType);
-    return Promise.resolve([]);
-  }
-
   console.log('[FilmModu] === Başlıyor | TMDB ID: ' + tmdbId + ' ===');
 
   return fetchTmdbInfo(tmdbId)

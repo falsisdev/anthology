@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: animeprax
  * Built from src/animeprax/index.js
- * Build Date: 2026-09-20T19:00:24.614Z
+ * Build Date: 2026-09-20T20:49:56.163Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {

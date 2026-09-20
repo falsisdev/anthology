@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: dizibak
  * Built from src/dizibak/index.js
- * Build Date: 2026-09-20T19:00:24.654Z
+ * Build Date: 2026-09-20T20:49:56.220Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -369,7 +369,6 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
           tmdbId = parts[0];
         }
       }
-      if (mediaType === "movie") return [];
       if (!mediaType) mediaType = "tv";
       if (typeof tmdbId === "string" && tmdbId.indexOf("dizibak:show:") === 0) {
         var slug = tmdbId.replace("dizibak:show:", "");

@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: hdfilmcehennemi
  * Built from src/hdfilmcehennemi/index.js
- * Build Date: 2026-09-20T19:00:24.673Z
+ * Build Date: 2026-09-20T20:49:56.239Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -597,9 +597,6 @@ function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
         mediaType = mediaType || tmdbIdOrArgs.type || tmdbIdOrArgs.mediaType;
       }
       if (!rawId) return [];
-      if (mediaType === "tv" || mediaType === "series") {
-        return [];
-      }
       var slug = yield findMovieSlug(rawId);
       if (!slug) return [];
       var pageUrl = BASE_URL + "/" + slug + "/";

@@ -138,8 +138,6 @@ async function searchOnSite(query, year) {
 
 async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
   try {
-    if (mediaType === 'tv' || mediaType === 'series') return [];
-
     const info = await resolveTmdbInfo(tmdbId, mediaType);
     const trTitle = (info.title || '').trim();
     const orgTitle = (info.origTitle || '').trim();

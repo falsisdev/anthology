@@ -521,11 +521,6 @@ async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
 
     if (!rawId) return [];
 
-    // Dizi isteklerini atla (HDFilmCehennemi film odaklıdır)
-    if (mediaType === 'tv' || mediaType === 'series') {
-      return [];
-    }
-
     var slug = await findMovieSlug(rawId);
     if (!slug) return [];
 

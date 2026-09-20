@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: webteizle
  * Built from src/webteizle/index.js
- * Build Date: 2026-09-20T19:00:24.716Z
+ * Build Date: 2026-09-20T20:49:56.284Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -439,7 +439,6 @@ function getStreams(tmdbId, mediaType, season, episode) {
         tmdbId = tmdbId.split(":")[0];
       }
       var isTV = mediaType === "tv" || mediaType === "series";
-      if (isTV) return [];
       var info = yield fetchTmdbInfo(tmdbId, mediaType);
       var movieName = info.titleTr || info.titleEn;
       if (!movieName) return [];

@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: sinemacx
  * Built from src/sinemacx/index.js
- * Build Date: 2026-09-20T19:00:24.697Z
+ * Build Date: 2026-09-20T20:49:56.264Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -302,7 +302,6 @@ function searchOnSite(query, year) {
 function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
   return __async(this, null, function* () {
     try {
-      if (mediaType === "tv" || mediaType === "series") return [];
       const info = yield resolveTmdbInfo(tmdbId, mediaType);
       const trTitle = (info.title || "").trim();
       const orgTitle = (info.origTitle || "").trim();

@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: dizimom
  * Built from src/dizimom/index.js
- * Build Date: 2026-09-20T19:00:24.660Z
+ * Build Date: 2026-09-20T20:49:56.225Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -302,7 +302,6 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
           tmdbId = parts[0];
         }
       }
-      if (mediaType === "movie") return [];
       if (!mediaType) mediaType = "tv";
       if (typeof tmdbId === "string" && tmdbId.startsWith("dizimom:show:")) {
         const showMeta = yield getMeta(tmdbId);

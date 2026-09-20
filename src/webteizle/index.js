@@ -277,7 +277,6 @@ async function getStreams(tmdbId, mediaType, season, episode) {
       tmdbId = tmdbId.split(':')[0];
     }
     var isTV = (mediaType === 'tv' || mediaType === 'series');
-    if (isTV) return []; // Webteİzle film odaklıdır
 
     var info = await fetchTmdbInfo(tmdbId, mediaType);
     var movieName = info.titleTr || info.titleEn;

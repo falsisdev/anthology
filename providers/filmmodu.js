@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: filmmodu
  * Built from src/filmmodu/index.js
- * Build Date: 2026-09-20T19:00:24.671Z
+ * Build Date: 2026-09-20T20:49:56.236Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -716,10 +716,6 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
         return allStreams;
       });
     });
-  }
-  if (mediaType && mediaType !== "movie") {
-    console.log("[FilmModu] Sadece film destekleniyor, mediaType: " + mediaType);
-    return Promise.resolve([]);
   }
   console.log("[FilmModu] === Ba\u015Fl\u0131yor | TMDB ID: " + tmdbId + " ===");
   return fetchTmdbInfo(tmdbId).then(function(info) {
