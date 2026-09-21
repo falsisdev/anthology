@@ -458,6 +458,16 @@ function parseScript4(script) {
     var activeFeedIds = {};
     featured.forEach(function(m) { activeFeedIds[m.id] = true; });
 
+    // karsilasmalar boşsa (site maç programı yayınlamıyor) sabit kanal
+    // beslemeleri "channels" dizisinden açılır; CDN 200 verify ölüleri eler.
+    if (featured.length === 0) {
+        var chanIds = Object.keys(chanById);
+        for (var ai = 0; ai < chanIds.length; ai++) {
+            if (chanIds[ai].indexOf('facebooklive') === -1 &&
+                !/ch\d+$/i.test(chanIds[ai])) activeFeedIds[chanIds[ai]] = true;
+        }
+    }
+
     // Sabit kanallar: featured'da GÖRÜNEN beslemeler kanal adıyla eklenir.
     // ch# = kategoride ayrıca işlenir; facebooklive/None = yok sayılır.
     // Verify (CDN 200) gerçekten yayında olanları tutar, ölüleri eler.
