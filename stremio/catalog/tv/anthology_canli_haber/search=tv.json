@@ -109,6 +109,17 @@
       "genres": [
         "Haber"
       ]
+    },
+    {
+      "id": "tv:ReutersTV.tr",
+      "type": "tv",
+      "name": "Reuters TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/reuterstv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/reuterstv.png",
+      "description": "Reuters TV HD Canlı Haber Yayını",
+      "genres": [
+        "Haber"
+      ]
     }
   ]
 }

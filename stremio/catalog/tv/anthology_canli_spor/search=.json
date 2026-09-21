@@ -560,6 +560,61 @@
       "genres": [
         "Spor"
       ]
+    },
+    {
+      "id": "tv:RealMadridTV.tr",
+      "type": "tv",
+      "name": "Real Madrid TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/realmadridtv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/realmadridtv.png",
+      "description": "Real Madrid TV HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:RedBullTV.tr",
+      "type": "tv",
+      "name": "Red Bull TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/redbulltv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/redbulltv.png",
+      "description": "Red Bull TV HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:NHLNetwork.tr",
+      "type": "tv",
+      "name": "NHL Network HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nhl.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nhl.png",
+      "description": "NHL Network HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:UFCNetwork.tr",
+      "type": "tv",
+      "name": "UFC Network HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ufcnetwork.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ufcnetwork.png",
+      "description": "UFC Network HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:SportFishingTV.tr",
+      "type": "tv",
+      "name": "Sport Fishing TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportfishingtv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportfishingtv.png",
+      "description": "Sport Fishing TV HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
     }
   ]
 }

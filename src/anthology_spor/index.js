@@ -89,11 +89,23 @@ function parseSportChannels(content) {
                 var tvgNameMatch = line.match(/tvg-name="([^"]+)"/i);
                 var logoMatch = line.match(/tvg-logo="([^"]+)"/i);
                 var backupMatch = line.match(/tvg-backup="([^"]+)"/i);
+                var srcAttrMatch = line.match(/tvg-src="([^"]+)"/i);
                 var nameMatch = line.match(/"\s*,\s*(.+)$/);
                 var channelName = nameMatch ? nameMatch[1].trim() : line.split(',').pop().trim();
                 var rawId = tvgIdMatch && tvgIdMatch[1] ? tvgIdMatch[1].trim() : (tvgNameMatch ? tvgNameMatch[1].trim() : channelName);
                 var channelId = rawId.startsWith('tv:') ? rawId : ('tv:' + rawId);
                 var logo = logoMatch ? logoMatch[1] : "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png";
+
+                // tvg-src="Kaynak Adı|url|Kaynak2|url2|..." → adlandırılmış nav.
+                var namedSrcs = [];
+                if (srcAttrMatch && srcAttrMatch[1]) {
+                    var srcParts = srcAttrMatch[1].split('|');
+                    for (var psi = 0; psi + 1 < srcParts.length; psi += 2) {
+                        var srcName = (srcParts[psi] || '').trim();
+                        var srcUrl = (srcParts[psi + 1] || '').trim();
+                        if (srcName && srcUrl) namedSrcs.push({ name: srcName, url: srcUrl });
+                    }
+                }
 
                 var streamUrl = '';
                 for (var j = i + 1; j < lines.length; j++) {
@@ -110,7 +122,8 @@ function parseSportChannels(content) {
                     name: channelName,
                     logo: logo,
                     url: streamUrl,
-                    backup: backupMatch ? backupMatch[1] : ''
+                    backup: backupMatch ? backupMatch[1] : '',
+                    srcs: namedSrcs
                 });
             }
         }
@@ -120,7 +133,7 @@ function parseSportChannels(content) {
 
 function isEncryptedSport(channel) {
     var key = cleanKey((channel.id || '').replace(/^tv:/, '') + ' ' + (channel.name || ''));
-    return /bein|ssport|sspor|tivibu|smartspor|smarts|exxen|tabii|eurosport|nba/.test(key);
+    return /bein|ssport|sspor|tivibu|smartspor|smarts|exxen|tabii|eurosport|nba|cbcs/.test(key);
 }
 
 // ── MahsunSports Yedek Akış Motoru ──────────────────────────────────
@@ -712,6 +725,48 @@ function getStreams(args) {
 
             if (encrypted) {
                 streams.push(makeStream('⌜ Anthology Spor ⌟', matched.name + ' [Canlı HD]', matched.url, _MAHSUN_HEADERS));
+
+                // tvg-src="Kaynak Adı|url|Kaynak2|url2|..." — adlandırılmış çoklu yayın.
+                var namedFull = [];
+                var namedAndro = [];
+                if (matched.srcs) {
+                    for (var nsi = 0; nsi < matched.srcs.length; nsi++) {
+                        var ns = matched.srcs[nsi];
+                        if (/^https?:\/\//i.test(ns.url)) namedFull.push(ns);
+                        else namedAndro.push(ns);
+                    }
+                }
+                for (var nfi = 0; nfi < namedFull.length; nfi++) {
+                    var nf = namedFull[nfi];
+                    if (nf.url !== matched.url) streams.push(makeStream('⌜ Anthology Spor ⌟', nf.name + ' [Canlı HD]', nf.url, _MAHSUN_HEADERS));
+                }
+
+                if (namedAndro.length) {
+                    return fetchMahsunBackend().then(function(backend) {
+                        var bases = (backend && backend.bases && backend.bases.length) ? backend.bases : [];
+                        var seenNamed = {};
+                        for (var nai = 0; nai < namedAndro.length; nai++) {
+                            var na = namedAndro[nai];
+                            for (var nbi = 0; nbi < bases.length && !seenNamed[na.name]; nbi++) {
+                                var nu = bases[nbi] + na.url + ".m3u8";
+                                if (nu !== matched.url) streams.push(makeStream('⌜ Anthology Spor ⌟', na.name + ' [Canlı HD]', nu, _MAHSUN_HEADERS));
+                            }
+                            seenNamed[na.name] = true;
+                        }
+                        // kullanıcı canli.m3u satırına tvg-backup="..." verdiyse o kullanılır.
+                        if (matched.backup && matched.backup !== matched.url) {
+                            streams.push(makeStream('⌜ Anthology Spor · Yedek ⌟', matched.name + ' [Yedek Akış]', matched.backup, _MAHSUN_HEADERS));
+                        } else {
+                            var backups = buildAndroBackupUrls(matched, backend);
+                            for (var bi = 0; bi < backups.length; bi++) {
+                                streams.push(makeStream('⌜ Anthology Spor · Yedek ⌟', matched.name + ' [Yedek Akış]', backups[bi], _MAHSUN_HEADERS));
+                            }
+                        }
+                        streams.streams = streams;
+                        return streams;
+                    });
+                }
+
                 // kullanıcı canli.m3u satırına tvg-backup="..." verdiyse o kullanılır.
                 if (matched.backup && matched.backup !== matched.url) {
                     streams.push(makeStream('⌜ Anthology Spor · Yedek ⌟', matched.name + ' [Yedek Akış]', matched.backup, _MAHSUN_HEADERS));

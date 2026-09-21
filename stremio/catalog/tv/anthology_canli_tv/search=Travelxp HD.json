@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:TravelXP.tr",
+      "type": "tv",
+      "name": "Travelxp HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/travelxp.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/travelxp.png",
+      "description": "Travelxp HD Canlı Yayın",
+      "genres": [
+        "BELGESEL  ÇOCUK"
+      ]
+    }
+  ]
+}

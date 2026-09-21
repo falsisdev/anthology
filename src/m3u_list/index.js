@@ -203,7 +203,7 @@ var KNOWN_BACKUPS = {
 
 function isEncryptedChannel(name, id) {
     var key = (name || '').toLowerCase() + ' ' + (id || '').toLowerCase();
-    return /bein|ssport|sspor|tivibu|smartspor|smarts|exxen|tabii|eurosport|nba/.test(key);
+    return /bein|ssport|sspor|tivibu|smartspor|smarts|exxen|tabii|eurosport|nba|cbcs/.test(key);
 }
 
 // ── MahsunSports yedek akış motoru (host dinamik, kodda sabit yedek host yok) ──
@@ -704,6 +704,7 @@ async function getStreams(args) {
     var androPrimary = null;
     var matchedBackup = '';
     var matchedName = '';
+    var namedAndro = [];
 
     for (var i = 0; i < lines.length; i++) {
         var line = lines[i].trim();
@@ -712,7 +713,20 @@ async function getStreams(args) {
             var tvgNameMatch = line.match(/tvg-name="([^"]+)"/i);
             var nameMatch = line.match(/"\s*,\s*(.+)$/);
             var backupMatch = line.match(/tvg-backup="([^"]+)"/i);
+            var srcAttrMatch = line.match(/tvg-src="([^"]+)"/i);
             var aliasName = nameMatch ? nameMatch[1].trim() : line.split(',').pop().trim();
+
+            // tvg-src="Kaynak Adı|url|Kaynak 2|url2|..." → adlandırılmış alternatif
+            // kaynak stream'leri (tek kanal altında çoklu yayın, Mahsun deseni).
+            var namedSrcs = [];
+            if (srcAttrMatch && srcAttrMatch[1]) {
+                var srcParts = srcAttrMatch[1].split('|');
+                for (var psi = 0; psi + 1 < srcParts.length; psi += 2) {
+                    var srcName = (srcParts[psi] || '').trim();
+                    var srcUrl = (srcParts[psi + 1] || '').trim();
+                    if (srcName && srcUrl) namedSrcs.push({ name: srcName, url: srcUrl });
+                }
+            }
 
             var cId = cleanKey(tvgIdMatch ? tvgIdMatch[1] : "");
             var cName = cleanKey(tvgNameMatch ? tvgNameMatch[1] : "");
@@ -748,6 +762,26 @@ async function getStreams(args) {
                         break;
                     }
                     if (urlLine.indexOf("#EXTINF") === 0) break;
+                }
+
+                // tvg-src="Kaynak Adı|url|Kaynak2|url2|..." — adlandırılmış alternatif
+                // kaynak stream'leri (tek kanal altında çoklu yayın, Mahsun deseni).
+                // Tam URL → doğrudan; andro id kısaltması → dinamik çalışan base'e çözülür.
+                for (var nsi = 0; nsi < namedSrcs.length; nsi++) {
+                    var ns = namedSrcs[nsi];
+                    if (/^https?:\/\//i.test(ns.url)) {
+                        if (seenUrls[ns.url]) continue;
+                        seenUrls[ns.url] = true;
+                        streams.push({
+                            name: encrypted ? '⌜ Anthology Spor ⌟' : '⌜ Anthology ⌟',
+                            title: ns.name + (encrypted ? ' [Canlı HD]' : ' [Canlı HD]'),
+                            url: ns.url,
+                            headers: encrypted ? _MAHSUN_HEADERS : _HEADERS,
+                            behaviorHints: { isLive: true }
+                        });
+                    } else {
+                        namedAndro.push({ name: ns.name, id: ns.url });
+                    }
                 }
 
                 // Kullanıcı canli.m3u satırına tvg-backup="..." (tek veya pipe | ile çoklu)
@@ -791,24 +825,41 @@ async function getStreams(args) {
                 }
             }
         }
-        if (streams.length >= 4) break;
+        if (streams.length >= 8) break;
     }
 
     // Şifreli kanallar için MahsunSports'tan dinamik andro yedek.
-    if (androPrimary && !matchedBackup) {
+    if ((androPrimary || namedAndro.length) && !matchedBackup) {
         var bases = await fetchMahsunBases();
-        var androId = androIdFromUrl(androPrimary);
+        var androId = androPrimary ? androIdFromUrl(androPrimary) : null;
         for (var bi = 0; bi < bases.length; bi++) {
-            var bu = bases[bi] + androId + ".m3u8";
-            if (bu !== androPrimary && !seenUrls[bu]) {
-                seenUrls[bu] = true;
-                streams.push({
-                    name: '⌜ Anthology Spor · Yedek ⌟',
-                    title: (matchedName || 'Yedek') + ' [Yedek Akış]',
-                    url: bu,
-                    headers: _MAHSUN_HEADERS,
-                    behaviorHints: { isLive: true }
-                });
+            if (androId) {
+                var bu = bases[bi] + androId + ".m3u8";
+                if (bu !== androPrimary && !seenUrls[bu]) {
+                    seenUrls[bu] = true;
+                    streams.push({
+                        name: '⌜ Anthology Spor · Yedek ⌟',
+                        title: (matchedName || 'Yedek') + ' [Yedek Akış]',
+                        url: bu,
+                        headers: _MAHSUN_HEADERS,
+                        behaviorHints: { isLive: true }
+                    });
+                }
+            }
+        }
+        if (bases.length && namedAndro.length) {
+            for (var nai = 0; nai < namedAndro.length; nai++) {
+                var nu = bases[0] + namedAndro[nai].id + ".m3u8";
+                if (!seenUrls[nu]) {
+                    seenUrls[nu] = true;
+                    streams.push({
+                        name: '⌜ Anthology Spor ⌟',
+                        title: namedAndro[nai].name + ' [Canlı HD]',
+                        url: nu,
+                        headers: _MAHSUN_HEADERS,
+                        behaviorHints: { isLive: true }
+                    });
+                }
             }
         }
     }

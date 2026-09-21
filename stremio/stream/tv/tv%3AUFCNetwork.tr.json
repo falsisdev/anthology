@@ -1,0 +1,16 @@
+{
+  "streams": [
+    {
+      "name": "⌜ Anthology Spor ⌟",
+      "title": "UFC Network HD [Canlı HD]",
+      "url": "https://linear-893.frequency.stream/dist/xumo/893/hls/master/playlist.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    }
+  ]
+}

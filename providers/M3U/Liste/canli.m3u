@@ -47,7 +47,7 @@ https://tv-trtturk.medya.trt.com.tr/master.m3u8
 #EXTINF:-1 tvg-id="Kanal7Avrupa.tr" tvg-name="Kanal 7 Avrupa" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png" group-title="🇹🇷 ULUSAL KANALLAR",Kanal 7 Avrupa
 https://livetv.radyotvonline.net/kanal7live/kanal7avr/playlist.m3u8
 
-#EXTINF:-1 tvg-id="TRTGenc.tr" tvg-name="TRT Genç" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtgenc.png" tvg-backup="https://andro.evrenesoglu103.click/checklist/androstreamlivegs.m3u8" group-title="🇹🇷 ULUSAL KANALLAR",TRT Genç HD
+#EXTINF:-1 tvg-id="TRTGenc.tr" tvg-name="TRT Genç" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtgenc.png" tvg-backup="https://andro.evrenesoglu121.click/checklist/androstreamlivegs.m3u8" group-title="🇹🇷 ULUSAL KANALLAR",TRT Genç HD
 https://tv-trtgenc.medya.trt.com.tr/master.m3u8
 
 #EXTINF:-1 tvg-id="TLC.tr" tvg-name="TLC" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tlc.png" tvg-backup="https://dogus.daioncdn.net/tlc/tlc.m3u8?ce=3&app=1aca0aa1-06e3-41ff-a8e5-38d7df475469" group-title="🇹🇷 ULUSAL KANALLAR",TLC HD
@@ -66,7 +66,7 @@ https://turkmedya-live.ercdn.net/tv4/tv4.m3u8
 https://tytturk-live.ercdn.net/tytturk/tytturk.m3u8
 
 #EXTINF:-1 tvg-id="Cine1.tr" tvg-name="Cine 1" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cine1.png" group-title="🇹🇷 ULUSAL KANALLAR",Cine 1 HD
-https://canliyayin.cine1.com.tr/memfs/cbaef080-a742-4644-9e90-c0dff8f1dc3c/index.m3u8
+https://canliyayin.cine1.com.tr/memfs/cbaef080-a742-4644-9e9e-2b9f6a5103c3/index.m3u8
 
 #EXTINF:-1 tvg-id="KanalAvrupa.tr" tvg-name="Kanal Avrupa" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanalavrupa.png" group-title="🇹🇷 ULUSAL KANALLAR",Kanal Avrupa
 http://cdn-kanalavrupa.yayin.com.tr/kanalavrupa/index.m3u8
@@ -98,13 +98,13 @@ http://1hskrdto.rocketcdn.com/fenerbahcetv.smil/playlist.m3u8
 
 
 #EXTINF:-1 tvg-id="SportsTV.tr" tvg-name="Sports TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportstv.png" group-title="🇹🇷 SPOR KANALLARI",Sports TV HD
-https://andro.evrenesoglu103.click/checklist/androstreamlivesptstv.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamlivesptstv.m3u8
 
 #EXTINF:-1 tvg-id="CBCSport.tr" tvg-name="CBC Sport" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cbcsport.png" group-title="🇹🇷 SPOR KANALLARI",CBC Sport HD
-https://andro.evrenesoglu103.click/checklist/androstreamlivecbcs.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamlivecbcs.m3u8
 
 #EXTINF:-1 tvg-id="IdmanTV.tr" tvg-name="iDMAN Tv" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/idmantv.png" group-title="🇹🇷 SPOR KANALLARI",iDMAN Tv HD
-https://andro.evrenesoglu103.click/checklist/androstreamliveidm.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamliveidm.m3u8
 
 #EXTINF:-1 tvg-id="TJKTV.tr" tvg-name="TJK TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tjktv.png" group-title="🇹🇷 SPOR KANALLARI" tvg-backup="http://tjktv.ercdn.net/tjktv.m3u8",TJK TV HD
 https://tjktv-live.tjk.org/tjktv.m3u8
@@ -112,119 +112,134 @@ https://tjktv-live.tjk.org/tjktv.m3u8
 #EXTINF:-1 tvg-id="NBATV.tr" tvg-name="NBA TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nbatv.png" group-title="🇹🇷 SPOR KANALLARI",NBA TV HD
 https://cdn1.ayitistream.com/NBATV/index.m3u8
 
-#EXTINF:-1 tvg-id="beINSports1.tr" tvg-name="BeIN Sports 1" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png" group-title="🇹🇷 SPOR KANALLARI",BeIN Sports 1 HD
-https://andro.evrenesoglu103.click/checklist/androstreamlivebs1.m3u8
+#EXTINF:-1 tvg-id="beINSports1.tr" tvg-name="BeIN Sports 1" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png" tvg-src="NetSpor|http://463758a0.ucomist.net/iptv/V4ZVP6G52HVXDE/6817/index.m3u8" group-title="🇹🇷 SPOR KANALLARI",BeIN Sports 1 HD
+https://andro.evrenesoglu121.click/checklist/androstreamlivebs1.m3u8
 
 #EXTINF:-1 tvg-id="beINSports2.tr" tvg-name="BeIN Sports 2" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png" group-title="🇹🇷 SPOR KANALLARI",BeIN Sports 2 HD
-https://andro.evrenesoglu103.click/checklist/androstreamlivebs2.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamlivebs2.m3u8
 
 #EXTINF:-1 tvg-id="beINSports3.tr" tvg-name="BeIN Sports 3" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png" group-title="🇹🇷 SPOR KANALLARI",BeIN Sports 3 HD
-https://andro.evrenesoglu103.click/checklist/androstreamlivebs3.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamlivebs3.m3u8
 
 #EXTINF:-1 tvg-id="beINSports4.tr" tvg-name="BeIN Sports 4" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png" group-title="🇹🇷 SPOR KANALLARI",BeIN Sports 4 HD
-https://andro.evrenesoglu103.click/checklist/androstreamlivebs4.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamlivebs4.m3u8
 
 #EXTINF:-1 tvg-id="beINSports5.tr" tvg-name="BeIN Sports 5" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png" group-title="🇹🇷 SPOR KANALLARI",BeIN Sports 5 HD
-https://andro.evrenesoglu103.click/checklist/androstreamlivebs5.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamlivebs5.m3u8
 
 #EXTINF:-1 tvg-id="beINSportsMax1.tr" tvg-name="BeIN Sports Max 1" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png" group-title="🇹🇷 SPOR KANALLARI",BeIN Sports Max 1 HD
-https://andro.evrenesoglu103.click/checklist/androstreamlivebsm1.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamlivebsm1.m3u8
 
 #EXTINF:-1 tvg-id="beINSportsMax2.tr" tvg-name="BeIN Sports Max 2" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png" group-title="🇹🇷 SPOR KANALLARI",BeIN Sports Max 2 HD
-https://andro.evrenesoglu103.click/checklist/androstreamlivebsm2.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamlivebsm2.m3u8
 
 #EXTINF:-1 tvg-id="SSport.tr" tvg-name="S Sport" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssport.png" group-title="🇹🇷 SPOR KANALLARI",S Sport HD
-https://andro.evrenesoglu103.click/checklist/androstreamlivess1.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamlivess1.m3u8
 
 #EXTINF:-1 tvg-id="SSport2.tr" tvg-name="S Sport 2" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssport.png" group-title="🇹🇷 SPOR KANALLARI",S Sport 2 HD
-https://andro.evrenesoglu103.click/checklist/androstreamlivess2.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamlivess2.m3u8
 
 #EXTINF:-1 tvg-id="SSportPlus.tr" tvg-name="S Sport Plus" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssport.png" group-title="🇹🇷 SPOR KANALLARI",S Sport Plus HD
-https://andro.evrenesoglu103.click/checklist/androstreamlivessplus1.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamlivessplus1.m3u8
 
 #EXTINF:-1 tvg-id="TivibuSpor.tr" tvg-name="Tivibu Spor" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.png" group-title="🇹🇷 SPOR KANALLARI",Tivibu Spor HD
-https://andro.evrenesoglu103.click/checklist/androstreamlivets.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamlivets.m3u8
 
 #EXTINF:-1 tvg-id="TivibuSpor1.tr" tvg-name="Tivibu Spor 1" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.png" group-title="🇹🇷 SPOR KANALLARI",Tivibu Spor 1 HD
-https://andro.evrenesoglu103.click/checklist/androstreamlivets1.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamlivets1.m3u8
 
 #EXTINF:-1 tvg-id="TivibuSpor2.tr" tvg-name="Tivibu Spor 2" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.png" group-title="🇹🇷 SPOR KANALLARI",Tivibu Spor 2 HD
-https://andro.evrenesoglu103.click/checklist/androstreamlivets2.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamlivets2.m3u8
 
 #EXTINF:-1 tvg-id="TivibuSpor3.tr" tvg-name="Tivibu Spor 3" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.png" group-title="🇹🇷 SPOR KANALLARI",Tivibu Spor 3 HD
-https://andro.evrenesoglu103.click/checklist/androstreamlivets3.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamlivets3.m3u8
 
 #EXTINF:-1 tvg-id="TivibuSpor4.tr" tvg-name="Tivibu Spor 4" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.png" group-title="🇹🇷 SPOR KANALLARI",Tivibu Spor 4 HD
-https://andro.evrenesoglu103.click/checklist/androstreamlivets4.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamlivets4.m3u8
 
 #EXTINF:-1 tvg-id="SmartSpor1.tr" tvg-name="Smart Spor 1" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/smartspor.png" group-title="🇹🇷 SPOR KANALLARI",Smart Spor 1 HD
-https://andro.evrenesoglu103.click/checklist/androstreamlivesm1.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamlivesm1.m3u8
 
 #EXTINF:-1 tvg-id="SmartSpor2.tr" tvg-name="Smart Spor 2" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/smartspor.png" group-title="🇹🇷 SPOR KANALLARI",Smart Spor 2 HD
-https://andro.evrenesoglu103.click/checklist/androstreamlivesm2.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamlivesm2.m3u8
 
 #EXTINF:-1 tvg-id="EuroSport1.tr" tvg-name="Euro Sport 1" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurosport.png" group-title="🇹🇷 SPOR KANALLARI",Euro Sport 1 HD
-https://andro.evrenesoglu103.click/checklist/androstreamlivees1.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamlivees1.m3u8
 
 #EXTINF:-1 tvg-id="EuroSport2.tr" tvg-name="Euro Sport 2" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurosport.png" group-title="🇹🇷 SPOR KANALLARI",Euro Sport 2 HD
-https://andro.evrenesoglu103.click/checklist/androstreamlivees2.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamlivees2.m3u8
 
 #EXTINF:-1 tvg-id="ExxenTV.tr" tvg-name="Exxen TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png" group-title="🇹🇷 SPOR KANALLARI",Exxen TV HD
-https://andro.evrenesoglu103.click/checklist/androstreamliveexn.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamliveexn.m3u8
 
 #EXTINF:-1 tvg-id="ExxenSports1.tr" tvg-name="Exxen Sports 1" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png" group-title="🇹🇷 SPOR KANALLARI",Exxen Sports 1 HD
-https://andro.evrenesoglu103.click/checklist/androstreamliveexn1.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamliveexn1.m3u8
 
 #EXTINF:-1 tvg-id="ExxenSports2.tr" tvg-name="Exxen Sports 2" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png" group-title="🇹🇷 SPOR KANALLARI",Exxen Sports 2 HD
-https://andro.evrenesoglu103.click/checklist/androstreamliveexn2.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamliveexn2.m3u8
 
 #EXTINF:-1 tvg-id="ExxenSports3.tr" tvg-name="Exxen Sports 3" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png" group-title="🇹🇷 SPOR KANALLARI",Exxen Sports 3 HD
-https://andro.evrenesoglu103.click/checklist/androstreamliveexn3.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamliveexn3.m3u8
 
 #EXTINF:-1 tvg-id="ExxenSports4.tr" tvg-name="Exxen Sports 4" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png" group-title="🇹🇷 SPOR KANALLARI",Exxen Sports 4 HD
-https://andro.evrenesoglu103.click/checklist/androstreamliveexn4.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamliveexn4.m3u8
 
 #EXTINF:-1 tvg-id="ExxenSports5.tr" tvg-name="Exxen Sports 5" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png" group-title="🇹🇷 SPOR KANALLARI",Exxen Sports 5 HD
-https://andro.evrenesoglu103.click/checklist/androstreamliveexn5.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamliveexn5.m3u8
 
 #EXTINF:-1 tvg-id="ExxenSports6.tr" tvg-name="Exxen Sports 6" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png" group-title="🇹🇷 SPOR KANALLARI",Exxen Sports 6 HD
-https://andro.evrenesoglu103.click/checklist/androstreamliveexn6.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamliveexn6.m3u8
 
 #EXTINF:-1 tvg-id="ExxenSports7.tr" tvg-name="Exxen Sports 7" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png" group-title="🇹🇷 SPOR KANALLARI",Exxen Sports 7 HD
-https://andro.evrenesoglu103.click/checklist/androstreamliveexn7.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamliveexn7.m3u8
 
 #EXTINF:-1 tvg-id="ExxenSports8.tr" tvg-name="Exxen Sports 8" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png" group-title="🇹🇷 SPOR KANALLARI",Exxen Sports 8 HD
-https://andro.evrenesoglu103.click/checklist/androstreamliveexn8.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamliveexn8.m3u8
 
 #EXTINF:-1 tvg-id="TabiiSpor.tr" tvg-name="Tabii Spor" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png" group-title="🇹🇷 SPOR KANALLARI",Tabii Spor HD
-https://andro.evrenesoglu103.click/checklist/androstreamlivetb.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamlivetb.m3u8
 
 #EXTINF:-1 tvg-id="TabiiSpor1.tr" tvg-name="Tabii Spor 1" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png" group-title="🇹🇷 SPOR KANALLARI",Tabii Spor 1 HD
-https://andro.evrenesoglu103.click/checklist/androstreamlivetb1.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamlivetb1.m3u8
 
 #EXTINF:-1 tvg-id="TabiiSpor2.tr" tvg-name="Tabii Spor 2" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png" group-title="🇹🇷 SPOR KANALLARI",Tabii Spor 2 HD
-https://andro.evrenesoglu103.click/checklist/androstreamlivetb2.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamlivetb2.m3u8
 
 #EXTINF:-1 tvg-id="TabiiSpor3.tr" tvg-name="Tabii Spor 3" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png" group-title="🇹🇷 SPOR KANALLARI",Tabii Spor 3 HD
-https://andro.evrenesoglu103.click/checklist/androstreamlivetb3.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamlivetb3.m3u8
 
 #EXTINF:-1 tvg-id="TabiiSpor4.tr" tvg-name="Tabii Spor 4" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png" group-title="🇹🇷 SPOR KANALLARI",Tabii Spor 4 HD
-https://andro.evrenesoglu103.click/checklist/androstreamlivetb4.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamlivetb4.m3u8
 
 #EXTINF:-1 tvg-id="TabiiSpor5.tr" tvg-name="Tabii Spor 5" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png" group-title="🇹🇷 SPOR KANALLARI",Tabii Spor 5 HD
-https://andro.evrenesoglu103.click/checklist/androstreamlivetb5.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamlivetb5.m3u8
 
 #EXTINF:-1 tvg-id="TabiiSpor6.tr" tvg-name="Tabii Spor 6" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png" group-title="🇹🇷 SPOR KANALLARI",Tabii Spor 6 HD
-https://andro.evrenesoglu103.click/checklist/androstreamlivetb6.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamlivetb6.m3u8
 
 #EXTINF:-1 tvg-id="TabiiSpor7.tr" tvg-name="Tabii Spor 7" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png" group-title="🇹🇷 SPOR KANALLARI",Tabii Spor 7 HD
-https://andro.evrenesoglu103.click/checklist/androstreamlivetb7.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamlivetb7.m3u8
 
 #EXTINF:-1 tvg-id="TabiiSpor8.tr" tvg-name="Tabii Spor 8" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png" group-title="🇹🇷 SPOR KANALLARI",Tabii Spor 8 HD
-https://andro.evrenesoglu103.click/checklist/androstreamlivetb8.m3u8
+https://andro.evrenesoglu121.click/checklist/androstreamlivetb8.m3u8
 
 #EXTINF:-1 tvg-id="TayTV.tr" tvg-name="Tay TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/taytv.png" group-title="🇹🇷 SPOR KANALLARI",Tay TV HD
 https://duhnet.hipodrom.com/S2/HLS_LIVE/mislitaynp/playlist.m3u8
+
+#EXTINF:-1 tvg-id="RealMadridTV.tr" tvg-name="Real Madrid TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/realmadridtv.png" group-title="🇹🇷 SPOR KANALLARI",Real Madrid TV HD
+https://rmtv.akamaized.net/hls/live/2043154/rmtv-en-web/master.m3u8
+
+#EXTINF:-1 tvg-id="RedBullTV.tr" tvg-name="Red Bull TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/redbulltv.png" group-title="🇹🇷 SPOR KANALLARI",Red Bull TV HD
+https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master_3360.m3u8
+
+#EXTINF:-1 tvg-id="NHLNetwork.tr" tvg-name="NHL Network" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nhl.png" group-title="🇹🇷 SPOR KANALLARI",NHL Network HD
+https://nhl-firetv.amagi.tv/playlist.m3u8
+
+#EXTINF:-1 tvg-id="UFCNetwork.tr" tvg-name="UFC Network" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ufcnetwork.png" group-title="🇹🇷 SPOR KANALLARI",UFC Network HD
+https://linear-893.frequency.stream/dist/xumo/893/hls/master/playlist.m3u8
+
+#EXTINF:-1 tvg-id="SportFishingTV.tr" tvg-name="Sport Fishing TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportfishingtv.png" group-title="🇹🇷 SPOR KANALLARI",Sport Fishing TV HD
+https://streams.sofast.tv/ptnr-yupptv/title-SPORT-FISHING-TV-ENG_yupptv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/eea68b79-bfe2-451e-a227-d637a5b9548a/manifest.m3u8
 
 
 # ==============================================================================
@@ -296,6 +311,21 @@ https://meclistv-live.ercdn.net/meclistv/meclistv.m3u8
 #EXTINF:-1 tvg-id="FinansTurk.tr" tvg-name="Finans Türk" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/finansturk.png" group-title="🇹🇷 HABER KANALLARI",Finans Türk
 https://yayin30.haber100.com/live/finansturk/playlist.m3u8
 
+#EXTINF:-1 tvg-id="BBCNews.tr" tvg-name="BBC News" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bbcnews.png" group-title="🇹🇷 HABER KANALLARI",BBC News HD
+https://vs-hls-push-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_news_channel_hd/pc_hd_abr_v2.m3u8
+
+#EXTINF:-1 tvg-id="CBSNews.tr" tvg-name="CBS News" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cbsnews.png" group-title="🇹🇷 HABER KANALLARI",CBS News HD
+https://cbsn-us.cbsnstream.cbsnews.com/out/v1/55a8648e8f134e82a470f83d562deeca/master.m3u8
+
+#EXTINF:-1 tvg-id="FoxNews.tr" tvg-name="Fox News" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/foxnews.png" group-title="🇹🇷 HABER KANALLARI",Fox News HD
+https://fox-foxnewsnow-vizio.amagi.tv/playlist.m3u8
+
+#EXTINF:-1 tvg-id="France24.tr" tvg-name="France 24 EN" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/france24en.png" group-title="🇹🇷 HABER KANALLARI",France 24 English HD
+https://amg00106-france24-france24-samsunguk-qvpp8.amagi.tv/playlist/amg00106-france24-france24-samsunguk/playlist.m3u8
+
+#EXTINF:-1 tvg-id="ReutersTV.tr" tvg-name="Reuters TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/reuterstv.png" group-title="🇹🇷 HABER KANALLARI",Reuters TV HD
+https://amg00453-reuters-amg00453c1-samsung-de-2111.playouts.now.amagi.tv/playlist/amg00453-reuters-reuters-samsungde/playlist.m3u8
+
 
 # ==============================================================================
 # BELGESEL & ÇOCUK KANALLARI
@@ -326,6 +356,9 @@ https://tv-trtdiyanetcocuk.medya.trt.com.tr/master.m3u8
 
 #EXTINF:-1 tvg-id="CiftciTV.tr" tvg-name="Çiftçi TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ciftcitv.png" group-title="🇹🇷 BELGESEL & ÇOCUK",Çiftçi TV
 https://live.artidijitalmedya.com/artidijital_ciftcitv/ciftcitv/playlist.m3u8
+
+#EXTINF:-1 tvg-id="TravelXP.tr" tvg-name="Travelxp" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/travelxp.png" group-title="🇹🇷 BELGESEL & ÇOCUK",Travelxp HD
+https://travelxp-travelxp-1-nz.samsung.wurl.tv/playlist.m3u8
 
 
 # ==============================================================================
@@ -425,3 +458,6 @@ https://tv-trtkurdi.medya.trt.com.tr/master.m3u8
 
 #EXTINF:-1 tvg-id="TRTArabi.tr" tvg-name="TRT Arabi" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtarabi.png" group-title="🇹🇷 ULUSAL KANALLAR",TRT Arabi HD
 https://tv-trtarabi.medya.trt.com.tr/master.m3u8
+
+#EXTINF:-1 tvg-id="DiyanetTV.tr" tvg-name="Diyanet TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/diyanettv.png" group-title="🇹🇷 ULUSAL KANALLAR",Diyanet TV HD
+https://eustr73.mediatriple.net/videoonlylive/mtikoimxnztxlive/broadcast_5e3bf95a47e07.smil/playlist.m3u8
