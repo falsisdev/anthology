@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: anthology_spor
  * Built from src/anthology_spor/index.js
- * Build Date: 2026-09-21T18:47:51.923Z
+ * Build Date: 2026-09-21T19:08:46.509Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -500,6 +500,12 @@ function parseScript4(script) {
   featured.forEach(function(m) {
     activeFeedIds[m.id] = true;
   });
+  if (featured.length === 0) {
+    var chanIds = Object.keys(chanById);
+    for (var ai = 0; ai < chanIds.length; ai++) {
+      if (chanIds[ai].indexOf("facebooklive") === -1 && !/ch\d+$/i.test(chanIds[ai])) activeFeedIds[chanIds[ai]] = true;
+    }
+  }
   var chanKeys = Object.keys(chanById);
   var channelFeedAdds = [];
   for (var ck = 0; ck < chanKeys.length; ck++) {
