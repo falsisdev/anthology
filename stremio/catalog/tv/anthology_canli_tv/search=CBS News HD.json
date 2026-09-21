@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:CBSNews.tr",
+      "type": "tv",
+      "name": "CBS News HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cbsnews.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cbsnews.png",
+      "description": "CBS News HD Canlı Yayın",
+      "genres": [
+        "HABER KANALLARI"
+      ]
+    }
+  ]
+}

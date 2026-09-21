@@ -144,6 +144,39 @@
       ]
     },
     {
+      "id": "tv:RealMadridTV.tr",
+      "type": "tv",
+      "name": "Real Madrid TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/realmadridtv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/realmadridtv.png",
+      "description": "Real Madrid TV HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:RedBullTV.tr",
+      "type": "tv",
+      "name": "Red Bull TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/redbulltv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/redbulltv.png",
+      "description": "Red Bull TV HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:SportFishingTV.tr",
+      "type": "tv",
+      "name": "Sport Fishing TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportfishingtv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportfishingtv.png",
+      "description": "Sport Fishing TV HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
       "id": "tv:HaberTurk.tr",
       "type": "tv",
       "name": "Habertürk TV HD",
@@ -249,6 +282,17 @@
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tbmmtv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tbmmtv.png",
       "description": "TBMM TV Canlı Yayın",
+      "genres": [
+        "HABER KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:ReutersTV.tr",
+      "type": "tv",
+      "name": "Reuters TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/reuterstv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/reuterstv.png",
+      "description": "Reuters TV HD Canlı Yayın",
       "genres": [
         "HABER KANALLARI"
       ]
@@ -405,6 +449,17 @@
       "description": "Sinema TV 1002 HD Canlı Yayın",
       "genres": [
         "SİNEMA  DİZİ KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:DiyanetTV.tr",
+      "type": "tv",
+      "name": "Diyanet TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/diyanettv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/diyanettv.png",
+      "description": "Diyanet TV HD Canlı Yayın",
+      "genres": [
+        "ULUSAL KANALLAR"
       ]
     }
   ]

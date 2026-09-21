@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:BBCNews.tr",
+      "type": "tv",
+      "name": "BBC News HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bbcnews.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bbcnews.png",
+      "description": "BBC News HD Canlı Yayın",
+      "genres": [
+        "HABER KANALLARI"
+      ]
+    }
+  ]
+}

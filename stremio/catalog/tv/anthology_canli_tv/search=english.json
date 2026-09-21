@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:France24.tr",
+      "type": "tv",
+      "name": "France 24 English HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/france24en.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/france24en.png",
+      "description": "France 24 English HD Canlı Yayın",
+      "genres": [
+        "HABER KANALLARI"
+      ]
+    }
+  ]
+}

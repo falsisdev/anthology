@@ -771,6 +771,61 @@
       ]
     },
     {
+      "id": "tv:RealMadridTV.tr",
+      "type": "tv",
+      "name": "Real Madrid TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/realmadridtv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/realmadridtv.png",
+      "description": "Real Madrid TV HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:RedBullTV.tr",
+      "type": "tv",
+      "name": "Red Bull TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/redbulltv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/redbulltv.png",
+      "description": "Red Bull TV HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:NHLNetwork.tr",
+      "type": "tv",
+      "name": "NHL Network HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nhl.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nhl.png",
+      "description": "NHL Network HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:UFCNetwork.tr",
+      "type": "tv",
+      "name": "UFC Network HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ufcnetwork.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ufcnetwork.png",
+      "description": "UFC Network HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:SportFishingTV.tr",
+      "type": "tv",
+      "name": "Sport Fishing TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportfishingtv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportfishingtv.png",
+      "description": "Sport Fishing TV HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    },
+    {
       "id": "tv:TRTHaber.tr",
       "type": "tv",
       "name": "TRT Haber HD",
@@ -991,6 +1046,61 @@
       ]
     },
     {
+      "id": "tv:BBCNews.tr",
+      "type": "tv",
+      "name": "BBC News HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bbcnews.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bbcnews.png",
+      "description": "BBC News HD Canlı Yayın",
+      "genres": [
+        "HABER KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:CBSNews.tr",
+      "type": "tv",
+      "name": "CBS News HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cbsnews.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cbsnews.png",
+      "description": "CBS News HD Canlı Yayın",
+      "genres": [
+        "HABER KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:FoxNews.tr",
+      "type": "tv",
+      "name": "Fox News HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/foxnews.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/foxnews.png",
+      "description": "Fox News HD Canlı Yayın",
+      "genres": [
+        "HABER KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:France24.tr",
+      "type": "tv",
+      "name": "France 24 English HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/france24en.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/france24en.png",
+      "description": "France 24 English HD Canlı Yayın",
+      "genres": [
+        "HABER KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:ReutersTV.tr",
+      "type": "tv",
+      "name": "Reuters TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/reuterstv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/reuterstv.png",
+      "description": "Reuters TV HD Canlı Yayın",
+      "genres": [
+        "HABER KANALLARI"
+      ]
+    },
+    {
       "id": "tv:TRTBelgesel.tr",
       "type": "tv",
       "name": "TRT Belgesel HD",
@@ -1074,6 +1184,17 @@
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtdiyanetcocuk.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtdiyanetcocuk.png",
       "description": "TRT Diyanet Çocuk HD Canlı Yayın",
+      "genres": [
+        "BELGESEL  ÇOCUK"
+      ]
+    },
+    {
+      "id": "tv:TravelXP.tr",
+      "type": "tv",
+      "name": "Travelxp HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/travelxp.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/travelxp.png",
+      "description": "Travelxp HD Canlı Yayın",
       "genres": [
         "BELGESEL  ÇOCUK"
       ]
@@ -1393,6 +1514,17 @@
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtarabi.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtarabi.png",
       "description": "TRT Arabi HD Canlı Yayın",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:DiyanetTV.tr",
+      "type": "tv",
+      "name": "Diyanet TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/diyanettv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/diyanettv.png",
+      "description": "Diyanet TV HD Canlı Yayın",
       "genres": [
         "ULUSAL KANALLAR"
       ]

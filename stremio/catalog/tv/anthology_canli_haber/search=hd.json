@@ -219,6 +219,61 @@
       "genres": [
         "Haber"
       ]
+    },
+    {
+      "id": "tv:BBCNews.tr",
+      "type": "tv",
+      "name": "BBC News HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bbcnews.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bbcnews.png",
+      "description": "BBC News HD Canlı Haber Yayını",
+      "genres": [
+        "Haber"
+      ]
+    },
+    {
+      "id": "tv:CBSNews.tr",
+      "type": "tv",
+      "name": "CBS News HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cbsnews.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cbsnews.png",
+      "description": "CBS News HD Canlı Haber Yayını",
+      "genres": [
+        "Haber"
+      ]
+    },
+    {
+      "id": "tv:FoxNews.tr",
+      "type": "tv",
+      "name": "Fox News HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/foxnews.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/foxnews.png",
+      "description": "Fox News HD Canlı Haber Yayını",
+      "genres": [
+        "Haber"
+      ]
+    },
+    {
+      "id": "tv:France24.tr",
+      "type": "tv",
+      "name": "France 24 English HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/france24en.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/france24en.png",
+      "description": "France 24 English HD Canlı Haber Yayını",
+      "genres": [
+        "Haber"
+      ]
+    },
+    {
+      "id": "tv:ReutersTV.tr",
+      "type": "tv",
+      "name": "Reuters TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/reuterstv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/reuterstv.png",
+      "description": "Reuters TV HD Canlı Haber Yayını",
+      "genres": [
+        "Haber"
+      ]
     }
   ]
 }

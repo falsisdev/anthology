@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:NHLNetwork.tr",
+    "type": "tv",
+    "name": "NHL Network HD",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nhl.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nhl.png",
+    "description": "NHL Network HD Canlı Spor Yayını",
+    "genres": [
+      "Spor"
+    ],
+    "videos": [
+      {
+        "id": "tv:NHLNetwork.tr",
+        "title": "NHL Network HD"
+      }
+    ]
+  }
+}

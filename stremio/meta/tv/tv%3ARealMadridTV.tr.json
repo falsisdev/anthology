@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:RealMadridTV.tr",
+    "type": "tv",
+    "name": "Real Madrid TV HD",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/realmadridtv.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/realmadridtv.png",
+    "description": "Real Madrid TV HD Canlı Spor Yayını",
+    "genres": [
+      "Spor"
+    ],
+    "videos": [
+      {
+        "id": "tv:RealMadridTV.tr",
+        "title": "Real Madrid TV HD"
+      }
+    ]
+  }
+}

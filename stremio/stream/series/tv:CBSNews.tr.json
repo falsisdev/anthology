@@ -1,0 +1,16 @@
+{
+  "streams": [
+    {
+      "name": "⌜ Anthology Haber ⌟",
+      "title": "CBS News HD [Canlı HD]",
+      "url": "https://cbsn-us.cbsnstream.cbsnews.com/out/v1/55a8648e8f134e82a470f83d562deeca/master.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    }
+  ]
+}

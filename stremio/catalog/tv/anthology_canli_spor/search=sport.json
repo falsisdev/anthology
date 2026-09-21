@@ -65,6 +65,17 @@
       "genres": [
         "Spor"
       ]
+    },
+    {
+      "id": "tv:SportFishingTV.tr",
+      "type": "tv",
+      "name": "Sport Fishing TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportfishingtv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportfishingtv.png",
+      "description": "Sport Fishing TV HD Canlı Spor Yayını",
+      "genres": [
+        "Spor"
+      ]
     }
   ]
 }

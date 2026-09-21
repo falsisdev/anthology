@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:FoxNews.tr",
+      "type": "tv",
+      "name": "Fox News HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/foxnews.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/foxnews.png",
+      "description": "Fox News HD Canlı Haber Yayını",
+      "genres": [
+        "Haber"
+      ]
+    }
+  ]
+}

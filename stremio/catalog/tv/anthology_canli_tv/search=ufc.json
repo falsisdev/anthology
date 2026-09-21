@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:UFCNetwork.tr",
+      "type": "tv",
+      "name": "UFC Network HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ufcnetwork.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ufcnetwork.png",
+      "description": "UFC Network HD Canlı Yayın",
+      "genres": [
+        "SPOR KANALLARI"
+      ]
+    }
+  ]
+}

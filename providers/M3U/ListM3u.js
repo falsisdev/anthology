@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: m3u_list
  * Built from src/m3u_list/index.js
- * Build Date: 2026-09-20T21:43:09.371Z
+ * Build Date: 2026-09-21T18:47:51.861Z
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -492,7 +492,7 @@ var KNOWN_BACKUPS = {
 };
 function isEncryptedChannel(name, id) {
   var key = (name || "").toLowerCase() + " " + (id || "").toLowerCase();
-  return /bein|ssport|sspor|tivibu|smartspor|smarts|exxen|tabii|eurosport|nba/.test(key);
+  return /bein|ssport|sspor|tivibu|smartspor|smarts|exxen|tabii|eurosport|nba|cbcs/.test(key);
 }
 var MAHSUN_SITE = "https://mahsunsports80.xyz/";
 var ANDRO_URL_RE = /https:\/\/andro\.evrenesoglu\d+\.click\/checklist\//g;
@@ -942,6 +942,7 @@ function getStreams(args) {
     var androPrimary = null;
     var matchedBackup = "";
     var matchedName = "";
+    var namedAndro = [];
     for (var i = 0; i < lines.length; i++) {
       var line = lines[i].trim();
       if (line.indexOf("#EXTINF") !== -1) {
@@ -949,7 +950,17 @@ function getStreams(args) {
         var tvgNameMatch = line.match(/tvg-name="([^"]+)"/i);
         var nameMatch = line.match(/"\s*,\s*(.+)$/);
         var backupMatch = line.match(/tvg-backup="([^"]+)"/i);
+        var srcAttrMatch = line.match(/tvg-src="([^"]+)"/i);
         var aliasName = nameMatch ? nameMatch[1].trim() : line.split(",").pop().trim();
+        var namedSrcs = [];
+        if (srcAttrMatch && srcAttrMatch[1]) {
+          var srcParts = srcAttrMatch[1].split("|");
+          for (var psi = 0; psi + 1 < srcParts.length; psi += 2) {
+            var srcName = (srcParts[psi] || "").trim();
+            var srcUrl = (srcParts[psi + 1] || "").trim();
+            if (srcName && srcUrl) namedSrcs.push({ name: srcName, url: srcUrl });
+          }
+        }
         var cId = cleanKey(tvgIdMatch ? tvgIdMatch[1] : "");
         var cName = cleanKey(tvgNameMatch ? tvgNameMatch[1] : "");
         var aName = cleanKey(aliasName);
@@ -983,6 +994,22 @@ function getStreams(args) {
               break;
             }
             if (urlLine.indexOf("#EXTINF") === 0) break;
+          }
+          for (var nsi = 0; nsi < namedSrcs.length; nsi++) {
+            var ns = namedSrcs[nsi];
+            if (/^https?:\/\//i.test(ns.url)) {
+              if (seenUrls[ns.url]) continue;
+              seenUrls[ns.url] = true;
+              streams.push({
+                name: encrypted ? "\u231C Anthology Spor \u231F" : "\u231C Anthology \u231F",
+                title: ns.name + (encrypted ? " [Canl\u0131 HD]" : " [Canl\u0131 HD]"),
+                url: ns.url,
+                headers: encrypted ? _MAHSUN_HEADERS : _HEADERS,
+                behaviorHints: { isLive: true }
+              });
+            } else {
+              namedAndro.push({ name: ns.name, id: ns.url });
+            }
           }
           var backups = [];
           var b1 = line.match(/tvg-backup="([^"]+)"/i);
@@ -1028,22 +1055,39 @@ function getStreams(args) {
           }
         }
       }
-      if (streams.length >= 4) break;
+      if (streams.length >= 8) break;
     }
-    if (androPrimary && !matchedBackup) {
+    if ((androPrimary || namedAndro.length) && !matchedBackup) {
       var bases = yield fetchMahsunBases();
-      var androId = androIdFromUrl(androPrimary);
+      var androId = androPrimary ? androIdFromUrl(androPrimary) : null;
       for (var bi = 0; bi < bases.length; bi++) {
-        var bu = bases[bi] + androId + ".m3u8";
-        if (bu !== androPrimary && !seenUrls[bu]) {
-          seenUrls[bu] = true;
-          streams.push({
-            name: "\u231C Anthology Spor \xB7 Yedek \u231F",
-            title: (matchedName || "Yedek") + " [Yedek Ak\u0131\u015F]",
-            url: bu,
-            headers: _MAHSUN_HEADERS,
-            behaviorHints: { isLive: true }
-          });
+        if (androId) {
+          var bu = bases[bi] + androId + ".m3u8";
+          if (bu !== androPrimary && !seenUrls[bu]) {
+            seenUrls[bu] = true;
+            streams.push({
+              name: "\u231C Anthology Spor \xB7 Yedek \u231F",
+              title: (matchedName || "Yedek") + " [Yedek Ak\u0131\u015F]",
+              url: bu,
+              headers: _MAHSUN_HEADERS,
+              behaviorHints: { isLive: true }
+            });
+          }
+        }
+      }
+      if (bases.length && namedAndro.length) {
+        for (var nai = 0; nai < namedAndro.length; nai++) {
+          var nu = bases[0] + namedAndro[nai].id + ".m3u8";
+          if (!seenUrls[nu]) {
+            seenUrls[nu] = true;
+            streams.push({
+              name: "\u231C Anthology Spor \u231F",
+              title: namedAndro[nai].name + " [Canl\u0131 HD]",
+              url: nu,
+              headers: _MAHSUN_HEADERS,
+              behaviorHints: { isLive: true }
+            });
+          }
         }
       }
     }
