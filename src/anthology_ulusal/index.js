@@ -1,6 +1,7 @@
 const { sortStreamsByQuality } = require("../shared/quality.js");
 const { loadConfig, val, wrapAll } = require("../shared/config.js");
 const { getNowPlayingInfo } = require("../shared/epg.js");
+const { parseTvgLang, channelDescription } = require("../shared/channel_lang.js");
 
 var _cfgReady = null;
 function cfgReady() {
@@ -99,7 +100,8 @@ function parseUlusalChannels(content) {
                     name: channelName,
                     logo: logo,
                     url: streamUrl,
-                    backups: backups
+                    backups: backups,
+                    lang: parseTvgLang(line)
                 });
             }
         }
@@ -119,7 +121,7 @@ function getCatalog(args) {
                     poster: ch.logo,
                     background: ch.logo,
                     genres: ["Ulusal"],
-                    description: ch.name + " Canlı Yayın"
+                    description: channelDescription(ch.name, ch.lang)
                 };
             });
             return { metas: metas };
@@ -234,7 +236,7 @@ function getMeta(args) {
                     name: ch.name,
                     poster: ch.logo,
                     background: ch.logo,
-                    description: (epg && epg.formattedText) ? epg.formattedText : (ch.name + " Canlı Ulusal Yayın"),
+                    description: (epg && epg.formattedText) ? (channelDescription(ch.name, ch.lang) + '\n' + epg.formattedText) : channelDescription(ch.name, ch.lang),
                     genres: ["Ulusal"],
                     videos: [{ id: targetId, title: (epg && epg.current) ? epg.current : ch.name, released: new Date().toISOString() }]
                 }

@@ -16,6 +16,8 @@ const esbuild = require('esbuild');
 const fs = require('fs');
 const path = require('path');
 
+const pkg = require('./package.json');
+
 const srcDir = path.join(__dirname, 'src');
 const outDir = path.join(__dirname, 'providers');
 
@@ -79,7 +81,11 @@ async function buildProvider(providerName, options = {}) {
             sourcemap: false,
             external: EXTERNAL_MODULES,
             banner: {
-                js: `/**\n * Anthology Provider: ${providerName}\n * Built from src/${providerName}/index.js\n * Build Date: ${new Date().toISOString()}\n */`
+                js: `/**
+ * Anthology Provider: ${providerName}
+ * Built from src/${providerName}/index.js
+ * Build: v${pkg.version} (anthology build system)
+ */`
             },
             footer: {
                 js: `\nif (typeof globalThis !== 'undefined' && typeof module !== 'undefined' && module.exports) {\n    if (module.exports.getStreams) globalThis.getStreams = module.exports.getStreams;\n    if (module.exports.getCatalog) globalThis.getCatalog = module.exports.getCatalog;\n    if (module.exports.getMeta) globalThis.getMeta = module.exports.getMeta;\n    if (module.exports.getSubtitles) globalThis.getSubtitles = module.exports.getSubtitles;\n}\n`

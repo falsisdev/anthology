@@ -1,0 +1,180 @@
+{
+  "metas": [
+    {
+      "id": "tv:KralPopTV.tr",
+      "type": "tv",
+      "name": "Kral Pop TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kralpop.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kralpop.png",
+      "description": "Kral Pop TV HD Canlı [Türkçe]",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
+    },
+    {
+      "id": "tv:PowerTurkTV.tr",
+      "type": "tv",
+      "name": "PowerTürk TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerturk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerturk.png",
+      "description": "PowerTürk TV HD Canlı [Türkçe]",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
+    },
+    {
+      "id": "tv:PowerTV.tr",
+      "type": "tv",
+      "name": "Power TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powertv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powertv.png",
+      "description": "Power TV HD Canlı [Türkçe]",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
+    },
+    {
+      "id": "tv:Number1TV.tr",
+      "type": "tv",
+      "name": "Number 1 TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png",
+      "description": "Number 1 TV HD Canlı [Türkçe]",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
+    },
+    {
+      "id": "tv:TRTMuzik.tr",
+      "type": "tv",
+      "name": "TRT Müzik HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtmuzik.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtmuzik.png",
+      "description": "TRT Müzik HD Canlı [Türkçe]",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
+    },
+    {
+      "id": "tv:PowerDance.tr",
+      "type": "tv",
+      "name": "Power Dance HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerdance.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerdance.png",
+      "description": "Power Dance HD Canlı [Türkçe]",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
+    },
+    {
+      "id": "tv:PowerLove.tr",
+      "type": "tv",
+      "name": "Power Love HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerlove.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerlove.png",
+      "description": "Power Love HD Canlı [Türkçe]",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
+    },
+    {
+      "id": "tv:DreamTurk.tr",
+      "type": "tv",
+      "name": "Dream Türk HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dreamturk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dreamturk.png",
+      "description": "Dream Türk HD Canlı [Türkçe]",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
+    },
+    {
+      "id": "tv:TMBTV.tr",
+      "type": "tv",
+      "name": "TMB TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tmbtv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tmbtv.png",
+      "description": "TMB TV HD Canlı [Türkçe]",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
+    },
+    {
+      "id": "tv:ShowMax.tr",
+      "type": "tv",
+      "name": "Show Max",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/showmax.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/showmax.png",
+      "description": "Show Max Canlı [Türkçe]",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
+    },
+    {
+      "id": "tv:PowerturkTaptaze.tr",
+      "type": "tv",
+      "name": "Powertürk Taptaze HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerturk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerturk.png",
+      "description": "Powertürk Taptaze HD Canlı [Türkçe]",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
+    },
+    {
+      "id": "tv:PowerturkSlow.tr",
+      "type": "tv",
+      "name": "Powertürk Slow HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerturk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerturk.png",
+      "description": "Powertürk Slow HD Canlı [Türkçe]",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
+    },
+    {
+      "id": "tv:PowerturkAkustik.tr",
+      "type": "tv",
+      "name": "Powertürk Akustik HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerturk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerturk.png",
+      "description": "Powertürk Akustik HD Canlı [Türkçe]",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
+    },
+    {
+      "id": "tv:Number1Ask.tr",
+      "type": "tv",
+      "name": "Number 1 Aşk HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png",
+      "description": "Number 1 Aşk HD Canlı [Türkçe]",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
+    },
+    {
+      "id": "tv:Number1Damar.tr",
+      "type": "tv",
+      "name": "Number 1 Damar HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png",
+      "description": "Number 1 Damar HD Canlı [Türkçe]",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
+    },
+    {
+      "id": "tv:Number1Dance.tr",
+      "type": "tv",
+      "name": "Number 1 Dance HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png",
+      "description": "Number 1 Dance HD Canlı [Türkçe]",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
+    }
+  ]
+}

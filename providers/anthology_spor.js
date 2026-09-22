@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: anthology_spor
  * Built from src/anthology_spor/index.js
- * Build Date: 2026-09-21T19:08:46.509Z
+ * Build: v1.8.22 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -80,6 +80,45 @@ var require_quality = __commonJS({
     module2.exports = {
       getQualityScore,
       sortStreamsByQuality: sortStreamsByQuality2
+    };
+  }
+});
+
+// src/shared/channel_lang.js
+var require_channel_lang = __commonJS({
+  "src/shared/channel_lang.js"(exports2, module2) {
+    var CHANNEL_LANG_LABELS = {
+      tr: "T\xFCrk\xE7e",
+      en: "\u0130ngilizce",
+      az: "Azerbaycan T\xFCrk\xE7esi",
+      ar: "Arap\xE7a",
+      ku: "K\xFCrt\xE7e",
+      de: "Almanca",
+      fr: "Frans\u0131zca",
+      ru: "Rus\xE7a",
+      es: "\u0130spanyolca",
+      it: "\u0130talyanca"
+    };
+    var DEFAULT_CHANNEL_LANG = "tr";
+    function parseTvgLang2(extinfLine) {
+      var line = extinfLine || "";
+      var m = line.match(/tvg-lang="([^"]+)"/i);
+      if (!m) m = line.match(/tvg-language="([^"]+)"/i);
+      return m ? String(m[1]).trim().toLowerCase() : "";
+    }
+    function channelLangLabel(code) {
+      var key = (code || "").toString().trim().toLowerCase();
+      if (!key) key = DEFAULT_CHANNEL_LANG;
+      return CHANNEL_LANG_LABELS[key] || CHANNEL_LANG_LABELS[DEFAULT_CHANNEL_LANG];
+    }
+    function channelDescription2(channelName, langCode) {
+      return (channelName || "") + " Canl\u0131 [" + channelLangLabel(langCode) + "]";
+    }
+    module2.exports = {
+      CHANNEL_LANG_LABELS,
+      parseTvgLang: parseTvgLang2,
+      channelLangLabel,
+      channelDescription: channelDescription2
     };
   }
 });
@@ -188,6 +227,7 @@ var require_config = __commonJS({
 
 // src/anthology_spor/index.js
 var { sortStreamsByQuality } = require_quality();
+var { parseTvgLang, channelDescription } = require_channel_lang();
 var { loadConfig, val, wrapAll } = require_config();
 var _cfgReady = null;
 function cfgReady() {
@@ -294,7 +334,8 @@ function parseSportChannels(content) {
           logo,
           url: streamUrl,
           backup: backupMatch ? backupMatch[1] : "",
-          srcs: namedSrcs
+          srcs: namedSrcs,
+          lang: parseTvgLang(line)
         });
       }
     }
@@ -718,18 +759,23 @@ function getCatalog(args) {
         poster: ch.logo,
         background: ch.logo,
         genres: ["Spor"],
-        description: ch.name + " Canl\u0131 Spor Yay\u0131n\u0131"
+        description: channelDescription(ch.name, ch.lang)
       };
     });
-    metas.unshift({
-      id: "tv:mahsunsports",
-      type: "tv",
-      name: "Mahsun Sports",
-      poster: MAHSUN_LOGO,
-      background: MAHSUN_LOGO,
-      genres: ["Spor"],
-      description: "Mahsun Sports canl\u0131 ma\xE7 yay\u0131nlar\u0131 \u2014 Futbol, Basketbol, Voleybol ve Tenis"
+    var hasMahsun = metas.some(function(m) {
+      return m.id === "tv:mahsunsports";
     });
+    if (!hasMahsun) {
+      metas.unshift({
+        id: "tv:mahsunsports",
+        type: "tv",
+        name: "Mahsun Sports",
+        poster: MAHSUN_LOGO,
+        background: MAHSUN_LOGO,
+        genres: ["Spor"],
+        description: "Mahsun Sports canl\u0131 ma\xE7 yay\u0131nlar\u0131 \u2014 Futbol, Basketbol, Voleybol ve Tenis"
+      });
+    }
     return { metas };
   }).catch(function() {
     return { metas: [] };
@@ -948,7 +994,7 @@ function getMeta(args) {
         name: ch.name,
         poster: ch.logo,
         background: ch.logo,
-        description: ch.name + " Canl\u0131 Spor Yay\u0131n\u0131",
+        description: channelDescription(ch.name, ch.lang),
         genres: ["Spor"],
         videos: [{ id: targetId, title: ch.name, released: (/* @__PURE__ */ new Date()).toISOString() }]
       }

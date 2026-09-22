@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:DMAX.tr",
+      "type": "tv",
+      "name": "DMAX HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dmax.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dmax.png",
+      "description": "DMAX HD Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    }
+  ]
+}

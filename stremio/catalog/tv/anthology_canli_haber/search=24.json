@@ -6,7 +6,7 @@
       "name": "24 TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/24tv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/24tv.png",
-      "description": "24 TV HD Canlı Haber Yayını",
+      "description": "24 TV HD Canlı [Türkçe]",
       "genres": [
         "Haber"
       ]
@@ -17,7 +17,7 @@
       "name": "France 24 English HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/france24en.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/france24en.png",
-      "description": "France 24 English HD Canlı Haber Yayını",
+      "description": "France 24 English HD Canlı [İngilizce]",
       "genres": [
         "Haber"
       ]

@@ -6,7 +6,7 @@
       "name": "BBC News HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bbcnews.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bbcnews.png",
-      "description": "BBC News HD Canlı Yayın",
+      "description": "BBC News HD Canlı [İngilizce]",
       "genres": [
         "HABER KANALLARI"
       ]
@@ -17,7 +17,7 @@
       "name": "CBS News HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cbsnews.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cbsnews.png",
-      "description": "CBS News HD Canlı Yayın",
+      "description": "CBS News HD Canlı [İngilizce]",
       "genres": [
         "HABER KANALLARI"
       ]
@@ -28,7 +28,7 @@
       "name": "Fox News HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/foxnews.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/foxnews.png",
-      "description": "Fox News HD Canlı Yayın",
+      "description": "Fox News HD Canlı [İngilizce]",
       "genres": [
         "HABER KANALLARI"
       ]

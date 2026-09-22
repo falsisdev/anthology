@@ -1,25 +1,25 @@
 {
   "metas": [
     {
-      "id": "tv:TRTDiyanetCocuk.tr",
-      "type": "tv",
-      "name": "TRT Diyanet Çocuk HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtdiyanetcocuk.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtdiyanetcocuk.png",
-      "description": "TRT Diyanet Çocuk HD Canlı Yayın",
-      "genres": [
-        "BELGESEL  ÇOCUK"
-      ]
-    },
-    {
       "id": "tv:DiyanetTV.tr",
       "type": "tv",
       "name": "Diyanet TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/diyanettv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/diyanettv.png",
-      "description": "Diyanet TV HD Canlı Yayın",
+      "description": "Diyanet TV HD Canlı [Türkçe]",
       "genres": [
         "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:TRTDiyanetCocuk.tr",
+      "type": "tv",
+      "name": "TRT Diyanet Çocuk HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtdiyanetcocuk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtdiyanetcocuk.png",
+      "description": "TRT Diyanet Çocuk HD Canlı [Türkçe]",
+      "genres": [
+        "BELGESEL  ÇOCUK"
       ]
     }
   ]

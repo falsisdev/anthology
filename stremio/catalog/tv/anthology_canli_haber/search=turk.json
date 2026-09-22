@@ -6,7 +6,7 @@
       "name": "Bengü Türk TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/benguturk.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/benguturk.png",
-      "description": "Bengü Türk TV HD Canlı Haber Yayını",
+      "description": "Bengü Türk TV HD Canlı [Türkçe]",
       "genres": [
         "Haber"
       ]
@@ -17,7 +17,7 @@
       "name": "Türk Haber TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/turkhaber.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/turkhaber.png",
-      "description": "Türk Haber TV HD Canlı Haber Yayını",
+      "description": "Türk Haber TV HD Canlı [Türkçe]",
       "genres": [
         "Haber"
       ]
@@ -28,7 +28,7 @@
       "name": "Finans Türk",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/finansturk.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/finansturk.png",
-      "description": "Finans Türk Canlı Haber Yayını",
+      "description": "Finans Türk Canlı [Türkçe]",
       "genres": [
         "Haber"
       ]

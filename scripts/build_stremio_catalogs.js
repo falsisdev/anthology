@@ -6,7 +6,7 @@ const STREMIO_DIR = path.join(ROOT_DIR, 'stremio');
 
 const stremioManifest = {
   id: "community.anthology.canlitv",
-  version: "2.0.8",
+  version: "2.0.9",
   name: "Anthology — Canlı TV",
   description: "Türkiye Ulusal, Spor, Haber, Belgesel, Çocuk ve Müzik Canlı Yayınları.",
   resources: ["catalog", "meta", "stream"],
@@ -22,7 +22,7 @@ const stremioManifest = {
     {
       type: "tv",
       id: "anthology_canli_tv",
-      name: "📺 Canlı TV — Tüm Kanallar",
+      name: "📺 Tüm Kanallar",
       extra: [
         { name: "search", isRequired: false },
         { name: "genre", isRequired: false }
@@ -31,31 +31,37 @@ const stremioManifest = {
     {
       type: "tv",
       id: "anthology_ulusal",
-      name: "🇹🇷 Ulusal Kanallar — TRT / ATV / Kanal D / Show / Star / NOW / TV8",
+      name: "🇹🇷 Ulusal Kanallar",
       extra: [{ name: "search", isRequired: false }]
     },
     {
       type: "tv",
       id: "anthology_canli_spor",
-      name: "⚽ Canlı Spor — TRT Spor / A Spor / HT Spor / FB TV",
+      name: "⚽ Canlı Spor",
       extra: [{ name: "search", isRequired: false }]
     },
     {
       type: "tv",
       id: "anthology_canli_haber",
-      name: "📰 Canlı Haber — NTV / Habertürk / TRT Haber / CNN Türk",
+      name: "📰 Canlı Haber",
       extra: [{ name: "search", isRequired: false }]
     },
     {
       type: "tv",
       id: "anthology_belgesel_cocuk",
-      name: "🦁 Belgesel & Çocuk — TRT Belgesel / Minika / EBA",
+      name: "🦁 Belgesel & Çocuk",
+      extra: [{ name: "search", isRequired: false }]
+    },
+    {
+      type: "tv",
+      id: "anthology_sinema_list",
+      name: "🎬 Sinema",
       extra: [{ name: "search", isRequired: false }]
     },
     {
       type: "tv",
       id: "anthology_muzik",
-      name: "🎵 Müzik & Eğlence — Kral Pop / Power / Number 1",
+      name: "🎵 Müzik & Eğlence",
       extra: [{ name: "search", isRequired: false }]
     }
   ]
@@ -91,6 +97,12 @@ const catalogConfigs = [
     type: "tv",
     file: "providers/anthology_belgesel_cocuk.js",
     args: { id: "anthology_belgesel_cocuk_list", type: "tv" }
+  },
+  {
+    catId: "anthology_sinema_list",
+    type: "tv",
+    file: "providers/anthology_sinema.js",
+    args: { id: "anthology_sinema_list", type: "tv" }
   },
   {
     catId: "anthology_muzik",
@@ -292,6 +304,29 @@ function generateSearchTerms(title) {
 
     // Empty search query fallback: search=.json
     writeJsonSync(path.join(catalogDir, 'search=.json'), { metas: normalizedMetas });
+
+    // Genre filter files: GET /catalog/{type}/{catId}/genre={genre}.json
+    const genreIndex = new Map();
+    for (const item of normalizedMetas) {
+      const itemGenres = (Array.isArray(item.genres) && item.genres.length) ? item.genres : [item.type];
+      for (const g of itemGenres) {
+        if (!g) continue;
+        if (!genreIndex.has(g)) genreIndex.set(g, []);
+        genreIndex.get(g).push(item);
+      }
+    }
+    let genreFilesCount = 0;
+    for (const [genre, genreItems] of genreIndex.entries()) {
+      writeJsonSync(path.join(catalogDir, `genre=${genre}.json`), { metas: genreItems });
+      writeJsonSync(path.join(catalogDir, `genre=${genre}&skip=0.json`), { metas: genreItems });
+      const encGenre = encodeURIComponent(genre);
+      if (encGenre !== genre) {
+        writeJsonSync(path.join(catalogDir, `genre=${encGenre}.json`), { metas: genreItems });
+        writeJsonSync(path.join(catalogDir, `genre=${encGenre}&skip=0.json`), { metas: genreItems });
+      }
+      genreFilesCount++;
+    }
+    console.log(`   Generated ${genreFilesCount} genre filter files for [${cfg.catId}].`);
 
     let searchFilesCount = 0;
     for (const [term, matchingItems] of searchIndex.entries()) {

@@ -1,4 +1,5 @@
 const { sortStreamsByQuality } = require("../shared/quality.js");
+const { parseTvgLang, channelDescription } = require("../shared/channel_lang.js");
 const { loadConfig, val, wrapAll } = require("../shared/config.js");
 
 var _cfgReady = null;
@@ -123,7 +124,8 @@ function parseSportChannels(content) {
                     logo: logo,
                     url: streamUrl,
                     backup: backupMatch ? backupMatch[1] : '',
-                    srcs: namedSrcs
+                    srcs: namedSrcs,
+                    lang: parseTvgLang(line)
                 });
             }
         }
@@ -612,20 +614,24 @@ function getCatalog(args) {
                     poster: ch.logo,
                     background: ch.logo,
                     genres: ["Spor"],
-                    description: ch.name + " Canlı Spor Yayını"
+                    description: channelDescription(ch.name, ch.lang)
                 };
             });
 
             // Mahsun Sports: sitedeki canlı maç yayınlarını tek tek stream olarak döner.
-            metas.unshift({
-                id: "tv:mahsunsports",
-                type: "tv",
-                name: "Mahsun Sports",
-                poster: MAHSUN_LOGO,
-                background: MAHSUN_LOGO,
-                genres: ["Spor"],
-                description: "Mahsun Sports canlı maç yayınları — Futbol, Basketbol, Voleybol ve Tenis"
-            });
+            // canli.m3u içinde tv:mahsunsports satırı varsa çift kayıt oluşturma.
+            var hasMahsun = metas.some(function(m) { return m.id === "tv:mahsunsports"; });
+            if (!hasMahsun) {
+                metas.unshift({
+                    id: "tv:mahsunsports",
+                    type: "tv",
+                    name: "Mahsun Sports",
+                    poster: MAHSUN_LOGO,
+                    background: MAHSUN_LOGO,
+                    genres: ["Spor"],
+                    description: "Mahsun Sports canlı maç yayınları — Futbol, Basketbol, Voleybol ve Tenis"
+                });
+            }
             return { metas: metas };
         })
         .catch(function() {
@@ -871,7 +877,7 @@ function getMeta(args) {
                     name: ch.name,
                     poster: ch.logo,
                     background: ch.logo,
-                    description: ch.name + " Canlı Spor Yayını",
+                    description: channelDescription(ch.name, ch.lang),
                     genres: ["Spor"],
                     videos: [{ id: targetId, title: ch.name, released: new Date().toISOString() }]
                 }

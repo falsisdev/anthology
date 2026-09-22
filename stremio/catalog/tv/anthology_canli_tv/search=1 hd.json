@@ -6,18 +6,7 @@
       "name": "TRT 1 HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt1.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt1.png",
-      "description": "TRT 1 HD Canlı Yayın",
-      "genres": [
-        "ULUSAL KANALLAR"
-      ]
-    },
-    {
-      "id": "tv:Cine1.tr",
-      "type": "tv",
-      "name": "Cine 1 HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cine1.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cine1.png",
-      "description": "Cine 1 HD Canlı Yayın",
+      "description": "TRT 1 HD Canlı [Türkçe]",
       "genres": [
         "ULUSAL KANALLAR"
       ]
@@ -28,7 +17,7 @@
       "name": "BeIN Sports 1 HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
-      "description": "BeIN Sports 1 HD Canlı Yayın",
+      "description": "BeIN Sports 1 HD Canlı [Türkçe]",
       "genres": [
         "SPOR KANALLARI"
       ]
@@ -39,7 +28,7 @@
       "name": "BeIN Sports Max 1 HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
-      "description": "BeIN Sports Max 1 HD Canlı Yayın",
+      "description": "BeIN Sports Max 1 HD Canlı [Türkçe]",
       "genres": [
         "SPOR KANALLARI"
       ]
@@ -50,7 +39,7 @@
       "name": "Tivibu Spor 1 HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.png",
-      "description": "Tivibu Spor 1 HD Canlı Yayın",
+      "description": "Tivibu Spor 1 HD Canlı [Türkçe]",
       "genres": [
         "SPOR KANALLARI"
       ]
@@ -61,7 +50,7 @@
       "name": "Smart Spor 1 HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/smartspor.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/smartspor.png",
-      "description": "Smart Spor 1 HD Canlı Yayın",
+      "description": "Smart Spor 1 HD Canlı [Türkçe]",
       "genres": [
         "SPOR KANALLARI"
       ]
@@ -72,7 +61,7 @@
       "name": "Euro Sport 1 HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurosport.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurosport.png",
-      "description": "Euro Sport 1 HD Canlı Yayın",
+      "description": "Euro Sport 1 HD Canlı [Türkçe]",
       "genres": [
         "SPOR KANALLARI"
       ]
@@ -83,7 +72,7 @@
       "name": "Exxen Sports 1 HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
-      "description": "Exxen Sports 1 HD Canlı Yayın",
+      "description": "Exxen Sports 1 HD Canlı [Türkçe]",
       "genres": [
         "SPOR KANALLARI"
       ]
@@ -94,7 +83,7 @@
       "name": "Tabii Spor 1 HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
-      "description": "Tabii Spor 1 HD Canlı Yayın",
+      "description": "Tabii Spor 1 HD Canlı [Türkçe]",
       "genres": [
         "SPOR KANALLARI"
       ]
@@ -105,9 +94,20 @@
       "name": "Tele 1 HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tele1.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tele1.png",
-      "description": "Tele 1 HD Canlı Yayın",
+      "description": "Tele 1 HD Canlı [Türkçe]",
       "genres": [
         "HABER KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:Cine1.tr",
+      "type": "tv",
+      "name": "Cine 1 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cine1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cine1.png",
+      "description": "Cine 1 HD Canlı [Türkçe]",
+      "genres": [
+        "SİNEMA KANALLARI"
       ]
     }
   ]

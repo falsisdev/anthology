@@ -1,6 +1,7 @@
 const { sortStreamsByQuality } = require("../shared/quality.js");
 const { loadConfig, val, wrapAll } = require("../shared/config.js");
 const { getNowPlayingInfo } = require("../shared/epg.js");
+const { parseTvgLang, channelDescription } = require("../shared/channel_lang.js");
 
 var _cfgReady = null;
 function cfgReady() {
@@ -83,7 +84,7 @@ function getCatalog(args) {
                         poster: logo,
                         background: logo,
                         genres: [genre],
-                        description: channelName + " Canlı Yayın"
+                        description: channelDescription(channelName, parseTvgLang(line))
                     });
                 }
             }
@@ -138,6 +139,7 @@ function getMeta(args) {
             var name = targetId.replace(/^tv:/, '');
             var logo = "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png";
             var searchKey = cleanKey(targetId.replace(/^tv:/, ''));
+            var lang = '';
 
             for (var i = 0; i < lines.length; i++) {
                 var line = lines[i].trim();
@@ -153,6 +155,7 @@ function getMeta(args) {
 
                     if (cId === searchKey || cName === searchKey || aName === searchKey || aName.includes(searchKey) || searchKey.includes(aName)) {
                         name = aliasName;
+                        lang = parseTvgLang(line);
                         var logoMatch = line.match(/tvg-logo="([^"]+)"/i);
                         if (logoMatch) logo = logoMatch[1];
                         break;
@@ -160,7 +163,7 @@ function getMeta(args) {
                 }
             }
 
-            var epg = getNowPlayingInfo(cleanTarget, name);
+            var epg = getNowPlayingInfo(searchKey, name);
             return {
                 meta: {
                     id: targetId,
@@ -168,7 +171,7 @@ function getMeta(args) {
                     name: name,
                     poster: logo,
                     background: logo,
-                    description: (epg && epg.formattedText) ? epg.formattedText : (name + " Canlı Yayın"),
+                    description: (epg && epg.formattedText) ? (channelDescription(name, lang) + '\n' + epg.formattedText) : channelDescription(name, lang),
                     videos: [{
                         id: targetId,
                         title: (epg && epg.current) ? epg.current : name,

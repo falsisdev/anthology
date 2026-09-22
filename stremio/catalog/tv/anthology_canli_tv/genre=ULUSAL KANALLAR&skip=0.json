@@ -1,0 +1,279 @@
+{
+  "metas": [
+    {
+      "id": "tv:TRT1.tr",
+      "type": "tv",
+      "name": "TRT 1 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt1.png",
+      "description": "TRT 1 HD Canlı [Türkçe]",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:ATV.tr",
+      "type": "tv",
+      "name": "ATV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/atv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/atv.png",
+      "description": "ATV HD Canlı [Türkçe]",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:KanalD.tr",
+      "type": "tv",
+      "name": "Kanal D HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanald.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanald.png",
+      "description": "Kanal D HD Canlı [Türkçe]",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:ShowTV.tr",
+      "type": "tv",
+      "name": "Show TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/showtv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/showtv.png",
+      "description": "Show TV HD Canlı [Türkçe]",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:StarTV.tr",
+      "type": "tv",
+      "name": "Star TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/startv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/startv.png",
+      "description": "Star TV HD Canlı [Türkçe]",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:NOW.tr",
+      "type": "tv",
+      "name": "NOW TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/now.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/now.png",
+      "description": "NOW TV HD Canlı [Türkçe]",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:TV8.tr",
+      "type": "tv",
+      "name": "TV8 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv8.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv8.png",
+      "description": "TV8 HD Canlı [Türkçe]",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:Kanal7.tr",
+      "type": "tv",
+      "name": "Kanal 7 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png",
+      "description": "Kanal 7 HD Canlı [Türkçe]",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:BeyazTV.tr",
+      "type": "tv",
+      "name": "Beyaz TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beyaztv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beyaztv.png",
+      "description": "Beyaz TV HD Canlı [Türkçe]",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:Teve2.tr",
+      "type": "tv",
+      "name": "Teve2 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/teve2.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/teve2.png",
+      "description": "Teve2 HD Canlı [Türkçe]",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:A2.tr",
+      "type": "tv",
+      "name": "A2 TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/a2.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/a2.png",
+      "description": "A2 TV HD Canlı [Türkçe]",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:TV360.tr",
+      "type": "tv",
+      "name": "360 TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv360.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv360.png",
+      "description": "360 TV HD Canlı [Türkçe]",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:TRT2.tr",
+      "type": "tv",
+      "name": "TRT 2 Kültür & Sanat HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt2.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt2.png",
+      "description": "TRT 2 Kültür & Sanat HD Canlı [Türkçe]",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:TRTTurk.tr",
+      "type": "tv",
+      "name": "TRT Türk HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtturk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtturk.png",
+      "description": "TRT Türk HD Canlı [Türkçe]",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:Kanal7Avrupa.tr",
+      "type": "tv",
+      "name": "Kanal 7 Avrupa",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png",
+      "description": "Kanal 7 Avrupa Canlı [Türkçe]",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:TRTGenc.tr",
+      "type": "tv",
+      "name": "TRT Genç HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtgenc.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtgenc.png",
+      "description": "TRT Genç HD Canlı [Türkçe]",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:EuroD.tr",
+      "type": "tv",
+      "name": "Euro D HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurod.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurod.png",
+      "description": "Euro D HD Canlı [Türkçe]",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:TV4.tr",
+      "type": "tv",
+      "name": "TV4 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv4.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv4.png",
+      "description": "TV4 HD Canlı [Türkçe]",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:TYTTurk.tr",
+      "type": "tv",
+      "name": "TYT Türk HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tytturk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tytturk.png",
+      "description": "TYT Türk HD Canlı [Türkçe]",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:KanalAvrupa.tr",
+      "type": "tv",
+      "name": "Kanal Avrupa",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanalavrupa.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanalavrupa.png",
+      "description": "Kanal Avrupa Canlı [Türkçe]",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:TRTWorld.tr",
+      "type": "tv",
+      "name": "TRT World HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtworld.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtworld.png",
+      "description": "TRT World HD Canlı [İngilizce]",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:TRTAvaz.tr",
+      "type": "tv",
+      "name": "TRT Avaz HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtavaz.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtavaz.png",
+      "description": "TRT Avaz HD Canlı [Türkçe]",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:TRTKurdi.tr",
+      "type": "tv",
+      "name": "TRT Kurdî HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtkurdi.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtkurdi.png",
+      "description": "TRT Kurdî HD Canlı [Kürtçe]",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:TRTArabi.tr",
+      "type": "tv",
+      "name": "TRT Arabi HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtarabi.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtarabi.png",
+      "description": "TRT Arabi HD Canlı [Arapça]",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:DiyanetTV.tr",
+      "type": "tv",
+      "name": "Diyanet TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/diyanettv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/diyanettv.png",
+      "description": "Diyanet TV HD Canlı [Türkçe]",
+      "genres": [
+        "ULUSAL KANALLAR"
+      ]
+    }
+  ]
+}

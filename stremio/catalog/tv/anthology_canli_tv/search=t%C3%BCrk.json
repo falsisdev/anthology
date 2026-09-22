@@ -6,7 +6,7 @@
       "name": "TRT Türk HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtturk.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtturk.png",
-      "description": "TRT Türk HD Canlı Yayın",
+      "description": "TRT Türk HD Canlı [Türkçe]",
       "genres": [
         "ULUSAL KANALLAR"
       ]
@@ -17,7 +17,7 @@
       "name": "TYT Türk HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tytturk.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tytturk.png",
-      "description": "TYT Türk HD Canlı Yayın",
+      "description": "TYT Türk HD Canlı [Türkçe]",
       "genres": [
         "ULUSAL KANALLAR"
       ]
@@ -28,7 +28,7 @@
       "name": "Bengü Türk TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/benguturk.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/benguturk.png",
-      "description": "Bengü Türk TV HD Canlı Yayın",
+      "description": "Bengü Türk TV HD Canlı [Türkçe]",
       "genres": [
         "HABER KANALLARI"
       ]
@@ -39,7 +39,7 @@
       "name": "Türk Haber TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/turkhaber.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/turkhaber.png",
-      "description": "Türk Haber TV HD Canlı Yayın",
+      "description": "Türk Haber TV HD Canlı [Türkçe]",
       "genres": [
         "HABER KANALLARI"
       ]
@@ -50,7 +50,7 @@
       "name": "Finans Türk",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/finansturk.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/finansturk.png",
-      "description": "Finans Türk Canlı Yayın",
+      "description": "Finans Türk Canlı [Türkçe]",
       "genres": [
         "HABER KANALLARI"
       ]
@@ -61,7 +61,7 @@
       "name": "Dream Türk HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dreamturk.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dreamturk.png",
-      "description": "Dream Türk HD Canlı Yayın",
+      "description": "Dream Türk HD Canlı [Türkçe]",
       "genres": [
         "MÜZİK  EĞLENCE"
       ]
