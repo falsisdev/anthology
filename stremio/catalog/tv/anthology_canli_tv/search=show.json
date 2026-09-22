@@ -6,7 +6,7 @@
       "name": "Show TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/showtv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/showtv.png",
-      "description": "Show TV HD Canlı Yayın",
+      "description": "Show TV HD Canlı [Türkçe]",
       "genres": [
         "ULUSAL KANALLAR"
       ]
@@ -17,7 +17,7 @@
       "name": "Show Max",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/showmax.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/showmax.png",
-      "description": "Show Max Canlı Yayın",
+      "description": "Show Max Canlı [Türkçe]",
       "genres": [
         "MÜZİK  EĞLENCE"
       ]

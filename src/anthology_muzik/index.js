@@ -1,3 +1,4 @@
+const { parseTvgLang, channelDescription } = require("../shared/channel_lang.js");
 const { sortStreamsByQuality } = require("../shared/quality.js");
 const { loadConfig, val, wrapAll } = require("../shared/config.js");
 
@@ -98,7 +99,8 @@ function parseChannels(content) {
                     name: channelName,
                     logo: logo,
                     url: streamUrl,
-                    backups: backups
+                    backups: backups,
+                    lang: parseTvgLang(line)
                 });
             }
         }
@@ -118,7 +120,7 @@ function getCatalog(args) {
                     poster: ch.logo,
                     background: ch.logo,
                     genres: ["Müzik & Eğlence"],
-                    description: ch.name + " Canlı Müzik Yayını"
+                    description: channelDescription(ch.name, ch.lang)
                 };
             });
             return { metas: metas };
@@ -216,7 +218,7 @@ function getMeta(args) {
                     name: ch.name,
                     poster: ch.logo,
                     background: ch.logo,
-                    description: ch.name + " Canlı Müzik & Eğlence Yayını",
+                    description: channelDescription(ch.name, ch.lang),
                     genres: ["Müzik & Eğlence"],
                     videos: [{ id: targetId, title: ch.name, released: new Date().toISOString() }]
                 }

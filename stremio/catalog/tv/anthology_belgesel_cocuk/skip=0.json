@@ -1,12 +1,34 @@
 {
   "metas": [
     {
+      "id": "tv:TLC.tr",
+      "type": "tv",
+      "name": "TLC HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tlc.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tlc.png",
+      "description": "TLC HD Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:DMAX.tr",
+      "type": "tv",
+      "name": "DMAX HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dmax.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dmax.png",
+      "description": "DMAX HD Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
       "id": "tv:TRTBelgesel.tr",
       "type": "tv",
       "name": "TRT Belgesel HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtbelgesel.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtbelgesel.png",
-      "description": "TRT Belgesel HD Canlı Yayın",
+      "description": "TRT Belgesel HD Canlı [Türkçe]",
       "genres": [
         "Belgesel & Çocuk"
       ]
@@ -17,7 +39,7 @@
       "name": "TRT Çocuk HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtcocuk.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtcocuk.png",
-      "description": "TRT Çocuk HD Canlı Yayın",
+      "description": "TRT Çocuk HD Canlı [Türkçe]",
       "genres": [
         "Belgesel & Çocuk"
       ]
@@ -28,7 +50,7 @@
       "name": "Minika Çocuk HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/minikacocuk.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/minikacocuk.png",
-      "description": "Minika Çocuk HD Canlı Yayın",
+      "description": "Minika Çocuk HD Canlı [Türkçe]",
       "genres": [
         "Belgesel & Çocuk"
       ]
@@ -39,7 +61,7 @@
       "name": "Minika GO HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/minikago.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/minikago.png",
-      "description": "Minika GO HD Canlı Yayın",
+      "description": "Minika GO HD Canlı [Türkçe]",
       "genres": [
         "Belgesel & Çocuk"
       ]
@@ -50,7 +72,7 @@
       "name": "TRT EBA İlkokul HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtebailkokul.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtebailkokul.png",
-      "description": "TRT EBA İlkokul HD Canlı Yayın",
+      "description": "TRT EBA İlkokul HD Canlı [Türkçe]",
       "genres": [
         "Belgesel & Çocuk"
       ]
@@ -61,7 +83,7 @@
       "name": "TRT EBA Ortaokul HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtebaortaokul.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtebaortaokul.png",
-      "description": "TRT EBA Ortaokul HD Canlı Yayın",
+      "description": "TRT EBA Ortaokul HD Canlı [Türkçe]",
       "genres": [
         "Belgesel & Çocuk"
       ]
@@ -72,7 +94,7 @@
       "name": "TRT EBA Lise HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtebalise.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtebalise.png",
-      "description": "TRT EBA Lise HD Canlı Yayın",
+      "description": "TRT EBA Lise HD Canlı [Türkçe]",
       "genres": [
         "Belgesel & Çocuk"
       ]
@@ -83,7 +105,7 @@
       "name": "TRT Diyanet Çocuk HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtdiyanetcocuk.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtdiyanetcocuk.png",
-      "description": "TRT Diyanet Çocuk HD Canlı Yayın",
+      "description": "TRT Diyanet Çocuk HD Canlı [Türkçe]",
       "genres": [
         "Belgesel & Çocuk"
       ]
@@ -94,7 +116,7 @@
       "name": "Çiftçi TV",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ciftcitv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ciftcitv.png",
-      "description": "Çiftçi TV Canlı Yayın",
+      "description": "Çiftçi TV Canlı [Türkçe]",
       "genres": [
         "Belgesel & Çocuk"
       ]
@@ -105,7 +127,7 @@
       "name": "Travelxp HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/travelxp.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/travelxp.png",
-      "description": "Travelxp HD Canlı Yayın",
+      "description": "Travelxp HD Canlı [İngilizce]",
       "genres": [
         "Belgesel & Çocuk"
       ]

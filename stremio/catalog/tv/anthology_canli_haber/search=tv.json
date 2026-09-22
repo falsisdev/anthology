@@ -6,7 +6,7 @@
       "name": "Habertürk TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/haberturk.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/haberturk.png",
-      "description": "Habertürk TV HD Canlı Haber Yayını",
+      "description": "Habertürk TV HD Canlı [Türkçe]",
       "genres": [
         "Haber"
       ]
@@ -17,7 +17,7 @@
       "name": "Halk TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/halktv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/halktv.png",
-      "description": "Halk TV HD Canlı Haber Yayını",
+      "description": "Halk TV HD Canlı [Türkçe]",
       "genres": [
         "Haber"
       ]
@@ -28,7 +28,7 @@
       "name": "24 TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/24tv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/24tv.png",
-      "description": "24 TV HD Canlı Haber Yayını",
+      "description": "24 TV HD Canlı [Türkçe]",
       "genres": [
         "Haber"
       ]
@@ -39,7 +39,7 @@
       "name": "Ülke TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ulketv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ulketv.png",
-      "description": "Ülke TV HD Canlı Haber Yayını",
+      "description": "Ülke TV HD Canlı [Türkçe]",
       "genres": [
         "Haber"
       ]
@@ -50,7 +50,7 @@
       "name": "Bengü Türk TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/benguturk.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/benguturk.png",
-      "description": "Bengü Türk TV HD Canlı Haber Yayını",
+      "description": "Bengü Türk TV HD Canlı [Türkçe]",
       "genres": [
         "Haber"
       ]
@@ -61,7 +61,7 @@
       "name": "Flash Haber TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/flashhaber.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/flashhaber.png",
-      "description": "Flash Haber TV HD Canlı Haber Yayını",
+      "description": "Flash Haber TV HD Canlı [Türkçe]",
       "genres": [
         "Haber"
       ]
@@ -72,7 +72,7 @@
       "name": "Lider Haber TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/liderhaber.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/liderhaber.png",
-      "description": "Lider Haber TV HD Canlı Haber Yayını",
+      "description": "Lider Haber TV HD Canlı [Türkçe]",
       "genres": [
         "Haber"
       ]
@@ -83,7 +83,7 @@
       "name": "Türk Haber TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/turkhaber.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/turkhaber.png",
-      "description": "Türk Haber TV HD Canlı Haber Yayını",
+      "description": "Türk Haber TV HD Canlı [Türkçe]",
       "genres": [
         "Haber"
       ]
@@ -94,7 +94,7 @@
       "name": "Akit TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/akittv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/akittv.png",
-      "description": "Akit TV HD Canlı Haber Yayını",
+      "description": "Akit TV HD Canlı [Türkçe]",
       "genres": [
         "Haber"
       ]
@@ -105,7 +105,7 @@
       "name": "TBMM TV",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tbmmtv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tbmmtv.png",
-      "description": "TBMM TV Canlı Haber Yayını",
+      "description": "TBMM TV Canlı [Türkçe]",
       "genres": [
         "Haber"
       ]
@@ -116,7 +116,7 @@
       "name": "Reuters TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/reuterstv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/reuterstv.png",
-      "description": "Reuters TV HD Canlı Haber Yayını",
+      "description": "Reuters TV HD Canlı [İngilizce]",
       "genres": [
         "Haber"
       ]

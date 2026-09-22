@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:TLC.tr",
+      "type": "tv",
+      "name": "TLC HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tlc.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tlc.png",
+      "description": "TLC HD Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    }
+  ]
+}

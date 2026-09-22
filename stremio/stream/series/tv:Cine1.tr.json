@@ -1,9 +1,9 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Ulusal ⌟",
+      "name": "⌜ Anthology Sinema ⌟",
       "title": "Cine 1 HD [Canlı HD]",
-      "url": "https://canliyayin.cine1.com.tr/memfs/cbaef080-a742-4644-9e9e-2b9f6a5103c3/index.m3u8",
+      "url": "https://canliyayin.cine1.com.tr/memfs/cbaef080-a742-4644-9e9e-2b9f6a5103c3.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Accept": "*/*"

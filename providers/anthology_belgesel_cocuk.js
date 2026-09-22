@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: anthology_belgesel_cocuk
  * Built from src/anthology_belgesel_cocuk/index.js
- * Build Date: 2026-09-20T21:43:09.299Z
+ * Build: v1.8.22 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -31,6 +31,45 @@ var __async = (__this, __arguments, generator) => {
     step((generator = generator.apply(__this, __arguments)).next());
   });
 };
+
+// src/shared/channel_lang.js
+var require_channel_lang = __commonJS({
+  "src/shared/channel_lang.js"(exports2, module2) {
+    var CHANNEL_LANG_LABELS = {
+      tr: "T\xFCrk\xE7e",
+      en: "\u0130ngilizce",
+      az: "Azerbaycan T\xFCrk\xE7esi",
+      ar: "Arap\xE7a",
+      ku: "K\xFCrt\xE7e",
+      de: "Almanca",
+      fr: "Frans\u0131zca",
+      ru: "Rus\xE7a",
+      es: "\u0130spanyolca",
+      it: "\u0130talyanca"
+    };
+    var DEFAULT_CHANNEL_LANG = "tr";
+    function parseTvgLang2(extinfLine) {
+      var line = extinfLine || "";
+      var m = line.match(/tvg-lang="([^"]+)"/i);
+      if (!m) m = line.match(/tvg-language="([^"]+)"/i);
+      return m ? String(m[1]).trim().toLowerCase() : "";
+    }
+    function channelLangLabel(code) {
+      var key = (code || "").toString().trim().toLowerCase();
+      if (!key) key = DEFAULT_CHANNEL_LANG;
+      return CHANNEL_LANG_LABELS[key] || CHANNEL_LANG_LABELS[DEFAULT_CHANNEL_LANG];
+    }
+    function channelDescription2(channelName, langCode) {
+      return (channelName || "") + " Canl\u0131 [" + channelLangLabel(langCode) + "]";
+    }
+    module2.exports = {
+      CHANNEL_LANG_LABELS,
+      parseTvgLang: parseTvgLang2,
+      channelLangLabel,
+      channelDescription: channelDescription2
+    };
+  }
+});
 
 // src/shared/quality.js
 var require_quality = __commonJS({
@@ -187,6 +226,7 @@ var require_config = __commonJS({
 });
 
 // src/anthology_belgesel_cocuk/index.js
+var { parseTvgLang, channelDescription } = require_channel_lang();
 var { sortStreamsByQuality } = require_quality();
 var { loadConfig, val, wrapAll } = require_config();
 var _cfgReady = null;
@@ -276,7 +316,8 @@ function parseChannels(content) {
           name: channelName,
           logo,
           url: streamUrl,
-          backups
+          backups,
+          lang: parseTvgLang(line)
         });
       }
     }
@@ -294,7 +335,7 @@ function getCatalog(args) {
         poster: ch.logo,
         background: ch.logo,
         genres: ["Belgesel & \xC7ocuk"],
-        description: ch.name + " Canl\u0131 Yay\u0131n"
+        description: channelDescription(ch.name, ch.lang)
       };
     });
     return { metas };
@@ -382,7 +423,7 @@ function getMeta(args) {
         name: ch.name,
         poster: ch.logo,
         background: ch.logo,
-        description: ch.name + " Canl\u0131 Belgesel & \xC7ocuk Yay\u0131n\u0131",
+        description: channelDescription(ch.name, ch.lang),
         genres: ["Belgesel & \xC7ocuk"],
         videos: [{ id: targetId, title: ch.name, released: (/* @__PURE__ */ new Date()).toISOString() }]
       }

@@ -6,7 +6,7 @@
       "name": "FB TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fbtv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fbtv.png",
-      "description": "FB TV HD Canlı Spor Yayını",
+      "description": "FB TV HD Canlı [Türkçe]",
       "genres": [
         "Spor"
       ]
@@ -17,7 +17,7 @@
       "name": "Sports TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportstv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportstv.png",
-      "description": "Sports TV HD Canlı Spor Yayını",
+      "description": "Sports TV HD Canlı [Türkçe]",
       "genres": [
         "Spor"
       ]
@@ -28,7 +28,7 @@
       "name": "iDMAN Tv HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/idmantv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/idmantv.png",
-      "description": "iDMAN Tv HD Canlı Spor Yayını",
+      "description": "iDMAN Tv HD Canlı [Azerbaycan Türkçesi]",
       "genres": [
         "Spor"
       ]
@@ -39,7 +39,7 @@
       "name": "TJK TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tjktv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tjktv.png",
-      "description": "TJK TV HD Canlı Spor Yayını",
+      "description": "TJK TV HD Canlı [Türkçe]",
       "genres": [
         "Spor"
       ]
@@ -50,7 +50,7 @@
       "name": "NBA TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nbatv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nbatv.png",
-      "description": "NBA TV HD Canlı Spor Yayını",
+      "description": "NBA TV HD Canlı [İngilizce]",
       "genres": [
         "Spor"
       ]
@@ -61,7 +61,7 @@
       "name": "Exxen TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
-      "description": "Exxen TV HD Canlı Spor Yayını",
+      "description": "Exxen TV HD Canlı [Türkçe]",
       "genres": [
         "Spor"
       ]
@@ -72,7 +72,7 @@
       "name": "Tay TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/taytv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/taytv.png",
-      "description": "Tay TV HD Canlı Spor Yayını",
+      "description": "Tay TV HD Canlı [Türkçe]",
       "genres": [
         "Spor"
       ]
@@ -83,7 +83,7 @@
       "name": "Real Madrid TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/realmadridtv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/realmadridtv.png",
-      "description": "Real Madrid TV HD Canlı Spor Yayını",
+      "description": "Real Madrid TV HD Canlı [İngilizce]",
       "genres": [
         "Spor"
       ]
@@ -94,7 +94,7 @@
       "name": "Red Bull TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/redbulltv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/redbulltv.png",
-      "description": "Red Bull TV HD Canlı Spor Yayını",
+      "description": "Red Bull TV HD Canlı [İngilizce]",
       "genres": [
         "Spor"
       ]
@@ -105,7 +105,7 @@
       "name": "Sport Fishing TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportfishingtv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportfishingtv.png",
-      "description": "Sport Fishing TV HD Canlı Spor Yayını",
+      "description": "Sport Fishing TV HD Canlı [İngilizce]",
       "genres": [
         "Spor"
       ]

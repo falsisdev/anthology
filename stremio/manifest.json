@@ -1,6 +1,6 @@
 {
   "id": "community.anthology.canlitv",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "name": "Anthology — Canlı TV",
   "description": "Türkiye Ulusal, Spor, Haber, Belgesel, Çocuk ve Müzik Canlı Yayınları.",
   "resources": [
@@ -23,7 +23,7 @@
     {
       "type": "tv",
       "id": "anthology_canli_tv",
-      "name": "📺 Canlı TV — Tüm Kanallar",
+      "name": "📺 Tüm Kanallar",
       "extra": [
         {
           "name": "search",
@@ -38,7 +38,7 @@
     {
       "type": "tv",
       "id": "anthology_ulusal",
-      "name": "🇹🇷 Ulusal Kanallar — TRT / ATV / Kanal D / Show / Star / NOW / TV8",
+      "name": "🇹🇷 Ulusal Kanallar",
       "extra": [
         {
           "name": "search",
@@ -49,7 +49,7 @@
     {
       "type": "tv",
       "id": "anthology_canli_spor",
-      "name": "⚽ Canlı Spor — TRT Spor / A Spor / HT Spor / FB TV",
+      "name": "⚽ Canlı Spor",
       "extra": [
         {
           "name": "search",
@@ -60,7 +60,7 @@
     {
       "type": "tv",
       "id": "anthology_canli_haber",
-      "name": "📰 Canlı Haber — NTV / Habertürk / TRT Haber / CNN Türk",
+      "name": "📰 Canlı Haber",
       "extra": [
         {
           "name": "search",
@@ -71,7 +71,18 @@
     {
       "type": "tv",
       "id": "anthology_belgesel_cocuk",
-      "name": "🦁 Belgesel & Çocuk — TRT Belgesel / Minika / EBA",
+      "name": "🦁 Belgesel & Çocuk",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "tv",
+      "id": "anthology_sinema_list",
+      "name": "🎬 Sinema",
       "extra": [
         {
           "name": "search",
@@ -82,7 +93,7 @@
     {
       "type": "tv",
       "id": "anthology_muzik",
-      "name": "🎵 Müzik & Eğlence — Kral Pop / Power / Number 1",
+      "name": "🎵 Müzik & Eğlence",
       "extra": [
         {
           "name": "search",

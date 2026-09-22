@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:TRTNostalji.tr",
+      "type": "tv",
+      "name": "TRT Nostalji HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtnostalji.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtnostalji.png",
+      "description": "TRT Nostalji HD Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "metas": [
+    {
+      "id": "tv:Cine1.tr",
+      "type": "tv",
+      "name": "Cine 1 HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cine1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cine1.png",
+      "description": "Cine 1 HD Canlı [Türkçe]",
+      "genres": [
+        "SİNEMA KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:FX.tr",
+      "type": "tv",
+      "name": "FX HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fx.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fx.png",
+      "description": "FX HD Canlı [İngilizce]",
+      "genres": [
+        "SİNEMA KANALLARI"
+      ]
+    },
+    {
+      "id": "tv:TRTNostalji.tr",
+      "type": "tv",
+      "name": "TRT Nostalji HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtnostalji.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtnostalji.png",
+      "description": "TRT Nostalji HD Canlı [Türkçe]",
+      "genres": [
+        "SİNEMA KANALLARI"
+      ]
+    }
+  ]
+}

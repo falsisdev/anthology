@@ -6,7 +6,7 @@
       "name": "Show TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/showtv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/showtv.png",
-      "description": "Show TV HD Canlı Yayın",
+      "description": "Show TV HD Canlı [Türkçe]",
       "genres": [
         "Ulusal"
       ]
@@ -17,7 +17,7 @@
       "name": "Star TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/startv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/startv.png",
-      "description": "Star TV HD Canlı Yayın",
+      "description": "Star TV HD Canlı [Türkçe]",
       "genres": [
         "Ulusal"
       ]
@@ -28,7 +28,7 @@
       "name": "NOW TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/now.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/now.png",
-      "description": "NOW TV HD Canlı Yayın",
+      "description": "NOW TV HD Canlı [Türkçe]",
       "genres": [
         "Ulusal"
       ]
@@ -39,7 +39,7 @@
       "name": "Beyaz TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beyaztv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beyaztv.png",
-      "description": "Beyaz TV HD Canlı Yayın",
+      "description": "Beyaz TV HD Canlı [Türkçe]",
       "genres": [
         "Ulusal"
       ]
@@ -50,7 +50,7 @@
       "name": "A2 TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/a2.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/a2.png",
-      "description": "A2 TV HD Canlı Yayın",
+      "description": "A2 TV HD Canlı [Türkçe]",
       "genres": [
         "Ulusal"
       ]
@@ -61,7 +61,7 @@
       "name": "360 TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv360.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv360.png",
-      "description": "360 TV HD Canlı Yayın",
+      "description": "360 TV HD Canlı [Türkçe]",
       "genres": [
         "Ulusal"
       ]
@@ -72,7 +72,7 @@
       "name": "Diyanet TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/diyanettv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/diyanettv.png",
-      "description": "Diyanet TV HD Canlı Yayın",
+      "description": "Diyanet TV HD Canlı [Türkçe]",
       "genres": [
         "Ulusal"
       ]

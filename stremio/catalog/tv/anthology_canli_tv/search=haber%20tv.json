@@ -6,7 +6,7 @@
       "name": "Flash Haber TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/flashhaber.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/flashhaber.png",
-      "description": "Flash Haber TV HD Canlı Yayın",
+      "description": "Flash Haber TV HD Canlı [Türkçe]",
       "genres": [
         "HABER KANALLARI"
       ]
@@ -17,7 +17,7 @@
       "name": "Lider Haber TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/liderhaber.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/liderhaber.png",
-      "description": "Lider Haber TV HD Canlı Yayın",
+      "description": "Lider Haber TV HD Canlı [Türkçe]",
       "genres": [
         "HABER KANALLARI"
       ]
@@ -28,7 +28,7 @@
       "name": "Türk Haber TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/turkhaber.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/turkhaber.png",
-      "description": "Türk Haber TV HD Canlı Yayın",
+      "description": "Türk Haber TV HD Canlı [Türkçe]",
       "genres": [
         "HABER KANALLARI"
       ]

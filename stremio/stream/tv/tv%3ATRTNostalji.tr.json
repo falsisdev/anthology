@@ -1,15 +1,15 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology ⌟",
+      "name": "⌜ Anthology Sinema ⌟",
       "title": "TRT Nostalji HD [Canlı HD]",
-      "url": "https://playlist.fasttvcdn.com/pl/rfrk9821hdy9dayo8wfyha/dizi/nostalji/index.m3u8",
-      "behaviorHints": {
-        "isLive": true
-      },
+      "url": "https://playlist.fasttvcdn.com/pl/rfrk9821hdy9dayo8wfyha/dizi-tv/playlist/0.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
       }
     }
   ]
