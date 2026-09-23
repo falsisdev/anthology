@@ -132,6 +132,13 @@ CHANNELS = [
         "local": os.path.join(ROOT_DIR, "assets", "canli", "tytturk.png"),
         "already_composited": True,
     },
+    {
+        "name": "Diyanet TV",
+        "file": "diyanettv.png",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Diyanet_TV_logo.svg/960px-Diyanet_TV_logo.svg.png",
+        "max_w": 160,
+        "max_h": 60,
+    },
 
     # --- Haber Kanalları ---
     {
@@ -348,6 +355,18 @@ CHANNELS = [
         "local": os.path.join(ROOT_DIR, "assets", "canli", "ekolsports.png"),
         "already_composited": True,
     },
+    {
+        "name": "Real Madrid TV",
+        "file": "realmadridtv.png",
+        "local": os.path.join(ROOT_DIR, "assets", "canli", "realmadridtv.png"),
+        "already_composited": True,
+    },
+    {
+        "name": "Sport Fishing TV",
+        "file": "sportfishingtv.png",
+        "local": os.path.join(ROOT_DIR, "assets", "canli", "sportfishingtv.png"),
+        "already_composited": True,
+    },
 
     # --- Belgesel & Çocuk & Müzik ---
     {
@@ -413,6 +432,12 @@ CHANNELS = [
         "dark_to_white": True,
         "max_w": 145,
         "max_h": 68,
+    },
+    {
+        "name": "Travelxp",
+        "file": "travelxp.png",
+        "local": os.path.join(ROOT_DIR, "assets", "canli", "travelxp.png"),
+        "already_composited": True,
     },
     {
         "name": "Kral Pop TV",
