@@ -85,6 +85,10 @@
       },
       "webteizle": {
         "base": "https://webteizle.info"
+      },
+      "liderfilmizle": {
+        "base": "https://liderfilmizle.vip",
+        "play_base": "https://play.liderfilm.cc"
       }
     },
     "series": {
