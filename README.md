@@ -10,8 +10,8 @@
   </p>
 
   <p>
-    <img src="https://img.shields.io/badge/Sürüm-1.8.22-blue?style=for-the-badge" alt="Sürüm 1.8.22" />
-    <img src="https://img.shields.io/badge/Eklenti-39_Aktif-3b82f6?style=for-the-badge" alt="39 Aktif Eklenti" />
+    <img src="https://img.shields.io/badge/Sürüm-1.8.23-blue?style=for-the-badge" alt="Sürüm 1.8.23" />
+    <img src="https://img.shields.io/badge/Eklenti-40_Aktif-3b82f6?style=for-the-badge" alt="40 Aktif Eklenti" />
     <img src="https://img.shields.io/badge/Lisans-MIT-green?style=for-the-badge" alt="MIT Lisansı" />
     <img src="https://img.shields.io/badge/Katalog-7_Canlı_Katalog-8b5cf6?style=for-the-badge" alt="7 Canlı TV Kataloğu" />
     <img src="https://img.shields.io/badge/Kanal-138_Canlı_Kanal-00e676?style=for-the-badge" alt="138 Canlı Kanal" />
@@ -30,7 +30,7 @@
 
 > [!IMPORTANT]
 > ### ⚠️ Platformlar Arasındaki Kapsam ve Kullanım Farkı:
-> - 🌟 **Nuvio Kullanıcıları:** Anthology'nin sunduğu **tüm özellikleri sorunsuz, sınırsız ve eksiksiz** kullanabilir. **39 eklentinin tamamı** (Türkçe/yabancı film, dizi, anime, özel tür arşivleri) ve **138 Canlı TV kanalı (7 vitrin kataloğu)** Nuvio oynatıcısında tek çatı altında eksiksiz çalışır.
+> - 🌟 **Nuvio Kullanıcıları:** Anthology'nin sunduğu **tüm özellikleri sorunsuz, sınırsız ve eksiksiz** kullanabilir. **40 eklentinin tamamı** (Türkçe/yabancı film, dizi, anime, özel tür arşivleri) ve **138 Canlı TV kanalı (7 vitrin kataloğu)** Nuvio oynatıcısında tek çatı altında eksiksiz çalışır.
 > - 🟣 **Stremio Kullanıcıları:** Stremio eklentisi olarak kullanım **yalnızca Canlı TV katalogları (7 vitrin ve 138 canlı yayın kanalı) ile sınırlıdır**. Stremio'nun eklenti protokolü gereği film ve dizi video scraper'ları Stremio üzerinde çalışmaz; bu nedenle Stremio'da yalnızca canlı televizyon ve spor akışları sunulmaktadır.
 > - 🌐 **Stremio Topluluk Sayfası:** Eklentiyi resmi Stremio topluluk dizininde incelemek için [stremio-addons.net/addons/anthology](https://stremio-addons.net/addons/anthology) adresini ziyaret edebilirsiniz.
 
@@ -119,6 +119,7 @@ Nuvio ve Stremio ana sayfasında canlı TV kanallarını kategorilere ayrılmı�
 | **KultFilmler** | kultfilmler.net (VidMoly/Vidpapi) | 1080p HLS | Kült ve Klasik Sinema Arşivi |
 | **HDFilmDelisi** | hdfilmdelisi.org (VidMody HLS) | 1080p HLS | Güncel Filmler ve JSON API Entegrasyonu |
 | **HDFilmIzle** | hdfilmizle.vip (Vidrame/Vidmoxy/FastPlay) | 1080p HLS Master | Çift Ses DUAL (TR Dublaj & Altyazı) + Çoklu VTT |
+| **LiderFilm** | liderfilmizle.vip (play.liderfilm.cc VOD / ag2m4 embed) | 1080p HLS Master | Yerli & Yabancı Film ve Dizi Arşivi, Senkronize VTT Altyazı |
 
 ---
 
@@ -133,6 +134,7 @@ Nuvio ve Stremio ana sayfasında canlı TV kanallarını kategorilere ayrılmı�
 | **DiziBoxİzle** | diziboxizle.com (VidMoly & Ok.ru) | 1080p HLS / MP4 | Güncel Yabancı Diziler & Bölümler Arşivi |
 | **DiziWatch** | diziwatch.ac (Pichive Player / Embed) | 1080p HLS / MP4 | Güncel Anime ve Yabancı Diziler Arşivi |
 | **DiziYou** | diziyou.one (Storage CDN) | 1080p HLS | Doğrudan Storage CDN + Türkçe VTT Altyazı |
+| **LiderFilm** | liderfilmizle.vip (JWPlayer / ag2m4) | 1080p HLS Master | Yerli & Yabancı Dizi Bölümleri, VTT Altyazı |
 | **SetFilmIzle** | setfilmizle.ltd (FastPlay/SetPlay) | 1080p HLS Master | Çift Ses DUAL + Türkçe/İngilizce Altyazı (Film & Dizi) |
 | **YabancıDizi** | yabancidizi.news (VidMoly Master) | 1080p HLS | Popüler Yabancı Diziler Arşivi |
 | **TvDiziler** | tvdiziler.tv (Twitter Amplify / Ciner / YouTube) | 1080p HLS / MP4 | Yerli TV Dizileri & Güncel Bölümler Arşivi |
@@ -273,6 +275,14 @@ node scripts/test_stremio_addon.js
 # Tüm katalogların öğe çekme testini çalıştırın:
 node scripts/test_all_catalogs.js
 ```
+
+---
+
+## 🤝 Katkıda Bulunanlar
+
+Anthology açık kaynak topluluğunun katkılarıyla gelişmektedir. Katkı sağlayan geliştiricilere teşekkürler:
+
+- **Mustafa Esat Temel** ([@MustafaEsatTemel](https://github.com/MustafaEsatTemel) / `metemel`) — **LiderFilm** (`liderfilmizle.vip`) film ve dizi sağlayıcı entegrasyonu ([#5](https://github.com/falsisdev/anthology/pull/5)).
 
 ---
 
