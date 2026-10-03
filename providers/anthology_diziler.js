@@ -469,12 +469,21 @@ var require_ytmp4 = __commonJS({
           if (!res.ok) return null;
           var data = yield res.json();
           if (!data.streamingData) return null;
+          var details = data.videoDetails || {};
+          var author = details.author || null;
+          var channelId = details.channelId || null;
+          var videoTitle = details.title || null;
+          var viewCount = details.viewCount || null;
           if (data.streamingData.hlsManifestUrl) {
             return {
               url: data.streamingData.hlsManifestUrl,
               quality: "1080p",
               isHls: true,
               format: "hls",
+              author,
+              channelId,
+              videoTitle,
+              viewCount,
               headers: { "User-Agent": "com.google.android.youtube/20.10.38 (Linux; U; Android 11) gzip" }
             };
           }
@@ -488,6 +497,10 @@ var require_ytmp4 = __commonJS({
                 quality: formats[0].qualityLabel || "360p",
                 isHls: false,
                 format: "mp4",
+                author,
+                channelId,
+                videoTitle,
+                viewCount,
                 headers: { "User-Agent": "com.google.android.youtube/20.10.38 (Linux; U; Android 11) gzip" }
               };
             }

@@ -10,7 +10,7 @@ function timeoutSignal(ms) {
         return AbortSignal.timeout(ms);
     }
     var controller = new AbortController();
-    setTimeout(function() {
+    setTimeout(function () {
         controller.abort();
     }, ms);
     return controller.signal;

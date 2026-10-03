@@ -81,6 +81,59 @@
       "supportsExternalPlayer": true
     },
     {
+      "id": "youtube_dizifilm",
+      "name": "YouTube Dizi & Film",
+      "description": "YouTube resmi yapımcı kanalları, yerli dizi ve Yeşilçam film arşivleri, 1080p resmi akışlar.",
+      "version": "1.8.24",
+      "author": "metemel",
+      "supportedTypes": [
+        "movie",
+        "tv",
+        "series"
+      ],
+      "filename": "providers/youtube_dizifilm.js",
+      "enabled": true,
+      "formats": [
+        "hls",
+        "m3u8",
+        "mp4"
+      ],
+      "logo": "https://www.youtube.com/s/desktop/f4ff17dc/img/favicon_144x144.png",
+      "contentLanguage": [
+        "tr"
+      ],
+      "catalogs": [
+        {
+          "type": "tv",
+          "id": "anthology_youtube_diziler",
+          "name": "YouTube — Popüler Yerli Diziler",
+          "extra": [
+            {
+              "name": "search",
+              "isRequired": false
+            }
+          ]
+        },
+        {
+          "type": "movie",
+          "id": "anthology_youtube_filmler",
+          "name": "YouTube — Klasik & Yerli Filmler",
+          "extra": [
+            {
+              "name": "search",
+              "isRequired": false
+            }
+          ]
+        }
+      ],
+      "resources": [
+        "catalog",
+        "meta",
+        "stream"
+      ],
+      "supportsExternalPlayer": true
+    },
+    {
       "id": "sinewix",
       "name": "SineWix",
       "description": "5000+ HD film, dizi ve anime - Türkçe dublaj & altyazı, 1080p çift ses direct MKV.",

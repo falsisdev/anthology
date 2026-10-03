@@ -115,6 +115,9 @@ async function checkPlayability(streams) {
       } else if (scraper.id === "liderfilmizle") {
         testTarget = "The Matrix (603)";
         streams = await mod.getStreams("603", "movie");
+      } else if (scraper.id === "youtube_dizifilm") {
+        testTarget = "Kurtlar Vadisi (34587 S01E01)";
+        streams = await mod.getStreams("34587", "tv", 1, 1);
       } else if (scraper.supportedTypes && scraper.supportedTypes.includes("movie")) {
         testTarget = "The Matrix (603)";
         streams = await mod.getStreams("603", "movie");
