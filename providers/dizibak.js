@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: dizibak
  * Built from src/dizibak/index.js
- * Build: v1.8.23 (anthology build system)
+ * Build: v1.8.24 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {

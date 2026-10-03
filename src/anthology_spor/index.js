@@ -19,6 +19,10 @@ function cfgReady() {
  * Anthology Canlı Spor Paketi
  * TRT Spor, A Spor, TV8.5, BeIN Sports, S Sport, Tivibu Spor, Exxen Spor vb.
  * Mahsunsports maç yayınları (Futbol, Basketbol, Voleybol, Tenis) ayrı bir kanal olarak.
+ *
+ * Açık Kaynak Atıf & Kredi:
+ * Spor kataloğu yapısı, NetVGold akış referansları ve alternatif ayna spor listeleri
+ * için @Wiojelt'e (TurkSpor & WioSpor) teşekkür ederiz.
  */
 
 var path = typeof require !== 'undefined' ? require('path') : null;
