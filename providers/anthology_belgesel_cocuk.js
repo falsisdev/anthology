@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: anthology_belgesel_cocuk
  * Built from src/anthology_belgesel_cocuk/index.js
- * Build: v1.8.22 (anthology build system)
+ * Build: v1.8.23 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
