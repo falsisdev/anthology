@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: animecix
  * Built from src/animecix/index.js
- * Build: v1.8.24 (anthology build system)
+ * Build: v1.8.25 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {

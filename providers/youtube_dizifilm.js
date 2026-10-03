@@ -464,7 +464,7 @@ var require_ytmp4 = __commonJS({
               context: { client: { clientName: "ANDROID", clientVersion: "20.10.38" } },
               videoId: ytId
             }),
-            signal: timeoutSignal2(3500)
+            signal: timeoutSignal2(6e3)
           });
           if (!res.ok) return null;
           var data = yield res.json();
@@ -712,6 +712,30 @@ function matchesTitle(videoTitle, targetTitle) {
 function searchYouTube(query) {
   return __async(this, null, function* () {
     try {
+      var resMweb = yield fetch("https://www.youtube.com/youtubei/v1/search?key=" + INNERTUBE_KEY, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          query,
+          context: {
+            client: {
+              clientName: "MWEB",
+              clientVersion: "2.20240313.00.00",
+              hl: "tr",
+              gl: "TR"
+            }
+          }
+        }),
+        signal: timeoutSignal(6e3)
+      });
+      if (resMweb.ok) {
+        var dataMweb = yield resMweb.json();
+        var resultsMweb = _parseInnertubeMwebSearch(dataMweb);
+        if (resultsMweb.length > 0) return resultsMweb;
+      }
+    } catch (e) {
+    }
+    try {
       var resWeb = yield fetch("https://www.youtube.com/youtubei/v1/search?key=" + INNERTUBE_KEY, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -726,14 +750,14 @@ function searchYouTube(query) {
             }
           }
         }),
-        signal: timeoutSignal(3500)
+        signal: timeoutSignal(6e3)
       });
       if (resWeb.ok) {
         var dataWeb = yield resWeb.json();
         var results = _parseInnertubeWebSearch(dataWeb);
         if (results.length > 0) return results;
       }
-    } catch (e) {
+    } catch (e2) {
     }
     try {
       var resAnd = yield fetch("https://www.youtube.com/youtubei/v1/search?key=" + INNERTUBE_KEY, {
@@ -754,16 +778,56 @@ function searchYouTube(query) {
             }
           }
         }),
-        signal: timeoutSignal(3500)
+        signal: timeoutSignal(6e3)
       });
       if (resAnd.ok) {
         var dataAnd = yield resAnd.json();
         return _parseInnertubeAndroidSearch(dataAnd);
       }
-    } catch (e2) {
+    } catch (e3) {
     }
     return [];
   });
+}
+function _parseInnertubeMwebSearch(data) {
+  var results = [];
+  var seenIds = {};
+  try {
+    var slr = data && data.contents && data.contents.sectionListRenderer && data.contents.sectionListRenderer.contents || [];
+    for (var s = 0; s < slr.length; s++) {
+      var items = slr[s].itemSectionRenderer && slr[s].itemSectionRenderer.contents || [];
+      for (var i = 0; i < items.length; i++) {
+        var it = items[i];
+        var v = it.videoWithContextRenderer || it.compactVideoRenderer || it.videoRenderer;
+        if (!v) continue;
+        var vidId = v.videoId;
+        if (!vidId && v.navigationEndpoint && v.navigationEndpoint.watchEndpoint) {
+          vidId = v.navigationEndpoint.watchEndpoint.videoId;
+        }
+        if (!vidId || seenIds[vidId]) continue;
+        seenIds[vidId] = true;
+        var title = v.headline && v.headline.runs && v.headline.runs[0] && v.headline.runs[0].text || v.title && v.title.runs && v.title.runs[0] && v.title.runs[0].text || v.title && v.title.simpleText || "";
+        var channel = v.shortBylineText && v.shortBylineText.runs && v.shortBylineText.runs[0] && v.shortBylineText.runs[0].text || v.ownerText && v.ownerText.runs && v.ownerText.runs[0] && v.ownerText.runs[0].text || "";
+        var durText = v.lengthText && v.lengthText.runs && v.lengthText.runs[0] && v.lengthText.runs[0].text || v.lengthText && v.lengthText.simpleText || "";
+        var durSec = parseDurationSec(durText);
+        var viewsText = v.shortViewCountText && v.shortViewCountText.runs && v.shortViewCountText.runs[0] && v.shortViewCountText.runs[0].text || v.shortViewCountText && v.shortViewCountText.simpleText || v.viewCountText && v.viewCountText.simpleText || "";
+        viewsText = viewsText.replace(/\u00a0/g, " ").replace(/\s*görüntüleme\s*/i, "").trim();
+        var viewsNum = parseViewCount(viewsText);
+        results.push({
+          id: vidId,
+          title,
+          duration: durText,
+          durationSec: durSec,
+          channel,
+          views: viewsText,
+          viewsNum,
+          isVerified: true
+        });
+      }
+    }
+  } catch (e) {
+  }
+  return results;
 }
 function _parseInnertubeWebSearch(data) {
   var results = [];
@@ -910,6 +974,11 @@ function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
           if (parts[3]) sNum = parseInt(parts[3], 10) || sNum;
           if (parts[4]) eNum = parseInt(parts[4], 10) || eNum;
         }
+      } else {
+        var idNorm = normalizeSeriesId(rawId);
+        if (idNorm.id) rawId = idNorm.id;
+        if (!seasonNum && idNorm.season > 0) sNum = idNorm.season;
+        if (!episodeNum && idNorm.episode > 0) eNum = idNorm.episode;
       }
       var isSeries = mType === "tv" || mType === "series";
       var info = yield resolveSeriesInfo(rawId, mType, TMDB_API_KEY);

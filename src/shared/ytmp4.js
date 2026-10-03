@@ -17,7 +17,7 @@ async function resolveYouTubeMp4(ytId) {
                 context: { client: { clientName: 'ANDROID', clientVersion: '20.10.38' } },
                 videoId: ytId
             }),
-            signal: timeoutSignal(3500)
+            signal: timeoutSignal(6000)
         });
         if (!res.ok) return null;
         var data = await res.json();

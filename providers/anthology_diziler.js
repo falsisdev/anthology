@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: anthology_diziler
  * Built from src/anthology_diziler/index.js
- * Build: v1.8.24 (anthology build system)
+ * Build: v1.8.25 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -464,7 +464,7 @@ var require_ytmp4 = __commonJS({
               context: { client: { clientName: "ANDROID", clientVersion: "20.10.38" } },
               videoId: ytId
             }),
-            signal: timeoutSignal2(3500)
+            signal: timeoutSignal2(6e3)
           });
           if (!res.ok) return null;
           var data = yield res.json();

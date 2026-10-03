@@ -32,6 +32,7 @@ const mimeTypes = {
 };
 
 const server = http.createServer((req, res) => {
+    console.log("[" + new Date().toLocaleTimeString() + "] " + req.method + " " + req.url);
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "GET, HEAD, OPTIONS");
     res.setHeader("Access-Control-Allow-Headers", "*");

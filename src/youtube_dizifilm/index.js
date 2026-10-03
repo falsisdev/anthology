@@ -231,9 +231,35 @@ function matchesTitle(videoTitle, targetTitle) {
     return true;
 }
 
-// ── YouTube Hızlı Arama (Innertube Web API) ──────────────────────────────────
+// ── YouTube Hızlı Arama (Innertube API) ──────────────────────────────────────
 
 async function searchYouTube(query) {
+    // 1. MWEB client (~350KB payload, Nuvio 1MB sınırı için güvenli)
+    try {
+        var resMweb = await fetch('https://www.youtube.com/youtubei/v1/search?key=' + INNERTUBE_KEY, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                query: query,
+                context: {
+                    client: {
+                        clientName: 'MWEB',
+                        clientVersion: '2.20240313.00.00',
+                        hl: 'tr',
+                        gl: 'TR'
+                    }
+                }
+            }),
+            signal: timeoutSignal(6000)
+        });
+        if (resMweb.ok) {
+            var dataMweb = await resMweb.json();
+            var resultsMweb = _parseInnertubeMwebSearch(dataMweb);
+            if (resultsMweb.length > 0) return resultsMweb;
+        }
+    } catch (e) { }
+
+    // 2. Fallback: WEB client
     try {
         var resWeb = await fetch('https://www.youtube.com/youtubei/v1/search?key=' + INNERTUBE_KEY, {
             method: 'POST',
@@ -249,16 +275,16 @@ async function searchYouTube(query) {
                     }
                 }
             }),
-            signal: timeoutSignal(3500)
+            signal: timeoutSignal(6000)
         });
         if (resWeb.ok) {
             var dataWeb = await resWeb.json();
             var results = _parseInnertubeWebSearch(dataWeb);
             if (results.length > 0) return results;
         }
-    } catch (e) { }
+    } catch (e2) { }
 
-    // Fallback: ANDROID client
+    // 3. Fallback: ANDROID client
     try {
         var resAnd = await fetch('https://www.youtube.com/youtubei/v1/search?key=' + INNERTUBE_KEY, {
             method: 'POST',
@@ -278,15 +304,64 @@ async function searchYouTube(query) {
                     }
                 }
             }),
-            signal: timeoutSignal(3500)
+            signal: timeoutSignal(6000)
         });
         if (resAnd.ok) {
             var dataAnd = await resAnd.json();
             return _parseInnertubeAndroidSearch(dataAnd);
         }
-    } catch (e2) { }
+    } catch (e3) { }
 
     return [];
+}
+
+function _parseInnertubeMwebSearch(data) {
+    var results = [];
+    var seenIds = {};
+    try {
+        var slr = (data && data.contents && data.contents.sectionListRenderer &&
+            data.contents.sectionListRenderer.contents) || [];
+        for (var s = 0; s < slr.length; s++) {
+            var items = (slr[s].itemSectionRenderer && slr[s].itemSectionRenderer.contents) || [];
+            for (var i = 0; i < items.length; i++) {
+                var it = items[i];
+                var v = it.videoWithContextRenderer || it.compactVideoRenderer || it.videoRenderer;
+                if (!v) continue;
+                var vidId = v.videoId;
+                if (!vidId && v.navigationEndpoint && v.navigationEndpoint.watchEndpoint) {
+                    vidId = v.navigationEndpoint.watchEndpoint.videoId;
+                }
+                if (!vidId || seenIds[vidId]) continue;
+                seenIds[vidId] = true;
+
+                var title = (v.headline && v.headline.runs && v.headline.runs[0] && v.headline.runs[0].text) ||
+                    (v.title && v.title.runs && v.title.runs[0] && v.title.runs[0].text) ||
+                    (v.title && v.title.simpleText) || '';
+                var channel = (v.shortBylineText && v.shortBylineText.runs && v.shortBylineText.runs[0] && v.shortBylineText.runs[0].text) ||
+                    (v.ownerText && v.ownerText.runs && v.ownerText.runs[0] && v.ownerText.runs[0].text) || '';
+                var durText = (v.lengthText && v.lengthText.runs && v.lengthText.runs[0] && v.lengthText.runs[0].text) ||
+                    (v.lengthText && v.lengthText.simpleText) || '';
+                var durSec = parseDurationSec(durText);
+                var viewsText = (v.shortViewCountText && v.shortViewCountText.runs && v.shortViewCountText.runs[0] && v.shortViewCountText.runs[0].text) ||
+                    (v.shortViewCountText && v.shortViewCountText.simpleText) ||
+                    (v.viewCountText && v.viewCountText.simpleText) || '';
+                viewsText = viewsText.replace(/\u00a0/g, ' ').replace(/\s*görüntüleme\s*/i, '').trim();
+                var viewsNum = parseViewCount(viewsText);
+
+                results.push({
+                    id: vidId,
+                    title: title,
+                    duration: durText,
+                    durationSec: durSec,
+                    channel: channel,
+                    views: viewsText,
+                    viewsNum: viewsNum,
+                    isVerified: true
+                });
+            }
+        }
+    } catch (e) { }
+    return results;
 }
 
 function _parseInnertubeWebSearch(data) {
@@ -466,6 +541,12 @@ async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
                 if (parts[3]) sNum = parseInt(parts[3], 10) || sNum;
                 if (parts[4]) eNum = parseInt(parts[4], 10) || eNum;
             }
+        } else {
+            // Nuvio / Stremio kimlik normalizasyonu (tt7115656:1:1 -> id: tt7115656, season: 1, episode: 1)
+            var idNorm = normalizeSeriesId(rawId);
+            if (idNorm.id) rawId = idNorm.id;
+            if (!seasonNum && idNorm.season > 0) sNum = idNorm.season;
+            if (!episodeNum && idNorm.episode > 0) eNum = idNorm.episode;
         }
 
         // 3. TMDB Kimlik Çözümü (Dinamik)
