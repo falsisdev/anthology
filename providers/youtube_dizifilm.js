@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: youtube_dizifilm
  * Built from src/youtube_dizifilm/index.js
- * Build: v1.8.24 (anthology build system)
+ * Build: v1.8.25 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -536,12 +536,6 @@ function cfgReady() {
 }
 var TMDB_API_KEY = "500330721680edb6d5f7f12ba7cd9023";
 var INNERTUBE_KEY = "AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8";
-var DESKTOP_UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36";
-var HEADERS = {
-  "User-Agent": DESKTOP_UA,
-  "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-  "Accept-Language": "tr-TR,tr;q=0.9,en;q=0.8"
-};
 var POPULAR_DIZILER = [
   { tmdbId: "34587", name: "Kurtlar Vadisi", year: "2003", poster: "https://image.tmdb.org/t/p/w500/yX6JEIijuH6KNCgO8I2yLKu2Psb.jpg", channel: "Kurtlar Vadisi" },
   { tmdbId: "32519", name: "Ezel", year: "2009", poster: "https://image.tmdb.org/t/p/w500/pHSjh4MINU2JnK7qQvjogQaX3wr.jpg", channel: "Ezel" },
@@ -641,61 +635,43 @@ function matchesEpisode(videoTitle, season, episode, cumEpisode) {
   }
   return true;
 }
-var _channelCache = {};
-function getChannelSubscribers(browseId) {
-  return __async(this, null, function* () {
-    if (!browseId) return null;
-    if (_channelCache[browseId] !== void 0) return _channelCache[browseId];
-    try {
-      var res = yield fetch("https://www.youtube.com/youtubei/v1/browse?key=" + INNERTUBE_KEY, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          browseId,
-          context: { client: { clientName: "WEB", clientVersion: "2.20240313.00.00", hl: "tr", gl: "TR" } }
-        }),
-        signal: timeoutSignal(3500)
-      });
-      if (!res.ok) {
-        _channelCache[browseId] = null;
-        return null;
-      }
-      var data = yield res.json();
-      var subs = "";
-      var rows = data.header && data.header.pageHeaderRenderer && data.header.pageHeaderRenderer.content && data.header.pageHeaderRenderer.content.pageHeaderViewModel && data.header.pageHeaderRenderer.content.pageHeaderViewModel.metadata && data.header.pageHeaderRenderer.content.pageHeaderViewModel.metadata.contentMetadataViewModel && data.header.pageHeaderRenderer.content.pageHeaderViewModel.metadata.contentMetadataViewModel.metadataRows || [];
-      for (var r = 0; r < rows.length; r++) {
-        var parts = rows[r].metadataParts || [];
-        for (var p = 0; p < parts.length; p++) {
-          var txt = parts[p].text && parts[p].text.content || parts[p].accessibilityLabel || "";
-          if (txt.indexOf("abone") !== -1 || txt.indexOf("subscriber") !== -1) {
-            subs = txt.replace(/\s*abone\s*/gi, "").replace(/\s*subscribers?\s*/gi, "").trim();
-            break;
-          }
-        }
-        if (subs) break;
-      }
-      if (!subs && data.header && data.header.c4TabbedHeaderRenderer) {
-        var c4 = data.header.c4TabbedHeaderRenderer;
-        if (c4.subscriberCountText && c4.subscriberCountText.simpleText) {
-          subs = c4.subscriberCountText.simpleText.replace(/\s*abone\s*/gi, "").trim();
-        }
-      }
-      if (!subs) {
-        var str = JSON.stringify(data.header || {});
-        var m = str.match(/([0-9.,]+\s*[B|Mn|M|bin|milyon]?)\s*(?:abone|subscriber)/i);
-        if (m) subs = m[1].trim();
-      }
-      if (subs) {
-        subs = subs.replace(/\u00a0/g, " ").trim();
-        if (subs.toLowerCase().indexOf("abone") === -1) subs += " Abone";
-      }
-      _channelCache[browseId] = subs || null;
-      return _channelCache[browseId];
-    } catch (e) {
-      _channelCache[browseId] = null;
-      return null;
-    }
-  });
+var KNOWN_CHANNELS = {
+  "arzu film": "2.1M Abone",
+  "trt nostalji": "667B Abone",
+  "kanal d": "10.5M Abone",
+  "show tv": "9.8M Abone",
+  "star tv": "7.2M Abone",
+  "atv": "12.8M Abone",
+  "trt 1": "8.5M Abone",
+  "kurtlar vadisi": "3.2M Abone",
+  "ezel": "2.4M Abone",
+  "bkm": "4.5M Abone",
+  "fanatik film": "3.1M Abone",
+  "fanatik klasik film": "1.8M Abone",
+  "gulsah film": "1.2M Abone",
+  "hanimin ciftligi": "197B Abone",
+  "leyla ile mecnun": "1.8M Abone",
+  "kuzey guney": "1.5M Abone",
+  "avrupa yakasi": "1.6M Abone",
+  "cukur": "7.8M Abone",
+  "icerde": "3.9M Abone",
+  "medcezir": "2.9M Abone",
+  "karadayi": "1.1M Abone",
+  "yaprak dokumu": "1.4M Abone",
+  "gonul dagi": "2.3M Abone",
+  "kardes payi": "1.9M Abone",
+  "genis aile": "1.1M Abone",
+  "cennet mahallesi": "1.5M Abone",
+  "akasya duragi": "1.7M Abone",
+  "muhtesem yuzyil": "3.8M Abone",
+  "behzat c.": "1.2M Abone"
+};
+function getChannelSubscriberBadge(channel, isVerified) {
+  if (!channel) return isVerified ? "\u2714" : "";
+  var norm = cleanTitle(channel);
+  var sub = KNOWN_CHANNELS[norm];
+  if (sub) return isVerified ? "\u2714 (" + sub + ")" : "(" + sub + ")";
+  return isVerified ? "\u2714" : "";
 }
 function parseViewCount(str) {
   if (!str) return 0;
@@ -714,6 +690,25 @@ function formatNumberCompact(n) {
   if (num >= 1e3) return (num / 1e3).toFixed(0) + " B";
   return String(num);
 }
+function matchesTitle(videoTitle, targetTitle) {
+  var vNorm = asciiFold(videoTitle).toLowerCase();
+  var tNorm = asciiFold(targetTitle).toLowerCase();
+  var tWords = tNorm.split(/\s+/).filter(function(w) {
+    return w.length > 1;
+  });
+  var allWords = tWords.length > 0 && tWords.every(function(w) {
+    return new RegExp("\\b" + w + "\\b", "i").test(vNorm);
+  });
+  if (!allWords) return false;
+  var spinOffs = ["pusu", "teror", "gladio", "irak", "filistin", "vatan"];
+  for (var s = 0; s < spinOffs.length; s++) {
+    var sp = spinOffs[s];
+    if (tNorm.indexOf(sp) === -1 && new RegExp("\\b" + sp + "\\b", "i").test(vNorm)) {
+      return false;
+    }
+  }
+  return true;
+}
 function searchYouTube(query) {
   return __async(this, null, function* () {
     try {
@@ -731,12 +726,12 @@ function searchYouTube(query) {
             }
           }
         }),
-        signal: timeoutSignal(4e3)
+        signal: timeoutSignal(3500)
       });
       if (resWeb.ok) {
         var dataWeb = yield resWeb.json();
-        var resultsWeb = _parseInnertubeWebSearch(dataWeb);
-        if (resultsWeb.length > 0) return resultsWeb;
+        var results = _parseInnertubeWebSearch(dataWeb);
+        if (results.length > 0) return results;
       }
     } catch (e) {
     }
@@ -759,29 +754,15 @@ function searchYouTube(query) {
             }
           }
         }),
-        signal: timeoutSignal(4e3)
+        signal: timeoutSignal(3500)
       });
       if (resAnd.ok) {
         var dataAnd = yield resAnd.json();
-        var resultsAnd = _parseInnertubeAndroidSearch(dataAnd);
-        if (resultsAnd.length > 0) return resultsAnd;
+        return _parseInnertubeAndroidSearch(dataAnd);
       }
     } catch (e2) {
     }
-    try {
-      var res3 = yield fetch("https://www.youtube.com/results?search_query=" + encodeURIComponent(query), {
-        headers: HEADERS,
-        signal: timeoutSignal(4e3)
-      });
-      if (!res3.ok) return [];
-      var html = yield res3.text();
-      var match = html.match(/var ytInitialData = ({.*?});<\/script>/) || html.match(/ytInitialData\s*=\s*({.+?});/);
-      if (!match) return [];
-      var data3 = JSON.parse(match[1]);
-      return _parseInnertubeWebSearch(data3);
-    } catch (e3) {
-      return [];
-    }
+    return [];
   });
 }
 function _parseInnertubeWebSearch(data) {
@@ -797,14 +778,9 @@ function _parseInnertubeWebSearch(data) {
         var vid = vr.videoId;
         if (seenIds[vid]) continue;
         seenIds[vid] = true;
-        var title = vr.title && vr.title.runs && vr.title.runs.map(function(r) {
-          return r.text;
-        }).join("") || vr.title && vr.title.simpleText || "";
-        var duration = vr.lengthText && vr.lengthText.simpleText || vr.lengthText && vr.lengthText.runs && vr.lengthText.runs.map(function(r) {
-          return r.text;
-        }).join("") || "";
+        var title = vr.title && vr.title.runs && vr.title.runs[0] && vr.title.runs[0].text || vr.title && vr.title.simpleText || "";
+        var duration = vr.lengthText && vr.lengthText.simpleText || vr.lengthText && vr.lengthText.runs && vr.lengthText.runs[0] && vr.lengthText.runs[0].text || "";
         var channel = vr.ownerText && vr.ownerText.runs && vr.ownerText.runs[0] && vr.ownerText.runs[0].text || "";
-        var browseId = vr.ownerText && vr.ownerText.runs && vr.ownerText.runs[0] && vr.ownerText.runs[0].navigationEndpoint && vr.ownerText.runs[0].navigationEndpoint.browseEndpoint && vr.ownerText.runs[0].navigationEndpoint.browseEndpoint.browseId || null;
         var views = vr.shortViewCountText && vr.shortViewCountText.simpleText || vr.viewCountText && vr.viewCountText.simpleText || "";
         views = views.replace(/\u00a0/g, " ").replace(/\s*görüntüleme\s*/i, "").trim();
         var isVerified = false;
@@ -819,7 +795,6 @@ function _parseInnertubeWebSearch(data) {
           duration,
           durationSec: parseDurationSec(duration),
           channel,
-          browseId,
           views,
           viewsNum: parseViewCount(views),
           isVerified
@@ -843,16 +818,10 @@ function _parseInnertubeAndroidSearch(data) {
         var vid = vr.videoId;
         if (seenIds[vid]) continue;
         seenIds[vid] = true;
-        var title = vr.title && vr.title.runs && vr.title.runs.map(function(r) {
-          return r.text;
-        }).join("") || vr.title && vr.title.simpleText || "";
-        var duration = vr.lengthText && vr.lengthText.simpleText || vr.lengthText && vr.lengthText.runs && vr.lengthText.runs.map(function(r) {
-          return r.text;
-        }).join("") || "";
+        var title = vr.title && vr.title.runs && vr.title.runs[0] && vr.title.runs[0].text || vr.title && vr.title.simpleText || "";
+        var duration = vr.lengthText && vr.lengthText.simpleText || "";
         var channel = vr.shortBylineText && vr.shortBylineText.runs && vr.shortBylineText.runs[0] && vr.shortBylineText.runs[0].text || vr.ownerText && vr.ownerText.runs && vr.ownerText.runs[0] && vr.ownerText.runs[0].text || "";
-        var browseEndpoint = vr.shortBylineText && vr.shortBylineText.runs && vr.shortBylineText.runs[0] && vr.shortBylineText.runs[0].navigationEndpoint && vr.shortBylineText.runs[0].navigationEndpoint.browseEndpoint || vr.ownerText && vr.ownerText.runs && vr.ownerText.runs[0] && vr.ownerText.runs[0].navigationEndpoint && vr.ownerText.runs[0].navigationEndpoint.browseEndpoint;
-        var browseId = browseEndpoint && browseEndpoint.browseId || null;
-        var views = vr.shortViewCountText && vr.shortViewCountText.runs && vr.shortViewCountText.runs[0] && vr.shortViewCountText.runs[0].text || vr.viewCountText && vr.viewCountText.runs && vr.viewCountText.runs[0] && vr.viewCountText.runs[0].text || vr.viewCountText && vr.viewCountText.simpleText || "";
+        var views = vr.shortViewCountText && vr.shortViewCountText.runs && vr.shortViewCountText.runs[0] && vr.shortViewCountText.runs[0].text || vr.viewCountText && vr.viewCountText.simpleText || "";
         views = views.replace(/\u00a0/g, " ").replace(/\s*görüntüleme\s*/i, "").trim();
         var isVerified = false;
         var badges = vr.badges || vr.ownerBadges;
@@ -867,7 +836,6 @@ function _parseInnertubeAndroidSearch(data) {
           duration,
           durationSec: parseDurationSec(duration),
           channel,
-          browseId,
           views,
           viewsNum: parseViewCount(views),
           isVerified
@@ -905,23 +873,19 @@ function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
         var streams = [];
         var streamData = yield resolveYouTubeMp4(directYtId);
         var chName = streamData && streamData.author || "YouTube";
-        var chId = streamData && streamData.channelId;
-        var subs = chId ? yield getChannelSubscribers(chId) : null;
+        var badge = getChannelSubscriberBadge(chName, true);
+        var streamName = "\u{1F4FA} " + chName + (badge ? " " + badge : "");
         var vTitle = streamData && streamData.videoTitle || "";
         var vViews = streamData && streamData.viewCount ? formatNumberCompact(streamData.viewCount) : "";
         var viewsTag = vViews ? " \xB7 \u{1F441} " + vViews : "";
-        var nameParts = ["\u{1F4FA}", chName];
-        if (subs) nameParts.push("(" + subs + ")");
-        var streamName = nameParts.join(" ");
-        if (streamData) {
-          var qBase = streamData.quality || (streamData.isHls ? "1080p" : "720p");
-          var qType = streamData.isHls ? "HLS" : "MP4";
+        if (streamData && streamData.url) {
+          var qBase = streamData.quality || (streamData.isHls ? "1080p" : "360p");
           streams.push({
             name: streamName,
-            title: "\u231C YouTube \u231F | " + streamName + " | " + qBase + " " + qType,
+            title: "\u231C YouTube \u231F | " + streamName + " (" + qBase + ")",
             description: vTitle + viewsTag,
             url: streamData.url,
-            quality: qBase + " " + qType + viewsTag,
+            quality: qBase,
             isHls: !!streamData.isHls,
             format: streamData.format || (streamData.isHls ? "hls" : "mp4"),
             provider: "youtube_dizifilm",
@@ -931,19 +895,17 @@ function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
         }
         streams.push({
           name: streamName,
-          title: "\u231C YouTube \u231F | " + streamName + " | 1080p Resm\xEE Oynat\u0131c\u0131",
+          title: "\u231C YouTube \u231F | " + streamName + " (YouTube Embed)",
           description: vTitle + viewsTag,
-          url: "https://www.youtube.com/watch?v=" + directYtId,
           ytId: directYtId,
-          quality: "1080p \xB7 Resm\xEE Oynat\u0131c\u0131" + viewsTag,
           provider: "youtube_dizifilm"
         });
         return sortStreamsByQuality(streams);
       }
       if (rawId.startsWith("youtube:")) {
         var parts = rawId.split(":");
-        if (parts[1] === "tv" || parts[1] === "movie") {
-          mType = parts[1];
+        if (parts[1] === "tv" || parts[1] === "series" || parts[1] === "movie") {
+          mType = parts[1] === "movie" ? "movie" : "series";
           rawId = parts[2];
           if (parts[3]) sNum = parseInt(parts[3], 10) || sNum;
           if (parts[4]) eNum = parseInt(parts[4], 10) || eNum;
@@ -963,79 +925,53 @@ function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
         }
         if (sum > 0) cumEpisode = sum + eNum;
       }
-      var titlesToSearch = [targetTitle];
-      if (info.origTitle && info.origTitle !== targetTitle) titlesToSearch.push(info.origTitle);
-      if (Array.isArray(info.aliases)) {
-        for (var a = 0; a < info.aliases.length; a++) {
-          var al = info.aliases[a];
-          if (al && !al.startsWith("tt") && titlesToSearch.indexOf(al) === -1) {
-            titlesToSearch.push(al);
-          }
-        }
-      }
       var searchQueries = [];
-      for (var t = 0; t < titlesToSearch.length; t++) {
-        var curTitle = titlesToSearch[t];
-        if (isSeries) {
-          if (cumEpisode && cumEpisode !== eNum) {
-            searchQueries.push(curTitle + " " + cumEpisode + ". B\xF6l\xFCm");
-          }
-          if (sNum > 1) {
-            searchQueries.push(curTitle + " " + sNum + ". Sezon " + eNum + ". B\xF6l\xFCm");
-          }
-          searchQueries.push(curTitle + " " + eNum + ". B\xF6l\xFCm");
-          searchQueries.push(curTitle + " " + eNum + ". B\xF6l\xFCm Full HD");
-        } else {
-          searchQueries.push(curTitle + " Full \u0130zle");
-          searchQueries.push(curTitle + " Full HD Tek Par\xE7a");
-          searchQueries.push(curTitle + " T\xFCrk Filmi Full");
-          searchQueries.push(curTitle);
+      if (isSeries) {
+        var epTarget = cumEpisode && cumEpisode !== eNum ? cumEpisode : eNum;
+        searchQueries.push(targetTitle + " " + epTarget + ". B\xF6l\xFCm");
+        if (sNum > 1 && epTarget === eNum) {
+          searchQueries.push(targetTitle + " " + sNum + ". Sezon " + eNum + ". B\xF6l\xFCm");
         }
+      } else {
+        searchQueries.push(targetTitle + " Full \u0130zle");
+        searchQueries.push(targetTitle + " Tek Par\xE7a");
       }
+      var searchResultsArr = yield Promise.all(searchQueries.map(function(q) {
+        return searchYouTube(q);
+      }));
       var candidateVideos = [];
       var seenVid = {};
-      for (var q = 0; q < searchQueries.length; q++) {
-        var vids = yield searchYouTube(searchQueries[q]);
+      var minDuration = isSeries ? 900 : 2400;
+      for (var a = 0; a < searchResultsArr.length; a++) {
+        var vids = searchResultsArr[a] || [];
         for (var v = 0; v < vids.length; v++) {
           var vid = vids[v];
           if (seenVid[vid.id]) continue;
           seenVid[vid.id] = true;
-          var minDuration = isSeries ? 900 : 2400;
           if (vid.durationSec > 0 && vid.durationSec < minDuration) continue;
-          if (isSeries) {
-            if (!matchesEpisode(vid.title, sNum, eNum, cumEpisode)) continue;
-          } else {
-            var cVid = cleanTitle(vid.title);
-            var cTarget = cleanTitle(targetTitle);
-            var words = cTarget.split(" ").filter(function(w) {
-              return w.length > 2;
-            });
-            var allWordsFound = words.length > 0 && words.every(function(w) {
-              return cVid.indexOf(w) !== -1;
-            });
-            if (!allWordsFound && cVid.indexOf(cTarget) === -1) continue;
-          }
+          if (!matchesTitle(vid.title, targetTitle)) continue;
+          if (isSeries && !matchesEpisode(vid.title, sNum, eNum, cumEpisode)) continue;
           candidateVideos.push(vid);
-          if (candidateVideos.length >= 6) break;
+          if (candidateVideos.length >= 4) break;
         }
-        if (candidateVideos.length >= 6) break;
+        if (candidateVideos.length >= 4) break;
       }
       if (candidateVideos.length === 0) return [];
-      candidateVideos.sort(function(a2, b) {
-        return (b.viewsNum || 0) - (a2.viewsNum || 0);
+      candidateVideos.sort(function(x, y) {
+        return (y.viewsNum || 0) - (x.viewsNum || 0);
       });
       var channelSeen = {};
       var topCandidates = [];
       for (var c = 0; c < candidateVideos.length; c++) {
         var cand = candidateVideos[c];
-        var chKey = cand.channel || cand.browseId || cand.id;
+        var chKey = cleanTitle(cand.channel) || cand.id;
         if (!channelSeen[chKey]) {
           channelSeen[chKey] = true;
           topCandidates.push(cand);
-          if (topCandidates.length >= 3) break;
+          if (topCandidates.length >= 2) break;
         }
       }
-      if (topCandidates.length < 2) {
+      if (topCandidates.length < 2 && candidateVideos.length > 0) {
         for (var c2 = 0; c2 < candidateVideos.length; c2++) {
           var cand2 = candidateVideos[c2];
           if (topCandidates.indexOf(cand2) === -1) {
@@ -1044,56 +980,26 @@ function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
           }
         }
       }
-      yield Promise.all(topCandidates.map(function(candObj3) {
-        return __async(this, null, function* () {
-          if (candObj3.browseId) {
-            candObj3.subscribers = yield getChannelSubscribers(candObj3.browseId);
-          }
+      var resolvedArr = yield Promise.all(topCandidates.map(function(tc) {
+        return resolveYouTubeMp4(tc.id).catch(function() {
+          return null;
         });
       }));
       var streams = [];
       for (var i = 0; i < topCandidates.length; i++) {
         var candObj = topCandidates[i];
-        var nameParts = ["\u{1F4FA}", candObj.channel || "YouTube"];
-        if (candObj.isVerified) nameParts.push("\u2714");
-        if (candObj.subscribers) nameParts.push("(" + candObj.subscribers + ")");
-        var streamName = nameParts.join(" ");
-        var cleanViews = candObj.views ? candObj.views.replace(/\u00a0/g, " ").replace(/\s*görüntüleme\s*/i, "").trim() : "";
-        var viewsLabel = cleanViews ? " \xB7 \u{1F441} " + cleanViews : "";
-        streams.push({
-          name: streamName,
-          title: "\u231C YouTube \u231F | " + streamName + " | 1080p Resm\xEE Oynat\u0131c\u0131",
-          description: candObj.title + viewsLabel,
-          url: "https://www.youtube.com/watch?v=" + candObj.id,
-          ytId: candObj.id,
-          quality: "1080p \xB7 Resm\xEE Oynat\u0131c\u0131" + viewsLabel,
-          provider: "youtube_dizifilm"
-        });
-      }
-      try {
-        var resolvedArr = yield Promise.all(topCandidates.map(function(c3) {
-          return resolveYouTubeMp4(c3.id).catch(function() {
-            return null;
-          });
-        }));
-        for (var j = 0; j < topCandidates.length; j++) {
-          var candObj2 = topCandidates[j];
-          var resolved = resolvedArr[j];
-          if (!resolved || !resolved.url) continue;
-          var nameParts2 = ["\u{1F4FA}", candObj2.channel || "YouTube"];
-          if (candObj2.isVerified) nameParts2.push("\u2714");
-          if (candObj2.subscribers) nameParts2.push("(" + candObj2.subscribers + ")");
-          var streamName2 = nameParts2.join(" ");
-          var cleanViews2 = candObj2.views ? candObj2.views.replace(/\u00a0/g, " ").replace(/\s*görüntüleme\s*/i, "").trim() : "";
-          var viewsLabel2 = cleanViews2 ? " \xB7 \u{1F441} " + cleanViews2 : "";
-          var qBase = resolved.quality || (resolved.isHls ? "1080p" : "720p");
-          var qType = resolved.isHls ? "HLS" : "MP4";
+        var resolved = resolvedArr[i];
+        var badge2 = getChannelSubscriberBadge(candObj.channel, candObj.isVerified);
+        var streamName2 = "\u{1F4FA} " + (candObj.channel || "YouTube") + (badge2 ? " " + badge2 : "");
+        var viewsLabel = candObj.views ? " \xB7 \u{1F441} " + candObj.views : "";
+        if (resolved && resolved.url) {
+          var qLabel = resolved.quality || (resolved.isHls ? "1080p" : "360p");
           streams.push({
             name: streamName2,
-            title: "\u231C YouTube \u231F | " + streamName2 + " | " + qBase + " " + qType,
-            description: candObj2.title + viewsLabel2,
+            title: "\u231C YouTube \u231F | " + streamName2 + " (" + qLabel + ")",
+            description: candObj.title + viewsLabel,
             url: resolved.url,
-            quality: qBase + " " + qType + viewsLabel2,
+            quality: qLabel,
             isHls: !!resolved.isHls,
             format: resolved.format || (resolved.isHls ? "hls" : "mp4"),
             provider: "youtube_dizifilm",
@@ -1101,7 +1007,13 @@ function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
             behaviorHints: { headers: resolved.headers }
           });
         }
-      } catch (e) {
+        streams.push({
+          name: streamName2,
+          title: "\u231C YouTube \u231F | " + streamName2 + " (YouTube Embed)",
+          description: candObj.title + viewsLabel,
+          ytId: candObj.id,
+          provider: "youtube_dizifilm"
+        });
       }
       return sortStreamsByQuality(streams);
     } catch (e) {
