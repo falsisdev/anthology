@@ -119,7 +119,7 @@ async function resolveSourceStream(sourceUrl, pageUrl) {
         if (sourceUrl.includes('/vod/')) {
             var vRes = await fetchWithTimeout(sourceUrl, {
                 headers: { 'User-Agent': UA, 'Referer': pageUrl }
-            }, 10000);
+            }, 15000);
             if (!vRes.ok) return null;
             var vHtml = await vRes.text();
 
@@ -148,7 +148,9 @@ async function resolveSourceStream(sourceUrl, pageUrl) {
                     lang: lang === 'tr' ? 'tur' : 'eng',
                     language: lang,
                     label: label,
-                    format: 'vtt'
+                    format: 'vtt',
+                    type: 'text/vtt',
+                    mimeType: 'text/vtt'
                 });
             }
 
@@ -163,7 +165,7 @@ async function resolveSourceStream(sourceUrl, pageUrl) {
         // 2. Durum: Embed Oynatıcı (/embed-...)
         var pRes = await fetchWithTimeout(sourceUrl, {
             headers: { 'User-Agent': UA, 'Referer': pageUrl }
-        }, 10000);
+        }, 15000);
         if (!pRes.ok) return null;
         var pHtml = await pRes.text();
 
@@ -173,7 +175,7 @@ async function resolveSourceStream(sourceUrl, pageUrl) {
 
         var innerRes = await fetchWithTimeout(innerEmbedUrl, {
             headers: { 'User-Agent': UA, 'Referer': sourceUrl }
-        }, 10000);
+        }, 15000);
         if (!innerRes.ok) return null;
         var innerHtml = await innerRes.text();
 
@@ -190,7 +192,7 @@ async function resolveSourceStream(sourceUrl, pageUrl) {
                 'Referer': innerEmbedUrl,
                 'Origin': innerOrigin
             }
-        }, 8000);
+        }, 15000);
         if (!dlRes.ok) return null;
         var dlData = await dlRes.json().catch(function() { return null; });
         if (dlData && dlData.url) {
@@ -279,11 +281,13 @@ async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
             return await extractStreamsFromPage(rawId);
         }
 
-        // 2. Katalog slug ID'si verilmişse (liderfilm:tv:sumud veya liderfilm:movie:captain-nova)
+        // 2. Katalog slug ID'si verilmişse (liderfilm:tv:sumud veya liderfilm:movie:captain-nova veya liderfilm:tv:sumud:1:5)
         if (rawId.startsWith('liderfilm:')) {
             var parts = rawId.split(':');
             var type = parts[1];
             var slug = parts[2];
+            if (parts[3] && /^\d+$/.test(parts[3])) sNum = parseInt(parts[3], 10);
+            if (parts[4] && /^\d+$/.test(parts[4])) eNum = parseInt(parts[4], 10);
             var pageUrl = (type === 'tv' || type === 'series')
                 ? (BASE_URL + '/dizi/' + slug + '/sezon-' + sNum + '/bolum-' + eNum)
                 : (BASE_URL + '/' + slug);

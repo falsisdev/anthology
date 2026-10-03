@@ -292,7 +292,7 @@ function resolveSourceStream(sourceUrl, pageUrl) {
       if (sourceUrl.includes("/vod/")) {
         var vRes = yield fetchWithTimeout(sourceUrl, {
           headers: { "User-Agent": UA, "Referer": pageUrl }
-        }, 1e4);
+        }, 15e3);
         if (!vRes.ok) return null;
         var vHtml = yield vRes.text();
         var sourceMatch = vHtml.match(/file:\s*["'](\/player\/stream\.php\?url=[^"']+)["']/i) || vHtml.match(/sources:\s*\[\s*\{\s*file:\s*["']([^"']+)["']/i);
@@ -316,7 +316,9 @@ function resolveSourceStream(sourceUrl, pageUrl) {
             lang: lang === "tr" ? "tur" : "eng",
             language: lang,
             label,
-            format: "vtt"
+            format: "vtt",
+            type: "text/vtt",
+            mimeType: "text/vtt"
           });
         }
         return {
@@ -328,7 +330,7 @@ function resolveSourceStream(sourceUrl, pageUrl) {
       }
       var pRes = yield fetchWithTimeout(sourceUrl, {
         headers: { "User-Agent": UA, "Referer": pageUrl }
-      }, 1e4);
+      }, 15e3);
       if (!pRes.ok) return null;
       var pHtml = yield pRes.text();
       var ifrMatch = pHtml.match(/<iframe[^>]+src=["']([^"']+)["']/i);
@@ -336,7 +338,7 @@ function resolveSourceStream(sourceUrl, pageUrl) {
       var innerEmbedUrl = ifrMatch[1];
       var innerRes = yield fetchWithTimeout(innerEmbedUrl, {
         headers: { "User-Agent": UA, "Referer": sourceUrl }
-      }, 1e4);
+      }, 15e3);
       if (!innerRes.ok) return null;
       var innerHtml = yield innerRes.text();
       var dlMatch = innerHtml.match(/fetch\(['"](\/dl\?[^'"]+)['"]\)/);
@@ -350,7 +352,7 @@ function resolveSourceStream(sourceUrl, pageUrl) {
           "Referer": innerEmbedUrl,
           "Origin": innerOrigin
         }
-      }, 8e3);
+      }, 15e3);
       if (!dlRes.ok) return null;
       var dlData = yield dlRes.json().catch(function() {
         return null;
@@ -436,6 +438,8 @@ function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
         var parts = rawId.split(":");
         var type = parts[1];
         var slug = parts[2];
+        if (parts[3] && /^\d+$/.test(parts[3])) sNum = parseInt(parts[3], 10);
+        if (parts[4] && /^\d+$/.test(parts[4])) eNum = parseInt(parts[4], 10);
         var pageUrl = type === "tv" || type === "series" ? BASE_URL + "/dizi/" + slug + "/sezon-" + sNum + "/bolum-" + eNum : BASE_URL + "/" + slug;
         return yield extractStreamsFromPage(pageUrl);
       }
