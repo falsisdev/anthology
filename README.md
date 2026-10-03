@@ -175,10 +175,10 @@ Nuvio ve Stremio ana sayfasında canlı TV kanallarını kategorilere ayrılmı�
 ### ⚽ Spor Kanalları (50 Canlı Kanal)
 
 <div align="center">
-  <img src="assets/canli/beinsports.png" width="44" height="44" alt="BeIN Sports" /> &nbsp;&nbsp;
-  <img src="assets/canli/ssport.png" width="44" height="44" alt="S Sport" /> &nbsp;&nbsp;
-  <img src="assets/canli/tivibuspor.png" width="44" height="44" alt="Tivibu Spor" /> &nbsp;&nbsp;
-  <img src="assets/canli/exxenspor.png" width="44" height="44" alt="Exxen Spor" /> &nbsp;&nbsp;
+  <img src="assets/canli/stealth/binsports.png" width="44" height="44" alt="B-In Sports" /> &nbsp;&nbsp;
+  <img src="assets/canli/stealth/essport.png" width="44" height="44" alt="Es Sport" /> &nbsp;&nbsp;
+  <img src="assets/canli/stealth/tvbuspor.png" width="44" height="44" alt="TV-Bu Spor" /> &nbsp;&nbsp;
+  <img src="assets/canli/stealth/eksenspor.png" width="44" height="44" alt="Eksen Spor" /> &nbsp;&nbsp;
   <img src="assets/canli/trtspor.png" width="44" height="44" alt="TRT Spor" /> &nbsp;&nbsp;
   <img src="assets/canli/aspor.png" width="44" height="44" alt="A Spor" /> &nbsp;&nbsp;
   <img src="assets/canli/htspor.png" width="44" height="44" alt="HT Spor" /> &nbsp;&nbsp;
@@ -187,11 +187,12 @@ Nuvio ve Stremio ana sayfasında canlı TV kanallarını kategorilere ayrılmı�
 
 <br>
 
-- **BeIN Sports:** BeIN Sports 1, 2, 3, 4, 5 HD & BeIN Sports Max 1, Max 2 HD
-- **S Sport:** S Sport 1 HD, S Sport 2 HD & S Sport Plus HD
-- **Tivibu Spor:** Tivibu Spor HD, Tivibu Spor 1, 2, 3, 4 HD
-- **Exxen Spor:** Exxen TV & Exxen Spor 1, 2, 3, 4, 5, 6, 7, 8 HD (Avrupa Maçları)
-- **Ulusal & Kulüp Spor:** TRT Spor HD, TRT Spor Yıldız HD, A Spor HD, HT Spor HD, TV8,5 HD, FB TV HD, GS TV HD, TJK TV HD, Sports TV HD, Smart Spor 1-2, EuroSport 1-2, NBA TV, CBC Sport HD, İdman TV HD
+- **B-In Sports:** B-In Sports 1, 2, 3, 4, 5 HD & B-In Sports Max 1, Max 2 HD
+- **Es Sport:** Es Sport 1 HD, Es Sport 2 HD & Es Sport Plus HD
+- **TV-Bu Spor:** TV-Bu Spor HD, TV-Bu Spor 1, 2, 3, 4 HD
+- **Eksen Spor:** Eksen TV & Eksen Sports 1, 2, 3, 4, 5, 6, 7, 8 HD (Avrupa Maçları)
+- **Akıllı Spor & Avro Sport & Tab11 Spor:** Akıllı Spor 1-2 HD, Avro Sport 1-2 HD, Tab11 Spor 1-8 HD
+- **Ulusal & Kulüp Spor:** TRT Spor HD, TRT Spor Yıldız HD, A Spor HD, HT Spor HD, TV8,5 HD, FB TV HD, GS TV HD, TJK TV HD, Sports TV HD, NBA TV, CBC Sport HD, İdman TV HD
 
 ---
 
@@ -283,6 +284,16 @@ node scripts/test_all_catalogs.js
 Anthology açık kaynak topluluğunun katkılarıyla gelişmektedir. Katkı sağlayan geliştiricilere teşekkürler:
 
 - **Mustafa Esat Temel** ([@MustafaEsatTemel](https://github.com/MustafaEsatTemel) / `metemel`) — **LiderFilm** (`liderfilmizle.vip`) film ve dizi sağlayıcı entegrasyonu ([#5](https://github.com/falsisdev/anthology/pull/5)).
+
+---
+
+## 📜 Krediler & Atıflar (Credits & Acknowledgements)
+
+Anthology projesinin gelişiminde faydalanılan harici açık kaynak katalog, kaynak dizini ve veri sağlayıcılarına teşekkür ederiz:
+
+- **Wiojelt** ([@Wiojelt](https://github.com/Wiojelt)) — [TurkSpor](https://github.com/Wiojelt/TurkSpor) ve [WioSpor](https://github.com/Wiojelt/WioSpor) projelerindeki spor kataloğu yapısı, NetVGold akış referansları ve alternatif canlı yayın akışı kaynakları.
+- **iptv-org** ([iptv-org](https://github.com/iptv-org)) — Kamuya açık kanal dizinleri ve topluluk logo veritabanı.
+- **mooncrown04** ([mooncrown04](https://github.com/mooncrown04)) — M3U film ve dizi parçaları veritabanı altyapısı.
 
 ---
 
