@@ -29,6 +29,58 @@
       "supportsExternalPlayer": true
     },
     {
+      "id": "liderfilmizle",
+      "name": "LiderFilm",
+      "description": "LiderFilm.vip - Yerli & yabancı film ve dizi arşivi, 1080p doğrudan HLS akışları.",
+      "version": "1.8.22",
+      "author": "metemel",
+      "supportedTypes": [
+        "movie",
+        "tv",
+        "series"
+      ],
+      "filename": "providers/liderfilmizle.js",
+      "enabled": true,
+      "formats": [
+        "hls",
+        "m3u8"
+      ],
+      "logo": "https://liderfilmizle.vip/icons/icon-192.png",
+      "contentLanguage": [
+        "tr"
+      ],
+      "catalogs": [
+        {
+          "type": "movie",
+          "id": "anthology_liderfilm_movies",
+          "name": "LiderFilm — Popüler Filmler",
+          "extra": [
+            {
+              "name": "search",
+              "isRequired": false
+            }
+          ]
+        },
+        {
+          "type": "tv",
+          "id": "anthology_liderfilm_series",
+          "name": "LiderFilm — Popüler Diziler",
+          "extra": [
+            {
+              "name": "search",
+              "isRequired": false
+            }
+          ]
+        }
+      ],
+      "resources": [
+        "catalog",
+        "meta",
+        "stream"
+      ],
+      "supportsExternalPlayer": true
+    },
+    {
       "id": "sinewix",
       "name": "SineWix",
       "description": "5000+ HD film, dizi ve anime - Türkçe dublaj & altyazı, 1080p çift ses direct MKV.",
