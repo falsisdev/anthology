@@ -10,7 +10,7 @@
   </p>
 
   <p>
-    <img src="https://img.shields.io/badge/Sürüm-1.8.23-blue?style=for-the-badge" alt="Sürüm 1.8.23" />
+    <img src="https://img.shields.io/badge/Sürüm-1.8.24-blue?style=for-the-badge" alt="Sürüm 1.8.24" />
     <img src="https://img.shields.io/badge/Eklenti-40_Aktif-3b82f6?style=for-the-badge" alt="40 Aktif Eklenti" />
     <img src="https://img.shields.io/badge/Lisans-MIT-green?style=for-the-badge" alt="MIT Lisansı" />
     <img src="https://img.shields.io/badge/Katalog-7_Canlı_Katalog-8b5cf6?style=for-the-badge" alt="7 Canlı TV Kataloğu" />
@@ -40,7 +40,7 @@
 
 | Platform | Kapsam Durumu | Kurulum Yöntemi | Ne İşe Yarar? |
 |---|:---:|---|---|
-| 🌟 **Nuvio** *(Önerilen)* | **Tüm Eklenti Sorunsuz & Eksiksiz** | `Ayarlar` → `Pluginler` → `Depo Ekle` yoluna aşağıdaki URL'yi yapıştırın:<br> `https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json` | **Tüm 39 eklentiyi** (film, dizi, anime ve canlı TV kanalları) yükler. |
+| 🌟 **Nuvio** *(Önerilen)* | **Tüm Eklenti Sorunsuz & Eksiksiz** | `Ayarlar` → `Pluginler` → `Depo Ekle` yoluna aşağıdaki URL'yi yapıştırın:<br> `https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json` | **Tüm 40 eklentiyi** (film, dizi, anime ve canlı TV kanalları) yükler. |
 | 🟣 **Stremio** *(Tek Tık)* | **Yalnızca Canlı TV ile Sınırlı** | [**Stremio'ya Doğrudan Ekle (Tıklayın)**](stremio://falsisdev.github.io/anthology/stremio/manifest.json) veya [**Web Stremio'da Aç**](https://web.stremio.com/#/addons?addon=https%3A%2F%2Ffalsisdev.github.io%2Fanthology%2Fstremio%2Fmanifest.json)<br>*(Dizin: [stremio-addons.net](https://stremio-addons.net/addons/anthology))* |**138 Canlı TV kanalını** 7 vitrin kataloğu olarak Stremio ana sayfasına ekler. |
 
 ---
@@ -52,7 +52,7 @@ Nuvio ve Stremio'da yerli dizileri, animeleri, sinema filmlerini ve **138 Canlı
 ---
 
 ### 1️⃣ Adım: Video Oynatma Motorunu Ekleyin (Nuvio Pluginleri)
-> **Zorunlu (Yalnızca Nuvio):** Bu adım, bir film, dizi veya anime açtığınızda arka planda çalışan **39 Türkçe/yabancı eklentiyi** Nuvio video motoruna yükler. *(Stremio'da scraper motorları desteklenmez; bu adım Nuvio içindir).*
+> **Zorunlu (Yalnızca Nuvio):** Bu adım, bir film, dizi veya anime açtığınızda arka planda çalışan **40 Türkçe/yabancı eklentiyi** Nuvio video motoruna yükler. *(Stremio'da scraper motorları desteklenmez; bu adım Nuvio içindir).*
 
 1. **Nuvio** uygulamasını açın.
 2. Sırasıyla **Ayarlar** → **Genel** → **İçerik & Keşif** → **Pluginler** → **Depo Ekle** bölümüne gidin.
@@ -65,7 +65,7 @@ https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json
 ---
 
 ### 2️⃣ Adım: Canlı TV Ana Sayfa Kataloglarını Ekleyin (Anthology — Canlı TV)
-> **Önerilen (Nuvio & Stremio):** Bu adım; 100 Canlı TV kanalını 6 kategoride (**Tüm Kanallar**, **Ulusal**, **Canlı Spor**, **Canlı Haber**, **Belgesel & Çocuk**, **Müzik & Eğlence**) **Nuvio veya Stremio'nun ana sayfa vitrinine** yerleştirir. Tüm kanallar standart **221x126** banner formatındadır.
+> **Önerilen (Nuvio & Stremio):** Bu adım; 138 Canlı TV kanalını 7 kategoride (**Tüm Kanallar**, **Canlı Spor**, **Ulusal**, **Canlı Haber**, **Belgesel & Çocuk**, **Sinema**, **Müzik & Eğlence**) **Nuvio veya Stremio'nun ana sayfa vitrinine** yerleştirir. Tüm kanallar standart **221x126** banner formatındadır.
 
 1. **Nuvio** veya **Stremio** uygulamasında **Eklentiler / Addons** → **Depo / Addon Ekle** bölümüne gidin.
 2. Aşağıdaki statik katalog bağlantısını yapıştırıp **Ekle / Install** butonuna basın:
@@ -80,27 +80,28 @@ https://falsisdev.github.io/anthology/stremio/manifest.json
 
 > [!TIP]
 > **Nasıl Birlikte Çalışırlar?**
-> - **Nuvio'da:** 1. Adım ve 2. Adımı birlikte eklediğinizde, Nuvio ana sayfanızda hem zengin Canlı TV vitrinleri görünür hem de içerik aradığınızda 38 eklenti en kaliteli (1080p, 4K, Çift Ses) akışları anında oynatır.
-> - **Stremio'da:** Stremio kullanıcıları yalnızca 2. Adımı ekleyerek 100 Canlı TV kanalını kesintisiz resmi CDN bağlantılarıyla izleyebilir.
+> - **Nuvio'da:** 1. Adım ve 2. Adımı birlikte eklediğinizde, Nuvio ana sayfanızda hem zengin Canlı TV vitrinleri görünür hem de içerik aradığınızda 40 eklenti en kaliteli (1080p, 4K, Çift Ses) akışları anında oynatır.
+> - **Stremio'da:** Stremio kullanıcıları yalnızca 2. Adımı ekleyerek 138 Canlı TV kanalını kesintisiz resmi CDN bağlantılarıyla izleyebilir.
 
 ---
 
-## 📺 Canlı TV Katalogları (6 Resmi Vitrin)
+## 📺 Canlı TV Katalogları (7 Resmi Vitrin)
 
 Nuvio ve Stremio ana sayfasında canlı TV kanallarını kategorilere ayrılmış vitrinler olarak sunan kataloglar:
 
 | Katalog | Sağlayıcı | Tür | Kanal Sayısı | İçerik Özeti |
 |---|---|:---:|:---:|---|
-| <img src="assets/logo_1_transparent.png" width="16" height="16" valign="middle" /> **📺 Canlı TV — Tüm Kanallar** | `ListM3u.js` | Canlı TV | **100** | Türkiye'nin tüm ulusal, haber, spor, belgesel, çocuk ve müzik yayınları |
-| <img src="assets/canli/aspor.png" width="16" height="16" valign="middle" /> **⚽ Canlı Spor** | `anthology_spor.js` | Canlı TV | **49** | BeIN Sports 1-5, S Sport 1-2, Tivibu Spor 1-4, Exxen Spor 1-8, TRT Spor, A Spor, HT Spor, Mahsunsports maç kanalı |
-| <img src="assets/canli/trt1.png" width="16" height="16" valign="middle" /> **🇹🇷 Ulusal Kanallar** | `anthology_ulusal.js` | Canlı TV | **19** | TRT 1, ATV, Kanal D, Show, Star, NOW, TV8, Kanal 7, Beyaz TV, Teve2, A2 TV, TV360 vb. |
-| <img src="assets/canli/ntv.png" width="16" height="16" valign="middle" /> **📰 Canlı Haber** | `anthology_haber.js` | Canlı TV | **18** | NTV, Habertürk, TRT Haber, Sözcü TV, TV100, A Haber, CNN Türk, TVNET, Ülke TV, Ekotürk |
-| <img src="assets/canli/trtbelgesel.png" width="16" height="16" valign="middle" /> **🦁 Belgesel & Çocuk** | `anthology_belgesel_cocuk.js` | Canlı TV | **7** | TRT Belgesel, Minika Çocuk, Minika GO, TRT Çocuk, TRT EBA İlkokul / Ortaokul / Lise |
-| <img src="assets/canli/kralpop.png" width="16" height="16" valign="middle" /> **🎵 Müzik & Eğlence** | `anthology_muzik.js` | Canlı TV | **7** | Kral Pop TV, Power TV, PowerTürk TV, Number 1 TV, Power Dance, Power Love, TRT Müzik |
+| <img src="assets/logo_1_transparent.png" width="16" height="16" valign="middle" /> **📺 Canlı TV — Tüm Kanallar** | `ListM3u.js` | Canlı TV | **138** | Türkiye'nin tüm ulusal, haber, spor, belgesel, çocuk, sinema ve müzik yayınları |
+| <img src="assets/canli/stealth/binsports.png" width="16" height="16" valign="middle" /> **⚽ Canlı Spor** | `anthology_spor.js` | Canlı TV | **55** | B-In Sports 1-5, Es Sport 1-2, TV-Bu Spor 1-4, Eksen Spor 1-8, Tab11 Spor 1-8, TRT Spor, A Spor, HT Spor, Mahsun Sports maç kanalı |
+| <img src="assets/canli/trt1.png" width="16" height="16" valign="middle" /> **🇹🇷 Ulusal Kanallar** | `anthology_ulusal.js` | Canlı TV | **25** | TRT 1, ATV, Kanal D, Show, Star, NOW, TV8, Kanal 7, Beyaz TV, Teve2, A2 TV, TV360, TRT Genç vb. |
+| <img src="assets/canli/ntv.png" width="16" height="16" valign="middle" /> **📰 Canlı Haber** | `anthology_haber.js` | Canlı TV | **27** | NTV, Habertürk, TRT Haber, Sözcü TV, TV100, A Haber, CNN Türk, CNBC-e, TBMM TV, BBC News |
+| <img src="assets/canli/trtbelgesel.png" width="16" height="16" valign="middle" /> **🦁 Belgesel & Çocuk** | `anthology_belgesel_cocuk.js` | Canlı TV | **12** | TRT Belgesel, Minika Çocuk, Minika GO, TRT Çocuk, TLC, DMAX, TRT EBA İlkokul / Ortaokul / Lise |
+| <img src="assets/canli/kralpop.png" width="16" height="16" valign="middle" /> **🎵 Müzik & Eğlence** | `anthology_muzik.js` | Canlı TV | **16** | Kral Pop TV, Power TV, PowerTürk TV, Number 1 TV, Dream Türk, TMB TV, Power Dance, Power Love, TRT Müzik |
+| <img src="assets/canli/cine1.png" width="16" height="16" valign="middle" /> **🎬 Sinema** | `anthology_sinema.js` | Canlı TV | **3** | Cine 1 HD, FX HD, TRT Nostalji HD yayın akışları |
 
 ---
 
-## 🎬 Doğrulanmış Eklentiler (39 Aktif - Nuvio)
+## 🎬 Doğrulanmış Eklentiler (40 Aktif - Nuvio)
 
 > [!NOTE]
 > Aşağıdaki tüm video scraper motorları Nuvio oynatıcısına uygun doğrudan `.m3u8` HLS veya `.mp4`/`.mkv` akışları döndürür.
@@ -170,9 +171,9 @@ Nuvio ve Stremio ana sayfasında canlı TV kanallarını kategorilere ayrılmı�
 
 ---
 
-## 📡 Canlı TV & Spor Kanalları (100 Kanal)
+## 📡 Canlı TV & Spor Kanalları (138 Kanal)
 
-### ⚽ Spor Kanalları (50 Canlı Kanal)
+### ⚽ Spor Kanalları (55 Canlı Kanal)
 
 <div align="center">
   <img src="assets/canli/stealth/binsports.png" width="44" height="44" alt="B-In Sports" /> &nbsp;&nbsp;
@@ -193,6 +194,7 @@ Nuvio ve Stremio ana sayfasında canlı TV kanallarını kategorilere ayrılmı�
 - **Eksen Spor:** Eksen TV & Eksen Sports 1, 2, 3, 4, 5, 6, 7, 8 HD (Avrupa Maçları)
 - **Akıllı Spor & Avro Sport & Tab11 Spor:** Akıllı Spor 1-2 HD, Avro Sport 1-2 HD, Tab11 Spor 1-8 HD
 - **Ulusal & Kulüp Spor:** TRT Spor HD, TRT Spor Yıldız HD, A Spor HD, HT Spor HD, TV8,5 HD, FB TV HD, GS TV HD, TJK TV HD, Sports TV HD, NBA TV, CBC Sport HD, İdman TV HD
+- **Özel & Uluslararası Spor:** Mahsun Sports, Tay TV HD, Real Madrid TV HD, Red Bull TV HD, NHL Network HD, UFC Network HD, Sport Fishing TV HD
 
 ---
 
@@ -213,16 +215,17 @@ Nuvio ve Stremio ana sayfasında canlı TV kanallarını kategorilere ayrılmı�
 
 <br>
 
-- **🇹🇷 Ulusal Kanallar (19 Kanal):** TRT 1, ATV, Kanal D, Show TV, Star TV, NOW TV, TV8, Kanal 7, Beyaz TV, Teve2, A2 TV, TV360, TRT 2, TRT Türk, TRT World, TRT Avaz, TRT Kurdî, TRT Arabi, Kanal 7 Avrupa
-- **📰 Haber Kanalları (18 Kanal):** TRT Haber, NTV, Habertürk, TV100, Sözcü TV, A Haber, CNN Türk, Halk TV, Tele 1, TGRT Haber, Haber Global, 24 TV, Bloomberg HT, TVNET, Ülke TV, Ekotürk, Bengü Türk, Flash Haber
-- **🦁 Belgesel & Çocuk (7 Kanal):** TRT Belgesel HD, TRT Çocuk HD, Minika Çocuk HD, Minika GO HD, TRT EBA İlkokul, TRT EBA Ortaokul, TRT EBA Lise
-- **🎵 Müzik & Eğlence (7 Kanal):** Kral Pop TV HD, Power TV HD, PowerTürk TV HD, Number 1 TV HD, Power Dance HD, Power Love HD, TRT Müzik HD
+- **🇹🇷 Ulusal Kanallar (25 Kanal):** TRT 1, ATV, Kanal D, Show TV, Star TV, NOW TV, TV8, Kanal 7, Beyaz TV, Teve2, A2 TV, TV360, TRT 2, TRT Türk, Kanal 7 Avrupa, TRT Genç, Euro D, TV4, TYT Türk, Kanal Avrupa, TRT World, TRT Avaz, TRT Kurdî, TRT Arabi, Diyanet TV
+- **📰 Haber Kanalları (27 Kanal):** TRT Haber, NTV, Habertürk, TV100, A Haber, Halk TV, Tele 1, TGRT Haber, Haber Global, 24 TV, Bloomberg HT, TVNET, Ülke TV, Ekotürk, Bengü Türk, Flash Haber, Lider Haber, Türk Haber, CNBC-e, Akit TV, TBMM TV, Finans Türk, BBC News, CBS News, Fox News, France 24, Reuters TV
+- **🦁 Belgesel & Çocuk (12 Kanal):** TRT Belgesel HD, TRT Çocuk HD, Minika Çocuk HD, Minika GO HD, TRT EBA İlkokul, TRT EBA Ortaokul, TRT EBA Lise, TRT Diyanet Çocuk, Çiftçi TV, Travelxp HD, TLC HD, DMAX HD
+- **🎵 Müzik & Eğlence (16 Kanal):** Kral Pop TV HD, PowerTürk TV HD, Power TV HD, Number 1 TV HD, TRT Müzik HD, Power Dance, Power Love, Dream Türk, TMB TV, Show Max, Powertürk Taptaze, Powertürk Slow, Powertürk Akustik, Number 1 Aşk, Number 1 Damar, Number 1 Dance
+- **🎬 Sinema (3 Kanal):** Cine 1 HD, FX HD, TRT Nostalji HD
 
 ---
 
 ## ⚠️ **Çalışmayan / Doğrulanamayan Sağlayıcılar**
 
-Repoda yer alan **tüm 32 video sağlayıcısı ve 6 Canlı TV kategorisi (toplam 38 eklenti)** genel olarak aktif ve doğrulanmış olarak çalışmaktadır. Tek istisna, bu sunucudan Cloudflare koruması nedeniyle doğrulanamayan sağlayıcıdır:
+Repoda yer alan **tüm 33 video sağlayıcısı ve 7 Canlı TV kategorisi (toplam 40 eklenti)** genel olarak aktif ve doğrulanmış olarak çalışmaktadır. Tek istisna, bu sunucudan Cloudflare koruması nedeniyle doğrulanamayan sağlayıcıdır:
 
 - **Anizm (`anizm.net`):** AnizmPlayer (FirePlayer HLS), OK.ru ve Sibnet ağları için arama/çeviri/bölüm sayfaları açık; ancak `/video/...` ve `/player/...` rotaları Cloudflare challenge döndüğü için bu sunucudan `getStreams` doğrulanamıyor (boş döner). Ev IP'sinde tarayıcıyla CF geçildiğinde çalışabilir — kod sağlıklı, ağ kısıtı.
 - **trdiziizle (`trdiziizle.tv/tr2`):** WordPress şablonu; arama (`/?s=`) ve bölüm sayfaları CF challenge'lı olduğundan bu sunucudan doğrulanamıyor. Ev ağında çalışabilir.
@@ -241,7 +244,7 @@ Evet! Anthology %100 açık kaynaklı ve kâr amacı gütmeyen bir topluluk proj
 <details>
 <summary><strong>2. Nuvio mu Stremio mu kullanmalıyım? Aralarındaki fark nedir?</strong></summary>
 <br>
-<p><strong>Nuvio Kullanıcıları:</strong> Anthology'nin tüm özelliklerini sınırsız kullanabilir. 39 adet film, dizi ve anime video scraper motorunun tamamı ile 7 Canlı TV kataloğu ve 138 canlı yayın kanalı Nuvio'da eksiksiz çalışır.</p>
+<p><strong>Nuvio Kullanıcıları:</strong> Anthology'nin tüm özelliklerini sınırsız kullanabilir. 40 adet film, dizi ve anime video scraper motorunun tamamı ile 7 Canlı TV kataloğu ve 138 canlı yayın kanalı Nuvio'da eksiksiz çalışır.</p>
 <p><strong>Stremio Kullanıcıları:</strong> Stremio eklentisi olarak kullanım <strong>yalnızca Canlı TV katalogları (7 vitrin ve 138 kanal)</strong> ile sınırlıdır. Film ve dizi motorları Stremio'da yer almaz. Resmi topluluk dizini için <a href="https://stremio-addons.net/addons/anthology">stremio-addons.net/addons/anthology</a> adresini ziyaret edebilirsiniz.</p>
 </details>
 
@@ -299,7 +302,7 @@ Anthology projesinin gelişiminde faydalanılan harici açık kaynak katalog, ka
 
 ## 📄 Lisans & Yasal Uyarı
 
-Bu proje [GPL-3.0](LICENSE) lisansı altında sunulmaktadır. Anthology sunucularında hiçbir video veya yayın barındırılmaz; proje yalnızca kamuya açık resmi CDN ve web kaynaklarını dizinleyen açık kaynaklı bir arayüz ve eklenti deposudur.
+Anthology açık kaynaklı bir topluluk projesidir. Anthology sunucularında hiçbir video veya yayın barındırılmaz; proje yalnızca kamuya açık resmi CDN ve web kaynaklarını dizinleyen bir arayüz ve eklenti deposudur.
 
 > [!IMPORTANT]
 > Anthology eklentisinin kullanıcıya sunduğu tüm içerikler “video paylaşım siteleri” aracılığıyla paylaşılmaktadır. Anthology kendi sunucularında herhangi bir içerik barındırmadığından, bu konuda bir telif hakkı sorumluluğu kabul etmemektedir.
