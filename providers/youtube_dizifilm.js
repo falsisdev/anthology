@@ -1166,7 +1166,7 @@ function getMeta(id) {
               }
             };
           }
-        } else if (mType === "tv") {
+        } else if (mType === "tv" || mType === "series") {
           var resTv = yield fetch("https://api.themoviedb.org/3/tv/" + tmdbId + "?api_key=" + TMDB_API_KEY + "&language=tr-TR", { signal: timeoutSignal(6e3) });
           if (resTv.ok) {
             var dt = yield resTv.json();
@@ -1179,7 +1179,7 @@ function getMeta(id) {
                 var epCount = sObj.episode_count || 0;
                 for (var e = 1; e <= epCount; e++) {
                   videos.push({
-                    id: "youtube:tv:" + tmdbId + ":" + sNum + ":" + e,
+                    id: "youtube:series:" + tmdbId + ":" + sNum + ":" + e,
                     season: sNum,
                     episode: e,
                     title: sNum + ". Sezon " + e + ". B\xF6l\xFCm",
