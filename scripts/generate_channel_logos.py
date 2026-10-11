@@ -490,6 +490,12 @@ CHANNELS = [
         "already_composited": True,
     },
     {
+        "name": "Taraftarium24",
+        "file": "taraftarium24.png",
+        "local": os.path.join(ROOT_DIR, "assets", "canli", "taraftarium24.png"),
+        "already_composited": True,
+    },
+    {
         "name": "Mahsunsports",
         "file": "mahsunsports.png",
         "local": os.path.join(ROOT_DIR, "assets", "canli", "mahsunsports.png"),
