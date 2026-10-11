@@ -92,7 +92,7 @@ Nuvio ve Stremio ana sayfasında canlı TV kanallarını kategorilere ayrılmı�
 | Katalog | Sağlayıcı | Tür | Kanal Sayısı | İçerik Özeti |
 |---|---|:---:|:---:|---|
 | <img src="assets/logo_1_transparent.png" width="16" height="16" valign="middle" /> **📺 Canlı TV — Tüm Kanallar** | `ListM3u.js` | Canlı TV | **138** | Türkiye'nin tüm ulusal, haber, spor, belgesel, çocuk, sinema ve müzik yayınları |
-| <img src="assets/canli/stealth/binsports.png" width="16" height="16" valign="middle" /> **⚽ Canlı Spor** | `anthology_spor.js` | Canlı TV | **55** | B-In Sports 1-5, Es Sport 1-2, TV-Bu Spor 1-4, Eksen Spor 1-8, Tab11 Spor 1-8, TRT Spor, A Spor, HT Spor, Mahsun Sports maç kanalı |
+| <img src="assets/canli/stealth/binsports.png" width="16" height="16" valign="middle" /> **⚽ Canlı Spor** | `anthology_spor.js` | Canlı TV | **55** | B-In Sports 1-5, Es Sport 1-2, TV-Bu Spor 1-4, Eksen Spor 1-8, Tab11 Spor 1-8, TRT Spor, A Spor, HT Spor, Taraftarium24 canlı maç kanalı |
 | <img src="assets/canli/trt1.png" width="16" height="16" valign="middle" /> **🇹🇷 Ulusal Kanallar** | `anthology_ulusal.js` | Canlı TV | **25** | TRT 1, ATV, Kanal D, Show, Star, NOW, TV8, Kanal 7, Beyaz TV, Teve2, A2 TV, TV360, TRT Genç vb. |
 | <img src="assets/canli/ntv.png" width="16" height="16" valign="middle" /> **📰 Canlı Haber** | `anthology_haber.js` | Canlı TV | **27** | NTV, Habertürk, TRT Haber, Sözcü TV, TV100, A Haber, CNN Türk, CNBC-e, TBMM TV, BBC News |
 | <img src="assets/canli/trtbelgesel.png" width="16" height="16" valign="middle" /> **🦁 Belgesel & Çocuk** | `anthology_belgesel_cocuk.js` | Canlı TV | **12** | TRT Belgesel, Minika Çocuk, Minika GO, TRT Çocuk, TLC, DMAX, TRT EBA İlkokul / Ortaokul / Lise |

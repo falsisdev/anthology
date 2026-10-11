@@ -82,8 +82,8 @@ https://eustr73.mediatriple.net/videoonlylive/mtikoimxnztxlive/broadcast_5e3bf95
 # ==============================================================================
 # SPOR KANALLARI
 # ==============================================================================
-#EXTINF:-1 tvg-id="mahsunsports" tvg-name="Mahsun Sports" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/mahsunsports.png" tvg-lang="tr" group-title="🇹🇷 SPOR KANALLARI",Mahsun Sports
-https://mahsunsports80.xyz/
+#EXTINF:-1 tvg-id="taraftarium24" tvg-name="Taraftarium24" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/taraftarium24.png" tvg-lang="tr" group-title="🇹🇷 SPOR KANALLARI",Taraftarium24
+https://taraftarium24-245.top/
 
 #EXTINF:-1 tvg-id="TRTSpor.tr" tvg-name="TRT Spor" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtspor.png" tvg-lang="tr" group-title="🇹🇷 SPOR KANALLARI",TRT Spor HD
 https://trt.daioncdn.net/trtspor/master.m3u8?app=web&platform=trtspor

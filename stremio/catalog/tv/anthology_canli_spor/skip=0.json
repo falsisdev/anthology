@@ -1,12 +1,12 @@
 {
   "metas": [
     {
-      "id": "tv:mahsunsports",
+      "id": "tv:taraftarium24",
       "type": "tv",
-      "name": "Mahsun Sports",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/mahsunsports.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/mahsunsports.png",
-      "description": "Mahsun Sports Canlı [Türkçe]",
+      "name": "Taraftarium24",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/taraftarium24.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/taraftarium24.png",
+      "description": "Taraftarium24 Canlı [Türkçe]",
       "genres": [
         "Spor"
       ]

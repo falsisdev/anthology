@@ -1,0 +1,41 @@
+name: Auto-Update Taraftarium Live Domain
+
+on:
+  schedule:
+    # Every 12 hours (at 02:00 and 14:00 UTC)
+    - cron: '0 2,14 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  check-and-update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Check and update Taraftarium domain & API
+        run: node scripts/update_taraftarium_domain.js
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add config.json providers/anthology_spor.js
+          if git diff --staged --quiet; then
+            echo "No domain changes needed."
+          else
+            git commit -m "chore(cron): auto-update taraftarium live domain & api"
+            git push
+          fi

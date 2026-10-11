@@ -1,8 +1,21 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Spor ⌟",
+      "name": "⌜ Taraftarium24 ⌟",
       "title": "A Spor HD [Canlı HD]",
+      "url": "https://ladyboy.ardastream2.cfd//aspor/tracks-v1a1/mono.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Referer": "https://taraftarium24-245.top/",
+        "Origin": "https://taraftarium24-245.top/"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Anthology Spor ⌟",
+      "title": "A Spor HD [Canlı]",
       "url": "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/aspor/aspor.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",

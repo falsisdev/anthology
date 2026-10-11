@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: anthology_spor
  * Built from src/anthology_spor/index.js
- * Build: v1.8.25 (anthology build system)
+ * Build: v1.8.26 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -236,11 +236,15 @@ function cfgReady() {
       var v;
       v = val("urls.live.m3u_remote");
       if (v) M3U_REMOTE = String(v).replace(/\/+$/, "");
-      v = val("urls.live.mahsunsports");
-      if (v) MAHSUN_SITE = v;
-      if (_MAHSUN_HEADERS) {
-        _MAHSUN_HEADERS.Referer = MAHSUN_SITE;
-        _MAHSUN_HEADERS.Origin = MAHSUN_SITE;
+      v = val("urls.live.taraftarium.base");
+      if (v) TARAFTARIUM_SITE = String(v);
+      v = val("urls.live.taraftarium.api_base");
+      if (v) TARAFTARIUM_API = String(v).replace(/\/+$/, "");
+      v = val("urls.live.taraftarium.base_number");
+      if (v && !isNaN(Number(v))) TARAFTARIUM_BASE_NUM = Number(v);
+      if (_TARAFTARIUM_HEADERS) {
+        _TARAFTARIUM_HEADERS.Referer = TARAFTARIUM_SITE;
+        _TARAFTARIUM_HEADERS.Origin = TARAFTARIUM_SITE;
       }
     });
   }
@@ -249,16 +253,18 @@ function cfgReady() {
 var path = typeof require !== "undefined" ? require("path") : null;
 var fs = typeof require !== "undefined" ? require("fs") : null;
 var M3U_REMOTE = "https://raw.githubusercontent.com/falsisdev/anthology/main/providers/M3U/Liste/canli.m3u";
-var MAHSUN_SITE = "https://mahsunsports80.xyz/";
-var MAHSUN_LOGO = "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/mahsunsports.png";
+var TARAFTARIUM_SITE = "https://taraftarium24-245.top/";
+var TARAFTARIUM_API = "https://teletv15.top";
+var TARAFTARIUM_BASE_NUM = 245;
+var TARAFTARIUM_LOGO = "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/taraftarium24.png";
 var _HEADERS = {
   "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
   "Accept": "*/*"
 };
-var _MAHSUN_HEADERS = {
+var _TARAFTARIUM_HEADERS = {
   "User-Agent": _HEADERS["User-Agent"],
-  "Referer": MAHSUN_SITE,
-  "Origin": MAHSUN_SITE
+  "Referer": TARAFTARIUM_SITE,
+  "Origin": TARAFTARIUM_SITE
 };
 var cachedText = null;
 var cacheTime = 0;
@@ -342,319 +348,206 @@ function parseSportChannels(content) {
   }
   return channels;
 }
-function isEncryptedSport(channel) {
-  var key = cleanKey((channel.id || "").replace(/^tv:/, "") + " " + (channel.name || ""));
-  return /bein|ssport|sspor|tivibu|smartspor|smarts|exxen|tabii|eurosport|nba|cbcs/.test(key);
-}
-var ANDRO_URL_RE = /https:\/\/andro\.evrenesoglu\d+\.click\/checklist\//g;
-var MAHSUN_DATA_TTL = 15 * 60 * 1e3;
-var mahsunCache = null;
-function mahsunFetchText(url) {
-  return fetch(url, { headers: _MAHSUN_HEADERS }).then(function(res) {
-    return res.text();
-  }).catch(function() {
-    return "";
-  });
-}
-function baseProbe(url) {
-  var ctrl = null;
-  if (typeof AbortController !== "undefined") ctrl = new AbortController();
-  var timer = setTimeout(function() {
-    if (ctrl) ctrl.abort();
-  }, 5e3);
-  var opts = {
-    method: "GET",
-    headers: {
-      "User-Agent": _HEADERS["User-Agent"],
-      "Referer": MAHSUN_SITE,
-      "Range": "bytes=0-2048"
-    }
-  };
-  if (ctrl) opts.signal = ctrl.signal;
-  return fetch(url, opts).then(function(res) {
-    clearTimeout(timer);
-    var code = res.status;
-    return code === 200 || code === 206;
-  }).catch(function() {
-    clearTimeout(timer);
-    return false;
-  });
-}
-function findWorkingBase(prefer) {
-  var seen = {};
-  var cands = [];
-  function add(b) {
-    b = String(b || "");
-    if (!b || seen[b]) return;
-    seen[b] = true;
-    cands.push(b);
+var TARAFTARIUM_CHANNELS = [
+  { id: "bein-sports-1", name: "BEIN SPORTS 1", clean: "beinsports1" },
+  { id: "bein-sports-2", name: "BEIN SPORTS 2", clean: "beinsports2" },
+  { id: "bein-sports-3", name: "BEIN SPORTS 3", clean: "beinsports3" },
+  { id: "bein-sports-4", name: "BEIN SPORTS 4", clean: "beinsports4" },
+  { id: "bein-sports-5", name: "BEIN SPORTS 5", clean: "beinsports5" },
+  { id: "bein-sports-max-1", name: "BEIN SPORTS MAX 1", clean: "beinsportsmax1" },
+  { id: "bein-sports-max-2", name: "BEIN SPORTS MAX 2", clean: "beinsportsmax2" },
+  { id: "s-sport", name: "S SPORT", clean: "ssport" },
+  { id: "s-sport-2", name: "S SPORT 2", clean: "ssport2" },
+  { id: "trt-spor", name: "TRT SPOR", clean: "trtspor" },
+  { id: "trt-1", name: "TRT 1", clean: "trt1" },
+  { id: "a-spor", name: "A SPOR", clean: "aspor" }
+];
+var TARAFTARIUM_ALIASES = {
+  "beinsports1": "bein-sports-1",
+  "beinsports1tr": "bein-sports-1",
+  "beinsports2": "bein-sports-2",
+  "beinsports2tr": "bein-sports-2",
+  "beinsports3": "bein-sports-3",
+  "beinsports3tr": "bein-sports-3",
+  "beinsports4": "bein-sports-4",
+  "beinsports4tr": "bein-sports-4",
+  "beinsports5": "bein-sports-5",
+  "beinsports5tr": "bein-sports-5",
+  "beinsportsmax1": "bein-sports-max-1",
+  "beinsportsmax1tr": "bein-sports-max-1",
+  "beinsportsmax2": "bein-sports-max-2",
+  "beinsportsmax2tr": "bein-sports-max-2",
+  "ssport": "s-sport",
+  "ssport1": "s-sport",
+  "ssporttr": "s-sport",
+  "ssport2": "s-sport-2",
+  "ssport2tr": "s-sport-2",
+  "trtspor": "trt-spor",
+  "trtsportr": "trt-spor",
+  "trt1": "trt-1",
+  "trt1tr": "trt-1",
+  "aspor": "a-spor",
+  "asportr": "a-spor"
+};
+function matchTaraftariumChannelId(rawStr) {
+  if (!rawStr) return null;
+  var k = cleanKey(rawStr).replace(/^tv/, "");
+  if (TARAFTARIUM_ALIASES[k]) return TARAFTARIUM_ALIASES[k];
+  for (var ak in TARAFTARIUM_ALIASES) {
+    if (k.indexOf(ak) === 0 || ak.indexOf(k) === 0) return TARAFTARIUM_ALIASES[ak];
   }
-  (prefer || []).forEach(add);
-  for (var n = 99; n <= 112; n++) add("https://andro.evrenesoglu" + n + ".click/checklist/");
-  var i = 0;
-  function next() {
-    if (i >= cands.length) return Promise.resolve(prefer && prefer[0] ? prefer[0] : "");
-    var b = cands[i++];
-    return baseProbe(b + "androstreamlivebs3.m3u8").then(function(alive) {
-      return alive ? b : next();
-    });
-  }
-  return next();
+  return null;
 }
-function extractNamedArray(script, name) {
-  var re = new RegExp("(?:const|var|let)\\s+" + name + "\\s*=\\s*\\[");
-  var m = script.match(re);
-  if (!m) return "";
-  var start = m.index + m[0].length - 1;
-  var depth = 0, inStr = false, quote = "";
-  for (var i = start; i < script.length; i++) {
-    var c = script[i];
-    if (inStr) {
-      if (c === "\\") {
-        i++;
-        continue;
-      }
-      if (c === quote) inStr = false;
-      continue;
-    }
-    if (c === '"' || c === "'") {
-      inStr = true;
-      quote = c;
-      continue;
-    }
-    if (c === "[") depth++;
-    else if (c === "]") {
-      depth--;
-      if (depth === 0) return script.slice(start, i + 1);
-    }
-  }
-  return "";
-}
-var SPORT_LABEL = { F: "\u26BD\uFE0F F", B: "\u{1F3C0} B", V: "\u{1F3D0} V", T: "\u{1F3BE} T" };
-var SPORT_ORDER = { F: 0, B: 1, V: 2, T: 3, C: 4 };
-function sportOfMatch(m, catSets) {
-  var ct = cleanKey(m.title);
-  if (catSets.F.has(ct)) return "F";
-  if (catSets.B.has(ct)) return "B";
-  if (catSets.V.has(ct)) return "V";
-  if (catSets.T.has(ct)) return "T";
-  var lg = String(m.league || "") + " " + String(m.title || "");
-  lg = lg.toLowerCase();
-  if (/(tenis|tennis|davis|atp|wta)/i.test(lg)) return "T";
-  if (/(voley|volley|legends cup)/i.test(lg)) return "V";
-  if (/(basket|basketbol|nba|wnba|euroliga|euro ?league|berna vindita|lacb)/i.test(lg)) return "B";
-  return "F";
-}
-function parseTimeMs(o) {
-  var d = o.tarih || "";
-  var t = o.time || "";
-  if (!d && o._sort_key) d = String(o._sort_key).slice(0, 10);
-  var tm = String(t).match(/(\d{1,2}):(\d{2})/);
-  if (!tm) return null;
-  var ts = Date.parse((d || "1970-01-01") + "T" + tm[1] + ":" + tm[2] + ":00+03:00");
-  return isNaN(ts) ? null : ts;
-}
-function parseScript4(script) {
-  var idMap = {};
-  var chanById = {};
-  var pairsRe = /\{\s*title:\s*"([^"]+)",\s*url:\s*"\/event\.html\?id=([^"]+)"\s*\}/g;
-  var p;
-  while ((p = pairsRe.exec(script)) !== null) {
-    var nk = cleanKey(p[1]);
-    if (nk && !idMap[nk]) idMap[nk] = p[2];
-    if (p[2] && !chanById[p[2]]) chanById[p[2]] = p[1];
-  }
-  var CAT_ARRAYS = [
-    { sport: "F", array: "futbolMatches" },
-    { sport: "B", array: "basketbolMatches" },
-    { sport: "V", array: "voleybolMatches" },
-    { sport: "T", array: "tenisMatches" }
-  ];
-  var catSets = {};
-  var catEvents = [];
-  for (var ci = 0; ci < CAT_ARRAYS.length; ci++) {
-    var ca = CAT_ARRAYS[ci];
-    var caSet = /* @__PURE__ */ new Set();
-    var catBody = extractNamedArray(script, ca.array);
-    if (catBody) {
-      var catObjs = catBody.match(/\{[^{}]*\}/g) || [];
-      for (var co = 0; co < catObjs.length; co++) {
-        var ctM = catObjs[co].match(/"title"\s*:\s*"([^"]*)"/);
-        var cu = catObjs[co].match(/"url"\s*:\s*"[^"]*id=([A-Za-z0-9]+)"/);
-        var ct = ctM && ctM[1] ? ctM[1].trim() : "";
-        var cid = cu ? cu[1] : "";
-        if (ctM && ctM[1]) caSet.add(cleanKey(ctM[1].trim()));
-        if (!ct || !cid || cid === "None" || cid.indexOf("chNone") !== -1) continue;
-        var ctTimeM = catObjs[co].match(/"time"\s*:\s*"([^"]*)"/);
-        var ctSortM = catObjs[co].match(/"_sort_key"\s*:\s*"([^"]*)"/);
-        var ctObj = {
-          title: ct,
-          id: cid,
-          league: "",
-          live: true,
-          time: ctTimeM ? ctTimeM[1] : "",
-          _sort_key: ctSortM ? ctSortM[1] : "",
-          sport: ca.sport,
-          _ts: null
-        };
-        ctObj._ts = parseTimeMs(ctObj);
-        catEvents.push(ctObj);
-      }
-    }
-    catSets[ca.sport] = caSet;
-  }
-  var featBody = extractNamedArray(script, "karsilasmalar");
-  var featured = [];
-  var seenIdsArr = {};
-  if (featBody) {
-    var objs = featBody.match(/\{[^{}]*\}/g) || [];
-    for (var oi = 0; oi < objs.length; oi++) {
-      var o = objs[oi];
-      var t = o.match(/"title"\s*:\s*"([^"]*)"/);
-      var u = o.match(/"url"\s*:\s*"\/?event\.html\?id=([A-Za-z0-9]+)"/);
-      var l = o.match(/"league"\s*:\s*"([^"]*)"/);
-      var lv = o.match(/"live"\s*:\s*(true|false)/);
-      var tm = o.match(/"time"\s*:\s*"([^"]*)"/);
-      var dd = o.match(/"tarih"\s*:\s*"([^"]*)"/);
-      if (!t || !u) continue;
-      var title = t[1].trim();
-      var id = u[1];
-      if (!title || !id || id === "None" || id.indexOf("chNone") !== -1) continue;
-      var key = id + "|" + title;
-      if (seenIdsArr[key]) continue;
-      seenIdsArr[key] = true;
-      var fobj = {
-        title,
-        id,
-        league: l ? l[1].trim() : "",
-        live: lv ? lv[1] === "true" : false,
-        time: tm ? tm[1].trim() : "",
-        tarih: dd ? dd[1].trim() : "",
-        sport: sportOfMatch({ title, league: l ? l[1].trim() : "" }, catSets),
-        _ts: null
-      };
-      fobj._ts = parseTimeMs(fobj);
-      featured.push(fobj);
-    }
-  }
-  var activeFeedIds = {};
-  featured.forEach(function(m) {
-    activeFeedIds[m.id] = true;
-  });
-  if (featured.length === 0) {
-    var chanIds = Object.keys(chanById);
-    for (var ai = 0; ai < chanIds.length; ai++) {
-      if (chanIds[ai].indexOf("facebooklive") === -1 && !/ch\d+$/i.test(chanIds[ai])) activeFeedIds[chanIds[ai]] = true;
-    }
-  }
-  var chanKeys = Object.keys(chanById);
-  var channelFeedAdds = [];
-  for (var ck = 0; ck < chanKeys.length; ck++) {
-    var cid = chanKeys[ck];
-    if (!activeFeedIds[cid]) continue;
-    if (cid.indexOf("facebooklive") !== -1) continue;
-    if (/ch\d+$/i.test(cid)) continue;
-    channelFeedAdds.push({
-      title: chanById[cid],
-      id: cid,
-      league: "",
-      live: true,
-      time: "",
-      tarih: "",
-      sport: "C",
-      _ts: null,
-      isChannelFeed: true
-    });
-  }
-  var matches = catEvents.slice();
-  for (var af = 0; af < channelFeedAdds.length; af++) matches.push(channelFeedAdds[af]);
-  matches.sort(function(a, b) {
-    var oa = SPORT_ORDER[a.sport] !== void 0 ? SPORT_ORDER[a.sport] : 9;
-    var ob = SPORT_ORDER[b.sport] !== void 0 ? SPORT_ORDER[b.sport] : 9;
-    if (oa !== ob) return oa - ob;
-    if (a.live !== b.live) return a.live ? -1 : 1;
-    return a.time < b.time ? -1 : a.time > b.time ? 1 : 0;
-  });
-  return { idMap, matches };
-}
-function fetchMahsunData() {
+var _resolvedApi = null;
+var _resolvedSite = null;
+var _resolvedTime = 0;
+var RESOLVER_TTL = 15 * 60 * 1e3;
+function resolveActiveBase() {
   var now = Date.now();
-  if (mahsunCache && now - mahsunCache.time < MAHSUN_DATA_TTL) {
-    return Promise.resolve(mahsunCache);
+  if (_resolvedApi && now - _resolvedTime < RESOLVER_TTL) {
+    return Promise.resolve({ api: _resolvedApi, site: _resolvedSite });
   }
-  return mahsunFetchText(MAHSUN_SITE + "event.html?id=androstreamlivebs1").then(function(evtHtml) {
-    var bases = [];
-    var bm;
-    ANDRO_URL_RE.lastIndex = 0;
-    while ((bm = ANDRO_URL_RE.exec(evtHtml)) !== null) {
-      if (bases.indexOf(bm[0]) === -1) bases.push(bm[0]);
+  var baseApi = _resolvedApi || TARAFTARIUM_API;
+  var baseSite = _resolvedSite || TARAFTARIUM_SITE;
+  var ctrl = typeof AbortController !== "undefined" ? new AbortController() : null;
+  var tm = setTimeout(function() {
+    if (ctrl) ctrl.abort();
+  }, 3500);
+  var opts = { headers: _HEADERS };
+  if (ctrl) opts.signal = ctrl.signal;
+  return fetch(baseApi + "/load/channels.php", opts).then(function(res) {
+    clearTimeout(tm);
+    if (res && res.status === 200) {
+      _resolvedApi = baseApi;
+      _resolvedSite = baseSite;
+      _resolvedTime = now;
+      return { api: _resolvedApi, site: _resolvedSite };
     }
-    return mahsunFetchText(MAHSUN_SITE).then(function(pageHtml) {
-      var scriptUrl = null;
-      var sm = pageHtml.match(/src=["']([^"']*script4\.js[^"']*)["']/i);
-      if (sm) {
-        scriptUrl = sm[1].indexOf("http") === 0 ? sm[1] : MAHSUN_SITE.replace(/\/+$/, "") + "/" + sm[1].replace(/^\/+/, "");
-      }
-      if (!scriptUrl) {
-        mahsunCache = { time: now, bases, idMap: {}, matches: [] };
-        return mahsunCache;
-      }
-      return mahsunFetchText(scriptUrl).then(function(script) {
-        var parsed = parseScript4(script);
-        return findWorkingBase(bases).then(function(wb) {
-          var finalBases = bases.slice();
-          if (wb && finalBases.indexOf(wb) !== -1) {
-            finalBases.splice(finalBases.indexOf(wb), 1);
-          }
-          if (wb) finalBases.unshift(wb);
-          if (!finalBases.length) finalBases.push(wb || "");
-          mahsunCache = { time: now, bases: finalBases, idMap: parsed.idMap, matches: parsed.matches };
-          return mahsunCache;
-        });
-      });
-    });
+    throw new Error("API status not 200");
   }).catch(function() {
-    mahsunCache = { time: now, bases: [], idMap: {}, matches: [] };
-    return mahsunCache;
-  });
-}
-function fetchMahsunBackend() {
-  return fetchMahsunData();
-}
-function fetchMahsunMatches() {
-  return fetchMahsunData().then(function(data) {
-    return data.matches || [];
-  });
-}
-function androIdFromUrl(url) {
-  var m = String(url || "").match(/\/checklist\/([A-Za-z0-9]+)\.m3u8/);
-  return m ? m[1] : null;
-}
-function buildAndroBackupUrls(channel, backend) {
-  var primary = channel.url || "";
-  var pId = androIdFromUrl(primary);
-  var id = null;
-  var k = cleanKey(channel.name || "");
-  var cand = cleanKey((channel.name || "").replace(/\s*HD$/i, "").trim());
-  if (backend.idMap && backend.idMap[k]) id = backend.idMap[k];
-  else if (backend.idMap && backend.idMap[cand]) id = backend.idMap[cand];
-  if (!id && backend.idMap) {
-    for (var kk in backend.idMap) {
-      if (kk && kk.length > 3 && (k.indexOf(kk) !== -1 || kk.indexOf(k) !== -1)) {
-        id = backend.idMap[kk];
-        break;
+    clearTimeout(tm);
+    var num = TARAFTARIUM_BASE_NUM;
+    var cands = [num, num + 1, num - 1, num + 2, num + 3, num + 4];
+    var i = 0;
+    function tryNextCandidate() {
+      if (i >= cands.length) {
+        _resolvedApi = baseApi;
+        _resolvedSite = baseSite;
+        _resolvedTime = now;
+        return Promise.resolve({ api: _resolvedApi, site: _resolvedSite });
       }
+      var curN = cands[i++];
+      var candUrl = "https://taraftarium24-" + curN + ".top/";
+      var cctrl = typeof AbortController !== "undefined" ? new AbortController() : null;
+      var ctm = setTimeout(function() {
+        if (cctrl) cctrl.abort();
+      }, 3e3);
+      var copts = { headers: _HEADERS };
+      if (cctrl) copts.signal = cctrl.signal;
+      return fetch(candUrl, copts).then(function(r) {
+        return r.text();
+      }).then(function(html) {
+        clearTimeout(ctm);
+        if (!html) return tryNextCandidate();
+        var apiM = html.match(/https:\/\/teletv\d+\.top/i) || html.match(/fetch\(['"](https:\/\/[^'"]*teletv[^'"]*top)/i);
+        var foundApi = apiM ? apiM[1] || apiM[0] : baseApi;
+        var activeSite = candUrl;
+        var numM = html.match(/taraftarium24-(\d+)\.top/i);
+        if (numM && numM[1]) {
+          TARAFTARIUM_BASE_NUM = parseInt(numM[1], 10);
+        }
+        _resolvedApi = foundApi.replace(/\/+$/, "");
+        _resolvedSite = activeSite;
+        _resolvedTime = now;
+        return { api: _resolvedApi, site: _resolvedSite };
+      }).catch(function() {
+        clearTimeout(ctm);
+        return tryNextCandidate();
+      });
     }
+    return tryNextCandidate();
+  });
+}
+function fetchTaraftariumStream(streamOrChannelId) {
+  if (!streamOrChannelId) return Promise.resolve(null);
+  return resolveActiveBase().then(function(base) {
+    var apiUrl = base.api + "/load/yayinlink.php?id=" + encodeURIComponent(streamOrChannelId);
+    var ctrl = typeof AbortController !== "undefined" ? new AbortController() : null;
+    var tm = setTimeout(function() {
+      if (ctrl) ctrl.abort();
+    }, 4500);
+    var opts = { headers: _HEADERS };
+    if (ctrl) opts.signal = ctrl.signal;
+    return fetch(apiUrl, opts).then(function(res) {
+      clearTimeout(tm);
+      return res.json();
+    }).then(function(data) {
+      if (data && data.deismackanal && typeof data.deismackanal === "string" && data.deismackanal.indexOf("m3u8") !== -1) {
+        var finalUrl = data.deismackanal.replace(/edge4\./g, "edge3.");
+        return {
+          url: finalUrl,
+          headers: {
+            "User-Agent": _HEADERS["User-Agent"],
+            "Referer": base.site,
+            "Origin": base.site
+          }
+        };
+      }
+      return null;
+    }).catch(function() {
+      clearTimeout(tm);
+      return null;
+    });
+  });
+}
+var _cachedMatches = null;
+var _cachedMatchesTime = 0;
+var MATCHES_TTL = 3 * 60 * 1e3;
+function fetchTaraftariumMatches() {
+  var now = Date.now();
+  if (_cachedMatches && now - _cachedMatchesTime < MATCHES_TTL) {
+    return Promise.resolve(_cachedMatches);
   }
-  if (!id && pId) id = pId;
-  if (!id) return [];
-  var out = [];
-  var bases = backend.bases && backend.bases.length ? backend.bases : [];
-  for (var i = 0; i < bases.length; i++) {
-    var u = bases[i] + id + ".m3u8";
-    if (u !== primary && out.indexOf(u) === -1) out.push(u);
-  }
-  return out;
+  return resolveActiveBase().then(function(base) {
+    var matchesUrl = base.api + "/load/matches.php";
+    return fetch(matchesUrl, { headers: _HEADERS }).then(function(res) {
+      return res.text();
+    }).then(function(html) {
+      var regex = /<a[^>]*href="matches\?id=([^"]+)"[^>]*>([\s\S]*?)<\/a>/g;
+      var m;
+      var list = [];
+      while ((m = regex.exec(html)) !== null) {
+        var id = m[1];
+        var body = m[2];
+        var timeM = body.match(/class="event"[^>]*>\s*([^<]+)/);
+        var homeM = body.match(/class="home"[^>]*>\s*([^<]+)/);
+        var awayM = body.match(/class="away"[^>]*>\s*([^<]+)/);
+        var typeM = m[0].match(/data-matchtype="([^"]+)"/);
+        var sportType = typeM ? typeM[1].trim() : "Futbol";
+        var timeStr = timeM ? timeM[1].trim() : "";
+        var home = homeM ? homeM[1].trim() : "";
+        var away = awayM ? awayM[1].trim() : "";
+        var emoji = "\u26BD\uFE0F";
+        if (/basket/i.test(sportType)) emoji = "\u{1F3C0}";
+        else if (/voley/i.test(sportType)) emoji = "\u{1F3D0}";
+        else if (/tenis/i.test(sportType)) emoji = "\u{1F3BE}";
+        var formattedTitle = emoji + " " + sportType + " | " + (timeStr ? timeStr + " " : "") + home + (away ? " - " + away : "");
+        list.push({
+          id,
+          title: formattedTitle,
+          sport: sportType,
+          time: timeStr,
+          home,
+          away
+        });
+      }
+      _cachedMatches = list;
+      _cachedMatchesTime = now;
+      return list;
+    }).catch(function() {
+      return _cachedMatches || [];
+    });
+  });
 }
 function makeStream(name, title, url, headers) {
   return {
@@ -664,89 +557,6 @@ function makeStream(name, title, url, headers) {
     headers,
     behaviorHints: { isLive: true }
   };
-}
-function mahsunCheckUrl(url) {
-  var ctrl = null;
-  if (typeof AbortController !== "undefined") ctrl = new AbortController();
-  var timer = setTimeout(function() {
-    if (ctrl) ctrl.abort();
-  }, 5e3);
-  var opts = {
-    method: "GET",
-    headers: {
-      "User-Agent": _HEADERS["User-Agent"],
-      "Referer": MAHSUN_SITE,
-      "Range": "bytes=0-1024"
-    }
-  };
-  if (ctrl) opts.signal = ctrl.signal;
-  return fetch(url, opts).then(function(res) {
-    clearTimeout(timer);
-    var code = res.status;
-    return { url, ok: code === 200 || code === 206 };
-  }).catch(function() {
-    clearTimeout(timer);
-    return { url, ok: true };
-  });
-}
-function verifyMahsunStreams(streams) {
-  if (!streams || !streams.length) return Promise.resolve(streams);
-  var groupsArr = [];
-  var seen = {};
-  for (var i = 0; i < streams.length; i++) {
-    var u = streams[i].url;
-    if (!seen[u]) {
-      seen[u] = true;
-      groupsArr.push({ url: u, idxs: [i] });
-    } else {
-      groupsArr[groupsArr.length - 1].idxs.push(i);
-    }
-  }
-  var results = {};
-  function worker(queue) {
-    if (!queue.length) return Promise.resolve();
-    var cur = queue.shift();
-    return mahsunCheckUrl(cur.url).then(function(r) {
-      for (var j = 0; j < cur.idxs.length; j++) results[cur.idxs[j]] = r.ok;
-      return worker(queue);
-    });
-  }
-  var pool = Math.min(8, groupsArr.length);
-  var jobs = [];
-  var q = groupsArr.slice();
-  for (var p = 0; p < pool; p++) jobs.push(worker(q));
-  return Promise.all(jobs).then(function() {
-    var kept = [];
-    for (var k = 0; k < streams.length; k++) {
-      if (results[k] !== false) kept.push(streams[k]);
-    }
-    return kept;
-  });
-}
-function mahsunVerifiedMatches(matches, onlyIndex) {
-  if (!matches || !Array.isArray(matches)) matches = [];
-  var streams = buildMahsunMatchStreams(matches, onlyIndex);
-  if (!streams.length) return Promise.resolve([]);
-  return verifyMahsunStreams(streams).then(function(kept) {
-    var keptUrls = {};
-    kept.forEach(function(s) {
-      keptUrls[s.url] = true;
-    });
-    var base = mahsunCache && mahsunCache.bases && mahsunCache.bases.length ? mahsunCache.bases[0] : "";
-    var out = [];
-    for (var i = 0; i < matches.length; i++) {
-      if (onlyIndex !== null && onlyIndex !== void 0 && i !== onlyIndex) continue;
-      var m = matches[i];
-      if (!m.id || !m.title) continue;
-      if (keptUrls[base + m.id + ".m3u8"]) out.push(m);
-    }
-    return out;
-  });
-}
-function fetchMahsunVerifiedMatches(onlyIndex) {
-  return fetchMahsunMatches().then(function(matches) {
-    return mahsunVerifiedMatches(matches, onlyIndex);
-  });
 }
 function getCatalog(args) {
   return fetchChannels().then(function(content) {
@@ -762,18 +572,18 @@ function getCatalog(args) {
         description: channelDescription(ch.name, ch.lang)
       };
     });
-    var hasMahsun = metas.some(function(m) {
-      return m.id === "tv:mahsunsports";
+    var hasTaraftarium = metas.some(function(m) {
+      return m.id === "tv:taraftarium24" || m.id === "tv:mahsunsports";
     });
-    if (!hasMahsun) {
+    if (!hasTaraftarium) {
       metas.unshift({
-        id: "tv:mahsunsports",
+        id: "tv:taraftarium24",
         type: "tv",
-        name: "Mahsun Sports",
-        poster: MAHSUN_LOGO,
-        background: MAHSUN_LOGO,
+        name: "Taraftarium24",
+        poster: TARAFTARIUM_LOGO,
+        background: TARAFTARIUM_LOGO,
         genres: ["Spor"],
-        description: "Mahsun Sports canl\u0131 ma\xE7 yay\u0131nlar\u0131 \u2014 Futbol, Basketbol, Voleybol ve Tenis"
+        description: "Taraftarium24 Canl\u0131 Ma\xE7lar ve 7/24 Spor Kanallar\u0131 \u2014 Futbol, Basketbol, Voleybol, Tenis ve Canl\u0131 TV"
       });
     }
     return { metas };
@@ -788,189 +598,35 @@ var VERIFIED_BACKUPS = {
   "fbtv": "http://1hskrdto.rocketcdn.com/fenerbahcetv.smil/playlist.m3u8",
   "tv85": "https://tv8.daioncdn.net/tv8bucuk/tv8bucuk.m3u8?app=tv8bucuk_web&ce=3"
 };
-function buildMahsunMatchStreams(matches, onlyIndex) {
-  var streams = [];
-  var bases = mahsunCache && mahsunCache.bases && mahsunCache.bases.length ? mahsunCache.bases : [];
-  if (!bases.length) return streams;
-  var base = bases[0];
-  var titleCount = {};
-  for (var i = 0; i < matches.length; i++) {
-    if (onlyIndex !== null && onlyIndex !== void 0 && i !== onlyIndex) continue;
-    var m = matches[i];
-    if (!m.id || !m.title) continue;
-    var label;
-    if (m.isChannelFeed) label = "\u{1F534} " + m.title;
-    else label = (SPORT_LABEL[m.sport] || "\u25B6") + " | " + m.title;
-    titleCount[m.title] = (titleCount[m.title] || 0) + 1;
-    var st = label;
-    if (titleCount[m.title] > 1) st += " (Ak\u0131\u015F " + titleCount[m.title] + ")";
-    streams.push(makeStream(
-      "\u231C Mahsun Sports \u231F",
-      st,
-      base + m.id + ".m3u8",
-      _MAHSUN_HEADERS
-    ));
-  }
-  return streams;
-}
-function getStreams(args) {
-  var targetId = typeof args === "string" ? args : args ? args.id || args.name : "";
-  var mediaType = args && args.type || args && args.mediaType || "";
-  var isLiveRequest = /^tv:/i.test(targetId) || mediaType === "channel" || mediaType === "tv" && /^tv:/i.test(args && args.id || "");
-  if (!isLiveRequest && targetId && !/^tv:/i.test(targetId)) {
-    var looksLikeTmdb = /^(tt\d+|\d+)$/.test(String(targetId).split(":")[0]);
-    if (looksLikeTmdb || mediaType === "movie") {
-      var emptyNoLive = [];
-      emptyNoLive.streams = [];
-      return Promise.resolve(emptyNoLive);
-    }
-  }
-  var cleanT = String(targetId || "").toLowerCase();
-  if (cleanT.indexOf("tv:mahsunsports") === 0) {
-    var sub = cleanT.replace(/^tv:mahsunsports:?/, "");
-    var idx = sub && /^\d+$/.test(sub) ? parseInt(sub, 10) : null;
-    return fetchMahsunVerifiedMatches(idx).then(function(kept) {
-      var streams = buildMahsunMatchStreams(kept, null);
-      streams.streams = streams;
-      return streams;
-    });
-  }
-  return fetchChannels().then(function(content) {
-    var channels = parseSportChannels(content);
-    if (!targetId && channels.length > 0) {
-      return channels.slice(0, 5).map(function(ch2) {
-        var encrypted2 = isEncryptedSport(ch2);
-        return makeStream(
-          "\u231C Anthology Spor \u231F",
-          ch2.name + " [Canl\u0131 HD]",
-          ch2.url,
-          encrypted2 ? _MAHSUN_HEADERS : _HEADERS
-        );
-      });
-    }
-    var searchKey = cleanKey(targetId.replace(/^tv:/, ""));
-    var matched = null;
-    for (var i = 0; i < channels.length; i++) {
-      var ch = channels[i];
-      var cId = cleanKey(ch.id.replace(/^tv:/, ""));
-      var cName = cleanKey(ch.name);
-      if (cId === searchKey || cName === searchKey || searchKey && (cName.includes(searchKey) || searchKey.includes(cName))) {
-        matched = ch;
-        break;
-      }
-    }
-    if (!matched) {
-      var empty2 = [];
-      empty2.streams = [];
-      return empty2;
-    }
-    var streams = [];
-    var encrypted = isEncryptedSport(matched);
-    if (encrypted) {
-      streams.push(makeStream("\u231C Anthology Spor \u231F", matched.name + " [Canl\u0131 HD]", matched.url, _MAHSUN_HEADERS));
-      var namedFull = [];
-      var namedAndro = [];
-      if (matched.srcs) {
-        for (var nsi = 0; nsi < matched.srcs.length; nsi++) {
-          var ns = matched.srcs[nsi];
-          if (/^https?:\/\//i.test(ns.url)) namedFull.push(ns);
-          else namedAndro.push(ns);
-        }
-      }
-      for (var nfi = 0; nfi < namedFull.length; nfi++) {
-        var nf = namedFull[nfi];
-        if (nf.url !== matched.url) streams.push(makeStream("\u231C Anthology Spor \u231F", nf.name + " [Canl\u0131 HD]", nf.url, _MAHSUN_HEADERS));
-      }
-      if (namedAndro.length) {
-        return fetchMahsunBackend().then(function(backend) {
-          var bases = backend && backend.bases && backend.bases.length ? backend.bases : [];
-          var seenNamed = {};
-          for (var nai = 0; nai < namedAndro.length; nai++) {
-            var na = namedAndro[nai];
-            for (var nbi = 0; nbi < bases.length && !seenNamed[na.name]; nbi++) {
-              var nu = bases[nbi] + na.url + ".m3u8";
-              if (nu !== matched.url) streams.push(makeStream("\u231C Anthology Spor \u231F", na.name + " [Canl\u0131 HD]", nu, _MAHSUN_HEADERS));
-            }
-            seenNamed[na.name] = true;
-          }
-          if (matched.backup && matched.backup !== matched.url) {
-            streams.push(makeStream("\u231C Anthology Spor \xB7 Yedek \u231F", matched.name + " [Yedek Ak\u0131\u015F]", matched.backup, _MAHSUN_HEADERS));
-          } else {
-            var backups = buildAndroBackupUrls(matched, backend);
-            for (var bi = 0; bi < backups.length; bi++) {
-              streams.push(makeStream("\u231C Anthology Spor \xB7 Yedek \u231F", matched.name + " [Yedek Ak\u0131\u015F]", backups[bi], _MAHSUN_HEADERS));
-            }
-          }
-          streams.streams = streams;
-          return streams;
-        });
-      }
-      if (matched.backup && matched.backup !== matched.url) {
-        streams.push(makeStream("\u231C Anthology Spor \xB7 Yedek \u231F", matched.name + " [Yedek Ak\u0131\u015F]", matched.backup, _MAHSUN_HEADERS));
-      } else {
-        return fetchMahsunBackend().then(function(backend) {
-          var backups = buildAndroBackupUrls(matched, backend);
-          for (var bi = 0; bi < backups.length; bi++) {
-            streams.push(makeStream("\u231C Anthology Spor \xB7 Yedek \u231F", matched.name + " [Yedek Ak\u0131\u015F]", backups[bi], _MAHSUN_HEADERS));
-          }
-          streams.streams = streams;
-          return streams;
-        });
-      }
-    } else {
-      streams.push(makeStream("\u231C Anthology Spor \u231F", matched.name + " [Canl\u0131 HD]", matched.url, _HEADERS));
-      var extra = "";
-      if (matched.backup && matched.backup !== matched.url) {
-        extra = matched.backup;
-      } else {
-        for (var bk in VERIFIED_BACKUPS) {
-          if (cleanKey(matched.id).includes(bk)) {
-            extra = VERIFIED_BACKUPS[bk];
-            break;
-          }
-        }
-      }
-      if (extra) {
-        streams.push(makeStream("\u231C Anthology Spor \xB7 Yedek \u231F", matched.name + " [Yedek Ak\u0131\u015F]", extra, _HEADERS));
-      }
-    }
-    streams.streams = streams;
-    return streams;
-  }).catch(function() {
-    var empty = [];
-    empty.streams = [];
-    return empty;
-  });
-}
 function getMeta(args) {
   var targetId = typeof args === "string" ? args : args && args.id ? args.id : null;
   if (!targetId) return Promise.resolve({ meta: null });
   var cleanT = String(targetId).toLowerCase();
-  if (cleanT.indexOf("tv:mahsunsports") === 0) {
-    return fetchMahsunVerifiedMatches(null).then(function(matches) {
+  if (cleanT.indexOf("tv:taraftarium24") === 0 || cleanT.indexOf("tv:mahsunsports") === 0) {
+    return fetchTaraftariumMatches().then(function(matches) {
       var videos = [];
-      var titleCount = {};
-      for (var i = 0; i < matches.length; i++) {
-        var g2 = matches[i];
-        titleCount[g2.title] = (titleCount[g2.title] || 0) + 1;
-        var st;
-        if (g2.isChannelFeed) st = "\u{1F534} " + g2.title;
-        else st = (SPORT_LABEL[g2.sport] || "\u25B6") + " | " + g2.title;
-        if (titleCount[g2.title] > 1) st += " (Ak\u0131\u015F " + titleCount[g2.title] + ")";
+      TARAFTARIUM_CHANNELS.forEach(function(ch) {
         videos.push({
-          id: "tv:mahsunsports:" + i,
-          title: st,
+          id: "tv:taraftarium24:ch:" + ch.id,
+          title: "\u{1F534} " + ch.name + " [7/24 Canl\u0131]",
           released: (/* @__PURE__ */ new Date()).toISOString()
         });
-      }
+      });
+      matches.forEach(function(m) {
+        videos.push({
+          id: "tv:taraftarium24:match:" + m.id,
+          title: m.title,
+          released: (/* @__PURE__ */ new Date()).toISOString()
+        });
+      });
       return {
         meta: {
-          id: "tv:mahsunsports",
+          id: "tv:taraftarium24",
           type: "tv",
-          name: "Mahsun Sports",
-          poster: MAHSUN_LOGO,
-          background: MAHSUN_LOGO,
-          description: "Mahsun Sports canl\u0131 ma\xE7 yay\u0131nlar\u0131 \u2014 Futbol, Basketbol, Voleybol ve Tenis",
+          name: "Taraftarium24",
+          poster: TARAFTARIUM_LOGO,
+          background: TARAFTARIUM_LOGO,
+          description: "Taraftarium24 Canl\u0131 Ma\xE7lar ve 7/24 Spor Kanallar\u0131 \u2014 Futbol, Basketbol, Voleybol, Tenis ve Canl\u0131 TV",
           genres: ["Spor"],
           videos
         }
@@ -1001,6 +657,123 @@ function getMeta(args) {
     };
   }).catch(function() {
     return { meta: null };
+  });
+}
+function getStreams(args) {
+  var targetId = typeof args === "string" ? args : args ? args.id || args.name : "";
+  var mediaType = args && args.type || args && args.mediaType || "";
+  var isLiveRequest = /^tv:/i.test(targetId) || mediaType === "channel" || mediaType === "tv" && /^tv:/i.test(args && args.id || "");
+  if (!isLiveRequest && targetId && !/^tv:/i.test(targetId)) {
+    var looksLikeTmdb = /^(tt\d+|\d+)$/.test(String(targetId).split(":")[0]);
+    if (looksLikeTmdb || mediaType === "movie") {
+      var emptyNoLive = [];
+      emptyNoLive.streams = [];
+      return Promise.resolve(emptyNoLive);
+    }
+  }
+  var cleanT = String(targetId || "").toLowerCase();
+  if (cleanT.indexOf("tv:taraftarium24:match:") === 0) {
+    var matchId = targetId.split(":").pop();
+    return fetchTaraftariumStream(matchId).then(function(streamObj) {
+      var streams = [];
+      if (streamObj && streamObj.url) {
+        streams.push(makeStream("\u231C Taraftarium24 \u231F", "Canl\u0131 Ma\xE7 Ak\u0131\u015F\u0131 [HD]", streamObj.url, streamObj.headers));
+      }
+      streams.streams = streams;
+      return streams;
+    });
+  }
+  if (cleanT.indexOf("tv:taraftarium24:ch:") === 0) {
+    var chId = targetId.split(":").pop();
+    var chDef = TARAFTARIUM_CHANNELS.find(function(c) {
+      return c.id === chId;
+    });
+    var chLabel = chDef ? chDef.name : chId;
+    return fetchTaraftariumStream(chId).then(function(streamObj) {
+      var streams = [];
+      if (streamObj && streamObj.url) {
+        streams.push(makeStream("\u231C Taraftarium24 \u231F", chLabel + " [Canl\u0131 HD]", streamObj.url, streamObj.headers));
+      }
+      streams.streams = streams;
+      return streams;
+    });
+  }
+  if (cleanT === "tv:taraftarium24" || cleanT === "tv:mahsunsports") {
+    return fetchTaraftariumStream("bein-sports-1").then(function(s) {
+      var streams = [];
+      if (s && s.url) {
+        streams.push(makeStream("\u231C Taraftarium24 \u231F", "BEIN SPORTS 1 [Canl\u0131 HD]", s.url, s.headers));
+      }
+      streams.streams = streams;
+      return streams;
+    });
+  }
+  return fetchChannels().then(function(content) {
+    var channels = parseSportChannels(content);
+    if (!targetId && channels.length > 0) {
+      return channels.slice(0, 5).map(function(ch2) {
+        return makeStream(
+          "\u231C Anthology Spor \u231F",
+          ch2.name + " [Canl\u0131 HD]",
+          ch2.url,
+          _HEADERS
+        );
+      });
+    }
+    var searchKey = cleanKey(targetId.replace(/^tv:/, ""));
+    var matched = null;
+    for (var i = 0; i < channels.length; i++) {
+      var ch = channels[i];
+      var cId = cleanKey(ch.id.replace(/^tv:/, ""));
+      var cName = cleanKey(ch.name);
+      if (cId === searchKey || cName === searchKey || searchKey && (cName.includes(searchKey) || searchKey.includes(cName))) {
+        matched = ch;
+        break;
+      }
+    }
+    if (!matched) {
+      var empty2 = [];
+      empty2.streams = [];
+      return empty2;
+    }
+    var streams = [];
+    var tChannelId = matchTaraftariumChannelId(matched.id || matched.name);
+    var taraftariumJob = tChannelId ? fetchTaraftariumStream(tChannelId) : Promise.resolve(null);
+    return taraftariumJob.then(function(tStream) {
+      if (tStream && tStream.url) {
+        streams.push(makeStream("\u231C Taraftarium24 \u231F", matched.name + " [Canl\u0131 HD]", tStream.url, tStream.headers));
+      }
+      if (matched.url && (!tStream || matched.url !== tStream.url)) {
+        streams.push(makeStream("\u231C Anthology Spor \u231F", matched.name + " [Canl\u0131]", matched.url, _HEADERS));
+      }
+      if (matched.srcs) {
+        for (var nsi = 0; nsi < matched.srcs.length; nsi++) {
+          var ns = matched.srcs[nsi];
+          if (ns.url && ns.url !== matched.url && (!tStream || ns.url !== tStream.url)) {
+            streams.push(makeStream("\u231C Anthology Spor \xB7 " + ns.name + " \u231F", matched.name + " [" + ns.name + "]", ns.url, _HEADERS));
+          }
+        }
+      }
+      if (matched.backup && matched.backup !== matched.url) {
+        streams.push(makeStream("\u231C Anthology Spor \xB7 Yedek \u231F", matched.name + " [Yedek Ak\u0131\u015F]", matched.backup, _HEADERS));
+      } else {
+        for (var bk in VERIFIED_BACKUPS) {
+          if (cleanKey(matched.id).includes(bk)) {
+            var extra = VERIFIED_BACKUPS[bk];
+            if (extra && extra !== matched.url) {
+              streams.push(makeStream("\u231C Anthology Spor \xB7 Yedek \u231F", matched.name + " [Yedek Ak\u0131\u015F]", extra, _HEADERS));
+            }
+            break;
+          }
+        }
+      }
+      streams.streams = streams;
+      return streams;
+    });
+  }).catch(function() {
+    var empty = [];
+    empty.streams = [];
+    return empty;
   });
 }
 if (typeof getStreams === "function") {
