@@ -58,7 +58,7 @@ async function checkPlayability(streams) {
       let streams = [];
       let testTarget = "";
 
-      if (scraper.id === "m3u.anthology.addon" || scraper.id.startsWith("anthology_spor") || scraper.id.startsWith("anthology_haber") || scraper.id.startsWith("anthology_ulusal") || scraper.id.startsWith("anthology_belgesel_cocuk") || scraper.id.startsWith("anthology_muzik")) {
+      if (scraper.id === "m3u.anthology.addon" || scraper.id === "anthology_canli_tv" || scraper.id.startsWith("anthology_spor") || scraper.id.startsWith("anthology_haber") || scraper.id.startsWith("anthology_ulusal") || scraper.id.startsWith("anthology_belgesel_cocuk") || scraper.id.startsWith("anthology_muzik")) {
         testTarget = "Catalog / Live Channels";
         if (typeof mod.getCatalog === "function") {
           const cat = await mod.getCatalog({});

@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: ddizi
  * Built from src/ddizi/index.js
- * Build: v1.8.27 (anthology build system)
+ * Build: v1.8.28 (anthology build system)
  */
 var __defProp = Object.defineProperty;
 var __defProps = Object.defineProperties;

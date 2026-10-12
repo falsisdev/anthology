@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "name": "Anthology",
-  "version": "1.8.27",
+  "version": "1.8.28",
   "description": "Anthology - Merkezi Eklenti, API, URL, Oynatıcı ve Sistem Yapılandırması",
   "branding": {
     "name": "Anthology",
@@ -43,6 +43,19 @@
         "base": "https://taraftarium24-245.top/",
         "api_base": "https://teletv15.top",
         "base_number": 245
+      },
+      "ardasports": {
+        "base": "https://selcuksporkral1.cc"
+      },
+      "alemdarsport": {
+        "base": "https://alemdarsport.cfd"
+      },
+      "mahsunsports": {
+        "base": "https://mahsunsports54.xyz",
+        "landing": "https://mahsunsports.com"
+      },
+      "papazsports": {
+        "base": "https://www.papazsports1028.pro"
       }
     },
     "m3u": {

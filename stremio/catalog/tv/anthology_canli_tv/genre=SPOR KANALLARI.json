@@ -1,17 +1,6 @@
 {
   "metas": [
     {
-      "id": "tv:taraftarium24",
-      "type": "tv",
-      "name": "Taraftarium24",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/taraftarium24.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/taraftarium24.png",
-      "description": "Taraftarium24 Canlı [Türkçe]",
-      "genres": [
-        "SPOR KANALLARI"
-      ]
-    },
-    {
       "id": "tv:TRTSpor.tr",
       "type": "tv",
       "name": "TRT Spor HD",

@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: sinewix
  * Built from src/sinewix/index.js
- * Build: v1.8.27 (anthology build system)
+ * Build: v1.8.28 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
