@@ -79,16 +79,10 @@
     body {
       font-family: var(--font-sans);
       background-color: var(--bg);
-      background-image:
-        radial-gradient(circle at 15% 10%, rgba(96, 165, 250, 0.08) 0%, transparent 45%),
-        radial-gradient(circle at 85% 12%, rgba(0, 230, 118, 0.07) 0%, transparent 45%),
-        radial-gradient(circle at 50% 40%, rgba(167, 139, 250, 0.06) 0%, transparent 55%),
-        radial-gradient(circle at 80% 80%, rgba(56, 189, 248, 0.05) 0%, transparent 45%);
-      background-attachment: fixed;
       color: var(--text);
       line-height: 1.6;
       overflow-x: hidden;
-      padding-top: 76px;
+      padding-top: 70px;
     }
 
     /* TYPOGRAPHY HELPERS */
@@ -105,7 +99,7 @@
     a {
       color: var(--accent);
       text-decoration: none;
-      transition: all 0.2s ease;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     a:hover {
@@ -134,8 +128,8 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 76px;
-      background: rgba(6, 8, 17, 0.85);
+      height: 70px;
+      background: rgba(6, 8, 17, 0.92);
       backdrop-filter: blur(20px) saturate(180%);
       -webkit-backdrop-filter: blur(20px) saturate(180%);
       border-bottom: 1px solid var(--border);
@@ -145,91 +139,109 @@
     }
 
     .nav-container {
-      max-width: 1240px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 20px;
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 16px;
     }
 
     .nav-brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       font-weight: 800;
-      font-size: 19px;
+      font-size: 18px;
       letter-spacing: -0.02em;
       color: #fff;
+      text-decoration: none;
+      flex-shrink: 0;
+      white-space: nowrap;
     }
 
     .nav-brand img {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
     }
 
     .nav-brand-badge {
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      background: linear-gradient(135deg, rgba(96, 165, 250, 0.2), rgba(167, 139, 250, 0.2));
+      background: rgba(96, 165, 250, 0.15);
       color: var(--blue);
       border: 1px solid var(--blue-border);
-      padding: 2px 8px;
-      border-radius: 12px;
+      padding: 2px 7px;
+      border-radius: 8px;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 22px;
+      gap: 18px;
+      flex-shrink: 1;
     }
 
     .nav-links a {
       color: var(--text-muted);
-      font-size: 14.5px;
+      font-size: 13.5px;
       font-weight: 500;
+      white-space: nowrap;
+      transition: color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .nav-links a:hover {
       color: #fff;
     }
 
-    .nav-highlight-link {
-      color: var(--accent) !important;
-      background: var(--accent-dim);
-      padding: 6px 14px;
-      border-radius: 20px;
-      border: 1px solid rgba(0, 230, 118, 0.25);
-    }
-
-    .nav-highlight-link:hover {
-      background: rgba(0, 230, 118, 0.2);
-    }
-
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .nav-btn-back {
+      color: var(--accent) !important;
+      background: var(--accent-dim);
+      padding: 6px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(0, 230, 118, 0.25);
+      font-size: 12.5px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap;
+    }
+
+    .nav-btn-back:hover {
+      background: rgba(0, 230, 118, 0.2);
+      color: #fff !important;
     }
 
     .btn-nav-action {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
       background: linear-gradient(135deg, #0A84FF, #0066CC);
       color: #fff;
-      font-size: 13.5px;
+      font-size: 13px;
       font-weight: 600;
-      padding: 8px 16px;
+      padding: 7px 14px;
       border-radius: 10px;
       border: none;
       cursor: pointer;
       box-shadow: 0 4px 14px rgba(10, 132, 255, 0.35);
-      transition: all 0.2s ease;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap;
     }
 
     .btn-nav-action:hover {
@@ -240,12 +252,13 @@
 
     .mobile-menu-btn {
       display: none;
-      background: transparent;
+      background: rgba(255, 255, 255, 0.06);
       border: 1px solid var(--border);
       color: #fff;
-      padding: 8px;
+      padding: 7px;
       border-radius: 8px;
       cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     /* MOBILE NAV PANEL */
@@ -367,7 +380,7 @@
       font-weight: 600;
       cursor: pointer;
       border: none;
-      transition: all 0.25s ease;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       text-decoration: none;
     }
 
@@ -464,7 +477,7 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      transition: all 0.2s ease;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       white-space: nowrap;
     }
 
@@ -494,7 +507,7 @@
       border-radius: var(--radius);
       backdrop-filter: blur(14px);
       text-align: center;
-      transition: transform 0.2s ease, border-color 0.2s ease;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .stat-card:hover {
@@ -655,7 +668,7 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
-      transition: all 0.25s ease;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .arch-step-card:hover {
@@ -782,7 +795,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      transition: all 0.2s ease;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .mock-tab-btn:hover {
@@ -1098,7 +1111,7 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
-      transition: all 0.25s ease;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .device-card:hover {
@@ -1238,7 +1251,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      transition: all 0.2s ease;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .tab-btn:hover {
@@ -1277,7 +1290,7 @@
       display: flex;
       align-items: center;
       gap: 14px;
-      transition: all 0.2s ease;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .prov-card:hover {
@@ -1339,7 +1352,7 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       overflow: hidden;
-      transition: border-color 0.2s ease;
+      transition: border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .faq-item.active {
@@ -1374,7 +1387,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.2s ease;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       flex-shrink: 0;
     }
 
@@ -1468,6 +1481,12 @@
     }
 
     /* RESPONSIVE */
+    @media (max-width: 1080px) {
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: inline-flex; align-items: center; justify-content: center; }
+      .nav-btn-back { display: none; }
+    }
+
     @media (max-width: 1024px) {
       .hero-title { font-size: 40px; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1480,8 +1499,6 @@
     }
 
     @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .mobile-menu-btn { display: block; }
       .hero-title { font-size: 32px; }
       .hero-desc { font-size: 16px; }
       .hero-actions { flex-direction: column; width: 100%; }
@@ -1506,22 +1523,22 @@
       <div class="nav-links">
         <a href="#about">Genel Bakış</a>
         <a href="#how-it-works">Nasıl Çalışır?</a>
-        <a href="#showcase">Arayüz &amp; Ekranlar</a>
-        <a href="#devices">Cihazlar &amp; Oynatıcılar</a>
-        <a href="#install">Kurulum &amp; Servis</a>
+        <a href="#showcase">Arayüz</a>
+        <a href="#devices">Cihazlar</a>
+        <a href="#install">Kurulum</a>
         <a href="#providers">34 Sağlayıcı</a>
         <a href="#faq">SSS</a>
-        <a href="index.html" class="nav-highlight-link">← Eklenti Deposuna Dön</a>
       </div>
       <div class="nav-actions">
+        <a href="index.html" class="nav-btn-back">← Eklenti Deposu</a>
         <button class="btn-nav-action" onclick="copyDavUrl()">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
             <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
           </svg>
-          WebDAV URL'sini Al
+          WebDAV URL
         </button>
         <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
             <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
           </svg>
         </button>
@@ -1544,13 +1561,6 @@
   <!-- HERO SECTION -->
   <div class="hero">
     <div class="container">
-      <div class="hero-badge-wrap">
-        <div class="hero-badge">
-          <span class="pulse-dot"></span>
-          <span>Sıfır Disk Tüketimi · 34 Türkçe Kaynak Çözücü · Evrensel WebDAV Medya Sunucusu</span>
-        </div>
-      </div>
-
       <h1 class="hero-title">
         Tüm Türkçe İçerikler, <span>Sıfır Disk Alanıyla</span> Evindeki Her Ekranda.
       </h1>
