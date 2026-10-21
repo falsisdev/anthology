@@ -1,0 +1,3119 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Anthology WebDAV — Sıfır Disk Alanı ile Yerel Medya Sunucusu ve Akıllı Yayın Çözücü</title>
+  <meta name="description"
+    content="Anthology WebDAV: Diskinizde tek bir megabayt bile yer kaplamadan 34 Türkçe film, dizi ve anime kaynağını Infuse, Kodi, VLC ve Nova Player gibi medya oynatıcılarına bağlayan yeni nesil yerel medya sunucusu. Kurulum ve kullanım rehberi.">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <style>
+    :root {
+      --bg: #060811;
+      --bg-alt: #0a0e1a;
+      --surface: #0f1422;
+      --surface-glass: rgba(15, 20, 34, 0.78);
+      --surface2: #161d31;
+      --surface-card: rgba(22, 29, 49, 0.58);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.18);
+      --border-glow: rgba(0, 230, 118, 0.35);
+
+      --accent: #00e676;
+      --accent-rgb: 0, 230, 118;
+      --accent-dim: rgba(0, 230, 118, 0.12);
+      --accent-glow: rgba(0, 230, 118, 0.4);
+      --accent-dark: #00b359;
+
+      --blue: #60a5fa;
+      --blue-dim: rgba(96, 165, 250, 0.12);
+      --blue-border: rgba(96, 165, 250, 0.25);
+      --blue-glow: rgba(96, 165, 250, 0.35);
+
+      --purple: #a78bfa;
+      --purple-dim: rgba(167, 139, 250, 0.12);
+      --purple-border: rgba(167, 139, 250, 0.25);
+
+      --orange: #fb923c;
+      --orange-dim: rgba(251, 146, 60, 0.12);
+      --orange-border: rgba(251, 146, 60, 0.25);
+
+      --pink: #f472b6;
+      --pink-dim: rgba(244, 114, 182, 0.12);
+      --pink-border: rgba(244, 114, 182, 0.25);
+
+      --cyan: #38bdf8;
+      --cyan-dim: rgba(56, 189, 248, 0.12);
+      --cyan-border: rgba(56, 189, 248, 0.25);
+
+      --yellow: #facc15;
+      --yellow-dim: rgba(250, 204, 21, 0.12);
+
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --radius-xl: 24px;
+      --radius: 18px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+      --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.6);
+      --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      color-scheme: dark;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(circle at 15% 10%, rgba(96, 165, 250, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 85% 12%, rgba(0, 230, 118, 0.07) 0%, transparent 45%),
+        radial-gradient(circle at 50% 40%, rgba(167, 139, 250, 0.06) 0%, transparent 55%),
+        radial-gradient(circle at 80% 80%, rgba(56, 189, 248, 0.05) 0%, transparent 45%);
+      background-attachment: fixed;
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      padding-top: 76px;
+    }
+
+    /* TYPOGRAPHY HELPERS */
+    h1, h2, h3, h4, h5, h6 {
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      color: var(--text-muted);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    a:hover {
+      color: #fff;
+    }
+
+    code {
+      font-family: var(--font-mono);
+      background: rgba(255, 255, 255, 0.08);
+      padding: 2px 7px;
+      border-radius: 6px;
+      font-size: 0.9em;
+      color: #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* TOP NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 76px;
+      background: rgba(6, 8, 17, 0.85);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 19px;
+      letter-spacing: -0.02em;
+      color: #fff;
+    }
+
+    .nav-brand img {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+    }
+
+    .nav-brand-badge {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: linear-gradient(135deg, rgba(96, 165, 250, 0.2), rgba(167, 139, 250, 0.2));
+      color: var(--blue);
+      border: 1px solid var(--blue-border);
+      padding: 2px 8px;
+      border-radius: 12px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      font-size: 14.5px;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    .nav-highlight-link {
+      color: var(--accent) !important;
+      background: var(--accent-dim);
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid rgba(0, 230, 118, 0.25);
+    }
+
+    .nav-highlight-link:hover {
+      background: rgba(0, 230, 118, 0.2);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-nav-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #0A84FF, #0066CC);
+      color: #fff;
+      font-size: 13.5px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(10, 132, 255, 0.35);
+      transition: all 0.2s ease;
+    }
+
+    .btn-nav-action:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(10, 132, 255, 0.5);
+      color: #fff;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: #fff;
+      padding: 8px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    /* MOBILE NAV PANEL */
+    .mobile-nav-panel {
+      display: none;
+      position: fixed;
+      top: 76px;
+      left: 0;
+      right: 0;
+      background: rgba(10, 14, 26, 0.98);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 24px;
+      flex-direction: column;
+      gap: 16px;
+      z-index: 999;
+    }
+
+    .mobile-nav-panel.open {
+      display: flex;
+    }
+
+    .mobile-nav-panel a {
+      color: var(--text);
+      font-size: 16px;
+      font-weight: 500;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      position: relative;
+      padding: 64px 0 80px 0;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-badge-wrap {
+      display: inline-flex;
+      margin-bottom: 24px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 20px;
+      border-radius: 30px;
+      background: rgba(10, 132, 255, 0.1);
+      border: 1px solid rgba(10, 132, 255, 0.3);
+      color: #93c5fd;
+      font-size: 13.5px;
+      font-weight: 600;
+      box-shadow: 0 0 24px rgba(10, 132, 255, 0.2);
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: #38bdf8;
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.7);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 10px rgba(56, 189, 248, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(56, 189, 248, 0);
+      }
+    }
+
+    .hero-title {
+      font-size: 52px;
+      line-height: 1.15;
+      margin-bottom: 24px;
+      font-weight: 800;
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #60a5fa 0%, #00e676 50%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      font-size: 19px;
+      color: #cbd5e1;
+      max-width: 820px;
+      margin: 0 auto 36px auto;
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-size: 15.5px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.25s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0A84FF 0%, #0066CC 100%);
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(10, 132, 255, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(10, 132, 255, 0.6);
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
+      border: 1px solid var(--border-hover);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+      color: #fff;
+    }
+
+    .btn-accent {
+      background: linear-gradient(135deg, #00e676 0%, #00b359 100%);
+      color: #060811;
+      font-weight: 700;
+      box-shadow: 0 8px 24px rgba(0, 230, 118, 0.35);
+    }
+
+    .btn-accent:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(0, 230, 118, 0.5);
+      color: #060811;
+    }
+
+    /* URL QUICK BAR */
+    .url-quickbar-wrap {
+      max-width: 680px;
+      margin: 0 auto 48px auto;
+    }
+
+    .url-quickbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 12px 8px 18px;
+      background: rgba(15, 20, 34, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(16px);
+    }
+
+    .url-tag {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 4px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .url-text {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: #f1f5f9;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex: 1;
+      text-align: left;
+    }
+
+    .btn-copy-sm {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #fff;
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-copy-sm:hover {
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .btn-copy-sm.copied {
+      background: rgba(0, 230, 118, 0.2);
+      border-color: rgba(0, 230, 118, 0.5);
+      color: #00e676;
+    }
+
+    /* STATS GRID */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    .stat-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      padding: 22px 18px;
+      border-radius: var(--radius);
+      backdrop-filter: blur(14px);
+      text-align: center;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-hover);
+    }
+
+    .stat-val {
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .stat-val.green {
+      color: var(--accent);
+    }
+
+    .stat-val.blue {
+      color: var(--blue);
+    }
+
+    .stat-val.purple {
+      color: var(--purple);
+    }
+
+    .stat-val.cyan {
+      color: var(--cyan);
+    }
+
+    .stat-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* SECTION STYLES */
+    section {
+      padding: 80px 0;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 52px auto;
+    }
+
+    .section-eyebrow {
+      font-size: 12.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--cyan);
+      margin-bottom: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title {
+      font-size: 38px;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    .section-desc {
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* COMPARISON TABLE */
+    .comp-table-wrap {
+      overflow-x: auto;
+      background: var(--surface-glass);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      box-shadow: var(--shadow-lg);
+      backdrop-filter: blur(16px);
+      margin-bottom: 40px;
+    }
+
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14.5px;
+    }
+
+    .comp-table th, .comp-table td {
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .comp-table th {
+      font-size: 13.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .comp-table th.highlight-col, .comp-table td.highlight-col {
+      background: rgba(10, 132, 255, 0.06);
+      border-left: 1px solid rgba(10, 132, 255, 0.2);
+      border-right: 1px solid rgba(10, 132, 255, 0.2);
+    }
+
+    .comp-table th.highlight-col {
+      color: #60a5fa;
+      font-weight: 800;
+      font-size: 15px;
+    }
+
+    .badge-check {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #34d399;
+      font-weight: 600;
+    }
+
+    .badge-cross {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #f87171;
+      font-weight: 500;
+    }
+
+    .badge-warn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #fbbf24;
+      font-weight: 500;
+    }
+
+    /* ARCHITECTURE PIPELINE */
+    .arch-flow-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      position: relative;
+      margin: 40px 0;
+    }
+
+    .arch-step-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 18px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: all 0.25s ease;
+    }
+
+    .arch-step-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(96, 165, 250, 0.4);
+      box-shadow: 0 12px 30px rgba(10, 132, 255, 0.15);
+    }
+
+    .arch-step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(96, 165, 250, 0.15);
+      color: var(--blue);
+      border: 1px solid var(--blue-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .arch-step-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .arch-step-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .arch-arrow {
+      position: absolute;
+      right: -13px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 24px;
+      height: 24px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      z-index: 2;
+    }
+
+    /* UI SHOWCASE SIMULATOR */
+    .mockup-container {
+      background: #090c15;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-xl);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+      overflow: hidden;
+      margin-top: 36px;
+    }
+
+    .mockup-topbar {
+      height: 48px;
+      background: rgba(22, 29, 49, 0.8);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      padding: 0 18px;
+      gap: 14px;
+    }
+
+    .window-controls {
+      display: flex;
+      gap: 8px;
+    }
+
+    .w-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .w-red { background: #ff5f56; }
+    .w-yellow { background: #ffbd2e; }
+    .w-green { background: #27c93f; }
+
+    .mockup-addressbar {
+      flex: 1;
+      max-width: 460px;
+      margin: 0 auto;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      color: #94a3b8;
+      gap: 8px;
+    }
+
+    .mockup-tabs-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 18px;
+      background: rgba(15, 20, 34, 0.6);
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+
+    .mock-tab-btn {
+      padding: 9px 18px;
+      border-radius: 10px;
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .mock-tab-btn:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .mock-tab-btn.active {
+      background: rgba(10, 132, 255, 0.15);
+      border-color: rgba(10, 132, 255, 0.3);
+      color: #60a5fa;
+    }
+
+    .mock-pane {
+      display: none;
+      padding: 32px;
+    }
+
+    .mock-pane.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* MOCKUP CONTENT PANES */
+    /* 1. Web UI Dashboard Mockup */
+    .webui-mock {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .webui-search-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      padding: 14px 20px;
+      font-size: 16px;
+      color: #fff;
+    }
+
+    .webui-search-icon {
+      color: var(--text-muted);
+    }
+
+    .webui-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .webui-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .webui-card-poster {
+      height: 180px;
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .webui-poster-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+
+    .tag-movie { background: rgba(59, 130, 246, 0.85); color: #fff; }
+    .tag-series { background: rgba(168, 85, 247, 0.85); color: #fff; }
+    .tag-anime { background: rgba(236, 72, 153, 0.85); color: #fff; }
+
+    .webui-card-body {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .webui-card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .webui-card-meta {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .webui-card-action {
+      margin-top: auto;
+      padding-top: 12px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-mock-add {
+      flex: 1;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      background: var(--accent);
+      color: #060811;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .btn-mock-added {
+      background: rgba(0, 230, 118, 0.15);
+      border: 1px solid rgba(0, 230, 118, 0.3);
+      color: #00e676;
+    }
+
+    .btn-mock-src {
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+    }
+
+    /* 2. Finder / Explorer Mockup */
+    .finder-mock {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(15, 20, 34, 0.5);
+    }
+
+    .finder-sidebar {
+      background: rgba(10, 14, 26, 0.7);
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 16px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .finder-side-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-dim);
+      padding: 4px 8px;
+    }
+
+    .finder-side-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-size: 13px;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+
+    .finder-side-item.active {
+      background: rgba(10, 132, 255, 0.2);
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .finder-files-view {
+      padding: 18px;
+    }
+
+    .finder-file-row {
+      display: grid;
+      grid-template-columns: 3fr 1fr 1fr;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      color: #cbd5e1;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .finder-file-row:hover {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .finder-file-name {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    .finder-file-name svg {
+      color: var(--blue);
+    }
+
+    /* 3. Infuse TV / Apple TV Mockup */
+    .infuse-mock {
+      background: radial-gradient(circle at 50% 30%, #1e1b4b 0%, #060811 70%);
+      border-radius: 16px;
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .infuse-hero-item {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .infuse-poster {
+      width: 200px;
+      height: 290px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #312e81, #1e1b4b);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .infuse-badges {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .infuse-badge {
+      font-size: 11px;
+      font-weight: 700;
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 3px 8px;
+      border-radius: 4px;
+      color: #fff;
+    }
+
+    .infuse-details h3 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .infuse-details p {
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .infuse-stream-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: #4ade80;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 600;
+    }
+
+    /* PLATFORM MATRIX */
+    .devices-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 36px;
+    }
+
+    .device-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: all 0.25s ease;
+    }
+
+    .device-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-hover);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+    }
+
+    .device-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .device-icon-wrap {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+
+    .device-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .device-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .device-app-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .app-tag {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 11px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #e2e8f0;
+    }
+
+    .app-tag.recommended {
+      background: rgba(10, 132, 255, 0.15);
+      border-color: rgba(10, 132, 255, 0.3);
+      color: #60a5fa;
+    }
+
+    .device-steps {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 13.5px;
+      color: #cbd5e1;
+    }
+
+    .device-steps li {
+      display: flex;
+      gap: 12px;
+      line-height: 1.5;
+    }
+
+    .step-num {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* CODE BOXES */
+    .code-box {
+      background: #090c15;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 16px 0;
+    }
+
+    .code-header {
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      font-family: var(--font-mono);
+      color: var(--text-dim);
+    }
+
+    .code-content {
+      padding: 16px;
+      font-family: var(--font-mono);
+      font-size: 13.5px;
+      color: #e2e8f0;
+      line-height: 1.5;
+      overflow-x: auto;
+    }
+
+    /* TABS NAV */
+    .tabs-nav {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 10px 20px;
+      border-radius: 12px;
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 14.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover {
+      color: #fff;
+      border-color: var(--border-hover);
+    }
+
+    .tab-btn.active {
+      background: rgba(10, 132, 255, 0.15);
+      border-color: rgba(10, 132, 255, 0.35);
+      color: #60a5fa;
+    }
+
+    .tab-pane {
+      display: none;
+    }
+
+    .tab-pane.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    /* PROVIDERS SHOWCASE GRID */
+    .providers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .prov-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .prov-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .prov-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .prov-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .prov-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .prov-cat-badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-top: 4px;
+    }
+
+    .cat-anime { background: rgba(236, 72, 153, 0.15); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.25); }
+    .cat-series { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.25); }
+    .cat-movie { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.25); }
+
+    /* FAQ ACCORDION */
+    .faq-container {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .faq-item {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color 0.2s ease;
+    }
+
+    .faq-item.active {
+      border-color: rgba(96, 165, 250, 0.35);
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      padding: 20px 24px;
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 16.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .faq-question:hover {
+      color: #60a5fa;
+    }
+
+    .faq-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+      background: rgba(10, 132, 255, 0.2);
+      color: #60a5fa;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 24px 24px 24px;
+      font-size: 15px;
+      color: #cbd5e1;
+      line-height: 1.6;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      padding-top: 16px;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    /* TOAST */
+    .toast {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      background: rgba(15, 20, 34, 0.95);
+      border: 1px solid rgba(0, 230, 118, 0.4);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(16px);
+      padding: 14px 22px;
+      border-radius: 12px;
+      color: #fff;
+      font-size: 14.5px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 9999;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* FOOTER */
+    footer {
+      background: rgba(6, 8, 17, 0.95);
+      border-top: 1px solid var(--border);
+      padding: 60px 0 36px 0;
+      margin-top: 80px;
+      text-align: center;
+    }
+
+    .footer-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      font-size: 14.5px;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    .footer-copy {
+      font-size: 13.5px;
+      color: var(--text-dim);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .hero-title { font-size: 40px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .arch-flow-grid { grid-template-columns: 1fr; }
+      .arch-arrow { display: none; }
+      .devices-grid { grid-template-columns: 1fr; }
+      .webui-cards-grid { grid-template-columns: 1fr; }
+      .infuse-hero-item { grid-template-columns: 1fr; }
+      .infuse-poster { margin: 0 auto; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: block; }
+      .hero-title { font-size: 32px; }
+      .hero-desc { font-size: 16px; }
+      .hero-actions { flex-direction: column; width: 100%; }
+      .btn { width: 100%; justify-content: center; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .finder-mock { grid-template-columns: 1fr; }
+      .finder-sidebar { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP NAVBAR -->
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/logo_1_transparent.png" alt="Anthology Logo">
+        <span>Anthology</span>
+        <span class="nav-brand-badge">WebDAV</span>
+      </a>
+      <div class="nav-links">
+        <a href="#about">Genel Bakış</a>
+        <a href="#how-it-works">Nasıl Çalışır?</a>
+        <a href="#showcase">Arayüz &amp; Ekranlar</a>
+        <a href="#devices">Cihazlar &amp; Oynatıcılar</a>
+        <a href="#install">Kurulum &amp; Servis</a>
+        <a href="#providers">34 Sağlayıcı</a>
+        <a href="#faq">SSS</a>
+        <a href="index.html" class="nav-highlight-link">← Eklenti Deposuna Dön</a>
+      </div>
+      <div class="nav-actions">
+        <button class="btn-nav-action" onclick="copyDavUrl()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
+          </svg>
+          WebDAV URL'sini Al
+        </button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV PANEL -->
+  <div class="mobile-nav-panel" id="mobileNavPanel">
+    <a href="#about" onclick="toggleMobileNav()">💡 Genel Bakış &amp; Özellikler</a>
+    <a href="#how-it-works" onclick="toggleMobileNav()">🧠 Nasıl Çalışır? (Teknik Mimari)</a>
+    <a href="#showcase" onclick="toggleMobileNav()">🖥️ Ekran Görüntüleri &amp; Arayüz Simülasyonu</a>
+    <a href="#devices" onclick="toggleMobileNav()">📱 Cihaz &amp; İşletim Sistemi Rehberi</a>
+    <a href="#install" onclick="toggleMobileNav()">⚙️ Kurulum &amp; Arka Plan Servisi</a>
+    <a href="#providers" onclick="toggleMobileNav()">🧩 34 Sağlayıcı Motoru</a>
+    <a href="#faq" onclick="toggleMobileNav()">❓ Sıkça Sorulan Sorular</a>
+    <a href="index.html" style="color: var(--accent);">← Ana Sayfaya Dön (Nuvio &amp; Stremio)</a>
+  </div>
+
+  <!-- HERO SECTION -->
+  <div class="hero">
+    <div class="container">
+      <div class="hero-badge-wrap">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          <span>Sıfır Disk Tüketimi · 34 Türkçe Kaynak Çözücü · Evrensel WebDAV Medya Sunucusu</span>
+        </div>
+      </div>
+
+      <h1 class="hero-title">
+        Tüm Türkçe İçerikler, <span>Sıfır Disk Alanıyla</span> Evindeki Her Ekranda.
+      </h1>
+
+      <p class="hero-desc">
+        Anthology WebDAV; bilgisayarınızı, Apple TV'nizi, telefonunuzu ve Android TV'nizi <strong>Infuse, Kodi, VLC ve Nova Video Player</strong> gibi profesyonel medya oynatıcılarıyla donatır. <strong>34 popüler film, dizi ve anime kaynağını</strong> tek bir Go mikroservisiyle sanallaştıran, diskinizde 1 MB bile yer kaplamayan yeni nesil yerel medya sunucusudur.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#install" class="btn btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z" />
+          </svg>
+          Hızlı Kurulum Rehberi
+        </a>
+        <a href="#devices" class="btn btn-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M4 6h16v10H4zm16 12H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2h16c1.1 0 2 .9 2 2v10c0 1.1-.9 2-2 2zm-8 2c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z" />
+          </svg>
+          Cihazını Seç &amp; Bağlan
+        </a>
+        <a href="https://github.com/falsisdev/anthology-dav" target="_blank" rel="noopener" class="btn btn-accent">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+          GitHub Deposu
+        </a>
+      </div>
+
+      <!-- QUICK URL BAR -->
+      <div class="url-quickbar-wrap">
+        <div class="url-quickbar">
+          <span class="url-tag">WebDAV URL</span>
+          <span class="url-text" id="davUrlText">http://127.0.0.1:8085/dav</span>
+          <button class="btn-copy-sm" id="davCopyBtn" onclick="copyDavUrl()">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
+            </svg>
+            <span>Kopyala</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- STATS GRID -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-val green">0 <span>MB</span></div>
+          <div class="stat-desc">Sıfır Disk Kullanımı (In-Memory VFS)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val blue">34</div>
+          <div class="stat-desc">Aktif Çözücü Motoru (Film/Dizi/Anime)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val purple">7+</div>
+          <div class="stat-desc">İşletim Sistemi (Apple, Android, Windows, Linux)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val cyan">1080p / 4K</div>
+          <div class="stat-desc">Donanım Hızlandırmalı Kesintisiz Akış</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: ABOUT & COMPARISON -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">🚀 Neden Anthology WebDAV?</div>
+        <h2 class="section-title">Klasik Yöntemlerin Tüm Kısıtlamalarını Unutun</h2>
+        <p class="section-desc">
+          İnternetten film veya dizi izlemek istediğinizde karşılaştığınız reklam pencereleri, sahte butonlar, yüzlerce gigabaytlık disk israfı ve televizyonda açılmayan siteler artık tarih oluyor.
+        </p>
+      </div>
+
+      <!-- COMPARISON TABLE -->
+      <div class="comp-table-wrap">
+        <table class="comp-table">
+          <thead>
+            <tr>
+              <th>Özellik &amp; Kriter</th>
+              <th>Tarayıcıda İzleme</th>
+              <th>Plex / Jellyfin</th>
+              <th>Real-Debrid</th>
+              <th class="highlight-col">✨ Anthology WebDAV</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Disk Alanı İhtiyacı</strong></td>
+              <td><span class="badge-check">0 GB</span></td>
+              <td><span class="badge-cross">500 GB - 10 TB</span></td>
+              <td><span class="badge-check">0 GB</span></td>
+              <td class="highlight-col"><span class="badge-check"><strong>0 MB (Sanal RAM VFS)</strong></span></td>
+            </tr>
+            <tr>
+              <td><strong>Maliyet / Abonelik</strong></td>
+              <td><span class="badge-check">Ücretsiz</span></td>
+              <td><span class="badge-warn">Elektrik + Depolama</span></td>
+              <td><span class="badge-cross">Aylık €4 - €9 Euro</span></td>
+              <td class="highlight-col"><span class="badge-check"><strong>0 TL (Tamamen Ücretsiz)</strong></span></td>
+            </tr>
+            <tr>
+              <td><strong>Türkçe Dublaj &amp; Altyazı</strong></td>
+              <td><span class="badge-check">Mevcut</span></td>
+              <td><span class="badge-warn">Elle dosya arama</span></td>
+              <td><span class="badge-cross">Türkçe torrent yok denecek kadar az</span></td>
+              <td class="highlight-col"><span class="badge-check"><strong>34 Yerli Platform Entegre</strong></span></td>
+            </tr>
+            <tr>
+              <td><strong>Reklamlar &amp; Sahte Butonlar</strong></td>
+              <td><span class="badge-cross">Onlarca bahis &amp; popup</span></td>
+              <td><span class="badge-check">Reklamsız</span></td>
+              <td><span class="badge-check">Reklamsız</span></td>
+              <td class="highlight-col"><span class="badge-check"><strong>%100 Reklamsız</strong></span></td>
+            </tr>
+            <tr>
+              <td><strong>Medya Oynatıcı Deneyimi</strong></td>
+              <td><span class="badge-cross">Hantal Web Oynatıcı</span></td>
+              <td><span class="badge-check">Kendi Oynatıcısı</span></td>
+              <td><span class="badge-warn">WebDAV / Stremio</span></td>
+              <td class="highlight-col"><span class="badge-check"><strong>Infuse, Kodi, VLC, Nova, IINA</strong></span></td>
+            </tr>
+            <tr>
+              <td><strong>Otomatik Poster &amp; Özet (Metadata)</strong></td>
+              <td><span class="badge-cross">Yok</span></td>
+              <td><span class="badge-check">Var</span></td>
+              <td><span class="badge-warn">Kısmi</span></td>
+              <td class="highlight-col"><span class="badge-check"><strong>%100 TMDB Uluslararası Standart</strong></span></td>
+            </tr>
+            <tr>
+              <td><strong>TV &amp; Kumanda Uyumluluğu</strong></td>
+              <td><span class="badge-cross">İmkânsız / Zor</span></td>
+              <td><span class="badge-check">İyi</span></td>
+              <td><span class="badge-check">İyi</span></td>
+              <td class="highlight-col"><span class="badge-check"><strong>Apple TV &amp; Android TV Mükemmel</strong></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: HOW IT WORKS & ARCHITECTURE -->
+  <section id="how-it-works" style="background: rgba(10, 14, 26, 0.45);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">🧠 Teknik Mimari</div>
+        <h2 class="section-title">Anthology WebDAV Arka Planda Nasıl Çalışır?</h2>
+        <p class="section-desc">
+          Go (Golang) ile sıfırdan yazılmış yüksek performanslı eşzamanlı (concurrency) motoru sayesinde her şey saniyeler içinde RAM üzerinde gerçekleşir.
+        </p>
+      </div>
+
+      <!-- ARCHITECTURE PIPELINE CARDS -->
+      <div class="arch-flow-grid">
+        <div class="arch-step-card">
+          <div class="arch-step-num">1</div>
+          <div class="arch-step-title">Kütüphaneye Ekleme</div>
+          <div class="arch-step-desc">
+            Kullanıcı web arayüzünden veya Finder içinden bir film/dizi seçer. TMDB verileri önbelleklenir ve sanal dizine işlenir.
+          </div>
+          <div class="arch-arrow">→</div>
+        </div>
+
+        <div class="arch-step-card">
+          <div class="arch-step-num">2</div>
+          <div class="arch-step-title">Sanal Dosya Sistemi</div>
+          <div class="arch-step-desc">
+            VFS, diske 0 bayt video yazarak RAM üzerinde <code>.strm</code> işaretçi dosyalarını oluşturur (Örn: <code>Breaking Bad - S01E01.strm</code>).
+          </div>
+          <div class="arch-arrow">→</div>
+        </div>
+
+        <div class="arch-step-card">
+          <div class="arch-step-num">3</div>
+          <div class="arch-step-title">Medya Oynatıcı Talebi</div>
+          <div class="arch-step-desc">
+            Infuse, Kodi veya VLC bölüme tıkladığında <code>/stream/resolve</code> adresine istek atar. Sunucu uyanır.
+          </div>
+          <div class="arch-arrow">→</div>
+        </div>
+
+        <div class="arch-step-card">
+          <div class="arch-step-num">4</div>
+          <div class="arch-step-title">34 Paralel Çözücü</div>
+          <div class="arch-step-desc">
+            Motor, kategorideki tüm siteleri aynı anda tarar; Vidrame XOR, Vidmoxy ROT13, CloseLoad ve token korumalarını deşifre eder.
+          </div>
+          <div class="arch-arrow">→</div>
+        </div>
+
+        <div class="arch-step-card">
+          <div class="arch-step-num">5</div>
+          <div class="arch-step-title">HTTP 206 Akış Köprüsü</div>
+          <div class="arch-step-desc">
+            En yüksek kaliteli 1080p/4K akış seçilir. Range header ve HLS segmentleri proxy edilerek kesintisiz oynatılır.
+          </div>
+        </div>
+      </div>
+
+      <!-- DEEP DIVE ACCORDION -->
+      <div style="background: var(--surface-card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 32px; margin-top: 40px;">
+        <h3 style="font-size: 22px; margin-bottom: 16px;">📂 Sanal Dosya Ağacı Haritası (WebDAV Root: <code>/dav/</code>)</h3>
+        <p style="margin-bottom: 20px; font-size: 15px;">
+          Medya oynatıcınız veya dosya yöneticiniz sunucuya bağlandığında diskinizde fiziksel klasörler görmez. Sunucu şu sanal ağacı RAM üzerinden canlı üretir:
+        </p>
+
+        <div class="code-box" style="margin: 0;">
+          <div class="code-header">
+            <span>Sanal Dizin Şeması</span>
+            <span>RAM In-Memory VFS</span>
+          </div>
+          <pre class="code-content"><code>/dav/
+├── Filmler/                                    # Kütüphanenize eklediğiniz filmler
+│   └── Inception (2010)/
+│       └── Inception (2010).strm               # Tıklandığında 1080p filmi anında çözer
+│
+├── Diziler/                                    # Eklediğiniz yabancı ve yerli diziler
+│   └── Breaking Bad (2008)/
+│       ├── Season 01/
+│       │   ├── Breaking Bad (2008) - S01E01.strm
+│       │   └── Breaking Bad (2008) - S01E02.strm
+│       └── Season 02/
+│
+├── Animeler/                                   # Eklediğiniz anime serileri
+│   └── Solo Leveling (2024)/
+│       └── Season 01/
+│           └── Solo Leveling (2024) - S01E01.strm
+│
+├── _Kaynak_Sec_/                               # Doğrulanmış çalışan kaynak seçici klasörü
+│   └── Inception (2010)/
+│       ├── [1080p] FilmModu.strm               # Kaynağı elle seçmek isteyenler için
+│       └── [1080p] HDFilmCehennemi.strm
+│
+├── Watchlist/                                  # Finder içinden yeni klasör açarak arama dizini (MKCOL Hilesi)
+└── _Tum_Saglayicilar/                          # 34 sağlayıcının vitrinlerini tek tek gezmek isteyenler için</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: UI SHOWCASE & SCREENSHOTS SIMULATOR -->
+  <section id="showcase">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">🖥️ Ekran Görüntüleri Destekli Rehber</div>
+        <h2 class="section-title">Gerçek Kullanım Deneyimi ve Arayüzler</h2>
+        <p class="section-desc">
+          Web arayüzünden kütüphane yönetimine, Apple TV'deki Infuse poster duvarından macOS Finder sanal diskine kadar tüm platformlardaki görünüm:
+        </p>
+      </div>
+
+      <!-- SIMULATOR CONTAINER -->
+      <div class="mockup-container">
+        <!-- TOPBAR -->
+        <div class="mockup-topbar">
+          <div class="window-controls">
+            <span class="w-dot w-red"></span>
+            <span class="w-dot w-yellow"></span>
+            <span class="w-dot w-green"></span>
+          </div>
+          <div class="mockup-addressbar" id="mockAddressBar">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+            </svg>
+            <span id="mockUrlText">http://localhost:8085/ (Anthology WebDAV Dashboard)</span>
+          </div>
+        </div>
+
+        <!-- TABS NAV -->
+        <div class="mockup-tabs-nav">
+          <button class="mock-tab-btn active" data-mock="webui" onclick="switchMockTab('webui')">
+            🌐 Web Arayüzü (Glassmorphism Dashboard)
+          </button>
+          <button class="mock-tab-btn" data-mock="finder" onclick="switchMockTab('finder')">
+            📂 macOS Finder &amp; Windows Dosya Gezgini
+          </button>
+          <button class="mock-tab-btn" data-mock="infuse" onclick="switchMockTab('infuse')">
+            🍎 Apple TV &amp; iOS (Infuse Ev Sineması)
+          </button>
+          <button class="mock-tab-btn" data-mock="kodi" onclick="switchMockTab('kodi')">
+            🤖 Android TV (Kodi &amp; Nova Player)
+          </button>
+          <button class="mock-tab-btn" data-mock="terminal" onclick="switchMockTab('terminal')">
+            ⚡ Terminal &amp; Arka Plan Kayıtları (Logs)
+          </button>
+        </div>
+
+        <!-- PANE 1: WEB UI -->
+        <div class="mock-pane active" id="mock-webui">
+          <div class="webui-mock">
+            <div class="webui-search-bar">
+              <span class="webui-search-icon">🔍</span>
+              <span style="color: #fff; font-weight: 500;">Breaking Bad</span>
+              <span style="margin-left: auto; font-size: 12px; background: rgba(255,255,255,0.1); padding: 3px 8px; border-radius: 6px; color: var(--text-muted);">⌘K ile arayın</span>
+            </div>
+
+            <div class="webui-cards-grid">
+              <!-- CARD 1 -->
+              <div class="webui-card">
+                <div class="webui-card-poster">
+                  <span class="webui-poster-tag tag-series">📺 DİZİ</span>
+                  <div style="font-size: 40px;">🧪</div>
+                </div>
+                <div class="webui-card-body">
+                  <div class="webui-card-title">Breaking Bad</div>
+                  <div class="webui-card-meta">
+                    <span>📅 2008</span>
+                    <span>⭐ 9.5 TMDB</span>
+                    <span>5 Sezon · 62 Bölüm</span>
+                  </div>
+                  <div class="webui-card-action">
+                    <button class="btn-mock-add btn-mock-added">✓ Kütüphanede</button>
+                    <button class="btn-mock-src">🔍 Kaynaklar (12)</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CARD 2 -->
+              <div class="webui-card">
+                <div class="webui-card-poster">
+                  <span class="webui-poster-tag tag-movie">🎬 FİLM</span>
+                  <div style="font-size: 40px;">🌀</div>
+                </div>
+                <div class="webui-card-body">
+                  <div class="webui-card-title">Inception (Başlangıç)</div>
+                  <div class="webui-card-meta">
+                    <span>📅 2010</span>
+                    <span>⭐ 8.4 TMDB</span>
+                    <span>148 Dakika</span>
+                  </div>
+                  <div class="webui-card-action">
+                    <button class="btn-mock-add btn-mock-added">✓ Kütüphanede</button>
+                    <button class="btn-mock-src">🔍 Kaynaklar (14)</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CARD 3 -->
+              <div class="webui-card">
+                <div class="webui-card-poster">
+                  <span class="webui-poster-tag tag-anime">⛩️ ANİME</span>
+                  <div style="font-size: 40px;">⚔️</div>
+                </div>
+                <div class="webui-card-body">
+                  <div class="webui-card-title">Solo Leveling</div>
+                  <div class="webui-card-meta">
+                    <span>📅 2024</span>
+                    <span>⭐ 8.7 TMDB</span>
+                    <span>1 Sezon · 12 Bölüm</span>
+                  </div>
+                  <div class="webui-card-action">
+                    <button class="btn-mock-add btn-mock-added">✓ Kütüphanede</button>
+                    <button class="btn-mock-src">🔍 Kaynaklar (8)</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PANE 2: FINDER & EXPLORER -->
+        <div class="mock-pane" id="mock-finder">
+          <div class="finder-mock">
+            <div class="finder-sidebar">
+              <div class="finder-side-title">Konumlar</div>
+              <div class="finder-side-item active">
+                <span>📁</span>
+                <span>Anthology WebDAV</span>
+              </div>
+              <div class="finder-side-item">
+                <span>💻</span>
+                <span>Macintosh HD</span>
+              </div>
+              <div class="finder-side-title" style="margin-top: 12px;">Sanal Klasörler</div>
+              <div class="finder-side-item">
+                <span>🎬</span>
+                <span>Filmler (24)</span>
+              </div>
+              <div class="finder-side-item active">
+                <span>📺</span>
+                <span>Diziler (18)</span>
+              </div>
+              <div class="finder-side-item">
+                <span>⛩️</span>
+                <span>Animeler (12)</span>
+              </div>
+            </div>
+
+            <div class="finder-files-view">
+              <div style="font-size: 12px; color: var(--text-dim); margin-bottom: 12px; font-family: var(--font-mono);">
+                /dav/Diziler/Breaking Bad (2008)/Season 01/
+              </div>
+              <div class="finder-file-row" style="font-weight: 700; color: var(--text-muted); border-bottom: 1px solid rgba(255,255,255,0.1);">
+                <span>Ad</span>
+                <span>Tür</span>
+                <span>Boyut</span>
+              </div>
+              <div class="finder-file-row">
+                <span class="finder-file-name">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  Breaking Bad - S01E01.strm
+                </span>
+                <span>Akış Dosyası</span>
+                <span style="color: #34d399; font-weight: 600;">124 bayt</span>
+              </div>
+              <div class="finder-file-row">
+                <span class="finder-file-name">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  Breaking Bad - S01E02.strm
+                </span>
+                <span>Akış Dosyası</span>
+                <span style="color: #34d399; font-weight: 600;">124 bayt</span>
+              </div>
+              <div class="finder-file-row">
+                <span class="finder-file-name">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  Breaking Bad - S01E03.strm
+                </span>
+                <span>Akış Dosyası</span>
+                <span style="color: #34d399; font-weight: 600;">124 bayt</span>
+              </div>
+              <div class="finder-file-row">
+                <span class="finder-file-name">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  Breaking Bad - S01E04.strm
+                </span>
+                <span>Akış Dosyası</span>
+                <span style="color: #34d399; font-weight: 600;">124 bayt</span>
+              </div>
+              <div style="margin-top: 16px; font-size: 12.5px; color: var(--cyan); background: rgba(56, 189, 248, 0.08); padding: 10px 14px; border-radius: 8px;">
+                💡 <strong>Doğrudan Silme Özelliği:</strong> Finder veya Dosya Gezgini'nde bu klasörü sildiğinizde, sunucu içeriği anında <code>library.json</code> kütüphanenizden kalıcı olarak temizler!
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PANE 3: INFUSE (APPLE TV / IOS) -->
+        <div class="mock-pane" id="mock-infuse">
+          <div class="infuse-mock">
+            <div class="infuse-hero-item">
+              <div class="infuse-poster">
+                <div style="font-size: 32px; text-align: center; margin-bottom: 40px;">🌀</div>
+                <div style="font-weight: 700; font-size: 16px; color: #fff;">INCEPTION</div>
+                <div style="font-size: 11px; color: #94a3b8;">Christopher Nolan</div>
+              </div>
+
+              <div class="infuse-details">
+                <div class="infuse-badges">
+                  <span class="infuse-badge">4K ULTRA HD</span>
+                  <span class="infuse-badge">DOLBY AUDIO</span>
+                  <span class="infuse-badge">TR DUBLAJ &amp; ALTYAZI</span>
+                  <span class="infuse-badge">2010</span>
+                </div>
+                <h3>Inception (Başlangıç)</h3>
+                <p>
+                  Dom Cobb çok yetenekli bir hırsızdır. Uzmanlık alanı zihnin en savunmasız olduğu rüya görme anında bilinçaltının derinliklerindeki değerli sırları çekip çıkarmaktır. Ancak bu kez görevi bir fikri çalmak değil, onu yerleştirmektir.
+                </p>
+                <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+                  <button style="padding: 12px 24px; border-radius: 10px; background: #fff; color: #000; font-weight: 700; border: none; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                    ▶ Oynat
+                  </button>
+                  <span class="infuse-stream-tag">
+                    ✓ Anthology WebDAV Akış Köprüsü: 1080p Doğrudan CDN (HTTP 206)
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PANE 4: KODI & NOVA VIDEO PLAYER -->
+        <div class="mock-pane" id="mock-kodi">
+          <div style="background: #0b1120; border-radius: 14px; padding: 24px; border: 1px solid rgba(255,255,255,0.08);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 12px;">
+              <div style="font-weight: 700; font-size: 16px; color: #60a5fa; display: flex; align-items: center; gap: 8px;">
+                <span>🤖</span> Android TV / Google TV · Nova Video Player &amp; Kodi
+              </div>
+              <span style="font-size: 12px; color: var(--accent); background: rgba(0,230,118,0.1); padding: 4px 10px; border-radius: 6px;">
+                Ağ Konumu: WebDAV (192.168.1.X:8085/dav)
+              </span>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+              <div style="background: rgba(255,255,255,0.04); border-radius: 10px; padding: 14px; text-align: center;">
+                <div style="font-size: 32px; margin-bottom: 8px;">🎬</div>
+                <div style="font-weight: 600; font-size: 13.5px;">Filmler</div>
+                <div style="font-size: 11.5px; color: var(--text-dim);">The Movie Database</div>
+              </div>
+              <div style="background: rgba(255,255,255,0.04); border-radius: 10px; padding: 14px; text-align: center;">
+                <div style="font-size: 32px; margin-bottom: 8px;">📺</div>
+                <div style="font-weight: 600; font-size: 13.5px;">Diziler</div>
+                <div style="font-size: 11.5px; color: var(--text-dim);">TV Shows Scraper</div>
+              </div>
+              <div style="background: rgba(255,255,255,0.04); border-radius: 10px; padding: 14px; text-align: center;">
+                <div style="font-size: 32px; margin-bottom: 8px;">⛩️</div>
+                <div style="font-weight: 600; font-size: 13.5px;">Animeler</div>
+                <div style="font-size: 11.5px; color: var(--text-dim);">Otomatik Afiş &amp; Özet</div>
+              </div>
+              <div style="background: rgba(10,132,255,0.15); border: 1px solid rgba(10,132,255,0.3); border-radius: 10px; padding: 14px; text-align: center;">
+                <div style="font-size: 32px; margin-bottom: 8px;">⚡</div>
+                <div style="font-weight: 600; font-size: 13.5px; color: #60a5fa;">Donanım Çözücü</div>
+                <div style="font-size: 11.5px; color: #93c5fd;">4K HDR &amp; Passthrough</div>
+              </div>
+            </div>
+
+            <div style="margin-top: 20px; font-size: 13px; color: #cbd5e1; line-height: 1.6;">
+              📌 <strong>Kumanda Dostu Kullanım:</strong> Android TV kumandanızla Kodi veya Nova Player arayüzünde gezinirken tüm filmler ve diziler sanki USB bellekten açılıyormuş gibi anında oynatılır. Web sitelerinin pop-up reklamları veya captchalarıyla asla karşılaşmazsınız.
+            </div>
+          </div>
+        </div>
+
+        <!-- PANE 5: TERMINAL & LOGS -->
+        <div class="mock-pane" id="mock-terminal">
+          <div class="code-box" style="margin: 0;">
+            <div class="code-header">
+              <span>anthology-dav ~ bash · make logs</span>
+              <span>CANLI KAYITLAR (LOGS)</span>
+            </div>
+            <pre class="code-content"><code>[INFO] Anthology WebDAV started on http://127.0.0.1:8085
+[INFO] Web UI:               http://127.0.0.1:8085/
+[INFO] WebDAV Root:          http://127.0.0.1:8085/dav/
+[INFO] Registered Providers: 34 Active Engines
+[INFO] Library Items Count:  54 Media Items
+[WEBDAV] PROPFIND /dav/Filmler/Inception (2010)/ -> 207 Multi-Status
+[REQ] GET /stream/resolve?type=movie&tmdb_id=27205&title=Inception -> 200 OK (1.24s)
+[RESOLVER] Scraped providers: [FilmModu: 1080p, HDFilmCehennemi: 1080p, SineWix: 1080p]
+[RESOLVER] Selected Best: FilmModu (1080p Direct HLS Master Playlist)
+[PROXY] Stream hooked -> HTTP 206 Partial Content (Range bytes=0-1048576) UA=Infuse/7.7</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: DEVICE & OS GUIDES -->
+  <section id="devices" style="background: rgba(10, 14, 26, 0.45);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">📱 Cihaz &amp; İşletim Sistemi Kılavuzları</div>
+        <h2 class="section-title">Hangi Cihazda Nasıl Kullanılır?</h2>
+        <p class="section-desc">
+          Anthology WebDAV evrensel HTTP ve WebDAV standartlarını destekler. Ev ağınızdaki tüm cihazları dakikalar içinde sinema merkezine dönüştürün:
+        </p>
+      </div>
+
+      <!-- PLATFORM SELECTOR TABS -->
+      <div class="tabs-nav" style="justify-content: center;">
+        <button class="tab-btn active" data-tab="apple" onclick="switchDeviceTab('apple')">
+          🍎 Apple Ekosistemi (macOS, iOS, Apple TV)
+        </button>
+        <button class="tab-btn" data-tab="android" onclick="switchDeviceTab('android')">
+          🤖 Android &amp; Akıllı TV (Google TV, Mi Box, Tablet)
+        </button>
+        <button class="tab-btn" data-tab="windows" onclick="switchDeviceTab('windows')">
+          🪟 Windows (PC, Laptop, RaiDrive)
+        </button>
+        <button class="tab-btn" data-tab="linux" onclick="switchDeviceTab('linux')">
+          🐧 Linux &amp; Steam Deck (Ubuntu, Arch, Dolphin)
+        </button>
+        <button class="tab-btn" data-tab="remote" onclick="switchDeviceTab('remote')">
+          🌐 Ev Ağında (LAN) &amp; Dışarıdan Uzaktan Erişim
+        </button>
+      </div>
+
+      <!-- DEVICE TAB: APPLE -->
+      <div class="tab-pane active" id="pane-apple">
+        <div class="devices-grid">
+          <!-- MAC -->
+          <div class="device-card">
+            <div class="device-header">
+              <div class="device-icon-wrap">💻</div>
+              <div>
+                <div class="device-title">macOS</div>
+                <div class="device-subtitle">MacBook, iMac, Mac mini/Studio</div>
+              </div>
+            </div>
+            <div class="device-app-list">
+              <span class="app-tag recommended">Infuse (Tavsiye)</span>
+              <span class="app-tag recommended">VidHub</span>
+              <span class="app-tag">IINA</span>
+              <span class="app-tag">Finder ⌘K</span>
+              <span class="app-tag">VLC</span>
+            </div>
+            <ul class="device-steps">
+              <li>
+                <span class="step-num">1</span>
+                <div><strong>Infuse veya VidHub'ı açın:</strong> Ayarlar ⚙️ &rarr; Paylaşımlar &rarr; Paylaşım Ekle &rarr; <strong>WebDAV (HTTP)</strong> seçin.</div>
+              </li>
+              <li>
+                <span class="step-num">2</span>
+                <div><strong>Bağlantı Bilgileri:</strong> Adres: <code>127.0.0.1</code>, Port: <code>8085</code>, Yol: <code>/dav</code>. Kullanıcı adı/şifre: <em>boş bırakın</em>.</div>
+              </li>
+              <li>
+                <span class="step-num">3</span>
+                <div><strong>Finder'a Disk Olarak Bağlama:</strong> Finder'dayken <strong>⌘K</strong> tuşlarına basıp <code>http://127.0.0.1:8085/dav/</code> yazın ve "Konuk" olarak bağlanın.</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- IOS / IPAD -->
+          <div class="device-card">
+            <div class="device-header">
+              <div class="device-icon-wrap">📱</div>
+              <div>
+                <div class="device-title">iOS &amp; iPadOS</div>
+                <div class="device-subtitle">iPhone ve iPad Modelleri</div>
+              </div>
+            </div>
+            <div class="device-app-list">
+              <span class="app-tag recommended">Infuse (Tavsiye)</span>
+              <span class="app-tag recommended">VidHub</span>
+              <span class="app-tag">SenPlayer</span>
+              <span class="app-tag">Fileball</span>
+              <span class="app-tag">Dosyalar (Files)</span>
+            </div>
+            <ul class="device-steps">
+              <li>
+                <span class="step-num">1</span>
+                <div><strong>Ev Ağı IP'sini Öğrenin:</strong> Mac'inizde Terminal'e <code>ipconfig getifaddr en0</code> yazın (Örn: <code>192.168.1.45</code>).</div>
+              </li>
+              <li>
+                <span class="step-num">2</span>
+                <div><strong>Infuse / VidHub Ayarı:</strong> Medya kaynağı olarak WebDAV ekleyin; Adres kısmına bilgisayarınızın yerel IP'sini (<code>192.168.1.45</code>) yazın.</div>
+              </li>
+              <li>
+                <span class="step-num">3</span>
+                <div><strong>Koltuğunuzdan Kontrol:</strong> Telefonunuzun Safari tarayıcısından <code>http://192.168.1.45:8085/</code> adresine girerek yeni filmleri anında kütüphanenize ekleyin!</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- APPLE TV -->
+          <div class="device-card">
+            <div class="device-header">
+              <div class="device-icon-wrap">📺</div>
+              <div>
+                <div class="device-title">tvOS (Apple TV)</div>
+                <div class="device-subtitle">Apple TV 4K ve HD</div>
+              </div>
+            </div>
+            <div class="device-app-list">
+              <span class="app-tag recommended">Infuse Pro (1 Numaralı Deneyim)</span>
+              <span class="app-tag">VidHub</span>
+              <span class="app-tag">VLC</span>
+            </div>
+            <ul class="device-steps">
+              <li>
+                <span class="step-num">1</span>
+                <div><strong>Apple TV'de Infuse'u açın:</strong> Ayarlar &rarr; Paylaşımlar &rarr; WebDAV ekle yolunu takip edin.</div>
+              </li>
+              <li>
+                <span class="step-num">2</span>
+                <div><strong>Yerel IP Adresini Girin:</strong> Sunucunun çalıştığı bilgisayarın yerel IP'sini (<code>192.168.1.X</code>), Port <code>8085</code> ve Yol <code>/dav</code> olarak kaydedin.</div>
+              </li>
+              <li>
+                <span class="step-num">3</span>
+                <div><strong>iCloud Senkronu:</strong> Mac veya iPhone'unuzdaki Infuse'a WebDAV'ı bir kez eklediğinizde iCloud sayesinde Apple TV'nize otomatik olarak gelir!</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- DEVICE TAB: ANDROID -->
+      <div class="tab-pane" id="pane-android">
+        <div class="devices-grid">
+          <!-- ANDROID TV -->
+          <div class="device-card">
+            <div class="device-header">
+              <div class="device-icon-wrap">📺</div>
+              <div>
+                <div class="device-title">Android TV &amp; Google TV</div>
+                <div class="device-subtitle">Chromecast, Mi Box, TCL, Philips, Sony</div>
+              </div>
+            </div>
+            <div class="device-app-list">
+              <span class="app-tag recommended">Nova Video Player (En Kolay)</span>
+              <span class="app-tag recommended">Kodi (En Zengin)</span>
+              <span class="app-tag">VLC for Android</span>
+            </div>
+            <ul class="device-steps">
+              <li>
+                <span class="step-num">1</span>
+                <div><strong>Nova Video Player Kurulumu:</strong> Google Play Store'dan ücretsiz indirin. Sol menüden <strong>Ağ ve Dosyalar &rarr; Kısayol Ekle (+)</strong> seçin.</div>
+              </li>
+              <li>
+                <span class="step-num">2</span>
+                <div><strong>WebDAV Bilgileri:</strong> Protokol: <code>http://</code>, Sunucu: Bilgisayarınızın IP'si (<code>192.168.1.X</code>), Port: <code>8085</code>, Yol: <code>/dav</code>.</div>
+              </li>
+              <li>
+                <span class="step-num">3</span>
+                <div><strong>Klasörleri İndeksleyin:</strong> <code>Filmler</code> ve <code>Diziler</code> klasörlerine basılı tutup <em>"Kütüphaneye İndeksle"</em> deyin. Tüm posterler otomatik gelir!</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- KODI ON TV -->
+          <div class="device-card">
+            <div class="device-header">
+              <div class="device-icon-wrap">🤖</div>
+              <div>
+                <div class="device-title">Kodi Yapılandırması</div>
+                <div class="device-subtitle">Android TV, Fire TV, Windows</div>
+              </div>
+            </div>
+            <div class="device-app-list">
+              <span class="app-tag recommended">Kodi 20/21</span>
+              <span class="app-tag">TMDB Scraper</span>
+            </div>
+            <ul class="device-steps">
+              <li>
+                <span class="step-num">1</span>
+                <div><strong>Video Kaynağı Ekle:</strong> Kodi &rarr; Videolar &rarr; Dosyalar &rarr; Video Ekle &rarr; Gözat &rarr; <strong>Ağ Konumu Ekle</strong>.</div>
+              </li>
+              <li>
+                <span class="step-num">2</span>
+                <div><strong>Ayarlar:</strong> Protokol: <em>WebDAV sunucusu (HTTP)</em>, Sunucu: <code>192.168.1.X</code>, Uzak yol: <code>dav</code>, Port: <code>8085</code>.</div>
+              </li>
+              <li>
+                <span class="step-num">3</span>
+                <div><strong>İçerik Türü:</strong> <code>Filmler</code> için <em>Movies (Filmler)</em>, <code>Diziler</code> ve <code>Animeler</code> için <em>TV Shows (TV Dizileri)</em> seçin.</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- ANDROID MOBILE -->
+          <div class="device-card">
+            <div class="device-header">
+              <div class="device-icon-wrap">📱</div>
+              <div>
+                <div class="device-title">Android Telefon &amp; Tablet</div>
+                <div class="device-subtitle">Samsung, Xiaomi, Pixel vb.</div>
+              </div>
+            </div>
+            <div class="device-app-list">
+              <span class="app-tag recommended">Nova Video Player</span>
+              <span class="app-tag">VLC for Android</span>
+              <span class="app-tag">Solid Explorer</span>
+              <span class="app-tag">MX Player Pro</span>
+            </div>
+            <ul class="device-steps">
+              <li>
+                <span class="step-num">1</span>
+                <div><strong>Doğrudan Oynatma:</strong> Solid Explorer veya Cx Dosya Gezgini'ne WebDAV hesabı ekleyerek klasörlere göz atın.</div>
+              </li>
+              <li>
+                <span class="step-num">2</span>
+                <div><strong>VLC / Nova ile Aç:</strong> İstediğiniz bölümün <code>.strm</code> dosyasına tıkladığınızda otomatik olarak VLC veya Nova Player ile başlar.</div>
+              </li>
+              <li>
+                <span class="step-num">3</span>
+                <div><strong>Harici Altyazı Desteği:</strong> Player ayarlarından tek tıkla OpenSubtitles üzerinden Türkçe altyazı çekebilirsiniz.</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- DEVICE TAB: WINDOWS -->
+      <div class="tab-pane" id="pane-windows">
+        <div class="devices-grid">
+          <!-- WINDOWS EXPLORER -->
+          <div class="device-card">
+            <div class="device-header">
+              <div class="device-icon-wrap">🪟</div>
+              <div>
+                <div class="device-title">Windows Dosya Gezgini</div>
+                <div class="device-subtitle">Ağ Sürücüsü Olarak Eşleme (Z:\)</div>
+              </div>
+            </div>
+            <div class="device-app-list">
+              <span class="app-tag recommended">Ağ Sürücüsü (Z:)</span>
+              <span class="app-tag">Dosya Gezgini</span>
+            </div>
+            <ul class="device-steps">
+              <li>
+                <span class="step-num">1</span>
+                <div><strong>Bu Bilgisayar'ı Açın:</strong> Üst kısımdaki üç nokta menüsünden <strong>"Ağ Sürücüsüne Bağlan" (Map network drive)</strong> seçeneğine tıklayın.</div>
+              </li>
+              <li>
+                <span class="step-num">2</span>
+                <div><strong>Klasör Adresi:</strong> <code>http://127.0.0.1:8085/dav</code> yazın ve "Son" butonuna basın.</div>
+              </li>
+              <li>
+                <span class="step-num">3</span>
+                <div><strong>Sanal Sabit Disk:</strong> Bilgisayarımda tıpkı bir USB disk gibi <code>Z:\</code> sürücüsü belirir. Klasörlerin içine çift tıklayarak gezebilirsiniz.</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- RAIDRIVE -->
+          <div class="device-card">
+            <div class="device-header">
+              <div class="device-icon-wrap">🚀</div>
+              <div>
+                <div class="device-title">RaiDrive (Tavsiye Edilen)</div>
+                <div class="device-subtitle">En Kararlı Windows WebDAV İstemcisi</div>
+              </div>
+            </div>
+            <div class="device-app-list">
+              <span class="app-tag recommended">RaiDrive (Ücretsiz)</span>
+              <span class="app-tag">Yüksek Önbellek Hızı</span>
+            </div>
+            <ul class="device-steps">
+              <li>
+                <span class="step-num">1</span>
+                <div><strong>RaiDrive'ı İndirin:</strong> <code>raidrive.com</code> adresinden ücretsiz indirin ve açın.</div>
+              </li>
+              <li>
+                <span class="step-num">2</span>
+                <div><strong>Sürücü Ekle (+):</strong> NAS &rarr; <strong>WebDAV</strong> seçin. Sürücü harfi: <code>Z:</code>, Adres: <code>127.0.0.1</code>, Port: <code>8085</code>, Yol: <code>/dav</code>.</div>
+              </li>
+              <li>
+                <span class="step-num">3</span>
+                <div><strong>Bağlan'a Basın:</strong> Windows Dosya Gezgini'ne kıyasla çok daha yüksek önbellek hızı ve sıfır donma sağlar.</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- WINDOWS PLAYERS -->
+          <div class="device-card">
+            <div class="device-header">
+              <div class="device-icon-wrap">🎬</div>
+              <div>
+                <div class="device-title">Windows Oynatıcıları</div>
+                <div class="device-subtitle">Kodi, PotPlayer, VLC, MPC-HC</div>
+              </div>
+            </div>
+            <div class="device-app-list">
+              <span class="app-tag recommended">Kodi for Windows</span>
+              <span class="app-tag">PotPlayer</span>
+              <span class="app-tag">VLC</span>
+            </div>
+            <ul class="device-steps">
+              <li>
+                <span class="step-num">1</span>
+                <div><strong>Kodi Deneyimi:</strong> Microsoft Store'dan Kodi kurarak bilgisayarınızı tam ekran ev sinemasına dönüştürebilirsiniz.</div>
+              </li>
+              <li>
+                <span class="step-num">2</span>
+                <div><strong>PotPlayer &amp; VLC:</strong> Sürücüdeki <code>.strm</code> dosyasını doğrudan PotPlayer veya VLC penceresine sürükleyin, anında başlasın.</div>
+              </li>
+              <li>
+                <span class="step-num">3</span>
+                <div><strong>Donanım Hızlandırma:</strong> GPU hızlandırması (NVDEC / DXVA2) sayesinde 4K yayınlar işlemciyi %1 bile yormaz.</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- DEVICE TAB: LINUX -->
+      <div class="tab-pane" id="pane-linux">
+        <div class="devices-grid">
+          <!-- LINUX DESKTOP -->
+          <div class="device-card">
+            <div class="device-header">
+              <div class="device-icon-wrap">🐧</div>
+              <div>
+                <div class="device-title">Linux Desktop</div>
+                <div class="device-subtitle">Ubuntu, Debian, Fedora, Arch</div>
+              </div>
+            </div>
+            <div class="device-app-list">
+              <span class="app-tag recommended">GNOME Files (Nautilus)</span>
+              <span class="app-tag">KDE Dolphin</span>
+              <span class="app-tag">MPV / VLC</span>
+            </div>
+            <ul class="device-steps">
+              <li>
+                <span class="step-num">1</span>
+                <div><strong>Dosya Yöneticisine Bağlan:</strong> Nautilus veya Dolphin'de <em>"Diğer Konumlar" &rarr; Sunucuya Bağlan</em> alanına <code>dav://127.0.0.1:8085/dav</code> yazın.</div>
+              </li>
+              <li>
+                <span class="step-num">2</span>
+                <div><strong>MPV ile Oynatma:</strong> <code>.strm</code> dosyasının içindeki HTTP çözümleyici linkini doğrudan terminalde <code>mpv "URL"</code> ile oynatabilirsiniz.</div>
+              </li>
+              <li>
+                <span class="step-num">3</span>
+                <div><strong>Kodi for Linux:</strong> <code>sudo apt install kodi</code> ile Kodi'yi kurup WebDAV kaynağı olarak bağlayın.</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- STEAM DECK -->
+          <div class="device-card">
+            <div class="device-header">
+              <div class="device-icon-wrap">🎮</div>
+              <div>
+                <div class="device-title">Steam Deck &amp; SteamOS</div>
+                <div class="device-subtitle">El Konsolunda Sinema Keyfi</div>
+              </div>
+            </div>
+            <div class="device-app-list">
+              <span class="app-tag recommended">Kodi (Discover Store)</span>
+              <span class="app-tag">VLC Flatpak</span>
+            </div>
+            <ul class="device-steps">
+              <li>
+                <span class="step-num">1</span>
+                <div><strong>Masaüstü Moduna Geçin:</strong> Power &rarr; Switch to Desktop. Discover Store'dan <strong>Kodi</strong>'yi yükleyin.</div>
+              </li>
+              <li>
+                <span class="step-num">2</span>
+                <div><strong>WebDAV Kaynağını Ekleyin:</strong> Bilgisayarınızın yerel IP'si (<code>192.168.1.X:8085/dav</code>) ile Kodi'ye bağlayın.</div>
+              </li>
+              <li>
+                <span class="step-num">3</span>
+                <div><strong>Oyun Moduna Ekleyin:</strong> Steam'i açıp "Non-Steam Game" olarak Kodi'yi ekleyin. Artık el konsolunda kumanda ile film izleyebilirsiniz!</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- RCLONE MOUNT -->
+          <div class="device-card">
+            <div class="device-header">
+              <div class="device-icon-wrap">⚙️</div>
+              <div>
+                <div class="device-title">rclone ile Sistem Montajı</div>
+                <div class="device-subtitle">Komut Satırından FUSE Bağlantısı</div>
+              </div>
+            </div>
+            <div class="device-app-list">
+              <span class="app-tag recommended">rclone mount</span>
+              <span class="app-tag">FUSE Sanal Sürücü</span>
+            </div>
+            <ul class="device-steps">
+              <li>
+                <span class="step-num">1</span>
+                <div><strong>rclone Yapılandır:</strong> <code>rclone config</code> &rarr; New remote &rarr; WebDAV &rarr; URL: <code>http://127.0.0.1:8085/dav</code>.</div>
+              </li>
+              <li>
+                <span class="step-num">2</span>
+                <div><strong>Klasöre Bağla:</strong><br>
+                  <code>rclone mount anthology: ~/Medya --vfs-cache-mode off</code>
+                </div>
+              </li>
+              <li>
+                <span class="step-num">3</span>
+                <div>Artık tüm medya koleksiyonunuz <code>~/Medya</code> yerel klasörünüzün altındadır.</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- DEVICE TAB: REMOTE / LAN -->
+      <div class="tab-pane" id="pane-remote">
+        <div style="background: var(--surface-card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 32px;">
+          <h3 style="font-size: 24px; margin-bottom: 12px; color: #fff;">🌐 Ev Ağında (LAN) ve Dışarıdan (Uzaktan) Erişim Mimarisi</h3>
+          <p style="font-size: 15.5px; color: var(--text-muted); line-height: 1.6; margin-bottom: 24px;">
+            Sunucuyu sadece kendi bilgisayarınızda değil; evdeki akıllı televizyondan veya seyahatteyken telefonunuzdan kullanmak için 2 kolay yöntem vardır:
+          </p>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+            <!-- LAN -->
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 14px; padding: 22px;">
+              <h4 style="font-size: 18px; color: #60a5fa; margin-bottom: 10px;">🏠 1. Ev Ağı (Aynı Wi-Fi) Erişimi</h4>
+              <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">
+                Sunucuyu tüm yerel ağ kartlarını dinleyecek şekilde başlatın:
+              </p>
+              <div class="code-box" style="margin: 0 0 14px 0;">
+                <pre class="code-content" style="padding: 10px;"><code>./anthology-dav -host 0.0.0.0 -port 8085</code></pre>
+              </div>
+              <ul style="font-size: 13.5px; color: #cbd5e1; list-style: none; display: flex; flex-direction: column; gap: 8px;">
+                <li>• <strong>Mac IP Bulma:</strong> <code>ipconfig getifaddr en0</code> (Örn: <code>192.168.1.45</code>)</li>
+                <li>• <strong>Windows IP Bulma:</strong> <code>ipconfig</code> (IPv4 adresi)</li>
+                <li>• TV ve telefonunuzdaki WebDAV adresine <code>http://192.168.1.45:8085/dav</code> yazın.</li>
+              </ul>
+            </div>
+
+            <!-- TAILSCALE -->
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 14px; padding: 22px;">
+              <h4 style="font-size: 18px; color: #34d399; margin-bottom: 10px;">✈️ 2. Dışarıdan Erişim (Tailscale / VPN)</h4>
+              <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">
+                Port açma veya statik IP derdi olmadan güvenli şekilde dışarıdan bağlanın:
+              </p>
+              <ul style="font-size: 13.5px; color: #cbd5e1; list-style: none; display: flex; flex-direction: column; gap: 10px;">
+                <li>• Bilgisayarınıza ve telefonunuza ücretsiz <strong>Tailscale</strong> (veya WireGuard) kurun.</li>
+                <li>• Tailscale'in size verdiği <code>100.x.y.z</code> IP adresini not edin.</li>
+                <li>• Dışarıdayken (mobil veri veya otel Wi-Fi) Infuse'a <code>http://100.x.y.z:8085/dav</code> adresiyle bağlanarak evdeki sunucunuza güvenle erişin!</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: INSTALLATION & DAEMON GUIDE -->
+  <section id="install">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">⚙️ Kurulum &amp; Arka Plan Servisi</div>
+        <h2 class="section-title">Adım Adım Kurulum Rehberi</h2>
+        <p class="section-desc">
+          Tek bir Go binary dosyası olarak derlenir. Veritabanı veya karmaşık bağımlılıklar gerekmez.
+        </p>
+      </div>
+
+      <!-- OS INSTALL TABS -->
+      <div class="tabs-nav" style="justify-content: center;">
+        <button class="tab-btn active" data-tab="inst-mac" onclick="switchInstallTab('inst-mac')">
+          🍎 macOS (Apple Silicon &amp; Intel)
+        </button>
+        <button class="tab-btn" data-tab="inst-win" onclick="switchInstallTab('inst-win')">
+          🪟 Windows (10 &amp; 11)
+        </button>
+        <button class="tab-btn" data-tab="inst-linux" onclick="switchInstallTab('inst-linux')">
+          🐧 Linux (Systemd Servisi)
+        </button>
+        <button class="tab-btn" data-tab="inst-docker" onclick="switchInstallTab('inst-docker')">
+          🐳 Docker &amp; Docker Compose
+        </button>
+      </div>
+
+      <!-- PANE: MAC INSTALL -->
+      <div class="tab-pane active" id="pane-inst-mac">
+        <div style="background: var(--surface-card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 32px;">
+          <h3 style="font-size: 20px; margin-bottom: 16px;">🍎 macOS Üzerinde Kurulum ve Arka Plan Servisi (LaunchAgent)</h3>
+
+          <div class="code-box">
+            <div class="code-header">
+              <span>Terminal Komutları</span>
+              <button class="btn-copy-sm" onclick="copySnippet('mac-code-1')">Kopyala</button>
+            </div>
+            <pre class="code-content" id="mac-code-1"><code># 1. Ön Gereksinimler (Homebrew ile Go ve Git kurulumu)
+brew install go git make
+
+# 2. Projeyi GitHub'dan indirin ve klasöre girin
+git clone https://github.com/falsisdev/anthology-dav.git
+cd anthology-dav
+
+# 3. Derleyin ve çalıştırma izni verin
+make build
+chmod +x anthology-dav
+xattr -cr anthology-dav 2>/dev/null || true
+
+# 4. Bilgisayar açıldığında arka planda sessizce başlaması için servisi kurun:
+make install-service</code></pre>
+          </div>
+
+          <div style="margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 12px; padding: 16px;">
+              <div style="font-weight: 700; color: #fff; margin-bottom: 6px;">📊 Canlı Logları İzlemek İçin:</div>
+              <code>make logs</code> (veya <code>tail -f /tmp/anthology-dav.log</code>)
+            </div>
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 12px; padding: 16px;">
+              <div style="font-weight: 700; color: #fff; margin-bottom: 6px;">🛑 Servisi Durdurup Kaldırmak İçin:</div>
+              <code>make uninstall-service</code>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANE: WINDOWS INSTALL -->
+      <div class="tab-pane" id="pane-inst-win">
+        <div style="background: var(--surface-card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 32px;">
+          <h3 style="font-size: 20px; margin-bottom: 16px;">🪟 Windows 10 &amp; 11 Kurulumu ve Başlangıçta Otomatik Açılma</h3>
+
+          <div class="code-box">
+            <div class="code-header">
+              <span>PowerShell (Yönetici)</span>
+              <button class="btn-copy-sm" onclick="copySnippet('win-code-1')">Kopyala</button>
+            </div>
+            <pre class="code-content" id="win-code-1"><code># 1. Go ve Git'i Winget ile kurun
+winget install GoLang.Go Git.Git
+
+# 2. Projeyi klonlayın ve derleyin
+git clone https://github.com/falsisdev/anthology-dav.git C:\anthology-dav
+cd C:\anthology-dav
+go build -o anthology-dav.exe .</code></pre>
+          </div>
+
+          <h4 style="font-size: 16px; margin: 20px 0 10px 0; color: #60a5fa;">Siyah Komut Penceresi Açılmadan Arka Planda Başlatma (VBS Script):</h4>
+          <ol style="font-size: 14.5px; color: #cbd5e1; padding-left: 20px; line-height: 1.8;">
+            <li><code>Win + R</code> tuşlarına basıp <code>shell:startup</code> yazarak Başlangıç klasörünü açın.</li>
+            <li>Burada <code>anthology_baslat.vbs</code> adında bir dosya oluşturun ve içine şunu yapıştırın:</li>
+          </ol>
+
+          <div class="code-box">
+            <div class="code-header">
+              <span>anthology_baslat.vbs</span>
+              <button class="btn-copy-sm" onclick="copySnippet('win-vbs-code')">Kopyala</button>
+            </div>
+            <pre class="code-content" id="win-vbs-code"><code>Set WshShell = CreateObject("WScript.Shell")
+WshShell.CurrentDirectory = "C:\anthology-dav"
+WshShell.Run "C:\anthology-dav\anthology-dav.exe -host 0.0.0.0 -port 8085", 0, False</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANE: LINUX INSTALL -->
+      <div class="tab-pane" id="pane-inst-linux">
+        <div style="background: var(--surface-card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 32px;">
+          <h3 style="font-size: 20px; margin-bottom: 16px;">🐧 Linux Üzerinde Systemd Kullanıcı Servisi Kurulumu</h3>
+
+          <div class="code-box">
+            <div class="code-header">
+              <span>Bash</span>
+              <button class="btn-copy-sm" onclick="copySnippet('linux-code-1')">Kopyala</button>
+            </div>
+            <pre class="code-content" id="linux-code-1"><code># 1. Derleme araçlarını yükleyin
+sudo apt update && sudo apt install -y golang git make
+
+# 2. Projeyi derleyin
+git clone https://github.com/falsisdev/anthology-dav.git ~/anthology-dav
+cd ~/anthology-dav && make build
+
+# 3. Systemd servis dosyasını oluşturun (~/.config/systemd/user/anthology-dav.service)
+mkdir -p ~/.config/systemd/user
+cat << 'EOF' > ~/.config/systemd/user/anthology-dav.service
+[Unit]
+Description=Anthology WebDAV Media Server
+After=network-online.target
+
+[Service]
+WorkingDirectory=%h/anthology-dav
+ExecStart=%h/anthology-dav/anthology-dav -host 0.0.0.0 -port 8085
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target
+EOF
+
+# 4. Servisi etkinleştirin ve başlatın
+systemctl --user daemon-reload
+systemctl --user enable --now anthology-dav.service</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANE: DOCKER INSTALL -->
+      <div class="tab-pane" id="pane-inst-docker">
+        <div style="background: var(--surface-card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 32px;">
+          <h3 style="font-size: 20px; margin-bottom: 16px;">🐳 Docker &amp; Docker Compose ile Tek Komutta Başlatma</h3>
+
+          <div class="code-box">
+            <div class="code-header">
+              <span>docker-compose.yml</span>
+              <button class="btn-copy-sm" onclick="copySnippet('docker-compose-code')">Kopyala</button>
+            </div>
+            <pre class="code-content" id="docker-compose-code"><code>version: '3.8'
+
+services:
+  anthology-dav:
+    image: golang:1.24-alpine
+    container_name: anthology-dav
+    working_dir: /app
+    volumes:
+      - ./anthology-data:/app
+    ports:
+      - "8085:8085"
+    command: >
+      sh -c "apk add --no-cache git make &&
+             if [ ! -f main.go ]; then git clone https://github.com/falsisdev/anthology-dav.git . ; fi &&
+             go run . -host 0.0.0.0 -port 8085"
+    restart: unless-stopped</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: PRO TIPS & OFFLINE DOWNLOAD -->
+  <section id="tips" style="background: rgba(10, 14, 26, 0.45);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">⚡ Uzman İpuçları &amp; Çevrimdışı İndirme</div>
+        <h2 class="section-title">Deneyimi En Üst Seviyeye Çıkarın</h2>
+        <p class="section-desc">
+          Medya oynatıcılarınızı 10 kat hızlandıracak ayarlar, klavye kısayolları ve seyahatler için gerçek video indirme rehberi:
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;">
+        <!-- TIP 1: EMBEDDED METADATA OFF -->
+        <div style="background: var(--surface-card); border: 1px solid rgba(250, 204, 21, 0.3); border-radius: var(--radius); padding: 24px; position: relative;">
+          <span style="position: absolute; top: 16px; right: 16px; font-size: 11px; font-weight: 700; background: rgba(250, 204, 21, 0.15); color: #facc15; padding: 4px 8px; border-radius: 6px;">HAYATİ AYAR</span>
+          <h3 style="font-size: 18px; margin-bottom: 12px; color: #facc15;">🚀 10 Kat Daha Hızlı Poster Yükleme</h3>
+          <p style="font-size: 14px; color: #cbd5e1; line-height: 1.6; margin-bottom: 14px;">
+            Infuse, VidHub veya Kodi'de <strong>"Gömülü Metaveri" (Embedded Metadata)</strong> ayarı açıksa, oynatıcı her bir bölümün codec bilgisini almak için video içine girip sağlayıcılara yüzlerce istek atar ve tarama kilitlenir!
+          </p>
+          <div style="background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; font-size: 13px; color: #fff;">
+            ✅ <strong>Infuse Ayarı:</strong> Ayarlar &rarr; Genel &rarr; <em>Gömülü Metaveri: KAPALI</em><br>
+            ✅ <strong>Detay Ön-Önbellekleme:</strong> <em>KAPALI</em>
+          </div>
+        </div>
+
+        <!-- TIP 2: MKCOL SEARCH HACK -->
+        <div style="background: var(--surface-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px;">
+          <h3 style="font-size: 18px; margin-bottom: 12px; color: #38bdf8;">📁 MKCOL Hilesi (Klasör Açarak Arama)</h3>
+          <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 14px;">
+            Tarayıcıyı hiç açmadan doğrudan Finder veya Dosya Gezgini içinden arama yapabilirsiniz:
+          </p>
+          <div style="background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; font-size: 13px; color: #cbd5e1; line-height: 1.5;">
+            1. <code>/dav/Watchlist/</code> klasörüne girin.<br>
+            2. <strong>Yeni Klasör Oluştur (⌘+Shift+N)</strong> deyin ve klasörün adını aramak istediğiniz içerik yapın (Örn: <code>Kurtlar Vadisi</code>).<br>
+            3. Sunucu saniyeler içinde o klasörün içini bölümlerle dolduracaktır!
+          </div>
+        </div>
+
+        <!-- TIP 3: OFFLINE DOWNLOAD -->
+        <div style="background: var(--surface-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; grid-column: span 2;">
+          <h3 style="font-size: 20px; margin-bottom: 12px; color: #34d399;">💾 Çevrimdışı İndirme Rehberi (Uçak &amp; Seyahat Modu)</h3>
+          <p style="font-size: 14.5px; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px;">
+            WebDAV'daki <code>.strm</code> dosyası sadece 120 baytlık bir yönlendirme adresidir. Gerçek videoyu bilgisayarınıza MP4 veya MKV olarak indirmek için <code>yt-dlp</code> veya <code>ffmpeg</code> kullanabilirsiniz:
+          </p>
+
+          <div class="code-box" style="margin: 0;">
+            <div class="code-header">
+              <span>Terminal Komutları (yt-dlp ile Doğrudan 1080p İndirme)</span>
+              <button class="btn-copy-sm" onclick="copySnippet('ytdlp-code')">Kopyala</button>
+            </div>
+            <pre class="code-content" id="ytdlp-code"><code># Tek bir filmi veya bölümü en yüksek kalitede MP4 olarak indirmek için:
+yt-dlp "http://127.0.0.1:8085/stream/resolve?type=movie&tmdb_id=27205&title=Inception&year=2010" -o "Inception_2010.mp4"
+
+# Tüm sezonu tek komutla sırayla MP4 olarak indirmek için Bash döngüsü:
+for ep in {1..12}; do
+  yt-dlp "http://127.0.0.1:8085/stream/resolve?type=anime&tmdb_id=127532&title=Solo+Leveling&year=2024&season=1&episode=${ep}" \
+    -o "Solo_Leveling_S01E$(printf %02d $ep).mp4"
+done</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: 34 PROVIDERS MATRIX -->
+  <section id="providers">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">🧩 Sağlayıcı Ekosistemi</div>
+        <h2 class="section-title">Kayıtlı 34 Sağlayıcı Motoru</h2>
+        <p class="section-desc">
+          Türkiye'nin en zengin film, yabancı dizi ve anime arşivleri tek bir merkezde paralel olarak taranır:
+        </p>
+      </div>
+
+      <div class="tabs-nav" style="justify-content: center;">
+        <button class="tab-btn active" data-prov-cat="all" onclick="filterProvGrid('all')">Tümü (34)</button>
+        <button class="tab-btn" data-prov-cat="anime" onclick="filterProvGrid('anime')">⛩️ Anime (8)</button>
+        <button class="tab-btn" data-prov-cat="series" onclick="filterProvGrid('series')">📺 Dizi (12)</button>
+        <button class="tab-btn" data-prov-cat="movie" onclick="filterProvGrid('movie')">🎬 Film (14)</button>
+      </div>
+
+      <div class="providers-grid" id="provGrid">
+        <!-- ANIME (8) -->
+        <div class="prov-card" data-cat="anime"><div class="prov-icon">⛩️</div><div class="prov-info"><div class="prov-name">AnimeciX</div><span class="prov-cat-badge cat-anime">Anime</span></div></div>
+        <div class="prov-card" data-cat="anime"><div class="prov-icon">⛩️</div><div class="prov-info"><div class="prov-name">Anizium</div><span class="prov-cat-badge cat-anime">Anime</span></div></div>
+        <div class="prov-card" data-cat="anime"><div class="prov-icon">⛩️</div><div class="prov-info"><div class="prov-name">SonAnime</div><span class="prov-cat-badge cat-anime">Anime</span></div></div>
+        <div class="prov-card" data-cat="anime"><div class="prov-icon">⛩️</div><div class="prov-info"><div class="prov-name">AniMom</div><span class="prov-cat-badge cat-anime">Anime</span></div></div>
+        <div class="prov-card" data-cat="anime"><div class="prov-icon">⛩️</div><div class="prov-info"><div class="prov-name">Anizm</div><span class="prov-cat-badge cat-anime">Anime</span></div></div>
+        <div class="prov-card" data-cat="anime"><div class="prov-icon">⛩️</div><div class="prov-info"><div class="prov-name">SeiCode</div><span class="prov-cat-badge cat-anime">Anime</span></div></div>
+        <div class="prov-card" data-cat="anime"><div class="prov-icon">⛩️</div><div class="prov-info"><div class="prov-name">AsyaAnimeleri</div><span class="prov-cat-badge cat-anime">Anime</span></div></div>
+        <div class="prov-card" data-cat="anime"><div class="prov-icon">⛩️</div><div class="prov-info"><div class="prov-name">AnimePrax</div><span class="prov-cat-badge cat-anime">Anime</span></div></div>
+
+        <!-- SERIES (12) -->
+        <div class="prov-card" data-cat="series"><div class="prov-icon">📺</div><div class="prov-info"><div class="prov-name">DiziWatch</div><span class="prov-cat-badge cat-series">Dizi</span></div></div>
+        <div class="prov-card" data-cat="series"><div class="prov-icon">📺</div><div class="prov-info"><div class="prov-name">DiziBox</div><span class="prov-cat-badge cat-series">Dizi</span></div></div>
+        <div class="prov-card" data-cat="series"><div class="prov-icon">📺</div><div class="prov-info"><div class="prov-name">DiziYou</div><span class="prov-cat-badge cat-series">Dizi</span></div></div>
+        <div class="prov-card" data-cat="series"><div class="prov-icon">📺</div><div class="prov-info"><div class="prov-name">DiziMom</div><span class="prov-cat-badge cat-series">Dizi</span></div></div>
+        <div class="prov-card" data-cat="series"><div class="prov-icon">📺</div><div class="prov-info"><div class="prov-name">DiziPod</div><span class="prov-cat-badge cat-series">Dizi</span></div></div>
+        <div class="prov-card" data-cat="series"><div class="prov-icon">📺</div><div class="prov-info"><div class="prov-name">DiziBak</div><span class="prov-cat-badge cat-series">Dizi</span></div></div>
+        <div class="prov-card" data-cat="series"><div class="prov-icon">📺</div><div class="prov-info"><div class="prov-name">Yabancı Dizi</div><span class="prov-cat-badge cat-series">Dizi</span></div></div>
+        <div class="prov-card" data-cat="series"><div class="prov-icon">📺</div><div class="prov-info"><div class="prov-name">DDizi</div><span class="prov-cat-badge cat-series">Yerli Dizi</span></div></div>
+        <div class="prov-card" data-cat="series"><div class="prov-icon">📺</div><div class="prov-info"><div class="prov-name">PuhuTV</div><span class="prov-cat-badge cat-series">Yerli Dizi</span></div></div>
+        <div class="prov-card" data-cat="series"><div class="prov-icon">📺</div><div class="prov-info"><div class="prov-name">TrDiziİzle</div><span class="prov-cat-badge cat-series">Yerli Dizi</span></div></div>
+        <div class="prov-card" data-cat="series"><div class="prov-icon">📺</div><div class="prov-info"><div class="prov-name">TvDiziler</div><span class="prov-cat-badge cat-series">Yerli Dizi</span></div></div>
+        <div class="prov-card" data-cat="series"><div class="prov-icon">📺</div><div class="prov-info"><div class="prov-name">Anthology Dizi Arşivi</div><span class="prov-cat-badge cat-series">Doğrudan HLS</span></div></div>
+
+        <!-- MOVIES (14) -->
+        <div class="prov-card" data-cat="movie"><div class="prov-icon">🎬</div><div class="prov-info"><div class="prov-name">FilmModu</div><span class="prov-cat-badge cat-movie">Film</span></div></div>
+        <div class="prov-card" data-cat="movie"><div class="prov-icon">🎬</div><div class="prov-info"><div class="prov-name">HDFilmCehennemi</div><span class="prov-cat-badge cat-movie">Film</span></div></div>
+        <div class="prov-card" data-cat="movie"><div class="prov-icon">🎬</div><div class="prov-info"><div class="prov-name">HDFilmİzle</div><span class="prov-cat-badge cat-movie">Film</span></div></div>
+        <div class="prov-card" data-cat="movie"><div class="prov-icon">🎬</div><div class="prov-info"><div class="prov-name">HDFilmDelisi</div><span class="prov-cat-badge cat-movie">Film</span></div></div>
+        <div class="prov-card" data-cat="movie"><div class="prov-icon">🎬</div><div class="prov-info"><div class="prov-name">Kült Filmler</div><span class="prov-cat-badge cat-movie">Film</span></div></div>
+        <div class="prov-card" data-cat="movie"><div class="prov-icon">🎬</div><div class="prov-info"><div class="prov-name">LiderFilmİzle</div><span class="prov-cat-badge cat-movie">Film</span></div></div>
+        <div class="prov-card" data-cat="movie"><div class="prov-icon">🎬</div><div class="prov-info"><div class="prov-name">SetFilmİzle</div><span class="prov-cat-badge cat-movie">Film</span></div></div>
+        <div class="prov-card" data-cat="movie"><div class="prov-icon">🎬</div><div class="prov-info"><div class="prov-name">SinemaCX</div><span class="prov-cat-badge cat-movie">Film</span></div></div>
+        <div class="prov-card" data-cat="movie"><div class="prov-icon">🎬</div><div class="prov-info"><div class="prov-name">SineWix</div><span class="prov-cat-badge cat-movie">Film</span></div></div>
+        <div class="prov-card" data-cat="movie"><div class="prov-icon">🎬</div><div class="prov-info"><div class="prov-name">VidLink Cloud</div><span class="prov-cat-badge cat-movie">Film</span></div></div>
+        <div class="prov-card" data-cat="movie"><div class="prov-icon">🎬</div><div class="prov-info"><div class="prov-name">Vidmody</div><span class="prov-cat-badge cat-movie">Film</span></div></div>
+        <div class="prov-card" data-cat="movie"><div class="prov-icon">🎬</div><div class="prov-info"><div class="prov-name">Webteİzle</div><span class="prov-cat-badge cat-movie">Film</span></div></div>
+        <div class="prov-card" data-cat="movie"><div class="prov-icon">🎬</div><div class="prov-info"><div class="prov-name">YouTube Film</div><span class="prov-cat-badge cat-movie">Resmi Film</span></div></div>
+        <div class="prov-card" data-cat="movie"><div class="prov-icon">🎬</div><div class="prov-info"><div class="prov-name">Anthology M3U Film</div><span class="prov-cat-badge cat-movie">Doğrudan HLS</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: EXTENDED FAQ -->
+  <section id="faq" style="background: rgba(10, 14, 26, 0.45);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">❓ Sıkça Sorulan Sorular</div>
+        <h2 class="section-title">Aklınıza Takılabilecek Her Şey</h2>
+        <p class="section-desc">
+          Anthology WebDAV hakkında en sık karşılaşılan sorular ve detaylı teknik çözümleri:
+        </p>
+      </div>
+
+      <div class="faq-container">
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaqItem(this)">
+            <span>Medya oynatıcıda (Infuse, Kodi, VLC) bir videoya tıkladığımda hata alırsam ne yapmalıyım?</span>
+            <div class="faq-icon">↓</div>
+          </button>
+          <div class="faq-answer">
+            1. Öncelikle <code>http://localhost:8085/</code> adresine girip <strong>Kütüphanem</strong> sekmesini açın.<br>
+            2. İçeriğin yanındaki <strong>"🔍 Çalışan Kaynakları Bul"</strong> butonuna basın. Açılan pencerede hangi sitelerin videoyu anında çözdüğü (HTTP 200) listelenir.<br>
+            3. Varsayılan "Otomatik Çözücü" yerine açılır menüden çalışan belirli bir sağlayıcıyı (örneğin <code>HDFilmCehennemi</code> veya <code>FilmModu</code>) seçip tekrar oynatmayı deneyin.<br>
+            4. İnternet servis sağlayıcınızın siteleri DNS seviyesinde engellemediğinden emin olun (Cloudflare 1.1.1.1 veya AdGuard DNS önerilir).
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaqItem(this)">
+            <span>Kütüphaneme eklediğim yeni dizi veya film Infuse/Kodi'de hemen görünmedi?</span>
+            <div class="faq-icon">↓</div>
+          </button>
+          <div class="faq-answer">
+            Medya oynatıcılar (özellikle Infuse ve VidHub) klasör listesini yerel hafızasında tutabilir. Oynatıcı içinde ilgili klasörün (<code>Filmler</code> veya <code>Diziler</code>) içine girip yukarıdan aşağıya doğru ekranı kaydırarak <strong>Yenile (Refresh / ↻)</strong> yapın. Yeni içerik saniyesinde belirecektir.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaqItem(this)">
+            <span>"Address already in use (:8085)" (Port 8085 kullanımda) hatası ne anlama gelir?</span>
+            <div class="faq-icon">↓</div>
+          </button>
+          <div class="faq-answer">
+            Arka planda zaten çalışan bir <code>anthology-dav</code> süreci vardır. Mevcut süreci görmek için terminale <code>lsof -i :8085</code> yazabilirsiniz. Farklı bir portta çalıştırmak isterseniz <code>./anthology-dav -port 8090</code> komutunu kullanabilirsiniz.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaqItem(this)">
+            <span>Altyazılar ve Türkçe dublaj nasıl çalışıyor?</span>
+            <div class="faq-icon">↓</div>
+          </button>
+          <div class="faq-answer">
+            Sağlayıcıların pek çoğunda Türkçe dublaj veya altyazı videonun içine gömülü (hardsub/çift ses) olarak gelir. Harici <code>.vtt</code> veya <code>.srt</code> sunan sitelerde sunucu altyazıları otomatik olarak çeker. Ayrıca Infuse ve Kodi dosya adını uluslararası standartta gördüğü için tek tıkla <strong>OpenSubtitles</strong> üzerinden Türkçe altyazı indirebilir.
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaqItem(this)">
+            <span>Televizyonda .strm dosyasını açınca localhost / 127.0.0.1 hatası alıyorum?</span>
+            <div class="faq-icon">↓</div>
+          </button>
+          <div class="faq-answer">
+            Televizyonunuz <code>127.0.0.1</code> adresini kendi içine arayacağı için videoyu bulamaz. Çözüm çok basittir: Sunucuyu başlatırken <code>-public-url http://192.168.1.X:8085</code> parametresini verin veya WebDAV istemcinizde adrese bilgisayarınızın yerel IP'sini yazın.
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaqItem(this)">
+            <span>Bilgisayarım çok fazla RAM veya CPU harcar mı?</span>
+            <div class="faq-icon">↓</div>
+          </button>
+          <div class="faq-answer">
+            Kesinlikle hayır! Anthology WebDAV derlenmiş yerel Go kodudur. Boşta yaklaşık <strong>35 MB RAM</strong> harcar ve <strong>%0 CPU</strong> tüketir. Ağır video transcode işlemi yapmaz; videoları doğrudan donanım hızlandırmalı olarak oynatıcıya köprüler.
+          </div>
+        </div>
+
+        <!-- FAQ 7 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaqItem(this)">
+            <span>Mac'im uyku moduna geçerse TV'deki yayın kesilir mi?</span>
+            <div class="faq-icon">↓</div>
+          </button>
+          <div class="faq-answer">
+            Evet, bilgisayar tamamen derin uykuya geçerse ağ bağlantısı kopar. Bunu önlemek için macOS Sistem Ayarları'ndan <em>"Ağ erişimi için uyandır"</em> seçeneğini açabilir veya ücretsiz <strong>Amphetamine</strong> uygulamasıyla sunucu çalışırken Mac'inizin uyanık kalmasını sağlayabilirsiniz.
+          </div>
+        </div>
+
+        <!-- FAQ 8 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaqItem(this)">
+            <span>Kütüphanemi format sonrası veya başka bilgisayara nasıl aktarırım?</span>
+            <div class="faq-icon">↓</div>
+          </button>
+          <div class="faq-answer">
+            Kütüphanenizdeki tüm içerikler ve sağlayıcı tercihleriniz yalnızca <code>library.json</code> dosyasında tutulur. Bu dosyayı yedeklemeniz tüm koleksiyonunuzu korumak için yeterlidir!
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-brand">
+        <img src="assets/logo_1_transparent.png" alt="Anthology Logo" width="32" height="32" style="border-radius: 8px;">
+        <span>Anthology WebDAV</span>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Ana Sayfa (Nuvio &amp; Stremio)</a>
+        <a href="#about">Genel Bakış</a>
+        <a href="#how-it-works">Mimari</a>
+        <a href="#devices">Cihazlar</a>
+        <a href="#install">Kurulum</a>
+        <a href="#faq">SSS</a>
+        <a href="https://github.com/falsisdev/anthology-dav" target="_blank" rel="noopener">GitHub (anthology-dav)</a>
+        <a href="https://github.com/falsisdev/anthology" target="_blank" rel="noopener">GitHub (anthology)</a>
+      </div>
+      <div class="footer-copy">
+        Anthology WebDAV — Açık Kaynak Kodlu &amp; Sıfır Disk Tüketimli Yerel Medya Sunucusu.
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast" id="toast">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="#00e676">
+      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+    </svg>
+    <span id="toastMsg">Bağlantı kopyalandı!</span>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    /* TOAST */
+    let toastTimer;
+    function showToast(msg) {
+      const t = document.getElementById("toast");
+      const m = document.getElementById("toastMsg");
+      m.textContent = msg;
+      t.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        t.classList.remove("show");
+      }, 2600);
+    }
+
+    /* COPY HELPERS */
+    function copyText(text, msg) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => showToast(msg)).catch(() => fallbackCopy(text, msg));
+      } else {
+        fallbackCopy(text, msg);
+      }
+    }
+
+    function fallbackCopy(text, msg) {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.left = "-9999px";
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand("copy");
+        showToast(msg);
+      } catch (e) { }
+      document.body.removeChild(ta);
+    }
+
+    function copyDavUrl() {
+      copyText("http://127.0.0.1:8085/dav", "📋 WebDAV URL kopyalandı: http://127.0.0.1:8085/dav");
+      const btn = document.getElementById("davCopyBtn");
+      if (btn) {
+        const orig = btn.innerHTML;
+        btn.innerHTML = `<span>✓ Kopyalandı</span>`;
+        btn.classList.add("copied");
+        setTimeout(() => {
+          btn.innerHTML = orig;
+          btn.classList.remove("copied");
+        }, 2000);
+      }
+    }
+
+    function copySnippet(elementId) {
+      const el = document.getElementById(elementId);
+      if (el) {
+        copyText(el.textContent.trim(), "📋 Kod komutları kopyalandı!");
+      }
+    }
+
+    /* MOBILE NAV */
+    function toggleMobileNav() {
+      const panel = document.getElementById("mobileNavPanel");
+      panel.classList.toggle("open");
+    }
+    document.getElementById("mobileMenuBtn").addEventListener("click", toggleMobileNav);
+
+    /* SIMULATOR MOCKUP TABS */
+    const mockUrls = {
+      webui: "http://localhost:8085/ (Anthology WebDAV Dashboard)",
+      finder: "smb:// or dav://127.0.0.1:8085/dav/ (macOS Finder Sanal Disk)",
+      infuse: "Infuse Medya Oynatıcı (Apple TV 4K / iOS)",
+      kodi: "Nova Video Player & Kodi (Android TV)",
+      terminal: "anthology-dav ~ daemon (LaunchAgent / systemd)"
+    };
+
+    function switchMockTab(mockKey) {
+      document.querySelectorAll(".mock-tab-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.mock === mockKey);
+      });
+      document.querySelectorAll(".mock-pane").forEach(pane => {
+        pane.classList.toggle("active", pane.id === `mock-${mockKey}`);
+      });
+      const urlText = document.getElementById("mockUrlText");
+      if (urlText && mockUrls[mockKey]) {
+        urlText.textContent = mockUrls[mockKey];
+      }
+    }
+
+    /* DEVICE TABS */
+    function switchDeviceTab(tabKey) {
+      document.querySelectorAll('#devices .tab-btn').forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.tab === tabKey);
+      });
+      document.querySelectorAll('#devices .tab-pane').forEach(pane => {
+        pane.classList.toggle("active", pane.id === `pane-${tabKey}`);
+      });
+    }
+
+    /* INSTALL TABS */
+    function switchInstallTab(tabKey) {
+      document.querySelectorAll('#install .tab-btn').forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.tab === tabKey);
+      });
+      document.querySelectorAll('#install .tab-pane').forEach(pane => {
+        pane.classList.toggle("active", pane.id === `pane-${tabKey}`);
+      });
+    }
+
+    /* PROVIDERS FILTER */
+    function filterProvGrid(catKey) {
+      document.querySelectorAll('#providers .tab-btn').forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.provCat === catKey);
+      });
+      document.querySelectorAll('#provGrid .prov-card').forEach(card => {
+        if (catKey === "all" || card.dataset.cat === catKey) {
+          card.style.display = "flex";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    /* FAQ ACCORDION */
+    function toggleFaqItem(btn) {
+      const item = btn.closest(".faq-item");
+      const wasActive = item.classList.contains("active");
+      document.querySelectorAll(".faq-item").forEach(i => i.classList.remove("active"));
+      if (!wasActive) {
+        item.classList.add("active");
+      }
+    }
+  </script>
+</body>
+
+</html>

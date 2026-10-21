@@ -572,6 +572,11 @@
       background: linear-gradient(180deg, rgba(168, 85, 247, 0.05) 0%, rgba(15, 20, 34, 0.7) 100%);
     }
 
+    .platform-notice-col.webdav-col {
+      border-color: rgba(96, 165, 250, 0.3);
+      background: linear-gradient(180deg, rgba(96, 165, 250, 0.08) 0%, rgba(15, 20, 34, 0.7) 100%);
+    }
+
     .platform-notice-title {
       display: flex;
       align-items: center;
@@ -599,6 +604,15 @@
       flex-shrink: 0;
     }
 
+    .status-indicator-blue {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 8px var(--blue);
+      flex-shrink: 0;
+    }
+
     .stremio-dir-link {
       display: inline-block;
       margin-top: 8px;
@@ -606,6 +620,20 @@
       font-weight: 700;
       text-decoration: none;
       transition: color 0.15s;
+    }
+
+    .webdav-dir-link {
+      display: inline-block;
+      margin-top: 8px;
+      color: var(--blue);
+      font-weight: 700;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .webdav-dir-link:hover {
+      color: #93c5fd;
+      text-decoration: underline;
     }
 
     .stremio-dir-link:hover {
@@ -1495,6 +1523,7 @@
         <a href="#providers">Eklentiler</a>
         <a href="#live">Canlı TV (100)</a>
         <a href="#faq">SSS</a>
+        <a href="dav.html" style="color: #60a5fa; background: rgba(96, 165, 250, 0.12); padding: 5px 12px; border-radius: 20px; border: 1px solid rgba(96, 165, 250, 0.3); font-weight: 600; display: inline-flex; align-items: center; gap: 6px;">🚀 Anthology WebDAV</a>
         <a href="https://github.com/falsisdev/anthology" target="_blank" rel="noopener">GitHub</a>
       </div>
       <div class="nav-actions">
@@ -1520,6 +1549,7 @@
     <a href="#providers" onclick="toggleMobileNav()">🎬 Eklentiler</a>
     <a href="#live" onclick="toggleMobileNav()">📺 Canlı TV (138 Kanal)</a>
     <a href="#faq" onclick="toggleMobileNav()">❓ Sıkça Sorulan Sorular</a>
+    <a href="dav.html" style="color: #60a5fa; font-weight: 700;">🚀 Anthology WebDAV (Rehber &amp; Kurulum)</a>
     <a href="https://github.com/falsisdev/anthology" target="_blank" rel="noopener">⭐️ GitHub'da Görüntüle</a>
   </div>
 
@@ -1630,6 +1660,15 @@
               class="stremio-dir-link">🌐 Stremio-Addons Topluluk Dizininde Görüntüle &rarr;</a>
           </p>
         </div>
+        <div class="platform-notice-col webdav-col">
+          <div class="platform-notice-title">
+            <span class="status-indicator-blue"></span>
+            <strong>🚀 Anthology WebDAV — Infuse, Kodi &amp; TV</strong>
+          </div>
+          <p>Apple TV, Android TV, Mac veya Windows'ta <strong>Infuse, Kodi, VLC, Nova Video Player</strong> ile sıfır disk alanı harcayarak 34 yerli kaynaktan 1080p/4K reklamsız yayın izleyin.<br>
+            <a href="dav.html" class="webdav-dir-link">🌐 Çok Detaylı WebDAV Rehberini İncele &rarr;</a>
+          </p>
+        </div>
       </div>
 
       <!-- PLATFORM TABS -->
@@ -1640,6 +1679,9 @@
         <button class="tab-btn" data-tab="stremio" onclick="switchPlatformTab('stremio')">
           🟣 Stremio (Canlı TV)
         </button>
+        <a href="dav.html" class="tab-btn" style="text-decoration: none; color: #60a5fa; border-color: rgba(96, 165, 250, 0.35); background: rgba(96, 165, 250, 0.08); display: inline-flex; align-items: center; gap: 8px;">
+          🚀 Anthology WebDAV (Infuse, Kodi &amp; TV) &rarr;
+        </a>
       </div>
 
       <!-- NUVIO TAB PANE -->
