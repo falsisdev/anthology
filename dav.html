@@ -1607,14 +1607,17 @@
 
     /* OFFLINE GUIDE STYLES */
     .offline-hero-card {
-      background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(15, 20, 34, 0.8) 100%);
-      border: 1px solid rgba(16, 185, 129, 0.25);
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(15, 20, 34, 0.95) 100%);
+      border: 1px solid rgba(16, 185, 129, 0.3);
       border-radius: var(--radius-xl);
       padding: 32px;
       margin-bottom: 24px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+      width: 100%;
     }
 
     .offline-hero-title {
@@ -1623,7 +1626,7 @@
       color: #fff;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .offline-hero-desc {
@@ -1634,31 +1637,45 @@
 
     .offline-methods-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 20px;
+      width: 100%;
     }
 
-    @media (max-width: 850px) {
+    @media (max-width: 900px) {
+      .offline-hero-card {
+        padding: 24px 20px;
+      }
       .offline-methods-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
       }
     }
 
     .offline-method-card {
       background: var(--surface-card);
       border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius);
       padding: 24px;
       display: flex;
       flex-direction: column;
       gap: 14px;
+      min-width: 0;
+      width: 100%;
+      box-sizing: border-box;
+      transition: border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .offline-method-card:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
     }
 
     .offline-method-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     .offline-method-title {
@@ -1678,12 +1695,30 @@
       background: rgba(0, 230, 118, 0.12);
       color: #00e676;
       border: 1px solid rgba(0, 230, 118, 0.3);
+      white-space: nowrap;
     }
 
     .offline-method-desc {
       font-size: 13.5px;
       color: var(--text-muted);
       line-height: 1.6;
+      word-break: break-word;
+    }
+
+    .offline-method-card .code-box {
+      margin: 0;
+      min-width: 0;
+      max-width: 100%;
+      border-radius: var(--radius-md);
+      background: #060913;
+    }
+
+    .offline-method-card .code-content {
+      padding: 14px;
+      font-size: 13px;
+      line-height: 1.5;
+      overflow-x: auto;
+      white-space: pre;
     }
 
     .offline-checklist-card {
@@ -1691,7 +1726,9 @@
       border: 1px solid rgba(250, 204, 21, 0.25);
       border-radius: var(--radius);
       padding: 20px 24px;
-      margin-top: 24px;
+      margin-top: 10px;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .offline-checklist-title {
@@ -1707,20 +1744,23 @@
     .offline-checklist-items {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 10px;
+      gap: 12px;
       font-size: 13.5px;
       color: #cbd5e1;
     }
 
     .offline-checklist-item {
       display: flex;
-      align-items: center;
-      gap: 8px;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.5;
     }
 
     .offline-checklist-item span {
       color: #00e676;
       font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
     }
 
     /* PLATFORM MATRIX */
