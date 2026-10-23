@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: ddizibox
  * Built from src/ddizibox/index.js
- * Build: v1.8.31 (anthology build system)
+ * Build: v1.8.32 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -232,6 +232,22 @@ function timeoutSignal(ms) {
   }, ms);
   return controller.signal;
 }
+function safeFetch(url, options, maxRetries) {
+  return __async(this, null, function* () {
+    var retries = typeof maxRetries === "number" ? maxRetries : 1;
+    for (var i = 0; i <= retries; i++) {
+      try {
+        var res = yield fetch(url, options);
+        if (res.ok || i === retries) return res;
+      } catch (e) {
+        if (i === retries) throw e;
+        yield new Promise(function(r) {
+          setTimeout(r, 200);
+        });
+      }
+    }
+  });
+}
 function asciiFold(str) {
   if (!str) return "";
   return String(str).replace(/[ıİ]/g, "i").replace(/[öÖ]/g, "o").replace(/[üÜ]/g, "u").replace(/[çÇ]/g, "c").replace(/[şŞ]/g, "s").replace(/[ğĞ]/g, "g").replace(/[âîûÂÎÛ]/g, function(m) {
@@ -250,6 +266,7 @@ function resolveTmdbInfo(id, mediaType) {
   return __async(this, null, function* () {
     try {
       var cleanId = String(id || "").trim();
+      cleanId = cleanId.replace(/^(?:movie|tv|series|tmdb|imdb):+/i, "");
       if (cleanId.includes(":")) cleanId = cleanId.split(":")[0];
       var numericId = null;
       var title = "";
@@ -448,8 +465,8 @@ function findMediaUrl(tmdbInfo, isTv) {
 function extractStreamsFromPlayer(pageUrl) {
   return __async(this, null, function* () {
     try {
-      var pageRes = yield fetch(pageUrl, { headers: HEADERS, signal: timeoutSignal(8e3) });
-      if (!pageRes.ok) return [];
+      var pageRes = yield safeFetch(pageUrl, { headers: HEADERS, signal: timeoutSignal(8e3) });
+      if (!pageRes || !pageRes.ok) return [];
       var pHtml = yield pageRes.text();
       if (!pHtml) return [];
       var pvMatch = pHtml.match(/data-pv="([^"]+)"/);
@@ -458,7 +475,7 @@ function extractStreamsFromPlayer(pageUrl) {
       var hostMatch = pHtml.match(/src="(https?:\/\/[^\/]+)\/assets\/js\/core\.js"/i);
       var playerHost = hostMatch ? hostMatch[1] : DEFAULT_PLAYER_HOST;
       var sUrl = playerHost + "/assets/js/s.php?s=" + encodeURIComponent(pv);
-      var pRes = yield fetch(sUrl, {
+      var pRes = yield safeFetch(sUrl, {
         headers: {
           "User-Agent": HEADERS["User-Agent"],
           "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
@@ -466,7 +483,7 @@ function extractStreamsFromPlayer(pageUrl) {
         },
         signal: timeoutSignal(8e3)
       });
-      if (!pRes.ok) return [];
+      if (!pRes || !pRes.ok) return [];
       var pDataHtml = yield pRes.text();
       if (!pDataHtml) return [];
       var jsonMatch = pDataHtml.match(/window\.__PLAYER__\s*=\s*(\{[\s\S]*?\});/);
@@ -508,27 +525,20 @@ function extractStreamsFromPlayer(pageUrl) {
         "Referer": playerHost + "/",
         "User-Agent": HEADERS["User-Agent"]
       };
+      var baseStreamUrl = pData.stream || "";
+      var cleanStreamUrl = baseStreamUrl.replace(/[?&]cdn=\d+/, "").replace(/#.*$/, "");
+      var finalStreamUrl = cleanStreamUrl + (cleanStreamUrl.indexOf("?") !== -1 ? "&" : "?") + "ext=.m3u8";
       var streams = [];
       var audios = Array.isArray(pData.audios) && pData.audios.length > 0 ? pData.audios : [{ label: "Orijinal" }];
-      audios.forEach(function(aud) {
-        var rawLabel = (aud.label || aud.name || "Orijinal").trim();
-        var displayLabel = rawLabel;
-        if (/türkçe|turkce|tr\b/i.test(rawLabel)) {
-          displayLabel = "T\xFCrk\xE7e Dublaj";
-        } else if (/japonca|japanese|ja\b/i.test(rawLabel)) {
-          displayLabel = "Japonca (Orijinal)";
-        } else if (/ingilizce|english|en\b/i.test(rawLabel)) {
-          displayLabel = "\u0130ngilizce (Orijinal)";
-        } else if (/orijinal|original/i.test(rawLabel)) {
-          displayLabel = "Orijinal (TR Altyaz\u0131l\u0131)";
-        }
-        var baseStreamUrl = pData.stream || "";
-        var cleanStreamUrl = baseStreamUrl.replace(/[?&]cdn=\d+/, "").replace(/#.*$/, "");
-        var fastStreamUrl = cleanStreamUrl + (cleanStreamUrl.indexOf("?") !== -1 ? "&" : "?") + "cdn=0#.m3u8";
+      if (audios.length > 1) {
+        var hasTr = audios.some(function(a) {
+          return /türkçe|turkce|tr\b/i.test(a.label || a.name || "");
+        });
+        var titleLabel = hasTr ? "Dual Ses (TR Dublaj & Orijinal)" : "\xC7oklu Ses";
         var sObj = {
           name: PROVIDER_NAME,
-          title: PROVIDER_NAME + " \u2022 " + displayLabel + " \u2022 1080p FHD",
-          url: fastStreamUrl,
+          title: PROVIDER_NAME + " \u2022 " + titleLabel + " \u2022 1080p FHD",
+          url: finalStreamUrl,
           quality: "1080p",
           resolution: "1080p",
           type: "hls",
@@ -542,11 +552,41 @@ function extractStreamsFromPlayer(pageUrl) {
             }
           }
         };
-        if (subtitles.length > 0) {
-          sObj.subtitles = subtitles;
-        }
+        if (subtitles.length > 0) sObj.subtitles = subtitles;
         streams.push(sObj);
-      });
+      } else {
+        var aud = audios[0];
+        var rawLabel = (aud.label || aud.name || "Orijinal").trim();
+        var displayLabel = rawLabel;
+        if (/türkçe|turkce|tr\b/i.test(rawLabel)) {
+          displayLabel = "T\xFCrk\xE7e Dublaj";
+        } else if (/japonca|japanese|ja\b/i.test(rawLabel)) {
+          displayLabel = "Japonca (Orijinal)";
+        } else if (/ingilizce|english|en\b/i.test(rawLabel)) {
+          displayLabel = "\u0130ngilizce (Orijinal)";
+        } else if (/orijinal|original/i.test(rawLabel)) {
+          displayLabel = "Orijinal (TR Altyaz\u0131l\u0131)";
+        }
+        var sObj = {
+          name: PROVIDER_NAME,
+          title: PROVIDER_NAME + " \u2022 " + displayLabel + " \u2022 1080p FHD",
+          url: finalStreamUrl,
+          quality: "1080p",
+          resolution: "1080p",
+          type: "hls",
+          format: "hls",
+          isHls: true,
+          headers: streamHeaders,
+          behaviorHints: {
+            notWebReady: true,
+            proxyHeaders: {
+              request: streamHeaders
+            }
+          }
+        };
+        if (subtitles.length > 0) sObj.subtitles = subtitles;
+        streams.push(sObj);
+      }
       return streams;
     } catch (e) {
       return [];
@@ -566,15 +606,20 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
       var sNum = parseInt(seasonNum, 10) || 1;
       var eNum = parseInt(episodeNum, 10) || 1;
       var cleanId = String(tmdbId || "").trim();
-      if (cleanId.indexOf(":") !== -1 && !cleanId.startsWith("ddizibox:")) {
-        var cParts = cleanId.split(":");
-        if (cParts.length >= 3) {
-          var s = parseInt(cParts[cParts.length - 2], 10);
-          var e = parseInt(cParts[cParts.length - 1], 10);
-          if (!isNaN(s)) sNum = s;
-          if (!isNaN(e)) eNum = e;
-          isTv = true;
-          cleanId = cParts[0];
+      if (!cleanId.startsWith("ddizibox:")) {
+        cleanId = cleanId.replace(/^(?:movie|tv|series|tmdb|imdb):+/i, "");
+        if (cleanId.indexOf(":") !== -1) {
+          var cParts = cleanId.split(":");
+          if (cParts.length >= 3) {
+            var s = parseInt(cParts[cParts.length - 2], 10);
+            var e = parseInt(cParts[cParts.length - 1], 10);
+            if (!isNaN(s)) sNum = s;
+            if (!isNaN(e)) eNum = e;
+            isTv = true;
+            cleanId = cParts[0];
+          } else if (cParts.length === 2) {
+            cleanId = cParts[0];
+          }
         }
       }
       var contentUrl = null;

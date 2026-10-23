@@ -48,6 +48,20 @@ function timeoutSignal(ms) {
   return controller.signal;
 }
 
+// ── Bağlantı Sıfırlanma (ECONNRESET) Dirençli Güvenli İstek Motoru ────────
+async function safeFetch(url, options, maxRetries) {
+  var retries = typeof maxRetries === 'number' ? maxRetries : 1;
+  for (var i = 0; i <= retries; i++) {
+    try {
+      var res = await fetch(url, options);
+      if (res.ok || i === retries) return res;
+    } catch (e) {
+      if (i === retries) throw e;
+      await new Promise(function(r) { setTimeout(r, 200); });
+    }
+  }
+}
+
 // ── Aksan Katlama ve Başlık Temizleme ─────────────────────────────────────
 function asciiFold(str) {
   if (!str) return '';
@@ -84,6 +98,8 @@ function titleToSlug(str) {
 async function resolveTmdbInfo(id, mediaType) {
   try {
     var cleanId = String(id || '').trim();
+    // Prefix temizliği (movie:603 -> 603, tv:1396 -> 1396, tmdb:603 -> 603, imdb:tt... -> tt...)
+    cleanId = cleanId.replace(/^(?:movie|tv|series|tmdb|imdb):+/i, '');
     if (cleanId.includes(':')) cleanId = cleanId.split(':')[0];
 
     var numericId = null;
@@ -297,8 +313,8 @@ async function findMediaUrl(tmdbInfo, isTv) {
 // ── Pilavyer Oynatıcı ve Akış Çözücü ──────────────────────────────────────
 async function extractStreamsFromPlayer(pageUrl) {
   try {
-    var pageRes = await fetch(pageUrl, { headers: HEADERS, signal: timeoutSignal(8000) });
-    if (!pageRes.ok) return [];
+    var pageRes = await safeFetch(pageUrl, { headers: HEADERS, signal: timeoutSignal(8000) });
+    if (!pageRes || !pageRes.ok) return [];
     var pHtml = await pageRes.text();
     if (!pHtml) return [];
 
@@ -310,7 +326,7 @@ async function extractStreamsFromPlayer(pageUrl) {
     var playerHost = hostMatch ? hostMatch[1] : DEFAULT_PLAYER_HOST;
 
     var sUrl = playerHost + '/assets/js/s.php?s=' + encodeURIComponent(pv);
-    var pRes = await fetch(sUrl, {
+    var pRes = await safeFetch(sUrl, {
       headers: {
         'User-Agent': HEADERS['User-Agent'],
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
@@ -318,7 +334,7 @@ async function extractStreamsFromPlayer(pageUrl) {
       },
       signal: timeoutSignal(8000)
     });
-    if (!pRes.ok) return [];
+    if (!pRes || !pRes.ok) return [];
     var pDataHtml = await pRes.text();
     if (!pDataHtml) return [];
 
@@ -366,34 +382,22 @@ async function extractStreamsFromPlayer(pageUrl) {
       'User-Agent': HEADERS['User-Agent']
     };
 
+    var baseStreamUrl = pData.stream || '';
+    // HLS VOD tespiti için &ext=.m3u8 eklenir; cdn=0 KULLANILMAZ (ExoPlayer'da segment.php kaynaklı siyah ekranı önler)
+    var cleanStreamUrl = baseStreamUrl.replace(/[?&]cdn=\d+/, '').replace(/#.*$/, '');
+    var finalStreamUrl = cleanStreamUrl + (cleanStreamUrl.indexOf('?') !== -1 ? '&' : '?') + 'ext=.m3u8';
+
     var streams = [];
     var audios = Array.isArray(pData.audios) && pData.audios.length > 0 ? pData.audios : [{ label: 'Orijinal' }];
 
-    audios.forEach(function(aud) {
-      var rawLabel = (aud.label || aud.name || 'Orijinal').trim();
-      var displayLabel = rawLabel;
-      if (/türkçe|turkce|tr\b/i.test(rawLabel)) {
-        displayLabel = 'Türkçe Dublaj';
-      } else if (/japonca|japanese|ja\b/i.test(rawLabel)) {
-        displayLabel = 'Japonca (Orijinal)';
-      } else if (/ingilizce|english|en\b/i.test(rawLabel)) {
-        displayLabel = 'İngilizce (Orijinal)';
-      } else if (/orijinal|original/i.test(rawLabel)) {
-        displayLabel = 'Orijinal (TR Altyazılı)';
-      }
-
-      var baseStreamUrl = pData.stream || '';
-      // Oynatıcıların (Nuvio / ExoPlayer) HLS VOD formatını tanıması ve
-      // pilavyer*.top CDN engellemesini/yavaşlatmasını (50 KB/s) aşması için:
-      // 1) cdn=0 origin Cloudflare CDN doğrudan segment aktarımını etkinleştirir (hızlı ve takılmasız)
-      // 2) #.m3u8 eki ExoPlayer DefaultMediaSourceFactory nin HlsMediaSource seçmesini garanti eder
-      var cleanStreamUrl = baseStreamUrl.replace(/[?&]cdn=\d+/, '').replace(/#.*$/, '');
-      var fastStreamUrl = cleanStreamUrl + (cleanStreamUrl.indexOf('?') !== -1 ? '&' : '?') + 'cdn=0#.m3u8';
-
+    if (audios.length > 1) {
+      // Çoklu ses parçası barındıran HLS master playlist için net ve tekil yayın tanımı
+      var hasTr = audios.some(function(a) { return /türkçe|turkce|tr\b/i.test(a.label || a.name || ''); });
+      var titleLabel = hasTr ? 'Dual Ses (TR Dublaj & Orijinal)' : 'Çoklu Ses';
       var sObj = {
         name: PROVIDER_NAME,
-        title: PROVIDER_NAME + ' • ' + displayLabel + ' • 1080p FHD',
-        url: fastStreamUrl,
+        title: PROVIDER_NAME + ' • ' + titleLabel + ' • 1080p FHD',
+        url: finalStreamUrl,
         quality: '1080p',
         resolution: '1080p',
         type: 'hls',
@@ -407,13 +411,42 @@ async function extractStreamsFromPlayer(pageUrl) {
           }
         }
       };
-
-      if (subtitles.length > 0) {
-        sObj.subtitles = subtitles;
+      if (subtitles.length > 0) sObj.subtitles = subtitles;
+      streams.push(sObj);
+    } else {
+      var aud = audios[0];
+      var rawLabel = (aud.label || aud.name || 'Orijinal').trim();
+      var displayLabel = rawLabel;
+      if (/türkçe|turkce|tr\b/i.test(rawLabel)) {
+        displayLabel = 'Türkçe Dublaj';
+      } else if (/japonca|japanese|ja\b/i.test(rawLabel)) {
+        displayLabel = 'Japonca (Orijinal)';
+      } else if (/ingilizce|english|en\b/i.test(rawLabel)) {
+        displayLabel = 'İngilizce (Orijinal)';
+      } else if (/orijinal|original/i.test(rawLabel)) {
+        displayLabel = 'Orijinal (TR Altyazılı)';
       }
 
+      var sObj = {
+        name: PROVIDER_NAME,
+        title: PROVIDER_NAME + ' • ' + displayLabel + ' • 1080p FHD',
+        url: finalStreamUrl,
+        quality: '1080p',
+        resolution: '1080p',
+        type: 'hls',
+        format: 'hls',
+        isHls: true,
+        headers: streamHeaders,
+        behaviorHints: {
+          notWebReady: true,
+          proxyHeaders: {
+            request: streamHeaders
+          }
+        }
+      };
+      if (subtitles.length > 0) sObj.subtitles = subtitles;
       streams.push(sObj);
-    });
+    }
 
     return streams;
   } catch (e) {
@@ -436,15 +469,20 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
     var eNum = parseInt(episodeNum, 10) || 1;
 
     var cleanId = String(tmdbId || '').trim();
-    if (cleanId.indexOf(':') !== -1 && !cleanId.startsWith('ddizibox:')) {
-      var cParts = cleanId.split(':');
-      if (cParts.length >= 3) {
-        var s = parseInt(cParts[cParts.length - 2], 10);
-        var e = parseInt(cParts[cParts.length - 1], 10);
-        if (!isNaN(s)) sNum = s;
-        if (!isNaN(e)) eNum = e;
-        isTv = true;
-        cleanId = cParts[0];
+    if (!cleanId.startsWith('ddizibox:')) {
+      cleanId = cleanId.replace(/^(?:movie|tv|series|tmdb|imdb):+/i, '');
+      if (cleanId.indexOf(':') !== -1) {
+        var cParts = cleanId.split(':');
+        if (cParts.length >= 3) {
+          var s = parseInt(cParts[cParts.length - 2], 10);
+          var e = parseInt(cParts[cParts.length - 1], 10);
+          if (!isNaN(s)) sNum = s;
+          if (!isNaN(e)) eNum = e;
+          isTv = true;
+          cleanId = cParts[0];
+        } else if (cParts.length === 2) {
+          cleanId = cParts[0];
+        }
       }
     }
 
