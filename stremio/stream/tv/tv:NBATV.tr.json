@@ -1,21 +1,6 @@
 {
   "streams": [
     {
-      "name": "⌜ PapazSports ⌟",
-      "title": "NBA TV HD [1080p HD]",
-      "url": "https://cdn.bsg1791571147.top/cdn/RuhPc3bMm7NOaLAElACuWQ/1791836053/100053.js",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Referer": "https://www.papazsports1028.pro/",
-        "Origin": "https://www.papazsports1028.pro",
-        "usertoken": "RuhPc3bMm7NOaLAElACuWQ",
-        "pl": "PapazSports"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
       "name": "⌜ Anthology Spor ⌟",
       "title": "NBA TV HD [Canlı]",
       "url": "https://cdn1.ayitistream.com/NBATV/index.m3u8",

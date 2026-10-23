@@ -25,21 +25,6 @@
       }
     },
     {
-      "name": "⌜ PapazSports ⌟",
-      "title": "Smart Spor 1 HD [1080p HD]",
-      "url": "https://cdn.bsg1791571147.top/cdn/cOGfRJF_xoWlw6uktcK6Gg/1791836338/100030.js",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Referer": "https://www.papazsports1028.pro/",
-        "Origin": "https://www.papazsports1028.pro",
-        "usertoken": "cOGfRJF_xoWlw6uktcK6Gg",
-        "pl": "PapazSports"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
       "name": "⌜ Anthology Spor ⌟",
       "title": "Smart Spor 1 HD [Canlı]",
       "url": "https://andro.evrenesoglu121.click/checklist/androstreamlivesm1.m3u8",

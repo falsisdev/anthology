@@ -103,6 +103,9 @@ async function checkPlayability(streams) {
       } else if (scraper.id === "dizipod") {
         testTarget = "Breaking Bad (1396 S01E01)";
         streams = await mod.getStreams("1396", "tv", 1, 1);
+      } else if (scraper.id === "ddizibox") {
+        testTarget = "Breaking Bad (1396 S01E01)";
+        streams = await mod.getStreams("1396", "tv", 1, 1);
       } else if (scraper.id === "anthology_m3u") {
         testTarget = "Bahar (245914 S01E01)";
         streams = await mod.getStreams("245914", "tv", 1, 1);
