@@ -16,8 +16,8 @@ function cfgReady() {
 
 /**
  * Anthology - DDiziBox Provider
- * https://ddizibox.com üzerinden yerli/yabancı dizi ve film arşivini tarar;
- * Pilavyer oynatıcısından doğrudan 1080p adaptif HLS master akışları ve WebVTT altyazıları sunar.
+ * https://ddizibox.com üzerinden yerli/yabancı dizi, film ve anime arşivini tarar;
+ * Özel arama katalogları (Filmler, Diziler, Animeler) ve Pilavyer 1080p HLS akışları sunar.
  */
 
 var cheerio = (function() {
@@ -91,7 +91,7 @@ async function resolveTmdbInfo(id, mediaType) {
     var origTitle = '';
     var year = '';
 
-    var isTv = (mediaType === 'tv' || mediaType === 'series');
+    var isTv = (mediaType === 'tv' || mediaType === 'series' || mediaType === 'anime');
 
     if (cleanId.startsWith('tt')) {
       var findUrl = 'https://api.themoviedb.org/3/find/' + cleanId + '?api_key=' + TMDB_API_KEY + '&external_source=imdb_id';
@@ -172,15 +172,16 @@ async function htmlSearch(query) {
     var $ = cheerio.load(html);
     var results = [];
 
-    $('a[href*="/film/"], a[href*="/dizi/"]').each(function(i, el) {
+    $('a[href*="/film/"], a[href*="/dizi/"], a[href*="/anime/"]').each(function(i, el) {
       var href = $(el).attr('href') || '';
       var text = $(el).text().trim().replace(/\s+/g, ' ');
       var poster = $(el).find('img').attr('src') || '';
       var isMovie = href.includes('/film/');
+      var isAnime = href.includes('/anime/') && !href.includes('/sezon-');
       var isSeries = href.includes('/dizi/') && !href.includes('/sezon-');
-      if ((isMovie || isSeries) && href && !results.some(function(r) { return r.url === href; })) {
+      if ((isMovie || isSeries || isAnime) && href && !results.some(function(r) { return r.url === href; })) {
         results.push({
-          type: isMovie ? 'movie' : 'series',
+          type: isMovie ? 'movie' : (isAnime ? 'anime' : 'series'),
           title: text,
           url: href.startsWith('http') ? href : (BASE_URL + href),
           poster: poster,
@@ -215,7 +216,6 @@ async function findMediaUrl(tmdbInfo, isTv) {
       });
     }
 
-    // Yeterli aday bulunduysa devam et
     if (candidates.length >= 3) break;
   }
 
@@ -224,7 +224,7 @@ async function findMediaUrl(tmdbInfo, isTv) {
     for (var j = 0; j < queries.length; j++) {
       var hList = await htmlSearch(queries[j]);
       var filtered = hList.filter(function(item) {
-        return isTv ? (item.type === 'series') : (item.type === 'movie');
+        return isTv ? (item.type === 'series' || item.type === 'anime') : (item.type === 'movie');
       });
       filtered.forEach(function(item) {
         if (!candidates.some(function(c) { return c.url === item.url; })) {
@@ -261,7 +261,6 @@ async function findMediaUrl(tmdbInfo, isTv) {
     if (candTitleClean === targetCleanTr || candTitleClean === targetCleanEn) {
       score += 50;
     } else {
-      // Kelime bazlı örtüşme
       var targetWords = (targetCleanTr + ' ' + targetCleanEn).split(' ').filter(function(w) { return w.length > 2; });
       var candWords = candTitleClean.split(' ').filter(function(w) { return w.length > 2; });
       var matchCount = 0;
@@ -283,7 +282,7 @@ async function findMediaUrl(tmdbInfo, isTv) {
     if (targetYear && candYear) {
       if (Math.abs(targetYear - candYear) === 0) score += 25;
       else if (Math.abs(targetYear - candYear) <= 1) score += 10;
-      else score -= 30; // Farklı yıl yapımları cezalandır
+      else score -= 30;
     }
 
     if (score > bestScore && score >= 20) {
@@ -303,12 +302,10 @@ async function extractStreamsFromPlayer(pageUrl) {
     var pHtml = await pageRes.text();
     if (!pHtml) return [];
 
-    // data-pv özniteliği çıkar
     var pvMatch = pHtml.match(/data-pv="([^"]+)"/);
     if (!pvMatch) return [];
     var pv = pvMatch[1];
 
-    // Player host tespiti (play2.pilavyerplay.top / pilavyerplay.top vb.)
     var hostMatch = pHtml.match(/src="(https?:\/\/[^\/]+)\/assets\/js\/core\.js"/i);
     var playerHost = hostMatch ? hostMatch[1] : DEFAULT_PLAYER_HOST;
 
@@ -337,7 +334,6 @@ async function extractStreamsFromPlayer(pageUrl) {
 
     if (!pData || !pData.stream) return [];
 
-    // Altyazıları standart formata dönüştür
     var subtitles = [];
     if (Array.isArray(pData.subs)) {
       pData.subs.forEach(function(sub) {
@@ -378,6 +374,8 @@ async function extractStreamsFromPlayer(pageUrl) {
       var displayLabel = rawLabel;
       if (/türkçe|turkce|tr\b/i.test(rawLabel)) {
         displayLabel = 'Türkçe Dublaj';
+      } else if (/japonca|japanese|ja\b/i.test(rawLabel)) {
+        displayLabel = 'Japonca (Orijinal)';
       } else if (/ingilizce|english|en\b/i.test(rawLabel)) {
         displayLabel = 'İngilizce (Orijinal)';
       } else if (/orijinal|original/i.test(rawLabel)) {
@@ -425,7 +423,7 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
       tmdbId = tmdbId.id;
     }
 
-    var isTv = (mediaType === 'tv' || mediaType === 'series');
+    var isTv = (mediaType === 'tv' || mediaType === 'series' || mediaType === 'anime');
     var sNum = parseInt(seasonNum, 10) || 1;
     var eNum = parseInt(episodeNum, 10) || 1;
 
@@ -445,7 +443,17 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
     var contentUrl = null;
 
     // Doğrudan DDiziBox slug formatı kontrolü
-    if (cleanId.startsWith('ddizibox:ep:')) {
+    if (cleanId.startsWith('ddizibox:aep:')) {
+      // ddizibox:aep:slug:s:e
+      var aepParts = cleanId.split(':');
+      var aSlug = aepParts[2];
+      if (aepParts[3]) sNum = parseInt(aepParts[3], 10) || sNum;
+      if (aepParts[4]) eNum = parseInt(aepParts[4], 10) || eNum;
+      contentUrl = BASE_URL + '/anime/' + aSlug + '/sezon-' + sNum + '/bolum-' + eNum;
+    } else if (cleanId.startsWith('ddizibox:anime:')) {
+      var anSlug = cleanId.split(':')[2];
+      contentUrl = BASE_URL + '/anime/' + anSlug + '/sezon-' + sNum + '/bolum-' + eNum;
+    } else if (cleanId.startsWith('ddizibox:ep:')) {
       var epParts = cleanId.split(':');
       var slug = epParts[2];
       if (epParts[3]) sNum = parseInt(epParts[3], 10) || sNum;
@@ -464,7 +472,9 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
       if (!mediaMatch || !mediaMatch.url) return [];
 
       var matchSlug = (mediaMatch.url.split('/').pop() || '').trim();
-      if (isTv) {
+      if (mediaMatch.url.includes('/anime/')) {
+        contentUrl = BASE_URL + '/anime/' + matchSlug + '/sezon-' + sNum + '/bolum-' + eNum;
+      } else if (isTv) {
         contentUrl = BASE_URL + '/dizi/' + matchSlug + '/sezon-' + sNum + '/bolum-' + eNum;
       } else {
         contentUrl = BASE_URL + '/film/' + matchSlug;
@@ -480,6 +490,199 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
   }
 }
 
+// ── Sadece Arama Odaklı Katalog Fonksiyonu (getCatalog) ───────────────────
+async function getCatalog(args) {
+  try {
+    // Arama sorgusu yoksa ana sayfada/vitrinde görünmemesi için boş dön
+    if (!args || !args.extra || !args.extra.search || !args.extra.search.trim()) {
+      return { metas: [] };
+    }
+
+    var query = args.extra.search.trim();
+    var catId = args.id || '';
+    var lData = await liveSearch(query);
+
+    var metas = [];
+
+    if (catId === 'anthology_ddizibox_filmler' || catId === 'filmler' || (!catId && args.type === 'movie')) {
+      var movies = Array.isArray(lData.movies) ? lData.movies : [];
+      movies.forEach(function(item) {
+        if (!item || !item.url) return;
+        var slug = (item.url.split('/').pop() || '').trim();
+        if (!slug) return;
+        metas.push({
+          id: 'ddizibox:movie:' + slug,
+          type: 'movie',
+          name: item.title,
+          poster: item.poster || null,
+          description: item.meta ? ('DDiziBox • ' + item.meta) : 'DDiziBox Film'
+        });
+      });
+    } else if (catId === 'anthology_ddizibox_diziler' || catId === 'diziler') {
+      var series = Array.isArray(lData.series) ? lData.series : [];
+      series.forEach(function(item) {
+        if (!item || !item.url) return;
+        var isAnime = item.url.includes('/anime/') || /anime/i.test(item.meta || '');
+        if (isAnime) return; // Diziler kataloğunda animeleri filtrele
+        var slug = (item.url.split('/').pop() || '').trim();
+        if (!slug) return;
+        metas.push({
+          id: 'ddizibox:show:' + slug,
+          type: 'series',
+          name: item.title,
+          poster: item.poster || null,
+          description: item.meta ? ('DDiziBox • ' + item.meta) : 'DDiziBox Dizi'
+        });
+      });
+    } else if (catId === 'anthology_ddizibox_animeler' || catId === 'animeler') {
+      var allSeries = Array.isArray(lData.series) ? lData.series : [];
+      allSeries.forEach(function(item) {
+        if (!item || !item.url) return;
+        var isAnime = item.url.includes('/anime/') || /anime/i.test(item.meta || '');
+        if (!isAnime) return; // Yalnızca animeleri al
+        var slug = (item.url.split('/').pop() || '').trim();
+        if (!slug) return;
+        metas.push({
+          id: 'ddizibox:anime:' + slug,
+          type: 'series',
+          name: item.title,
+          poster: item.poster || null,
+          description: item.meta ? ('DDiziBox • ' + item.meta) : 'DDiziBox Anime'
+        });
+      });
+    }
+
+    return { metas: metas };
+  } catch (e) {
+    return { metas: [] };
+  }
+}
+
+// ── İçerik ve Bölüm Listesi Metadata Fonksiyonu (getMeta) ────────────────
+async function getMeta(args) {
+  try {
+    var rawId = (typeof args === 'object' && args !== null) ? (args.id || '') : String(args || '');
+    if (!rawId) return { meta: null };
+
+    var idParts = rawId.split(':');
+    var prefix = idParts[0];
+    var kind = idParts[1];
+    var slug = idParts[2];
+
+    if (prefix !== 'ddizibox' || !kind || !slug) {
+      return { meta: null };
+    }
+
+    var targetUrl = '';
+    var isMovie = (kind === 'movie');
+    var isAnime = (kind === 'anime');
+
+    if (isMovie) targetUrl = BASE_URL + '/film/' + slug;
+    else if (isAnime) targetUrl = BASE_URL + '/anime/' + slug;
+    else targetUrl = BASE_URL + '/dizi/' + slug;
+
+    var res = await fetch(targetUrl, { headers: HEADERS, signal: timeoutSignal(8000) });
+    if (!res.ok) return { meta: null };
+    var html = await res.text();
+    if (!html || !cheerio) return { meta: null };
+
+    var $ = cheerio.load(html);
+
+    var title = $('h1').first().text().trim() || slug;
+    var poster = $('img[src*="tmdb/posters"]').first().attr('src') || $('meta[property="og:image"]').attr('content') || null;
+    var background = $('img[src*="tmdb/backdrops"]').first().attr('src') || null;
+    var description = $('meta[name="description"]').attr('content') || $('p.overview').first().text().trim() || '';
+
+    // JSON-LD schema varsa oradan da zenginleştir
+    $('script[type="application/ld+json"]').each(function(i, el) {
+      try {
+        var ld = JSON.parse($(el).html());
+        var graph = ld['@graph'] || [ld];
+        graph.forEach(function(item) {
+          if (item['@type'] === 'Movie' || item['@type'] === 'TVSeries') {
+            title = item.name || title;
+            description = item.description || description;
+            if (item.image) poster = item.image;
+          }
+        });
+      } catch (err) {}
+    });
+
+    var videos = [];
+
+    if (!isMovie) {
+      var seasonSet = new Set();
+      seasonSet.add(1);
+
+      // Sayfadaki diğer sezon bağlantılarını topla
+      $('[href*="sezon="]').each(function(i, el) {
+        var h = $(el).attr('href') || '';
+        var m = h.match(/sezon=(\d+)/);
+        if (m) seasonSet.add(parseInt(m[1], 10));
+      });
+
+      function parseEpisodesFromHtml(contentHtml, sNum) {
+        var $ch = cheerio.load(contentHtml);
+        $ch('a[href*="/sezon-"]').each(function(i, el) {
+          var href = $ch(el).attr('href') || '';
+          var m = href.match(/\/sezon-(\d+)\/bolum-(\d+)/);
+          if (m) {
+            var s = parseInt(m[1], 10);
+            var e = parseInt(m[2], 10);
+            var epTitle = $ch(el).text().trim().replace(/\s+/g, ' ');
+            var vId = isAnime ? ('ddizibox:aep:' + slug + ':' + s + ':' + e) : ('ddizibox:ep:' + slug + ':' + s + ':' + e);
+
+            if (!videos.some(function(v) { return v.id === vId; })) {
+              videos.push({
+                id: vId,
+                title: epTitle || (s + '. Sezon ' + e + '. Bölüm'),
+                season: s,
+                episode: e
+              });
+            }
+          }
+        });
+      }
+
+      // 1. Sezon zaten mevcut HTML'de
+      parseEpisodesFromHtml(html, 1);
+
+      // Çoklu sezonlar varsa paralel çek (en fazla 8 ek sezon)
+      var otherSeasons = Array.from(seasonSet).filter(function(s) { return s > 1; }).slice(0, 8);
+      if (otherSeasons.length > 0) {
+        var fetches = otherSeasons.map(function(s) {
+          var sUrl = targetUrl + '?sezon=' + s;
+          return fetch(sUrl, { headers: HEADERS, signal: timeoutSignal(6000) })
+            .then(function(r) { return r.ok ? r.text() : ''; })
+            .then(function(sHtml) {
+              if (sHtml) parseEpisodesFromHtml(sHtml, s);
+            })
+            .catch(function() {});
+        });
+        await Promise.all(fetches);
+      }
+
+      videos.sort(function(a, b) {
+        return a.season !== b.season ? a.season - b.season : a.episode - b.episode;
+      });
+    }
+
+    return {
+      meta: {
+        id: rawId,
+        type: isMovie ? 'movie' : 'series',
+        name: title,
+        poster: poster,
+        background: background,
+        description: description,
+        videos: videos
+      }
+    };
+  } catch (e) {
+    return { meta: null };
+  }
+}
+
 // ── Evrensel Kalite Sıralaması Sarmalama ──────────────────────────────────
 if (typeof getStreams === 'function') {
   var _origGetStreams = getStreams;
@@ -491,9 +694,13 @@ if (typeof getStreams === 'function') {
 
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = wrapAll({
-    getStreams: getStreams
+    getStreams: getStreams,
+    getCatalog: getCatalog,
+    getMeta: getMeta
   }, cfgReady);
 }
 if (typeof globalThis !== 'undefined') {
   globalThis.getStreams = getStreams;
+  globalThis.getCatalog = getCatalog;
+  globalThis.getMeta = getMeta;
 }

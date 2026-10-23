@@ -25,7 +25,12 @@ const path = require("path");
       }
 
       for (const catDef of scraper.catalogs) {
-        const catRes = await mod.getCatalog({ id: catDef.id, type: catDef.type });
+        let testArgs = { id: catDef.id, type: catDef.type };
+        const hasRequiredSearch = Array.isArray(catDef.extra) && catDef.extra.some(e => e.name === "search" && e.isRequired);
+        if (hasRequiredSearch) {
+          testArgs.extra = { search: "matrix" };
+        }
+        const catRes = await mod.getCatalog(testArgs);
         const items = (catRes && catRes.metas) || [];
         const isOk = items.length > 0;
         const sample = items.length > 0 ? items[0].name : "None";

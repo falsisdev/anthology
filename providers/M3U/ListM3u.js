@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: m3u_list
  * Built from src/m3u_list/index.js
- * Build: v1.8.29 (anthology build system)
+ * Build: v1.8.30 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {

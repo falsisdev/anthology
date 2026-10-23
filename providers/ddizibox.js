@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: ddizibox
  * Built from src/ddizibox/index.js
- * Build: v1.8.29 (anthology build system)
+ * Build: v1.8.30 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -255,7 +255,7 @@ function resolveTmdbInfo(id, mediaType) {
       var title = "";
       var origTitle = "";
       var year = "";
-      var isTv = mediaType === "tv" || mediaType === "series";
+      var isTv = mediaType === "tv" || mediaType === "series" || mediaType === "anime";
       if (cleanId.startsWith("tt")) {
         var findUrl = "https://api.themoviedb.org/3/find/" + cleanId + "?api_key=" + TMDB_API_KEY + "&external_source=imdb_id";
         var findRes = yield fetch(findUrl, { signal: timeoutSignal(7e3) });
@@ -332,17 +332,18 @@ function htmlSearch(query) {
       if (!cheerio) return [];
       var $ = cheerio.load(html);
       var results = [];
-      $('a[href*="/film/"], a[href*="/dizi/"]').each(function(i, el) {
+      $('a[href*="/film/"], a[href*="/dizi/"], a[href*="/anime/"]').each(function(i, el) {
         var href = $(el).attr("href") || "";
         var text = $(el).text().trim().replace(/\s+/g, " ");
         var poster = $(el).find("img").attr("src") || "";
         var isMovie = href.includes("/film/");
+        var isAnime = href.includes("/anime/") && !href.includes("/sezon-");
         var isSeries = href.includes("/dizi/") && !href.includes("/sezon-");
-        if ((isMovie || isSeries) && href && !results.some(function(r) {
+        if ((isMovie || isSeries || isAnime) && href && !results.some(function(r) {
           return r.url === href;
         })) {
           results.push({
-            type: isMovie ? "movie" : "series",
+            type: isMovie ? "movie" : isAnime ? "anime" : "series",
             title: text,
             url: href.startsWith("http") ? href : BASE_URL + href,
             poster,
@@ -381,7 +382,7 @@ function findMediaUrl(tmdbInfo, isTv) {
       for (var j = 0; j < queries.length; j++) {
         var hList = yield htmlSearch(queries[j]);
         var filtered = hList.filter(function(item) {
-          return isTv ? item.type === "series" : item.type === "movie";
+          return isTv ? item.type === "series" || item.type === "anime" : item.type === "movie";
         });
         filtered.forEach(function(item) {
           if (!candidates.some(function(c) {
@@ -514,6 +515,8 @@ function extractStreamsFromPlayer(pageUrl) {
         var displayLabel = rawLabel;
         if (/türkçe|turkce|tr\b/i.test(rawLabel)) {
           displayLabel = "T\xFCrk\xE7e Dublaj";
+        } else if (/japonca|japanese|ja\b/i.test(rawLabel)) {
+          displayLabel = "Japonca (Orijinal)";
         } else if (/ingilizce|english|en\b/i.test(rawLabel)) {
           displayLabel = "\u0130ngilizce (Orijinal)";
         } else if (/orijinal|original/i.test(rawLabel)) {
@@ -556,7 +559,7 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
         episodeNum = tmdbId.episode || episodeNum;
         tmdbId = tmdbId.id;
       }
-      var isTv = mediaType === "tv" || mediaType === "series";
+      var isTv = mediaType === "tv" || mediaType === "series" || mediaType === "anime";
       var sNum = parseInt(seasonNum, 10) || 1;
       var eNum = parseInt(episodeNum, 10) || 1;
       var cleanId = String(tmdbId || "").trim();
@@ -572,7 +575,16 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
         }
       }
       var contentUrl = null;
-      if (cleanId.startsWith("ddizibox:ep:")) {
+      if (cleanId.startsWith("ddizibox:aep:")) {
+        var aepParts = cleanId.split(":");
+        var aSlug = aepParts[2];
+        if (aepParts[3]) sNum = parseInt(aepParts[3], 10) || sNum;
+        if (aepParts[4]) eNum = parseInt(aepParts[4], 10) || eNum;
+        contentUrl = BASE_URL + "/anime/" + aSlug + "/sezon-" + sNum + "/bolum-" + eNum;
+      } else if (cleanId.startsWith("ddizibox:anime:")) {
+        var anSlug = cleanId.split(":")[2];
+        contentUrl = BASE_URL + "/anime/" + anSlug + "/sezon-" + sNum + "/bolum-" + eNum;
+      } else if (cleanId.startsWith("ddizibox:ep:")) {
         var epParts = cleanId.split(":");
         var slug = epParts[2];
         if (epParts[3]) sNum = parseInt(epParts[3], 10) || sNum;
@@ -589,7 +601,9 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
         var mediaMatch = yield findMediaUrl(tmdbInfo, isTv);
         if (!mediaMatch || !mediaMatch.url) return [];
         var matchSlug = (mediaMatch.url.split("/").pop() || "").trim();
-        if (isTv) {
+        if (mediaMatch.url.includes("/anime/")) {
+          contentUrl = BASE_URL + "/anime/" + matchSlug + "/sezon-" + sNum + "/bolum-" + eNum;
+        } else if (isTv) {
           contentUrl = BASE_URL + "/dizi/" + matchSlug + "/sezon-" + sNum + "/bolum-" + eNum;
         } else {
           contentUrl = BASE_URL + "/film/" + matchSlug;
@@ -600,6 +614,179 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
       return streams;
     } catch (e2) {
       return [];
+    }
+  });
+}
+function getCatalog(args) {
+  return __async(this, null, function* () {
+    try {
+      if (!args || !args.extra || !args.extra.search || !args.extra.search.trim()) {
+        return { metas: [] };
+      }
+      var query = args.extra.search.trim();
+      var catId = args.id || "";
+      var lData = yield liveSearch(query);
+      var metas = [];
+      if (catId === "anthology_ddizibox_filmler" || catId === "filmler" || !catId && args.type === "movie") {
+        var movies = Array.isArray(lData.movies) ? lData.movies : [];
+        movies.forEach(function(item) {
+          if (!item || !item.url) return;
+          var slug = (item.url.split("/").pop() || "").trim();
+          if (!slug) return;
+          metas.push({
+            id: "ddizibox:movie:" + slug,
+            type: "movie",
+            name: item.title,
+            poster: item.poster || null,
+            description: item.meta ? "DDiziBox \u2022 " + item.meta : "DDiziBox Film"
+          });
+        });
+      } else if (catId === "anthology_ddizibox_diziler" || catId === "diziler") {
+        var series = Array.isArray(lData.series) ? lData.series : [];
+        series.forEach(function(item) {
+          if (!item || !item.url) return;
+          var isAnime = item.url.includes("/anime/") || /anime/i.test(item.meta || "");
+          if (isAnime) return;
+          var slug = (item.url.split("/").pop() || "").trim();
+          if (!slug) return;
+          metas.push({
+            id: "ddizibox:show:" + slug,
+            type: "series",
+            name: item.title,
+            poster: item.poster || null,
+            description: item.meta ? "DDiziBox \u2022 " + item.meta : "DDiziBox Dizi"
+          });
+        });
+      } else if (catId === "anthology_ddizibox_animeler" || catId === "animeler") {
+        var allSeries = Array.isArray(lData.series) ? lData.series : [];
+        allSeries.forEach(function(item) {
+          if (!item || !item.url) return;
+          var isAnime = item.url.includes("/anime/") || /anime/i.test(item.meta || "");
+          if (!isAnime) return;
+          var slug = (item.url.split("/").pop() || "").trim();
+          if (!slug) return;
+          metas.push({
+            id: "ddizibox:anime:" + slug,
+            type: "series",
+            name: item.title,
+            poster: item.poster || null,
+            description: item.meta ? "DDiziBox \u2022 " + item.meta : "DDiziBox Anime"
+          });
+        });
+      }
+      return { metas };
+    } catch (e) {
+      return { metas: [] };
+    }
+  });
+}
+function getMeta(args) {
+  return __async(this, null, function* () {
+    try {
+      var rawId = typeof args === "object" && args !== null ? args.id || "" : String(args || "");
+      if (!rawId) return { meta: null };
+      var idParts = rawId.split(":");
+      var prefix = idParts[0];
+      var kind = idParts[1];
+      var slug = idParts[2];
+      if (prefix !== "ddizibox" || !kind || !slug) {
+        return { meta: null };
+      }
+      var targetUrl = "";
+      var isMovie = kind === "movie";
+      var isAnime = kind === "anime";
+      if (isMovie) targetUrl = BASE_URL + "/film/" + slug;
+      else if (isAnime) targetUrl = BASE_URL + "/anime/" + slug;
+      else targetUrl = BASE_URL + "/dizi/" + slug;
+      var res = yield fetch(targetUrl, { headers: HEADERS, signal: timeoutSignal(8e3) });
+      if (!res.ok) return { meta: null };
+      var html = yield res.text();
+      if (!html || !cheerio) return { meta: null };
+      var $ = cheerio.load(html);
+      var title = $("h1").first().text().trim() || slug;
+      var poster = $('img[src*="tmdb/posters"]').first().attr("src") || $('meta[property="og:image"]').attr("content") || null;
+      var background = $('img[src*="tmdb/backdrops"]').first().attr("src") || null;
+      var description = $('meta[name="description"]').attr("content") || $("p.overview").first().text().trim() || "";
+      $('script[type="application/ld+json"]').each(function(i, el) {
+        try {
+          var ld = JSON.parse($(el).html());
+          var graph = ld["@graph"] || [ld];
+          graph.forEach(function(item) {
+            if (item["@type"] === "Movie" || item["@type"] === "TVSeries") {
+              title = item.name || title;
+              description = item.description || description;
+              if (item.image) poster = item.image;
+            }
+          });
+        } catch (err) {
+        }
+      });
+      var videos = [];
+      if (!isMovie) {
+        let parseEpisodesFromHtml2 = function(contentHtml, sNum) {
+          var $ch = cheerio.load(contentHtml);
+          $ch('a[href*="/sezon-"]').each(function(i, el) {
+            var href = $ch(el).attr("href") || "";
+            var m = href.match(/\/sezon-(\d+)\/bolum-(\d+)/);
+            if (m) {
+              var s = parseInt(m[1], 10);
+              var e = parseInt(m[2], 10);
+              var epTitle = $ch(el).text().trim().replace(/\s+/g, " ");
+              var vId = isAnime ? "ddizibox:aep:" + slug + ":" + s + ":" + e : "ddizibox:ep:" + slug + ":" + s + ":" + e;
+              if (!videos.some(function(v) {
+                return v.id === vId;
+              })) {
+                videos.push({
+                  id: vId,
+                  title: epTitle || s + ". Sezon " + e + ". B\xF6l\xFCm",
+                  season: s,
+                  episode: e
+                });
+              }
+            }
+          });
+        };
+        var parseEpisodesFromHtml = parseEpisodesFromHtml2;
+        var seasonSet = /* @__PURE__ */ new Set();
+        seasonSet.add(1);
+        $('[href*="sezon="]').each(function(i, el) {
+          var h = $(el).attr("href") || "";
+          var m = h.match(/sezon=(\d+)/);
+          if (m) seasonSet.add(parseInt(m[1], 10));
+        });
+        parseEpisodesFromHtml2(html, 1);
+        var otherSeasons = Array.from(seasonSet).filter(function(s) {
+          return s > 1;
+        }).slice(0, 8);
+        if (otherSeasons.length > 0) {
+          var fetches = otherSeasons.map(function(s) {
+            var sUrl = targetUrl + "?sezon=" + s;
+            return fetch(sUrl, { headers: HEADERS, signal: timeoutSignal(6e3) }).then(function(r) {
+              return r.ok ? r.text() : "";
+            }).then(function(sHtml) {
+              if (sHtml) parseEpisodesFromHtml2(sHtml, s);
+            }).catch(function() {
+            });
+          });
+          yield Promise.all(fetches);
+        }
+        videos.sort(function(a, b) {
+          return a.season !== b.season ? a.season - b.season : a.episode - b.episode;
+        });
+      }
+      return {
+        meta: {
+          id: rawId,
+          type: isMovie ? "movie" : "series",
+          name: title,
+          poster,
+          background,
+          description,
+          videos
+        }
+      };
+    } catch (e) {
+      return { meta: null };
     }
   });
 }
@@ -615,11 +802,15 @@ if (typeof getStreams === "function") {
 var _origGetStreams;
 if (typeof module !== "undefined" && module.exports) {
   module.exports = wrapAll({
-    getStreams
+    getStreams,
+    getCatalog,
+    getMeta
   }, cfgReady);
 }
 if (typeof globalThis !== "undefined") {
   globalThis.getStreams = getStreams;
+  globalThis.getCatalog = getCatalog;
+  globalThis.getMeta = getMeta;
 }
 
 if (typeof globalThis !== 'undefined' && typeof module !== 'undefined' && module.exports) {
