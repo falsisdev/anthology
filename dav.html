@@ -2364,6 +2364,12 @@
         <a href="#faq">SSS</a>
       </div>
       <div class="nav-actions">
+        <a href="https://anthology-dav.duckdns.org" target="_blank" rel="noopener" class="btn-nav-action" style="background: rgba(0, 230, 118, 0.15); border-color: rgba(0, 230, 118, 0.4); color: var(--accent);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+          </svg>
+          Canlı Sunucu (Giriş Yap)
+        </a>
         <a href="index.html" class="nav-btn-back">← Eklenti Deposu</a>
         <button class="btn-nav-action" onclick="copyDavUrl()">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
@@ -2425,9 +2431,16 @@
       </div>
 
       <!-- QUICK URL BAR -->
-      <div class="url-quickbar-wrap">
+      <div class="url-quickbar-wrap" style="display: flex; flex-direction: column; gap: 12px; align-items: center;">
+        <div class="url-quickbar" style="border-color: rgba(0, 230, 118, 0.4); background: rgba(0, 230, 118, 0.08);">
+          <span class="url-tag" style="background: var(--accent); color: #000;">🌐 Canlı Sunucu (Web & WebDAV)</span>
+          <a href="https://anthology-dav.duckdns.org" target="_blank" rel="noopener" class="url-text" style="color: #fff; font-weight: 600; text-decoration: underline; text-underline-offset: 4px;">https://anthology-dav.duckdns.org</a>
+          <a href="https://anthology-dav.duckdns.org" target="_blank" rel="noopener" class="btn-copy-sm" style="text-decoration: none;">
+            <span>Giriş Yap &rarr;</span>
+          </a>
+        </div>
         <div class="url-quickbar">
-          <span class="url-tag">WebDAV URL</span>
+          <span class="url-tag">Yerel WebDAV</span>
           <span class="url-text" id="davUrlText">http://127.0.0.1:8085/dav</span>
           <button class="btn-copy-sm" id="davCopyBtn" onclick="copyDavUrl()">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
@@ -3226,7 +3239,7 @@
               </li>
               <li>
                 <span class="step-num">2</span>
-                <div><strong>Bağlantı Bilgileri:</strong> Adres: <code>127.0.0.1</code>, Port: <code>8085</code>, Yol: <code>/dav</code>. Kullanıcı adı/şifre: <em>boş bırakın</em>.</div>
+                <div><strong>Bağlantı Bilgileri:</strong> Adres: <code>127.0.0.1</code> *(veya canlı sunucu için: <code>anthology-dav.duckdns.org</code>, Port: <code>443</code>, HTTPS)*, Yol: <code>/dav</code>. Kullanıcı adı/şifre: Yerelde boş bırakın; canlı sunucuda web panelinde açtığınız hesabınızı girin.</div>
               </li>
               <li>
                 <span class="step-num">3</span>
@@ -3590,33 +3603,49 @@
             Sunucuyu sadece kendi bilgisayarınızda değil; evdeki akıllı televizyondan veya seyahatteyken telefonunuzdan kullanmak için 2 kolay yöntem vardır:
           </p>
 
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px;">
+            <!-- CLOUD LIVE -->
+            <div style="background: rgba(0, 230, 118, 0.05); border: 1px solid rgba(0, 230, 118, 0.3); border-radius: 14px; padding: 22px;">
+              <h4 style="font-size: 18px; color: var(--accent); margin-bottom: 10px;">☁️ 1. Canlı Sunucu (Çok Kullanıcılı)</h4>
+              <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">
+                Herhangi bir kurulum yapmadan doğrudan çevrim içi hesabınızı açıp bağlanın:
+              </p>
+              <div class="code-box" style="margin: 0 0 14px 0;">
+                <pre class="code-content" style="padding: 10px;"><code>https://anthology-dav.duckdns.org</code></pre>
+              </div>
+              <ul style="font-size: 13px; color: #cbd5e1; list-style: none; display: flex; flex-direction: column; gap: 8px;">
+                <li>• <strong>Web Girişi:</strong> Tarayıcıdan açıp saniyeler içinde hesap oluşturun veya giriş yapın.</li>
+                <li>• <strong>İzole Kütüphane:</strong> Eklediğiniz tüm dizi ve filmler yalnızca size özel tutulur.</li>
+                <li>• <strong>WebDAV Bağlantısı:</strong> Infuse / Kodi'ye adres olarak <code>anthology-dav.duckdns.org</code>, port <code>443</code> (HTTPS), kullanıcı adı ve şifrenizle bağlanın.</li>
+              </ul>
+            </div>
+
             <!-- LAN -->
             <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 14px; padding: 22px;">
-              <h4 style="font-size: 18px; color: #60a5fa; margin-bottom: 10px;">🏠 1. Ev Ağı (Aynı Wi-Fi) Erişimi</h4>
+              <h4 style="font-size: 18px; color: #60a5fa; margin-bottom: 10px;">🏠 2. Yerel Ev Ağı (Aynı Wi-Fi)</h4>
               <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">
-                Sunucuyu tüm yerel ağ kartlarını dinleyecek şekilde başlatın:
+                Kendi bilgisayarınızda çalıştırırken tüm yerel cihazları dinleyin:
               </p>
               <div class="code-box" style="margin: 0 0 14px 0;">
                 <pre class="code-content" style="padding: 10px;"><code>./anthology-dav -host 0.0.0.0 -port 8085</code></pre>
               </div>
-              <ul style="font-size: 13.5px; color: #cbd5e1; list-style: none; display: flex; flex-direction: column; gap: 8px;">
+              <ul style="font-size: 13px; color: #cbd5e1; list-style: none; display: flex; flex-direction: column; gap: 8px;">
                 <li>• <strong>Mac IP Bulma:</strong> <code>ipconfig getifaddr en0</code> (Örn: <code>192.168.1.45</code>)</li>
-                <li>• <strong>Windows IP Bulma:</strong> <code>ipconfig</code> (IPv4 adresi)</li>
+                <li>• <strong>Windows IP:</strong> <code>ipconfig</code> (IPv4 adresi)</li>
                 <li>• TV ve telefonunuzdaki WebDAV adresine <code>http://192.168.1.45:8085/dav</code> yazın.</li>
               </ul>
             </div>
 
             <!-- TAILSCALE -->
             <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 14px; padding: 22px;">
-              <h4 style="font-size: 18px; color: #34d399; margin-bottom: 10px;">✈️ 2. Dışarıdan Erişim (Tailscale / VPN)</h4>
+              <h4 style="font-size: 18px; color: #34d399; margin-bottom: 10px;">✈️ 3. Dışarıdan Erişim (Tailscale)</h4>
               <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">
                 Port açma veya statik IP derdi olmadan güvenli şekilde dışarıdan bağlanın:
               </p>
-              <ul style="font-size: 13.5px; color: #cbd5e1; list-style: none; display: flex; flex-direction: column; gap: 10px;">
-                <li>• Bilgisayarınıza ve telefonunuza ücretsiz <strong>Tailscale</strong> (veya WireGuard) kurun.</li>
+              <ul style="font-size: 13px; color: #cbd5e1; list-style: none; display: flex; flex-direction: column; gap: 8px;">
+                <li>• Bilgisayarınıza ve telefonunuza ücretsiz <strong>Tailscale</strong> kurun.</li>
                 <li>• Tailscale'in size verdiği <code>100.x.y.z</code> IP adresini not edin.</li>
-                <li>• Dışarıdayken (mobil veri veya otel Wi-Fi) Infuse'a <code>http://100.x.y.z:8085/dav</code> adresiyle bağlanarak evdeki sunucunuza güvenle erişin!</li>
+                <li>• Dışarıdayken Infuse'a <code>http://100.x.y.z:8085/dav</code> adresiyle bağlanarak evdeki sunucunuza güvenle erişin!</li>
               </ul>
             </div>
           </div>
