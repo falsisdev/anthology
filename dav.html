@@ -1032,7 +1032,7 @@
     .infuse-badges {
       display: flex;
       gap: 6px;
-      margin-bottom: 12px;
+      margin: 8px 0 14px;
       flex-wrap: wrap;
     }
 
@@ -1041,7 +1041,10 @@
       font-weight: 700;
       background: rgba(0, 0, 0, 0.6);
       border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 3px 8px;
+      padding: 4px 9px;
+      margin: 3px 0;
+      display: inline-flex;
+      align-items: center;
       border-radius: 4px;
       color: #fff;
     }
@@ -1136,7 +1139,10 @@
     .app-tag {
       font-size: 11px;
       font-weight: 600;
-      padding: 3px 8px;
+      padding: 4px 9px;
+      margin: 3px 0;
+      display: inline-flex;
+      align-items: center;
       border-radius: var(--md-sys-shape-corner-small);
       background-color: var(--md-sys-color-surface-container-high);
       border: 1px solid var(--md-sys-color-outline-variant);
@@ -1312,7 +1318,10 @@
     .offline-method-badge {
       font-size: 11px;
       font-weight: 700;
-      padding: 3px 8px;
+      padding: 4px 10px;
+      margin: 3px 0;
+      display: inline-flex;
+      align-items: center;
       border-radius: var(--md-sys-shape-corner-full);
       background-color: var(--md-sys-color-primary-container);
       color: var(--md-sys-color-on-primary-container);
@@ -1359,11 +1368,104 @@
       font-weight: bold;
     }
 
+    /* COMPARISON TABLE (#about) */
+    .comp-table-wrap {
+      background-color: var(--md-sys-color-surface-container);
+      border: 1px solid var(--md-sys-color-outline-variant);
+      border-radius: var(--md-sys-shape-corner-extra-large);
+      overflow-x: auto;
+      box-shadow: var(--md-sys-elevation-2);
+      margin: 28px 0 32px;
+      padding: 0;
+      scrollbar-width: thin;
+    }
+
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+      min-width: 720px;
+    }
+
+    .comp-table th, .comp-table td {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--md-sys-color-outline-variant);
+      vertical-align: middle;
+    }
+
+    .comp-table th {
+      background-color: var(--md-sys-color-surface-container-high);
+      color: #fff;
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .comp-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .comp-table tbody tr:hover td {
+      background-color: rgba(255, 255, 255, 0.02);
+    }
+
+    .comp-table th.highlight-col, .comp-table td.highlight-col {
+      background: rgba(8, 66, 130, 0.22);
+      border-left: 2px solid var(--md-sys-color-primary);
+      border-right: 2px solid var(--md-sys-color-primary);
+    }
+
+    .comp-table th.highlight-col {
+      background: rgba(8, 66, 130, 0.38);
+      color: var(--md-sys-color-primary);
+      font-weight: 800;
+      font-size: 13.5px;
+    }
+
+    /* BADGES & CHIPS WITH UNIFIED MARGINS */
+    .badge-check, .badge-cross, .badge-warn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: var(--md-sys-shape-corner-full);
+      font-size: 12.5px;
+      font-weight: 600;
+      margin: 5px 0;
+      line-height: 1.3;
+      white-space: nowrap;
+    }
+    .badge-check {
+      background-color: rgba(166, 245, 181, 0.14);
+      color: var(--accent-nuvio);
+      border: 1px solid rgba(166, 245, 181, 0.3);
+    }
+    .badge-cross {
+      background-color: rgba(255, 180, 171, 0.12);
+      color: var(--md-sys-color-error);
+      border: 1px solid rgba(255, 180, 171, 0.25);
+    }
+    .badge-warn {
+      background-color: rgba(251, 191, 36, 0.12);
+      color: #FBBF24;
+      border: 1px solid rgba(251, 191, 36, 0.28);
+    }
+    .highlight-col .badge-check {
+      background-color: rgba(168, 199, 250, 0.18);
+      color: #D3E4FF;
+      border: 1px solid rgba(168, 199, 250, 0.38);
+      font-weight: 700;
+    }
+
     /* Comparison Feature Grid (#about) */
     .comparison-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px;
+      margin-top: 8px;
     }
 
     .comp-card {
@@ -1392,6 +1494,7 @@
       width: fit-content;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      margin: 2px 0 6px;
     }
     .comp-badge-zero { background: rgba(166, 245, 181, 0.14); color: var(--accent-nuvio); border: 1px solid rgba(166, 245, 181, 0.3); }
     .comp-badge-cdn { background: rgba(168, 199, 250, 0.14); color: var(--md-sys-color-primary); border: 1px solid rgba(168, 199, 250, 0.3); }
@@ -1463,12 +1566,16 @@
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
+      margin: 8px 0;
     }
 
     .vfs-badge {
       font-size: 11px;
       font-weight: 600;
-      padding: 4px 10px;
+      padding: 5px 12px;
+      margin: 3px 0;
+      display: inline-flex;
+      align-items: center;
       border-radius: var(--md-sys-shape-corner-full);
       background-color: var(--md-sys-color-surface-container);
       border: 1px solid var(--md-sys-color-outline-variant);
@@ -1569,7 +1676,10 @@
       font-size: 11px;
       color: var(--md-sys-color-on-surface-variant);
       background: rgba(255, 255, 255, 0.06);
-      padding: 2px 7px;
+      padding: 3px 8px;
+      margin: 2px 0 2px 8px;
+      display: inline-flex;
+      align-items: center;
       border-radius: 4px;
       flex-shrink: 0;
     }
@@ -2106,7 +2216,10 @@
       font-family: var(--font-mono);
       font-size: 10.5px;
       font-weight: 600;
-      padding: 2px 7px;
+      padding: 3px 8px;
+      margin: 3px 0;
+      display: inline-flex;
+      align-items: center;
       border-radius: var(--md-sys-shape-corner-full);
       background-color: var(--md-sys-color-primary-container);
       color: var(--md-sys-color-on-primary-container);
@@ -2137,13 +2250,16 @@
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-top: 4px;
+      margin: 8px 0 4px;
     }
 
     .tag {
       font-size: 10.5px;
       font-weight: 600;
-      padding: 2px 7px;
+      padding: 3px 8px;
+      margin: 2px 0;
+      display: inline-flex;
+      align-items: center;
       border-radius: 4px;
       text-transform: uppercase;
       letter-spacing: 0.3px;
@@ -2667,6 +2783,41 @@
             </tr>
           </tbody>
         </table>
+      </div>
+
+      <!-- COMPARISON FEATURE CARDS -->
+      <div class="comparison-grid">
+        <div class="comp-card">
+          <span class="comp-card-badge comp-badge-zero">0 MB Sabit Disk Alanı</span>
+          <div class="comp-card-title">Sanal RAM Dosya Sistemi (VFS)</div>
+          <div class="comp-card-desc">
+            Anthology WebDAV, bilgisayarınızda veya sunucunuzda hiçbir video dosyasını indirip saklamaz. Tüm kütüphane RAM üzerinde sanal işaretçiler (.strm) olarak tutulur.
+          </div>
+        </div>
+
+        <div class="comp-card">
+          <span class="comp-card-badge comp-badge-cdn">%100 Reklamsız CDN Akışı</span>
+          <div class="comp-card-title">Doğrudan Yüksek Hızlı Akış</div>
+          <div class="comp-card-desc">
+            Bahis siteleri, popup reklamlar ve sahte indirme butonları tamamen devre dışı bırakılır. Video akışı doğrudan orijinal CDN sunucularından en yüksek hızda çekilir.
+          </div>
+        </div>
+
+        <div class="comp-card">
+          <span class="comp-card-badge comp-badge-infuse">Infuse &amp; Kodi ile Tam Entegre</span>
+          <div class="comp-card-title">Apple TV &amp; Android TV Konforu</div>
+          <div class="comp-card-desc">
+            WebDAV protokolü sayesinde Infuse, Kodi, VLC veya Nova Video Player gibi popüler medya oynatıcılarında yerel bir arşiv gibi görünür. 4K HDR &amp; Dolby Vision destekler.
+          </div>
+        </div>
+
+        <div class="comp-card">
+          <span class="comp-card-badge comp-badge-multi">34 Sağlayıcı Otomatik Fallback</span>
+          <div class="comp-card-title">Kesintisiz Yedekli Altyapı</div>
+          <div class="comp-card-desc">
+            Bir sağlayıcı veya sunucu çöktüğünde sistem otomatik olarak diğer 33 kaynaktan en hızlı ve en kaliteli alternatifi bularak oynatmaya devam eder.
+          </div>
+        </div>
       </div>
     </div>
         </section>
