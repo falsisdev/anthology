@@ -85,6 +85,18 @@ https://falsisdev.github.io/anthology/stremio/manifest.json
 
 ---
 
+## ☁️ Anthology WebDAV Sunucusu (Infuse, VidHub, SenPlayer, Kodi & VLC)
+
+Nuvio veya Stremio dışında **Apple TV, iOS, macOS, Android TV ve Windows** cihazlarınızda **Infuse, VidHub, SenPlayer, Kodi, Nova Player ve VLC** gibi yerel medya oynatıcıları veya doğrudan dosya yöneticilerini (Finder / Windows Explorer) kullanmak isterseniz **Anthology WebDAV** projesini kullanabilirsiniz!
+
+- **Sıfır Disk Alanı (In-Memory VFS):** Cihazınızda yer kaplamadan film, dizi ve anime arşivlerini sanal dosya sistemi olarak doğrudan medya oynatıcınıza bağlar.
+- **Çoklu Kaynak & HLS/Range Proxy:** Anthology'nin doğrulanmış içerik sağlayıcılarını yerel oynatıcılarla tam uyumlu hale getirir.
+- **Kolay Kurulum & Canlı Kullanım:** İster hazır sunucu üzerinden hesabınızla, ister kendi sisteminizde (Self-Hosted) çalıştırarak kullanabilirsiniz.
+
+👉 **Detaylı bilgi, kurulum rehberi ve kullanım için:** [**github.com/falsisdev/anthology-dav**](https://github.com/falsisdev/anthology-dav) *(veya [Kullanım Wiki Rehberi](https://github.com/falsisdev/anthology-dav/wiki))*
+
+---
+
 ## 📺 Canlı TV Katalogları (7 Resmi Vitrin)
 
 Nuvio ve Stremio ana sayfasında canlı TV kanallarını kategorilere ayrılmış vitrinler olarak sunan kataloglar:
