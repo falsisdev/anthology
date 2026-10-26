@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: m3u_list
  * Built from src/m3u_list/index.js
- * Build: v1.8.30 (anthology build system)
+ * Build: v1.8.33 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -826,7 +826,7 @@ var require_sport_engine = __commonJS({
         }
         throw new Error("No mahsun base");
       }).catch(function() {
-        var fallback = "https://andro.evrenesoglu149.click/checklist/";
+        var fallback = "https://andro.evrenesoglu219.click/checklist/";
         _cachedMahsunBase = fallback;
         _cachedMahsunTime = now;
         return fallback;

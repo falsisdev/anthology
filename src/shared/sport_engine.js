@@ -501,7 +501,7 @@ function resolveMahsunBaseUrl() {
             throw new Error("No mahsun base");
         })
         .catch(function() {
-            var fallback = "https://andro.evrenesoglu149.click/checklist/";
+            var fallback = "https://andro.evrenesoglu219.click/checklist/";
             _cachedMahsunBase = fallback;
             _cachedMahsunTime = now;
             return fallback;
