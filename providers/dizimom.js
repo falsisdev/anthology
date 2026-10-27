@@ -202,11 +202,11 @@ function cfgReady() {
   return _cfgReady;
 }
 var cheerio = require("cheerio-without-node-native");
-var BASE_URL = "https://www.dizimom.diy";
+var BASE_URL = "https://ddizimom.net";
 var TMDB_API_KEY = "500330721680edb6d5f7f12ba7cd9023";
 var HEADERS = {
-  "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-  "Referer": BASE_URL + "/"
+  "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+  "Referer": "https://ddizimom.net/"
 };
 function resolveTmdbInfo(id, mediaType) {
   return __async(this, null, function* () {
@@ -249,37 +249,73 @@ function normalizeTitle(str) {
   if (!str) return "";
   return str.toLowerCase().replace(/ğ/g, "g").replace(/ü/g, "u").replace(/ş/g, "s").replace(/ı/g, "i").replace(/ö/g, "o").replace(/ç/g, "c").replace(/[^a-z0-9]/g, " ").replace(/\s+/g, " ").trim();
 }
-function extractFromHDPlayer(embedUrl, referer) {
+
+function resolvePilavyerStream(epUrl, titlePrefix) {
   return __async(this, null, function* () {
     try {
-      const u = new URL(embedUrl);
-      let dataId = u.searchParams.get("data") || "";
-      if (!dataId) {
-        const parts = u.pathname.replace(/\/$/, "").split("/");
-        dataId = parts.pop() || "";
-      }
-      if (!dataId) return null;
-      const host = u.host.toLowerCase();
-      const apiUrl = `https://${host}/player/index.php?data=${dataId}&do=getVideo`;
-      const postData = new URLSearchParams({
-        hash: dataId,
-        r: referer || `https://${host}/`
-      });
-      const res = yield fetch(apiUrl, {
-        method: "POST",
+      var epRes = yield fetch(epUrl, { headers: HEADERS });
+      if (!epRes.ok) return [];
+      var epHtml = yield epRes.text();
+      var pvMatch = epHtml.match(/data-pv=["']([^"']+)["']/i);
+      if (!pvMatch) return [];
+      var pv = pvMatch[1];
+      var sPhpUrl = "https://pilavyerplay.top/assets/js/s.php?s=" + encodeURIComponent(pv);
+      var pRes = yield fetch(sPhpUrl, {
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-          "X-Requested-With": "XMLHttpRequest",
-          "Referer": embedUrl,
-          "User-Agent": HEADERS["User-Agent"]
-        },
-        body: postData.toString()
+          "User-Agent": HEADERS["User-Agent"],
+          "Referer": "https://ddizimom.net/"
+        }
       });
-      if (!res.ok) return null;
-      const data = yield res.json();
-      return data.securedLink || data.videoSource || data.videoSources && data.videoSources[0] && data.videoSources[0].file || null;
+      if (!pRes.ok) return [];
+      var pHtml = yield pRes.text();
+      var playerMatch = pHtml.match(/window\.__PLAYER__\s*=\s*(\{[\s\S]*?\});/);
+      if (!playerMatch) return [];
+      var pData = JSON.parse(playerMatch[1]);
+      if (!pData || !pData.stream) return [];
+      var subs = [];
+      if (Array.isArray(pData.subs)) {
+        subs = pData.subs.map(function(s) {
+          return {
+            id: s.lang || "tr",
+            lang: s.lang === "tr" ? "tur" : s.lang === "en" ? "eng" : (s.lang || "tur"),
+            language: s.lang || "tr",
+            label: s.label || (s.lang === "tr" ? "Türkçe" : "İngilizce"),
+            url: s.src,
+            format: "vtt",
+            type: "text/vtt",
+            headers: {
+              "User-Agent": HEADERS["User-Agent"],
+              "Referer": "https://pilavyerplay.top/"
+            }
+          };
+        });
+      }
+      var streamTitle = titlePrefix ? ("\u231C DiziMom \u231F | " + titlePrefix + " (1080p HLS)") : "\u231C DiziMom \u231F | Pilavyer \u2022 [TR Altyaz\u0131l\u0131] (1080p HLS)";
+      return [{
+        name: "DiziMom",
+        title: streamTitle,
+        url: pData.stream,
+        quality: "1080p",
+        format: "hls",
+        isHls: true,
+        headers: {
+          "User-Agent": HEADERS["User-Agent"],
+          "Referer": "https://pilavyerplay.top/"
+        },
+        behaviorHints: {
+          notWebReady: true,
+          proxyHeaders: {
+            request: {
+              "User-Agent": HEADERS["User-Agent"],
+              "Referer": "https://pilavyerplay.top/"
+            }
+          }
+        },
+        provider: "dizimom",
+        subtitles: subs
+      }];
     } catch (e) {
-      return null;
+      return [];
     }
   });
 }
@@ -302,143 +338,71 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
           tmdbId = parts[0];
         }
       }
-      if (!mediaType) mediaType = "tv";
-      if (typeof tmdbId === "string" && tmdbId.startsWith("dizimom:show:")) {
-        const showMeta = yield getMeta(tmdbId);
-        if (showMeta && showMeta.meta && Array.isArray(showMeta.meta.videos) && showMeta.meta.videos.length > 0) {
-          return yield getStreams(showMeta.meta.videos[0].id);
-        }
+      if (!mediaType) {
+        mediaType = (seasonNum !== undefined && episodeNum !== undefined) ? "tv" : "movie";
       }
+
       if (typeof tmdbId === "string" && tmdbId.startsWith("dizimom:ep:")) {
-        const slug = tmdbId.replace("dizimom:ep:", "");
-        const epUrl = `${BASE_URL}/${slug}/`;
-        const epRes = yield fetch(epUrl, { headers: HEADERS });
-        if (!epRes.ok) return [];
-        const epHtml = yield epRes.text();
-        const $ep = cheerio.load(epHtml);
-        const iframes = [];
-        $ep("div.video p iframe, iframe").each((i, el) => {
-          const src = $ep(el).attr("src") || $ep(el).attr("data-src");
-          if (src && !src.includes("facebook") && !src.includes("disqus")) {
-            iframes.push(src.startsWith("//") ? "https:" + src : src);
-          }
-        });
-        const streams2 = [];
-        for (const iframe of iframes) {
-          if (iframe.includes("hdplayersystem") || iframe.includes("hdstreamable") || iframe.includes("filmizle.in")) {
-            const directM3u8 = yield extractFromHDPlayer(iframe, epUrl);
-            if (directM3u8) {
-              streams2.push({
-                name: "\u231C DiziMom \u231F",
-                title: "\u231C DiziMom \u231F | HDPlayer (1080p HLS)",
-                url: directM3u8,
-                quality: "1080p",
-                type: "hls",
-                provider: "dizimom",
-                headers: {
-                  "Referer": iframe,
-                  "User-Agent": HEADERS["User-Agent"]
-                }
-              });
-            }
-          }
-        }
-        return streams2;
+        var epSlug = tmdbId.replace("dizimom:ep:", "").replace(/^\//, "");
+        var targetEpUrl = epSlug.startsWith("http") ? epSlug : (`${BASE_URL}/` + (epSlug.startsWith("dizi/") || epSlug.startsWith("film/") ? "" : "dizi/") + epSlug);
+        return yield resolvePilavyerStream(targetEpUrl);
       }
-      const season = parseInt(seasonNum) || 1;
-      const episode = parseInt(episodeNum) || 1;
-      const info = yield resolveTmdbInfo(tmdbId, mediaType);
-      const queries = [info.title, info.origTitle].filter(Boolean);
+      if (typeof tmdbId === "string" && tmdbId.startsWith("dizimom:show:")) {
+        var showSlug = tmdbId.replace("dizimom:show:", "").replace(/^\//, "");
+        var sNum = parseInt(seasonNum) || 1;
+        var eNum = parseInt(episodeNum) || 1;
+        var directEpUrl = `${BASE_URL}/dizi/${showSlug}/sezon-${sNum}/bolum-${eNum}`;
+        var directRes = yield resolvePilavyerStream(directEpUrl);
+        if (directRes && directRes.length > 0) return directRes;
+      }
+
+      var info = yield resolveTmdbInfo(tmdbId, mediaType);
+      var queries = [info.title, info.origTitle].filter(Boolean);
       if (queries.length === 0) return [];
-      let showPages = [];
-      for (const q of queries) {
-        const searchUrl = `${BASE_URL}/?s=${encodeURIComponent(q)}`;
-        const sRes = yield fetch(searchUrl, { headers: HEADERS });
+
+      var season = parseInt(seasonNum) || 1;
+      var episode = parseInt(episodeNum) || 1;
+      var isMovie = (mediaType === "movie");
+
+      for (var q of queries) {
+        var searchUrl = `${BASE_URL}/ara?q=${encodeURIComponent(q)}`;
+        var sRes = yield fetch(searchUrl, { headers: HEADERS });
         if (!sRes.ok) continue;
-        const sHtml = yield sRes.text();
-        const $ = cheerio.load(sHtml);
-        const normQ = normalizeTitle(q);
-        $("div.single-item").each((i, el) => {
-          const itemTitle = $(el).find("div.categorytitle a").text().replace(/ izle.*$/i, "").trim();
-          const href = $(el).find("div.cat-img a").attr("href");
-          if (!href) return;
-          const normItem = normalizeTitle(itemTitle);
-          if (normItem.includes(normQ) || normQ.includes(normItem)) {
-            showPages.push({
-              title: itemTitle,
-              url: href,
-              isDubbed: itemTitle.toLowerCase().includes("dublaj")
-            });
-          }
-        });
-        if (showPages.length > 0) break;
-      }
-      if (showPages.length === 0) return [];
-      const streams = [];
-      for (const show of showPages.slice(0, 2)) {
-        const showRes = yield fetch(show.url, { headers: HEADERS });
-        if (!showRes.ok) continue;
-        const showHtml = yield showRes.text();
-        const $ = cheerio.load(showHtml);
-        let episodeUrl = "";
+        var sHtml = yield sRes.text();
+        var $ = cheerio.load(sHtml);
+        var normQ = normalizeTitle(q);
+
+        var matchedItems = [];
         $("a").each((i, el) => {
-          const h = $(el).attr("href") || "";
-          const t = $(el).text().trim();
-          const sRegex = new RegExp(`(?:^|\\s|\\.)${season}\\.?\\s*(?:Sezon|sezon)`, "i");
-          const eRegex = new RegExp(`(?:^|\\s|\\.)${episode}\\.?\\s*(?:B\xF6l\xFCm|bolum|b\xF6l\xFCm)`, "i");
-          const patternUrl = `-${season}-sezon-${episode}-bolum`;
-          if (sRegex.test(t) && eRegex.test(t)) {
-            episodeUrl = h;
-            return false;
-          }
-          if (h.includes(patternUrl)) {
-            episodeUrl = h;
-            return false;
-          }
-        });
-        if (!episodeUrl) continue;
-        const epRes = yield fetch(episodeUrl, { headers: HEADERS });
-        if (!epRes.ok) continue;
-        const epHtml = yield epRes.text();
-        const $ep = cheerio.load(epHtml);
-        const iframes = [];
-        $ep("div.video p iframe, iframe").each((i, el) => {
-          const src = $ep(el).attr("src") || $ep(el).attr("data-src");
-          if (src && !src.includes("facebook") && !src.includes("disqus")) {
-            iframes.push(src.startsWith("//") ? "https:" + src : src);
-          }
-        });
-        for (const iframe of iframes) {
-          if (iframe.includes("hdplayersystem") || iframe.includes("hdstreamable") || iframe.includes("filmizle.in")) {
-            const directM3u8 = yield extractFromHDPlayer(iframe, episodeUrl);
-            if (directM3u8) {
-              const langLabel = show.isDubbed ? "\u{1F1F9}\u{1F1F7} TR Dublaj" : "\u{1F310} TR Altyaz\u0131";
-              streams.push({
-                name: `${show.title} S${season}E${episode}`,
-                title: `\u231C DiziMom \u231F | HDPlayer | ${langLabel}`,
-                url: directM3u8,
-                quality: "1080p",
-                type: "hls",
-                provider: "dizimom",
-                headers: {
-                  "Referer": iframe,
-                  "User-Agent": HEADERS["User-Agent"]
-                },
-                behaviorHints: {
-                  notWebReady: true,
-                  proxyHeaders: {
-                    request: {
-                      "Referer": iframe,
-                      "User-Agent": HEADERS["User-Agent"]
-                    }
-                  }
-                }
-              });
+          var href = $(el).attr("href") || "";
+          var isDiziLink = href.includes("/dizi/") && !href.includes("/sezon-");
+          var isFilmLink = href.includes("/film/");
+          if ((!isMovie && isDiziLink) || (isMovie && isFilmLink)) {
+            var rawText = $(el).text().trim().replace(/\s+/g, " ");
+            var normText = normalizeTitle(rawText);
+            if (normText.includes(normQ) || normQ.includes(normText)) {
+              matchedItems.push({ href: href, title: rawText });
             }
+          }
+        });
+
+        for (var item of matchedItems.slice(0, 3)) {
+          var targetPageUrl = "";
+          if (isMovie) {
+            targetPageUrl = item.href;
+          } else {
+            var slug = item.href.split("/dizi/")[1].replace(/\/$/, "");
+            targetPageUrl = `${BASE_URL}/dizi/${slug}/sezon-${season}/bolum-${episode}`;
+          }
+
+          var label = item.title.replace(/^Dizi\s+HD\s+(\d+\.\d+\s+)?/i, "").replace(/^Film\s+HD\s+(\d+\.\d+\s+)?/i, "").trim();
+          var streams = yield resolvePilavyerStream(targetPageUrl, label);
+          if (streams && streams.length > 0) {
+            return streams;
           }
         }
       }
-      return streams;
+      return [];
     } catch (err) {
       return [];
     }
@@ -449,22 +413,49 @@ function getCatalog(args) {
     try {
       const query = args && args.search || args && args.extra && args.extra.search || args && args.query || "";
       const metas = [];
-      const seen = /* @__PURE__ */ new Set();
+      const seen = new Set();
       if (query) {
-        const searchUrl = `${BASE_URL}/?s=${encodeURIComponent(query)}`;
+        const searchUrl = `${BASE_URL}/ara?q=${encodeURIComponent(query)}`;
         const sRes = yield fetch(searchUrl, { headers: HEADERS });
         if (!sRes.ok) return { metas: [] };
         const sHtml = yield sRes.text();
         const $ = cheerio.load(sHtml);
-        $("div.categorytitle").each((i, el) => {
-          const a = $(el).find("a");
-          const href = a.attr("href") || "";
-          const title = a.text().replace(/\s*izle\s*$/i, "").trim();
-          const slug = href.replace(`${BASE_URL}/diziler/`, "").replace(`${BASE_URL}/`, "").replace(/^\//, "").replace(/\/$/, "");
-          if (!slug || seen.has(slug) || title.length < 2) return;
+        $("a").each((i, el) => {
+          const href = $(el).attr("href") || "";
+          if (href.includes("/dizi/") && !href.includes("/sezon-")) {
+            const slug = href.split("/dizi/")[1].replace(/\/$/, "");
+            if (!slug || seen.has(slug)) return;
+            seen.add(slug);
+            const rawTitle = $(el).text().trim().replace(/\s+/g, " ");
+            const title = rawTitle.replace(/^Dizi\s+HD\s+(\d+\.\d+\s+)?/i, "").replace(/\s+\d{4}$/, "").trim() || slug;
+            const img = $(el).find("img").attr("src") || $(el).find("img").attr("data-src") || "";
+            const poster = img.startsWith("http") ? img : "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png";
+            metas.push({
+              id: `dizimom:show:${slug}`,
+              type: "tv",
+              name: title,
+              poster,
+              background: poster,
+              genres: ["Yabanc\u0131 Dizi", "DiziMom"],
+              description: `${title} - DiziMom Ar\u015Fivi`
+            });
+          }
+        });
+        return { metas };
+      }
+      const res = yield fetch(`${BASE_URL}/diziler`, { headers: HEADERS });
+      if (!res.ok) return { metas: [] };
+      const html = yield res.text();
+      const $ = cheerio.load(html);
+      $("a").each((i, el) => {
+        const href = $(el).attr("href") || "";
+        if (href.includes("/dizi/") && !href.includes("/sezon-")) {
+          const slug = href.split("/dizi/")[1].replace(/\/$/, "");
+          if (!slug || seen.has(slug)) return;
           seen.add(slug);
-          const parent = $(el).closest(".cat-container").parent();
-          const img = parent.find("div.cat-img img[data-src]").attr("data-src") || parent.find("div.cat-img noscript img").attr("src") || parent.find("div.cat-img img").attr("src") || "";
+          const rawTitle = $(el).text().trim().replace(/\s+/g, " ");
+          const title = rawTitle.replace(/^Dizi\s+HD\s+(\d+\.\d+\s+)?/i, "").replace(/\s+\d{4}$/, "").trim() || slug;
+          const img = $(el).find("img").attr("src") || $(el).find("img").attr("data-src") || "";
           const poster = img.startsWith("http") ? img : "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png";
           metas.push({
             id: `dizimom:show:${slug}`,
@@ -475,43 +466,8 @@ function getCatalog(args) {
             genres: ["Yabanc\u0131 Dizi", "DiziMom"],
             description: `${title} - DiziMom Ar\u015Fivi`
           });
-        });
-        return { metas };
-      }
-      const targetUrls = [
-        `${BASE_URL}/yabanci-dizi-izle/`,
-        `${BASE_URL}/tum-diziler-hd1/`
-      ];
-      for (const url of targetUrls) {
-        try {
-          const res = yield fetch(url, { headers: HEADERS });
-          if (!res.ok) continue;
-          const html = yield res.text();
-          const $ = cheerio.load(html);
-          $("div.categorytitle").each((i, el) => {
-            const a = $(el).find("a");
-            const href = a.attr("href") || "";
-            const title = a.text().replace(/\s*izle\s*$/i, "").trim();
-            const slug = href.replace(`${BASE_URL}/diziler/`, "").replace(`${BASE_URL}/`, "").replace(/^\//, "").replace(/\/$/, "");
-            if (!slug || seen.has(slug) || title.length < 2) return;
-            seen.add(slug);
-            const parent = $(el).closest(".cat-container").parent();
-            const img = parent.find("div.cat-img img[data-src]").attr("data-src") || parent.find("div.cat-img noscript img").attr("src") || parent.find("div.cat-img img").attr("src") || "";
-            const desc = parent.find("div.cat_ozet").text().trim() || `${title} - DiziMom`;
-            const poster = img.startsWith("http") ? img : "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png";
-            metas.push({
-              id: `dizimom:show:${slug}`,
-              type: "tv",
-              name: title,
-              poster,
-              background: poster,
-              genres: ["Yabanc\u0131 Dizi", "DiziMom"],
-              description: desc
-            });
-          });
-        } catch (err) {
         }
-      }
+      });
       return { metas };
     } catch (e) {
       return { metas: [] };
@@ -523,68 +479,34 @@ function getMeta(args) {
     try {
       const rawId = typeof args === "string" ? args : args && args.id ? args.id : "";
       if (!rawId) return { meta: null };
-      if (rawId.startsWith("dizimom:ep:")) {
-        const epSlug = rawId.replace("dizimom:ep:", "");
-        const epUrl = `${BASE_URL}/${epSlug}/`;
-        const res = yield fetch(epUrl, { headers: HEADERS });
-        if (!res.ok) return { meta: null };
-        const html = yield res.text();
-        const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i) || html.match(/<title>([^<]+)<\/title>/i);
-        const rawTitle = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, "").trim() : "DiziMom B\xF6l\xFCm";
-        const title = rawTitle.replace(/\s*izle\s*$/i, "").trim();
-        const ogImg = html.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i);
-        const poster = ogImg ? ogImg[1] : "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png";
-        const epNumMatch = title.match(/(\d+)\s*\.?\s*bölüm/i);
-        const seasonNumMatch = title.match(/(\d+)\s*\.?\s*sezon/i);
-        const epNum = epNumMatch ? parseInt(epNumMatch[1]) : 1;
-        const seasonNum = seasonNumMatch ? parseInt(seasonNumMatch[1]) : 1;
-        return {
-          meta: {
-            id: rawId,
-            type: "tv",
-            name: title,
-            poster,
-            background: poster,
-            description: `${title} - DiziMom`,
-            genres: ["Yabanc\u0131 Dizi", "DiziMom"],
-            videos: [{
-              id: rawId,
-              title,
-              season: seasonNum,
-              episode: epNum
-            }]
-          }
-        };
-      }
       if (rawId.startsWith("dizimom:show:")) {
         const showSlug = rawId.replace("dizimom:show:", "");
-        const showUrl = `${BASE_URL}/diziler/${showSlug}/`;
+        const showUrl = `${BASE_URL}/dizi/${showSlug}`;
         const res = yield fetch(showUrl, { headers: HEADERS });
         if (!res.ok) return { meta: null };
         const html = yield res.text();
         const $ = cheerio.load(html);
         const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i) || html.match(/<title>([^<]+)<\/title>/i);
-        const rawTitle = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, "").trim() : "DiziMom";
-        const title = rawTitle.replace(/\s*izle\s*$/i, "").trim();
+        const rawTitle = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, "").trim() : showSlug;
+        const title = rawTitle.replace(/\s*izle\s*$/i, "").replace(/^Dizi\s+HD\s+(\d+\.\d+\s+)?/i, "").trim();
         const ogImg = html.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i);
         const poster = ogImg ? ogImg[1] : "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png";
-        const desc = $("div.cat_ozet").text().trim() || $('meta[name="description"]').attr("content") || `${title} - DiziMom Ar\u015Fivi`;
+        const desc = $('meta[name="description"]').attr("content") || `${title} - DiziMom Ar\u015Fivi`;
         const videos = [];
-        const seen = /* @__PURE__ */ new Set();
+        const seen = new Set();
         $("a").each((i, el) => {
           const href = $(el).attr("href") || "";
-          const epText = $(el).text().trim();
-          if (href.includes("-sezon-") && href.includes("-bolum-")) {
-            const epSlug = href.replace(BASE_URL, "").replace(/^\//, "").replace(/\/$/, "");
-            if (!epSlug || seen.has(epSlug)) return;
-            seen.add(epSlug);
-            const sMatch = href.match(/-(\d+)-sezon-/i) || epText.match(/(\d+)\s*\.?\s*sezon/i);
-            const eMatch = href.match(/-(\d+)-bolum-/i) || epText.match(/(\d+)\s*\.?\s*bölüm/i);
-            const sNum = sMatch ? parseInt(sMatch[1]) : 1;
-            const eNum = eMatch ? parseInt(eMatch[1]) : 1;
+          const m = href.match(/\/sezon-(\d+)\/bolum-(\d+)/);
+          if (m) {
+            const sNum = parseInt(m[1]);
+            const eNum = parseInt(m[2]);
+            const epKey = `${sNum}:${eNum}`;
+            if (seen.has(epKey)) return;
+            seen.add(epKey);
+            const epText = $(el).text().trim().replace(/\s+/g, " ") || `${sNum}. Sezon ${eNum}. B\xF6l\xFCm`;
             videos.push({
-              id: `dizimom:ep:${epSlug}`,
-              title: epText || `${sNum}. Sezon ${eNum}. B\xF6l\xFCm`,
+              id: `dizimom:ep:${showSlug}/sezon-${sNum}/bolum-${eNum}`,
+              title: epText,
               season: sNum,
               episode: eNum
             });
@@ -601,6 +523,38 @@ function getMeta(args) {
             description: desc,
             genres: ["Yabanc\u0131 Dizi", "DiziMom"],
             videos
+          }
+        };
+      }
+      if (rawId.startsWith("dizimom:ep:")) {
+        const epSlug = rawId.replace("dizimom:ep:", "").replace(/^\//, "");
+        const epUrl = `${BASE_URL}/dizi/${epSlug}`;
+        const res = yield fetch(epUrl, { headers: HEADERS });
+        if (!res.ok) return { meta: null };
+        const html = yield res.text();
+        const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i) || html.match(/<title>([^<]+)<\/title>/i);
+        const title = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, "").trim() : "DiziMom B\xF6l\xFCm";
+        const ogImg = html.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i);
+        const poster = ogImg ? ogImg[1] : "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png";
+        const sMatch = epSlug.match(/sezon-(\d+)/i);
+        const eMatch = epSlug.match(/bolum-(\d+)/i);
+        const sNum = sMatch ? parseInt(sMatch[1]) : 1;
+        const eNum = eMatch ? parseInt(eMatch[1]) : 1;
+        return {
+          meta: {
+            id: rawId,
+            type: "tv",
+            name: title,
+            poster,
+            background: poster,
+            description: `${title} - DiziMom`,
+            genres: ["Yabanc\u0131 Dizi", "DiziMom"],
+            videos: [{
+              id: rawId,
+              title,
+              season: sNum,
+              episode: eNum
+            }]
           }
         };
       }

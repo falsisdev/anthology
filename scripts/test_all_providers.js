@@ -83,8 +83,8 @@ async function checkPlayability(streams) {
         testTarget = "Naruto Shippuden (31910 S01E01)";
         streams = await mod.getStreams("31910", "series", 1, 1);
       } else if (scraper.id === "asyaanimeleri") {
-        testTarget = "Solo Leveling (127532 S01E01)";
-        streams = await mod.getStreams("127532", "tv", 1, 1);
+        testTarget = "Demonic Path (1-80 Bölüm)";
+        streams = await mod.getStreams("asyaanimeleri:ep:so-i-am-the-ancestor-of-the-demonic-path-1-80-bolum", "series", 1, 1);
       } else if (scraper.id === "seicode") {
         testTarget = "Solo Leveling (127532 S01E01)";
         streams = await mod.getStreams("127532", "tv", 1, 1);
@@ -110,8 +110,17 @@ async function checkPlayability(streams) {
         testTarget = "Bahar (245914 S01E01)";
         streams = await mod.getStreams("245914", "tv", 1, 1);
       } else if (scraper.id === "filmmodu") {
-        testTarget = "Extraction 2 (697843)";
-        streams = await mod.getStreams("697843", "movie");
+        testTarget = "The Matrix (603)";
+        streams = await mod.getStreams("603", "movie");
+      } else if (scraper.id === "diziyou") {
+        testTarget = "Breaking Bad (1396 S01E01)";
+        streams = await mod.getStreams("1396", "tv", 1, 1);
+      } else if (scraper.id === "dizimom") {
+        testTarget = "Breaking Bad (1396 S01E01)";
+        streams = await mod.getStreams("1396", "tv", 1, 1);
+      } else if (scraper.id === "yabancidizi") {
+        testTarget = "The Mentalist (5920 S01E01)";
+        streams = await mod.getStreams("5920", "tv", 1, 1);
       } else if (scraper.id === "puhutv") {
         testTarget = "Behzat Ç. (39176 S01E01)";
         streams = await mod.getStreams({ id: "39176", type: "series", season: 1, episode: 1 });

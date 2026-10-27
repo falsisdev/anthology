@@ -299,7 +299,8 @@ var require_turkish_series = __commonJS({
             headers: {
               "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
               "Accept": "application/json"
-            }
+            },
+            signal: typeof AbortSignal !== "undefined" && AbortSignal.timeout ? AbortSignal.timeout(5e3) : void 0
           });
           if (!res.ok) return null;
           return yield res.json();
@@ -511,7 +512,7 @@ function animomSearch(query) {
         method: "POST",
         headers: Object.assign({}, AJAX_HEADERS, { "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8" }),
         body: "query=" + encodeURIComponent(query),
-        signal: timeoutSignal(9e3)
+        signal: timeoutSignal(2500)
       });
       if (!res.ok) return [];
       var data = yield res.json();
@@ -738,6 +739,9 @@ function resolveMatch(show) {
     var bestScore = 0;
     for (var i = 0; i < titles.length && bestScore < 1; i++) {
       var results = yield animomSearch(titles[i]);
+      if (!results || results.length === 0) {
+        if (i >= 1) break;
+      }
       for (var j = 0; j < results.length; j++) {
         var sc = scoreMatch(results[j].name, show);
         if (sc > bestScore) {

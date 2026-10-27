@@ -435,6 +435,7 @@ function extractStreamsFromEpisodePage(epUrl) {
       if (!epRes.ok) return [];
       var html = yield epRes.text();
       var dlRegex = /<a[^>]+href=["'](https?:\/\/vidmoly\.[a-z0-9]+\/dl\/([a-zA-Z0-9_-]+))["'][^>]*>([\s\S]*?)<\/a>/gi;
+      var vmRegex = /vidmoly\.[a-z0-9]+\/(?:dl\/|embed-)([a-zA-Z0-9_-]+)/gi;
       var streams = [];
       var seenUrls = /* @__PURE__ */ new Set();
       var seenIds = /* @__PURE__ */ new Set();
@@ -469,18 +470,58 @@ function extractStreamsFromEpisodePage(epUrl) {
                 title: "\u231C Yabanc\u0131Dizi \u231F | VidMoly (" + langText + " 1080p HLS)",
                 url: m3u8Match[1],
                 quality: "1080p",
-                provider: "yabancidizi",
+                format: "hls",
+                isHls: true,
                 headers: vmHeaders,
                 behaviorHints: {
                   notWebReady: true,
-                  proxyHeaders: {
-                    request: vmHeaders
-                  }
-                }
+                  proxyHeaders: { request: vmHeaders }
+                },
+                provider: "yabancidizi"
               });
             }
           }
-        } catch (err) {
+        } catch (e) {
+        }
+      }
+      while ((m = vmRegex.exec(html)) !== null) {
+        var vidId = m[1];
+        if (seenIds.has(vidId)) continue;
+        seenIds.add(vidId);
+        var embedUrl = "https://vidmoly.biz/embed-" + vidId + ".html";
+        try {
+          var vmRes = yield safeFetch(embedUrl, {
+            headers: {
+              "User-Agent": HEADERS["User-Agent"],
+              "Referer": BASE_URL + "/"
+            }
+          });
+          if (vmRes.ok) {
+            var vmHtml = yield vmRes.text();
+            var m3u8Match = vmHtml.match(/file\s*:\s*['"](https?:\/\/[^'"<>]+\.m3u8[^'"<>]*)['"]/i);
+            if (m3u8Match && !seenUrls.has(m3u8Match[1])) {
+              seenUrls.add(m3u8Match[1]);
+              var vmHeaders = {
+                "User-Agent": HEADERS["User-Agent"],
+                "Referer": "https://vidmoly.biz/"
+              };
+              streams.push({
+                name: "Yabanc\u0131Dizi",
+                title: "\u231C Yabanc\u0131Dizi \u231F | VidMoly (1080p HLS)",
+                url: m3u8Match[1],
+                quality: "1080p",
+                format: "hls",
+                isHls: true,
+                headers: vmHeaders,
+                behaviorHints: {
+                  notWebReady: true,
+                  proxyHeaders: { request: vmHeaders }
+                },
+                provider: "yabancidizi"
+              });
+            }
+          }
+        } catch (e) {
         }
       }
       return streams;
@@ -516,6 +557,17 @@ function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
       if (searchTitles.length === 0) return [];
       for (var title of searchTitles) {
         var results = yield searchYabanciDizi(title);
+        if (results.length === 0) {
+          var cat = yield getCatalog({ query: title });
+          if (cat && cat.metas && cat.metas.length > 0) {
+            results = cat.metas.map(function(m) {
+              return {
+                s_name: m.name,
+                s_link: m.id.replace("yabancidizi:show:", "")
+              };
+            });
+          }
+        }
         if (results.length === 0) continue;
         var cleanTarget = ultraClean(title);
         var matchedShow = null;
