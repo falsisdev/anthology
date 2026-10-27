@@ -72,7 +72,11 @@ async function checkHttp(url, headers = {}) {
       } else if (scraper.id === "anizium") {
         streams = await mod.getStreams("31910", "series", 1, 1);
       } else if (scraper.id === "asyaanimeleri") {
-        streams = await mod.getStreams("127532", "tv", 1, 1);
+        streams = await mod.getStreams("asyaanimeleri:ep:so-i-am-the-ancestor-of-the-demonic-path-1-80-bolum", "series", 1, 1);
+      } else if (scraper.id === "yabancidizi") {
+        streams = await mod.getStreams("5920", "tv", 1, 1);
+      } else if (scraper.id === "dizimom") {
+        streams = await mod.getStreams("1396", "tv", 1, 1);
       } else if (scraper.id === "anthology_m3u") {
         streams = await mod.getStreams("245914", "tv", 1, 1);
       } else if (scraper.id === "ddizi") {
