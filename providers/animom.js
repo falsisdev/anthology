@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: animom
  * Built from src/animom/index.js
- * Build: v1.8.30 (anthology build system)
+ * Build: v1.8.35 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -299,8 +299,7 @@ var require_turkish_series = __commonJS({
             headers: {
               "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
               "Accept": "application/json"
-            },
-            signal: typeof AbortSignal !== "undefined" && AbortSignal.timeout ? AbortSignal.timeout(5e3) : void 0
+            }
           });
           if (!res.ok) return null;
           return yield res.json();
@@ -519,7 +518,7 @@ function animomSearch(query) {
       if (!data || !data.success || !data.theme) return [];
       return parseSearchHtml(data.theme);
     } catch (e) {
-      return [];
+      return null;
     }
   });
 }
@@ -739,9 +738,7 @@ function resolveMatch(show) {
     var bestScore = 0;
     for (var i = 0; i < titles.length && bestScore < 1; i++) {
       var results = yield animomSearch(titles[i]);
-      if (!results || results.length === 0) {
-        if (i >= 1) break;
-      }
+      if (results === null) break;
       for (var j = 0; j < results.length; j++) {
         var sc = scoreMatch(results[j].name, show);
         if (sc > bestScore) {

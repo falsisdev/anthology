@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: ddizi
  * Built from src/ddizi/index.js
- * Build: v1.8.30 (anthology build system)
+ * Build: v1.8.35 (anthology build system)
  */
 var __defProp = Object.defineProperty;
 var __defProps = Object.defineProperties;
@@ -482,7 +482,7 @@ function cfgReady() {
   }
   return _cfgReady;
 }
-var BASE_URL = "https://www.ddizi.im";
+var BASE_URL = "https://www.ddizi.tel";
 var TMDB_API_KEY = "500330721680edb6d5f7f12ba7cd9023";
 var HEADERS = {
   "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/122.0.0.0 Safari/537.36",

@@ -96,14 +96,17 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
       const searchTitleLower = q.toLowerCase().trim();
       const orgTitleLower = (orgTitle || '').toLowerCase().trim();
 
-      const results = $('.list-series a, .post-title a, #categorytitle a, .entry-title a');
+      const results = $('#list-series a, .list-series a, .cat-img a, .post-title a, #categorytitle a, .entry-title a');
 
       results.each(function() {
-        const currentTitle = $(this).text().toLowerCase().replace('izle', '').trim();
+        const textTitle = $(this).text().toLowerCase().replace('izle', '').trim();
         const currentHref = $(this).attr('href');
         if (!currentHref || currentHref.includes('/kategori/')) return;
 
-        const isExact = (currentTitle === searchTitleLower || currentTitle === orgTitleLower);
+        const hrefTitle = currentHref.split('/').filter(Boolean).pop().replace(/\d+$/, '').replace(/-/g, ' ').trim().toLowerCase();
+        const currentTitle = textTitle || hrefTitle;
+
+        const isExact = (currentTitle === searchTitleLower || currentTitle === orgTitleLower || hrefTitle === searchTitleLower || hrefTitle === orgTitleLower);
         const isBrackets = (currentTitle.includes(searchTitleLower + ' (') || currentTitle.includes(orgTitleLower + ' ('));
         const isDiziSuffix = (currentTitle.includes(searchTitleLower + ' dizi') || currentTitle.includes(orgTitleLower + ' dizi'));
 
@@ -125,9 +128,37 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
     if (!foundLink) return [];
 
     const slug = foundLink.split('/').filter(Boolean).pop();
-    const epUrl = `${BASE_URL}/${slug}-${seasonNum}-sezon-${episodeNum}-bolum/`;
+    let epUrl = `${BASE_URL}/${slug}-${seasonNum}-sezon-${episodeNum}-bolum/`;
 
-    const epRes = await fetch(epUrl, { headers: WORKING_HEADERS });
+    let epRes = await fetch(epUrl, { headers: WORKING_HEADERS });
+    if (!epRes.ok) {
+      // 1) Slug sonundaki sayıları temizleyip dene (örn: breaking-bad2 -> breaking-bad)
+      const baseSlug = slug.replace(/\d+$/, '');
+      if (baseSlug && baseSlug !== slug) {
+        const altUrl = `${BASE_URL}/${baseSlug}-${seasonNum}-sezon-${episodeNum}-bolum/`;
+        const altRes = await fetch(altUrl, { headers: WORKING_HEADERS });
+        if (altRes.ok) {
+          epUrl = altUrl;
+          epRes = altRes;
+        }
+      }
+    }
+
+    if (!epRes.ok) {
+      // 2) Show detay sayfasını çekip gerçek bölüm bağlantısını bul
+      try {
+        const showRes = await fetch(foundLink, { headers: WORKING_HEADERS });
+        if (showRes.ok) {
+          const showHtml = await showRes.text();
+          const epMatch = showHtml.match(new RegExp('href="([^"]*?' + seasonNum + '-sezon-' + episodeNum + '-bolum[^"]*)"', 'i'));
+          if (epMatch) {
+            epUrl = epMatch[1];
+            epRes = await fetch(epUrl, { headers: WORKING_HEADERS });
+          }
+        }
+      } catch (e) {}
+    }
+
     if (!epRes.ok) return [];
     const epHtml = await epRes.text();
 
