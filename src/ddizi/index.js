@@ -20,7 +20,7 @@ function cfgReady() {
  * Yerli dizi arşivi, güncel bölümler kataloğu ve doğrudan Ciner/Yandex CDN MP4/HLS ve resmi yayın akışları.
  */
 
-var BASE_URL = 'https://www.ddizi.im';
+var BASE_URL = 'https://www.ddizi.tel';
 var TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
 
 var HEADERS = {

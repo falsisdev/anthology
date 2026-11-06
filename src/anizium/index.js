@@ -366,6 +366,11 @@ async function getStreams(id, mediaType, season, episode) {
 
         var contentLang = isDub ? 'tr' : (isEnDub ? 'en' : 'ja');
 
+        var streamHeaders = {
+          'Referer': 'https://anizium.co/',
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
+        };
+
         streams.push({
           name: 'Anizium',
           title: '⌜ Anizium ⌟ | ' + groupTag + ' [' + qLabel + ']',
@@ -375,8 +380,12 @@ async function getStreams(id, mediaType, season, episode) {
           isHls: item.type === 'hls',
           contentLanguage: contentLang,
           provider: 'anizium',
+          headers: streamHeaders,
           behaviorHints: {
-            notWebReady: false
+            notWebReady: false,
+            proxyHeaders: {
+              request: streamHeaders
+            }
           },
           subtitles: subtitles.length > 0 ? subtitles : undefined
         });

@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: anizium
  * Built from src/anizium/index.js
- * Build: v1.8.30 (anthology build system)
+ * Build: v1.8.35 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -479,6 +479,10 @@ function getStreams(id, mediaType, season, episode) {
           if (!item.link) continue;
           var qLabel = item.quality === 2160 ? "4K UHD" : item.quality === 1440 ? "2K QHD" : item.quality + "p";
           var contentLang = isDub ? "tr" : isEnDub ? "en" : "ja";
+          var streamHeaders = {
+            "Referer": "https://anizium.co/",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+          };
           streams.push({
             name: "Anizium",
             title: "\u231C Anizium \u231F | " + groupTag + " [" + qLabel + "]",
@@ -488,8 +492,12 @@ function getStreams(id, mediaType, season, episode) {
             isHls: item.type === "hls",
             contentLanguage: contentLang,
             provider: "anizium",
+            headers: streamHeaders,
             behaviorHints: {
-              notWebReady: false
+              notWebReady: false,
+              proxyHeaders: {
+                request: streamHeaders
+              }
             },
             subtitles: subtitles.length > 0 ? subtitles : void 0
           });

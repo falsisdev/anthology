@@ -84,7 +84,7 @@ function absUrl(u) {
 
 async function animepraxSearch(query) {
   try {
-    var res = await fetch(BASE_URL + "/api/search?q=" + encodeURIComponent(query), { headers: { "User-Agent": HEADERS["User-Agent"], "Accept": "application/json" }, signal: timeoutSignal(9000) });
+    var res = await fetch(BASE_URL + "/api/search?q=" + encodeURIComponent(query), { headers: { "User-Agent": HEADERS["User-Agent"], "Accept": "application/json" }, signal: timeoutSignal(2500) });
     if (!res.ok) return [];
     var j;
     try { j = await res.json(); } catch (e) { return []; }
@@ -99,7 +99,7 @@ async function animepraxSearch(query) {
       });
     }
     return out;
-  } catch (e) { return []; }
+  } catch (e) { return null; }
 }
 
 function tokensMatch(a, b) {
@@ -137,6 +137,7 @@ async function resolveMatch(show) {
   var bestScore = 0;
   for (var i = 0; i < titles.length && bestScore < 1; i++) {
     var results = await animepraxSearch(titles[i]);
+    if (results === null) break;
     for (var j = 0; j < results.length; j++) {
       var sc = scoreMatch(results[j].name, show);
       if (sc > bestScore) { bestScore = sc; best = results[j]; }

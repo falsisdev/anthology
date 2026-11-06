@@ -57,6 +57,7 @@ async function checkPlayability(streams) {
       const mod = require(fullPath);
       let streams = [];
       let testTarget = "";
+      let playability = { playable: false, reason: "none" };
 
       if (scraper.id === "m3u.anthology.addon" || scraper.id === "anthology_canli_tv" || scraper.id.startsWith("anthology_spor") || scraper.id.startsWith("anthology_haber") || scraper.id.startsWith("anthology_ulusal") || scraper.id.startsWith("anthology_belgesel_cocuk") || scraper.id.startsWith("anthology_muzik")) {
         testTarget = "Catalog / Live Channels";
@@ -107,11 +108,14 @@ async function checkPlayability(streams) {
         testTarget = "Breaking Bad (1396 S01E01)";
         streams = await mod.getStreams("1396", "tv", 1, 1);
       } else if (scraper.id === "anthology_m3u") {
-        testTarget = "Bahar (245914 S01E01)";
-        streams = await mod.getStreams("245914", "tv", 1, 1);
+        testTarget = "The Godfather (238)";
+        streams = await mod.getStreams("238", "movie");
       } else if (scraper.id === "filmmodu") {
         testTarget = "The Matrix (603)";
         streams = await mod.getStreams("603", "movie");
+      } else if (scraper.id === "hdfilmcehennemi") {
+        testTarget = "Oppenheimer (872585)";
+        streams = await mod.getStreams("872585", "movie");
       } else if (scraper.id === "diziyou") {
         testTarget = "Breaking Bad (1396 S01E01)";
         streams = await mod.getStreams("1396", "tv", 1, 1);
@@ -130,21 +134,21 @@ async function checkPlayability(streams) {
       } else if (scraper.id === "youtube_dizifilm") {
         testTarget = "Kurtlar Vadisi (34587 S01E01)";
         streams = await mod.getStreams("34587", "tv", 1, 1);
-      } else if (scraper.supportedTypes && scraper.supportedTypes.includes("movie")) {
-        testTarget = "The Matrix (603)";
-        streams = await mod.getStreams("603", "movie");
-      } else if (scraper.id === "yabancidizi") {
-        testTarget = "Dexter (1405 S01E01)";
-        streams = await mod.getStreams("1405", "tv", 1, 1);
       } else if (scraper.id === "tvdiziler") {
         testTarget = "Kızılcık Şerbeti (213194 S01E01)";
         streams = await mod.getStreams("213194", "tv", 1, 1);
       } else if (scraper.id === "anthology_diziler") {
         testTarget = "Kızıl Goncalar (241020 S1E46)";
         streams = await mod.getStreams({ id: "241020", type: "series", season: 1, episode: 46 });
+      } else if (scraper.id === "ddizi") {
+        testTarget = "Kızılcık Şerbeti (213194 S01E01)";
+        streams = await mod.getStreams("213194", "tv", 1, 1);
       } else if (scraper.id === "trdiziizle") {
         testTarget = "Behzat Ç. (39176 S01E01)";
         streams = await mod.getStreams({ id: "39176", type: "series", season: 1, episode: 1 });
+      } else if (scraper.supportedTypes && scraper.supportedTypes.includes("movie")) {
+        testTarget = "The Matrix (603)";
+        streams = await mod.getStreams("603", "movie");
       } else if (scraper.supportedTypes && scraper.supportedTypes.includes("tv")) {
         testTarget = "Breaking Bad (1396 S01E01)";
         streams = await mod.getStreams("1396", "tv", 1, 1);

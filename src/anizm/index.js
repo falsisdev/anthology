@@ -131,18 +131,20 @@ function resultNames(item) {
   return names.join(" | ");
 }
 
-function scoreMatch(name, show) {
-  var candidates = [show.title, show.origTitle].concat(show.aliases || []);
-  var nameClean = ultraClean(name);
-  for (var i = 0; i < candidates.length; i++) {
-    if (!candidates[i]) continue;
-    if (nameClean === ultraClean(candidates[i])) return 1;
-  }
+function scoreMatch(item, show) {
+  var names = (typeof item === "object" && item !== null)
+    ? [item.name, item.english, item.original].filter(Boolean)
+    : [String(item || "")];
+  var candidates = [show.title, show.origTitle].concat(show.aliases || []).filter(Boolean);
   var best = 0;
-  for (var k = 0; k < candidates.length; k++) {
-    if (!candidates[k]) continue;
-    var t = tokensMatch(name, candidates[k]);
-    if (t > best) best = t;
+  for (var i = 0; i < names.length; i++) {
+    var nClean = ultraClean(names[i]);
+    for (var j = 0; j < candidates.length; j++) {
+      var cClean = ultraClean(candidates[j]);
+      if (nClean && cClean && nClean === cClean) return 1;
+      var t = tokensMatch(names[i], candidates[j]);
+      if (t > best) best = t;
+    }
   }
   return best;
 }
@@ -163,7 +165,7 @@ async function resolveMatch(show, requestedSeason) {
     var q = titles[i];
     var results = await anizmSearch(q);
     for (var j = 0; j < results.length; j++) {
-      var sc = scoreMatch(resultNames(results[j]), show);
+      var sc = scoreMatch(results[j], show);
       if (requestedSeason && requestedSeason > 1) {
         var nameForSeason = results[j].name || results[j].english || results[j].original || "";
         if (!hasSeasonMarker(nameForSeason, requestedSeason)) {
@@ -178,7 +180,7 @@ async function resolveMatch(show, requestedSeason) {
       for (var k = 0; k < res2.length; k++) {
         var name2 = res2[k].name || res2[k].english || res2[k].original || "";
         if (!hasSeasonMarker(name2, requestedSeason)) continue;
-        var sc2 = scoreMatch(resultNames(res2[k]), show) + 0.05;
+        var sc2 = scoreMatch(res2[k], show) + 0.05;
         if (sc2 > bestScore) { bestScore = sc2; best = res2[k]; }
       }
     }
@@ -199,22 +201,38 @@ async function fetchHtml(url, headers, ms) {
 function parseEpisodeList(html) {
   var out = [];
   var seen = {};
+
+  // V3: <a ... href="https://anizm.net/slug-1-bolum-izle">
+  var v3matches = Array.from(html.matchAll(/href=["'](https:\/\/anizm\.net\/[^"']*-(\d+)-bolum(?:-[^"']*)?)["']/gi));
+  for (var i = 0; i < v3matches.length; i++) {
+    var u = v3matches[i][1];
+    var ep = parseInt(v3matches[i][2], 10);
+    if (ep > 0 && !seen[ep]) {
+      seen[ep] = true;
+      out.push({ season: 1, episode: ep, url: u, title: ep + ". Bölüm" });
+    }
+  }
+  if (out.length) {
+    out.sort(function (a, b) { return a.episode - b.episode; });
+    return out;
+  }
+
+  // V2 fallback: bolumKutucugu
   var blocks = html.match(/<div class="[^"]*bolumKutucugu[^"]*">[\s\S]*?<\/a>\s*<\/div>/g) || [];
-  for (var i = 0; i < blocks.length; i++) {
-    var b = blocks[i];
+  for (var j = 0; j < blocks.length; j++) {
+    var b = blocks[j];
     var a = b.match(/href="(https:\/\/anizm\.net\/[^"]+)"/);
     var num = b.match(/class="episodeBlock[\s\S]*?">\s*([\d\.]+)(?:\s*Bölüm)?/i);
     if (!a) continue;
-    var ep = -1;
-    if (num) ep = parseInt(num[1], 10);
-    if (ep < 0) {
+    var epNum = -1;
+    if (num) epNum = parseInt(num[1], 10);
+    if (epNum < 0) {
       var mm = a[1].match(/-(\d+)-bolum/);
-      if (mm) ep = parseInt(mm[1], 10);
+      if (mm) epNum = parseInt(mm[1], 10);
     }
-    if (ep < 1) continue;
-    if (seen[ep]) continue;
-    seen[ep] = true;
-    out.push({ season: 1, episode: ep, url: a[1], title: ep + ". Bölüm" });
+    if (epNum < 1 || seen[epNum]) continue;
+    seen[epNum] = true;
+    out.push({ season: 1, episode: epNum, url: a[1], title: epNum + ". Bölüm" });
   }
   out.sort(function (aa, bb) { return aa.episode - bb.episode; });
   return out;
@@ -223,10 +241,22 @@ function parseEpisodeList(html) {
 function parseTranslators(html) {
   var out = [];
   var seen = {};
-  var m = html.match(/translator="(https:\/\/anizm\.net\/episode\/\d+\/translator\/\d+)"/g) || [];
-  for (var i = 0; i < m.length; i++) {
-    var u = m[i].replace(/^translator="/, "").replace(/"$/, "");
-    if (!seen[u]) { seen[u] = true; out.push(u); }
+
+  // V3: data-sources="https://anizm.net/bolum/.../cevirmen/..."
+  var v3m = html.match(/data-sources=["'](https:\/\/anizm\.net\/bolum\/\d+\/cevirmen\/\d+)["']/g) || [];
+  for (var i = 0; i < v3m.length; i++) {
+    var uMatch = v3m[i].match(/https:\/\/anizm\.net\/bolum\/\d+\/cevirmen\/\d+/);
+    if (uMatch) {
+      var u = uMatch[0];
+      if (!seen[u]) { seen[u] = true; out.push(u); }
+    }
+  }
+
+  // V2 fallback: translator="..."
+  var m = html.match(/translator=["'](https:\/\/anizm\.net\/episode\/\d+\/translator\/\d+)["']/g) || [];
+  for (var j = 0; j < m.length; j++) {
+    var u2 = m[j].replace(/^translator=["']/, "").replace(/["']$/, "");
+    if (!seen[u2]) { seen[u2] = true; out.push(u2); }
   }
   return out;
 }
@@ -236,17 +266,29 @@ async function fetchTranslatorVideos(translatorUrl) {
     var res = await fetch(translatorUrl, { headers: AJAX_HEADERS, signal: timeoutSignal(8000) });
     if (!res.ok) return [];
     var text = await res.text();
-    if (text.trim().indexOf("{") === 0) {
-      try {
-        var j = JSON.parse(text);
-        text = j.data || text;
-      } catch (e) {}
-    }
+
+    // V3: {"success":true,"videos":[{"id":1607202,"name":"Aincrad (Reklamsız)",...}]}
+    try {
+      var j = JSON.parse(text);
+      if (j && Array.isArray(j.videos)) {
+        var v3out = [];
+        for (var vi = 0; vi < j.videos.length; vi++) {
+          var v = j.videos[vi];
+          if (v && v.id) {
+            var vUrl = translatorUrl.replace(/\/cevirmen\/\d+$/, "/video/" + v.id);
+            v3out.push(vUrl);
+          }
+        }
+        if (v3out.length) return v3out;
+      }
+    } catch (e) {}
+
+    // V2 fallback: video="..."
     var out = [];
     var seen = {};
-    var vm = text.match(/video="(https:\/\/anizm\.net\/video\/\d+)"/g) || [];
+    var vm = text.match(/video=["'](https:\/\/anizm\.net\/video\/\d+)["']/g) || [];
     for (var i = 0; i < vm.length; i++) {
-      var u = vm[i].replace(/^video="/, "").replace(/"$/, "");
+      var u = vm[i].replace(/^video=["']/, "").replace(/["']$/, "");
       if (!seen[u]) { seen[u] = true; out.push(u); }
     }
     return out;
@@ -268,10 +310,16 @@ async function resolveAnizmPlayer(hash) {
     if (!res.ok) return [];
     var data;
     try { data = await res.json(); } catch (e) { return []; }
-    if (!data || !data.securedLink) return [];
-    var quality = await probeHlsHeight(data.securedLink);
-    if (!quality) quality = "720p";
-    return [buildStream(SITE_NAME, "⌜ " + SITE_NAME + " ⌟ | AnizmPlayer [" + quality + " HLS]", data.securedLink, quality, "hls", true, PLAYER_API + "/")];
+    if (!data) return [];
+
+    // master.txt (%100 oynatılabilir adaptif HLS)
+    var streamUrl = data.videoSource || data.securedLink;
+    if (!streamUrl) return [];
+
+    var playUrl = streamUrl.includes(".txt") ? (streamUrl + "#.m3u8") : streamUrl;
+    var quality = "1080p";
+
+    return [buildStream(SITE_NAME, "⌜ " + SITE_NAME + " ⌟ | AnizmPlayer [" + quality + " HLS]", playUrl, quality, "hls", true, PLAYER_API + "/")];
   } catch (e) { return []; }
 }
 
@@ -339,12 +387,32 @@ async function resolveSibnet(frameUrl) {
 }
 
 async function resolvePlayerPage(vidUrl) {
-  // vidUrl = https://anizm.net/video/{vidId}
   var vidId = (vidUrl.match(/\/video\/(\d+)/) || [])[1];
   if (!vidId) return [];
   var results = [];
 
-  // 1) Doğrudan player sayfası (player/{vidId}), CF engeli yoksa
+  // 1) V3: /bolum/{epId}/video/{vidId} JSON -> {"success":true,"url":"https:\/\/anizm.net\/player\/1607202"}
+  if (vidUrl.includes("/bolum/")) {
+    try {
+      var r = await fetch(vidUrl, { headers: AJAX_HEADERS, signal: timeoutSignal(8000) });
+      if (r.ok) {
+        var j = await r.json();
+        if (j && j.url) {
+          var playerP = await fetchHtml(j.url, HEADERS, 9000);
+          if (playerP) {
+            var m = await analyzePlayerHtml(playerP.text);
+            for (var mi = 0; mi < m.length; mi++) {
+              var sList = await m[mi]();
+              for (var si = 0; si < sList.length; si++) results.push(sList[si]);
+            }
+          }
+        }
+      }
+    } catch (e) {}
+    if (results.length) return results;
+  }
+
+  // 2) Doğrudan player sayfası (player/{vidId}), CF engeli yoksa
   var playerPage = await fetchHtml(BASE_URL + "/player/" + vidId, HEADERS, 9000);
   if (playerPage) {
     var methods = await analyzePlayerHtml(playerPage.text);
@@ -355,7 +423,7 @@ async function resolvePlayerPage(vidUrl) {
     if (results.length) return results;
   }
 
-  // 2) /video/{vidId} JSON -> iframe player/{playerId}
+  // 3) /video/{vidId} JSON -> iframe player/{playerId}
   try {
     var res = await fetch(vidUrl, { headers: AJAX_HEADERS, signal: timeoutSignal(8000) });
     var text = await res.text();
@@ -365,8 +433,8 @@ async function resolvePlayerPage(vidUrl) {
         var player2 = await fetchHtml(BASE_URL + "/player/" + pm[1], HEADERS, 9000);
         if (player2) {
           var methods2 = await analyzePlayerHtml(player2.text);
-          for (var j = 0; j < methods2.length; j++) {
-            var m3 = await methods2[j]();
+          for (var j2 = 0; j2 < methods2.length; j2++) {
+            var m3 = await methods2[j2]();
             for (var k2 = 0; k2 < m3.length; k2++) results.push(m3[k2]);
           }
         }
@@ -379,18 +447,22 @@ async function resolvePlayerPage(vidUrl) {
 async function analyzePlayerHtml(html) {
   var res = [];
   // Dean Edwards -> FirePlayer(ID)
-  if (html.indexOf("eval(function(p,a,c,k,e,d)") !== -1) {
-    var idx = html.indexOf("eval(function(p,a,c,k,e,d)");
-    var endIdx = html.indexOf("</script>", idx);
-    var snippet = html.substring(idx, endIdx < 0 ? html.length : endIdx).trim();
+  // Sayfada birden fazla eval bloğu olabilir; hepsini tara
+  var evals = Array.from(html.matchAll(/eval\(function\(p,a,c,k,e,d\)[\s\S]*?<\/script>/gi));
+  for (var ei = 0; ei < evals.length; ei++) {
+    var snippet = evals[ei][0].replace(/<\/script>$/i, "").trim();
     var unpacked = unpackDeanEdwards(snippet);
     if (unpacked) {
       var fp = unpacked.match(/FirePlayer\(["']([^"']+)["']/);
       if (fp) {
-        res.push(function () { return resolveAnizmPlayer(fp[1]); });
+        (function(hash) {
+          res.push(function () { return resolveAnizmPlayer(hash); });
+        })(fp[1]);
+        break;
       }
     }
   }
+
   var embeds = [];
   var em = html.match(/(?:src|data-src|href)="([^"]*ok\.ru\/videoembed\/[^"]+)"/g) || [];
   for (var i = 0; i < em.length; i++) {
@@ -398,12 +470,16 @@ async function analyzePlayerHtml(html) {
     embeds.push(u);
   }
   for (var k = 0; k < embeds.length; k++) {
-    (function (u) { res.push(function () { return resolveOkRu(u); }); })(embeds[k]);
+    (function(emUrl) {
+      res.push(function () { return resolveOkRu(emUrl); });
+    })(embeds[k]);
   }
-  var sn = html.match(/(?:src|data-src|href)="([^"]*video\.sibnet\.ru[^"]+)"/g) || [];
-  for (var j = 0; j < sn.length; j++) {
-    var su = sn[j].match(/"([^"]+)/)[1];
-    (function (u) { res.push(function () { return resolveSibnet(u); }); })(su);
+
+  var sib = html.match(/(?:src|data-src|href)="([^"]*video\.sibnet\.ru\/shell\.php\?videoid=[^"]+)"/g) || [];
+  for (var s = 0; s < sib.length; s++) {
+    (function(sibUrl) {
+      res.push(function () { return resolveSibnet(sibUrl); });
+    })(sib[s].match(/"([^"]+)/)[1]);
   }
   return res;
 }
@@ -473,13 +549,19 @@ async function getStreams(tmdbId, mediaType, season, episode) {
 
     var translators = parseTranslators(page.text);
     var visited = {};
-    for (var i = 0; i < translators.length && out.length < 6; i++) {
+    var consecutiveFails = 0;
+    for (var i = 0; i < translators.length && out.length < 6 && consecutiveFails < 6; i++) {
       var videos = await fetchTranslatorVideos(translators[i]);
-      for (var j = 0; j < videos.length && out.length < 6; j++) {
+      for (var j = 0; j < videos.length && out.length < 6 && consecutiveFails < 6; j++) {
         if (visited[videos[j]]) continue;
         visited[videos[j]] = true;
         var s = await resolvePlayerPage(videos[j]);
-        for (var k = 0; k < s.length; k++) out.push(s[k]);
+        if (s && s.length > 0) {
+          consecutiveFails = 0;
+          for (var k = 0; k < s.length; k++) out.push(s[k]);
+        } else {
+          consecutiveFails++;
+        }
       }
     }
     return out;
@@ -551,7 +633,7 @@ async function getCatalog(args) {
           id: "anizm:show:" + results[i].slug,
           type: "series",
           name: results[i].name || results[i].english || results[i].slug,
-          poster: ""
+          poster: results[i].poster ? (results[i].poster.indexOf("http") === 0 ? results[i].poster : "https://cdn.anizm.net/storage/pcovers/" + results[i].poster) : ""
         });
       }
       return { metas: metas };
@@ -560,22 +642,40 @@ async function getCatalog(args) {
     var page = await fetchHtml(BASE_URL + "/", HEADERS, 10000);
     if (page) {
       var seen = {};
-      var blocks = page.text.match(/<a class="slideAnimeLink[^"]*" href="(https:\/\/anizm\.net\/[^"]+)">/g) || [];
-      var titles = page.text.match(/slideAnimeTitle[^>]*>([^<]+)</g) || [];
-      for (var i = 0; i < blocks.length && metas.length < 30; i++) {
-        var href = (blocks[i].match(/href="(https:\/\/anizm\.net\/[^"]+)"/) || [])[1];
-        if (!href) continue;
-        var raw = href.replace(/^https:\/\/anizm\.net\//, "");
-        var clean = raw.replace(/-\d+-bolum(?:-(?:final|izle|fragman))*$/i, "").replace(/-(?:final|izle|fragman)+$/i, "");
-        if (!clean || seen[clean]) continue;
-        seen[clean] = true;
-        var name = (titles[i] || "").match(/>([^<]+)</);
+
+      // 1) V3 Series Cards (<article class="v3-series-card">)
+      var seriesCards = Array.from(page.text.matchAll(/<article[^>]*class="[^"]*v3-series-card[^"]*"[^>]*>[\s\S]*?<a[^>]+href="https:\/\/anizm\.net\/([^"\/]+)"[\s\S]*?alt="([^"]*?)(?:\s+posteri)?"[\s\S]*?<\/article>/gi));
+      for (var sc = 0; sc < seriesCards.length && metas.length < 30; sc++) {
+        var m = seriesCards[sc];
+        var slug = m[1];
+        if (!slug || seen[slug] || slug === "manifest.json") continue;
+        seen[slug] = true;
+        var name = (m[2] || "").trim() || slug;
         metas.push({
-          id: "anizm:show:" + clean,
+          id: "anizm:show:" + slug,
           type: "series",
-          name: name ? decodeHtmlEntities(name[1]).trim() : clean,
+          name: decodeHtmlEntities(name),
           poster: ""
         });
+      }
+
+      // 2) V3 Episode Cards (<article class="v3-episode-card">)
+      if (metas.length < 15) {
+        var epCards = Array.from(page.text.matchAll(/<article[^>]*class="[^"]*v3-episode-card[^"]*"[^>]*>[\s\S]*?<a[^>]+href="https:\/\/anizm\.net\/([^"\/]+)"[\s\S]*?alt="([^"]*?)(?:\s+posteri)?"[\s\S]*?<\/article>/gi));
+        for (var ec = 0; ec < epCards.length && metas.length < 30; ec++) {
+          var em = epCards[ec];
+          var rawSlug = em[1] || "";
+          var cleanSlug = rawSlug.replace(/-\d+-bolum(?:-(?:final|izle|fragman))*$/i, "");
+          if (!cleanSlug || seen[cleanSlug] || cleanSlug === "manifest.json") continue;
+          seen[cleanSlug] = true;
+          var epName = (em[2] || "").trim() || cleanSlug;
+          metas.push({
+            id: "anizm:show:" + cleanSlug,
+            type: "series",
+            name: decodeHtmlEntities(epName),
+            poster: ""
+          });
+        }
       }
     }
     return { metas: metas };

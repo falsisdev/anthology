@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: diziyou
  * Built from src/diziyou/index.js
- * Build: v1.8.30 (anthology build system)
+ * Build: v1.8.35 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -268,12 +268,14 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
         const $2 = cheerio.load(html);
         const searchTitleLower = q.toLowerCase().trim();
         const orgTitleLower = (orgTitle || "").toLowerCase().trim();
-        const results = $2(".list-series a, .post-title a, #categorytitle a, .entry-title a");
+        const results = $2("#list-series a, .list-series a, .cat-img a, .post-title a, #categorytitle a, .entry-title a");
         results.each(function() {
-          const currentTitle = $2(this).text().toLowerCase().replace("izle", "").trim();
+          const textTitle = $2(this).text().toLowerCase().replace("izle", "").trim();
           const currentHref = $2(this).attr("href");
           if (!currentHref || currentHref.includes("/kategori/")) return;
-          const isExact = currentTitle === searchTitleLower || currentTitle === orgTitleLower;
+          const hrefTitle = currentHref.split("/").filter(Boolean).pop().replace(/\d+$/, "").replace(/-/g, " ").trim().toLowerCase();
+          const currentTitle = textTitle || hrefTitle;
+          const isExact = currentTitle === searchTitleLower || currentTitle === orgTitleLower || hrefTitle === searchTitleLower || hrefTitle === orgTitleLower;
           const isBrackets = currentTitle.includes(searchTitleLower + " (") || currentTitle.includes(orgTitleLower + " (");
           const isDiziSuffix = currentTitle.includes(searchTitleLower + " dizi") || currentTitle.includes(orgTitleLower + " dizi");
           if (isExact || isBrackets || isDiziSuffix) {
@@ -291,8 +293,33 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
       }
       if (!foundLink) return [];
       const slug = foundLink.split("/").filter(Boolean).pop();
-      const epUrl = `${BASE_URL}/${slug}-${seasonNum}-sezon-${episodeNum}-bolum/`;
-      const epRes = yield fetch(epUrl, { headers: WORKING_HEADERS });
+      let epUrl = `${BASE_URL}/${slug}-${seasonNum}-sezon-${episodeNum}-bolum/`;
+      let epRes = yield fetch(epUrl, { headers: WORKING_HEADERS });
+      if (!epRes.ok) {
+        const baseSlug = slug.replace(/\d+$/, "");
+        if (baseSlug && baseSlug !== slug) {
+          const altUrl = `${BASE_URL}/${baseSlug}-${seasonNum}-sezon-${episodeNum}-bolum/`;
+          const altRes = yield fetch(altUrl, { headers: WORKING_HEADERS });
+          if (altRes.ok) {
+            epUrl = altUrl;
+            epRes = altRes;
+          }
+        }
+      }
+      if (!epRes.ok) {
+        try {
+          const showRes = yield fetch(foundLink, { headers: WORKING_HEADERS });
+          if (showRes.ok) {
+            const showHtml = yield showRes.text();
+            const epMatch = showHtml.match(new RegExp('href="([^"]*?' + seasonNum + "-sezon-" + episodeNum + '-bolum[^"]*)"', "i"));
+            if (epMatch) {
+              epUrl = epMatch[1];
+              epRes = yield fetch(epUrl, { headers: WORKING_HEADERS });
+            }
+          }
+        } catch (e) {
+        }
+      }
       if (!epRes.ok) return [];
       const epHtml = yield epRes.text();
       const $ = cheerio.load(epHtml);
