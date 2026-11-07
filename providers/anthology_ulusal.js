@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: anthology_ulusal
  * Built from src/anthology_ulusal/index.js
- * Build: v1.8.35 (anthology build system)
+ * Build: v1.8.36 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {

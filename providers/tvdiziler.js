@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: tvdiziler
  * Built from src/tvdiziler/index.js
- * Build: v1.8.35 (anthology build system)
+ * Build: v1.8.36 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -773,33 +773,62 @@ function getCatalog(args) {
         });
         return { metas };
       }
-      var res = yield safeFetch(BASE_URL + "/dizi-izle", { headers: HEADERS });
-      if (!res.ok) return { metas: [] };
-      var html = yield res.text();
-      var cardRegex = /<a[^>]+href=["'](?:https:\/\/tvdiziler\.tv\/)?(dizi\/[^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
       var metas = [];
-      var seen = /* @__PURE__ */ new Set();
-      var m;
-      while ((m = cardRegex.exec(html)) !== null) {
-        var slug = m[1];
-        if (!slug || seen.has(slug)) continue;
-        seen.add(slug);
-        var inner = m[2];
-        var titleMatch = inner.match(/<h[23][^>]*>([\s\S]*?)<\/h[23]>/i);
-        var title = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, "").trim() : "";
-        if (!title) continue;
-        var imgMatch = inner.match(/(?:data-src|src)=["']([^"']+)["']/i);
-        var poster = imgMatch ? imgMatch[1].startsWith("http") ? imgMatch[1] : BASE_URL + "/" + imgMatch[1].replace(/^\/+/, "") : "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png";
-        metas.push({
-          id: "tvdiziler:show:" + slug,
-          type: "tv",
-          name: title,
-          poster,
-          background: poster,
-          genres: ["Yerli Dizi", "TvDiziler"],
-          description: title + " - TvDiziler"
-        });
-        if (metas.length >= 50) break;
+      try {
+        var res = yield safeFetch(BASE_URL + "/dizi-izle", { headers: HEADERS }, 5e3);
+        if (res.ok) {
+          var html = yield res.text();
+          var cardRegex = /<a[^>]+href=["'](?:https:\/\/tvdiziler\.[^/"']+\/)?(dizi\/[^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+          var seen = /* @__PURE__ */ new Set();
+          var m;
+          while ((m = cardRegex.exec(html)) !== null) {
+            var slug = m[1];
+            if (!slug || seen.has(slug)) continue;
+            seen.add(slug);
+            var inner = m[2];
+            var titleMatch = inner.match(/<h[23][^>]*>([\s\S]*?)<\/h[23]>/i);
+            var title = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, "").trim() : "";
+            if (!title) continue;
+            var imgMatch = inner.match(/(?:data-src|src)=["']([^"']+)["']/i);
+            var poster = imgMatch ? imgMatch[1].startsWith("http") ? imgMatch[1] : BASE_URL + "/" + imgMatch[1].replace(/^\/+/, "") : "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png";
+            metas.push({
+              id: "tvdiziler:show:" + slug,
+              type: "tv",
+              name: title,
+              poster,
+              background: poster,
+              genres: ["Yerli Dizi", "TvDiziler"],
+              description: title + " - TvDiziler"
+            });
+            if (metas.length >= 50) break;
+          }
+        }
+      } catch (e) {
+      }
+      if (metas.length === 0) {
+        try {
+          var tmdbRes = yield safeFetch("https://api.themoviedb.org/3/discover/tv?api_key=" + getValidTmdbKey() + "&with_original_language=tr&sort_by=popularity.desc&language=tr-TR", {}, 6e3);
+          if (tmdbRes.ok) {
+            var tmdbData = yield tmdbRes.json();
+            var results = tmdbData && tmdbData.results || [];
+            for (var i = 0; i < results.length; i++) {
+              var item = results[i];
+              var name = item.name || item.original_name || "";
+              if (!name) continue;
+              var pUrl = item.poster_path ? "https://image.tmdb.org/t/p/w500" + item.poster_path : "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png";
+              metas.push({
+                id: String(item.id),
+                type: "tv",
+                name,
+                poster: pUrl,
+                background: item.backdrop_path ? "https://image.tmdb.org/t/p/w780" + item.backdrop_path : pUrl,
+                genres: ["Yerli Dizi", "TvDiziler"],
+                description: item.overview || name + " - TvDiziler"
+              });
+            }
+          }
+        } catch (e) {
+        }
       }
       return { metas };
     } catch (e) {

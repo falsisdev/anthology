@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: yabancidizi
  * Built from src/yabancidizi/index.js
- * Build: v1.8.35 (anthology build system)
+ * Build: v1.8.36 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -344,7 +344,7 @@ function getCatalog(args) {
       var res = yield safeFetch(BASE_URL + "/", { headers: HEADERS });
       if (!res.ok) return { metas: [] };
       var html = yield res.text();
-      var cardRegex = /<a[^>]+href=["'](?:https:\/\/yabancidizi\.news)?\/(?:dizi)\/([^"'/]+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+      var cardRegex = /<a[^>]+href=["'](?:https?:\/\/[^"'/]+)?\/?dizi\/([^"'/]+)["'][^>]*>([\s\S]*?)<\/a>/gi;
       var metas = [];
       var seen = /* @__PURE__ */ new Set();
       var m;
@@ -435,6 +435,7 @@ function extractStreamsFromEpisodePage(epUrl) {
       if (!epRes.ok) return [];
       var html = yield epRes.text();
       var dlRegex = /<a[^>]+href=["'](https?:\/\/vidmoly\.[a-z0-9]+\/dl\/([a-zA-Z0-9_-]+))["'][^>]*>([\s\S]*?)<\/a>/gi;
+      var vmRegex = /vidmoly\.[a-z0-9]+\/(?:dl\/|embed-)([a-zA-Z0-9_-]+)/gi;
       var streams = [];
       var seenUrls = /* @__PURE__ */ new Set();
       var seenIds = /* @__PURE__ */ new Set();
@@ -469,6 +470,8 @@ function extractStreamsFromEpisodePage(epUrl) {
                 title: "\u231C Yabanc\u0131Dizi \u231F | VidMoly (" + langText + " 1080p HLS)",
                 url: m3u8Match[1],
                 quality: "1080p",
+                format: "hls",
+                isHls: true,
                 provider: "yabancidizi",
                 headers: vmHeaders,
                 behaviorHints: {
@@ -481,6 +484,46 @@ function extractStreamsFromEpisodePage(epUrl) {
             }
           }
         } catch (err) {
+        }
+      }
+      while ((m = vmRegex.exec(html)) !== null) {
+        var vidId2 = m[1];
+        if (seenIds.has(vidId2)) continue;
+        seenIds.add(vidId2);
+        var embedUrl2 = "https://vidmoly.biz/embed-" + vidId2 + ".html";
+        try {
+          var vmRes2 = yield safeFetch(embedUrl2, {
+            headers: {
+              "User-Agent": HEADERS["User-Agent"],
+              "Referer": BASE_URL + "/"
+            }
+          });
+          if (vmRes2.ok) {
+            var vmHtml2 = yield vmRes2.text();
+            var m3u8Match2 = vmHtml2.match(/file\s*:\s*['"](https?:\/\/[^'"<>]+\.m3u8[^'"<>]*)['"]/i);
+            if (m3u8Match2 && !seenUrls.has(m3u8Match2[1])) {
+              seenUrls.add(m3u8Match2[1]);
+              var vmHeaders2 = {
+                "User-Agent": HEADERS["User-Agent"],
+                "Referer": "https://vidmoly.biz/"
+              };
+              streams.push({
+                name: "Yabanc\u0131Dizi",
+                title: "\u231C Yabanc\u0131Dizi \u231F | VidMoly (1080p HLS)",
+                url: m3u8Match2[1],
+                quality: "1080p",
+                format: "hls",
+                isHls: true,
+                headers: vmHeaders2,
+                behaviorHints: {
+                  notWebReady: true,
+                  proxyHeaders: { request: vmHeaders2 }
+                },
+                provider: "yabancidizi"
+              });
+            }
+          }
+        } catch (e) {
         }
       }
       return streams;
@@ -516,6 +559,17 @@ function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
       if (searchTitles.length === 0) return [];
       for (var title of searchTitles) {
         var results = yield searchYabanciDizi(title);
+        if (results.length === 0) {
+          var cat = yield getCatalog({ query: title });
+          if (cat && cat.metas && cat.metas.length > 0) {
+            results = cat.metas.map(function(m) {
+              return {
+                s_name: m.name,
+                s_link: m.id.replace("yabancidizi:show:", "")
+              };
+            });
+          }
+        }
         if (results.length === 0) continue;
         var cleanTarget = ultraClean(title);
         var matchedShow = null;

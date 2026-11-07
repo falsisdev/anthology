@@ -248,7 +248,11 @@ async function extractStreamsFromPage(pageUrl) {
                     contentLanguage: ['tr'],
                     headers: resolved.headers,
                     behaviorHints: {
-                        headers: resolved.headers
+                        notWebReady: true,
+                        headers: resolved.headers,
+                        proxyHeaders: {
+                            request: resolved.headers
+                        }
                     },
                     subtitles: resolved.subtitles || []
                 });

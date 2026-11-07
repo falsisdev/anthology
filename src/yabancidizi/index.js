@@ -169,7 +169,7 @@ async function getCatalog(args) {
         if (!res.ok) return { metas: [] };
         var html = await res.text();
 
-        var cardRegex = /<a[^>]+href=["'](?:https:\/\/yabancidizi\.news)?\/(?:dizi)\/([^"'/]+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+        var cardRegex = /<a[^>]+href=["'](?:https?:\/\/[^"'/]+)?\/?dizi\/([^"'/]+)["'][^>]*>([\s\S]*?)<\/a>/gi;
         var metas = [];
         var seen = new Set();
         var m;
@@ -271,6 +271,7 @@ async function extractStreamsFromEpisodePage(epUrl) {
 
         // 1. VidMoly download & embed links directly in page HTML
         var dlRegex = /<a[^>]+href=["'](https?:\/\/vidmoly\.[a-z0-9]+\/dl\/([a-zA-Z0-9_-]+))["'][^>]*>([\s\S]*?)<\/a>/gi;
+        var vmRegex = /vidmoly\.[a-z0-9]+\/(?:dl\/|embed-)([a-zA-Z0-9_-]+)/gi;
         var streams = [];
         var seenUrls = new Set();
         var seenIds = new Set();
@@ -309,6 +310,8 @@ async function extractStreamsFromEpisodePage(epUrl) {
                             title: '⌜ YabancıDizi ⌟ | VidMoly (' + langText + ' 1080p HLS)',
                             url: m3u8Match[1],
                             quality: '1080p',
+                            format: 'hls',
+                            isHls: true,
                             provider: 'yabancidizi',
                             headers: vmHeaders,
                             behaviorHints: {
@@ -321,6 +324,46 @@ async function extractStreamsFromEpisodePage(epUrl) {
                     }
                 }
             } catch (err) {}
+        }
+
+        while ((m = vmRegex.exec(html)) !== null) {
+            var vidId2 = m[1];
+            if (seenIds.has(vidId2)) continue;
+            seenIds.add(vidId2);
+            var embedUrl2 = 'https://vidmoly.biz/embed-' + vidId2 + '.html';
+            try {
+                var vmRes2 = await safeFetch(embedUrl2, {
+                    headers: {
+                        'User-Agent': HEADERS['User-Agent'],
+                        'Referer': BASE_URL + '/'
+                    }
+                });
+                if (vmRes2.ok) {
+                    var vmHtml2 = await vmRes2.text();
+                    var m3u8Match2 = vmHtml2.match(/file\s*:\s*['"](https?:\/\/[^'"<>]+\.m3u8[^'"<>]*)['"]/i);
+                    if (m3u8Match2 && !seenUrls.has(m3u8Match2[1])) {
+                        seenUrls.add(m3u8Match2[1]);
+                        var vmHeaders2 = {
+                            'User-Agent': HEADERS['User-Agent'],
+                            'Referer': 'https://vidmoly.biz/'
+                        };
+                        streams.push({
+                            name: 'YabancıDizi',
+                            title: '⌜ YabancıDizi ⌟ | VidMoly (1080p HLS)',
+                            url: m3u8Match2[1],
+                            quality: '1080p',
+                            format: 'hls',
+                            isHls: true,
+                            headers: vmHeaders2,
+                            behaviorHints: {
+                                notWebReady: true,
+                                proxyHeaders: { request: vmHeaders2 }
+                            },
+                            provider: 'yabancidizi'
+                        });
+                    }
+                }
+            } catch (e) {}
         }
 
         return streams;
@@ -360,6 +403,17 @@ async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
 
         for (var title of searchTitles) {
             var results = await searchYabanciDizi(title);
+            if (results.length === 0) {
+                var cat = await getCatalog({ query: title });
+                if (cat && cat.metas && cat.metas.length > 0) {
+                    results = cat.metas.map(function(m) {
+                        return {
+                            s_name: m.name,
+                            s_link: m.id.replace('yabancidizi:show:', '')
+                        };
+                    });
+                }
+            }
             if (results.length === 0) continue;
 
             var cleanTarget = ultraClean(title);

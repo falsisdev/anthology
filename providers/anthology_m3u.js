@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: anthology_m3u
  * Built from src/anthology_m3u/index.js
- * Build: v1.8.35 (anthology build system)
+ * Build: v1.8.36 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -238,8 +238,19 @@ function cleanTitleTokens(s) {
     "unrated",
     "remastered"
   ]);
+  const romanMap = {
+    "ii": "2",
+    "iii": "3",
+    "iv": "4",
+    "v": "5",
+    "vi": "6",
+    "vii": "7",
+    "viii": "8",
+    "ix": "9",
+    "x": "10"
+  };
   const folded = String(s).toLowerCase().replace(/[ıİ]/g, "i").replace(/[üÜ]/g, "u").replace(/[öÖ]/g, "o").replace(/[şŞ]/g, "s").replace(/[ğĞ]/g, "g").replace(/[çÇ]/g, "c").replace(/[âÂ]/g, "a").replace(/[îÎ]/g, "i").replace(/[ûÛ]/g, "u");
-  return folded.split(/[^a-z0-9]+/).map((t) => t.replace(/[^a-z0-9]/g, "")).filter((t) => t.length > 0 && !junk.has(t));
+  return folded.split(/[^a-z0-9]+/).map((t) => t.replace(/[^a-z0-9]/g, "")).filter((t) => t.length > 0 && !junk.has(t)).map((t) => romanMap[t] || t);
 }
 function getLetterGroups(title) {
   const groups = /* @__PURE__ */ new Set();
@@ -354,7 +365,22 @@ var BLOCKED_DOMAINS = [
   "pixypost.art",
   "pixtures.art",
   "imglink.info",
-  "imglink.pro"
+  "imglink.pro",
+  "picogallery.org",
+  "rapidimages.pro",
+  "imagescdns.pics",
+  "seeshare.pics",
+  "imgmania.org",
+  "imageshub.pro",
+  "photomag.biz",
+  "photostack.net",
+  "photofunny.org",
+  "photoflax.org",
+  "photour.org",
+  "pictureflix.org",
+  "photoflick.org",
+  "photoflix.org",
+  ".buzz/"
 ];
 function isBlockedStream(url) {
   if (!url) return true;

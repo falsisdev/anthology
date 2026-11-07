@@ -431,29 +431,32 @@ async function resolveCloseLoadStreams(pageUrl) {
     var embedHost = "hdfilmcehennemi.mobi";
     try { embedHost = new URL(embedUrl).hostname; } catch (e) {}
 
-    var eRes = await fetchWithTimeout(embedUrl, {
-      headers: {
-        'User-Agent': HEADERS['User-Agent'],
-        'Referer': BASE_URL + '/'
-      }
-    }, 10000);
-    if (!eRes.ok) return null;
-    var eHtml = await eRes.text();
-
-    var fileVarMatch = eHtml.match(/sources:\s*\[\{\s*file:\s*([a-zA-Z0-9_$]+)/i);
-    var targetVar = fileVarMatch ? fileVarMatch[1] : null;
-
-    // Script bloklarını tara
-    var scripts = Array.from(eHtml.matchAll(/<script[\s\S]*?<\/script>/gi)).map(function(m) { return m[0]; });
     var streamUrl = null;
-    for (var i = 0; i < scripts.length; i++) {
-      var s = scripts[i];
-      if (s.includes('var ') && (s.includes('([') || (targetVar && s.includes(targetVar))) && (s.includes('btoa') || s.includes('atob') || s.includes('join') || s.includes('split'))) {
-        var cleanScript = s.replace(/<script[^>]*>/i, '').replace(/<\/script>/i, '');
-        var dec = decryptCloseLoadScript(cleanScript, embedHost, targetVar);
-        if (dec && typeof dec === 'string' && dec.startsWith('http')) {
-          streamUrl = dec;
-          break;
+    var eHtml = '';
+    for (var attempt = 0; attempt < 3 && !streamUrl; attempt++) {
+      var eRes = await fetchWithTimeout(embedUrl, {
+        headers: {
+          'User-Agent': HEADERS['User-Agent'],
+          'Referer': BASE_URL + '/'
+        }
+      }, 10000);
+      if (!eRes.ok) continue;
+      eHtml = await eRes.text();
+
+      var fileVarMatch = eHtml.match(/sources:\s*\[\{\s*file:\s*([a-zA-Z0-9_$]+)/i);
+      var targetVar = fileVarMatch ? fileVarMatch[1] : null;
+
+      // Script bloklarını tara
+      var scripts = Array.from(eHtml.matchAll(/<script[\s\S]*?<\/script>/gi)).map(function(m) { return m[0]; });
+      for (var i = 0; i < scripts.length; i++) {
+        var s = scripts[i];
+        if (s.includes('var ') && !s.includes('jwplayer') && (s.includes('([') || (targetVar && s.includes(targetVar)))) {
+          var cleanScript = s.replace(/<script[^>]*>/i, '').replace(/<\/script>/i, '');
+          var dec = decryptCloseLoadScript(cleanScript, embedHost, targetVar);
+          if (dec && typeof dec === 'string' && dec.startsWith('http')) {
+            streamUrl = dec;
+            break;
+          }
         }
       }
     }

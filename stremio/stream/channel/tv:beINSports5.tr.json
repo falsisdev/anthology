@@ -1,19 +1,6 @@
 {
   "streams": [
     {
-      "name": "⌜ Taraftarium24 ⌟",
-      "title": "BeIN Sports 5 HD [1080p FHD]",
-      "url": "https://css.d6e3eds5e065t5.help//b5/tracks-v1a1/mono.m3u8",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Referer": "https://taraftarium24-245.top/",
-        "Origin": "https://taraftarium24-245.top/"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
       "name": "⌜ AlemdarSport ⌟",
       "title": "BeIN Sports 5 HD [1080p FHD]",
       "url": "https://alemdar.e56334ad5bbbc0ca4c80f717246c2500.cfd/mdalemdar/bein5/index.m3u8",
@@ -32,6 +19,18 @@
       "url": "https://andro.evrenesoglu219.click/checklist/androstreamlivebs5.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Anthology Spor ⌟",
+      "title": "BeIN Sports 5 HD [Canlı]",
+      "url": "https://andro.evrenesoglu235.click/checklist/androstreamlivebs5.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*"
       },
       "behaviorHints": {
         "isLive": true

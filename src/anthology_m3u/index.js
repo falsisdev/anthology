@@ -43,13 +43,18 @@ function cleanTitleTokens(s) {
         'izle', 'dublaj', 'altyazi', 'altyazili', 'turkce', 'hd', 'fhd', 'uhd',
         'webrip', 'bluray', 'extended', 'cut', 'edition', 'unrated', 'remastered'
     ]);
+    const romanMap = {
+        'ii': '2', 'iii': '3', 'iv': '4', 'v': '5',
+        'vi': '6', 'vii': '7', 'viii': '8', 'ix': '9', 'x': '10'
+    };
     const folded = String(s).toLowerCase()
         .replace(/[ıİ]/g, 'i').replace(/[üÜ]/g, 'u').replace(/[öÖ]/g, 'o')
         .replace(/[şŞ]/g, 's').replace(/[ğĞ]/g, 'g').replace(/[çÇ]/g, 'c')
         .replace(/[âÂ]/g, 'a').replace(/[îÎ]/g, 'i').replace(/[ûÛ]/g, 'u');
     return folded.split(/[^a-z0-9]+/)
         .map(t => t.replace(/[^a-z0-9]/g, ''))
-        .filter(t => t.length > 0 && !junk.has(t));
+        .filter(t => t.length > 0 && !junk.has(t))
+        .map(t => romanMap[t] || t);
 }
 
 function getLetterGroups(title) {
@@ -175,7 +180,22 @@ const BLOCKED_DOMAINS = [
     'pixypost.art',
     'pixtures.art',
     'imglink.info',
-    'imglink.pro'
+    'imglink.pro',
+    'picogallery.org',
+    'rapidimages.pro',
+    'imagescdns.pics',
+    'seeshare.pics',
+    'imgmania.org',
+    'imageshub.pro',
+    'photomag.biz',
+    'photostack.net',
+    'photofunny.org',
+    'photoflax.org',
+    'photour.org',
+    'pictureflix.org',
+    'photoflick.org',
+    'photoflix.org',
+    '.buzz/'
 ];
 
 function isBlockedStream(url) {

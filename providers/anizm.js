@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: anizm
  * Built from src/anizm/index.js
- * Build: v1.8.35 (anthology build system)
+ * Build: v1.8.36 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -559,8 +559,34 @@ function buildStream(name, title, url, quality, format, isHls, ref) {
 }
 function anizmSearch(query) {
   return __async(this, null, function* () {
+    var out = [];
     try {
-      var res = yield fetch(BASE_URL + "/searchAnime?query=" + encodeURIComponent(query) + "&page=1", { headers: AJAX_HEADERS, signal: timeoutSignal(9e3) });
+      var v3Res = yield fetch(BASE_URL + "/arama-onerileri?q=" + encodeURIComponent(query), { headers: AJAX_HEADERS, signal: timeoutSignal(6e3) });
+      if (v3Res.ok) {
+        var v3Json = yield v3Res.json();
+        var list = v3Json && v3Json.results || [];
+        for (var r = 0; r < list.length; r++) {
+          var it3 = list[r];
+          var slug = String(it3.url || "").replace(/^https?:\/\/[^\/]+\//, "").replace(/\/+$/, "");
+          if (!slug) continue;
+          var title3 = decodeHtmlEntities(it3.title || "");
+          var isRecap = /\brecap\b|\bözet\b/i.test(title3);
+          out.push({
+            slug,
+            name: title3,
+            original: title3,
+            english: isRecap ? "" : query,
+            year: it3.year || "",
+            poster: it3.poster || "",
+            lastEpisode: ""
+          });
+        }
+        if (out.length > 0) return out;
+      }
+    } catch (e) {
+    }
+    try {
+      var res = yield fetch(BASE_URL + "/searchAnime?query=" + encodeURIComponent(query) + "&page=1", { headers: AJAX_HEADERS, signal: timeoutSignal(6e3) });
       if (!res.ok) return [];
       var j;
       try {
@@ -569,7 +595,6 @@ function anizmSearch(query) {
         return [];
       }
       var data = j && j.data || [];
-      var out = [];
       for (var i = 0; i < data.length; i++) {
         var it = data[i];
         out.push({
@@ -1018,34 +1043,82 @@ function getStreams(tmdbId, mediaType, season, episode) {
       }
       if (!finalEpisode && finalSeason < 1) finalEpisode = 1;
       var slug = "";
+      var show = null;
       if (typeof id === "string" && String(tmdbId).indexOf("anizm:") === 0 && id.indexOf("/") === -1) {
         slug = id;
       }
       if (!slug) {
-        var show = yield resolveSeriesInfo(id, mediaType || "series");
+        show = yield resolveSeriesInfo(id, mediaType || "series");
         if (!show || !show.title) return out;
         var match = yield resolveMatch(show, finalSeason);
-        if (!match) return out;
-        slug = match.slug;
+        if (match) slug = match.slug;
       }
-      var epUrl = yield buildEpisodeUrl(slug, finalSeason, finalEpisode);
-      if (!epUrl) return out;
-      var page = yield fetchHtml(epUrl, HEADERS, 1e4);
-      if (!page) return out;
-      var translators = parseTranslators(page.text);
-      var visited = {};
-      var consecutiveFails = 0;
-      for (var i = 0; i < translators.length && out.length < 6 && consecutiveFails < 6; i++) {
-        var videos = yield fetchTranslatorVideos(translators[i]);
-        for (var j = 0; j < videos.length && out.length < 6 && consecutiveFails < 6; j++) {
-          if (visited[videos[j]]) continue;
-          visited[videos[j]] = true;
-          var s = yield resolvePlayerPage(videos[j]);
-          if (s && s.length > 0) {
-            consecutiveFails = 0;
-            for (var k = 0; k < s.length; k++) out.push(s[k]);
-          } else {
-            consecutiveFails++;
+      if (slug) {
+        var epUrl = yield buildEpisodeUrl(slug, finalSeason, finalEpisode);
+        if (epUrl) {
+          var page = yield fetchHtml(epUrl, HEADERS, 1e4);
+          if (page) {
+            var translators = parseTranslators(page.text);
+            var visited = {};
+            var consecutiveFails = 0;
+            for (var i = 0; i < translators.length && out.length < 6 && consecutiveFails < 2; i++) {
+              var videos = yield fetchTranslatorVideos(translators[i]);
+              for (var j = 0; j < videos.length && out.length < 6 && consecutiveFails < 2; j++) {
+                if (visited[videos[j]]) continue;
+                visited[videos[j]] = true;
+                var s = yield resolvePlayerPage(videos[j]);
+                if (s && s.length > 0) {
+                  consecutiveFails = 0;
+                  for (var k = 0; k < s.length; k++) out.push(s[k]);
+                } else {
+                  consecutiveFails++;
+                }
+              }
+            }
+          }
+        }
+      }
+      if (out.length === 0 && show) {
+        var titles = seriesSearchTitles(show);
+        var dwSlug = "";
+        for (var t = 0; t < titles.length && !dwSlug; t++) {
+          var q = titles[t];
+          if (!q || q.length < 2) continue;
+          try {
+            var sr = yield fetch("https://diziwatch.org/api/ara?q=" + encodeURIComponent(q), {
+              headers: { "User-Agent": HEADERS["User-Agent"], "Accept": "application/json", "Referer": "https://diziwatch.org/" },
+              signal: timeoutSignal(4e3)
+            });
+            if (sr.ok) {
+              var arr = yield sr.json();
+              if (Array.isArray(arr) && arr.length > 0 && arr[0].slug) dwSlug = arr[0].slug;
+            }
+          } catch (e2) {
+          }
+        }
+        if (dwSlug) {
+          var sN = finalSeason > 0 ? finalSeason : 1;
+          var eN = finalEpisode > 0 ? finalEpisode : 1;
+          try {
+            var epRes = yield fetch("https://diziwatch.org/dizi/" + dwSlug + "/sezon-" + sN + "/bolum-" + eN, {
+              headers: { "User-Agent": HEADERS["User-Agent"], "Referer": "https://diziwatch.org/" },
+              signal: timeoutSignal(6e3)
+            });
+            if (epRes.ok) {
+              var dwHtml = yield epRes.text();
+              var reH = /anizmplayer\.com\/video\/([a-f0-9]{24,40})/gi;
+              var mh;
+              var hashes = [];
+              while ((mh = reH.exec(dwHtml)) !== null) {
+                if (hashes.indexOf(mh[1]) === -1) hashes.push(mh[1]);
+                if (hashes.length >= 3) break;
+              }
+              for (var hi = 0; hi < hashes.length; hi++) {
+                var sAp = yield resolveAnizmPlayer(hashes[hi]);
+                for (var si = 0; si < sAp.length; si++) out.push(sAp[si]);
+              }
+            }
+          } catch (e2) {
           }
         }
       }

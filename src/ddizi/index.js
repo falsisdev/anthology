@@ -8,7 +8,7 @@ function cfgReady() {
     if (!_cfgReady) {
         _cfgReady = loadConfig().then(function () {
             var v;
-            v = val('urls.series.ddizi.base'); if (v) BASE_URL = String(v).replace(/\/+$/, '');
+            v = val('urls.series.ddizi.base'); if (v && String(v).indexOf('ddizi.im') === -1) BASE_URL = String(v).replace(/\/+$/, '');
             if (HEADERS) HEADERS.Referer = BASE_URL + '/';
         });
     }
@@ -230,12 +230,21 @@ async function getCatalog(args) {
 
         const res = await fetch(url, options);
         if (!res.ok) return { metas: [] };
-        const html = await res.text();
+        let html = await res.text();
 
         let metas = [];
         const seen = new Set();
 
-        const seriesMatches = [...html.matchAll(/<a href="([^"]*\/diziler\/([^"]*))"[^>]*>([\s\S]*?)<\/a>/gi)];
+        let seriesMatches = [...html.matchAll(/<a href="([^"]*\/diziler\/([^"]*))"[^>]*>([\s\S]*?)<\/a>/gi)];
+        if (seriesMatches.length === 0 && !query) {
+            try {
+                const archRes = await fetch(`${BASE_URL}/eski.diziler`, { headers: HEADERS });
+                if (archRes.ok) {
+                    const archHtml = await archRes.text();
+                    seriesMatches = [...archHtml.matchAll(/<a href="([^"]*\/diziler\/([^"]*))"[^>]*>([\s\S]*?)<\/a>/gi)];
+                }
+            } catch (e) {}
+        }
         for (const m of seriesMatches) {
             const slug = m[2].replace(/\/$/, '');
             const title = m[3].replace(/<[^>]+>/g, '').trim();

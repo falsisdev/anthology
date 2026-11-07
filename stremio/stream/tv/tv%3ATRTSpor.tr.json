@@ -1,19 +1,6 @@
 {
   "streams": [
     {
-      "name": "⌜ Taraftarium24 ⌟",
-      "title": "TRT Spor HD [1080p FHD]",
-      "url": "https://css.d6e3eds5e065t5.help//trtspor/tracks-v1a1/mono.m3u8",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Referer": "https://taraftarium24-245.top/",
-        "Origin": "https://taraftarium24-245.top/"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
       "name": "⌜ AlemdarSport ⌟",
       "title": "TRT Spor HD [1080p FHD]",
       "url": "https://alemdar.e56334ad5bbbc0ca4c80f717246c2500.cfd/mdalemdar/trtspor/index.m3u8",

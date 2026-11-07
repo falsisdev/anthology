@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: hdfilmcehennemi
  * Built from src/hdfilmcehennemi/index.js
- * Build: v1.8.35 (anthology build system)
+ * Build: v1.8.36 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -517,28 +517,31 @@ function resolveCloseLoadStreams(pageUrl) {
         embedHost = new URL(embedUrl).hostname;
       } catch (e) {
       }
-      var eRes = yield fetchWithTimeout(embedUrl, {
-        headers: {
-          "User-Agent": HEADERS["User-Agent"],
-          "Referer": BASE_URL + "/"
-        }
-      }, 1e4);
-      if (!eRes.ok) return null;
-      var eHtml = yield eRes.text();
-      var fileVarMatch = eHtml.match(/sources:\s*\[\{\s*file:\s*([a-zA-Z0-9_$]+)/i);
-      var targetVar = fileVarMatch ? fileVarMatch[1] : null;
-      var scripts = Array.from(eHtml.matchAll(/<script[\s\S]*?<\/script>/gi)).map(function(m) {
-        return m[0];
-      });
       var streamUrl = null;
-      for (var i = 0; i < scripts.length; i++) {
-        var s = scripts[i];
-        if (s.includes("var ") && (s.includes("([") || targetVar && s.includes(targetVar)) && (s.includes("btoa") || s.includes("atob") || s.includes("join") || s.includes("split"))) {
-          var cleanScript = s.replace(/<script[^>]*>/i, "").replace(/<\/script>/i, "");
-          var dec = decryptCloseLoadScript(cleanScript, embedHost, targetVar);
-          if (dec && typeof dec === "string" && dec.startsWith("http")) {
-            streamUrl = dec;
-            break;
+      var eHtml = "";
+      for (var attempt = 0; attempt < 3 && !streamUrl; attempt++) {
+        var eRes = yield fetchWithTimeout(embedUrl, {
+          headers: {
+            "User-Agent": HEADERS["User-Agent"],
+            "Referer": BASE_URL + "/"
+          }
+        }, 1e4);
+        if (!eRes.ok) continue;
+        eHtml = yield eRes.text();
+        var fileVarMatch = eHtml.match(/sources:\s*\[\{\s*file:\s*([a-zA-Z0-9_$]+)/i);
+        var targetVar = fileVarMatch ? fileVarMatch[1] : null;
+        var scripts = Array.from(eHtml.matchAll(/<script[\s\S]*?<\/script>/gi)).map(function(m) {
+          return m[0];
+        });
+        for (var i = 0; i < scripts.length; i++) {
+          var s = scripts[i];
+          if (s.includes("var ") && !s.includes("jwplayer") && (s.includes("([") || targetVar && s.includes(targetVar))) {
+            var cleanScript = s.replace(/<script[^>]*>/i, "").replace(/<\/script>/i, "");
+            var dec = decryptCloseLoadScript(cleanScript, embedHost, targetVar);
+            if (dec && typeof dec === "string" && dec.startsWith("http")) {
+              streamUrl = dec;
+              break;
+            }
           }
         }
       }

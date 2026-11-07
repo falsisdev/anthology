@@ -205,7 +205,7 @@ function getTmdbInfo(tmdbId, mediaType) {
     if (isImdb) {
         url = `https://api.themoviedb.org/3/find/${cleanId}?api_key=${TMDB_API_KEY}&external_source=imdb_id`;
     } else {
-        url = `https://api.themoviedb.org/3/${isTV ? 'tv' : 'movie'}/${cleanId}?api_key=${TMDB_API_KEY}`;
+        url = `https://api.themoviedb.org/3/${isTV ? 'tv' : 'movie'}/${cleanId}?api_key=${TMDB_API_KEY}&append_to_response=external_ids`;
     }
     
     return makeRequest(url)
@@ -220,13 +220,14 @@ function getTmdbInfo(tmdbId, mediaType) {
         }
         const title = isTV ? data.name : data.title;
         const year = isTV ? data.first_air_date?.substring(0, 4) : data.release_date?.substring(0, 4);
+        const imdbId = isImdb ? cleanId : (data.imdb_id || (data.external_ids && data.external_ids.imdb_id) || '');
         
         if (!title) {
             throw new Error('Could not extract title from TMDB response');
         }
         
         console.log(`[Vidlink] TMDB Info: "${title}" (${year}), Numeric ID: ${data.id}`);
-        return { id: data.id, title, year, data };
+        return { id: data.id, imdbId, title, year, data };
     });
 }
 
@@ -485,6 +486,40 @@ function getStreams(tmdbId, mediaType = 'movie', seasonNum = null, episodeNum = 
                     directStreams.sort((a, b) => (qualityOrder[b.quality.split(' ')[0]] || -3) - (qualityOrder[a.quality.split(' ')[0]] || -3));
                     return directStreams;
                 }
+            })
+            .catch(err => {
+                if (tmdbInfo.imdbId) {
+                    const isTV = (mediaType === 'tv' || mediaType === 'series');
+                    const vixUrl = isTV && seasonNum && episodeNum
+                        ? `https://ha.vixolity.com/vs/${tmdbInfo.imdbId}/s${seasonNum}/e${episodeNum}`
+                        : `https://ha.vixolity.com/vs/${tmdbInfo.imdbId}`;
+                    const vixHeaders = {
+                        'User-Agent': (VIDLINK_HEADERS && VIDLINK_HEADERS['User-Agent']) || 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36',
+                        'Referer': 'https://ha.vixolity.com/',
+                        'Origin': 'https://ha.vixolity.com'
+                    };
+                    return fetch(vixUrl, { headers: vixHeaders }).then(r => {
+                        if (!r.ok) return [];
+                        return r.text().then(txt => {
+                            if (!txt || !txt.includes('#EXTM3U')) return [];
+                            return [{
+                                name: 'Vidlink',
+                                title: `${title} (${year || ''}) • 1080p [MULTI]`,
+                                url: vixUrl,
+                                quality: '1080p [MULTI]',
+                                format: 'hls',
+                                isHls: true,
+                                headers: vixHeaders,
+                                behaviorHints: {
+                                    notWebReady: true,
+                                    proxyHeaders: { request: vixHeaders }
+                                },
+                                provider: 'vidlink'
+                            }];
+                        });
+                    }).catch(() => []);
+                }
+                throw err;
             });
         });
     })
