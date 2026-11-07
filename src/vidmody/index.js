@@ -6,7 +6,7 @@ function cfgReady() {
     if (!_cfgReady) {
         _cfgReady = loadConfig().then(function () {
             var v;
-            v = val('urls.movies.vidmody.base'); if (v) BASE_URL = String(v).replace(/\/+$/, '');
+            v = val('urls.movies.vidmody.base'); if (v && String(v).indexOf('vidmody.com') === -1) BASE_URL = String(v).replace(/\/+$/, '');
             if (STREAM_HEADERS) STREAM_HEADERS.Referer = BASE_URL + '/';
         });
     }
@@ -20,20 +20,62 @@ function cfgReady() {
  */
 
 var PROVIDER_NAME = 'Vidmody';
-var BASE_URL = 'https://vidmody.com';
+var BASE_URL = 'https://ha.vixolity.com';
 var TMDB_API_KEY  = '500330721680edb6d5f7f12ba7cd9023';
 
-var STREAM_HEADERS = {
-    'Referer': BASE_URL + '/',
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/137.0.0.0 Safari/537.36'
+var VIXOLITY_HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+    'Referer': 'https://pl.vixolity.com/',
+    'Origin': 'https://pl.vixolity.com',
+    'Accept': '*/*'
 };
+var STREAM_HEADERS = VIXOLITY_HEADERS;
+
+function parseVixolitySubtitles(playlistText) {
+    var subs = [];
+    var subRe = /#EXT-X-MEDIA:TYPE=SUBTITLES.*?NAME="([^"]+)".*?LANGUAGE="([^"]+)".*?URI="([^"]+)"/gi;
+    var sm;
+    var seen = new Set();
+    while ((sm = subRe.exec(playlistText)) !== null) {
+        var name = sm[1];
+        var lang = sm[2].toLowerCase();
+        var uri = sm[3];
+        if (seen.has(uri)) continue;
+        seen.add(uri);
+        subs.push({
+            id: lang,
+            lang: lang === 'tr' ? 'tur' : lang === 'en' ? 'eng' : lang,
+            language: lang,
+            label: name,
+            name: name,
+            title: name,
+            url: uri,
+            format: 'vtt',
+            type: 'text/vtt',
+            headers: VIXOLITY_HEADERS
+        });
+    }
+    return subs;
+}
 
 async function getStreams(tmdbId, mediaType, season, episode) {
     try {
-        var cleanId = String(tmdbId || '').trim();
+        var id = tmdbId;
+        var mType = mediaType;
+        var sNum = parseInt(season) || 1;
+        var eNum = parseInt(episode) || 1;
+
+        if (typeof tmdbId === 'object' && tmdbId && tmdbId.id) {
+            id = tmdbId.id;
+            if (tmdbId.type) mType = tmdbId.type;
+            if (tmdbId.season) sNum = parseInt(tmdbId.season) || 1;
+            if (tmdbId.episode) eNum = parseInt(tmdbId.episode) || 1;
+        }
+
+        var cleanId = String(id || '').trim().replace(/^(?:movie|tv|series|tmdb|imdb):+/i, '');
         if (cleanId.includes(':')) cleanId = cleanId.split(':')[0];
 
-        var isTV = (mediaType === 'tv' || mediaType === 'series');
+        var isTV = (mType === 'tv' || mType === 'series');
         var typePath = isTV ? 'tv' : 'movie';
         var isImdb = cleanId.startsWith('tt');
 
@@ -58,7 +100,7 @@ async function getStreams(tmdbId, mediaType, season, episode) {
             var tmdbRes = await fetch(tmdbUrl);
             if (!tmdbRes.ok) return [];
             var d = await tmdbRes.json();
-            imdbId = d.external_ids ? d.external_ids.imdb_id : null;
+            imdbId = d.external_ids ? d.external_ids.imdb_id : (d.imdb_id || null);
             displayTitle = d.title || d.name || displayTitle;
             releaseYear = (d.release_date || d.first_air_date || '').slice(0, 4);
         }
@@ -66,40 +108,44 @@ async function getStreams(tmdbId, mediaType, season, episode) {
         if (!imdbId || !imdbId.startsWith('tt')) return [];
 
         var targetUrl = '';
-        var streamTitle = '⌜ Vidmody ⌟ | Çoklu Dil (1080p HLS)';
+        var tag = isTV ? ('S' + sNum + 'E' + eNum + ' • [TR Dublaj & Altyazılı]') : '[TR Dublaj & Altyazılı]';
+        var streamTitle = '⌜ Vidmody ⌟ | Vixolity • ' + tag + ' (1080p HLS)';
 
         if (!isTV) {
-            targetUrl = BASE_URL + '/vs/' + imdbId;
+            targetUrl = 'https://ha.vixolity.com/vs/' + imdbId;
             if (releaseYear) displayTitle += ' (' + releaseYear + ')';
         } else {
-            var sNum = parseInt(season) || 1;
-            var eNum = parseInt(episode) || 1;
             var sStr = 's' + sNum;
             var eStr = 'e' + (eNum < 10 ? '0' + eNum : eNum);
-            targetUrl = BASE_URL + '/vs/' + imdbId + '/' + sStr + '/' + eStr;
+            targetUrl = 'https://ha.vixolity.com/vs/' + imdbId + '/' + sStr + '/' + eStr;
             displayTitle += ' - S' + String(sNum).padStart(2, '0') + 'E' + String(eNum).padStart(2, '0');
         }
 
-        // Link doğrulama (Hızlı HEAD isteği)
         try {
-            var checkRes = await fetch(targetUrl, { 
-                method: 'HEAD',
-                headers: STREAM_HEADERS
+            var checkRes = await fetch(targetUrl, {
+                headers: VIXOLITY_HEADERS
             });
-            
-            if (checkRes.status === 200) {
-                return [{
-                    name: displayTitle,
-                    title: streamTitle,
-                    url: targetUrl,
-                    quality: '1080p',
-                    headers: STREAM_HEADERS,
-                    behaviorHints: {
-                        notWebReady: true,
-                        proxyHeaders: { request: STREAM_HEADERS }
-                    },
-                    provider: 'vidmody'
-                }];
+
+            if (checkRes.ok) {
+                var text = await checkRes.text();
+                if (text.includes('#EXTM3U')) {
+                    var subs = parseVixolitySubtitles(text);
+                    return [{
+                        name: 'Vidmody',
+                        title: streamTitle,
+                        url: targetUrl,
+                        quality: '1080p',
+                        headers: VIXOLITY_HEADERS,
+                        format: 'hls',
+                        isHls: true,
+                        behaviorHints: {
+                            notWebReady: true,
+                            proxyHeaders: { request: VIXOLITY_HEADERS }
+                        },
+                        provider: 'vidmody',
+                        subtitles: subs
+                    }];
+                }
             }
         } catch (linkErr) {
             return [];

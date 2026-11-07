@@ -370,7 +370,9 @@ async function getStreams(tmdbId, mediaType, season, episode) {
       var show = await resolveSeriesInfo(id, mediaType || "series");
       if (!show || !show.title) return out;
       var match = await resolveMatch(show);
-      if (!match) return out;
+      if (!match) {
+        return await resolveDiziwatchFallback(show, finalSeason, finalEpisode);
+      }
       slug = match.slug;
     }
 
@@ -438,39 +440,124 @@ async function getMeta(id) {
   }
 }
 
+async function resolveDiziwatchFallback(show, season, episode) {
+  var out = [];
+  try {
+    var titles = seriesSearchTitles(show);
+    var slug = "";
+    for (var t = 0; t < titles.length && !slug; t++) {
+      var q = titles[t];
+      if (!q || q.length < 2) continue;
+      var sr = await fetch("https://diziwatch.org/api/ara?q=" + encodeURIComponent(q), {
+        headers: { "User-Agent": HEADERS["User-Agent"], "Accept": "application/json", "Referer": "https://diziwatch.org/" },
+        signal: timeoutSignal(4000)
+      });
+      if (!sr.ok) continue;
+      var arr = await sr.json();
+      if (Array.isArray(arr) && arr.length > 0 && arr[0].slug) {
+        slug = arr[0].slug;
+        break;
+      }
+    }
+    if (!slug) return out;
+    var sN = season > 0 ? season : 1;
+    var eN = episode > 0 ? episode : 1;
+    var epRes = await fetch("https://diziwatch.org/dizi/" + slug + "/sezon-" + sN + "/bolum-" + eN, {
+      headers: { "User-Agent": HEADERS["User-Agent"], "Referer": "https://diziwatch.org/" },
+      signal: timeoutSignal(6000)
+    });
+    if (!epRes.ok) return out;
+    var html = await epRes.text();
+    var re = /anizmplayer\.com\/video\/([a-f0-9]{24,40})/gi;
+    var m;
+    var hashes = [];
+    while ((m = re.exec(html)) !== null) {
+      if (hashes.indexOf(m[1]) === -1) hashes.push(m[1]);
+      if (hashes.length >= 2) break;
+    }
+    for (var i = 0; i < hashes.length; i++) {
+      var h = hashes[i];
+      var pRes = await fetch("https://anizmplayer.com/player/index.php?data=" + h + "&do=getVideo", {
+        method: "POST",
+        headers: {
+          "User-Agent": HEADERS["User-Agent"],
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "X-Requested-With": "XMLHttpRequest",
+          "Referer": "https://anizmplayer.com/video/" + h,
+          "Origin": "https://anizmplayer.com"
+        },
+        body: "hash=" + encodeURIComponent(h) + "&r=" + encodeURIComponent("https://diziwatch.org/"),
+        signal: timeoutSignal(5000)
+      });
+      if (!pRes.ok) continue;
+      var pData = await pRes.json();
+      var u = (pData && (pData.videoSource || pData.securedLink)) || "";
+      if (u) {
+        if (u.indexOf(".m3u8") === -1 && u.indexOf("master.txt") !== -1) u = u + "#.m3u8";
+        out.push(buildStream(SITE_NAME, "⌜ " + SITE_NAME + " ⌟ | 1080p • HDPlayer [TR Altyazılı]", u, "1080p", "hls", true, "https://anizmplayer.com/"));
+      }
+    }
+  } catch (e) {}
+  return out;
+}
+
 async function getCatalog(args) {
   try {
     var metas = [];
     if (args && args.search) {
       var results = await animomSearch(args.search);
-      for (var i = 0; i < results.length; i++) {
-        metas.push({
-          id: "animom:show:" + results[i].slug,
-          type: "series",
-          name: results[i].name,
-          poster: results[i].poster
-        });
+      if (results && results.length) {
+        for (var i = 0; i < results.length; i++) {
+          metas.push({
+            id: "animom:show:" + results[i].slug,
+            type: "series",
+            name: results[i].name,
+            poster: results[i].poster
+          });
+        }
+        return { metas: metas };
       }
-      return { metas: metas };
     }
 
-    var res = await fetch(BASE_URL + "/home", { headers: HEADERS, signal: timeoutSignal(10000) });
-    if (!res.ok) return { metas: [] };
-    var html = await res.text();
-    var re = /<a\s+class="block"\s+href="https:\/\/animom\.org\/anime\/([^"\?\/]+)"[^>]*>\s*<img[^>]*\sdata-src="([^"]+)"[^>]*alt="([^"]*)"/g;
-    var m;
-    var seen = {};
-    while ((m = re.exec(html)) !== null) {
-      var slug = m[1];
-      if (seen[slug]) continue;
-      seen[slug] = true;
-      metas.push({
-        id: "animom:show:" + slug,
-        type: "series",
-        name: decodeHtmlEntities(m[3]) || slug,
-        poster: m[2]
-      });
-      if (metas.length >= 30) break;
+    try {
+      var res = await fetch(BASE_URL + "/home", { headers: HEADERS, signal: timeoutSignal(2500) });
+      if (res.ok) {
+        var html = await res.text();
+        var re = /<a\s+class="block"\s+href="https:\/\/animom\.org\/anime\/([^"\?\/]+)"[^>]*>\s*<img[^>]*\sdata-src="([^"]+)"[^>]*alt="([^"]*)"/g;
+        var m;
+        var seen = {};
+        while ((m = re.exec(html)) !== null) {
+          var slug = m[1];
+          if (seen[slug]) continue;
+          seen[slug] = true;
+          metas.push({
+            id: "animom:show:" + slug,
+            type: "series",
+            name: decodeHtmlEntities(m[3]) || slug,
+            poster: m[2]
+          });
+          if (metas.length >= 30) break;
+        }
+      }
+    } catch (e) {}
+
+    if (metas.length === 0) {
+      var tRes = await fetch("https://api.themoviedb.org/3/discover/tv?api_key=500330721680edb6d5f7f12ba7cd9023&language=tr-TR&with_genres=16&with_original_language=ja&sort_by=popularity.desc&page=1", { signal: timeoutSignal(5000) });
+      if (tRes.ok) {
+        var tData = await tRes.json();
+        var list = (tData && tData.results) || [];
+        for (var k = 0; k < list.length; k++) {
+          var it = list[k];
+          if (!it || !it.id) continue;
+          metas.push({
+            id: "tmdb:" + it.id,
+            type: "series",
+            name: it.name || it.original_name,
+            poster: it.poster_path ? "https://image.tmdb.org/t/p/w500" + it.poster_path : ""
+          });
+          if (metas.length >= 24) break;
+        }
+      }
     }
     return { metas: metas };
   } catch (e) {

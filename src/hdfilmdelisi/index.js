@@ -32,8 +32,15 @@ var HEADERS = {
 
 var VIDMODY_HEADERS = {
     'User-Agent': HEADERS['User-Agent'],
-    'Referer': 'https://vidmody.com/',
-    'Origin': 'https://player.vidmody.com'
+    'Referer': 'https://pl.vixolity.com/',
+    'Origin': 'https://pl.vixolity.com'
+};
+
+var VIXOLITY_HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+    'Referer': 'https://pl.vixolity.com/',
+    'Origin': 'https://pl.vixolity.com',
+    'Accept': '*/*'
 };
 
 function ultraClean(str) {
@@ -57,11 +64,13 @@ function fetchWithTimeout(url, options, ms) {
 
 async function resolveTmdbInfo(id, mediaType) {
     try {
-        var cleanId = String(id || '').trim();
+        var cleanId = String(id || '').trim().replace(/^(?:movie|tv|series|tmdb|imdb):+/i, '');
         if (cleanId.includes(':')) cleanId = cleanId.split(':')[0];
         var title = '';
         var origTitle = '';
+        var imdbId = '';
         if (cleanId.startsWith('tt')) {
+            imdbId = cleanId;
             var findRes = await fetchWithTimeout('https://api.themoviedb.org/3/find/' + cleanId + '?api_key=' + TMDB_API_KEY + '&external_source=imdb_id', {}, 10000);
             if (findRes.ok) {
                 var fd = await findRes.json();
@@ -81,11 +90,19 @@ async function resolveTmdbInfo(id, mediaType) {
                 var td = await tRes.json();
                 title = td.name || td.title || '';
                 origTitle = td.original_name || td.original_title || '';
+                if (td.imdb_id) imdbId = td.imdb_id;
+            }
+            if (!imdbId && (mediaType === 'tv' || mediaType === 'series')) {
+                var extRes = await fetchWithTimeout('https://api.themoviedb.org/3/tv/' + cleanId + '/external_ids?api_key=' + TMDB_API_KEY, {}, 6000);
+                if (extRes.ok) {
+                    var extData = await extRes.json();
+                    if (extData && extData.imdb_id) imdbId = extData.imdb_id;
+                }
             }
         }
-        return { title: title, origTitle: origTitle };
+        return { title: title, origTitle: origTitle, imdbId: imdbId };
     } catch (e) {
-        return { title: '', origTitle: '' };
+        return { title: '', origTitle: '', imdbId: '' };
     }
 }
 
@@ -181,14 +198,59 @@ async function extractVidmodyFile(pageUrl) {
     }
 }
 
-function toStream(file, subtitles) {
-    var isHls = /\.m3u8/i.test(file) || file.includes('vidmody.com/vs/');
-    var headers = isHls && file.includes('vidmody.com')
-        ? { 'User-Agent': HEADERS['User-Agent'], 'Referer': 'https://vidmody.com/' }
-        : { 'User-Agent': HEADERS['User-Agent'], 'Referer': 'https://player.vidmody.com/' };
+function parseVixolitySubtitles(playlistText) {
+    var subs = [];
+    var subRe = /#EXT-X-MEDIA:TYPE=SUBTITLES.*?NAME="([^"]+)".*?LANGUAGE="([^"]+)".*?URI="([^"]+)"/gi;
+    var sm;
+    var seen = new Set();
+    while ((sm = subRe.exec(playlistText)) !== null) {
+        var name = sm[1];
+        var lang = sm[2].toLowerCase();
+        var uri = sm[3];
+        if (seen.has(uri)) continue;
+        seen.add(uri);
+        subs.push({
+            id: lang,
+            lang: lang === 'tr' ? 'tur' : lang === 'en' ? 'eng' : lang,
+            language: lang,
+            label: name,
+            name: name,
+            title: name,
+            url: uri,
+            format: 'vtt',
+            type: 'text/vtt',
+            headers: VIXOLITY_HEADERS
+        });
+    }
+    return subs;
+}
+
+function toVixolityStream(url, subtitles, isSeries, sNum, eNum) {
+    var tag = isSeries ? ('S' + (sNum || 1) + 'E' + (eNum || 1) + ' • [TR Dublaj & Altyazılı]') : '[TR Dublaj & Altyazılı]';
     return {
         name: 'HDFilmDelisi',
-        title: '⌜ HDFilmDelisi ⌟ | VidMody (1080p HLS)',
+        title: '⌜ HDFilmDelisi ⌟ | Vixolity • ' + tag + ' (1080p HLS)',
+        url: url,
+        quality: '1080p',
+        provider: 'hdfilmdelisi',
+        headers: VIXOLITY_HEADERS,
+        format: 'hls',
+        isHls: true,
+        behaviorHints: { notWebReady: true, proxyHeaders: { request: VIXOLITY_HEADERS } },
+        subtitles: subtitles || []
+    };
+}
+
+function toStream(file, subtitles) {
+    var isHls = /\.m3u8/i.test(file) || file.includes('vixolity.com/vs/') || file.includes('vidmody.com/vs/');
+    var headers = file.includes('vixolity.com')
+        ? VIXOLITY_HEADERS
+        : (isHls && file.includes('vidmody.com')
+            ? { 'User-Agent': HEADERS['User-Agent'], 'Referer': 'https://vidmody.com/' }
+            : { 'User-Agent': HEADERS['User-Agent'], 'Referer': 'https://player.vidmody.com/' });
+    return {
+        name: 'HDFilmDelisi',
+        title: '⌜ HDFilmDelisi ⌟ | 1080p HLS',
         url: file,
         quality: '1080p',
         provider: 'hdfilmdelisi',
@@ -256,28 +318,96 @@ async function getMeta(args) {
 
 async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
     try {
+        var id = tmdbIdOrArgs;
+        var isSeries = mediaType === 'tv' || mediaType === 'series';
+        var s = seasonNum || 1;
+        var e = episodeNum || 1;
+
         if (typeof tmdbIdOrArgs === 'object' && tmdbIdOrArgs && tmdbIdOrArgs.id) {
-            return getStreams(tmdbIdOrArgs.id, mediaType, seasonNum, episodeNum);
+            id = tmdbIdOrArgs.id;
+            if (tmdbIdOrArgs.type) isSeries = tmdbIdOrArgs.type === 'tv' || tmdbIdOrArgs.type === 'series';
+            if (tmdbIdOrArgs.season) s = tmdbIdOrArgs.season;
+            if (tmdbIdOrArgs.episode) e = tmdbIdOrArgs.episode;
         }
-        if (typeof tmdbIdOrArgs === 'string' && tmdbIdOrArgs.startsWith('hdfilmdelisi:movie:')) {
-            var slug = tmdbIdOrArgs.split(':').slice(2).join(':');
+
+        var streams = [];
+        var seenUrls = new Set();
+
+        // 1. Direct slug access
+        if (typeof id === 'string' && id.startsWith('hdfilmdelisi:movie:')) {
+            var slug = id.split(':').slice(2).join(':');
+            var apiRes = await fetchWithTimeout(BASE_URL + '/api/films/' + slug, { headers: HEADERS }, 10000);
+            if (apiRes.ok) {
+                var fData = await apiRes.json();
+                if (fData && fData.imdbId && fData.imdbId.startsWith('tt')) {
+                    var directVix = 'https://ha.vixolity.com/vs/' + fData.imdbId;
+                    var vr = await fetchWithTimeout(directVix, { headers: VIXOLITY_HEADERS }, 8000);
+                    if (vr.ok) {
+                        var vt = await vr.text();
+                        var subs = parseVixolitySubtitles(vt);
+                        streams.push(toVixolityStream(directVix, subs, false));
+                        seenUrls.add(directVix);
+                    }
+                }
+            }
             var found = await extractVidmodyFile(BASE_URL + '/film/' + slug);
-            return found ? [toStream(found.file, found.subtitles)] : [];
+            if (found && !seenUrls.has(found.file)) {
+                streams.push(toStream(found.file, found.subtitles));
+                seenUrls.add(found.file);
+            }
+            if (streams.length > 0) return streams;
         }
 
-        var info = await resolveTmdbInfo(tmdbIdOrArgs, mediaType);
-        var searchTitles = [info.title, info.origTitle].filter(Boolean);
-        if (searchTitles.length === 0) return [];
+        // 2. Resolve TMDB Info (includes imdbId)
+        var info = await resolveTmdbInfo(id, isSeries ? 'tv' : 'movie');
 
+        // 3. Direct Vixolity HLS via IMDb ID (Dual Audio TR/EN + Subtitles)
+        if (info && info.imdbId && info.imdbId.startsWith('tt')) {
+            var vixUrl = isSeries
+                ? 'https://ha.vixolity.com/vs/' + info.imdbId + '/s' + s + '/e' + (e < 10 ? '0' + e : e)
+                : 'https://ha.vixolity.com/vs/' + info.imdbId;
+
+            var vRes = await fetchWithTimeout(vixUrl, { headers: VIXOLITY_HEADERS }, 8000);
+            if (vRes.ok) {
+                var vTxt = await vRes.text();
+                if (vTxt.includes('#EXTM3U')) {
+                    var vSubs = parseVixolitySubtitles(vTxt);
+                    streams.push(toVixolityStream(vixUrl, vSubs, isSeries, s, e));
+                    seenUrls.add(vixUrl);
+                }
+            }
+        }
+
+        // 4. Fallback search on HDFilmDelisi API
+        var searchTitles = [info.title, info.origTitle].filter(Boolean);
         for (var t = 0; t < searchTitles.length; t++) {
             var results = await apiSearch(searchTitles[t]);
             if (!results || results.length === 0) continue;
             var best = pickBest(results, searchTitles[t]);
             if (!best || !best.slug) continue;
+
+            if (best.imdbId && best.imdbId.startsWith('tt') && !seenUrls.has('https://ha.vixolity.com/vs/' + best.imdbId)) {
+                var sUrl = 'https://ha.vixolity.com/vs/' + best.imdbId;
+                var sRes = await fetchWithTimeout(sUrl, { headers: VIXOLITY_HEADERS }, 8000);
+                if (sRes.ok) {
+                    var sTxt = await sRes.text();
+                    if (sTxt.includes('#EXTM3U')) {
+                        var sSubs = parseVixolitySubtitles(sTxt);
+                        streams.push(toVixolityStream(sUrl, sSubs, false));
+                        seenUrls.add(sUrl);
+                    }
+                }
+            }
+
             var vf = await extractVidmodyFile(BASE_URL + '/film/' + best.slug);
-            if (vf) return [toStream(vf.file, vf.subtitles)];
+            if (vf && !seenUrls.has(vf.file)) {
+                streams.push(toStream(vf.file, vf.subtitles));
+                seenUrls.add(vf.file);
+            }
+            if (streams.length > 0) break;
         }
-        return [];
+
+        return streams;
     } catch (e) {
         return [];
     }

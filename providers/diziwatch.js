@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: diziwatch
  * Built from src/diziwatch/index.js
- * Build: v1.8.35 (anthology build system)
+ * Build: v1.8.36 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -142,14 +142,14 @@ function cfgReady() {
     _cfgReady = loadConfig().then(function() {
       var v;
       v = val("urls.series.diziwatch.base");
-      if (v) BASE_URL = String(v).replace(/\/+$/, "");
+      if (v && String(v).indexOf("diziwatch.ac") === -1) BASE_URL = String(v).replace(/\/+$/, "");
       if (HEADERS) HEADERS.Referer = BASE_URL + "/";
     });
   }
   return _cfgReady;
 }
 var TMDB_API_KEY = "500330721680edb6d5f7f12ba7cd9023";
-var BASE_URL = "https://diziwatch.ac";
+var BASE_URL = "https://diziwatch.org";
 var UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36";
 var HEADERS = {
   "User-Agent": UA,
@@ -264,6 +264,33 @@ function searchDiziwatch(keyword) {
   return __async(this, null, function* () {
     try {
       if (!keyword) return [];
+      var q = encodeURIComponent(keyword.trim());
+      try {
+        var r1 = yield fetch(BASE_URL + "/api/ara?q=" + q, {
+          headers: {
+            "User-Agent": UA,
+            "Accept": "application/json",
+            "Referer": BASE_URL + "/"
+          },
+          signal: timeoutSignal(6e3)
+        });
+        if (r1.ok) {
+          var arr = yield r1.json();
+          if (Array.isArray(arr) && arr.length > 0) {
+            return arr.map(function(it) {
+              return {
+                used_slug: it.slug,
+                object_name: it.title || it.slug,
+                object_alternative_name: it.originalTitle || "",
+                object_related_imdb_id: it.imdbId || "",
+                poster: it.poster || "",
+                year: it.year || ""
+              };
+            });
+          }
+        }
+      } catch (e) {
+      }
       var body = new URLSearchParams();
       body.set("searchterm", keyword.trim());
       var res = yield fetch(BASE_URL + "/bg/searchcontent", {
@@ -275,7 +302,7 @@ function searchDiziwatch(keyword) {
           "Referer": BASE_URL + "/"
         },
         body: body.toString(),
-        signal: timeoutSignal(8e3)
+        signal: timeoutSignal(6e3)
       });
       if (!res.ok) return [];
       var json = yield res.json();
@@ -323,7 +350,141 @@ function findBestMatch(results, queries, targetImdbId) {
   }
   return results[0] || null;
 }
-function getEpisodeIframe(usedSlug, seasonNum, episodeNum) {
+function resolveAnizmPlayerHash(hash, baseTitle) {
+  return __async(this, null, function* () {
+    try {
+      var res = yield fetch("https://anizmplayer.com/player/index.php?data=" + hash + "&do=getVideo", {
+        method: "POST",
+        headers: {
+          "User-Agent": UA,
+          "X-Requested-With": "XMLHttpRequest",
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "Referer": "https://anizmplayer.com/",
+          "Origin": "https://anizmplayer.com"
+        },
+        body: "hash=" + hash + "&r=" + encodeURIComponent(BASE_URL + "/"),
+        signal: timeoutSignal(7e3)
+      });
+      if (!res.ok) return [];
+      var data = yield res.json();
+      var streamUrl = data && (data.videoSource || data.securedLink);
+      if (!streamUrl) return [];
+      var playUrl = streamUrl.indexOf(".txt") !== -1 ? streamUrl + "#.m3u8" : streamUrl;
+      var hs = { "User-Agent": UA, "Referer": "https://anizmplayer.com/" };
+      return [{
+        name: "DiziWatch",
+        title: baseTitle + " | AnizmPlayer [1080p HLS]",
+        url: playUrl,
+        quality: "1080p",
+        format: "hls",
+        isHls: true,
+        contentLanguage: "tr",
+        provider: "diziwatch",
+        headers: hs,
+        behaviorHints: { notWebReady: false, proxyHeaders: { request: hs } }
+      }];
+    } catch (e) {
+      return [];
+    }
+  });
+}
+function resolveSibnetEmbed(embedUrl, baseTitle) {
+  return __async(this, null, function* () {
+    try {
+      var fullUrl = embedUrl.indexOf("//") === 0 ? "https:" + embedUrl : embedUrl;
+      var res = yield fetch(fullUrl, {
+        headers: { "User-Agent": UA, "Referer": BASE_URL + "/" },
+        signal: timeoutSignal(7e3)
+      });
+      if (!res.ok) return [];
+      var html = yield res.text();
+      var m = html.match(/player\.src\(\[\{src:\s*["']?([^"'\s>]+)/i);
+      if (!m) return [];
+      var videoPath = m[1];
+      var videoUrl = videoPath.indexOf("http") === 0 ? videoPath : "https://video.sibnet.ru" + videoPath;
+      var hs = { "User-Agent": UA, "Referer": "https://video.sibnet.ru/" };
+      return [{
+        name: "DiziWatch",
+        title: baseTitle + " | Sibnet [720p MP4]",
+        url: videoUrl,
+        quality: "720p",
+        format: "mp4",
+        isHls: false,
+        contentLanguage: "tr",
+        provider: "diziwatch",
+        headers: hs,
+        behaviorHints: { notWebReady: false, proxyHeaders: { request: hs } }
+      }];
+    } catch (e) {
+      return [];
+    }
+  });
+}
+function resolveOkRuEmbed(embedUrl, baseTitle) {
+  return __async(this, null, function* () {
+    try {
+      var fullUrl = embedUrl.indexOf("//") === 0 ? "https:" + embedUrl : embedUrl;
+      var res = yield fetch(fullUrl, {
+        headers: { "User-Agent": UA, "Referer": "https://ok.ru/" },
+        signal: timeoutSignal(7e3)
+      });
+      if (!res.ok) return [];
+      var html = yield res.text();
+      var m = html.match(/data-options=["']([^"']+)["']/i);
+      if (!m) return [];
+      var opts = JSON.parse(decodeHtmlEntities(m[1]));
+      var fv = opts.flashvars || {};
+      var meta = fv.metadata;
+      if (typeof meta === "string") {
+        try {
+          meta = JSON.parse(meta);
+        } catch (e) {
+          meta = null;
+        }
+      }
+      var vids = meta && meta.videos ? meta.videos : fv.videos || [];
+      var nameMap = { "ultra": "2160p", "quad": "1440p", "full": "1080p", "hd": "720p", "sd": "480p", "low": "360p", "lowest": "240p", "mobile": "240p" };
+      var out = [];
+      var hs = { "User-Agent": UA, "Referer": "https://ok.ru/" };
+      for (var i = 0; i < vids.length; i++) {
+        var v = vids[i];
+        if (!v || !v.url) continue;
+        var q = nameMap[String(v.name).toLowerCase()] || v.name || "720p";
+        out.push({
+          name: "DiziWatch",
+          title: baseTitle + " | Ok.ru [" + q.toUpperCase() + " MP4]",
+          url: v.url,
+          quality: q,
+          format: "mp4",
+          isHls: false,
+          contentLanguage: "tr",
+          provider: "diziwatch",
+          headers: hs,
+          behaviorHints: { notWebReady: false, proxyHeaders: { request: hs } }
+        });
+      }
+      var hlsUrl = meta && meta.hlsManifestUrl ? meta.hlsManifestUrl : fv.hlsManifestUrl;
+      if (hlsUrl) {
+        out.push({
+          name: "DiziWatch",
+          title: baseTitle + " | Ok.ru [1080p HLS]",
+          url: hlsUrl,
+          quality: "1080p",
+          format: "hls",
+          isHls: true,
+          contentLanguage: "tr",
+          provider: "diziwatch",
+          headers: hs,
+          behaviorHints: { notWebReady: false, proxyHeaders: { request: hs } }
+        });
+      }
+      return out;
+    } catch (e) {
+      return [];
+    }
+  });
+}
+function extractEpisodeStreams(usedSlug, showName, seasonNum, episodeNum) {
   return __async(this, null, function* () {
     try {
       var cleanSlug = usedSlug.replace(/^\//, "").replace(/^dizi\//, "");
@@ -332,25 +493,60 @@ function getEpisodeIframe(usedSlug, seasonNum, episodeNum) {
         headers: HEADERS,
         signal: timeoutSignal(8e3)
       });
-      if (!res.ok) return null;
+      if (!res.ok) return [];
       var html = yield res.text();
-      var cstkMatch = html.match(/id=["']cstk["'][^>]*>[\s\S]*?<iframe[^>]+src=["']([^"']+)["']/i);
-      if (cstkMatch && cstkMatch[1]) {
-        var src1 = cstkMatch[1].trim();
-        if (src1.indexOf("//") === 0) src1 = "https:" + src1;
-        return src1;
+      var epLabel = "S" + (seasonNum < 10 ? "0" + seasonNum : seasonNum) + "E" + (episodeNum < 10 ? "0" + episodeNum : episodeNum);
+      var baseTitle = "\u231C DiziWatch \u231F | " + (showName || cleanSlug) + " " + epLabel;
+      var tasks = [];
+      var seenHashes = {};
+      var apMatches = html.match(/https?:\/\/anizmplayer\.com\/video\/([a-f0-9]{16,64})/gi) || [];
+      for (var i = 0; i < apMatches.length; i++) {
+        var hm = apMatches[i].match(/\/video\/([a-f0-9]+)/i);
+        if (hm && !seenHashes[hm[1]]) {
+          seenHashes[hm[1]] = true;
+          tasks.push(resolveAnizmPlayerHash(hm[1], baseTitle));
+        }
       }
-      var iframeMatch = html.match(/<iframe[^>]+src=["'](?:\/\/)((?:four\.)?pichive\.online\/[^"']+)["']/i) || html.match(/<iframe[^>]+src=["']([^"']+)["']/i);
+      var okMatches = html.match(/https?:\/\/ok\.ru\/videoembed\/\d+/gi) || [];
+      var seenOk = {};
+      for (var j = 0; j < okMatches.length; j++) {
+        if (!seenOk[okMatches[j]]) {
+          seenOk[okMatches[j]] = true;
+          tasks.push(resolveOkRuEmbed(okMatches[j], baseTitle));
+        }
+      }
+      var sibMatches = html.match(/https?:\/\/video\.sibnet\.ru\/shell\.php\?videoid=\d+/gi) || [];
+      var seenSib = {};
+      for (var k = 0; k < sibMatches.length; k++) {
+        if (!seenSib[sibMatches[k]]) {
+          seenSib[sibMatches[k]] = true;
+          tasks.push(resolveSibnetEmbed(sibMatches[k], baseTitle));
+        }
+      }
+      var nested = yield Promise.all(tasks);
+      var allStreams = [];
+      var seenUrls = {};
+      for (var n = 0; n < nested.length; n++) {
+        var list = nested[n] || [];
+        for (var m = 0; m < list.length; m++) {
+          if (list[m] && list[m].url && !seenUrls[list[m].url]) {
+            seenUrls[list[m].url] = true;
+            allStreams.push(list[m]);
+          }
+        }
+      }
+      if (allStreams.length > 0) return allStreams;
+      var iframeMatch = html.match(/<iframe[^>]+src=["']([^"']+)["']/i);
       if (iframeMatch && iframeMatch[1]) {
         var src2 = iframeMatch[1].trim();
         if (src2.indexOf("http") !== 0) {
           src2 = src2.indexOf("//") === 0 ? "https:" + src2 : "https://" + src2;
         }
-        return src2;
+        return extractPichiveStreams(src2, showName, seasonNum, episodeNum);
       }
-      return null;
+      return [];
     } catch (e) {
-      return null;
+      return [];
     }
   });
 }
@@ -423,11 +619,19 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
   return __async(this, null, function* () {
     try {
       if (typeof tmdbId === "object" && tmdbId && tmdbId.id) {
-        return getStreams(tmdbId.id, mediaType, seasonNum, episodeNum);
+        return getStreams(tmdbId.id, mediaType || tmdbId.type, seasonNum || tmdbId.season, episodeNum || tmdbId.episode);
       }
       var cleanId = String(tmdbId || "").trim();
       var season = parseInt(seasonNum) || 1;
       var episode = parseInt(episodeNum) || 1;
+      if (cleanId.indexOf(":") !== -1 && cleanId.indexOf("diziwatch:") !== 0) {
+        var idParts = cleanId.split(":");
+        if (idParts.length >= 3) {
+          season = parseInt(idParts[idParts.length - 2]) || season;
+          episode = parseInt(idParts[idParts.length - 1]) || episode;
+          cleanId = idParts[0];
+        }
+      }
       if (cleanId.indexOf("diziwatch:ep:") === 0) {
         var parts = cleanId.replace("diziwatch:ep:", "").split(":");
         var slug = parts[0];
@@ -435,10 +639,11 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
           season = parseInt(parts[1]) || season;
           episode = parseInt(parts[2]) || episode;
         }
-        var directIframe = yield getEpisodeIframe("dizi/" + slug, season, episode);
-        if (directIframe) {
-          return extractPichiveStreams(directIframe, slug, season, episode);
-        }
+        return yield extractEpisodeStreams(slug, slug, season, episode);
+      }
+      if (cleanId.indexOf("diziwatch:show:") === 0) {
+        var showSlug = cleanId.replace("diziwatch:show:", "");
+        return yield extractEpisodeStreams(showSlug, showSlug, season, episode);
       }
       var tmdbInfo = yield resolveTmdbInfo(cleanId, mediaType);
       var queries = tmdbInfo.titles || [];
@@ -454,10 +659,14 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
           if (chosenResult) break;
         }
       }
-      if (!chosenResult || !chosenResult.used_slug) return [];
-      var iframeUrl = yield getEpisodeIframe(chosenResult.used_slug, season, episode);
-      if (!iframeUrl) return [];
-      return extractPichiveStreams(iframeUrl, chosenResult.object_name, season, episode);
+      if (!chosenResult || !chosenResult.used_slug) {
+        var fallbackSlug = ultraClean(queries[0]).replace(/\s+/g, "-");
+        if (fallbackSlug) {
+          return yield extractEpisodeStreams(fallbackSlug, queries[0], season, episode);
+        }
+        return [];
+      }
+      return yield extractEpisodeStreams(chosenResult.used_slug, chosenResult.object_name, season, episode);
     } catch (e) {
       return [];
     }
@@ -466,7 +675,21 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
 function getCatalog(args) {
   return __async(this, null, function* () {
     try {
-      var res = yield fetch(BASE_URL + "/episodes", {
+      var query = args && args.search || args && args.extra && args.extra.search || args && args.query || "";
+      if (query) {
+        var sRes = yield searchDiziwatch(query);
+        return {
+          metas: sRes.map(function(r) {
+            return {
+              id: "diziwatch:show:" + r.used_slug,
+              type: "series",
+              name: r.object_name,
+              poster: r.poster || ""
+            };
+          })
+        };
+      }
+      var res = yield fetch(BASE_URL + "/", {
         headers: HEADERS,
         signal: timeoutSignal(8e3)
       });
@@ -474,25 +697,23 @@ function getCatalog(args) {
       var html = yield res.text();
       var metas = [];
       var seen = {};
-      var regex = /<a[^>]+href=['"]?(https:\/\/diziwatch\.ac\/dizi\/([^\s'"/]+)\/sezon-(\d+)\/bolum-(\d+))['"]?[^>]*><img[^>]+alt=['"]?([^"'>]+)['"]?[^>]+data-src=['"]?([^\s'">]+)/gi;
+      var linkRegex = /href=["'](?:https?:\/\/[^"'/]+)?\/dizi\/([a-z0-9-]+)["']/gi;
       var m;
-      while ((m = regex.exec(html)) !== null) {
-        var slug = m[2];
-        var sNum = m[3];
-        var eNum = m[4];
-        var showTitle = decodeHtmlEntities(m[5]).replace(/\s*class=.*$/i, "").trim();
-        var poster = m[6];
-        var id = "diziwatch:ep:" + slug + ":" + sNum + ":" + eNum;
-        if (!seen[id]) {
-          seen[id] = true;
-          metas.push({
-            id,
-            type: "series",
-            name: showTitle + " " + sNum + ". Sezon " + eNum + ". B\xF6l\xFCm",
-            poster,
-            description: showTitle + " " + sNum + ". Sezon " + eNum + ". B\xF6l\xFCm - T\xFCrk\xE7e Altyaz\u0131l\u0131"
-          });
-        }
+      while ((m = linkRegex.exec(html)) !== null) {
+        var slug = m[1];
+        if (!slug || seen[slug]) continue;
+        seen[slug] = true;
+        var title = slug.split("-").map(function(w) {
+          return w ? w.charAt(0).toUpperCase() + w.slice(1) : "";
+        }).join(" ");
+        metas.push({
+          id: "diziwatch:show:" + slug,
+          type: "series",
+          name: title,
+          poster: "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
+          description: title + " - DiziWatch T\xFCrk\xE7e Altyaz\u0131l\u0131"
+        });
+        if (metas.length >= 30) break;
       }
       return { metas };
     } catch (e) {
@@ -526,15 +747,15 @@ function getMeta(args) {
       var html = yield res.text();
       var titleMatch = html.match(/<title>([^<]+)<\/title>/i);
       var name = titleMatch ? titleMatch[1].replace(/\s*-\s*diziwatch.*$/i, "").replace(/\s*izle.*$/i, "").trim() : slug;
-      var posterMatch = html.match(/<img[^>]+src=["'](https:\/\/images\.macellan\.online\/images\/tv\/poster\/[^"']+)["']/i);
+      var posterMatch = html.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i) || html.match(/<img[^>]+src=["'](https:\/\/image\.tmdb\.org\/t\/p\/[^"']+)["']/i);
       var poster = posterMatch ? posterMatch[1] : "";
-      var epRegex = /href=['"]?(https:\/\/diziwatch\.ac\/dizi\/([^\s'"/]+)\/sezon-(\d+)\/bolum-(\d+))/gi;
+      var epRegex = /href=['"]?(?:https?:\/\/[^"'/]+)?\/dizi\/([^\s'"/]+)\/sezon-(\d+)\/bolum-(\d+)/gi;
       var videos = [];
       var seenVids = {};
       var m;
       while ((m = epRegex.exec(html)) !== null) {
-        var s = parseInt(m[3]) || 1;
-        var e = parseInt(m[4]) || 1;
+        var s = parseInt(m[2]) || 1;
+        var e = parseInt(m[3]) || 1;
         var vidId = "diziwatch:ep:" + slug + ":" + s + ":" + e;
         if (!seenVids[vidId]) {
           seenVids[vidId] = true;

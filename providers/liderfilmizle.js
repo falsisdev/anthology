@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: liderfilmizle
  * Built from src/liderfilmizle/index.js
- * Build: v1.8.35 (anthology build system)
+ * Build: v1.8.36 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -405,7 +405,11 @@ function extractStreamsFromPage(pageUrl) {
             contentLanguage: ["tr"],
             headers: resolved.headers,
             behaviorHints: {
-              headers: resolved.headers
+              notWebReady: true,
+              headers: resolved.headers,
+              proxyHeaders: {
+                request: resolved.headers
+              }
             },
             subtitles: resolved.subtitles || []
           });

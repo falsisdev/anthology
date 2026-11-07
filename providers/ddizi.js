@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: ddizi
  * Built from src/ddizi/index.js
- * Build: v1.8.35 (anthology build system)
+ * Build: v1.8.36 (anthology build system)
  */
 var __defProp = Object.defineProperty;
 var __defProps = Object.defineProperties;
@@ -476,7 +476,7 @@ function cfgReady() {
     _cfgReady = loadConfig().then(function() {
       var v;
       v = val("urls.series.ddizi.base");
-      if (v) BASE_URL = String(v).replace(/\/+$/, "");
+      if (v && String(v).indexOf("ddizi.im") === -1) BASE_URL = String(v).replace(/\/+$/, "");
       if (HEADERS) HEADERS.Referer = BASE_URL + "/";
     });
   }
@@ -684,10 +684,20 @@ function getCatalog(args) {
       }
       const res = yield fetch(url, options);
       if (!res.ok) return { metas: [] };
-      const html = yield res.text();
+      let html = yield res.text();
       let metas = [];
       const seen = /* @__PURE__ */ new Set();
-      const seriesMatches = [...html.matchAll(/<a href="([^"]*\/diziler\/([^"]*))"[^>]*>([\s\S]*?)<\/a>/gi)];
+      let seriesMatches = [...html.matchAll(/<a href="([^"]*\/diziler\/([^"]*))"[^>]*>([\s\S]*?)<\/a>/gi)];
+      if (seriesMatches.length === 0 && !query) {
+        try {
+          const archRes = yield fetch(`${BASE_URL}/eski.diziler`, { headers: HEADERS });
+          if (archRes.ok) {
+            const archHtml = yield archRes.text();
+            seriesMatches = [...archHtml.matchAll(/<a href="([^"]*\/diziler\/([^"]*))"[^>]*>([\s\S]*?)<\/a>/gi)];
+          }
+        } catch (e) {
+        }
+      }
       for (const m of seriesMatches) {
         const slug = m[2].replace(/\/$/, "");
         const title = m[3].replace(/<[^>]+>/g, "").trim();

@@ -281,23 +281,26 @@ function matchEpisode(episodes, targetEp, isMovie) {
     return episodes[0];
   }
 
-  // 1. Doğrudan tekil tam sayı eşleşmesi (aralık paketlerini hariç tutarak)
+  // 1. Direct number match
   for (var i = 0; i < episodes.length; i++) {
     var numStr = String(episodes[i].num || '').trim();
-    if (numStr.indexOf('-') === -1) {
+    if (numStr && !numStr.includes('-')) {
       var num = parseInt(numStr);
       if (!isNaN(num) && num === targetEp) return episodes[i];
     }
+  }
 
-    var m = episodes[i].url.match(/-(\d+)-bolum/i);
-    if (m && parseInt(m[1]) === targetEp && episodes[i].url.indexOf('-' + targetEp + '-') === -1) {
-      return episodes[i];
+  // 2. URL slug match - e.g. -1-bolum or /1-bolum
+  for (var k = 0; k < episodes.length; k++) {
+    var m = episodes[k].url.match(/(?:-|\/)(\d+)-bolum/i);
+    if (m && parseInt(m[1]) === targetEp) {
+      return episodes[k];
     }
   }
 
-  // 2. Paket aralığı eşleşmesi (örn: "1-10", "11-20")
+  // 3. Range match - e.g. "1-5" or "1-80"
   for (var j = 0; j < episodes.length; j++) {
-    var rangeMatch = episodes[j].num.match(/^(\d+)\s*-\s*(\d+)$/) || episodes[j].url.match(/(\d+)-(\d+)-bolum/i);
+    var rangeMatch = String(episodes[j].num || '').match(/^(\d+)\s*-\s*(\d+)$/) || episodes[j].url.match(/(\d+)-(\d+)-bolum/i);
     if (rangeMatch) {
       var start = parseInt(rangeMatch[1]);
       var end = parseInt(rangeMatch[2]);
@@ -305,6 +308,8 @@ function matchEpisode(episodes, targetEp, isMovie) {
     }
   }
 
+  // 4. Fallback if single episode
+  if (episodes.length === 1 && targetEp === 1) return episodes[0];
   return null;
 }
 
@@ -355,8 +360,8 @@ async function resolveOkRu(iframeUrl) {
   try {
     var fullUrl = iframeUrl.startsWith('//') ? 'https:' + iframeUrl : iframeUrl;
     var res = await fetch(fullUrl, {
-      headers: { 'User-Agent': HEADERS['User-Agent'] },
-      signal: timeoutSignal(7000)
+      headers: { 'User-Agent': HEADERS['User-Agent'], 'Referer': 'https://ok.ru/' },
+      signal: timeoutSignal(8000)
     });
     if (!res.ok) return [];
     var html = await res.text();
@@ -365,16 +370,20 @@ async function resolveOkRu(iframeUrl) {
 
     var decoded = decodeHtmlEntities(m[1]);
     var opts = JSON.parse(decoded);
-    var vids = (opts.flashvars && opts.flashvars.videos) ? opts.flashvars.videos : [];
+    var meta = (opts && opts.flashvars) ? opts.flashvars.metadata : null;
+    if (typeof meta === 'string') {
+      try { meta = JSON.parse(meta); } catch (e) { meta = null; }
+    }
+    var vids = (meta && meta.videos) ? meta.videos : ((opts.flashvars && opts.flashvars.videos) ? opts.flashvars.videos : []);
     var streams = [];
 
-    var nameMap = { 'full': '1080p', 'hd': '720p', 'sd': '480p', 'low': '360p', 'lowest': '240p', 'mobile': '240p' };
+    var nameMap = { 'ultra': '2160p', 'quad': '1440p', 'full': '1080p', 'hd': '720p', 'sd': '480p', 'low': '360p', 'lowest': '240p', 'mobile': '240p' };
 
     for (var i = 0; i < vids.length; i++) {
       var v = vids[i];
       if (!v.url) continue;
-      var q = nameMap[v.name] || v.name || '720p';
-      var okHeaders = { 'User-Agent': HEADERS['User-Agent'] };
+      var q = nameMap[String(v.name).toLowerCase()] || v.name || '720p';
+      var okHeaders = { 'User-Agent': HEADERS['User-Agent'], 'Referer': 'https://ok.ru/' };
       streams.push({
         name: 'AsyaAnimeleri',
         title: '⌜ AsyaAnimeleri ⌟ | Ok.ru [' + q.toUpperCase() + ' MP4]',
@@ -390,12 +399,13 @@ async function resolveOkRu(iframeUrl) {
       });
     }
 
-    if (opts.flashvars && opts.flashvars.hlsManifestUrl) {
-      var okHlsHeaders = { 'User-Agent': HEADERS['User-Agent'] };
+    var hlsUrl = (meta && meta.hlsManifestUrl) ? meta.hlsManifestUrl : (opts.flashvars && opts.flashvars.hlsManifestUrl);
+    if (hlsUrl) {
+      var okHlsHeaders = { 'User-Agent': HEADERS['User-Agent'], 'Referer': 'https://ok.ru/' };
       streams.push({
         name: 'AsyaAnimeleri',
         title: '⌜ AsyaAnimeleri ⌟ | Ok.ru [HLS Master]',
-        url: opts.flashvars.hlsManifestUrl,
+        url: hlsUrl,
         quality: '1080p',
         format: 'hls',
         isHls: true,
@@ -410,6 +420,51 @@ async function resolveOkRu(iframeUrl) {
     return streams;
   } catch (e) {}
   return [];
+}
+
+/**
+ * VidMoly 1080p HLS Çözücü
+ */
+async function resolveVidmoly(iframeUrl, referer) {
+  try {
+    var normUrl = iframeUrl.startsWith('//') ? 'https:' + iframeUrl : iframeUrl;
+    var idMatch = normUrl.match(/vidmoly\.[a-z0-9]+\/(?:dl\/|embed-)?([a-zA-Z0-9_-]+)/i);
+    if (idMatch) {
+      normUrl = 'https://vidmoly.biz/embed-' + idMatch[1] + '.html';
+    } else {
+      normUrl = normUrl.replace('vidmoly.to', 'vidmoly.biz').replace('vidmoly.me', 'vidmoly.biz');
+    }
+    var res = await fetch(normUrl, {
+      headers: {
+        'User-Agent': HEADERS['User-Agent'],
+        'Referer': referer || 'https://vidmoly.biz/',
+        'Sec-Fetch-Dest': 'iframe'
+      },
+      signal: timeoutSignal(8000)
+    });
+    if (!res.ok) return [];
+    var html = await res.text();
+    var m = html.match(/file\s*:\s*['"](https?:\/\/[^'"]+\.m3u8[^'"]*)['"]/i);
+    if (!m) return [];
+    var subs = [];
+    var subRe = /https?:\/\/[^\s"'\\]+\.vtt/gi;
+    var sm;
+    while ((sm = subRe.exec(html)) !== null) {
+      subs.push({ id: 'tr', lang: 'tur', language: 'tr', label: 'Türkçe', url: sm[0], format: 'vtt' });
+    }
+    return [{
+      name: 'AsyaAnimeleri',
+      title: '⌜ AsyaAnimeleri ⌟ | VidMoly (1080p HLS)',
+      url: m[1],
+      quality: '1080p',
+      format: 'hls',
+      isHls: true,
+      headers: { 'Referer': 'https://vidmoly.biz/', 'User-Agent': HEADERS['User-Agent'] },
+      subtitles: subs
+    }];
+  } catch (e) {
+    return [];
+  }
 }
 
 /**
@@ -534,11 +589,14 @@ async function fetchEpisodeMirrors(episodeUrl) {
 
     // 3. Paralel çözücü çalıştırma
     var promises = iframes.map(async function(src) {
-      if (src.indexOf('sibnet.ru') !== -1) {
-        var s = await resolveSibnet(src);
-        return s ? [s] : [];
+      if (src.indexOf('//') === 0) src = 'https:' + src;
+      if (src.indexOf('vidmoly') !== -1) {
+        return await resolveVidmoly(src, episodeUrl);
       } else if (src.indexOf('ok.ru') !== -1) {
         return await resolveOkRu(src);
+      } else if (src.indexOf('sibnet.ru') !== -1) {
+        var s = await resolveSibnet(src);
+        return s ? [s] : [];
       } else if (src.indexOf('mail.ru') !== -1) {
         return await resolveMailRu(src);
       } else if (src.indexOf('rumble.com') !== -1) {

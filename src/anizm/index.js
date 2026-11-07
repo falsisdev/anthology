@@ -87,13 +87,40 @@ function buildStream(name, title, url, quality, format, isHls, ref) {
 }
 
 async function anizmSearch(query) {
+  var out = [];
+  // 1) V3 hızlı arama uç noktası (/arama-onerileri?q=)
   try {
-    var res = await fetch(BASE_URL + "/searchAnime?query=" + encodeURIComponent(query) + "&page=1", { headers: AJAX_HEADERS, signal: timeoutSignal(9000) });
+    var v3Res = await fetch(BASE_URL + "/arama-onerileri?q=" + encodeURIComponent(query), { headers: AJAX_HEADERS, signal: timeoutSignal(6000) });
+    if (v3Res.ok) {
+      var v3Json = await v3Res.json();
+      var list = (v3Json && v3Json.results) || [];
+      for (var r = 0; r < list.length; r++) {
+        var it3 = list[r];
+        var slug = String(it3.url || "").replace(/^https?:\/\/[^\/]+\//, "").replace(/\/+$/, "");
+        if (!slug) continue;
+        var title3 = decodeHtmlEntities(it3.title || "");
+        var isRecap = /\brecap\b|\bözet\b/i.test(title3);
+        out.push({
+          slug: slug,
+          name: title3,
+          original: title3,
+          english: isRecap ? "" : query,
+          year: it3.year || "",
+          poster: it3.poster || "",
+          lastEpisode: ""
+        });
+      }
+      if (out.length > 0) return out;
+    }
+  } catch (e) {}
+
+  // 2) V2 yedek uç noktası (/searchAnime?query=)
+  try {
+    var res = await fetch(BASE_URL + "/searchAnime?query=" + encodeURIComponent(query) + "&page=1", { headers: AJAX_HEADERS, signal: timeoutSignal(6000) });
     if (!res.ok) return [];
     var j;
     try { j = await res.json(); } catch (e) { return []; }
     var data = (j && j.data) || [];
-    var out = [];
     for (var i = 0; i < data.length; i++) {
       var it = data[i];
       out.push({
@@ -529,39 +556,84 @@ async function getStreams(tmdbId, mediaType, season, episode) {
     if (!finalEpisode && finalSeason < 1) finalEpisode = 1;
 
     var slug = "";
+    var show = null;
     if (typeof id === "string" && String(tmdbId).indexOf("anizm:") === 0 && id.indexOf("/") === -1) {
       slug = id;
     }
 
     if (!slug) {
-      var show = await resolveSeriesInfo(id, mediaType || "series");
+      show = await resolveSeriesInfo(id, mediaType || "series");
       if (!show || !show.title) return out;
       var match = await resolveMatch(show, finalSeason);
-      if (!match) return out;
-      slug = match.slug;
+      if (match) slug = match.slug;
     }
 
-    var epUrl = await buildEpisodeUrl(slug, finalSeason, finalEpisode);
-    if (!epUrl) return out;
-
-    var page = await fetchHtml(epUrl, HEADERS, 10000);
-    if (!page) return out;
-
-    var translators = parseTranslators(page.text);
-    var visited = {};
-    var consecutiveFails = 0;
-    for (var i = 0; i < translators.length && out.length < 6 && consecutiveFails < 6; i++) {
-      var videos = await fetchTranslatorVideos(translators[i]);
-      for (var j = 0; j < videos.length && out.length < 6 && consecutiveFails < 6; j++) {
-        if (visited[videos[j]]) continue;
-        visited[videos[j]] = true;
-        var s = await resolvePlayerPage(videos[j]);
-        if (s && s.length > 0) {
-          consecutiveFails = 0;
-          for (var k = 0; k < s.length; k++) out.push(s[k]);
-        } else {
-          consecutiveFails++;
+    if (slug) {
+      var epUrl = await buildEpisodeUrl(slug, finalSeason, finalEpisode);
+      if (epUrl) {
+        var page = await fetchHtml(epUrl, HEADERS, 10000);
+        if (page) {
+          var translators = parseTranslators(page.text);
+          var visited = {};
+          var consecutiveFails = 0;
+          for (var i = 0; i < translators.length && out.length < 6 && consecutiveFails < 2; i++) {
+            var videos = await fetchTranslatorVideos(translators[i]);
+            for (var j = 0; j < videos.length && out.length < 6 && consecutiveFails < 2; j++) {
+              if (visited[videos[j]]) continue;
+              visited[videos[j]] = true;
+              var s = await resolvePlayerPage(videos[j]);
+              if (s && s.length > 0) {
+                consecutiveFails = 0;
+                for (var k = 0; k < s.length; k++) out.push(s[k]);
+              } else {
+                consecutiveFails++;
+              }
+            }
+          }
         }
+      }
+    }
+
+    if (out.length === 0 && show) {
+      var titles = seriesSearchTitles(show);
+      var dwSlug = "";
+      for (var t = 0; t < titles.length && !dwSlug; t++) {
+        var q = titles[t];
+        if (!q || q.length < 2) continue;
+        try {
+          var sr = await fetch("https://diziwatch.org/api/ara?q=" + encodeURIComponent(q), {
+            headers: { "User-Agent": HEADERS["User-Agent"], "Accept": "application/json", "Referer": "https://diziwatch.org/" },
+            signal: timeoutSignal(4000)
+          });
+          if (sr.ok) {
+            var arr = await sr.json();
+            if (Array.isArray(arr) && arr.length > 0 && arr[0].slug) dwSlug = arr[0].slug;
+          }
+        } catch (e) {}
+      }
+      if (dwSlug) {
+        var sN = finalSeason > 0 ? finalSeason : 1;
+        var eN = finalEpisode > 0 ? finalEpisode : 1;
+        try {
+          var epRes = await fetch("https://diziwatch.org/dizi/" + dwSlug + "/sezon-" + sN + "/bolum-" + eN, {
+            headers: { "User-Agent": HEADERS["User-Agent"], "Referer": "https://diziwatch.org/" },
+            signal: timeoutSignal(6000)
+          });
+          if (epRes.ok) {
+            var dwHtml = await epRes.text();
+            var reH = /anizmplayer\.com\/video\/([a-f0-9]{24,40})/gi;
+            var mh;
+            var hashes = [];
+            while ((mh = reH.exec(dwHtml)) !== null) {
+              if (hashes.indexOf(mh[1]) === -1) hashes.push(mh[1]);
+              if (hashes.length >= 3) break;
+            }
+            for (var hi = 0; hi < hashes.length; hi++) {
+              var sAp = await resolveAnizmPlayer(hashes[hi]);
+              for (var si = 0; si < sAp.length; si++) out.push(sAp[si]);
+            }
+          }
+        } catch (e) {}
       }
     }
     return out;
