@@ -11,6 +11,78 @@
       "behaviorHints": {
         "isLive": true
       }
+    },
+    {
+      "name": "⌜ Anthology Live · Otomatik (En Hızlı) ⌟",
+      "title": "TV8.5 HD [1080p FHD · Ultra Hızlı]",
+      "url": "https://anthology-live.duckdns.org/live/85tr.m3u8?username=anthology&password=falsisdevwashere",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Anthology Live · Mahsun Sports ⌟",
+      "title": "TV8.5 HD [1080p HD]",
+      "url": "https://anthology-live.duckdns.org/live/85tr.m3u8?username=anthology&password=falsisdevwashere&source=mahsunsports",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Anthology Live · Alemdar Sport ⌟",
+      "title": "TV8.5 HD [1080p FHD]",
+      "url": "https://anthology-live.duckdns.org/live/85tr.m3u8?username=anthology&password=falsisdevwashere&source=alemdarsport",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Anthology Live · Taraftarium24 ⌟",
+      "title": "TV8.5 HD [1080p FHD]",
+      "url": "https://anthology-live.duckdns.org/live/85tr.m3u8?username=anthology&password=falsisdevwashere&source=taraftarium",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Anthology Live · Selçuk / Arda ⌟",
+      "title": "TV8.5 HD [1080p FHD]",
+      "url": "https://anthology-live.duckdns.org/live/85tr.m3u8?username=anthology&password=falsisdevwashere&source=ardasports",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Anthology Live · Papaz Sports ⌟",
+      "title": "TV8.5 HD [1080p HD]",
+      "url": "https://anthology-live.duckdns.org/live/85tr.m3u8?username=anthology&password=falsisdevwashere&source=papazsports",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
     }
   ]
 }

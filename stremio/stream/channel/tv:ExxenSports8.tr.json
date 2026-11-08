@@ -1,11 +1,36 @@
 {
   "streams": [
     {
-      "name": "⌜ MahsunSports ⌟",
-      "title": "Exxen Sports 8 HD [1080p HD]",
-      "url": "https://andro.evrenesoglu219.click/checklist/androstreamliveexn.m3u8",
+      "name": "⌜ Anthology Live · Otomatik (En Hızlı) ⌟",
+      "title": "Exxen Sports 8 HD [1080p FHD · Ultra Hızlı]",
+      "url": "https://anthology-live.duckdns.org/live/exxensports8.m3u8?username=anthology&password=falsisdevwashere",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Anthology Live · Mahsun Sports ⌟",
+      "title": "Exxen Sports 8 HD [1080p HD]",
+      "url": "https://anthology-live.duckdns.org/live/exxensports8.m3u8?username=anthology&password=falsisdevwashere&source=mahsunsports",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Anthology Live · Resmi / Doğrudan Akış ⌟",
+      "title": "Exxen Sports 8 HD [1080p FHD]",
+      "url": "https://anthology-live.duckdns.org/live/exxensports8.m3u8?username=anthology&password=falsisdevwashere&source=direct",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*"
       },
       "behaviorHints": {
         "isLive": true
