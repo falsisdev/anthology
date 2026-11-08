@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: anthology_spor
  * Built from src/anthology_spor/index.js
- * Build: v1.8.36 (anthology build system)
+ * Build: v1.8.37 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -229,13 +229,16 @@ var require_config = __commonJS({
 var require_sport_engine = __commonJS({
   "src/shared/sport_engine.js"(exports2, module2) {
     var { loadConfig: loadConfig2, val: val2 } = require_config();
-    var TARAFTARIUM_SITE = "https://taraftarium24-245.top/";
+    var ANTHOLOGY_LIVE_BASE = "https://anthology-live.duckdns.org";
+    var ANTHOLOGY_LIVE_USER = "anthology";
+    var ANTHOLOGY_LIVE_PASS = "falsisdevwashere";
+    var TARAFTARIUM_SITE = "https://taraftarium24-246.top/";
     var TARAFTARIUM_API = "https://teletv15.top";
-    var TARAFTARIUM_BASE_NUM = 245;
+    var TARAFTARIUM_BASE_NUM = 246;
     var ARDA_SITE = "https://selcuksporkral1.cc";
     var ALEMDAR_SITE = "https://alemdarsport.cfd";
-    var MAHSUN_SITE = "https://mahsunsports54.xyz";
-    var PAPAZ_SITE = "https://www.papazsports1028.pro";
+    var MAHSUN_SITE = "https://mahsunsports58.xyz";
+    var PAPAZ_SITE = "https://www.papazsports1033.pro";
     var _HEADERS2 = {
       "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
       "Accept": "*/*"
@@ -245,6 +248,12 @@ var require_sport_engine = __commonJS({
       if (!_cfgReady2) {
         _cfgReady2 = loadConfig2().then(function() {
           var v;
+          v = val2("urls.live.anthology_live.base");
+          if (v) ANTHOLOGY_LIVE_BASE = String(v).replace(/\/+$/, "");
+          v = val2("urls.live.anthology_live.username");
+          if (v) ANTHOLOGY_LIVE_USER = String(v);
+          v = val2("urls.live.anthology_live.password");
+          if (v) ANTHOLOGY_LIVE_PASS = String(v);
           v = val2("urls.live.taraftarium.base");
           if (v) TARAFTARIUM_SITE = String(v);
           v = val2("urls.live.taraftarium.api_base");
@@ -706,7 +715,7 @@ var require_sport_engine = __commonJS({
         }
         throw new Error("No mahsun base");
       }).catch(function() {
-        var fallback = "https://andro.evrenesoglu219.click/checklist/";
+        var fallback = "https://andro.evrenesoglu235.click/checklist/";
         _cachedMahsunBase = fallback;
         _cachedMahsunTime = now;
         return fallback;
@@ -774,38 +783,124 @@ var require_sport_engine = __commonJS({
         behaviorHints: { isLive: true }
       };
     }
+    function extractCanonicalKey(s) {
+      var raw = (s || "").toString().toLowerCase();
+      raw = raw.replace(/^tv[:_]/, "").replace(/\.tr$/, "");
+      var cleaned = raw.replace(/[^a-z0-9]/g, "");
+      if (cleaned.startsWith("tv") && cleaned.length > 3) cleaned = cleaned.substring(2);
+      if (cleaned.endsWith("tr") && cleaned.length > 5) cleaned = cleaned.substring(0, cleaned.length - 2);
+      if (/^beinsport?1/i.test(cleaned)) return "beinsports1";
+      if (/^beinsport?2/i.test(cleaned)) return "beinsports2";
+      if (/^beinsport?3/i.test(cleaned)) return "beinsports3";
+      if (/^beinsport?4/i.test(cleaned)) return "beinsports4";
+      if (/^beinsport?5/i.test(cleaned)) return "beinsports5";
+      if (/^beinsport?max1/i.test(cleaned)) return "beinsportsmax1";
+      if (/^beinsport?max2/i.test(cleaned)) return "beinsportsmax2";
+      if (/^ssport1?$/i.test(cleaned)) return "ssport1";
+      if (/^ssport2/i.test(cleaned)) return "ssport2";
+      if (/^ssportplus/i.test(cleaned)) return "ssportplus";
+      if (/^tivibu(spor)?1?$/i.test(cleaned)) return "tivibuspor1";
+      if (/^tivibu(spor)?2/i.test(cleaned)) return "tivibuspor2";
+      if (/^tivibu(spor)?3/i.test(cleaned)) return "tivibuspor3";
+      if (/^tivibu(spor)?4/i.test(cleaned)) return "tivibuspor4";
+      if (/^smartspor1|^sporsmart1?$/i.test(cleaned)) return "smartspor1";
+      if (/^smartspor2|^sporsmart2/i.test(cleaned)) return "smartspor2";
+      if (/^trtspor$/i.test(cleaned)) return "trtspor";
+      if (/^trtsporyildiz/i.test(cleaned)) return "trtsporyildiz";
+      if (/^aspor/i.test(cleaned)) return "aspor";
+      if (/^tv85|tv8bucuk/i.test(cleaned)) return "tv85";
+      if (/^exxen(sports?)?1$/i.test(cleaned)) return "exxensports1";
+      if (/^exxen(sports?)?2$/i.test(cleaned)) return "exxensports2";
+      if (/^exxen(sports?)?3$/i.test(cleaned)) return "exxensports3";
+      if (/^exxen(sports?)?4$/i.test(cleaned)) return "exxensports4";
+      if (/^exxen(sports?)?5$/i.test(cleaned)) return "exxensports5";
+      if (/^exxen(sports?)?6$/i.test(cleaned)) return "exxensports6";
+      if (/^exxen(sports?)?7$/i.test(cleaned)) return "exxensports7";
+      if (/^exxen(sports?)?8$/i.test(cleaned)) return "exxensports8";
+      if (/^tabii(spor)?1$/i.test(cleaned)) return "tabiispor1";
+      if (/^tabii(spor)?2$/i.test(cleaned)) return "tabiispor2";
+      if (/^tabii(spor)?3$/i.test(cleaned)) return "tabiispor3";
+      if (/^tabii(spor)?4$/i.test(cleaned)) return "tabiispor4";
+      if (/^tabii(spor)?5$/i.test(cleaned)) return "tabiispor5";
+      if (/^tabii(spor)?6$/i.test(cleaned)) return "tabiispor6";
+      if (/^tabii(spor)?7$/i.test(cleaned)) return "tabiispor7";
+      if (/^tabii(spor)?8$/i.test(cleaned)) return "tabiispor8";
+      return cleaned;
+    }
+    function fetchAnthologyLiveSources(canonicalKey) {
+      return __async(this, null, function* () {
+        if (!canonicalKey) return null;
+        var sourcesUrl = ANTHOLOGY_LIVE_BASE + "/api/sources?channel=" + encodeURIComponent(canonicalKey);
+        try {
+          var fetchPromise = fetch(sourcesUrl, { headers: _HEADERS2 }).then(function(res) {
+            if (res && res.status === 200) return res.json();
+            return null;
+          });
+          var sources = yield withTimeout(fetchPromise, 2500);
+          if (Array.isArray(sources) && sources.length > 0) {
+            return sources;
+          }
+        } catch (e) {
+        }
+        return null;
+      });
+    }
     function resolveMultiSportStreams2(channelIdOrName, fallbackTitle) {
       return __async(this, null, function* () {
         yield initSportConfig2();
         var map = findSportChannelMapping(channelIdOrName);
         var chTitle = fallbackTitle || map && map.name || String(channelIdOrName).toUpperCase();
-        var pTimeout = 4500;
-        var tPromise = map && map.taraftarium ? withTimeout(fetchTaraftariumStream(map.taraftarium), pTimeout) : Promise.resolve(null);
-        var aPromise = map && map.ardasports ? withTimeout(fetchArdaSportsStream(map.ardasports), pTimeout) : Promise.resolve(null);
-        var alPromise = map && map.alemdarsport ? withTimeout(fetchAlemdarStream(map.alemdarsport), pTimeout) : Promise.resolve(null);
-        var mPromise = map && map.mahsunsports ? withTimeout(fetchMahsunStream(map.mahsunsports), pTimeout) : Promise.resolve(null);
-        var pPromise = map && map.papazsports ? withTimeout(fetchPapazStream(map.papazsports), pTimeout) : Promise.resolve(null);
-        var results = yield Promise.all([tPromise, aPromise, alPromise, mPromise, pPromise]);
-        var tStream = results[0];
-        var aStream = results[1];
-        var alStream = results[2];
-        var mStream = results[3];
-        var pStream = results[4];
+        var canonicalKey = extractCanonicalKey(channelIdOrName);
+        if (!canonicalKey && map && map.key) canonicalKey = map.key;
         var streams = [];
-        if (tStream && tStream.url) {
-          streams.push(makeStream2("\u231C Taraftarium24 \u231F", chTitle + " [1080p FHD]", tStream.url, tStream.headers));
+        var authQuery = "username=" + encodeURIComponent(ANTHOLOGY_LIVE_USER) + "&password=" + encodeURIComponent(ANTHOLOGY_LIVE_PASS);
+        var liveSources = yield fetchAnthologyLiveSources(canonicalKey);
+        if (!liveSources || liveSources.length === 0) {
+          if (map || canonicalKey) {
+            liveSources = [
+              { id: "auto", name: "\u26A1\uFE0F Otomatik (En H\u0131zl\u0131)", available: true },
+              { id: "mahsunsports", name: "Mahsun Sports", available: true },
+              { id: "alemdarsport", name: "Alemdar Sport", available: true },
+              { id: "taraftarium", name: "Taraftarium24", available: true },
+              { id: "ardasports", name: "Sel\xE7uk / Arda", available: true },
+              { id: "papazsports", name: "Papaz Sports", available: true }
+            ];
+          }
         }
-        if (aStream && aStream.url) {
-          streams.push(makeStream2("\u231C ArdaSports \u231F", chTitle + " [1080p FHD]", aStream.url, aStream.headers));
+        if (Array.isArray(liveSources)) {
+          for (var i = 0; i < liveSources.length; i++) {
+            var src = liveSources[i];
+            if (!src || !src.id || src.available === false) continue;
+            var streamUrl = ANTHOLOGY_LIVE_BASE + "/live/" + canonicalKey + ".m3u8?" + authQuery;
+            if (src.id !== "auto") {
+              streamUrl += "&source=" + encodeURIComponent(src.id);
+            }
+            var cleanName = (src.name || src.id).replace(/[⚡️📡🛡]/g, "").trim();
+            var qualityBadge = src.id === "auto" ? "[1080p FHD \xB7 Ultra H\u0131zl\u0131]" : src.id === "mahsunsports" || src.id === "papazsports" ? "[1080p HD]" : "[1080p FHD]";
+            streams.push(makeStream2(
+              "\u231C Anthology Live \xB7 " + cleanName + " \u231F",
+              chTitle + " " + qualityBadge,
+              streamUrl,
+              {
+                "User-Agent": _HEADERS2["User-Agent"],
+                "Accept": "*/*"
+              }
+            ));
+          }
         }
-        if (alStream && alStream.url) {
-          streams.push(makeStream2("\u231C AlemdarSport \u231F", chTitle + " [1080p FHD]", alStream.url, alStream.headers));
-        }
-        if (mStream && mStream.url) {
-          streams.push(makeStream2("\u231C MahsunSports \u231F", chTitle + " [1080p HD]", mStream.url, mStream.headers));
-        }
-        if (pStream && pStream.url) {
-          streams.push(makeStream2("\u231C PapazSports \u231F", chTitle + " [1080p HD]", pStream.url, pStream.headers));
+        if (streams.length === 0 && map) {
+          var pTimeout = 3500;
+          var tPromise = map.taraftarium ? withTimeout(fetchTaraftariumStream(map.taraftarium), pTimeout) : Promise.resolve(null);
+          var aPromise = map.ardasports ? withTimeout(fetchArdaSportsStream(map.ardasports), pTimeout) : Promise.resolve(null);
+          var alPromise = map.alemdarsport ? withTimeout(fetchAlemdarStream(map.alemdarsport), pTimeout) : Promise.resolve(null);
+          var mPromise = map.mahsunsports ? withTimeout(fetchMahsunStream(map.mahsunsports), pTimeout) : Promise.resolve(null);
+          var pPromise = map.papazsports ? withTimeout(fetchPapazStream(map.papazsports), pTimeout) : Promise.resolve(null);
+          var results = yield Promise.all([tPromise, aPromise, alPromise, mPromise, pPromise]);
+          if (results[0] && results[0].url) streams.push(makeStream2("\u231C Taraftarium24 \u231F", chTitle + " [1080p FHD]", results[0].url, results[0].headers));
+          if (results[1] && results[1].url) streams.push(makeStream2("\u231C ArdaSports \u231F", chTitle + " [1080p FHD]", results[1].url, results[1].headers));
+          if (results[2] && results[2].url) streams.push(makeStream2("\u231C AlemdarSport \u231F", chTitle + " [1080p FHD]", results[2].url, results[2].headers));
+          if (results[3] && results[3].url) streams.push(makeStream2("\u231C MahsunSports \u231F", chTitle + " [1080p HD]", results[3].url, results[3].headers));
+          if (results[4] && results[4].url) streams.push(makeStream2("\u231C PapazSports \u231F", chTitle + " [1080p HD]", results[4].url, results[4].headers));
         }
         return streams;
       });
@@ -813,6 +908,8 @@ var require_sport_engine = __commonJS({
     module2.exports = {
       initSportConfig: initSportConfig2,
       findSportChannelMapping,
+      extractCanonicalKey,
+      fetchAnthologyLiveSources,
       fetchTaraftariumStream,
       fetchArdaSportsStream,
       fetchAlemdarStream,
