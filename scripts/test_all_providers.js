@@ -3,44 +3,112 @@ const manifest = require("../manifest.json");
 const path = require("path");
 
 // Playability check: HEAD first stream's master URL + first segment with provider headers
-async function checkPlayability(streams) {
-  if (!streams || !streams.length) return { playable: false, reason: "no streams" };
-  const s = streams[0];
-  const headers = { ...(s.headers || {}), ...(s.behaviorHints?.proxyHeaders?.request || {}) };
+async function readPrefix(res, maxBytes = 65536) {
+  if (!res.body || typeof res.body.getReader !== "function") {
+    return (await res.text()).slice(0, maxBytes);
+  }
+  const reader = res.body.getReader();
+  const chunks = [];
+  let total = 0;
+  try {
+    while (total < maxBytes) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      chunks.push(Buffer.from(value));
+      total += value.byteLength;
+    }
+  } finally {
+    await reader.cancel().catch(() => {});
+  }
+  return Buffer.concat(chunks).toString("utf8");
+}
+
+async function checkSingleStream(s) {
+  if (!s) return { playable: false, reason: "empty stream" };
+  if (s.ytId && (!s.url || /youtube\.com|youtu\.be/i.test(s.url))) {
+    return { playable: true, reason: `YouTube (${s.ytId})` };
+  }
   const url = s.url;
+  if (!url) return { playable: false, reason: "no url" };
+  const headers = { ...(s.headers || {}), ...(s.behaviorHints?.proxyHeaders?.request || {}) };
   try {
     // HEAD master
     let mr = await fetch(url, { method: "HEAD", headers, signal: AbortSignal.timeout(12000) }).catch(() => null);
     // Fallback: If HEAD fails (e.g. 400/405 from Sibnet or other CDNs that only allow GET), try GET Range
-    if (!mr || !mr.ok) {
-      const getHeaders = { ...headers, Range: "bytes=0-100" };
+    if (!mr || (!mr.ok && mr.status !== 206)) {
+      const getHeaders = { ...headers, Range: "bytes=0-1024" };
       const gr = await fetch(url, { method: "GET", headers: getHeaders, signal: AbortSignal.timeout(12000) }).catch(() => null);
-      if (gr && (gr.ok || gr.status === 206)) {
-        mr = gr;
+      if (gr) {
+        await gr.body?.cancel?.().catch(() => {});
+        if (gr.ok || gr.status === 206) mr = gr;
       }
     }
-    if (!mr || (!mr.ok && mr.status !== 206)) return { playable: false, reason: `master ${mr ? mr.status : 'ERR'}` };
-    
-    // If direct mp4 (not m3u8), consider playable if master 200 or 206
+    if (!mr || (!mr.ok && mr.status !== 206)) return { playable: false, reason: `master ${mr ? mr.status : "ERR"}` };
+
     const ct = mr.headers.get("content-type") || "";
-    if (ct.includes("video/") || url.endsWith(".mp4") || url.includes(".mp4?")) {
+    const isDirectExt = /\.(mp4|mkv|webm|mov)(\?|$)/i.test(url);
+    if ((ct.includes("video/") && !/mpegurl/i.test(ct)) || isDirectExt) {
       return { playable: true, reason: `direct ${mr.status} ${ct}` };
     }
-    
-    // m3u8: get first segment
-    const txt = await fetch(url, { headers, signal: AbortSignal.timeout(12000) }).then(r => r.text());
-    const lines = txt.split("\n").map(l => l.trim()).filter(l => l && !l.startsWith("#"));
-    if (!lines.length) return { playable: true, reason: "master ok, no segments (direct?)" };
-    const segUrl = lines[0].startsWith("http") ? lines[0] : new URL(lines[0], url).href;
-    let sr = await fetch(segUrl, { method: "HEAD", headers, signal: AbortSignal.timeout(6000) }).catch(() => null);
-    if (!sr || !sr.ok) {
-      sr = await fetch(segUrl, { method: "GET", headers: { ...headers, Range: "bytes=0-1024" }, signal: AbortSignal.timeout(8000) }).catch(() => null);
+
+    const r = await fetch(url, { headers, signal: AbortSignal.timeout(12000) });
+    if (!r.ok) return { playable: false, reason: `playlist ${r.status}` };
+    const rct = r.headers.get("content-type") || ct;
+    if (rct.includes("video/") && !/mpegurl/i.test(rct)) {
+      await r.body?.cancel?.().catch(() => {});
+      return { playable: true, reason: `direct ${r.status} ${rct}` };
+    }
+
+    const txt = await readPrefix(r, 65536);
+    if (!txt.trimStart().startsWith("#EXTM3U")) {
+      if ((rct.includes("octet-stream") || mr.status === 206) && !txt.trimStart().startsWith("<")) {
+        return { playable: true, reason: `direct ${r.status} ${rct}` };
+      }
+      return { playable: false, reason: `not m3u8/video (${rct || "unknown"})` };
+    }
+
+    const findFirstUri = (body) => body.split("\n").map(l => l.trim()).find(l => l && !l.startsWith("#"));
+    const firstUri = findFirstUri(txt);
+    if (!firstUri) return { playable: true, reason: "master ok, no segments (direct?)" };
+    let targetUrl = firstUri.startsWith("http") ? firstUri : new URL(firstUri, url).href;
+
+    // Follow 1 nested variant playlist hop if master -> subplaylist
+    if (/\.m3u8(\?|$)|hlssubplaylist/i.test(targetUrl) || txt.includes("#EXT-X-STREAM-INF")) {
+      const subRes = await fetch(targetUrl, { headers, signal: AbortSignal.timeout(10000) }).catch(() => null);
+      if (subRes && subRes.ok) {
+        const subTxt = await readPrefix(subRes, 65536);
+        if (subTxt.trimStart().startsWith("#EXTM3U")) {
+          const segUri = findFirstUri(subTxt);
+          if (segUri) {
+            targetUrl = segUri.startsWith("http") ? segUri : new URL(segUri, targetUrl).href;
+          }
+        }
+      }
+    }
+
+    let sr = await fetch(targetUrl, { method: "HEAD", headers, signal: AbortSignal.timeout(6000) }).catch(() => null);
+    if (!sr || (!sr.ok && sr.status !== 206)) {
+      sr = await fetch(targetUrl, { method: "GET", headers: { ...headers, Range: "bytes=0-1024" }, signal: AbortSignal.timeout(8000) }).catch(() => null);
+      if (sr) await sr.body?.cancel?.().catch(() => {});
     }
     if (sr && (sr.ok || sr.status === 206)) return { playable: true, reason: `segment ${sr.status}` };
     return { playable: false, reason: `segment ${sr ? sr.status : "ERR"}` };
   } catch (e) {
     return { playable: false, reason: `error: ${e.message}` };
   }
+}
+
+async function checkPlayability(streams) {
+  if (!streams || !streams.length) return { playable: false, reason: "no streams" };
+  let firstReason = "no playable streams";
+  for (let i = 0; i < Math.min(streams.length, 3); i++) {
+    const res = await checkSingleStream(streams[i]);
+    if (res.playable) {
+      return { playable: true, reason: i === 0 ? res.reason : `${res.reason} (fallback #${i + 1})` };
+    }
+    if (i === 0) firstReason = res.reason;
+  }
+  return { playable: false, reason: firstReason };
 }
 
 (async () => {
@@ -62,7 +130,7 @@ async function checkPlayability(streams) {
       let testTarget = "";
       let playability = { playable: false, reason: "none" };
 
-      if (scraper.id === "m3u.anthology.addon" || scraper.id === "anthology_canli_tv" || scraper.id.startsWith("anthology_spor") || scraper.id.startsWith("anthology_haber") || scraper.id.startsWith("anthology_ulusal") || scraper.id.startsWith("anthology_belgesel_cocuk") || scraper.id.startsWith("anthology_muzik")) {
+      if (scraper.id === "m3u.anthology.addon" || scraper.id === "anthology_canli_tv" || scraper.id.startsWith("anthology_spor") || scraper.id.startsWith("anthology_haber") || scraper.id.startsWith("anthology_ulusal") || scraper.id.startsWith("anthology_belgesel_cocuk") || scraper.id.startsWith("anthology_muzik") || scraper.id.startsWith("anthology_sinema")) {
         testTarget = "Catalog / Live Channels";
         if (typeof mod.getCatalog === "function") {
           const cat = await mod.getCatalog({});
@@ -163,7 +231,7 @@ async function checkPlayability(streams) {
 
       const isStreamProvider = count > 0 && (s = streams[0]) && s.url && (!scraper.id.startsWith("anthology_") || scraper.id === "anthology_m3u");
       // Actually, let's test all providers that return streams with URLs
-      if (isWorking && streams[0]?.url) {
+      if (isWorking && (streams[0]?.url || streams[0]?.ytId)) {
         playability = await checkPlayability(streams);
       } else if (isWorking && testTarget === "Catalog / Live Channels") {
         playability = { playable: true, reason: "catalog ok" };

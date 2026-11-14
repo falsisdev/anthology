@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: filmmodu
  * Built from src/filmmodu/index.js
- * Build: v1.8.37 (anthology build system)
+ * Build: v1.8.38 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -544,10 +544,15 @@ function fetchStreamsFromLive(rawTitle, year) {
     "User-Agent": HEADERS["User-Agent"],
     "Referer": LIVE_URL + "/"
   };
-  var sig = timeoutSignal(5e3);
+  var sig = timeoutSignal(12e3);
   var opts = { headers: liveHeaders };
   if (sig) opts.signal = sig;
-  return fetch(searchUrl, opts).then(function(r) {
+  return fetch(searchUrl, opts).catch(function() {
+    var sigRetry = timeoutSignal(12e3);
+    var optsRetry = { headers: liveHeaders };
+    if (sigRetry) optsRetry.signal = sigRetry;
+    return fetch(searchUrl, optsRetry);
+  }).then(function(r) {
     return r.ok ? r.text() : "";
   }).then(function(html) {
     if (!html) return [];
@@ -610,7 +615,7 @@ function fetchStreamsFromLive(rawTitle, year) {
     }
     if (!filmHref) return [];
     console.log("[FilmModu.live] Film bulundu: " + filmHref);
-    var sigPage = timeoutSignal(5e3);
+    var sigPage = timeoutSignal(12e3);
     var pageOpts = { headers: liveHeaders };
     if (sigPage) pageOpts.signal = sigPage;
     return fetch(filmHref, pageOpts).then(function(pr) {
@@ -621,7 +626,7 @@ function fetchStreamsFromLive(rawTitle, year) {
       if (!pvMatch) return [];
       var pv = pvMatch[1];
       var playerEmbedUrl = PLAYER_HOST + "/assets/js/s.php?s=" + encodeURIComponent(pv);
-      var sigEmb = timeoutSignal(5e3);
+      var sigEmb = timeoutSignal(12e3);
       var embOpts = { headers: { "Referer": LIVE_URL + "/", "User-Agent": HEADERS["User-Agent"] } };
       if (sigEmb) embOpts.signal = sigEmb;
       return fetch(playerEmbedUrl, embOpts).then(function(er) {

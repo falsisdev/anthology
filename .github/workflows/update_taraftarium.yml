@@ -32,7 +32,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add config.json providers/anthology_spor.js
+          git add config.json providers/anthology_spor.js providers/M3U/ListM3u.js
           if git diff --staged --quiet; then
             echo "No domain changes needed."
           else

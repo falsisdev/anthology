@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: liderfilmizle
  * Built from src/liderfilmizle/index.js
- * Build: v1.8.37 (anthology build system)
+ * Build: v1.8.38 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -186,9 +186,46 @@ var require_config = __commonJS({
   }
 });
 
+// src/shared/http.js
+var require_http = __commonJS({
+  "src/shared/http.js"(exports2, module2) {
+    var DEFAULT_UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36";
+    function timeoutSignal2(ms) {
+      if (typeof AbortSignal !== "undefined" && typeof AbortSignal.timeout === "function") {
+        return AbortSignal.timeout(ms);
+      }
+      var controller = new AbortController();
+      setTimeout(function() {
+        controller.abort();
+      }, ms);
+      return controller.signal;
+    }
+    function fetchWithTimeout2(url, options, ms) {
+      ms = ms || 1e4;
+      options = options || {};
+      if (!options.signal) {
+        options.signal = timeoutSignal2(ms);
+      }
+      if (!options.headers) {
+        options.headers = {};
+      }
+      if (!options.headers["User-Agent"] && !options.headers["user-agent"]) {
+        options.headers["User-Agent"] = DEFAULT_UA;
+      }
+      return fetch(url, options);
+    }
+    module2.exports = {
+      DEFAULT_UA,
+      timeoutSignal: timeoutSignal2,
+      fetchWithTimeout: fetchWithTimeout2
+    };
+  }
+});
+
 // src/liderfilmizle/index.js
 var { sortStreamsByQuality } = require_quality();
 var { loadConfig, val, wrapAll } = require_config();
+var { timeoutSignal } = require_http();
 var _cfgReady = null;
 function cfgReady() {
   if (!_cfgReady) {
@@ -218,11 +255,9 @@ function ultraClean(str) {
   return str.toString().toLowerCase().replace(/[ıİ]/g, "i").replace(/[üÜ]/g, "u").replace(/[öÖ]/g, "o").replace(/[şŞ]/g, "s").replace(/[ğĞ]/g, "g").replace(/[çÇ]/g, "c").replace(/[^a-z0-9]/g, "").trim();
 }
 function fetchWithTimeout(url, options, ms) {
-  var opts = options || {};
+  var opts = Object.assign({}, options || {});
   try {
-    if (typeof AbortSignal !== "undefined" && AbortSignal.timeout) {
-      opts.signal = AbortSignal.timeout(ms || 12e3);
-    }
+    if (!opts.signal) opts.signal = timeoutSignal(ms || 12e3);
   } catch (e) {
   }
   return fetch(url, opts);
@@ -265,17 +300,34 @@ function resolveTmdbInfo(id, mediaType) {
     }
   });
 }
+function fetchWithRetry(url, options, ms) {
+  return __async(this, null, function* () {
+    try {
+      var res = yield fetchWithTimeout(url, options, ms);
+      if (res && res.ok) return res;
+    } catch (e) {
+    }
+    try {
+      var altOpts = Object.assign({}, options || {});
+      altOpts.headers = Object.assign({}, options && options.headers || {}, { "User-Agent": "Mozilla/5.0" });
+      return yield fetchWithTimeout(url, altOpts, ms);
+    } catch (e2) {
+      return null;
+    }
+  });
+}
 function searchLider(query) {
   return __async(this, null, function* () {
     if (!query) return [];
     try {
-      var res = yield fetchWithTimeout(BASE_URL + "/api/search.php?q=" + encodeURIComponent(query), {
+      var res = yield fetchWithRetry(BASE_URL + "/api/search.php?q=" + encodeURIComponent(query), {
         headers: {
           "User-Agent": UA,
+          "Accept": "application/json, text/plain, */*",
           "Referer": BASE_URL + "/"
         }
-      }, 8e3);
-      if (!res.ok) return [];
+      }, 15e3);
+      if (!res || !res.ok) return [];
       var data = yield res.json().catch(function() {
         return null;
       });
@@ -290,10 +342,10 @@ function resolveSourceStream(sourceUrl, pageUrl) {
     try {
       if (!sourceUrl || sourceUrl.includes("youtube.com")) return null;
       if (sourceUrl.includes("/vod/")) {
-        var vRes = yield fetchWithTimeout(sourceUrl, {
+        var vRes = yield fetchWithRetry(sourceUrl, {
           headers: { "User-Agent": UA, "Referer": pageUrl }
         }, 15e3);
-        if (!vRes.ok) return null;
+        if (!vRes || !vRes.ok) return null;
         var vHtml = yield vRes.text();
         var sourceMatch = vHtml.match(/file:\s*["'](\/player\/stream\.php\?url=[^"']+)["']/i) || vHtml.match(/sources:\s*\[\s*\{\s*file:\s*["']([^"']+)["']/i);
         if (!sourceMatch) return null;
@@ -328,32 +380,32 @@ function resolveSourceStream(sourceUrl, pageUrl) {
           headers: { "User-Agent": UA, "Referer": sourceUrl }
         };
       }
-      var pRes = yield fetchWithTimeout(sourceUrl, {
+      var pRes = yield fetchWithRetry(sourceUrl, {
         headers: { "User-Agent": UA, "Referer": pageUrl }
       }, 15e3);
-      if (!pRes.ok) return null;
+      if (!pRes || !pRes.ok) return null;
       var pHtml = yield pRes.text();
       var ifrMatch = pHtml.match(/<iframe[^>]+src=["']([^"']+)["']/i);
       if (!ifrMatch) return null;
       var innerEmbedUrl = ifrMatch[1];
-      var innerRes = yield fetchWithTimeout(innerEmbedUrl, {
+      var innerRes = yield fetchWithRetry(innerEmbedUrl, {
         headers: { "User-Agent": UA, "Referer": sourceUrl }
       }, 15e3);
-      if (!innerRes.ok) return null;
+      if (!innerRes || !innerRes.ok) return null;
       var innerHtml = yield innerRes.text();
       var dlMatch = innerHtml.match(/fetch\(['"](\/dl\?[^'"]+)['"]\)/);
       if (!dlMatch) return null;
       var dlPath = dlMatch[1];
       var dlUrl = new URL(dlPath, innerEmbedUrl).href;
       var innerOrigin = new URL(innerEmbedUrl).origin;
-      var dlRes = yield fetchWithTimeout(dlUrl, {
+      var dlRes = yield fetchWithRetry(dlUrl, {
         headers: {
           "User-Agent": UA,
           "Referer": innerEmbedUrl,
           "Origin": innerOrigin
         }
       }, 15e3);
-      if (!dlRes.ok) return null;
+      if (!dlRes || !dlRes.ok) return null;
       var dlData = yield dlRes.json().catch(function() {
         return null;
       });
@@ -374,10 +426,10 @@ function resolveSourceStream(sourceUrl, pageUrl) {
 function extractStreamsFromPage(pageUrl) {
   return __async(this, null, function* () {
     try {
-      var res = yield fetchWithTimeout(pageUrl, {
+      var res = yield fetchWithRetry(pageUrl, {
         headers: { "User-Agent": UA, "Referer": BASE_URL + "/" }
-      }, 1e4);
-      if (!res.ok) return [];
+      }, 16e3);
+      if (!res || !res.ok) return [];
       var html = yield res.text();
       var vsMatch = html.match(/window\._vs\s*=\s*['"]([^'"]+)['"]/);
       if (!vsMatch) return [];
@@ -502,38 +554,67 @@ function getCatalog(args) {
         return { metas: searchMetas };
       }
       var isSeries = catalogId.includes("series") || catalogId.includes("dizi");
-      var pageUrl = isSeries ? BASE_URL + "/diziler/?sayfa=1" : BASE_URL + "/kesfet/filmler/?sayfa=1";
-      var res = yield fetchWithTimeout(pageUrl, { headers: { "User-Agent": UA } }, 1e4);
-      if (!res.ok) return { metas: [] };
-      var html = yield res.text();
+      var candidatePages = isSeries ? [BASE_URL + "/diziler?sayfa=1", BASE_URL + "/"] : [BASE_URL + "/kesfet/filmler?sayfa=1", BASE_URL + "/"];
+      var html = "";
+      for (var pIdx = 0; pIdx < candidatePages.length && !html; pIdx++) {
+        var pUrl = candidatePages[pIdx];
+        for (var attempt = 0; attempt < 2; attempt++) {
+          try {
+            var res = yield fetchWithTimeout(pUrl, {
+              headers: {
+                "User-Agent": attempt === 0 ? UA : "Mozilla/5.0",
+                "Referer": BASE_URL + "/",
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+              }
+            }, 22e3);
+            if (res && res.ok) {
+              var body = yield res.text();
+              if (body && body.indexOf("movie-card") !== -1) {
+                html = body;
+                break;
+              }
+            }
+          } catch (err) {
+          }
+        }
+      }
+      if (!html) return { metas: [] };
       var metas = [];
       var seenSlugs = /* @__PURE__ */ new Set();
       if (isSeries) {
-        var sRe = /<a\s+href="\/dizi\/([^"\/]+)"[^>]*>[\s\S]*?<img[^>]+src="([^"]+)"[^>]+alt="([^"]+)"/gi;
+        var sRe = /<a\s+[^>]*href="\/dizi\/([^"\/]+)"[^>]*>([\s\S]*?)<\/a>/gi;
         var sm;
         while ((sm = sRe.exec(html)) !== null) {
           var sSlug = sm[1];
           if (seenSlugs.has(sSlug)) continue;
+          var sBody = sm[2];
+          var sSrc = (sBody.match(/<img[^>]+(?:data-src|src)="([^"]+)"/i) || [])[1] || "";
+          var sAlt = (sBody.match(/<img[^>]+alt="([^"]+)"/i) || [])[1] || "";
+          if (!sSrc || !sAlt) continue;
           seenSlugs.add(sSlug);
           metas.push({
             id: "liderfilm:tv:" + sSlug,
             type: "tv",
-            name: sm[3].trim(),
-            poster: sm[2]
+            name: sAlt.trim(),
+            poster: sSrc
           });
         }
       } else {
-        var mRe = /<a\s+href="\/([^"\/]+)"\s+class="movie-card"[\s\S]*?<img[^>]+src="([^"]+)"[^>]+alt="([^"]+)"/gi;
+        var mRe = /<a\s+[^>]*href="\/([^"\/]+)"[^>]*class="[^"]*movie-card[^"]*"[^>]*>([\s\S]*?)<\/a>/gi;
         var mm;
         while ((mm = mRe.exec(html)) !== null) {
           var mSlug = mm[1];
           if (seenSlugs.has(mSlug) || mSlug === "diziler" || mSlug === "kesfet") continue;
+          var mBody = mm[2];
+          var mSrc = (mBody.match(/<img[^>]+(?:data-src|src)="([^"]+)"/i) || [])[1] || "";
+          var mAlt = (mBody.match(/<img[^>]+alt="([^"]+)"/i) || [])[1] || "";
+          if (!mSrc || !mAlt) continue;
           seenSlugs.add(mSlug);
           metas.push({
             id: "liderfilm:movie:" + mSlug,
             type: "movie",
-            name: mm[3].trim(),
-            poster: mm[2]
+            name: mAlt.trim(),
+            poster: mSrc
           });
         }
       }

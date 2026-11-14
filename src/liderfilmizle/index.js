@@ -1,5 +1,6 @@
 const { sortStreamsByQuality } = require("../shared/quality.js");
 const { loadConfig, val, wrapAll } = require("../shared/config.js");
+const { timeoutSignal } = require("../shared/http.js");
 
 var _cfgReady = null;
 function cfgReady() {
@@ -45,11 +46,9 @@ function ultraClean(str) {
 }
 
 function fetchWithTimeout(url, options, ms) {
-    var opts = options || {};
+    var opts = Object.assign({}, options || {});
     try {
-        if (typeof AbortSignal !== 'undefined' && AbortSignal.timeout) {
-            opts.signal = AbortSignal.timeout(ms || 12000);
-        }
+        if (!opts.signal) opts.signal = timeoutSignal(ms || 12000);
     } catch (e) {}
     return fetch(url, opts);
 }
@@ -94,16 +93,31 @@ async function resolveTmdbInfo(id, mediaType) {
     }
 }
 
+async function fetchWithRetry(url, options, ms) {
+    try {
+        var res = await fetchWithTimeout(url, options, ms);
+        if (res && res.ok) return res;
+    } catch (e) {}
+    try {
+        var altOpts = Object.assign({}, options || {});
+        altOpts.headers = Object.assign({}, (options && options.headers) || {}, { 'User-Agent': 'Mozilla/5.0' });
+        return await fetchWithTimeout(url, altOpts, ms);
+    } catch (e2) {
+        return null;
+    }
+}
+
 async function searchLider(query) {
     if (!query) return [];
     try {
-        var res = await fetchWithTimeout(BASE_URL + '/api/search.php?q=' + encodeURIComponent(query), {
+        var res = await fetchWithRetry(BASE_URL + '/api/search.php?q=' + encodeURIComponent(query), {
             headers: {
                 'User-Agent': UA,
+                'Accept': 'application/json, text/plain, */*',
                 'Referer': BASE_URL + '/'
             }
-        }, 8000);
-        if (!res.ok) return [];
+        }, 15000);
+        if (!res || !res.ok) return [];
         var data = await res.json().catch(function() { return null; });
         return (data && Array.isArray(data.results)) ? data.results : [];
     } catch (e) {
@@ -117,10 +131,10 @@ async function resolveSourceStream(sourceUrl, pageUrl) {
 
         // 1. Durum: VOD Oynatıcı (/vod/...)
         if (sourceUrl.includes('/vod/')) {
-            var vRes = await fetchWithTimeout(sourceUrl, {
+            var vRes = await fetchWithRetry(sourceUrl, {
                 headers: { 'User-Agent': UA, 'Referer': pageUrl }
             }, 15000);
-            if (!vRes.ok) return null;
+            if (!vRes || !vRes.ok) return null;
             var vHtml = await vRes.text();
 
             var sourceMatch = vHtml.match(/file:\s*["'](\/player\/stream\.php\?url=[^"']+)["']/i) ||
@@ -163,20 +177,20 @@ async function resolveSourceStream(sourceUrl, pageUrl) {
         }
 
         // 2. Durum: Embed Oynatıcı (/embed-...)
-        var pRes = await fetchWithTimeout(sourceUrl, {
+        var pRes = await fetchWithRetry(sourceUrl, {
             headers: { 'User-Agent': UA, 'Referer': pageUrl }
         }, 15000);
-        if (!pRes.ok) return null;
+        if (!pRes || !pRes.ok) return null;
         var pHtml = await pRes.text();
 
         var ifrMatch = pHtml.match(/<iframe[^>]+src=["']([^"']+)["']/i);
         if (!ifrMatch) return null;
         var innerEmbedUrl = ifrMatch[1];
 
-        var innerRes = await fetchWithTimeout(innerEmbedUrl, {
+        var innerRes = await fetchWithRetry(innerEmbedUrl, {
             headers: { 'User-Agent': UA, 'Referer': sourceUrl }
         }, 15000);
-        if (!innerRes.ok) return null;
+        if (!innerRes || !innerRes.ok) return null;
         var innerHtml = await innerRes.text();
 
         var dlMatch = innerHtml.match(/fetch\(['"](\/dl\?[^'"]+)['"]\)/);
@@ -186,14 +200,14 @@ async function resolveSourceStream(sourceUrl, pageUrl) {
         var innerOrigin = new URL(innerEmbedUrl).origin;
 
         // x.ag2m4 / cdn77 /dl endpoint'i Origin başlığı bekler
-        var dlRes = await fetchWithTimeout(dlUrl, {
+        var dlRes = await fetchWithRetry(dlUrl, {
             headers: {
                 'User-Agent': UA,
                 'Referer': innerEmbedUrl,
                 'Origin': innerOrigin
             }
         }, 15000);
-        if (!dlRes.ok) return null;
+        if (!dlRes || !dlRes.ok) return null;
         var dlData = await dlRes.json().catch(function() { return null; });
         if (dlData && dlData.url) {
             return {
@@ -212,10 +226,10 @@ async function resolveSourceStream(sourceUrl, pageUrl) {
 
 async function extractStreamsFromPage(pageUrl) {
     try {
-        var res = await fetchWithTimeout(pageUrl, {
+        var res = await fetchWithRetry(pageUrl, {
             headers: { 'User-Agent': UA, 'Referer': BASE_URL + '/' }
-        }, 10000);
-        if (!res.ok) return [];
+        }, 16000);
+        if (!res || !res.ok) return [];
         var html = await res.text();
 
         var vsMatch = html.match(/window\._vs\s*=\s*['"]([^'"]+)['"]/);
@@ -366,45 +380,73 @@ async function getCatalog(args) {
 
         // Kategori / Keşfet vitrini
         var isSeries = catalogId.includes('series') || catalogId.includes('dizi');
-        var pageUrl = isSeries
-            ? (BASE_URL + '/diziler/?sayfa=1')
-            : (BASE_URL + '/kesfet/filmler/?sayfa=1');
+        var candidatePages = isSeries
+            ? [BASE_URL + '/diziler?sayfa=1', BASE_URL + '/']
+            : [BASE_URL + '/kesfet/filmler?sayfa=1', BASE_URL + '/'];
 
-        var res = await fetchWithTimeout(pageUrl, { headers: { 'User-Agent': UA } }, 10000);
-        if (!res.ok) return { metas: [] };
-        var html = await res.text();
+        var html = '';
+        for (var pIdx = 0; pIdx < candidatePages.length && !html; pIdx++) {
+            var pUrl = candidatePages[pIdx];
+            for (var attempt = 0; attempt < 2; attempt++) {
+                try {
+                    var res = await fetchWithTimeout(pUrl, {
+                        headers: {
+                            'User-Agent': attempt === 0 ? UA : 'Mozilla/5.0',
+                            'Referer': BASE_URL + '/',
+                            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+                        }
+                    }, 22000);
+                    if (res && res.ok) {
+                        var body = await res.text();
+                        if (body && body.indexOf('movie-card') !== -1) {
+                            html = body;
+                            break;
+                        }
+                    }
+                } catch (err) {}
+            }
+        }
+        if (!html) return { metas: [] };
 
         var metas = [];
         var seenSlugs = new Set();
 
         if (isSeries) {
-            // Series card regex
-            var sRe = /<a\s+href="\/dizi\/([^"\/]+)"[^>]*>[\s\S]*?<img[^>]+src="([^"]+)"[^>]+alt="([^"]+)"/gi;
+            // Series card regex (attribute order independent)
+            var sRe = /<a\s+[^>]*href="\/dizi\/([^"\/]+)"[^>]*>([\s\S]*?)<\/a>/gi;
             var sm;
             while ((sm = sRe.exec(html)) !== null) {
                 var sSlug = sm[1];
                 if (seenSlugs.has(sSlug)) continue;
+                var sBody = sm[2];
+                var sSrc = (sBody.match(/<img[^>]+(?:data-src|src)="([^"]+)"/i) || [])[1] || '';
+                var sAlt = (sBody.match(/<img[^>]+alt="([^"]+)"/i) || [])[1] || '';
+                if (!sSrc || !sAlt) continue;
                 seenSlugs.add(sSlug);
                 metas.push({
                     id: 'liderfilm:tv:' + sSlug,
                     type: 'tv',
-                    name: sm[3].trim(),
-                    poster: sm[2]
+                    name: sAlt.trim(),
+                    poster: sSrc
                 });
             }
         } else {
-            // Movie card regex
-            var mRe = /<a\s+href="\/([^"\/]+)"\s+class="movie-card"[\s\S]*?<img[^>]+src="([^"]+)"[^>]+alt="([^"]+)"/gi;
+            // Movie card regex (attribute order independent)
+            var mRe = /<a\s+[^>]*href="\/([^"\/]+)"[^>]*class="[^"]*movie-card[^"]*"[^>]*>([\s\S]*?)<\/a>/gi;
             var mm;
             while ((mm = mRe.exec(html)) !== null) {
                 var mSlug = mm[1];
                 if (seenSlugs.has(mSlug) || mSlug === 'diziler' || mSlug === 'kesfet') continue;
+                var mBody = mm[2];
+                var mSrc = (mBody.match(/<img[^>]+(?:data-src|src)="([^"]+)"/i) || [])[1] || '';
+                var mAlt = (mBody.match(/<img[^>]+alt="([^"]+)"/i) || [])[1] || '';
+                if (!mSrc || !mAlt) continue;
                 seenSlugs.add(mSlug);
                 metas.push({
                     id: 'liderfilm:movie:' + mSlug,
                     type: 'movie',
-                    name: mm[3].trim(),
-                    poster: mm[2]
+                    name: mAlt.trim(),
+                    poster: mSrc
                 });
             }
         }

@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: m3u_list
  * Built from src/m3u_list/index.js
- * Build: v1.8.37 (anthology build system)
+ * Build: v1.8.38 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -1204,10 +1204,20 @@ function isEncryptedChannel(name, id) {
   var key = (name || "").toLowerCase() + " " + (id || "").toLowerCase();
   return /bein|ssport|sspor|tivibu|smartspor|smarts|exxen|tabii|eurosport|nba|cbcs/.test(key);
 }
+function isRejectedNonLiveRequest(targetId, mediaType) {
+  var raw = String(targetId || "").trim();
+  if (!raw) return true;
+  if (mediaType === "movie" || mediaType === "series") return true;
+  if (raw.toLowerCase().indexOf("tv:") !== 0 && /^(?:tt\d+|\d+)(?::\d+:\d+)?$/i.test(raw)) {
+    return true;
+  }
+  return false;
+}
 function getStreams(args) {
   return __async(this, null, function* () {
-    var targetId = typeof args === "string" ? args : args ? args.id : "";
-    if (!targetId) {
+    var targetId = typeof args === "string" ? args : args ? args.id || args.name || "" : "";
+    var mediaType = args && typeof args === "object" ? args.type || args.mediaType || "" : "";
+    if (isRejectedNonLiveRequest(targetId, mediaType)) {
       var e = [];
       e.streams = [];
       return e;
@@ -1248,7 +1258,7 @@ function getStreams(args) {
         var cId = cleanKey(tvgIdMatch ? tvgIdMatch[1] : "");
         var cName = cleanKey(tvgNameMatch ? tvgNameMatch[1] : "");
         var aName = cleanKey(aliasName);
-        if (cId === searchKey || cName === searchKey || aName === searchKey || aName.length > 2 && (aName.includes(searchKey) || searchKey.includes(aName))) {
+        if (cId === searchKey || cName === searchKey || aName === searchKey || searchKey.length >= 4 && aName.length >= 4 && (aName.includes(searchKey) || searchKey.includes(aName))) {
           if (!matchedName) matchedName = aliasName;
           if (!matchedCId) matchedCId = cId;
           var encrypted = isEncryptedChannel(aliasName, cId);

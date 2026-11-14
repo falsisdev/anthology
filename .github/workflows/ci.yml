@@ -1,0 +1,42 @@
+name: Build & Addon Validation CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate JSON configs
+        run: |
+          node -e "
+            for (const f of ['package.json', 'config.json', 'manifest.json', 'stremio/manifest.json']) {
+              JSON.parse(require('fs').readFileSync(f, 'utf8'));
+            }
+            console.log('All JSON configs valid.');
+          "
+
+      - name: Build providers from src
+        run: npm run build:providers
+
+      - name: Verify build output matches committed bundles
+        run: git diff --exit-code providers/
+
+      - name: Run Stremio addon validation
+        run: npm run test:addon

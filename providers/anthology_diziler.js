@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: anthology_diziler
  * Built from src/anthology_diziler/index.js
- * Build: v1.8.37 (anthology build system)
+ * Build: v1.8.38 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -1127,9 +1127,14 @@ function getStreams(_0) {
         var at = yield atvEpisode(showSlug, episode);
         if (at) all.push(at);
       }
-      if (!canal || canal === "trt1" || !canal && all.length === 0) {
+      if (canal === "trt1" || !canal && all.length === 0) {
         var tr = yield trt1Episode(title, episode);
-        if (tr) for (var y = 0; y < tr.length; y++) all.push(tr[y]);
+        if (tr) for (var y = 0; y < tr.length; y++) {
+          if (!canal && tr[y] && tr[y].title) {
+            tr[y].title = tr[y].title.replace("TRT1 |", "YouTube Resm\xEE |");
+          }
+          all.push(tr[y]);
+        }
       }
       if (!canal || canal === "tv2") {
         var t2 = yield tv2Episode(showSlug, episode);

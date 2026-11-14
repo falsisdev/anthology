@@ -9,6 +9,10 @@ const path = require("path");
   const results = [];
 
   for (const scraper of manifest.scrapers) {
+    if (scraper.enabled === false) {
+      console.log(`=== Testing Catalogs for: ${scraper.name} (${scraper.id}) === SKIP (disabled)`);
+      continue;
+    }
     if (!scraper.catalogs || scraper.catalogs.length === 0) continue;
 
     const fullPath = path.resolve(__dirname, "..", scraper.filename);

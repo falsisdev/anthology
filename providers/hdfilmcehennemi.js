@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: hdfilmcehennemi
  * Built from src/hdfilmcehennemi/index.js
- * Build: v1.8.37 (anthology build system)
+ * Build: v1.8.38 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -134,8 +134,45 @@ var require_config = __commonJS({
   }
 });
 
+// src/shared/http.js
+var require_http = __commonJS({
+  "src/shared/http.js"(exports2, module2) {
+    var DEFAULT_UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36";
+    function timeoutSignal2(ms) {
+      if (typeof AbortSignal !== "undefined" && typeof AbortSignal.timeout === "function") {
+        return AbortSignal.timeout(ms);
+      }
+      var controller = new AbortController();
+      setTimeout(function() {
+        controller.abort();
+      }, ms);
+      return controller.signal;
+    }
+    function fetchWithTimeout2(url, options, ms) {
+      ms = ms || 1e4;
+      options = options || {};
+      if (!options.signal) {
+        options.signal = timeoutSignal2(ms);
+      }
+      if (!options.headers) {
+        options.headers = {};
+      }
+      if (!options.headers["User-Agent"] && !options.headers["user-agent"]) {
+        options.headers["User-Agent"] = DEFAULT_UA;
+      }
+      return fetch(url, options);
+    }
+    module2.exports = {
+      DEFAULT_UA,
+      timeoutSignal: timeoutSignal2,
+      fetchWithTimeout: fetchWithTimeout2
+    };
+  }
+});
+
 // src/hdfilmcehennemi/index.js
 var { loadConfig, val, wrapAll } = require_config();
+var { timeoutSignal } = require_http();
 var _cfgReady = null;
 function cfgReady() {
   if (!_cfgReady) {
@@ -327,11 +364,9 @@ var FILM_MAP = {
 };
 var SLUG_CACHE = /* @__PURE__ */ new Map();
 function fetchWithTimeout(url, options, ms) {
-  var opts = options || {};
+  var opts = Object.assign({}, options || {});
   try {
-    if (typeof AbortSignal !== "undefined" && AbortSignal.timeout) {
-      opts.signal = AbortSignal.timeout(ms || 1e4);
-    }
+    if (!opts.signal) opts.signal = timeoutSignal(ms || 1e4);
   } catch (e) {
   }
   return fetch(url, opts);
@@ -483,11 +518,16 @@ function decryptCloseLoadScript(scriptContent, embedHost, targetVar) {
       if (m && m[1]) varName = m[1];
     }
     if (!varName) return null;
+    var hostLiteral = JSON.stringify(host);
+    var originLiteral = JSON.stringify("https://" + host);
+    var hrefLiteral = JSON.stringify("https://" + host + "/");
     var code = [
-      'var window = (typeof globalThis.window !== "undefined") ? globalThis.window : { location: { hostname: "' + host + '", origin: "https://' + host + '", href: "https://' + host + '/" } };',
-      'if (!window.location) window.location = { hostname: "' + host + '", origin: "https://' + host + '", href: "https://' + host + '/" };',
-      "var location = window.location;",
-      'var document = (typeof globalThis.document !== "undefined") ? globalThis.document : { location: window.location };',
+      "var _loc = { hostname: " + hostLiteral + ", host: " + hostLiteral + ", origin: " + originLiteral + ", href: " + hrefLiteral + ', protocol: "https:", pathname: "/video/embed/" };',
+      "var window = { location: _loc };",
+      "var self = window, top = window, parent = window;",
+      "var location = _loc;",
+      "var document = { location: _loc, referrer: " + hrefLiteral + " };",
+      'var navigator = (typeof globalThis.navigator !== "undefined") ? globalThis.navigator : { userAgent: "Mozilla/5.0" };',
       'var atob = (typeof globalThis.atob !== "undefined") ? globalThis.atob : function(s) {',
       '  return (typeof Buffer !== "undefined") ? Buffer.from(s, "base64").toString("binary") : s;',
       "};",
@@ -520,9 +560,10 @@ function resolveCloseLoadStreams(pageUrl) {
       var streamUrl = null;
       var eHtml = "";
       for (var attempt = 0; attempt < 3 && !streamUrl; attempt++) {
+        var embedUa = attempt === 0 || attempt === 2 ? "Mozilla/5.0" : HEADERS["User-Agent"];
         var eRes = yield fetchWithTimeout(embedUrl, {
           headers: {
-            "User-Agent": HEADERS["User-Agent"],
+            "User-Agent": embedUa,
             "Referer": BASE_URL + "/"
           }
         }, 1e4);
@@ -530,18 +571,32 @@ function resolveCloseLoadStreams(pageUrl) {
         eHtml = yield eRes.text();
         var fileVarMatch = eHtml.match(/sources:\s*\[\{\s*file:\s*([a-zA-Z0-9_$]+)/i);
         var targetVar = fileVarMatch ? fileVarMatch[1] : null;
-        var scripts = Array.from(eHtml.matchAll(/<script[\s\S]*?<\/script>/gi)).map(function(m) {
-          return m[0];
-        });
+        var scripts = Array.from(eHtml.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi));
+        var inlineBodies = [];
         for (var i = 0; i < scripts.length; i++) {
-          var s = scripts[i];
-          if (s.includes("var ") && !s.includes("jwplayer") && (s.includes("([") || targetVar && s.includes(targetVar))) {
-            var cleanScript = s.replace(/<script[^>]*>/i, "").replace(/<\/script>/i, "");
+          var attrs = scripts[i][1] || "";
+          var cleanScript = (scripts[i][2] || "").trim();
+          if (!cleanScript || /\bsrc\s*=/i.test(attrs)) continue;
+          if (/application\/ld\+json/i.test(attrs) || cleanScript.includes("__CF$cv$params") || cleanScript.includes("jwplayer(")) continue;
+          inlineBodies.push(cleanScript);
+          if (cleanScript.includes("var ") && (cleanScript.includes("([") || targetVar && cleanScript.includes(targetVar))) {
             var dec = decryptCloseLoadScript(cleanScript, embedHost, targetVar);
             if (dec && typeof dec === "string" && dec.startsWith("http")) {
               streamUrl = dec;
               break;
             }
+          }
+        }
+        if (!streamUrl && targetVar && inlineBodies.length > 0) {
+          var combinedDec = decryptCloseLoadScript(inlineBodies.join("\n;\n"), embedHost, targetVar);
+          if (combinedDec && typeof combinedDec === "string" && combinedDec.startsWith("http")) {
+            streamUrl = combinedDec;
+          }
+        }
+        if (!streamUrl) {
+          var ldMatch = eHtml.match(/"contentUrl"\s*:\s*"(https?:\/\/[^"]+)"/i);
+          if (ldMatch && ldMatch[1]) {
+            streamUrl = ldMatch[1];
           }
         }
       }

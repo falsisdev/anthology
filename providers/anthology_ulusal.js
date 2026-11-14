@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: anthology_ulusal
  * Built from src/anthology_ulusal/index.js
- * Build: v1.8.37 (anthology build system)
+ * Build: v1.8.38 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -31,6 +31,45 @@ var __async = (__this, __arguments, generator) => {
     step((generator = generator.apply(__this, __arguments)).next());
   });
 };
+
+// src/shared/channel_lang.js
+var require_channel_lang = __commonJS({
+  "src/shared/channel_lang.js"(exports2, module2) {
+    var CHANNEL_LANG_LABELS = {
+      tr: "T\xFCrk\xE7e",
+      en: "\u0130ngilizce",
+      az: "Azerbaycan T\xFCrk\xE7esi",
+      ar: "Arap\xE7a",
+      ku: "K\xFCrt\xE7e",
+      de: "Almanca",
+      fr: "Frans\u0131zca",
+      ru: "Rus\xE7a",
+      es: "\u0130spanyolca",
+      it: "\u0130talyanca"
+    };
+    var DEFAULT_CHANNEL_LANG = "tr";
+    function parseTvgLang(extinfLine) {
+      var line = extinfLine || "";
+      var m = line.match(/tvg-lang="([^"]+)"/i);
+      if (!m) m = line.match(/tvg-language="([^"]+)"/i);
+      return m ? String(m[1]).trim().toLowerCase() : "";
+    }
+    function channelLangLabel(code) {
+      var key = (code || "").toString().trim().toLowerCase();
+      if (!key) key = DEFAULT_CHANNEL_LANG;
+      return CHANNEL_LANG_LABELS[key] || CHANNEL_LANG_LABELS[DEFAULT_CHANNEL_LANG];
+    }
+    function channelDescription(channelName, langCode) {
+      return (channelName || "") + " Canl\u0131 [" + channelLangLabel(langCode) + "]";
+    }
+    module2.exports = {
+      CHANNEL_LANG_LABELS,
+      parseTvgLang,
+      channelLangLabel,
+      channelDescription
+    };
+  }
+});
 
 // src/shared/quality.js
 var require_quality = __commonJS({
@@ -71,7 +110,7 @@ var require_quality = __commonJS({
       if (isDirectMp4 && score > 0) score += 1;
       return score;
     }
-    function sortStreamsByQuality2(streams) {
+    function sortStreamsByQuality(streams) {
       if (!Array.isArray(streams) || streams.length === 0) return streams;
       return streams.slice().sort(function(a, b) {
         return getQualityScore(b) - getQualityScore(a);
@@ -79,7 +118,7 @@ var require_quality = __commonJS({
     }
     module2.exports = {
       getQualityScore,
-      sortStreamsByQuality: sortStreamsByQuality2
+      sortStreamsByQuality
     };
   }
 });
@@ -94,20 +133,20 @@ var require_config = __commonJS({
     function _cfgLocalRead() {
       try {
         if (typeof require === "undefined") return null;
-        var fs2 = require("fs");
-        var path2 = require("path");
-        if (!fs2 || !path2 || typeof fs2.existsSync !== "function") return null;
+        var fs = require("fs");
+        var path = require("path");
+        if (!fs || !path || typeof fs.existsSync !== "function") return null;
         var dir = typeof __dirname !== "undefined" ? __dirname : "";
         var candidates = [
-          path2.resolve(dir, "..", "config.json"),
+          path.resolve(dir, "..", "config.json"),
           // providers/<name>.js
-          path2.resolve(dir, "..", "..", "config.json"),
+          path.resolve(dir, "..", "..", "config.json"),
           // src/<name>/index.js
-          path2.resolve(dir, "config.json")
+          path.resolve(dir, "config.json")
         ];
         for (var i = 0; i < candidates.length; i++) {
-          if (fs2.existsSync(candidates[i])) {
-            return JSON.parse(fs2.readFileSync(candidates[i], "utf8"));
+          if (fs.existsSync(candidates[i])) {
+            return JSON.parse(fs.readFileSync(candidates[i], "utf8"));
           }
         }
       } catch (e) {
@@ -129,7 +168,7 @@ var require_config = __commonJS({
         });
       });
     }
-    function loadConfig2() {
+    function loadConfig() {
       var now = Date.now();
       if (_cfg && now - _cfgTime < CONFIG_TTL_MS) return Promise.resolve(_cfg);
       var local = _cfgLocalRead();
@@ -148,7 +187,7 @@ var require_config = __commonJS({
         return _cfg;
       });
     }
-    function val2(pathStr) {
+    function val(pathStr) {
       if (!_cfg || !pathStr) return void 0;
       var parts = String(pathStr).split(".");
       var cur = _cfg;
@@ -158,7 +197,7 @@ var require_config = __commonJS({
       }
       return cur;
     }
-    function wrapAll2(obj, pre) {
+    function wrapAll(obj, pre) {
       var out = {};
       for (var k in obj) {
         if (Object.prototype.hasOwnProperty.call(obj, k)) {
@@ -181,7 +220,7 @@ var require_config = __commonJS({
       return out;
     }
     if (typeof module2 !== "undefined" && module2.exports) {
-      module2.exports = { loadConfig: loadConfig2, val: val2, wrapAll: wrapAll2 };
+      module2.exports = { loadConfig, val, wrapAll };
     }
   }
 });
@@ -247,7 +286,7 @@ var require_epg = __commonJS({
       var parts = t.split(":");
       return parseInt(parts[0], 10) * 60 + parseInt(parts[1] || "0", 10);
     }
-    function getNowPlayingInfo2(channelKey, channelName) {
+    function getNowPlayingInfo(channelKey, channelName) {
       var key = (channelKey || "").toLowerCase().replace(/[^a-z0-9]/g, "");
       var sched = SAMPLE_SCHEDULES[key];
       if (!sched) {
@@ -301,119 +340,145 @@ var require_epg = __commonJS({
       };
     }
     module2.exports = {
-      getNowPlayingInfo: getNowPlayingInfo2
+      getNowPlayingInfo
     };
   }
 });
 
-// src/shared/channel_lang.js
-var require_channel_lang = __commonJS({
-  "src/shared/channel_lang.js"(exports2, module2) {
-    var CHANNEL_LANG_LABELS = {
-      tr: "T\xFCrk\xE7e",
-      en: "\u0130ngilizce",
-      az: "Azerbaycan T\xFCrk\xE7esi",
-      ar: "Arap\xE7a",
-      ku: "K\xFCrt\xE7e",
-      de: "Almanca",
-      fr: "Frans\u0131zca",
-      ru: "Rus\xE7a",
-      es: "\u0130spanyolca",
-      it: "\u0130talyanca"
-    };
-    var DEFAULT_CHANNEL_LANG = "tr";
-    function parseTvgLang2(extinfLine) {
-      var line = extinfLine || "";
-      var m = line.match(/tvg-lang="([^"]+)"/i);
-      if (!m) m = line.match(/tvg-language="([^"]+)"/i);
-      return m ? String(m[1]).trim().toLowerCase() : "";
+// src/shared/http.js
+var require_http = __commonJS({
+  "src/shared/http.js"(exports2, module2) {
+    var DEFAULT_UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36";
+    function timeoutSignal(ms) {
+      if (typeof AbortSignal !== "undefined" && typeof AbortSignal.timeout === "function") {
+        return AbortSignal.timeout(ms);
+      }
+      var controller = new AbortController();
+      setTimeout(function() {
+        controller.abort();
+      }, ms);
+      return controller.signal;
     }
-    function channelLangLabel(code) {
-      var key = (code || "").toString().trim().toLowerCase();
-      if (!key) key = DEFAULT_CHANNEL_LANG;
-      return CHANNEL_LANG_LABELS[key] || CHANNEL_LANG_LABELS[DEFAULT_CHANNEL_LANG];
-    }
-    function channelDescription2(channelName, langCode) {
-      return (channelName || "") + " Canl\u0131 [" + channelLangLabel(langCode) + "]";
+    function fetchWithTimeout(url, options, ms) {
+      ms = ms || 1e4;
+      options = options || {};
+      if (!options.signal) {
+        options.signal = timeoutSignal(ms);
+      }
+      if (!options.headers) {
+        options.headers = {};
+      }
+      if (!options.headers["User-Agent"] && !options.headers["user-agent"]) {
+        options.headers["User-Agent"] = DEFAULT_UA;
+      }
+      return fetch(url, options);
     }
     module2.exports = {
-      CHANNEL_LANG_LABELS,
-      parseTvgLang: parseTvgLang2,
-      channelLangLabel,
-      channelDescription: channelDescription2
+      DEFAULT_UA,
+      timeoutSignal,
+      fetchWithTimeout
     };
   }
 });
 
-// src/anthology_ulusal/index.js
-var { sortStreamsByQuality } = require_quality();
-var { loadConfig, val, wrapAll } = require_config();
-var { getNowPlayingInfo } = require_epg();
-var { parseTvgLang, channelDescription } = require_channel_lang();
-var _cfgReady = null;
-function cfgReady() {
-  if (!_cfgReady) {
-    _cfgReady = loadConfig().then(function() {
-      var v;
-      v = val("urls.live.m3u_remote");
-      if (v) M3U_REMOTE = String(v).replace(/\/+$/, "");
-    });
-  }
-  return _cfgReady;
-}
-var path = typeof require !== "undefined" ? require("path") : null;
-var fs = typeof require !== "undefined" ? require("fs") : null;
-var M3U_REMOTE = "https://raw.githubusercontent.com/falsisdev/anthology/main/providers/M3U/Liste/canli.m3u";
-var _HEADERS = {
-  "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-  "Accept": "*/*"
-};
-var cachedText = null;
-var cacheTime = 0;
-function fetchChannels() {
-  var now = Date.now();
-  if (cachedText && now - cacheTime < 3e5) {
-    return Promise.resolve(cachedText);
-  }
-  if (fs && path) {
-    try {
-      var localPath = path.resolve(__dirname, "M3U", "Liste", "canli.m3u");
-      if (fs.existsSync(localPath)) {
-        cachedText = fs.readFileSync(localPath, "utf8");
-        cacheTime = now;
+// src/shared/live_tv_engine.js
+var require_live_tv_engine = __commonJS({
+  "src/shared/live_tv_engine.js"(exports2, module2) {
+    var { parseTvgLang, channelDescription } = require_channel_lang();
+    var { sortStreamsByQuality } = require_quality();
+    var { loadConfig, val, wrapAll } = require_config();
+    var { getNowPlayingInfo } = require_epg();
+    var { timeoutSignal } = require_http();
+    var DEFAULT_M3U_REMOTE = "https://raw.githubusercontent.com/falsisdev/anthology/main/providers/M3U/Liste/canli.m3u";
+    var DEFAULT_LOGO = "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png";
+    var _HEADERS = {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+      "Accept": "*/*"
+    };
+    var M3U_REMOTE = DEFAULT_M3U_REMOTE;
+    var _cfgReady = null;
+    var cachedText = null;
+    var cacheTime = 0;
+    function cfgReady() {
+      if (!_cfgReady) {
+        _cfgReady = loadConfig().then(function() {
+          var v = val("urls.live.m3u_remote");
+          if (v) M3U_REMOTE = String(v).replace(/\/+$/, "");
+        });
+      }
+      return _cfgReady;
+    }
+    function getNodeModules() {
+      if (typeof process === "undefined" || !process.versions || !process.versions.node || typeof require === "undefined") {
+        return null;
+      }
+      try {
+        return {
+          path: require("path"),
+          fs: require("fs")
+        };
+      } catch (e) {
+        return null;
+      }
+    }
+    function fetchChannels() {
+      var now = Date.now();
+      if (cachedText && now - cacheTime < 3e5) {
         return Promise.resolve(cachedText);
       }
-    } catch (e) {
+      var nodeMods = getNodeModules();
+      if (nodeMods && nodeMods.fs && nodeMods.path) {
+        var candidates = [];
+        try {
+          if (typeof __dirname === "string") {
+            candidates.push(nodeMods.path.resolve(__dirname, "M3U", "Liste", "canli.m3u"));
+            candidates.push(nodeMods.path.resolve(__dirname, "..", "..", "providers", "M3U", "Liste", "canli.m3u"));
+          }
+          if (typeof process !== "undefined" && typeof process.cwd === "function") {
+            candidates.push(nodeMods.path.resolve(process.cwd(), "providers", "M3U", "Liste", "canli.m3u"));
+          }
+          for (var i = 0; i < candidates.length; i++) {
+            if (candidates[i] && nodeMods.fs.existsSync(candidates[i])) {
+              cachedText = nodeMods.fs.readFileSync(candidates[i], "utf8");
+              cacheTime = now;
+              return Promise.resolve(cachedText);
+            }
+          }
+        } catch (e) {
+        }
+      }
+      return fetch(M3U_REMOTE, {
+        headers: { "User-Agent": "Mozilla/5.0" },
+        signal: timeoutSignal(12e3)
+      }).then(function(res) {
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        return res.text();
+      }).then(function(txt) {
+        cachedText = txt;
+        cacheTime = now;
+        return txt;
+      });
     }
-  }
-  return fetch(M3U_REMOTE, { headers: { "User-Agent": "Mozilla/5.0" } }).then(function(res) {
-    return res.text();
-  }).then(function(txt) {
-    cachedText = txt;
-    cacheTime = now;
-    return txt;
-  });
-}
-function cleanKey(s) {
-  return (s || "").toString().toLowerCase().replace(/[^a-z0-9]/g, "");
-}
-function parseUlusalChannels(content) {
-  var lines = content.split("\n");
-  var channels = [];
-  for (var i = 0; i < lines.length; i++) {
-    var line = lines[i].trim();
-    if (line.indexOf("#EXTINF") !== -1) {
-      var groupMatch = line.match(/group-title="([^"]+)"/i);
-      var group = groupMatch ? groupMatch[1] : "";
-      if (group.indexOf("ULUSAL") !== -1) {
+    function cleanKey(s) {
+      return (s || "").toString().replace(/İ/g, "I").replace(/ı/g, "i").toLowerCase().replace(/[^a-z0-9]/g, "");
+    }
+    function parseGroupChannels(content, matchGroup) {
+      var lines = String(content || "").split("\n");
+      var channels = [];
+      for (var i = 0; i < lines.length; i++) {
+        var line = lines[i].trim();
+        if (line.indexOf("#EXTINF") === -1) continue;
+        var groupMatch = line.match(/group-title="([^"]+)"/i);
+        var group = groupMatch ? groupMatch[1] : "";
+        if (!matchGroup(group)) continue;
         var tvgIdMatch = line.match(/tvg-id="([^"]+)"/i);
         var tvgNameMatch = line.match(/tvg-name="([^"]+)"/i);
         var logoMatch = line.match(/tvg-logo="([^"]+)"/i);
         var nameMatch = line.match(/"\s*,\s*(.+)$/);
         var channelName = nameMatch ? nameMatch[1].trim() : line.split(",").pop().trim();
         var rawId = tvgIdMatch && tvgIdMatch[1] ? tvgIdMatch[1].trim() : tvgNameMatch ? tvgNameMatch[1].trim() : channelName;
-        var channelId = rawId.startsWith("tv:") ? rawId : "tv:" + rawId;
-        var logo = logoMatch ? logoMatch[1] : "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png";
+        var channelId = rawId.indexOf("tv:") === 0 ? rawId : "tv:" + rawId;
+        var logo = logoMatch ? logoMatch[1] : DEFAULT_LOGO;
         var streamUrl = "";
         for (var j = i + 1; j < lines.length; j++) {
           var u = lines[j].trim();
@@ -441,146 +506,177 @@ function parseUlusalChannels(content) {
           lang: parseTvgLang(line)
         });
       }
+      return channels;
     }
-  }
-  return channels;
-}
-function getCatalog(args) {
-  return fetchChannels().then(function(content) {
-    var channels = parseUlusalChannels(content);
-    var metas = channels.map(function(ch) {
-      return {
-        id: ch.id,
-        type: "tv",
-        name: ch.name,
-        poster: ch.logo,
-        background: ch.logo,
-        genres: ["Ulusal"],
-        description: channelDescription(ch.name, ch.lang)
-      };
-    });
-    return { metas };
-  }).catch(function() {
-    return { metas: [] };
-  });
-}
-function getStreams(args) {
-  var targetId = typeof args === "string" ? args : args ? args.id || args.name : "";
-  return fetchChannels().then(function(content) {
-    var channels = parseUlusalChannels(content);
-    if (!targetId && channels.length > 0) {
-      return channels.slice(0, 5).map(function(ch2) {
-        return {
-          name: "\u231C Anthology Ulusal \u231F",
-          title: ch2.name + " [Canl\u0131]",
-          url: ch2.url,
-          headers: _HEADERS,
-          behaviorHints: { isLive: true }
-        };
-      });
+    function isRejectedNonLiveRequest(targetId, mediaType) {
+      var raw = String(targetId || "").trim();
+      if (!raw) return true;
+      if (mediaType === "movie" || mediaType === "series") return true;
+      if (raw.toLowerCase().indexOf("tv:") !== 0 && /^(?:tt\d+|\d+)(?::\d+:\d+)?$/i.test(raw)) {
+        return true;
+      }
+      return false;
     }
-    var searchKey = cleanKey(targetId.replace(/^tv:/, ""));
-    var streams = [];
-    for (var i = 0; i < channels.length; i++) {
-      var ch = channels[i];
-      var cId = cleanKey(ch.id.replace(/^tv:/, ""));
-      var cName = cleanKey(ch.name);
-      if (cId === searchKey || cName === searchKey || searchKey && (cName.includes(searchKey) || searchKey.includes(cName))) {
-        streams.push({
-          name: "\u231C Anthology Ulusal \u231F",
-          title: ch.name + " [Canl\u0131 HD]",
-          url: ch.url,
-          headers: _HEADERS,
-          behaviorHints: { isLive: true }
-        });
-        if (ch.backups && ch.backups.length > 0) {
-          for (var bkIdx = 0; bkIdx < ch.backups.length; bkIdx++) {
-            var bUrl = ch.backups[bkIdx];
-            if (bUrl !== ch.url) {
-              var bLabel = ch.name + (ch.backups.length > 1 ? " [Yedek Ak\u0131\u015F " + (bkIdx + 1) + "]" : " [Yedek Ak\u0131\u015F]");
-              streams.push({
-                name: "\u231C Anthology Ulusal \u231F",
-                title: bLabel,
-                url: bUrl,
-                headers: _HEADERS,
-                behaviorHints: { isLive: true }
-              });
-            }
+    function findMatchingChannel(channels, targetId) {
+      var raw = String(targetId || "").trim();
+      var searchKey = cleanKey(raw.replace(/^tv:/i, ""));
+      if (!searchKey) return null;
+      for (var i = 0; i < channels.length; i++) {
+        var ch = channels[i];
+        var cId = cleanKey(ch.id.replace(/^tv:/i, ""));
+        var cName = cleanKey(ch.name);
+        if (ch.id === raw || cId === searchKey || cName === searchKey) {
+          return ch;
+        }
+      }
+      if (searchKey.length >= 4) {
+        for (var j = 0; j < channels.length; j++) {
+          var ch2 = channels[j];
+          var cId2 = cleanKey(ch2.id.replace(/^tv:/i, ""));
+          var cName2 = cleanKey(ch2.name);
+          if (cName2.length >= 4 && (cName2.indexOf(searchKey) !== -1 || searchKey.indexOf(cName2) !== -1) || cId2.length >= 4 && (cId2.indexOf(searchKey) !== -1 || searchKey.indexOf(cId2) !== -1)) {
+            return ch2;
           }
         }
-        break;
       }
+      return null;
     }
-    if (streams.length === 0 && channels.length > 0) {
-      streams.push({
-        name: "\u231C Anthology Ulusal \u231F",
-        title: channels[0].name + " [Canl\u0131 HD]",
-        url: channels[0].url,
+    function buildStreamEntry(streamName, baseName, liveLabel, url) {
+      var ytMatch = (url || "").match(/(?:watch\?v=|embed\/|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+      if (ytMatch) {
+        return {
+          name: streamName,
+          title: baseName + " [Canl\u0131 HD \xB7 YouTube]",
+          ytId: ytMatch[1],
+          behaviorHints: { isLive: true }
+        };
+      }
+      return {
+        name: streamName,
+        title: liveLabel,
+        url,
         headers: _HEADERS,
         behaviorHints: { isLive: true }
-      });
+      };
     }
-    streams.streams = streams;
-    return streams;
-  }).catch(function() {
-    var empty = [];
-    empty.streams = [];
-    return empty;
-  });
-}
-if (typeof getStreams === "function") {
-  _origGetStreams = getStreams;
-  getStreams = function() {
-    return __async(this, arguments, function* () {
-      var res = yield _origGetStreams.apply(this, arguments);
-      return sortStreamsByQuality(res);
-    });
-  };
-}
-var _origGetStreams;
-if (typeof module !== "undefined" && module.exports) {
-  module.exports = wrapAll({ getStreams, getCatalog }, cfgReady);
-} else {
-  g = typeof globalThis !== "undefined" ? globalThis : typeof global !== "undefined" ? global : window;
-  g.getStreams = getStreams;
-  g.getCatalog = getCatalog;
-}
-var g;
-function getMeta(args) {
-  var targetId = typeof args === "string" ? args : args && args.id ? args.id : null;
-  if (!targetId) return Promise.resolve({ meta: null });
-  return fetchChannels().then(function(content) {
-    var channels = parseUlusalChannels(content);
-    var cleanTarget = cleanKey(targetId.replace(/^tv:/, ""));
-    var ch = channels.find(function(c) {
-      return c.id === targetId || cleanKey(c.id.replace(/^tv:/, "")) === cleanTarget || cleanKey(c.name) === cleanTarget;
-    }) || channels[0];
-    var epg = getNowPlayingInfo(cleanTarget, ch.name);
-    return {
-      meta: {
-        id: targetId,
-        type: "tv",
-        name: ch.name,
-        poster: ch.logo,
-        background: ch.logo,
-        description: epg && epg.formattedText ? channelDescription(ch.name, ch.lang) + "\n" + epg.formattedText : channelDescription(ch.name, ch.lang),
-        genres: ["Ulusal"],
-        videos: [{ id: targetId, title: epg && epg.current ? epg.current : ch.name, released: (/* @__PURE__ */ new Date()).toISOString() }]
+    function createLiveTvProvider2(opts) {
+      var streamName = opts.streamName;
+      var genre = opts.genre;
+      var matchGroup = opts.matchGroup;
+      var useEpg = Boolean(opts.useEpg);
+      function getCatalog() {
+        return fetchChannels().then(function(content) {
+          var channels = parseGroupChannels(content, matchGroup);
+          var metas = channels.map(function(ch) {
+            return {
+              id: ch.id,
+              type: "tv",
+              name: ch.name,
+              poster: ch.logo,
+              background: ch.logo,
+              genres: [genre],
+              description: channelDescription(ch.name, ch.lang)
+            };
+          });
+          return { metas };
+        }).catch(function() {
+          return { metas: [] };
+        });
       }
+      function getStreams(args) {
+        return __async(this, null, function* () {
+          var targetId = typeof args === "string" ? args : args ? args.id || args.name || "" : "";
+          var mediaType = args && typeof args === "object" ? args.type || args.mediaType || "" : "";
+          var empty = [];
+          empty.streams = empty;
+          if (isRejectedNonLiveRequest(targetId, mediaType)) {
+            return empty;
+          }
+          try {
+            var content = yield fetchChannels();
+            var channels = parseGroupChannels(content, matchGroup);
+            var ch = findMatchingChannel(channels, targetId);
+            if (!ch) return empty;
+            var streams = [];
+            if (ch.url) {
+              streams.push(buildStreamEntry(streamName, ch.name, ch.name + " [Canl\u0131 HD]", ch.url));
+            }
+            if (ch.backups && ch.backups.length > 0) {
+              for (var bkIdx = 0; bkIdx < ch.backups.length; bkIdx++) {
+                var bUrl = ch.backups[bkIdx];
+                if (bUrl && bUrl !== ch.url) {
+                  var bSuffix = ch.backups.length > 1 ? " [Yedek Ak\u0131\u015F " + (bkIdx + 1) + "]" : " [Yedek Ak\u0131\u015F]";
+                  streams.push(buildStreamEntry(streamName, ch.name + bSuffix, ch.name + bSuffix, bUrl));
+                }
+              }
+            }
+            var sorted = sortStreamsByQuality(streams);
+            sorted.streams = sorted;
+            return sorted;
+          } catch (e) {
+            return empty;
+          }
+        });
+      }
+      function getMeta(args) {
+        var targetId = typeof args === "string" ? args : args && args.id ? args.id : null;
+        if (!targetId) return Promise.resolve({ meta: null });
+        return fetchChannels().then(function(content) {
+          var channels = parseGroupChannels(content, matchGroup);
+          var ch = findMatchingChannel(channels, targetId);
+          if (!ch) return { meta: null };
+          var cleanTarget = cleanKey(String(targetId).replace(/^tv:/i, ""));
+          var baseDesc = channelDescription(ch.name, ch.lang);
+          var epg = useEpg ? getNowPlayingInfo(cleanTarget, ch.name) : null;
+          var description = epg && epg.formattedText ? baseDesc + "\n" + epg.formattedText : baseDesc;
+          var videoTitle = epg && epg.current ? epg.current : ch.name;
+          return {
+            meta: {
+              id: targetId,
+              type: "tv",
+              name: ch.name,
+              poster: ch.logo,
+              background: ch.logo,
+              description,
+              genres: [genre],
+              videos: [{ id: targetId, title: videoTitle, released: (/* @__PURE__ */ new Date()).toISOString() }]
+            }
+          };
+        }).catch(function() {
+          return { meta: null };
+        });
+      }
+      return wrapAll({
+        getStreams,
+        getCatalog,
+        getMeta
+      }, cfgReady);
+    }
+    module2.exports = {
+      createLiveTvProvider: createLiveTvProvider2,
+      cfgReady
     };
-  }).catch(function() {
-    return { meta: null };
-  });
-}
+  }
+});
+
+// src/anthology_ulusal/index.js
+var { createLiveTvProvider } = require_live_tv_engine();
+var provider = createLiveTvProvider({
+  streamName: "\u231C Anthology Ulusal \u231F",
+  genre: "Ulusal",
+  useEpg: true,
+  matchGroup: function(group) {
+    return (group || "").indexOf("ULUSAL") !== -1;
+  }
+});
 if (typeof module !== "undefined" && module.exports) {
-  module.exports = { getStreams, getCatalog, getMeta };
-} else {
-  g = typeof globalThis !== "undefined" ? globalThis : typeof global !== "undefined" ? global : window;
-  g.getStreams = getStreams;
-  g.getCatalog = getCatalog;
-  g.getMeta = getMeta;
+  module.exports = provider;
 }
-var g;
+if (typeof globalThis !== "undefined") {
+  globalThis.getStreams = provider.getStreams;
+  globalThis.getCatalog = provider.getCatalog;
+  globalThis.getMeta = provider.getMeta;
+}
 
 if (typeof globalThis !== 'undefined' && typeof module !== 'undefined' && module.exports) {
     if (module.exports.getStreams) globalThis.getStreams = module.exports.getStreams;
