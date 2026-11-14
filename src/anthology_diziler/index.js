@@ -598,9 +598,14 @@ async function getStreams(args) {
             var at = await atvEpisode(showSlug, episode);
             if (at) all.push(at);
         }
-        if (!canal || canal === 'trt1' || (!canal && all.length === 0)) {
+        if (canal === 'trt1' || (!canal && all.length === 0)) {
             var tr = await trt1Episode(title, episode);
-            if (tr) for (var y = 0; y < tr.length; y++) all.push(tr[y]);
+            if (tr) for (var y = 0; y < tr.length; y++) {
+                if (!canal && tr[y] && tr[y].title) {
+                    tr[y].title = tr[y].title.replace('TRT1 |', 'YouTube Resmî |');
+                }
+                all.push(tr[y]);
+            }
         }
         if (!canal || canal === 'tv2') {
             var t2 = await tv2Episode(showSlug, episode);

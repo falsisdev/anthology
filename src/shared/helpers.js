@@ -24,8 +24,8 @@ function normalizeTurkish(str) {
 function cleanTitle(str) {
     if (!str || typeof str !== 'string') return '';
     return str
-        .replace(/s*(d{4})s*$/, '')
-        .replace(/s*(izle|hd izle|turkce dublaj|turkce altyazili)s*$/gi, '')
+        .replace(/\s*\(\d{4}\)\s*$/, '')
+        .replace(/\s*(izle|hd izle|turkce dublaj|turkce altyazili)\s*$/gi, '')
         .trim();
 }
 

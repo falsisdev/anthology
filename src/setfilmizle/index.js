@@ -403,11 +403,24 @@ async function extractStreamsFromContentPage(pageUrl) {
 async function getCatalog(args) {
     try {
         var query = (args && args.search) || (args && args.extra && args.extra.search) || (args && args.query) || '';
-        var url = query ? (BASE_URL + '/?s=' + encodeURIComponent(query)) : (BASE_URL + '/tur/aksiyon/');
+        var catalogId = (args && args.id) || '';
+        var catalogType = (args && args.type) || '';
+        var wantSeries = catalogId.includes('series') || catalogType === 'tv' || catalogType === 'series';
+        var wantMovies = catalogId.includes('movie') || catalogType === 'movie';
+        var url = query
+            ? (BASE_URL + '/?s=' + encodeURIComponent(query))
+            : (wantSeries ? (BASE_URL + '/dizi/') : (BASE_URL + '/tur/aksiyon/'));
         var res = await fetchWithTimeout(url, { headers: HEADERS }, 15000);
         if (!res.ok) return { metas: [] };
         var html = await res.text();
         var cards = parseCards(html);
+        if (wantSeries && !wantMovies) {
+            var filteredSeries = cards.filter(function(c) { return c.isTv; });
+            if (filteredSeries.length > 0 || !query) cards = filteredSeries;
+        } else if (wantMovies && !wantSeries && query) {
+            var filteredMovies = cards.filter(function(c) { return !c.isTv; });
+            if (filteredMovies.length > 0) cards = filteredMovies;
+        }
         var metas = cards.slice(0, 30).map(function(c) {
             return {
                 id: 'setfilmizle:' + (c.isTv ? 'show:' : 'movie:') + encodeURIComponent(c.href),

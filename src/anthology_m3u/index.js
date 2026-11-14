@@ -6,6 +6,7 @@
 
 const { sortStreamsByQuality } = require('../shared/quality');
 const { loadConfig, val, wrapAll } = require('../shared/config');
+const { timeoutSignal } = require('../shared/http');
 
 var _cfgReady = null;
 function cfgReady() {
@@ -14,6 +15,8 @@ function cfgReady() {
             var v;
             v = val('urls.m3u.film_base'); if (v) FILM_BASE_URL = v;
             v = val('urls.m3u.dizi_base'); if (v) DIZI_BASE_URL = v;
+            v = val('urls.m3u.film_full'); if (v) FILM_FULL_URL = v;
+            v = val('urls.m3u.dizi_full'); if (v) DIZI_FULL_URL = v;
         });
     }
     return _cfgReady;
@@ -22,6 +25,8 @@ function cfgReady() {
 var TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
 var FILM_BASE_URL = 'https://raw.githubusercontent.com/mooncrown04/m3ubirlestir/main/nuvio_parcalari/';
 var DIZI_BASE_URL = 'https://raw.githubusercontent.com/mooncrown04/m3ubirlestir/main/nuvio_dizi_parcalari/';
+var FILM_FULL_URL = 'https://raw.githubusercontent.com/mooncrown04/m3ubirlestir/main/birlesik_sinema.m3u';
+var DIZI_FULL_URL = 'https://raw.githubusercontent.com/mooncrown04/m3ubirlestir/main/birlesik_diziler.m3u';
 
 const cache = {};
 const cacheTime = {};
@@ -88,21 +93,37 @@ function matchesMovieTitle(m3uTitle, m3uYear, targetTitle, targetYear) {
         }
     }
 
-    const m3uClean = m3uTitle.replace(/\([^)]*\)/g, '').split('-')[0].trim();
-    let mTokens = cleanTitleTokens(m3uClean);
-    let tTokens = cleanTitleTokens(targetTitle);
+    const strippedGenre = m3uTitle
+        .replace(/ (?:Aksiyon|Korku|Dram|Gerilim|Komedi|Macera|Polisiye|Biyografi|Müzik|Muzik|Gizem|Bilim-Kurgu|Romantik|Belgesel|Western|Animasyon|Aile|Suç|Suc)--.*/i, '')
+        .replace(/\s*--.*$/, '')
+        .replace(/\([^)]*\)/g, '')
+        .trim();
 
-    if (!mTokens.length || !tTokens.length) return false;
-
-    // Normalize part 1: if mTokens has an extra '1' at the end and tTokens has no number
-    if (mTokens.length === tTokens.length + 1 && mTokens[mTokens.length - 1] === '1') {
-        const hasTgtNum = tTokens.some(t => /^\d+$/.test(t));
-        if (!hasTgtNum) {
-            mTokens.pop();
-        }
+    const parts = [strippedGenre];
+    if (strippedGenre.indexOf('/') !== -1) {
+        strippedGenre.split('/').forEach(function (p) { if (p && p.trim()) parts.push(p.trim()); });
     }
+    const dashLead = strippedGenre.split('-')[0].trim();
+    if (dashLead && parts.indexOf(dashLead) === -1) parts.push(dashLead);
 
-    return mTokens.join('') === tTokens.join('');
+    let tTokens = cleanTitleTokens(targetTitle);
+    if (!tTokens.length) return false;
+    const tgtJoined = tTokens.join('');
+
+    for (let pi = 0; pi < parts.length; pi++) {
+        let mTokens = cleanTitleTokens(parts[pi]);
+        if (!mTokens.length) continue;
+
+        // Normalize part 1: if mTokens has an extra '1' at the end and tTokens has no number
+        if (mTokens.length === tTokens.length + 1 && mTokens[mTokens.length - 1] === '1') {
+            const hasTgtNum = tTokens.some(t => /^\d+$/.test(t));
+            if (!hasTgtNum) {
+                mTokens.pop();
+            }
+        }
+        if (mTokens.join('') === tgtJoined) return true;
+    }
+    return false;
 }
 
 function matchesShowTitle(rawName, targetName) {
@@ -121,15 +142,19 @@ async function resolveTmdbMovie(rawId) {
     let cleanId = String(rawId).replace(/^tmdb:/, '').split(':')[0].trim();
     const isImdb = cleanId.startsWith('tt');
     try {
+        let movieId = cleanId;
         if (isImdb) {
-            const res = await fetch(`https://api.themoviedb.org/3/find/${cleanId}?api_key=${TMDB_API_KEY}&external_source=imdb_id`);
+            const res = await fetch(`https://api.themoviedb.org/3/find/${cleanId}?api_key=${TMDB_API_KEY}&external_source=imdb_id`, { signal: timeoutSignal(8000) });
             const data = await res.json();
-            return data.movie_results && data.movie_results[0] ? data.movie_results[0] : null;
-        } else {
-            const res = await fetch(`https://api.themoviedb.org/3/movie/${cleanId}?api_key=${TMDB_API_KEY}&language=tr-TR&append_to_response=external_ids`);
-            const data = await res.json();
-            return data && (data.title || data.original_title) ? data : null;
+            const found = data.movie_results && data.movie_results[0] ? data.movie_results[0] : null;
+            if (!found || !found.id) return null;
+            movieId = String(found.id);
         }
+        const res = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${TMDB_API_KEY}&language=tr-TR&append_to_response=external_ids`, { signal: timeoutSignal(8000) });
+        const data = await res.json();
+        if (!data || (!data.title && !data.original_title)) return null;
+        if (isImdb && !data.imdb_id) data.imdb_id = cleanId;
+        return data;
     } catch (e) {
         return null;
     }
@@ -139,15 +164,18 @@ async function resolveTmdbShow(rawId) {
     let cleanId = String(rawId).replace(/^tmdb:/, '').split(':')[0].trim();
     const isImdb = cleanId.startsWith('tt');
     try {
+        let showId = cleanId;
         if (isImdb) {
-            const res = await fetch(`https://api.themoviedb.org/3/find/${cleanId}?api_key=${TMDB_API_KEY}&external_source=imdb_id`);
+            const res = await fetch(`https://api.themoviedb.org/3/find/${cleanId}?api_key=${TMDB_API_KEY}&external_source=imdb_id`, { signal: timeoutSignal(8000) });
             const data = await res.json();
-            return data.tv_results && data.tv_results[0] ? data.tv_results[0] : null;
-        } else {
-            const res = await fetch(`https://api.themoviedb.org/3/tv/${cleanId}?api_key=${TMDB_API_KEY}&language=tr-TR&append_to_response=external_ids`);
-            const data = await res.json();
-            return data && (data.name || data.original_name) ? data : null;
+            const found = data.tv_results && data.tv_results[0] ? data.tv_results[0] : null;
+            if (!found || !found.id) return null;
+            showId = String(found.id);
         }
+        const res = await fetch(`https://api.themoviedb.org/3/tv/${showId}?api_key=${TMDB_API_KEY}&language=tr-TR&append_to_response=external_ids`, { signal: timeoutSignal(8000) });
+        const data = await res.json();
+        if (!data || (!data.name && !data.original_name)) return null;
+        return data;
     } catch (e) {
         return null;
     }
@@ -159,7 +187,7 @@ async function fetchM3U(url) {
         return cache[url];
     }
     try {
-        const res = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0' } });
+        const res = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0' }, signal: timeoutSignal(15000) });
         if (!res.ok) return null;
         const text = await res.text();
         cache[url] = text;
@@ -206,6 +234,84 @@ function isBlockedStream(url) {
     return false;
 }
 
+const VIXOLITY_HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+    'Referer': 'https://pl.vixolity.com/',
+    'Origin': 'https://pl.vixolity.com',
+    'Accept': '*/*'
+};
+
+function buildStreamObject(streamName, sourceTag, streamUrl, score) {
+    const isVixolity = /vixolity\.com/i.test(streamUrl);
+    const isHlsStream = streamUrl.includes('.m3u8') || isVixolity;
+    const obj = {
+        name: streamName,
+        title: `⌜ Anthology M3U ⌟ | ${sourceTag} [HD]`,
+        url: streamUrl,
+        quality: sourceTag || 'HD',
+        format: isHlsStream ? 'hls' : 'mp4',
+        isHls: isHlsStream
+    };
+    if (typeof score === 'number') obj.score = score;
+    if (isVixolity) {
+        obj.headers = VIXOLITY_HEADERS;
+        obj.behaviorHints = { proxyHeaders: { request: VIXOLITY_HEADERS } };
+    }
+    return obj;
+}
+
+function scanFilmM3UContent(content, d, targetImdb, targetYear, seenUrls, results) {
+    if (!content) return;
+    const lines = content.split('\n');
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (!line.startsWith('#EXTINF')) continue;
+        const nextLine = lines[i + 1] ? lines[i + 1].trim() : '';
+        if (!nextLine.startsWith('http')) continue;
+        if (isBlockedStream(nextLine)) continue;
+        if (seenUrls.has(nextLine)) continue;
+
+        const grpTitleMatch = line.match(/group-title="([^"]+)"/);
+        const grpTitle = grpTitleMatch ? grpTitleMatch[1].toUpperCase() : '';
+        if (d.original_language !== 'tr' && (grpTitle.includes('YERLI') || grpTitle.includes('TURK'))) {
+            continue;
+        }
+
+        // Eğer akış URL'si doğrudan başka bir IMDb ID içeriyorsa yanlış eşleşmeyi ele
+        const urlImdbMatch = nextLine.match(/\/vs\/(tt\d+)/i);
+        const lineImdb = urlImdbMatch ? urlImdbMatch[1] : null;
+        if (targetImdb && lineImdb && lineImdb !== targetImdb) {
+            continue;
+        }
+
+        const authorMatch = line.match(/group-author="([^"]+)"/);
+        const sourceTag = authorMatch ? authorMatch[1].replace(/[\[\]]/g, '').trim() : 'M3U';
+
+        const parts = line.split(',');
+        const rawName = parts[parts.length - 1].trim();
+
+        const yearMatch = line.match(/year="(\d{4})"/);
+        const m3uYear = yearMatch ? yearMatch[1] : (rawName.match(/\d{4}/) ? rawName.match(/\d{4}/)[0] : '');
+
+        let isMatch = false;
+        let score = 0;
+
+        if (targetImdb && nextLine.includes(targetImdb)) {
+            isMatch = true;
+            score = 120;
+        } else if (matchesMovieTitle(rawName, m3uYear, d.title, targetYear) ||
+                   matchesMovieTitle(rawName, m3uYear, d.original_title, targetYear)) {
+            isMatch = true;
+            score = (m3uYear && targetYear && Math.abs(parseInt(m3uYear, 10) - parseInt(targetYear, 10)) <= 1) ? 100 : 90;
+        }
+
+        if (isMatch) {
+            seenUrls.add(nextLine);
+            results.push(buildStreamObject(`${d.title || d.original_title} (${m3uYear || targetYear})`, sourceTag, nextLine, score));
+        }
+    }
+}
+
 async function searchFilmStreams(tmdbId) {
     try {
         const d = await resolveTmdbMovie(tmdbId);
@@ -227,64 +333,76 @@ async function searchFilmStreams(tmdbId) {
         for (const grp of targetGroups) {
             const m3uUrl = `${FILM_BASE_URL}nuvio_${grp}.m3u`;
             const content = await fetchM3U(m3uUrl);
-            if (!content) continue;
+            scanFilmM3UContent(content, d, targetImdb, targetYear, seenUrls, results);
+        }
 
-            const lines = content.split('\n');
-            for (let i = 0; i < lines.length; i++) {
-                const line = lines[i].trim();
-                if (line.startsWith('#EXTINF')) {
-                    const nextLine = lines[i + 1] ? lines[i + 1].trim() : '';
-                    if (!nextLine.startsWith('http')) continue;
-                    if (isBlockedStream(nextLine)) continue;
-                    if (seenUrls.has(nextLine)) continue;
-
-                    // Non-Turkish movies shouldn't match "YERLI FILM" lines
-                    const grpTitleMatch = line.match(/group-title="([^"]+)"/);
-                    const grpTitle = grpTitleMatch ? grpTitleMatch[1].toUpperCase() : '';
-                    if (d.original_language !== 'tr' && (grpTitle.includes('YERLI') || grpTitle.includes('TURK'))) {
-                        continue;
-                    }
-
-                    let authorMatch = line.match(/group-author="([^"]+)"/);
-                    let sourceTag = authorMatch ? authorMatch[1].replace(/[\[\]]/g, '').trim() : 'M3U';
-
-                    let parts = line.split(',');
-                    let rawName = parts[parts.length - 1].trim();
-
-                    let yearMatch = line.match(/year="(\d{4})"/);
-                    let m3uYear = yearMatch ? yearMatch[1] : (rawName.match(/\d{4}/) ? rawName.match(/\d{4}/)[0] : '');
-
-                    let isMatch = false;
-                    let score = 0;
-
-                    if (targetImdb && nextLine.includes(targetImdb)) {
-                        isMatch = true;
-                        score = 120;
-                    } else if (matchesMovieTitle(rawName, m3uYear, d.title, targetYear) ||
-                               matchesMovieTitle(rawName, m3uYear, d.original_title, targetYear)) {
-                        isMatch = true;
-                        score = (m3uYear && targetYear && Math.abs(parseInt(m3uYear, 10) - parseInt(targetYear, 10)) <= 1) ? 100 : 90;
-                    }
-
-                    if (isMatch) {
-                        seenUrls.add(nextLine);
-                        results.push({
-                            name: `${d.title || d.original_title} (${m3uYear || targetYear})`,
-                            title: `⌜ Anthology M3U ⌟ | ${sourceTag} [HD]`,
-                            url: nextLine,
-                            quality: sourceTag || 'HD',
-                            format: nextLine.includes('.m3u8') ? 'hls' : 'mp4',
-                            isHls: nextLine.includes('.m3u8'),
-                            score: score
-                        });
-                    }
-                }
-            }
+        if (results.length === 0 && FILM_FULL_URL) {
+            const fullContent = await fetchM3U(FILM_FULL_URL);
+            scanFilmM3UContent(fullContent, d, targetImdb, targetYear, seenUrls, results);
         }
 
         return results.sort((a, b) => b.score - a.score);
     } catch (e) {
         return [];
+    }
+}
+
+function scanDiziM3UContent(content, d, finalSeason, finalEpisode, sPad, ePad, seenUrls, results) {
+    if (!content) return;
+    const lines = content.split('\n');
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (!line.startsWith('#EXTINF')) continue;
+        const nextLine = lines[i + 1] ? lines[i + 1].trim() : '';
+        if (!nextLine.startsWith('http')) continue;
+        if (isBlockedStream(nextLine)) continue;
+        if (seenUrls.has(nextLine)) continue;
+
+        const tvgIdMatch = line.match(/tvg-id="(\d+)"/);
+        const lineTvgId = tvgIdMatch ? tvgIdMatch[1] : null;
+
+        let showMatches = false;
+        if (lineTvgId && d.id) {
+            if (lineTvgId === String(d.id)) {
+                showMatches = true;
+            }
+        }
+        if (!showMatches && !lineTvgId) {
+            const grpMatch = line.match(/group-title="([^"]+)"/);
+            const grpTitle = grpMatch ? grpMatch[1] : '';
+            const parts2 = line.split(',');
+            const diziname = parts2[parts2.length - 1].trim();
+            const dizinameWithoutEp = diziname.replace(/(?:s\d+[\s._-]*e\d+|b[oö]l[uü]m[\s._-]*\d+|\d+\.[\s._-]*b[oö]l[uü]m|\b\d+x\d+).*/i, '').trim();
+
+            if (matchesShowTitle(grpTitle, d.name) ||
+                matchesShowTitle(grpTitle, d.original_name) ||
+                matchesShowTitle(dizinameWithoutEp, d.name) ||
+                matchesShowTitle(dizinameWithoutEp, d.original_name)) {
+                showMatches = true;
+            }
+        }
+
+        if (!showMatches) continue;
+
+        const parts = line.split(',');
+        const diziname = parts[parts.length - 1].trim();
+
+        const sMatch = diziname.match(S_REGEX);
+        if (sMatch) {
+            const lineSeason = parseInt(sMatch[1] || sMatch[2], 10);
+            if (lineSeason !== finalSeason) continue;
+        }
+
+        const epMatch = diziname.match(EP_REGEX);
+        if (!epMatch) continue;
+        const epNum = parseInt(epMatch[1] || epMatch[2] || epMatch[3] || epMatch[4], 10);
+        if (epNum !== finalEpisode) continue;
+
+        const authorMatch = line.match(/group-author="([^"]+)"/);
+        const sourceTag = authorMatch ? authorMatch[1].replace(/[\[\]]/g, '').trim() : 'M3U';
+
+        seenUrls.add(nextLine);
+        results.push(buildStreamObject(`${d.name || d.original_name} S${sPad}E${ePad}`, sourceTag, nextLine));
     }
 }
 
@@ -321,74 +439,12 @@ async function searchDiziStreams(rawId, seasonInput, episodeInput) {
             const fileName = `dizi_${grp}_s${finalSeason}.m3u`;
             const m3uUrl = `${DIZI_BASE_URL}${fileName}`;
             const content = await fetchM3U(m3uUrl);
-            if (!content) continue;
+            scanDiziM3UContent(content, d, finalSeason, finalEpisode, sPad, ePad, seenUrls, results);
+        }
 
-            const lines = content.split('\n');
-            for (let i = 0; i < lines.length; i++) {
-                const line = lines[i].trim();
-                if (line.startsWith('#EXTINF')) {
-                    const nextLine = lines[i + 1] ? lines[i + 1].trim() : '';
-                    if (!nextLine.startsWith('http')) continue;
-                    if (isBlockedStream(nextLine)) continue;
-                    if (seenUrls.has(nextLine)) continue;
-
-                    // 1. Show Identity Check
-                    const tvgIdMatch = line.match(/tvg-id="(\d+)"/);
-                    const lineTvgId = tvgIdMatch ? tvgIdMatch[1] : null;
-
-                    let showMatches = false;
-                    if (lineTvgId && d.id) {
-                        if (lineTvgId === String(d.id)) {
-                            showMatches = true;
-                        }
-                    }
-                    if (!showMatches && !lineTvgId) {
-                        const grpMatch = line.match(/group-title="([^"]+)"/);
-                        const grpTitle = grpMatch ? grpMatch[1] : '';
-                        const parts2 = line.split(',');
-                        const diziname = parts2[parts2.length - 1].trim();
-                        const dizinameWithoutEp = diziname.replace(/(?:s\d+[\s._-]*e\d+|b[oö]l[uü]m[\s._-]*\d+|\d+\.[\s._-]*b[oö]l[uü]m|\b\d+x\d+).*/i, '').trim();
-
-                        if (matchesShowTitle(grpTitle, d.name) ||
-                            matchesShowTitle(grpTitle, d.original_name) ||
-                            matchesShowTitle(dizinameWithoutEp, d.name) ||
-                            matchesShowTitle(dizinameWithoutEp, d.original_name)) {
-                            showMatches = true;
-                        }
-                    }
-
-                    if (!showMatches) continue;
-
-                    // 2. Season Check
-                    const parts = line.split(',');
-                    const diziname = parts[parts.length - 1].trim();
-
-                    const sMatch = diziname.match(S_REGEX);
-                    if (sMatch) {
-                        const lineSeason = parseInt(sMatch[1] || sMatch[2], 10);
-                        if (lineSeason !== finalSeason) continue;
-                    }
-
-                    // 3. Strict Episode Check
-                    const epMatch = diziname.match(EP_REGEX);
-                    if (!epMatch) continue;
-                    const epNum = parseInt(epMatch[1] || epMatch[2] || epMatch[3] || epMatch[4], 10);
-                    if (epNum !== finalEpisode) continue;
-
-                    const authorMatch = line.match(/group-author="([^"]+)"/);
-                    const sourceTag = authorMatch ? authorMatch[1].replace(/[\[\]]/g, '').trim() : 'M3U';
-
-                    seenUrls.add(nextLine);
-                    results.push({
-                        name: `${d.name || d.original_name} S${sPad}E${ePad}`,
-                        title: `⌜ Anthology M3U ⌟ | ${sourceTag} [HD]`,
-                        url: nextLine,
-                        quality: sourceTag || 'HD',
-                        format: nextLine.includes('.m3u8') ? 'hls' : 'mp4',
-                        isHls: nextLine.includes('.m3u8')
-                    });
-                }
-            }
+        if (results.length === 0 && DIZI_FULL_URL) {
+            const fullContent = await fetchM3U(DIZI_FULL_URL);
+            scanDiziM3UContent(fullContent, d, finalSeason, finalEpisode, sPad, ePad, seenUrls, results);
         }
 
         return results;

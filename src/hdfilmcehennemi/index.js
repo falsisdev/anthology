@@ -1,4 +1,5 @@
 const { loadConfig, val, wrapAll } = require("../shared/config.js");
+const { timeoutSignal } = require("../shared/http.js");
 
 var _cfgReady = null;
 function cfgReady() {
@@ -206,11 +207,9 @@ var SLUG_CACHE = new Map();
 // ==================== YARDIMCI FONKSİYONLAR ====================
 
 function fetchWithTimeout(url, options, ms) {
-  var opts = options || {};
+  var opts = Object.assign({}, options || {});
   try {
-    if (typeof AbortSignal !== 'undefined' && AbortSignal.timeout) {
-      opts.signal = AbortSignal.timeout(ms || 10000);
-    }
+    if (!opts.signal) opts.signal = timeoutSignal(ms || 10000);
   } catch (e) {}
   return fetch(url, opts);
 }
@@ -397,11 +396,16 @@ function decryptCloseLoadScript(scriptContent, embedHost, targetVar) {
       if (m && m[1]) varName = m[1];
     }
     if (!varName) return null;
+    var hostLiteral = JSON.stringify(host);
+    var originLiteral = JSON.stringify("https://" + host);
+    var hrefLiteral = JSON.stringify("https://" + host + "/");
     var code = [
-      'var window = (typeof globalThis.window !== "undefined") ? globalThis.window : { location: { hostname: "' + host + '", origin: "https://' + host + '", href: "https://' + host + '/" } };',
-      'if (!window.location) window.location = { hostname: "' + host + '", origin: "https://' + host + '", href: "https://' + host + '/" };',
-      'var location = window.location;',
-      'var document = (typeof globalThis.document !== "undefined") ? globalThis.document : { location: window.location };',
+      'var _loc = { hostname: ' + hostLiteral + ', host: ' + hostLiteral + ', origin: ' + originLiteral + ', href: ' + hrefLiteral + ', protocol: "https:", pathname: "/video/embed/" };',
+      'var window = { location: _loc };',
+      'var self = window, top = window, parent = window;',
+      'var location = _loc;',
+      'var document = { location: _loc, referrer: ' + hrefLiteral + ' };',
+      'var navigator = (typeof globalThis.navigator !== "undefined") ? globalThis.navigator : { userAgent: "Mozilla/5.0" };',
       'var atob = (typeof globalThis.atob !== "undefined") ? globalThis.atob : function(s) {',
       '  return (typeof Buffer !== "undefined") ? Buffer.from(s, "base64").toString("binary") : s;',
       '};',
@@ -434,9 +438,10 @@ async function resolveCloseLoadStreams(pageUrl) {
     var streamUrl = null;
     var eHtml = '';
     for (var attempt = 0; attempt < 3 && !streamUrl; attempt++) {
+      var embedUa = (attempt === 0 || attempt === 2) ? 'Mozilla/5.0' : HEADERS['User-Agent'];
       var eRes = await fetchWithTimeout(embedUrl, {
         headers: {
-          'User-Agent': HEADERS['User-Agent'],
+          'User-Agent': embedUa,
           'Referer': BASE_URL + '/'
         }
       }, 10000);
@@ -446,17 +451,36 @@ async function resolveCloseLoadStreams(pageUrl) {
       var fileVarMatch = eHtml.match(/sources:\s*\[\{\s*file:\s*([a-zA-Z0-9_$]+)/i);
       var targetVar = fileVarMatch ? fileVarMatch[1] : null;
 
-      // Script bloklarını tara
-      var scripts = Array.from(eHtml.matchAll(/<script[\s\S]*?<\/script>/gi)).map(function(m) { return m[0]; });
+      // Script bloklarını önce tekil, gerekirse birleşik olarak değerlendir (ayrık fonksiyon / eval packer desteği)
+      var scripts = Array.from(eHtml.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi));
+      var inlineBodies = [];
       for (var i = 0; i < scripts.length; i++) {
-        var s = scripts[i];
-        if (s.includes('var ') && !s.includes('jwplayer') && (s.includes('([') || (targetVar && s.includes(targetVar)))) {
-          var cleanScript = s.replace(/<script[^>]*>/i, '').replace(/<\/script>/i, '');
+        var attrs = scripts[i][1] || '';
+        var cleanScript = (scripts[i][2] || '').trim();
+        if (!cleanScript || /\bsrc\s*=/i.test(attrs)) continue;
+        if (/application\/ld\+json/i.test(attrs) || cleanScript.includes('__CF$cv$params') || cleanScript.includes('jwplayer(')) continue;
+        inlineBodies.push(cleanScript);
+
+        if (cleanScript.includes('var ') && (cleanScript.includes('([') || (targetVar && cleanScript.includes(targetVar)))) {
           var dec = decryptCloseLoadScript(cleanScript, embedHost, targetVar);
           if (dec && typeof dec === 'string' && dec.startsWith('http')) {
             streamUrl = dec;
             break;
           }
+        }
+      }
+
+      if (!streamUrl && targetVar && inlineBodies.length > 0) {
+        var combinedDec = decryptCloseLoadScript(inlineBodies.join('\n;\n'), embedHost, targetVar);
+        if (combinedDec && typeof combinedDec === 'string' && combinedDec.startsWith('http')) {
+          streamUrl = combinedDec;
+        }
+      }
+
+      if (!streamUrl) {
+        var ldMatch = eHtml.match(/"contentUrl"\s*:\s*"(https?:\/\/[^"]+)"/i);
+        if (ldMatch && ldMatch[1]) {
+          streamUrl = ldMatch[1];
         }
       }
     }

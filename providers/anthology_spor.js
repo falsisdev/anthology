@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: anthology_spor
  * Built from src/anthology_spor/index.js
- * Build: v1.8.37 (anthology build system)
+ * Build: v1.8.38 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -1077,7 +1077,6 @@ function getMeta(args) {
     var ch = channels.find(function(c) {
       return c.id === targetId || cleanKey(c.id.replace(/^tv:/, "")) === cleanTarget || cleanKey(c.name) === cleanTarget;
     });
-    if (!ch) ch = channels[0];
     if (!ch) return { meta: null };
     return {
       meta: {
@@ -1097,16 +1096,14 @@ function getMeta(args) {
 }
 function getStreams(args) {
   return __async(this, null, function* () {
-    var targetId = typeof args === "string" ? args : args ? args.id || args.name : "";
-    var mediaType = args && args.type || args && args.mediaType || "";
-    var isLiveRequest = /^tv:/i.test(targetId) || mediaType === "channel" || mediaType === "tv" && /^tv:/i.test(args && args.id || "");
-    if (!isLiveRequest && targetId && !/^tv:/i.test(targetId)) {
-      var looksLikeTmdb = /^(tt\d+|\d+)$/.test(String(targetId).split(":")[0]);
-      if (looksLikeTmdb || mediaType === "movie") {
-        var emptyNoLive = [];
-        emptyNoLive.streams = [];
-        return emptyNoLive;
-      }
+    var targetId = typeof args === "string" ? args : args ? args.id || args.name || "" : "";
+    var mediaType = args && typeof args === "object" ? args.type || args.mediaType || "" : "";
+    var rawTarget = String(targetId || "").trim();
+    var isNumericOrImdb = /^(?:tt\d+|\d+)(?::\d+:\d+)?$/i.test(rawTarget);
+    if (!rawTarget || mediaType === "movie" || mediaType === "series" || !/^tv:/i.test(rawTarget) && isNumericOrImdb) {
+      var emptyNoLive = [];
+      emptyNoLive.streams = [];
+      return emptyNoLive;
     }
     try {
       var content = yield fetchChannels();
@@ -1117,7 +1114,7 @@ function getStreams(args) {
         var ch = channels[i];
         var cId = cleanKey(ch.id.replace(/^tv:/, ""));
         var cName = cleanKey(ch.name);
-        if (cId === searchKey || cName === searchKey || searchKey && (cName.includes(searchKey) || searchKey.includes(cName))) {
+        if (cId === searchKey || cName === searchKey || searchKey.length >= 4 && cName.length >= 4 && (cName.includes(searchKey) || searchKey.includes(cName))) {
           matched = ch;
           break;
         }

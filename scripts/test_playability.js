@@ -56,6 +56,11 @@ async function checkHttp(url, headers = {}) {
   const testResults = [];
 
   for (const scraper of manifest.scrapers) {
+    if (scraper.enabled === false) {
+      testResults.push({ id: scraper.id, name: scraper.name, count: 0, playable: 0, status: "SKIPPED ⏭️", details: "Disabled in manifest" });
+      console.log(`[${scraper.name}] ⏭️ SKIPPED (disabled)`);
+      continue;
+    }
     const fullPath = path.resolve(__dirname, "..", scraper.filename);
     try {
       const mod = require(fullPath);
@@ -63,10 +68,12 @@ async function checkHttp(url, headers = {}) {
 
       if (scraper.id === "sinewix") {
         streams = await mod.getStreams({ id: "603", type: "movie" });
-      } else if (scraper.id === "animecix") {
+      } else if (scraper.id === "animecix" || scraper.id === "anizm" || scraper.id === "animom" || scraper.id === "animeprax" || scraper.id === "seicode") {
         streams = await mod.getStreams("127532", "tv", 1, 1);
       } else if (scraper.id === "sonanime") {
         streams = await mod.getStreams("46260", "series", 1, 1);
+      } else if (scraper.id === "diziwatch") {
+        streams = await mod.getStreams("tt0409591", "series", 1, 1);
       } else if (scraper.id === "diziboxizle") {
         streams = await mod.getStreams("246864", "tv", 1, 1);
       } else if (scraper.id === "anizium") {
@@ -75,13 +82,19 @@ async function checkHttp(url, headers = {}) {
         streams = await mod.getStreams("asyaanimeleri:ep:so-i-am-the-ancestor-of-the-demonic-path-1-80-bolum", "series", 1, 1);
       } else if (scraper.id === "yabancidizi") {
         streams = await mod.getStreams("5920", "tv", 1, 1);
-      } else if (scraper.id === "dizimom") {
+      } else if (scraper.id === "dizibak" || scraper.id === "dizipod" || scraper.id === "ddizibox" || scraper.id === "diziyou" || scraper.id === "dizimom") {
         streams = await mod.getStreams("1396", "tv", 1, 1);
       } else if (scraper.id === "anthology_m3u") {
-        streams = await mod.getStreams("245914", "tv", 1, 1);
-      } else if (scraper.id === "ddizi") {
-        streams = await mod.getStreams("315179", "tv", 1, 1);
-      } else if (scraper.id === "tvdiziler") {
+        streams = await mod.getStreams("165", "movie");
+      } else if (scraper.id === "hdfilmcehennemi") {
+        streams = await mod.getStreams("872585", "movie");
+      } else if (scraper.id === "youtube_dizifilm") {
+        streams = await mod.getStreams("34587", "tv", 1, 1);
+      } else if (scraper.id === "anthology_diziler") {
+        streams = await mod.getStreams({ id: "241020", type: "series", season: 1, episode: 46 });
+      } else if (scraper.id === "puhutv" || scraper.id === "trdiziizle") {
+        streams = await mod.getStreams({ id: "39176", type: "series", season: 1, episode: 1 });
+      } else if (scraper.id === "ddizi" || scraper.id === "tvdiziler") {
         streams = await mod.getStreams("213194", "tv", 1, 1);
       } else if (scraper.id === "anthology_spor") {
         streams = await mod.getStreams({ id: "tv:beINSports1.tr", type: "tv" });
@@ -89,6 +102,12 @@ async function checkHttp(url, headers = {}) {
         streams = await mod.getStreams({ id: "tv:TRT1.tr", type: "tv" });
       } else if (scraper.id === "anthology_haber") {
         streams = await mod.getStreams({ id: "tv:NTV.tr", type: "tv" });
+      } else if (scraper.id === "anthology_belgesel_cocuk") {
+        streams = await mod.getStreams({ id: "tv:TravelXP.tr", type: "tv" });
+      } else if (scraper.id === "anthology_muzik") {
+        streams = await mod.getStreams({ id: "tv:DreamTurk.tr", type: "tv" });
+      } else if (scraper.id === "anthology_sinema") {
+        streams = await mod.getStreams({ id: "tv:FX.tr", type: "tv" });
       } else if (scraper.id === "m3u.anthology.addon") {
         streams = await mod.getStreams({ id: "tv:ATV.tr", type: "tv" });
       } else if (scraper.supportedTypes && scraper.supportedTypes.includes("movie")) {
@@ -144,4 +163,11 @@ async function checkHttp(url, headers = {}) {
   console.log("\n==========================================");
   console.table(testResults);
   console.log("==========================================");
+
+  const failures = testResults.filter(r => r.status.includes("NO_STREAMS") || r.status.includes("BLOCKED") || r.status.includes("ERROR"));
+  if (failures.length > 0) {
+    console.error(`\n❌ PLAYABILITY TEST: ${failures.length} provider(s) failed:`, failures.map(f => `${f.name} (${f.status})`).join(", "));
+    process.exit(1);
+  }
+  console.log(`\n🎉 SUCCESS: All active providers (${testResults.filter(r => !r.status.includes("SKIPPED")).length}) are playable!`);
 })();

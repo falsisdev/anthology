@@ -1,6 +1,7 @@
 /**
- * Anthology - Root URLs Export
- * 
- * providers/urls.js dosyasına köprü oluşturur.
+ * Anthology Sağlayıcı URL Havuzu Giriş Noktası
+ * Merkezi config.json üzerinden tüm aktif alan adlarını dışa aktarır.
  */
-module.exports = require('./providers/urls');
+const config = require('./config.json');
+
+module.exports = config.urls || {};

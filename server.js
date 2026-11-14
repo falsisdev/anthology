@@ -46,9 +46,10 @@ const server = http.createServer((req, res) => {
     let pathname = decodeURIComponent(parsedUrl.pathname);
     if (pathname === "/") pathname = "/index.html";
 
-    const filePath = path.join(__dirname, pathname);
+    const rootDir = path.resolve(__dirname);
+    const filePath = path.resolve(rootDir, pathname.replace(/^\/+/, ""));
 
-    if (!filePath.startsWith(__dirname)) {
+    if (filePath !== rootDir && !filePath.startsWith(rootDir + path.sep)) {
         res.writeHead(403, { "Content-Type": "text/plain" });
         res.end("Forbidden");
         return;

@@ -1,18 +1,6 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Taraftarium24 ⌟",
-      "title": "BeIN Sports Max 1 HD [1080p FHD]",
-      "url": "https://anthology-live.duckdns.org/live/beinsportsmax1.m3u8?username=anthology&password=falsisdevwashere&source=taraftarium",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
       "name": "⌜ Anthology Live · Otomatik (En Hızlı) ⌟",
       "title": "BeIN Sports Max 1 HD [1080p FHD · Ultra Hızlı]",
       "url": "https://anthology-live.duckdns.org/live/beinsportsmax1.m3u8?username=anthology&password=falsisdevwashere",
@@ -64,6 +52,18 @@
       "name": "⌜ Anthology Live · Selçuk / Arda ⌟",
       "title": "BeIN Sports Max 1 HD [1080p FHD]",
       "url": "https://anthology-live.duckdns.org/live/beinsportsmax1.m3u8?username=anthology&password=falsisdevwashere&source=ardasports",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Anthology Live · Taraftarium24 ⌟",
+      "title": "BeIN Sports Max 1 HD [1080p FHD]",
+      "url": "https://anthology-live.duckdns.org/live/beinsportsmax1.m3u8?username=anthology&password=falsisdevwashere&source=taraftarium",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Accept": "*/*"

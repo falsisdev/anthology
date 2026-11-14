@@ -113,7 +113,7 @@ https://andro.evrenesoglu235.click/checklist/androstreamliveidm.m3u8
 https://tjktv-live.tjk.org/tjktv.m3u8
 
 #EXTINF:-1 tvg-id="NBATV.tr" tvg-name="NBA TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nbatv.png" tvg-lang="en" group-title="🇹🇷 SPOR KANALLARI",NBA TV HD
-https://cdn1.ayitistream.com/NBATV/index.m3u8
+http://23.237.104.106:8080/USA_NBA/index.m3u8
 
 #EXTINF:-1 tvg-id="beINSports1.tr" tvg-name="BeIN Sports 1" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png" tvg-lang="tr" tvg-src="NetSpor|http://463758a0.ucomist.net/iptv/V4ZVP6G52HVXDE/6817/index.m3u8" group-title="🇹🇷 SPOR KANALLARI",BeIN Sports 1 HD
 https://andro.evrenesoglu235.click/checklist/androstreamlivebs1.m3u8
@@ -300,13 +300,13 @@ https://b01c02nl.mediatriple.net/videoonlylive/mtyycglqauzjhlive/broadcast_67c05
 http://nrttn172.kesintisizyayin.com:29010/lidertv/lidertv/sec-f5-v1-a1.m3u8
 
 #EXTINF:-1 tvg-id="TurkHaber.tr" tvg-name="Türk Haber" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/turkhaber.png" tvg-lang="tr" group-title="🇹🇷 HABER KANALLARI",Türk Haber TV HD
-https://edge1.socialsmart.tv/turkhaber/bant1/playlist.m3u8
+http://edge1.socialsmart.tv/turkhaber/bant1/playlist.m3u8
 
 #EXTINF:-1 tvg-id="CNBCe.tr" tvg-name="CNBC-e" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cnbce.png" tvg-lang="tr" group-title="🇹🇷 HABER KANALLARI",CNBC-e HD
 https://hnpsechtsc.turknet.ercdn.net/xpnvudnlsv/cnbc-e/cnbc-e.m3u8
 
 #EXTINF:-1 tvg-id="AkitTV.tr" tvg-name="Akit TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/akittv.png" tvg-lang="tr" group-title="🇹🇷 HABER KANALLARI",Akit TV HD
-https://akittv-live.ercdn.net/akittv/akittv_720p.m3u8
+https://www.youtube.com/watch?v=N9SMoh8gLJI
 
 #EXTINF:-1 tvg-id="TBMMTV.tr" tvg-name="TBMM TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tbmmtv.png" tvg-lang="tr" group-title="🇹🇷 HABER KANALLARI",TBMM TV
 https://meclistv-live.ercdn.net/meclistv/meclistv.m3u8
@@ -413,13 +413,13 @@ http://livetv.powerapp.com.tr/pturkslow/slow.smil/playlist.m3u8
 http://livetv.powerapp.com.tr/pturkakustik/akustik.smil/playlist.m3u8
 
 #EXTINF:-1 tvg-id="Number1Ask.tr" tvg-name="Number 1 Aşk" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png" tvg-lang="tr" group-title="🇹🇷 MÜZİK & EĞLENCE",Number 1 Aşk HD
-https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/broadcast_64c126ec58fe0.smil/playlist.m3u8
+https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/u_stream_5c9e18f9cea15_1/playlist.m3u8
 
 #EXTINF:-1 tvg-id="Number1Turk.tr" tvg-name="Number 1 Türk" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png" tvg-lang="tr" group-title="🇹🇷 MÜZİK & EĞLENCE",Number 1 Türk HD
 https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/broadcast_5c9e187770143.smil/playlist.m3u8
 
 #EXTINF:-1 tvg-id="Number1Dance.tr" tvg-name="Number 1 Dance" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png" tvg-lang="tr" group-title="🇹🇷 MÜZİK & EĞLENCE",Number 1 Dance HD
-https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/broadcast_64c1277a876a4.smil/playlist.m3u8
+https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/u_stream_5c9e2aa8acf44_1/playlist.m3u8
 
 
 # ==============================================================================
