@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: anizium
  * Built from src/anizium/index.js
- * Build: v1.8.38 (anthology build system)
+ * Build: v1.8.39 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -216,6 +216,38 @@ var DEFAULT_HEADERS = {
   "Referer": SITE_ORIGIN + "/",
   "Accept": "application/json, text/plain, */*"
 };
+function timeoutSignal(ms) {
+  if (typeof AbortSignal !== "undefined" && typeof AbortSignal.timeout === "function") {
+    return AbortSignal.timeout(ms);
+  }
+  if (typeof AbortController !== "undefined") {
+    var controller = new AbortController();
+    setTimeout(function() {
+      try {
+        controller.abort();
+      } catch (e) {
+      }
+    }, ms);
+    return controller.signal;
+  }
+  return void 0;
+}
+function safeFetchJson(url, options, timeoutMs) {
+  return __async(this, null, function* () {
+    try {
+      var opts = Object.assign({}, options || {});
+      if (timeoutMs) {
+        var sig = timeoutSignal(timeoutMs);
+        if (sig) opts.signal = sig;
+      }
+      var res = yield fetch(url, opts);
+      if (!res.ok) return null;
+      return yield res.json();
+    } catch (e) {
+      return null;
+    }
+  });
+}
 function cleanStr(str) {
   if (!str) return "";
   var s = str.toString().toLowerCase();
@@ -225,7 +257,7 @@ function cleanStr(str) {
     }
   } catch (e) {
   }
-  return s.replace(/[ıİ]/g, "i").replace(/[üÜ]/g, "u").replace(/[öÖ]/g, "o").replace(/[şŞ]/g, "s").replace(/[ğĞ]/g, "g").replace(/[çÇ]/g, "c").replace(/[^a-z0-9]/g, " ").replace(/\s+/g, " ").trim();
+  return s.replace(/[ıİ]/g, "i").replace(/[üÜûùú]/g, "u").replace(/[öÖōôòó]/g, "o").replace(/[şŞ]/g, "s").replace(/[ğĞ]/g, "g").replace(/[çÇ]/g, "c").replace(/[āâàá]/g, "a").replace(/[ēêèé]/g, "e").replace(/[īîìí]/g, "i").replace(/[ū]/g, "u").replace(/[ñ]/g, "n").replace(/[^a-z0-9]/g, " ").replace(/\s+/g, " ").trim();
 }
 function getIstanbulDay() {
   var days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
@@ -265,15 +297,30 @@ function aniziumFetch(endpoint, params) {
         url += (url.indexOf("?") === -1 ? "?" : "&") + parts.join("&");
       }
     }
-    var headers = Object.assign({}, DEFAULT_HEADERS, {
-      "Cf-Control": generateCfControl(),
-      "device": "browser",
-      "language": "tr",
-      "site": "main"
-    });
-    var res = yield fetch(url, { headers });
-    if (!res.ok) return null;
-    return yield res.json();
+    for (var attempt = 0; attempt < 2; attempt++) {
+      try {
+        var headers = Object.assign({}, DEFAULT_HEADERS, {
+          "Cf-Control": generateCfControl(),
+          "device": "browser",
+          "language": "tr",
+          "site": "main"
+        });
+        var sig = timeoutSignal(8e3);
+        var opts = sig ? { headers, signal: sig } : { headers };
+        var res = yield fetch(url, opts);
+        if (res.status === 429 && attempt === 0) {
+          yield new Promise(function(resolve) {
+            setTimeout(resolve, 650);
+          });
+          continue;
+        }
+        if (!res.ok) return null;
+        return yield res.json();
+      } catch (e) {
+        return null;
+      }
+    }
+    return null;
   });
 }
 function mapLangCode(group) {
@@ -326,138 +373,538 @@ function formatSubtitles(rawSubs) {
   }
   return subs;
 }
-function resolveTmdbInfo(id, mediaType) {
+function parseMediaRequest(id, mediaType, season, episode) {
+  var rawId = id;
+  var mType = mediaType;
+  var sRaw = season;
+  var eRaw = episode;
+  if (typeof id === "object" && id !== null) {
+    mType = id.type || id.mediaType || mType;
+    sRaw = id.season !== void 0 ? id.season : sRaw;
+    eRaw = id.episode !== void 0 ? id.episode : eRaw;
+    rawId = id.id;
+  }
+  var strId = String(rawId || "").trim();
+  var lowerType = String(mType || "").toLowerCase();
+  var sParam = parseInt(sRaw, 10);
+  var eParam = parseInt(eRaw, 10);
+  var isTv = lowerType === "tv" || lowerType === "series" || lowerType === "anime" || !lowerType && (sParam > 0 || eParam > 0 || strId.indexOf(":") !== -1);
+  if (strId.indexOf("anizium:ep:") === 0) {
+    var epParts = strId.split(":");
+    return {
+      direct: true,
+      aniziumId: epParts[2],
+      isSeries: true,
+      season: parseInt(epParts[3], 10) || 1,
+      episode: parseInt(epParts[4], 10) || 1
+    };
+  }
+  if (strId.indexOf("anizium:movie:") === 0) {
+    return {
+      direct: true,
+      aniziumId: strId.replace("anizium:movie:", ""),
+      isSeries: false,
+      season: 1,
+      episode: 1
+    };
+  }
+  if (strId.indexOf("anizium:anime:") === 0) {
+    return {
+      direct: true,
+      aniziumId: strId.replace("anizium:anime:", ""),
+      isSeries: isTv,
+      season: sParam > 0 ? sParam : 1,
+      episode: eParam > 0 ? eParam : 1
+    };
+  }
+  var parts = strId.split(":");
+  var head = parts[0].toLowerCase();
+  if (head === "kitsu" || head === "mal" || head === "anilist" || head === "anidb") {
+    var trackerEp = (parts.length >= 3 ? parseInt(parts[2], 10) : 0) || (eParam > 0 ? eParam : 1);
+    return {
+      direct: false,
+      kind: head,
+      extId: parts[1] || "",
+      isTracker: true,
+      isTv: isTv || lowerType !== "movie",
+      season: sParam > 0 ? sParam : 1,
+      episode: trackerEp
+    };
+  }
+  if (head === "tmdb" || head === "tvdb" || head === "imdb" || head === "cinemeta" || head === "cine") {
+    var normKind = head === "imdb" || head === "cinemeta" || head === "cine" ? "imdb" : head;
+    var pSeason = parts.length >= 3 ? parseInt(parts[2], 10) : 0;
+    var pEp = parts.length >= 4 ? parseInt(parts[3], 10) : 0;
+    return {
+      direct: false,
+      kind: normKind,
+      extId: parts[1] || "",
+      isTracker: false,
+      isTv,
+      season: pSeason > 0 ? pSeason : sParam > 0 ? sParam : 1,
+      episode: pEp > 0 ? pEp : eParam > 0 ? eParam : 1
+    };
+  }
+  var colonSeason = parts.length >= 2 ? parseInt(parts[1], 10) : 0;
+  var colonEp = parts.length >= 3 ? parseInt(parts[2], 10) : 0;
+  return {
+    direct: false,
+    kind: head.indexOf("tt") === 0 ? "imdb" : "tmdb",
+    extId: parts[0],
+    isTracker: false,
+    isTv,
+    season: colonSeason > 0 ? colonSeason : sParam > 0 ? sParam : 1,
+    episode: colonEp > 0 ? colonEp : eParam > 0 ? eParam : 1
+  };
+}
+function addUniqueCleanedTitles(list, rawTitles) {
+  for (var i = 0; i < rawTitles.length; i++) {
+    var c = cleanStr(rawTitles[i]);
+    if (c && c.length >= 2 && list.indexOf(c) === -1) {
+      list.push(c);
+    }
+  }
+}
+function resolveTrackerInfo(kind, extId, trackerEp) {
   return __async(this, null, function* () {
-    try {
-      var cleanId = String(id || "").trim();
-      if (cleanId.indexOf(":") !== -1) cleanId = cleanId.split(":")[0];
-      var numericId = null;
-      var titles = [];
-      if (cleanId.indexOf("tt") === 0) {
-        var findRes = yield fetch("https://api.themoviedb.org/3/find/" + cleanId + "?api_key=" + TMDB_API_KEY + "&external_source=imdb_id");
-        if (findRes.ok) {
-          var fData = yield findRes.json();
-          var item = mediaType === "tv" || mediaType === "series" ? fData.tv_results && fData.tv_results[0] : fData.movie_results && fData.movie_results[0];
-          if (item) {
-            numericId = item.id;
-            if (item.name) titles.push(item.name);
-            if (item.title) titles.push(item.title);
-            if (item.original_name) titles.push(item.original_name);
-            if (item.original_title) titles.push(item.original_title);
+    var result = {
+      tmdbId: null,
+      tvdbId: null,
+      isMovie: null,
+      trackerQueries: [],
+      mappedSeason: null,
+      mappedEpisode: null,
+      absoluteEpisode: null
+    };
+    if (!extId) return result;
+    var rawTitles = [];
+    var paramKey = kind === "kitsu" ? "kitsu_id" : kind === "mal" ? "mal_id" : kind === "anilist" ? "anilist_id" : "anidb_id";
+    var aniZip = yield safeFetchJson("https://api.ani.zip/mappings?" + paramKey + "=" + encodeURIComponent(extId), {}, 5e3);
+    if (aniZip && aniZip.mappings) {
+      var m = aniZip.mappings;
+      if (m.themoviedb_id) result.tmdbId = String(m.themoviedb_id);
+      if (m.thetvdb_id) result.tvdbId = String(m.thetvdb_id);
+      if (m.type === "MOVIE") result.isMovie = true;
+      else if (m.type === "TV" || m.type === "OVA" || m.type === "ONA") result.isMovie = false;
+      if (aniZip.titles) {
+        if (aniZip.titles.en) rawTitles.push(aniZip.titles.en);
+        if (aniZip.titles["x-jat"]) rawTitles.push(aniZip.titles["x-jat"]);
+        if (aniZip.titles.ja) rawTitles.push(aniZip.titles.ja);
+      }
+      if (aniZip.episodes && aniZip.episodes[String(trackerEp)]) {
+        var epInfo = aniZip.episodes[String(trackerEp)];
+        var ms = parseInt(epInfo.seasonNumber, 10);
+        var me = parseInt(epInfo.episodeNumber, 10);
+        var ma = parseInt(epInfo.absoluteEpisodeNumber, 10);
+        if (ms > 0) result.mappedSeason = ms;
+        if (me > 0) result.mappedEpisode = me;
+        if (ma > 0) result.absoluteEpisode = ma;
+      }
+    }
+    if (!result.tmdbId && rawTitles.length === 0 || kind === "kitsu" && rawTitles.length === 0) {
+      if (kind === "kitsu") {
+        var kData = yield safeFetchJson("https://kitsu.io/api/edge/anime/" + encodeURIComponent(extId) + "?include=mappings", {}, 5e3);
+        var attr = kData && kData.data && kData.data.attributes;
+        if (attr) {
+          if (attr.canonicalTitle) rawTitles.push(attr.canonicalTitle);
+          if (attr.titles) {
+            if (attr.titles.en) rawTitles.push(attr.titles.en);
+            if (attr.titles.en_jp) rawTitles.push(attr.titles.en_jp);
+            if (attr.titles.ja_jp) rawTitles.push(attr.titles.ja_jp);
+          }
+          if (Array.isArray(attr.abbreviatedTitles)) {
+            for (var a = 0; a < attr.abbreviatedTitles.length; a++) rawTitles.push(attr.abbreviatedTitles[a]);
+          }
+          if (result.isMovie === null && attr.subtype) {
+            result.isMovie = String(attr.subtype).toLowerCase() === "movie";
           }
         }
-      } else {
-        numericId = cleanId;
+        var included = kData && Array.isArray(kData.included) ? kData.included : [];
+        for (var inc = 0; inc < included.length; inc++) {
+          var extSite = included[inc] && included[inc].attributes && included[inc].attributes.externalSite;
+          var extVal = included[inc] && included[inc].attributes && included[inc].attributes.externalId;
+          if (!result.tvdbId && extVal && (extSite === "thetvdb/series" || extSite === "thetvdb")) {
+            result.tvdbId = String(extVal).split("/")[0];
+          }
+        }
+      } else if (kind === "anilist" || kind === "mal") {
+        var gqlVar = kind === "mal" ? { idMal: parseInt(extId, 10) } : { id: parseInt(extId, 10) };
+        var gqlQuery = kind === "mal" ? "query ($idMal: Int) { Media(idMal: $idMal, type: ANIME) { format title { english romaji native } synonyms } }" : "query ($id: Int) { Media(id: $id, type: ANIME) { format title { english romaji native } synonyms } }";
+        var alRes = yield safeFetchJson("https://graphql.anilist.co", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify({ query: gqlQuery, variables: gqlVar })
+        }, 5e3);
+        var media = alRes && alRes.data && alRes.data.Media;
+        if (media) {
+          if (media.title) {
+            if (media.title.english) rawTitles.push(media.title.english);
+            if (media.title.romaji) rawTitles.push(media.title.romaji);
+            if (media.title.native) rawTitles.push(media.title.native);
+          }
+          if (Array.isArray(media.synonyms)) {
+            for (var sy = 0; sy < Math.min(media.synonyms.length, 4); sy++) rawTitles.push(media.synonyms[sy]);
+          }
+          if (result.isMovie === null && media.format) {
+            result.isMovie = media.format === "MOVIE";
+          }
+        }
+      }
+    }
+    addUniqueCleanedTitles(result.trackerQueries, rawTitles);
+    return result;
+  });
+}
+function resolveTmdbInfo(kind, extId, isTv) {
+  return __async(this, null, function* () {
+    try {
+      var numericId = null;
+      var resolvedIsTv = isTv;
+      var rawTitles = [];
+      var baseTitles = [];
+      var tmdbSeasons = [];
+      if (kind === "imdb" || kind === "tvdb") {
+        var src = kind === "imdb" ? "imdb_id" : "tvdb_id";
+        var fData = yield safeFetchJson("https://api.themoviedb.org/3/find/" + encodeURIComponent(extId) + "?api_key=" + TMDB_API_KEY + "&external_source=" + src, {}, 6e3);
+        if (fData) {
+          var tvHit = fData.tv_results && fData.tv_results[0];
+          var movHit = fData.movie_results && fData.movie_results[0];
+          var item = isTv ? tvHit || movHit : movHit || tvHit;
+          if (item) {
+            numericId = item.id;
+            resolvedIsTv = item === tvHit;
+            if (item.name) rawTitles.push(item.name);
+            if (item.title) rawTitles.push(item.title);
+            if (item.original_name) rawTitles.push(item.original_name);
+            if (item.original_title) rawTitles.push(item.original_title);
+          }
+        }
+      } else if (/^\d+$/.test(String(extId))) {
+        numericId = String(extId);
       }
       if (numericId) {
-        var type = mediaType === "tv" || mediaType === "series" ? "tv" : "movie";
-        var enRes = yield fetch("https://api.themoviedb.org/3/" + type + "/" + numericId + "?api_key=" + TMDB_API_KEY);
-        if (enRes.ok) {
-          var enData = yield enRes.json();
-          if (enData.name) titles.push(enData.name);
-          if (enData.title) titles.push(enData.title);
-          if (enData.original_name) titles.push(enData.original_name);
-          if (enData.original_title) titles.push(enData.original_title);
+        var type = resolvedIsTv ? "tv" : "movie";
+        var enData = yield safeFetchJson("https://api.themoviedb.org/3/" + type + "/" + numericId + "?api_key=" + TMDB_API_KEY, {}, 6e3);
+        if (enData) {
+          if (enData.name) {
+            rawTitles.push(enData.name);
+            baseTitles.push(enData.name);
+          }
+          if (enData.title) {
+            rawTitles.push(enData.title);
+            baseTitles.push(enData.title);
+          }
+          if (enData.original_name) {
+            rawTitles.push(enData.original_name);
+            baseTitles.push(enData.original_name);
+          }
+          if (enData.original_title) {
+            rawTitles.push(enData.original_title);
+            baseTitles.push(enData.original_title);
+          }
+          if (Array.isArray(enData.seasons)) {
+            for (var s = 0; s < enData.seasons.length; s++) {
+              if (enData.seasons[s] && enData.seasons[s].season_number > 0) {
+                tmdbSeasons.push(enData.seasons[s]);
+              }
+            }
+            tmdbSeasons.sort(function(a, b) {
+              return a.season_number - b.season_number;
+            });
+          }
         }
-        var trRes = yield fetch("https://api.themoviedb.org/3/" + type + "/" + numericId + "?api_key=" + TMDB_API_KEY + "&language=tr-TR");
-        if (trRes.ok) {
-          var trData = yield trRes.json();
-          if (trData.name) titles.push(trData.name);
-          if (trData.title) titles.push(trData.title);
+        var trData = yield safeFetchJson("https://api.themoviedb.org/3/" + type + "/" + numericId + "?api_key=" + TMDB_API_KEY + "&language=tr-TR", {}, 6e3);
+        if (trData) {
+          if (trData.name) {
+            rawTitles.push(trData.name);
+            baseTitles.push(trData.name);
+          }
+          if (trData.title) {
+            rawTitles.push(trData.title);
+            baseTitles.push(trData.title);
+          }
         }
-        var altRes = yield fetch("https://api.themoviedb.org/3/" + type + "/" + numericId + "/alternative_titles?api_key=" + TMDB_API_KEY);
-        if (altRes.ok) {
-          var altData = yield altRes.json();
+        var altData = yield safeFetchJson("https://api.themoviedb.org/3/" + type + "/" + numericId + "/alternative_titles?api_key=" + TMDB_API_KEY, {}, 6e3);
+        if (altData) {
           var alts = altData.titles || altData.results || [];
-          for (var i = 0; i < Math.min(alts.length, 6); i++) {
-            if (alts[i].title) titles.push(alts[i].title);
+          var altAdded = 0;
+          for (var i = 0; i < alts.length && altAdded < 2; i++) {
+            var cc = alts[i].iso_3166_1 || "";
+            if (alts[i].title && (!cc || cc === "US" || cc === "GB" || cc === "TR" || cc === "JP")) {
+              rawTitles.push(alts[i].title);
+              altAdded++;
+            }
           }
         }
       }
       var uniqueQueries = [];
-      for (var j = 0; j < titles.length; j++) {
-        var c = cleanStr(titles[j]);
-        if (c && c.length >= 2 && uniqueQueries.indexOf(c) === -1) {
-          uniqueQueries.push(c);
-        }
-      }
-      return { numericId, uniqueQueries };
+      var uniqueBase = [];
+      addUniqueCleanedTitles(uniqueQueries, rawTitles);
+      addUniqueCleanedTitles(uniqueBase, baseTitles);
+      return {
+        numericId,
+        isTv: resolvedIsTv,
+        uniqueQueries,
+        baseQueries: uniqueBase,
+        tmdbSeasons
+      };
     } catch (e) {
-      return { numericId: null, uniqueQueries: [] };
+      return { numericId: null, isTv, uniqueQueries: [], baseQueries: [], tmdbSeasons: [] };
     }
   });
 }
-function searchAnizium(queries) {
+function scoreAniziumCandidate(item, query, expectedIsMovie, index) {
+  var itemClean = cleanStr(item && item.name ? item.name : "");
+  if (!itemClean || !query) return -9999;
+  var titleScore = 0;
+  if (itemClean === query) {
+    titleScore = 500;
+  } else if (itemClean.indexOf(query) === 0) {
+    titleScore = 260 - Math.min(200, (itemClean.length - query.length) * 3);
+  } else if (itemClean.indexOf(query) !== -1 || query.indexOf(itemClean) !== -1) {
+    titleScore = 140 - Math.min(120, Math.abs(itemClean.length - query.length) * 3);
+  } else {
+    return -9999;
+  }
+  var typeScore = 0;
+  if (expectedIsMovie !== null && expectedIsMovie !== void 0) {
+    var itemIsMovie = item.type === "movie";
+    typeScore = itemIsMovie === expectedIsMovie ? 1e3 : -500;
+  }
+  return typeScore + titleScore - index * 0.1;
+}
+function searchAnizium(queries, expectedIsMovie, searchCache) {
   return __async(this, null, function* () {
     if (!queries || queries.length === 0) return null;
-    for (var i = 0; i < queries.length; i++) {
+    var cache = searchCache || {};
+    var bestItem = null;
+    var bestScore = -9999;
+    var limit = Math.min(queries.length, 4);
+    for (var i = 0; i < limit; i++) {
       var q = queries[i];
-      var sData = yield aniziumFetch("/page/search", { value: q, page: 1 });
-      var items = sData && sData.page && sData.page.data ? sData.page.data : [];
+      if (!q) continue;
+      var items;
+      if (cache[q] !== void 0) {
+        items = cache[q];
+      } else {
+        var sData = yield aniziumFetch("/page/search", { value: q, page: 1 });
+        items = sData && sData.page && sData.page.data ? sData.page.data : [];
+        cache[q] = items;
+      }
       for (var j = 0; j < items.length; j++) {
         var item = items[j];
-        var itemClean = cleanStr(item.name || "");
-        if (itemClean && (itemClean === q || itemClean.indexOf(q) !== -1 || q.indexOf(itemClean) !== -1)) {
-          return item;
+        var sc = scoreAniziumCandidate(item, q, expectedIsMovie, j);
+        if (sc > bestScore) {
+          bestScore = sc;
+          bestItem = item;
+        }
+        if (bestScore >= 1499) {
+          return bestItem;
         }
       }
     }
-    var firstWord = queries[0].split(" ")[0];
+    if (bestItem) return bestItem;
+    var firstWord = queries[0] ? queries[0].split(" ")[0] : "";
     if (firstWord && firstWord.length >= 4) {
-      var fallbackData = yield aniziumFetch("/page/search", { value: firstWord, page: 1 });
-      var fbItems = fallbackData && fallbackData.page && fallbackData.page.data ? fallbackData.page.data : [];
+      var fbItems;
+      if (cache[firstWord] !== void 0) {
+        fbItems = cache[firstWord];
+      } else {
+        var fallbackData = yield aniziumFetch("/page/search", { value: firstWord, page: 1 });
+        fbItems = fallbackData && fallbackData.page && fallbackData.page.data ? fallbackData.page.data : [];
+        cache[firstWord] = fbItems;
+      }
       for (var k = 0; k < fbItems.length; k++) {
         var fbItem = fbItems[k];
-        var fbClean = cleanStr(fbItem.name || "");
         for (var m = 0; m < queries.length; m++) {
-          var query = queries[m];
-          if (fbClean && (fbClean === query || fbClean.indexOf(query) !== -1 || query.indexOf(fbClean) !== -1)) {
-            return fbItem;
+          var fbScore = scoreAniziumCandidate(fbItem, queries[m], expectedIsMovie, k);
+          if (fbScore > bestScore) {
+            bestScore = fbScore;
+            bestItem = fbItem;
           }
         }
       }
     }
-    return null;
+    return bestItem;
+  });
+}
+function resolveAniziumEpisode(aniziumId, reqSeason, reqEpisode, reqAbsolute, tmdbSeasons, baseQueries) {
+  return __async(this, null, function* () {
+    var dRes = yield aniziumFetch("/anime/get", { id: aniziumId });
+    var seasons = dRes && dRes.success && dRes.data && Array.isArray(dRes.data.seasons) ? dRes.data.seasons : [];
+    if (seasons.length === 0) {
+      return { aniziumId, season: reqSeason || 1, episode: reqEpisode || 1 };
+    }
+    var sortedSeasons = seasons.slice().sort(function(a, b) {
+      return (parseInt(a.number, 10) || 1) - (parseInt(b.number, 10) || 1);
+    });
+    var flatEps = [];
+    var directMatch = false;
+    for (var s = 0; s < sortedSeasons.length; s++) {
+      var se = sortedSeasons[s];
+      var sNum = parseInt(se.number, 10) || 1;
+      var eps = Array.isArray(se.episodes) ? se.episodes.slice() : [];
+      eps.sort(function(a, b) {
+        return (parseInt(a.number, 10) || 0) - (parseInt(b.number, 10) || 0);
+      });
+      for (var e = 0; e < eps.length; e++) {
+        var eNum = parseInt(eps[e].number, 10) || e + 1;
+        flatEps.push({ season: sNum, episode: eNum });
+        if (sNum === reqSeason && eNum === reqEpisode) {
+          directMatch = true;
+        }
+      }
+    }
+    if (directMatch) {
+      return { aniziumId, season: reqSeason, episode: reqEpisode };
+    }
+    var absTarget = reqAbsolute > 0 ? reqAbsolute : 0;
+    if (!absTarget && reqSeason > 1 && Array.isArray(tmdbSeasons) && tmdbSeasons.length > 0) {
+      var prevSum = 0;
+      for (var ts = 0; ts < tmdbSeasons.length; ts++) {
+        var tSeason = tmdbSeasons[ts];
+        if (tSeason.season_number > 0 && tSeason.season_number < reqSeason) {
+          prevSum += parseInt(tSeason.episode_count, 10) || 0;
+        }
+      }
+      if (prevSum > 0) {
+        absTarget = prevSum + reqEpisode;
+      }
+    } else if (!absTarget && reqSeason === 1) {
+      absTarget = reqEpisode;
+    }
+    if (absTarget > 0) {
+      if (sortedSeasons.length === 1) {
+        var singleSNum = parseInt(sortedSeasons[0].number, 10) || 1;
+        for (var f = 0; f < flatEps.length; f++) {
+          if (flatEps[f].episode === absTarget) {
+            return { aniziumId, season: singleSNum, episode: absTarget };
+          }
+        }
+      }
+      if (absTarget <= flatEps.length) {
+        var mapped = flatEps[absTarget - 1];
+        return { aniziumId, season: mapped.season, episode: mapped.episode };
+      }
+      if (reqSeason > 1 && Array.isArray(tmdbSeasons) && Array.isArray(baseQueries) && baseQueries.length > 0) {
+        var targetSeasonObj = null;
+        for (var k = 0; k < tmdbSeasons.length; k++) {
+          if (tmdbSeasons[k].season_number === reqSeason) {
+            targetSeasonObj = tmdbSeasons[k];
+            break;
+          }
+        }
+        var sName = targetSeasonObj && targetSeasonObj.name ? cleanStr(targetSeasonObj.name) : "";
+        if (sName && !/^season \d+$/.test(sName) && !/^sezon \d+$/.test(sName)) {
+          var sequelQueries = [];
+          addUniqueCleanedTitles(sequelQueries, [baseQueries[0] + " " + sName, sName]);
+          var sequelMatch = yield searchAnizium(sequelQueries, false);
+          if (sequelMatch && String(sequelMatch.ID) !== String(aniziumId)) {
+            return yield resolveAniziumEpisode(sequelMatch.ID, 1, reqEpisode, reqEpisode, [], []);
+          }
+        }
+      }
+    }
+    return { aniziumId, season: reqSeason || 1, episode: reqEpisode || 1 };
+  });
+}
+function resolveSourceData(id, mediaType, season, episode) {
+  return __async(this, null, function* () {
+    var req = parseMediaRequest(id, mediaType, season, episode);
+    var aniziumId = null;
+    var isSeries = req.direct ? req.isSeries : req.isTv;
+    var targetSeason = req.season;
+    var targetEpisode = req.episode;
+    var targetAbsolute = null;
+    var tmdbSeasons = [];
+    var baseQueries = [];
+    if (req.direct) {
+      aniziumId = req.aniziumId;
+    } else {
+      var expectedIsMovie = req.isTv ? false : null;
+      var tracker = null;
+      if (req.isTracker) {
+        tracker = yield resolveTrackerInfo(req.kind, req.extId, req.episode);
+        if (tracker.isMovie !== null) {
+          expectedIsMovie = tracker.isMovie;
+          isSeries = !tracker.isMovie;
+        }
+      }
+      var tmdbKind = req.kind;
+      var tmdbExtId = req.extId;
+      if (req.isTracker) {
+        if (tracker && tracker.tmdbId) {
+          tmdbKind = "tmdb";
+          tmdbExtId = tracker.tmdbId;
+        } else if (tracker && tracker.tvdbId) {
+          tmdbKind = "tvdb";
+          tmdbExtId = tracker.tvdbId;
+        } else {
+          tmdbKind = null;
+          tmdbExtId = null;
+        }
+      }
+      var tmdbInfo = tmdbKind ? yield resolveTmdbInfo(tmdbKind, tmdbExtId, isSeries) : { numericId: null, isTv: isSeries, uniqueQueries: [], baseQueries: [], tmdbSeasons: [] };
+      if (tmdbInfo.numericId) {
+        isSeries = tmdbInfo.isTv;
+        expectedIsMovie = !tmdbInfo.isTv;
+        tmdbSeasons = tmdbInfo.tmdbSeasons;
+        baseQueries = tmdbInfo.baseQueries;
+      }
+      var matched = null;
+      var matchedDedicatedTracker = false;
+      var searchCache = {};
+      var trackerMatched = null;
+      if (tracker && tracker.trackerQueries.length > 0) {
+        trackerMatched = yield searchAnizium(tracker.trackerQueries, expectedIsMovie, searchCache);
+        if (trackerMatched) {
+          var tmClean = cleanStr(trackerMatched.name || "");
+          var isBaseTitle = baseQueries.indexOf(tmClean) !== -1;
+          var isExactTracker = tracker.trackerQueries.indexOf(tmClean) !== -1;
+          if (isExactTracker && !isBaseTitle) {
+            matched = trackerMatched;
+            matchedDedicatedTracker = true;
+          } else if (!tmdbInfo.uniqueQueries.length || isBaseTitle) {
+            matched = trackerMatched;
+          }
+        }
+      }
+      if (!matched && tmdbInfo.uniqueQueries.length > 0) {
+        matched = yield searchAnizium(tmdbInfo.uniqueQueries, expectedIsMovie, searchCache);
+      }
+      if (!matched && trackerMatched) {
+        matched = trackerMatched;
+      }
+      if (!matched) return null;
+      aniziumId = matched.ID;
+      if (matched.type === "movie") isSeries = false;
+      if (isSeries && tracker && !matchedDedicatedTracker) {
+        if (tracker.mappedSeason) targetSeason = tracker.mappedSeason;
+        if (tracker.mappedEpisode) targetEpisode = tracker.mappedEpisode;
+        if (tracker.absoluteEpisode) targetAbsolute = tracker.absoluteEpisode;
+      }
+    }
+    if (!aniziumId) return null;
+    var resolvedPos = { aniziumId, season: targetSeason, episode: targetEpisode };
+    if (isSeries && !req.direct) {
+      resolvedPos = yield resolveAniziumEpisode(aniziumId, targetSeason, targetEpisode, targetAbsolute, tmdbSeasons, baseQueries);
+    }
+    var sourceParams = {
+      id: resolvedPos.aniziumId,
+      site: "main",
+      server: "1"
+    };
+    if (isSeries) {
+      sourceParams.season = resolvedPos.season;
+      sourceParams.episode = resolvedPos.episode;
+    }
+    return yield aniziumFetch("/anime/source", sourceParams);
   });
 }
 function getStreams(id, mediaType, season, episode) {
   return __async(this, null, function* () {
     try {
-      var rawId = String(id || "").trim();
-      var isTv = mediaType === "tv" || mediaType === "series";
-      var sNum = parseInt(season) || 1;
-      var eNum = parseInt(episode) || 1;
-      var aniziumId = null;
-      var isSeries = isTv;
-      if (rawId.indexOf("anizium:ep:") === 0) {
-        var parts = rawId.split(":");
-        aniziumId = parts[2];
-        sNum = parseInt(parts[3]) || 1;
-        eNum = parseInt(parts[4]) || 1;
-        isSeries = true;
-      } else if (rawId.indexOf("anizium:movie:") === 0) {
-        aniziumId = rawId.replace("anizium:movie:", "");
-        isSeries = false;
-      } else if (rawId.indexOf("anizium:anime:") === 0) {
-        aniziumId = rawId.replace("anizium:anime:", "");
-      } else {
-        var tmdbInfo = yield resolveTmdbInfo(rawId, mediaType);
-        var matched = yield searchAnizium(tmdbInfo.uniqueQueries);
-        if (!matched) return [];
-        aniziumId = matched.ID;
-        if (matched.type === "movie") isSeries = false;
-      }
-      if (!aniziumId) return [];
-      var sourceParams = {
-        id: aniziumId,
-        site: "main",
-        server: "1"
-      };
-      if (isSeries) {
-        sourceParams.season = sNum;
-        sourceParams.episode = eNum;
-      }
-      var srcData = yield aniziumFetch("/anime/source", sourceParams);
+      var srcData = yield resolveSourceData(id, mediaType, season, episode);
       if (!srcData || !srcData.success || !srcData.groups || srcData.groups.length === 0) {
         return [];
       }
@@ -512,37 +959,7 @@ function getStreams(id, mediaType, season, episode) {
 function getSubtitles(id, mediaType, season, episode) {
   return __async(this, null, function* () {
     try {
-      var rawId = String(id || "").trim();
-      var isTv = mediaType === "tv" || mediaType === "series";
-      var sNum = parseInt(season) || 1;
-      var eNum = parseInt(episode) || 1;
-      var aniziumId = null;
-      var isSeries = isTv;
-      if (rawId.indexOf("anizium:ep:") === 0) {
-        var parts = rawId.split(":");
-        aniziumId = parts[2];
-        sNum = parseInt(parts[3]) || 1;
-        eNum = parseInt(parts[4]) || 1;
-        isSeries = true;
-      } else if (rawId.indexOf("anizium:movie:") === 0) {
-        aniziumId = rawId.replace("anizium:movie:", "");
-        isSeries = false;
-      } else if (rawId.indexOf("anizium:anime:") === 0) {
-        aniziumId = rawId.replace("anizium:anime:", "");
-      } else {
-        var tmdbInfo = yield resolveTmdbInfo(rawId, mediaType);
-        var matched = yield searchAnizium(tmdbInfo.uniqueQueries);
-        if (!matched) return { subtitles: [] };
-        aniziumId = matched.ID;
-        if (matched.type === "movie") isSeries = false;
-      }
-      if (!aniziumId) return { subtitles: [] };
-      var sourceParams = { id: aniziumId, site: "main", server: "1" };
-      if (isSeries) {
-        sourceParams.season = sNum;
-        sourceParams.episode = eNum;
-      }
-      var srcData = yield aniziumFetch("/anime/source", sourceParams);
+      var srcData = yield resolveSourceData(id, mediaType, season, episode);
       if (!srcData || !srcData.subtitles) return { subtitles: [] };
       return { subtitles: formatSubtitles(srcData.subtitles) };
     } catch (e) {
