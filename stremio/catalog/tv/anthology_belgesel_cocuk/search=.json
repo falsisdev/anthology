@@ -131,6 +131,512 @@
       "genres": [
         "Belgesel & Çocuk"
       ]
+    },
+    {
+      "id": "tv:24kitchen.tr",
+      "type": "tv",
+      "name": "24 Kitchen",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/24kitchen.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/24kitchen.png",
+      "description": "24 Kitchen Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:animalplanet.tr",
+      "type": "tv",
+      "name": "Animal Planet",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/animalplanet.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/animalplanet.png",
+      "description": "Animal Planet Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:animaux.tr",
+      "type": "tv",
+      "name": "Animaux",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/animaux.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/animaux.png",
+      "description": "Animaux Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:babytv.tr",
+      "type": "tv",
+      "name": "Baby TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/babytv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/babytv.png",
+      "description": "Baby TV Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:bbcearth.tr",
+      "type": "tv",
+      "name": "BBC Earth",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bbcearth.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bbcearth.png",
+      "description": "BBC Earth Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:bbcearthpremiere.tr",
+      "type": "tv",
+      "name": "BBC Earth Premiere",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bbcearthpremiere.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bbcearthpremiere.png",
+      "description": "BBC Earth Premiere Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:beingurme.tr",
+      "type": "tv",
+      "name": "beIN Gurme",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beingurme.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beingurme.png",
+      "description": "beIN Gurme Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:beiniz.tr",
+      "type": "tv",
+      "name": "beIN İz TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beiniz.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beiniz.png",
+      "description": "beIN İz TV Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:boomerang.tr",
+      "type": "tv",
+      "name": "Boomerang",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/boomerang.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/boomerang.png",
+      "description": "Boomerang Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:cartoonnetwork.tr",
+      "type": "tv",
+      "name": "Cartoon Network",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cartoonnetwork.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cartoonnetwork.png",
+      "description": "Cartoon Network Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:cocuk1.tr",
+      "type": "tv",
+      "name": "Çocuk 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cocuk1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cocuk1.png",
+      "description": "Çocuk 1 Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:cocuk2.tr",
+      "type": "tv",
+      "name": "Çocuk 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cocuk2.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cocuk2.png",
+      "description": "Çocuk 2 Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:cocuk3.tr",
+      "type": "tv",
+      "name": "Çocuk 3",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cocuk3.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cocuk3.png",
+      "description": "Çocuk 3 Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:davinci.tr",
+      "type": "tv",
+      "name": "Da Vinci",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/davinci.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/davinci.png",
+      "description": "Da Vinci Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:davincikids.tr",
+      "type": "tv",
+      "name": "Da Vinci Kids",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/davincikids.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/davincikids.png",
+      "description": "Da Vinci Kids Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:discoverychannel.tr",
+      "type": "tv",
+      "name": "Discovery Channel",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/discoverychannel.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/discoverychannel.png",
+      "description": "Discovery Channel Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:discoveryid.tr",
+      "type": "tv",
+      "name": "Discovery ID",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/discoveryid.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/discoveryid.png",
+      "description": "Discovery ID Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:discoveryscience.tr",
+      "type": "tv",
+      "name": "Discovery Science",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/discoveryscience.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/discoveryscience.png",
+      "description": "Discovery Science Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:discoveryworld.tr",
+      "type": "tv",
+      "name": "Discovery World",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/discoveryworld.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/discoveryworld.png",
+      "description": "Discovery World Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:disneychannel.tr",
+      "type": "tv",
+      "name": "Disney Channel",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/disneychannel.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/disneychannel.png",
+      "description": "Disney Channel Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:disneyjr.tr",
+      "type": "tv",
+      "name": "Disney Jr.",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/disneyjr.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/disneyjr.png",
+      "description": "Disney Jr. Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:egeilegaga.tr",
+      "type": "tv",
+      "name": "Ege İle Gaga",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/egeilegaga.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/egeilegaga.png",
+      "description": "Ege İle Gaga Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:historychannel.tr",
+      "type": "tv",
+      "name": "History Channel",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/historychannel.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/historychannel.png",
+      "description": "History Channel Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:iztv.tr",
+      "type": "tv",
+      "name": "İZ TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/iztv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/iztv.png",
+      "description": "İZ TV Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:lovenature.tr",
+      "type": "tv",
+      "name": "Love Nature",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/lovenature.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/lovenature.png",
+      "description": "Love Nature Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:nationalgeographic.tr",
+      "type": "tv",
+      "name": "Nat Geo",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nationalgeographic.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nationalgeographic.png",
+      "description": "Nat Geo Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:natgeowild.tr",
+      "type": "tv",
+      "name": "Nat Geo Wild",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/natgeowild.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/natgeowild.png",
+      "description": "Nat Geo Wild Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:nickjr.tr",
+      "type": "tv",
+      "name": "Nick Junior",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nickjr.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nickjr.png",
+      "description": "Nick Junior Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:nickelodeon.tr",
+      "type": "tv",
+      "name": "Nickelodeon",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nickelodeon.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nickelodeon.png",
+      "description": "Nickelodeon Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:niloyatv.tr",
+      "type": "tv",
+      "name": "Niloya TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/niloyatv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/niloyatv.png",
+      "description": "Niloya TV Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:patronbebek.tr",
+      "type": "tv",
+      "name": "Patron Bebek",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/patronbebek.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/patronbebek.png",
+      "description": "Patron Bebek Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:pepetv.tr",
+      "type": "tv",
+      "name": "Pepee TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/pepetv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/pepetv.png",
+      "description": "Pepee TV Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:pijamamaskelilertv.tr",
+      "type": "tv",
+      "name": "Pijama Maskeliler TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/pijamamaskelilertv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/pijamamaskelilertv.png",
+      "description": "Pijama Maskeliler TV Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:pisitv.tr",
+      "type": "tv",
+      "name": "Pisi TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/pisitv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/pisitv.png",
+      "description": "Pisi TV Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:satrantv.tr",
+      "type": "tv",
+      "name": "Satranç TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/satrantv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/satrantv.png",
+      "description": "Satranç TV Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:sevimlidostlar.tr",
+      "type": "tv",
+      "name": "Sevimli Dostlar",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sevimlidostlar.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sevimlidostlar.png",
+      "description": "Sevimli Dostlar Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:smartcocuk.tr",
+      "type": "tv",
+      "name": "Smart Çocuk",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/smartcocuk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/smartcocuk.png",
+      "description": "Smart Çocuk Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:sngerbob.tr",
+      "type": "tv",
+      "name": "Sünger Bob",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sngerbob.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sngerbob.png",
+      "description": "Sünger Bob Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:sirinlertv.tr",
+      "type": "tv",
+      "name": "Şirinler TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sirinlertv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sirinlertv.png",
+      "description": "Şirinler TV Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:tarihtv.tr",
+      "type": "tv",
+      "name": "Tarih TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tarihtv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tarihtv.png",
+      "description": "Tarih TV Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:tgrtbelgesel.tr",
+      "type": "tv",
+      "name": "TGRT Belgesel",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tgrtbelgesel.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tgrtbelgesel.png",
+      "description": "TGRT Belgesel Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:tomjerry.tr",
+      "type": "tv",
+      "name": "Tom & Jerry",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tomjerry.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tomjerry.png",
+      "description": "Tom & Jerry Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:trteba.tr",
+      "type": "tv",
+      "name": "TRT EBA",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trteba.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trteba.png",
+      "description": "TRT EBA Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:viasatexplore.tr",
+      "type": "tv",
+      "name": "Viasat Explore",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/viasatexplore.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/viasatexplore.png",
+      "description": "Viasat Explore Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:viasathistory.tr",
+      "type": "tv",
+      "name": "Viasat History",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/viasathistory.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/viasathistory.png",
+      "description": "Viasat History Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:yabantv.tr",
+      "type": "tv",
+      "name": "Yaban TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yabantv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yabantv.png",
+      "description": "Yaban TV Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
     }
   ]
 }

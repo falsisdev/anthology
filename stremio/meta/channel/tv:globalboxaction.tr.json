@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:globalboxaction.tr",
+    "type": "tv",
+    "name": "Global Box Action",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxaction.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxaction.png",
+    "description": "Global Box Action Canlı [Türkçe]",
+    "genres": [
+      "Sinema"
+    ],
+    "videos": [
+      {
+        "id": "tv:globalboxaction.tr",
+        "title": "Global Box Action"
+      }
+    ]
+  }
+}

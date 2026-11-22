@@ -1,0 +1,70 @@
+{
+  "metas": [
+    {
+      "id": "tv:cinemaximum1.tr",
+      "type": "tv",
+      "name": "Cinemaximum 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximum1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximum1.png",
+      "description": "Cinemaximum 1 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:cinemaximum4.tr",
+      "type": "tv",
+      "name": "Cinemaximum 4",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximum4.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximum4.png",
+      "description": "Cinemaximum 4 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:cinemaximum7.tr",
+      "type": "tv",
+      "name": "Cinemaximum 7",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximum7.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximum7.png",
+      "description": "Cinemaximum 7 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:cinemaximum9.tr",
+      "type": "tv",
+      "name": "Cinemaximum 9",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximum9.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximum9.png",
+      "description": "Cinemaximum 9 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:cinemaximumbilimkurgu.tr",
+      "type": "tv",
+      "name": "Cinemaximum Bilimkurgu",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximumbilimkurgu.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximumbilimkurgu.png",
+      "description": "Cinemaximum Bilimkurgu Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:cinemaximumbollywood.tr",
+      "type": "tv",
+      "name": "Cinemaximum Bollywood",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximumbollywood.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximumbollywood.png",
+      "description": "Cinemaximum Bollywood Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

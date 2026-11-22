@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:bbcearthpremiere.tr",
+      "type": "tv",
+      "name": "BBC Earth Premiere",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bbcearthpremiere.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bbcearthpremiere.png",
+      "description": "BBC Earth Premiere Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    }
+  ]
+}

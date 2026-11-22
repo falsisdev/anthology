@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:showturk.tr",
+    "type": "tv",
+    "name": "Show Türk",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/showturk.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/showturk.png",
+    "description": "Show Türk Canlı [Türkçe]",
+    "genres": [
+      "Ulusal"
+    ],
+    "videos": [
+      {
+        "id": "tv:showturk.tr",
+        "title": "Show Türk"
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:lovenature.tr",
+      "type": "tv",
+      "name": "Love Nature",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/lovenature.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/lovenature.png",
+      "description": "Love Nature Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    }
+  ]
+}

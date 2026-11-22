@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:maxorjinal.tr",
+    "type": "tv",
+    "name": "Max Orijinal",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxorjinal.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxorjinal.png",
+    "description": "Max Orijinal Canlı [Türkçe]",
+    "genres": [
+      "Sinema"
+    ],
+    "videos": [
+      {
+        "id": "tv:maxorjinal.tr",
+        "title": "Max Orijinal"
+      }
+    ]
+  }
+}

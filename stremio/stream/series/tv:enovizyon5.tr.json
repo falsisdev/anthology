@@ -1,0 +1,16 @@
+{
+  "streams": [
+    {
+      "name": "⌜ Anthology Live · Otomatik ⌟",
+      "title": "Eno Vizyon 5 [Kool.ws · Otomatik]",
+      "url": "https://anthology-live.duckdns.org/live/enovizyon5.m3u8?username=anthology&password=falsisdevwashere",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    }
+  ]
+}

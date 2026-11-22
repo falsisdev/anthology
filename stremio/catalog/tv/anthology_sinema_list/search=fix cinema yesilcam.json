@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:fixcinemayesilcam.tr",
+      "type": "tv",
+      "name": "Fix Cinema Yeşilçam",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemayesilcam.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemayesilcam.png",
+      "description": "Fix Cinema Yeşilçam Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "metas": [
+    {
+      "id": "tv:kibrisgenctv.tr",
+      "type": "tv",
+      "name": "Kıbrıs Genç TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kibrisgenctv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kibrisgenctv.png",
+      "description": "Kıbrıs Genç TV Canlı [Türkçe]",
+      "genres": [
+        "Yerel"
+      ]
+    },
+    {
+      "id": "tv:kibriskanalt.tr",
+      "type": "tv",
+      "name": "Kıbrıs Kanal T",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kibriskanalt.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kibriskanalt.png",
+      "description": "Kıbrıs Kanal T Canlı [Türkçe]",
+      "genres": [
+        "Yerel"
+      ]
+    },
+    {
+      "id": "tv:kibristv.tr",
+      "type": "tv",
+      "name": "Kıbrıs TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kibristv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kibristv.png",
+      "description": "Kıbrıs TV Canlı [Türkçe]",
+      "genres": [
+        "Yerel"
+      ]
+    }
+  ]
+}

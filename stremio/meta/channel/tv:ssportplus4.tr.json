@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:ssportplus4.tr",
+    "type": "tv",
+    "name": "S Sport Plus 4",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus4.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus4.png",
+    "description": "S Sport Plus 4 Canlı [Türkçe]",
+    "genres": [
+      "Spor"
+    ],
+    "videos": [
+      {
+        "id": "tv:ssportplus4.tr",
+        "title": "S Sport Plus 4"
+      }
+    ]
+  }
+}

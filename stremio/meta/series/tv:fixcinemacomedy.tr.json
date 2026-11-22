@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:fixcinemacomedy.tr",
+    "type": "tv",
+    "name": "Fix Cinema Comedy",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemacomedy.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemacomedy.png",
+    "description": "Fix Cinema Comedy Canlı [Türkçe]",
+    "genres": [
+      "Sinema"
+    ],
+    "videos": [
+      {
+        "id": "tv:fixcinemacomedy.tr",
+        "title": "Fix Cinema Comedy"
+      }
+    ]
+  }
+}

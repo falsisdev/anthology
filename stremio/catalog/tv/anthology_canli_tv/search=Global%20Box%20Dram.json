@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:globalboxdram.tr",
+      "type": "tv",
+      "name": "Global Box Dram",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxdram.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxdram.png",
+      "description": "Global Box Dram Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

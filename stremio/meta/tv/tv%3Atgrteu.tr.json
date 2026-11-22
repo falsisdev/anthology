@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:tgrteu.tr",
+    "type": "tv",
+    "name": "TGRT EU",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tgrteu.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tgrteu.png",
+    "description": "TGRT EU Canlı [Türkçe]",
+    "genres": [
+      "Ulusal"
+    ],
+    "videos": [
+      {
+        "id": "tv:tgrteu.tr",
+        "title": "TGRT EU"
+      }
+    ]
+  }
+}

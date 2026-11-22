@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:tv1.tr",
+      "type": "tv",
+      "name": "TV 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv1.png",
+      "description": "TV 1 Canlı [Türkçe]",
+      "genres": [
+        "DİĞER KANALLAR"
+      ]
+    }
+  ]
+}

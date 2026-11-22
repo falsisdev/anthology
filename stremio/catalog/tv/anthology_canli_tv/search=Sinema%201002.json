@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:sinema1002.tr",
+      "type": "tv",
+      "name": "Sinema 1002",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinema1002.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinema1002.png",
+      "description": "Sinema 1002 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

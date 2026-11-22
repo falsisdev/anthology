@@ -1,0 +1,37 @@
+{
+  "metas": [
+    {
+      "id": "tv:fixcinemafantastic.tr",
+      "type": "tv",
+      "name": "Fix Cinema Fantastic",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemafantastic.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemafantastic.png",
+      "description": "Fix Cinema Fantastic Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:globalboxfantastic.tr",
+      "type": "tv",
+      "name": "Global Box Fantastic",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxfantastic.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxfantastic.png",
+      "description": "Global Box Fantastic Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:proturkfantastic.tr",
+      "type": "tv",
+      "name": "Proturk Fantastic",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkfantastic.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkfantastic.png",
+      "description": "Proturk Fantastic Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:iztv.tr",
+      "type": "tv",
+      "name": "İZ TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/iztv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/iztv.png",
+      "description": "İZ TV Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    }
+  ]
+}

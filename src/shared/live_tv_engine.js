@@ -8,6 +8,7 @@ const { sortStreamsByQuality } = require('./quality.js');
 const { loadConfig, val, wrapAll } = require('./config.js');
 const { getNowPlayingInfo } = require('./epg.js');
 const { timeoutSignal } = require('./http.js');
+const { initSportConfig, resolveAnthologyLiveStreams } = require('./sport_engine.js');
 
 var DEFAULT_M3U_REMOTE = 'https://raw.githubusercontent.com/falsisdev/anthology/main/providers/M3U/Liste/canli.m3u';
 var DEFAULT_LOGO = 'https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png';
@@ -23,7 +24,7 @@ var cacheTime = 0;
 
 function cfgReady() {
     if (!_cfgReady) {
-        _cfgReady = loadConfig().then(function () {
+        _cfgReady = Promise.all([loadConfig(), initSportConfig()]).then(function () {
             var v = val('urls.live.m3u_remote');
             if (v) M3U_REMOTE = String(v).replace(/\/+$/, '');
         });
@@ -251,23 +252,46 @@ function createLiveTvProvider(opts) {
             var ch = findMatchingChannel(channels, targetId);
             if (!ch) return empty;
 
-            var streams = [];
+            var officialStreams = [];
+            var proxyStreams = [];
+            var seenUrls = {};
+            var isLiveProxyUrl = function (u) {
+                return u && u.indexOf('/live/') !== -1 && u.indexOf('anthology-live') !== -1;
+            };
+
             if (ch.url) {
-                streams.push(buildStreamEntry(streamName, ch.name, ch.name + ' [Canlı HD]', ch.url));
+                seenUrls[ch.url] = true;
+                if (isLiveProxyUrl(ch.url)) {
+                    proxyStreams.push(buildStreamEntry('⌜ Anthology Live · Otomatik ⌟', ch.name, ch.name + ' [Kool.ws · Otomatik]', ch.url));
+                } else {
+                    officialStreams.push(buildStreamEntry(streamName, ch.name, ch.name + ' [Canlı HD · Resmi]', ch.url));
+                }
             }
             if (ch.backups && ch.backups.length > 0) {
                 for (var bkIdx = 0; bkIdx < ch.backups.length; bkIdx++) {
                     var bUrl = ch.backups[bkIdx];
-                    if (bUrl && bUrl !== ch.url) {
+                    if (bUrl && !seenUrls[bUrl]) {
+                        seenUrls[bUrl] = true;
                         var bSuffix = ch.backups.length > 1 ? (' [Yedek Akış ' + (bkIdx + 1) + ']') : ' [Yedek Akış]';
-                        streams.push(buildStreamEntry(streamName, ch.name + bSuffix, ch.name + bSuffix, bUrl));
+                        officialStreams.push(buildStreamEntry(streamName, ch.name + bSuffix, ch.name + bSuffix, bUrl));
                     }
                 }
             }
 
-            var sorted = sortStreamsByQuality(streams);
-            sorted.streams = sorted;
-            return sorted;
+            try {
+                var liveSources = await resolveAnthologyLiveStreams(ch.id, ch.name, { isSport: false });
+                for (var li = 0; li < liveSources.length; li++) {
+                    var ls = liveSources[li];
+                    if (ls && ls.url && !seenUrls[ls.url]) {
+                        seenUrls[ls.url] = true;
+                        proxyStreams.push(ls);
+                    }
+                }
+            } catch (e) {}
+
+            var streams = sortStreamsByQuality(officialStreams).concat(proxyStreams);
+            streams.streams = streams;
+            return streams;
         } catch (e) {
             return empty;
         }

@@ -310,7 +310,9 @@ function findSportChannelMapping(rawStr) {
     if (k.indexOf('exxen') !== -1) return SPORT_MAP['exxentv'];
 
     for (var mk in SPORT_MAP) {
-        if (k.indexOf(mk) === 0 || mk.indexOf(k) === 0) return SPORT_MAP[mk];
+        if (mk.length >= 4 && k.indexOf(mk) === 0 && (k === mk || !/^\d/.test(k.slice(mk.length)))) {
+            return SPORT_MAP[mk];
+        }
     }
     return null;
 }
@@ -595,9 +597,10 @@ function extractCanonicalKey(s) {
     if (/^beinsport?5/i.test(cleaned)) return "beinsports5";
     if (/^beinsport?max1/i.test(cleaned)) return "beinsportsmax1";
     if (/^beinsport?max2/i.test(cleaned)) return "beinsportsmax2";
-    if (/^ssport1?$/i.test(cleaned)) return "ssport1";
-    if (/^ssport2/i.test(cleaned)) return "ssport2";
-    if (/^ssportplus/i.test(cleaned)) return "ssportplus";
+    if (/^ssport1?$/i.test(cleaned)) return "ssport";
+    if (/^ssport2$/i.test(cleaned)) return "ssport2";
+    if (/^ssportplus$/i.test(cleaned)) return "ssportplus";
+    if (/^(?:24|24tv|kanal24)$/i.test(cleaned)) return "kanal24";
     if (/^tivibu(spor)?1?$/i.test(cleaned)) return "tivibuspor1";
     if (/^tivibu(spor)?2/i.test(cleaned)) return "tivibuspor2";
     if (/^tivibu(spor)?3/i.test(cleaned)) return "tivibuspor3";
@@ -628,8 +631,16 @@ function extractCanonicalKey(s) {
     return cleaned;
 }
 
+var _sourcesCache = {};
+var _SOURCES_TTL = 300000;
+
 async function fetchAnthologyLiveSources(canonicalKey) {
     if (!canonicalKey) return null;
+    var now = Date.now();
+    var cached = _sourcesCache[canonicalKey];
+    if (cached && (now - cached.at < _SOURCES_TTL)) {
+        return cached.data;
+    }
     var sourcesUrl = ANTHOLOGY_LIVE_BASE + "/api/sources?channel=" + encodeURIComponent(canonicalKey);
     try {
         var fetchPromise = fetch(sourcesUrl, { headers: _HEADERS })
@@ -638,11 +649,82 @@ async function fetchAnthologyLiveSources(canonicalKey) {
                 return null;
             });
         var sources = await withTimeout(fetchPromise, 2500);
-        if (Array.isArray(sources) && sources.length > 0) {
+        if (Array.isArray(sources)) {
+            _sourcesCache[canonicalKey] = { at: now, data: sources };
             return sources;
         }
     } catch (e) {}
     return null;
+}
+
+function buildAnthologyLiveStreamEntry(src, canonicalKey, chTitle, authQuery) {
+    var streamUrl = ANTHOLOGY_LIVE_BASE + "/live/" + canonicalKey + ".m3u8?" + authQuery;
+    if (src.id !== "auto") {
+        streamUrl += "&source=" + encodeURIComponent(src.id);
+    }
+
+    var cleanName = (src.name || src.id)
+        .replace(/[⚡️📡🛡🌐]/g, '')
+        .trim();
+
+    var displayProvider = '⌜ Anthology Live · ' + cleanName + ' ⌟';
+    var displayTitle = chTitle + ' [1080p FHD]';
+
+    if (src.id === 'auto') {
+        displayProvider = '⌜ Anthology Live · Otomatik ⌟';
+        displayTitle = chTitle + ' [1080p FHD · Ultra Hızlı]';
+    } else if (src.id === 'kool1') {
+        displayProvider = '⌜ Anthology Live · Kool S1 ⌟';
+        displayTitle = chTitle + ' [Kool.ws · Sunucu 1]';
+    } else if (src.id === 'kool6') {
+        displayProvider = '⌜ Anthology Live · Kool S6 ⌟';
+        displayTitle = chTitle + ' [Kool.ws · Sunucu 6]';
+    } else if (src.id === 'kool7') {
+        displayProvider = '⌜ Anthology Live · Kool S7 ⌟';
+        displayTitle = chTitle + ' [Kool.ws · Sunucu 7]';
+    } else if (src.id === 'mahsunsports' || src.id === 'papazsports') {
+        displayTitle = chTitle + ' [1080p HD]';
+    }
+
+    return makeStream(
+        displayProvider,
+        displayTitle,
+        streamUrl,
+        {
+            'User-Agent': _HEADERS['User-Agent'],
+            'Accept': '*/*'
+        }
+    );
+}
+
+/**
+ * Genel Anthology Live Kaynak Çözümleyici (Spor + Ulusal + Haber + Sinema + Belgesel + Müzik + Yerel)
+ */
+async function resolveAnthologyLiveStreams(channelIdOrName, fallbackTitle, opts) {
+    await initSportConfig();
+    opts = opts || {};
+    if (opts.isSport) {
+        return resolveMultiSportStreams(channelIdOrName, fallbackTitle);
+    }
+
+    var canonicalKey = extractCanonicalKey(channelIdOrName);
+    var chTitle = fallbackTitle || String(channelIdOrName).toUpperCase();
+    var authQuery = "username=" + encodeURIComponent(ANTHOLOGY_LIVE_USER) + "&password=" + encodeURIComponent(ANTHOLOGY_LIVE_PASS);
+
+    var liveSources = await fetchAnthologyLiveSources(canonicalKey);
+    if (!Array.isArray(liveSources) || liveSources.length === 0) {
+        return [];
+    }
+
+    var streams = [];
+    for (var i = 0; i < liveSources.length; i++) {
+        var src = liveSources[i];
+        if (!src || !src.id || src.available === false) continue;
+        // Official direct/backup URLs are already included directly from canli.m3u
+        if (src.id === 'direct' || src.id === 'backup') continue;
+        streams.push(buildAnthologyLiveStreamEntry(src, canonicalKey, chTitle, authQuery));
+    }
+    return streams;
 }
 
 /**
@@ -682,29 +764,7 @@ async function resolveMultiSportStreams(channelIdOrName, fallbackTitle) {
         for (var i = 0; i < liveSources.length; i++) {
             var src = liveSources[i];
             if (!src || !src.id || src.available === false) continue;
-
-            var streamUrl = ANTHOLOGY_LIVE_BASE + "/live/" + canonicalKey + ".m3u8?" + authQuery;
-            if (src.id !== "auto") {
-                streamUrl += "&source=" + encodeURIComponent(src.id);
-            }
-
-            var cleanName = (src.name || src.id)
-                .replace(/[⚡️📡🛡]/g, '')
-                .trim();
-
-            var qualityBadge = (src.id === 'auto')
-                ? '[1080p FHD · Ultra Hızlı]'
-                : ((src.id === 'mahsunsports' || src.id === 'papazsports') ? '[1080p HD]' : '[1080p FHD]');
-
-            streams.push(makeStream(
-                '⌜ Anthology Live · ' + cleanName + ' ⌟',
-                chTitle + ' ' + qualityBadge,
-                streamUrl,
-                {
-                    'User-Agent': _HEADERS['User-Agent'],
-                    'Accept': '*/*'
-                }
-            ));
+            streams.push(buildAnthologyLiveStreamEntry(src, canonicalKey, chTitle, authQuery));
         }
     }
 
@@ -739,5 +799,6 @@ module.exports = {
     fetchMahsunStream: fetchMahsunStream,
     fetchPapazStream: fetchPapazStream,
     resolveMultiSportStreams: resolveMultiSportStreams,
+    resolveAnthologyLiveStreams: resolveAnthologyLiveStreams,
     makeStream: makeStream
 };

@@ -1,0 +1,37 @@
+{
+  "metas": [
+    {
+      "id": "tv:dizismartpremium.tr",
+      "type": "tv",
+      "name": "Dizi Smart Premium",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dizismartpremium.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dizismartpremium.png",
+      "description": "Dizi Smart Premium Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:moviesmartpremium.tr",
+      "type": "tv",
+      "name": "Movie Smart Premium",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/moviesmartpremium.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/moviesmartpremium.png",
+      "description": "Movie Smart Premium Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:moviesmartpremium2.tr",
+      "type": "tv",
+      "name": "Movie Smart Premium 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/moviesmartpremium2.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/moviesmartpremium2.png",
+      "description": "Movie Smart Premium 2 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

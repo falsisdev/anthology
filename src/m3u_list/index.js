@@ -2,7 +2,7 @@ const { sortStreamsByQuality } = require("../shared/quality.js");
 const { loadConfig, val, wrapAll } = require("../shared/config.js");
 const { getNowPlayingInfo } = require("../shared/epg.js");
 const { parseTvgLang, channelDescription } = require("../shared/channel_lang.js");
-const { initSportConfig, resolveMultiSportStreams, findSportChannelMapping } = require("../shared/sport_engine.js");
+const { initSportConfig, resolveMultiSportStreams, resolveAnthologyLiveStreams, findSportChannelMapping } = require("../shared/sport_engine.js");
 
 var _cfgReady = null;
 function cfgReady() {
@@ -64,6 +64,20 @@ function fetchChannels() {
         });
 }
 
+function normalizeM3UGenre(groupRaw) {
+    var g = (groupRaw || '').toString().replace(/İ/g, 'I').toUpperCase();
+    if (g.indexOf('SPOR') !== -1) return 'Spor';
+    if (g.indexOf('ULUSAL') !== -1) return 'Ulusal';
+    if (g.indexOf('HABER') !== -1) return 'Haber';
+    if (g.indexOf('SINEMA') !== -1) return 'Sinema';
+    if (g.indexOf('BELGESEL') !== -1 || g.indexOf('ÇOCUK') !== -1 || g.indexOf('COCUK') !== -1) return 'Belgesel & Çocuk';
+    if (g.indexOf('MÜZİK') !== -1 || g.indexOf('MUZIK') !== -1 || g.indexOf('EĞLENCE') !== -1) return 'Müzik & Eğlence';
+    if (g.indexOf('YEREL') !== -1) return 'Yerel';
+    if (g.indexOf('DİĞER') !== -1 || g.indexOf('DIGER') !== -1) return 'Diğer';
+    var cleaned = (groupRaw || '').replace(/[^\w\sğüşıöçĞÜŞİÖÇ&]/gi, '').trim();
+    return cleaned || 'Ulusal';
+}
+
 function getCatalog(args) {
     return fetchChannels()
         .then(function(content) {
@@ -82,7 +96,7 @@ function getCatalog(args) {
                     var rawId = tvgIdMatch && tvgIdMatch[1] ? tvgIdMatch[1].trim() : (tvgNameMatch ? tvgNameMatch[1].trim() : channelName);
                     var channelId = rawId.startsWith('tv:') ? rawId : ('tv:' + rawId);
                     var logo = logoMatch ? logoMatch[1] : "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png";
-                    var genre = groupMatch ? groupMatch[1].replace(/[^\w\sğüşıöçĞÜŞİÖÇ]/gi, '').trim() : "Ulusal";
+                    var genre = normalizeM3UGenre(groupMatch ? groupMatch[1] : '');
 
                     metas.push({
                         id: channelId,
@@ -222,6 +236,9 @@ async function getStreams(args) {
     var matchedBackup = '';
     var matchedName = '';
     var matchedCId = '';
+    var matchedEncrypted = false;
+    var matchedEntry = null;
+    var fallbackEntry = null;
 
     for (var i = 0; i < lines.length; i++) {
         var line = lines[i].trim();
@@ -233,88 +250,120 @@ async function getStreams(args) {
             var srcAttrMatch = line.match(/tvg-src="([^"]+)"/i);
             var aliasName = nameMatch ? nameMatch[1].trim() : line.split(',').pop().trim();
 
-            var namedSrcs = [];
-            if (srcAttrMatch && srcAttrMatch[1]) {
-                var srcParts = srcAttrMatch[1].split('|');
-                for (var psi = 0; psi + 1 < srcParts.length; psi += 2) {
-                    var srcName = (srcParts[psi] || '').trim();
-                    var srcUrl = (srcParts[psi + 1] || '').trim();
-                    if (srcName && srcUrl) namedSrcs.push({ name: srcName, url: srcUrl });
-                }
-            }
-
             var cId = cleanKey(tvgIdMatch ? tvgIdMatch[1] : "");
             var cName = cleanKey(tvgNameMatch ? tvgNameMatch[1] : "");
             var aName = cleanKey(aliasName);
 
-            if (cId === searchKey || cName === searchKey || aName === searchKey || (searchKey.length >= 4 && aName.length >= 4 && (aName.includes(searchKey) || searchKey.includes(aName)))) {
-                if (!matchedName) matchedName = aliasName;
-                if (!matchedCId) matchedCId = cId;
-                var encrypted = isEncryptedChannel(aliasName, cId);
-                var backupAttr = backupMatch ? backupMatch[1] : '';
-                if (backupAttr) matchedBackup = backupAttr;
+            var exactMatch = (cId === searchKey || cName === searchKey || aName === searchKey);
+            var fuzzyMatch = (!exactMatch && searchKey.length >= 4 && aName.length >= 4 && (aName.includes(searchKey) || searchKey.includes(aName)));
 
-                // 1. Canlı Spor Kanalları — 5 Büyük Platform Eşzamanlı Çözümleme
-                var sportMap = findSportChannelMapping(cId || aName);
-                if (encrypted || sportMap) {
-                    try {
-                        var sportStreams = await resolveMultiSportStreams(cId || aName, aliasName);
-                        for (var si = 0; si < sportStreams.length; si++) {
-                            var sp = sportStreams[si];
-                            if (sp && sp.url && !seenUrls[sp.url]) {
-                                seenUrls[sp.url] = true;
-                                streams.push(sp);
-                            }
-                        }
-                    } catch (e) {}
-                }
-
-                // 2. canli.m3u Birincil Akışı
+            if (exactMatch || (fuzzyMatch && !fallbackEntry)) {
+                var urlLine = '';
                 for (var j = i + 1; j < lines.length; j++) {
-                    var urlLine = lines[j].trim();
-                    if (urlLine && urlLine.indexOf("http") === 0) {
-                        if (!seenUrls[urlLine]) {
-                            seenUrls[urlLine] = true;
-                            var ytMatch = urlLine.match(/(?:watch\?v=|embed\/|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
-                            var sObj = {
-                                name: encrypted ? '⌜ Anthology Spor ⌟' : '⌜ Anthology ⌟',
-                                title: aliasName + (ytMatch ? ' [Canlı HD · YouTube]' : ' [Canlı HD]'),
-                                url: urlLine,
-                                behaviorHints: { isLive: true }
-                            };
-                            if (ytMatch) {
-                                sObj.ytId = ytMatch[1];
-                            } else {
-                                sObj.headers = _HEADERS;
-                            }
-                            streams.push(sObj);
-                        }
+                    var ul = lines[j].trim();
+                    if (ul && ul.indexOf("http") === 0) {
+                        urlLine = ul;
                         break;
                     }
-                    if (urlLine.indexOf("#EXTINF") === 0) break;
+                    if (ul.indexOf("#EXTINF") === 0) break;
                 }
+                var entryObj = {
+                    aliasName: aliasName,
+                    cId: cId,
+                    backupAttr: backupMatch ? backupMatch[1] : '',
+                    srcAttr: srcAttrMatch ? srcAttrMatch[1] : '',
+                    urlLine: urlLine
+                };
+                if (exactMatch) {
+                    matchedEntry = entryObj;
+                    break;
+                } else {
+                    fallbackEntry = entryObj;
+                }
+            }
+        }
+    }
 
-                // 3. canli.m3u Çoklu Yedek Yayınlar (tvg-src)
-                for (var si2 = 0; si2 < namedSrcs.length; si2++) {
-                    var ns = namedSrcs[si2];
-                    if (ns.url && !seenUrls[ns.url]) {
-                        seenUrls[ns.url] = true;
-                        var ytMatch2 = ns.url.match(/(?:watch\?v=|embed\/|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
-                        var sObj2 = {
-                            name: encrypted ? ('⌜ Anthology Spor · ' + ns.name + ' ⌟') : ('⌜ Anthology · ' + ns.name + ' ⌟'),
-                            title: aliasName + ' [' + ns.name + (ytMatch2 ? ' · YouTube' : '') + ']',
-                            url: ns.url,
-                            behaviorHints: { isLive: true }
-                        };
-                        if (ytMatch2) {
-                            sObj2.ytId = ytMatch2[1];
-                        } else {
-                            sObj2.headers = _HEADERS;
-                        }
-                        streams.push(sObj2);
+    var chosen = matchedEntry || fallbackEntry;
+    if (chosen) {
+        matchedName = chosen.aliasName;
+        matchedCId = chosen.cId;
+        var encrypted = isEncryptedChannel(chosen.aliasName, chosen.cId);
+        matchedEncrypted = encrypted;
+        if (chosen.backupAttr) matchedBackup = chosen.backupAttr;
+
+        var namedSrcs = [];
+        if (chosen.srcAttr) {
+            var srcParts = chosen.srcAttr.split('|');
+            for (var psi = 0; psi + 1 < srcParts.length; psi += 2) {
+                var srcName = (srcParts[psi] || '').trim();
+                var srcUrl = (srcParts[psi + 1] || '').trim();
+                if (srcName && srcUrl) namedSrcs.push({ name: srcName, url: srcUrl });
+            }
+        }
+
+        var sportMap = findSportChannelMapping(chosen.cId || cleanKey(chosen.aliasName));
+        var isSport = Boolean(encrypted || sportMap);
+        var isLiveProxyUrl = chosen.urlLine && chosen.urlLine.indexOf('/live/') !== -1 && chosen.urlLine.indexOf('anthology-live') !== -1;
+
+        var addPrimaryFromM3u = function () {
+            if (!chosen.urlLine || seenUrls[chosen.urlLine]) return;
+            seenUrls[chosen.urlLine] = true;
+            var ytMatch = chosen.urlLine.match(/(?:watch\?v=|embed\/|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+            var sObj = {
+                name: isLiveProxyUrl ? '⌜ Anthology Live · Otomatik ⌟' : (encrypted ? '⌜ Anthology Spor ⌟' : '⌜ Anthology ⌟'),
+                title: chosen.aliasName + (ytMatch ? ' [Canlı HD · YouTube]' : (isLiveProxyUrl ? ' [Kool.ws · Otomatik]' : ' [Canlı HD · Resmi]')),
+                url: chosen.urlLine,
+                behaviorHints: { isLive: true }
+            };
+            if (ytMatch) {
+                sObj.ytId = ytMatch[1];
+            } else {
+                sObj.headers = _HEADERS;
+            }
+            streams.push(sObj);
+        };
+
+        var addLiveProxySources = async function () {
+            try {
+                var liveStreams = await resolveAnthologyLiveStreams(chosen.cId || chosen.aliasName, chosen.aliasName, { isSport: isSport });
+                for (var si = 0; si < liveStreams.length; si++) {
+                    var sp = liveStreams[si];
+                    if (sp && sp.url && !seenUrls[sp.url]) {
+                        seenUrls[sp.url] = true;
+                        streams.push(sp);
                     }
                 }
-                break;
+            } catch (e) {}
+        };
+
+        if (isSport || isLiveProxyUrl) {
+            await addLiveProxySources();
+            addPrimaryFromM3u();
+        } else {
+            // Non-sport official streams stay #1, followed by Kool.ws / Anthology Live pools
+            addPrimaryFromM3u();
+            await addLiveProxySources();
+        }
+
+        // canli.m3u Çoklu Yedek Yayınlar (tvg-src)
+        for (var si2 = 0; si2 < namedSrcs.length; si2++) {
+            var ns = namedSrcs[si2];
+            if (ns.url && !seenUrls[ns.url]) {
+                seenUrls[ns.url] = true;
+                var ytMatch2 = ns.url.match(/(?:watch\?v=|embed\/|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+                var sObj2 = {
+                    name: encrypted ? ('⌜ Anthology Spor · ' + ns.name + ' ⌟') : ('⌜ Anthology · ' + ns.name + ' ⌟'),
+                    title: chosen.aliasName + ' [' + ns.name + (ytMatch2 ? ' · YouTube' : '') + ']',
+                    url: ns.url,
+                    behaviorHints: { isLive: true }
+                };
+                if (ytMatch2) {
+                    sObj2.ytId = ytMatch2[1];
+                } else {
+                    sObj2.headers = _HEADERS;
+                }
+                streams.push(sObj2);
             }
         }
     }
@@ -345,6 +394,9 @@ async function getStreams(args) {
         }
     }
 
+    if (matchedEncrypted) {
+        streams = sortStreamsByQuality(streams);
+    }
     streams.streams = streams;
     return streams;
 }
@@ -353,8 +405,7 @@ async function getStreams(args) {
 if (typeof getStreams === "function") {
     var _origGetStreams = getStreams;
     getStreams = async function() {
-        var res = await _origGetStreams.apply(this, arguments);
-        return sortStreamsByQuality(res);
+        return _origGetStreams.apply(this, arguments);
     };
 }
 

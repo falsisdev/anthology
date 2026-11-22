@@ -1,9 +1,9 @@
 #EXTM3U
 
 # ==============================================================================
-# ULUSAL KANALLAR
+# ULUSAL KANALLAR (35)
 # ==============================================================================
-#EXTINF:-1 tvg-id="TRT1.tr" tvg-name="TRT 1" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt1.png" tvg-lang="tr" group-title="🇹🇷 ULUSAL KANALLAR" tvg-backup="https://tv-trt1.medya.trt.com.tr/master.m3u8",TRT 1 HD
+#EXTINF:-1 tvg-id="TRT1.tr" tvg-name="TRT 1" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt1.png" tvg-lang="tr" tvg-backup="https://tv-trt1.medya.trt.com.tr/master.m3u8" group-title="🇹🇷 ULUSAL KANALLAR",TRT 1 HD
 https://trt.daioncdn.net/trt-1/master.m3u8?app=clean
 
 #EXTINF:-1 tvg-id="ATV.tr" tvg-name="ATV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/atv.png" tvg-lang="tr" group-title="🇹🇷 ULUSAL KANALLAR",ATV HD
@@ -12,7 +12,7 @@ https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/atv/atv.m3u8
 #EXTINF:-1 tvg-id="KanalD.tr" tvg-name="Kanal D" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanald.png" tvg-lang="tr" group-title="🇹🇷 ULUSAL KANALLAR",Kanal D HD
 https://ackaxsqacw.turknet.ercdn.net/ozfkfbbjba/kanald/kanald_720p.m3u8
 
-#EXTINF:-1 tvg-id="ShowTV.tr" tvg-name="Show TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/showtv.png" tvg-lang="tr" group-title="🇹🇷 ULUSAL KANALLAR" tvg-backup="https://yakala.atakann.workers.dev/?url=https://www.showtv.com.tr/canli-yayin&ext=m3u8",Show TV HD
+#EXTINF:-1 tvg-id="ShowTV.tr" tvg-name="Show TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/showtv.png" tvg-lang="tr" tvg-backup="https://yakala.atakann.workers.dev/?url=https://www.showtv.com.tr/canli-yayin&ext=m3u8" group-title="🇹🇷 ULUSAL KANALLAR",Show TV HD
 https://rmtftbjlne.turknet.ercdn.net/bpeytmnqyp/showtv/showtv.m3u8
 
 #EXTINF:-1 tvg-id="StarTV.tr" tvg-name="Star TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/startv.png" tvg-lang="tr" group-title="🇹🇷 ULUSAL KANALLAR",Star TV HD
@@ -27,22 +27,22 @@ https://tv8.daioncdn.net/tv8/tv8.m3u8?app=7ddc255a-ef47-4e81-ab14-c0e5f2949788
 #EXTINF:-1 tvg-id="Kanal7.tr" tvg-name="Kanal 7" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png" tvg-lang="tr" group-title="🇹🇷 ULUSAL KANALLAR",Kanal 7 HD
 https://kanal7-live.daioncdn.net/kanal7/kanal7_720p.m3u8
 
-#EXTINF:-1 tvg-id="BeyazTV.tr" tvg-name="Beyaz TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beyaztv.png" tvg-lang="tr" group-title="🇹🇷 ULUSAL KANALLAR" tvg-backup="https://beyaztv-live.daioncdn.net/beyaztv/beyaztv_720p.m3u8",Beyaz TV HD
+#EXTINF:-1 tvg-id="BeyazTV.tr" tvg-name="Beyaz TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beyaztv.png" tvg-lang="tr" tvg-backup="https://beyaztv-live.daioncdn.net/beyaztv/beyaztv_720p.m3u8" group-title="🇹🇷 ULUSAL KANALLAR",Beyaz TV HD
 https://beyaztv-live.daioncdn.net/beyaztv/beyaztv.m3u8
 
 #EXTINF:-1 tvg-id="Teve2.tr" tvg-name="Teve2" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/teve2.png" tvg-lang="tr" group-title="🇹🇷 ULUSAL KANALLAR",Teve2 HD
 https://ackaxsqacw.turknet.ercdn.net/ozfkfbbjba/teve2/teve2.m3u8
 
-#EXTINF:-1 tvg-id="A2.tr" tvg-name="A2 TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/a2.png" tvg-lang="tr" group-title="🇹🇷 ULUSAL KANALLAR" tvg-backup="https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/a2tv/a2tv_720p.m3u8",A2 TV HD
+#EXTINF:-1 tvg-id="A2.tr" tvg-name="A2 TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/a2.png" tvg-lang="tr" tvg-backup="https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/a2tv/a2tv_720p.m3u8" group-title="🇹🇷 ULUSAL KANALLAR",A2 TV HD
 https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/a2tv/a2tv.m3u8
 
-#EXTINF:-1 tvg-id="TV360.tr" tvg-name="360 TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv360.png" tvg-lang="tr" group-title="🇹🇷 ULUSAL KANALLAR" tvg-backup="https://turkmedya-live.ercdn.net/tv360/tv360_1080p.m3u8",360 TV HD
+#EXTINF:-1 tvg-id="TV360.tr" tvg-name="360 TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv360.png" tvg-lang="tr" tvg-backup="https://turkmedya-live.ercdn.net/tv360/tv360_1080p.m3u8" group-title="🇹🇷 ULUSAL KANALLAR",360 TV HD
 https://turkmedya-live.ercdn.net/tv360/tv360.m3u8
 
 #EXTINF:-1 tvg-id="TRT2.tr" tvg-name="TRT 2" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt2.png" tvg-lang="tr" group-title="🇹🇷 ULUSAL KANALLAR",TRT 2 Kültür & Sanat HD
 https://tv-trt2.medya.trt.com.tr/master.m3u8
 
-#EXTINF:-1 tvg-id="TRTTurk.tr" tvg-name="TRT Türk" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtturk.png" tvg-lang="tr" group-title="🇹🇷 ULUSAL KANALLAR" tvg-backup="https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/broadcast_5a855fe82d8c3.smil/playlist.m3u8",TRT Türk HD
+#EXTINF:-1 tvg-id="TRTTurk.tr" tvg-name="TRT Türk" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtturk.png" tvg-lang="tr" tvg-backup="https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/broadcast_5a855fe82d8c3.smil/playlist.m3u8" group-title="🇹🇷 ULUSAL KANALLAR",TRT Türk HD
 https://tv-trtturk.medya.trt.com.tr/master.m3u8
 
 #EXTINF:-1 tvg-id="Kanal7Avrupa.tr" tvg-name="Kanal 7 Avrupa" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png" tvg-lang="tr" group-title="🇹🇷 ULUSAL KANALLAR",Kanal 7 Avrupa
@@ -78,14 +78,43 @@ https://tv-trtarabi.medya.trt.com.tr/master.m3u8
 #EXTINF:-1 tvg-id="DiyanetTV.tr" tvg-name="Diyanet TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/diyanettv.png" tvg-lang="tr" group-title="🇹🇷 ULUSAL KANALLAR",Diyanet TV HD
 https://eustr73.mediatriple.net/videoonlylive/mtikoimxnztxlive/broadcast_5e3bf95a47e07.smil/playlist.m3u8
 
+#EXTINF:-1 tvg-id="atvavrupa.tr" tvg-name="ATV Avrupa" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/atvavrupa.png" tvg-lang="tr" group-title="🇹🇷 ULUSAL KANALLAR",ATV Avrupa
+https://anthology-live.duckdns.org/live/atvavrupa.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="edessatv.tr" tvg-name="Edessa TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/edessatv.png" tvg-lang="tr" group-title="🇹🇷 ULUSAL KANALLAR",Edessa TV
+https://anthology-live.duckdns.org/live/edessatv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="eurostar.tr" tvg-name="Euro Star" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurostar.png" tvg-lang="tr" group-title="🇹🇷 ULUSAL KANALLAR",Euro Star
+https://anthology-live.duckdns.org/live/eurostar.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="flashtv.tr" tvg-name="Flash TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/flashtv.png" tvg-lang="tr" group-title="🇹🇷 ULUSAL KANALLAR",Flash TV
+https://anthology-live.duckdns.org/live/flashtv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="kozatv.tr" tvg-name="Koza TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kozatv.png" tvg-lang="tr" group-title="🇹🇷 ULUSAL KANALLAR",Koza TV
+https://anthology-live.duckdns.org/live/kozatv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="showturk.tr" tvg-name="Show Türk" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/showturk.png" tvg-lang="tr" group-title="🇹🇷 ULUSAL KANALLAR",Show Türk
+https://anthology-live.duckdns.org/live/showturk.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="tgrteu.tr" tvg-name="TGRT EU" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tgrteu.png" tvg-lang="tr" group-title="🇹🇷 ULUSAL KANALLAR",TGRT EU
+https://anthology-live.duckdns.org/live/tgrteu.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="trt4k.tr" tvg-name="TRT 4K" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt4k.png" tvg-lang="tr" group-title="🇹🇷 ULUSAL KANALLAR",TRT 4K
+https://anthology-live.duckdns.org/live/trt4k.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="tv8int.tr" tvg-name="TV 8 Int" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv8int.png" tvg-lang="tr" group-title="🇹🇷 ULUSAL KANALLAR",TV 8 Int
+https://anthology-live.duckdns.org/live/tv8int.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="viyanatv.tr" tvg-name="Viyana TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/viyanatv.png" tvg-lang="tr" group-title="🇹🇷 ULUSAL KANALLAR",Viyana TV
+https://anthology-live.duckdns.org/live/viyanatv.m3u8?username=anthology&password=falsisdevwashere
 
 # ==============================================================================
-# SPOR KANALLARI
+# SPOR KANALLARI (64)
 # ==============================================================================
 #EXTINF:-1 tvg-id="TRTSpor.tr" tvg-name="TRT Spor" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtspor.png" tvg-lang="tr" group-title="🇹🇷 SPOR KANALLARI",TRT Spor HD
 https://trt.daioncdn.net/trtspor/master.m3u8?app=web&platform=trtspor
 
-#EXTINF:-1 tvg-id="TRTSporYildiz.tr" tvg-name="TRT Spor Yıldız" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtsporyildiz.png" tvg-lang="tr" group-title="🇹🇷 SPOR KANALLARI" tvg-backup="https://tv-trtspor2.medya.trt.com.tr/master_720.m3u8",TRT Spor Yıldız HD
+#EXTINF:-1 tvg-id="TRTSporYildiz.tr" tvg-name="TRT Spor Yıldız" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtsporyildiz.png" tvg-lang="tr" tvg-backup="https://tv-trtspor2.medya.trt.com.tr/master_720.m3u8" group-title="🇹🇷 SPOR KANALLARI",TRT Spor Yıldız HD
 https://trt.daioncdn.net/trtspor-yildiz/master.m3u8?app=web&platform=trtspor
 
 #EXTINF:-1 tvg-id="ASpor.tr" tvg-name="A Spor" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/aspor.png" tvg-lang="tr" group-title="🇹🇷 SPOR KANALLARI",A Spor HD
@@ -109,7 +138,7 @@ https://andro.evrenesoglu235.click/checklist/androstreamlivecbcs.m3u8
 #EXTINF:-1 tvg-id="IdmanTV.tr" tvg-name="iDMAN Tv" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/idmantv.png" tvg-lang="az" group-title="🇹🇷 SPOR KANALLARI",iDMAN Tv HD
 https://andro.evrenesoglu235.click/checklist/androstreamliveidm.m3u8
 
-#EXTINF:-1 tvg-id="TJKTV.tr" tvg-name="TJK TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tjktv.png" tvg-lang="tr" group-title="🇹🇷 SPOR KANALLARI" tvg-backup="http://tjktv.ercdn.net/tjktv.m3u8",TJK TV HD
+#EXTINF:-1 tvg-id="TJKTV.tr" tvg-name="TJK TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tjktv.png" tvg-lang="tr" tvg-backup="http://tjktv.ercdn.net/tjktv.m3u8" group-title="🇹🇷 SPOR KANALLARI",TJK TV HD
 https://tjktv-live.tjk.org/tjktv.m3u8
 
 #EXTINF:-1 tvg-id="NBATV.tr" tvg-name="NBA TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nbatv.png" tvg-lang="en" group-title="🇹🇷 SPOR KANALLARI",NBA TV HD
@@ -244,9 +273,38 @@ https://linear-893.frequency.stream/dist/xumo/893/hls/master/playlist.m3u8
 #EXTINF:-1 tvg-id="SportFishingTV.tr" tvg-name="Sport Fishing TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportfishingtv.png" tvg-lang="en" group-title="🇹🇷 SPOR KANALLARI",Sport Fishing TV HD
 https://streams.sofast.tv/ptnr-yupptv/title-SPORT-FISHING-TV-ENG_yupptv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/eea68b79-bfe2-451e-a227-d637a5b9548a/manifest.m3u8
 
+#EXTINF:-1 tvg-id="automoto.tr" tvg-name="Automoto (fr)" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/automoto.png" tvg-lang="tr" group-title="🇹🇷 SPOR KANALLARI",Automoto (fr)
+https://anthology-live.duckdns.org/live/automoto.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="beinsportshaber.tr" tvg-name="beIN Sports Haber" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsportshaber.png" tvg-lang="tr" group-title="🇹🇷 SPOR KANALLARI",beIN Sports Haber
+https://anthology-live.duckdns.org/live/beinsportshaber.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="galatasaraytv.tr" tvg-name="Galatasaray TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/galatasaraytv.png" tvg-lang="tr" group-title="🇹🇷 SPOR KANALLARI",Galatasaray TV
+https://anthology-live.duckdns.org/live/galatasaraytv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="ssportplus1.tr" tvg-name="S Sport Plus 1" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus1.png" tvg-lang="tr" group-title="🇹🇷 SPOR KANALLARI",S Sport Plus 1
+https://anthology-live.duckdns.org/live/ssportplus1.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="ssportplus2.tr" tvg-name="S Sport Plus 2" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus2.png" tvg-lang="tr" group-title="🇹🇷 SPOR KANALLARI",S Sport Plus 2
+https://anthology-live.duckdns.org/live/ssportplus2.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="ssportplus3.tr" tvg-name="S Sport Plus 3" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus3.png" tvg-lang="tr" group-title="🇹🇷 SPOR KANALLARI",S Sport Plus 3
+https://anthology-live.duckdns.org/live/ssportplus3.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="ssportplus4.tr" tvg-name="S Sport Plus 4" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus4.png" tvg-lang="tr" group-title="🇹🇷 SPOR KANALLARI",S Sport Plus 4
+https://anthology-live.duckdns.org/live/ssportplus4.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="ssportplus5.tr" tvg-name="S Sport Plus 5" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus5.png" tvg-lang="tr" group-title="🇹🇷 SPOR KANALLARI",S Sport Plus 5
+https://anthology-live.duckdns.org/live/ssportplus5.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="ssportplus9.tr" tvg-name="S Sport Plus 9" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus9.png" tvg-lang="tr" group-title="🇹🇷 SPOR KANALLARI",S Sport Plus 9
+https://anthology-live.duckdns.org/live/ssportplus9.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="saransport1.tr" tvg-name="Saran Sport 1" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/saransport1.png" tvg-lang="tr" group-title="🇹🇷 SPOR KANALLARI",Saran Sport 1
+https://anthology-live.duckdns.org/live/saransport1.m3u8?username=anthology&password=falsisdevwashere
 
 # ==============================================================================
-# HABER KANALLARI
+# HABER KANALLARI (37)
 # ==============================================================================
 #EXTINF:-1 tvg-id="TRTHaber.tr" tvg-name="TRT Haber" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trthaber.png" tvg-lang="tr" group-title="🇹🇷 HABER KANALLARI",TRT Haber HD
 https://tv-trthaber.medya.trt.com.tr/master.m3u8
@@ -269,10 +327,10 @@ https://halktv-live.daioncdn.net/halktv/halktv.m3u8
 #EXTINF:-1 tvg-id="Tele1.tr" tvg-name="Tele 1" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tele1.png" tvg-lang="tr" group-title="🇹🇷 HABER KANALLARI",Tele 1 HD
 https://www.youtube.com/watch?v=3WmXwAaa1VQ
 
-#EXTINF:-1 tvg-id="TGRTHaber.tr" tvg-name="TGRT Haber" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tgrthaber.png" tvg-lang="tr" group-title="🇹🇷 HABER KANALLARI" tvg-backup="https://tgrthaber-live.daioncdn.net/tgrthaber/tgrthaber_720p.m3u8",TGRT Haber HD
+#EXTINF:-1 tvg-id="TGRTHaber.tr" tvg-name="TGRT Haber" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tgrthaber.png" tvg-lang="tr" tvg-backup="https://tgrthaber-live.daioncdn.net/tgrthaber/tgrthaber_720p.m3u8" group-title="🇹🇷 HABER KANALLARI",TGRT Haber HD
 https://canli.tgrthaber.com/tgrt.m3u8
 
-#EXTINF:-1 tvg-id="HaberGlobal.tr" tvg-name="Haber Global" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/haberglobal.png" tvg-lang="tr" group-title="🇹🇷 HABER KANALLARI" tvg-backup="https://ensonhaber-live.ercdn.net/haberglobal/haberglobal.m3u8",Haber Global HD
+#EXTINF:-1 tvg-id="HaberGlobal.tr" tvg-name="Haber Global" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/haberglobal.png" tvg-lang="tr" tvg-backup="https://ensonhaber-live.ercdn.net/haberglobal/haberglobal.m3u8" group-title="🇹🇷 HABER KANALLARI",Haber Global HD
 https://ensonhaber-live.ercdn.net/haberglobal/haberglobal.m3u8
 
 #EXTINF:-1 tvg-id="Kanal24.tr" tvg-name="24 TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/24tv.png" tvg-lang="tr" group-title="🇹🇷 HABER KANALLARI",24 TV HD
@@ -329,9 +387,377 @@ https://amg00106-france24-france24-samsunguk-qvpp8.amagi.tv/playlist/amg00106-fr
 #EXTINF:-1 tvg-id="ReutersTV.tr" tvg-name="Reuters TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/reuterstv.png" tvg-lang="en" group-title="🇹🇷 HABER KANALLARI",Reuters TV HD
 https://amg00453-reuters-amg00453c1-samsung-de-2111.playouts.now.amagi.tv/playlist/amg00453-reuters-reuters-samsungde/playlist.m3u8
 
+#EXTINF:-1 tvg-id="anews.tr" tvg-name="A News" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/anews.png" tvg-lang="tr" group-title="🇹🇷 HABER KANALLARI",A News
+https://anthology-live.duckdns.org/live/anews.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="apara.tr" tvg-name="A Para" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/apara.png" tvg-lang="tr" group-title="🇹🇷 HABER KANALLARI",A Para
+https://anthology-live.duckdns.org/live/apara.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="artitv.tr" tvg-name="Artı TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/artitv.png" tvg-lang="tr" group-title="🇹🇷 HABER KANALLARI",Artı TV
+https://anthology-live.duckdns.org/live/artitv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="cnnturk.tr" tvg-name="CNN Türk" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cnnturk.png" tvg-lang="tr" group-title="🇹🇷 HABER KANALLARI",CNN Türk
+https://anthology-live.duckdns.org/live/cnnturk.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="dha.tr" tvg-name="DHA" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dha.png" tvg-lang="tr" group-title="🇹🇷 HABER KANALLARI",DHA
+https://anthology-live.duckdns.org/live/dha.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="ekoltv.tr" tvg-name="Ekol TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ekoltv.png" tvg-lang="tr" group-title="🇹🇷 HABER KANALLARI",Ekol TV
+https://anthology-live.duckdns.org/live/ekoltv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="krt.tr" tvg-name="KRT TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/krt.png" tvg-lang="tr" group-title="🇹🇷 HABER KANALLARI",KRT TV
+https://anthology-live.duckdns.org/live/krt.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="medyahaber.tr" tvg-name="Medya Haber" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/medyahaber.png" tvg-lang="tr" group-title="🇹🇷 HABER KANALLARI",Medya Haber
+https://anthology-live.duckdns.org/live/medyahaber.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="sozcutv.tr" tvg-name="Sözcü TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sozcutv.png" tvg-lang="tr" group-title="🇹🇷 HABER KANALLARI",Sözcü TV
+https://anthology-live.duckdns.org/live/sozcutv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="ulusalkanal.tr" tvg-name="Ulusal Kanal" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ulusalkanal.png" tvg-lang="tr" group-title="🇹🇷 HABER KANALLARI",Ulusal Kanal
+https://anthology-live.duckdns.org/live/ulusalkanal.m3u8?username=anthology&password=falsisdevwashere
 
 # ==============================================================================
-# BELGESEL & ÇOCUK
+# SİNEMA KANALLARI (112)
+# ==============================================================================
+#EXTINF:-1 tvg-id="Cine1.tr" tvg-name="Cine 1" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cine1.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Cine 1 HD
+https://canliyayin.cine1.com.tr/memfs/cbaef080-a742-4644-9e9e-2b9f6a5103c3.m3u8
+
+#EXTINF:-1 tvg-id="FX.tr" tvg-name="FX" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fx.png" tvg-lang="en" group-title="🇹🇷 SİNEMA KANALLARI",FX HD
+https://saran-live.ercdn.net/fx/index.m3u8
+
+#EXTINF:-1 tvg-id="TRTNostalji.tr" tvg-name="TRT Nostalji" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtnostalji.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",TRT Nostalji HD
+https://playlist.fasttvcdn.com/pl/rfrk9821hdy9dayo8wfyha/dizi-tv/playlist/0.m3u8
+
+#EXTINF:-1 tvg-id="animation1.tr" tvg-name="Animation 1" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/animation1.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Animation 1
+https://anthology-live.duckdns.org/live/animation1.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="arenaboxaction.tr" tvg-name="Arena Box Action" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/arenaboxaction.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Arena Box Action
+https://anthology-live.duckdns.org/live/arenaboxaction.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="beinboxoffice1.tr" tvg-name="beIN Box Office 1" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinboxoffice1.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",beIN Box Office 1
+https://anthology-live.duckdns.org/live/beinboxoffice1.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="beinboxoffice3.tr" tvg-name="beIN Box Office 3" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinboxoffice3.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",beIN Box Office 3
+https://anthology-live.duckdns.org/live/beinboxoffice3.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="beinmoviesaction.tr" tvg-name="beIN Movies Action" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesaction.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",beIN Movies Action
+https://anthology-live.duckdns.org/live/beinmoviesaction.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="beinmoviesaction2.tr" tvg-name="beIN Movies Action 2" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesaction2.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",beIN Movies Action 2
+https://anthology-live.duckdns.org/live/beinmoviesaction2.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="beinmoviesfamily.tr" tvg-name="beIN Movies Family" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesfamily.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",beIN Movies Family
+https://anthology-live.duckdns.org/live/beinmoviesfamily.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="beinmoviespremiere.tr" tvg-name="beIN Movies Premiere" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviespremiere.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",beIN Movies Premiere
+https://anthology-live.duckdns.org/live/beinmoviespremiere.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="beinmoviespremiere2.tr" tvg-name="beIN Movies Premiere 2" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviespremiere2.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",beIN Movies Premiere 2
+https://anthology-live.duckdns.org/live/beinmoviespremiere2.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="beinmoviesstars.tr" tvg-name="beIN Movies Stars" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesstars.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",beIN Movies Stars
+https://anthology-live.duckdns.org/live/beinmoviesstars.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="beinmoviesturk.tr" tvg-name="beIN Movies Türk" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesturk.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",beIN Movies Türk
+https://anthology-live.duckdns.org/live/beinmoviesturk.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="beinseries2.tr" tvg-name="beIN Series 2" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseries2.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",beIN Series 2
+https://anthology-live.duckdns.org/live/beinseries2.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="beinseries3.tr" tvg-name="beIN Series 3" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseries3.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",beIN Series 3
+https://anthology-live.duckdns.org/live/beinseries3.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="beinseries4.tr" tvg-name="beIN Series 4" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseries4.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",beIN Series 4
+https://anthology-live.duckdns.org/live/beinseries4.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="beinseriescomedy.tr" tvg-name="beIN Series Comedy" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseriescomedy.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",beIN Series Comedy
+https://anthology-live.duckdns.org/live/beinseriescomedy.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="beinseriesdrama.tr" tvg-name="beIN Series Drama" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseriesdrama.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",beIN Series Drama
+https://anthology-live.duckdns.org/live/beinseriesdrama.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="beinseriesscifi.tr" tvg-name="beIN Series Sci-fi" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseriesscifi.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",beIN Series Sci-fi
+https://anthology-live.duckdns.org/live/beinseriesscifi.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="beinseriesvice.tr" tvg-name="beIN Series Vice" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseriesvice.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",beIN Series Vice
+https://anthology-live.duckdns.org/live/beinseriesvice.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="cinemaximum1.tr" tvg-name="Cinemaximum 1" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximum1.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Cinemaximum 1
+https://anthology-live.duckdns.org/live/cinemaximum1.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="cinemaximum4.tr" tvg-name="Cinemaximum 4" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximum4.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Cinemaximum 4
+https://anthology-live.duckdns.org/live/cinemaximum4.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="cinemaximum7.tr" tvg-name="Cinemaximum 7" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximum7.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Cinemaximum 7
+https://anthology-live.duckdns.org/live/cinemaximum7.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="cinemaximum9.tr" tvg-name="Cinemaximum 9" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximum9.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Cinemaximum 9
+https://anthology-live.duckdns.org/live/cinemaximum9.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="cinemaximumbilimkurgu.tr" tvg-name="Cinemaximum Bilimkurgu" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximumbilimkurgu.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Cinemaximum Bilimkurgu
+https://anthology-live.duckdns.org/live/cinemaximumbilimkurgu.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="cinemaximumbollywood.tr" tvg-name="Cinemaximum Bollywood" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximumbollywood.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Cinemaximum Bollywood
+https://anthology-live.duckdns.org/live/cinemaximumbollywood.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="digimax.tr" tvg-name="Digi Max" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/digimax.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Digi Max
+https://anthology-live.duckdns.org/live/digimax.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="dizismartpremium.tr" tvg-name="Dizi Smart Premium" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dizismartpremium.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Dizi Smart Premium
+https://anthology-live.duckdns.org/live/dizismartpremium.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="dizismartmax.tr" tvg-name="Dizismart Max" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dizismartmax.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Dizismart Max
+https://anthology-live.duckdns.org/live/dizismartmax.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="dreamboxaction.tr" tvg-name="Dream Box Action" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dreamboxaction.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Dream Box Action
+https://anthology-live.duckdns.org/live/dreamboxaction.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="enoaksiyon1.tr" tvg-name="Eno Aksiyon 1" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enoaksiyon1.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Eno Aksiyon 1
+https://anthology-live.duckdns.org/live/enoaksiyon1.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="enovizyon11.tr" tvg-name="Eno Vizyon 11" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enovizyon11.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Eno Vizyon 11
+https://anthology-live.duckdns.org/live/enovizyon11.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="enovizyon14.tr" tvg-name="Eno Vizyon 14" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enovizyon14.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Eno Vizyon 14
+https://anthology-live.duckdns.org/live/enovizyon14.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="enovizyon15.tr" tvg-name="Eno Vizyon 15" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enovizyon15.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Eno Vizyon 15
+https://anthology-live.duckdns.org/live/enovizyon15.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="enovizyon5.tr" tvg-name="Eno Vizyon 5" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enovizyon5.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Eno Vizyon 5
+https://anthology-live.duckdns.org/live/enovizyon5.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="enowestern.tr" tvg-name="Eno Western" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enowestern.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Eno Western
+https://anthology-live.duckdns.org/live/enowestern.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="epicdrama.tr" tvg-name="Epic Drama" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/epicdrama.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Epic Drama
+https://anthology-live.duckdns.org/live/epicdrama.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="filmbox.tr" tvg-name="FilmBox" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/filmbox.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",FilmBox
+https://anthology-live.duckdns.org/live/filmbox.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="filmboxaksiyon.tr" tvg-name="FilmBox Aksiyon" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/filmboxaksiyon.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",FilmBox Aksiyon
+https://anthology-live.duckdns.org/live/filmboxaksiyon.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="filmboxkadirinanir.tr" tvg-name="FilmBox Kadir İnanır" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/filmboxkadirinanir.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",FilmBox Kadir İnanır
+https://anthology-live.duckdns.org/live/filmboxkadirinanir.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="fixcinemaaction.tr" tvg-name="Fix Cinema Action" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemaaction.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Fix Cinema Action
+https://anthology-live.duckdns.org/live/fixcinemaaction.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="fixcinemabilmkurgu.tr" tvg-name="Fix Cinema Bilimkurgu" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemabilmkurgu.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Fix Cinema Bilimkurgu
+https://anthology-live.duckdns.org/live/fixcinemabilmkurgu.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="fixcinemacomedy.tr" tvg-name="Fix Cinema Comedy" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemacomedy.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Fix Cinema Comedy
+https://anthology-live.duckdns.org/live/fixcinemacomedy.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="fixcinemadram.tr" tvg-name="Fix Cinema Dram" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemadram.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Fix Cinema Dram
+https://anthology-live.duckdns.org/live/fixcinemadram.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="fixcinemafantastic.tr" tvg-name="Fix Cinema Fantastic" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemafantastic.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Fix Cinema Fantastic
+https://anthology-live.duckdns.org/live/fixcinemafantastic.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="fixcinemakorku.tr" tvg-name="Fix Cinema Korku" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemakorku.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Fix Cinema Korku
+https://anthology-live.duckdns.org/live/fixcinemakorku.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="fixcinemamacera.tr" tvg-name="Fix Cinema Macera" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemamacera.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Fix Cinema Macera
+https://anthology-live.duckdns.org/live/fixcinemamacera.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="fixcinemanetflix.tr" tvg-name="Fix Cinema Netflix" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemanetflix.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Fix Cinema Netflix
+https://anthology-live.duckdns.org/live/fixcinemanetflix.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="fixcinemayerli.tr" tvg-name="Fix Cinema Yerli" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemayerli.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Fix Cinema Yerli
+https://anthology-live.duckdns.org/live/fixcinemayerli.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="fixcinemayesilcam.tr" tvg-name="Fix Cinema Yeşilçam" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemayesilcam.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Fix Cinema Yeşilçam
+https://anthology-live.duckdns.org/live/fixcinemayesilcam.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="foxcrime.tr" tvg-name="FOX Crime" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/foxcrime.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",FOX Crime
+https://anthology-live.duckdns.org/live/foxcrime.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="globalboxaction.tr" tvg-name="Global Box Action" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxaction.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Global Box Action
+https://anthology-live.duckdns.org/live/globalboxaction.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="globalboxcomedy.tr" tvg-name="Global Box Comedy" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxcomedy.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Global Box Comedy
+https://anthology-live.duckdns.org/live/globalboxcomedy.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="globalboxdram.tr" tvg-name="Global Box Dram" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxdram.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Global Box Dram
+https://anthology-live.duckdns.org/live/globalboxdram.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="globalboxfantastic.tr" tvg-name="Global Box Fantastic" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxfantastic.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Global Box Fantastic
+https://anthology-live.duckdns.org/live/globalboxfantastic.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="globalboxkemalsunal.tr" tvg-name="Global Box Kemal Sunal" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxkemalsunal.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Global Box Kemal Sunal
+https://anthology-live.duckdns.org/live/globalboxkemalsunal.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="globalboxkorku.tr" tvg-name="Global Box Korku" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxkorku.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Global Box Korku
+https://anthology-live.duckdns.org/live/globalboxkorku.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="globalboxvizyon.tr" tvg-name="Global Box Vizyon" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxvizyon.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Global Box Vizyon
+https://anthology-live.duckdns.org/live/globalboxvizyon.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="globalboxyerli.tr" tvg-name="Global Box Yerli" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxyerli.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Global Box Yerli
+https://anthology-live.duckdns.org/live/globalboxyerli.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="globalboxyesilcam.tr" tvg-name="Global Box Yeşilçam" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxyesilcam.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Global Box Yeşilçam
+https://anthology-live.duckdns.org/live/globalboxyesilcam.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="horror1.tr" tvg-name="Horror 1" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/horror1.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Horror 1
+https://anthology-live.duckdns.org/live/horror1.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="horror2.tr" tvg-name="Horror 2" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/horror2.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Horror 2
+https://anthology-live.duckdns.org/live/horror2.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="kingboxaction.tr" tvg-name="Kingbox Action" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kingboxaction.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Kingbox Action
+https://anthology-live.duckdns.org/live/kingboxaction.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="max.tr" tvg-name="Max" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/max.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Max
+https://anthology-live.duckdns.org/live/max.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="max007.tr" tvg-name="Max 007" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/max007.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Max 007
+https://anthology-live.duckdns.org/live/max007.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="maxanimasyon1.tr" tvg-name="Max Animasyon 1" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxanimasyon1.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Max Animasyon 1
+https://anthology-live.duckdns.org/live/maxanimasyon1.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="maxorjinal.tr" tvg-name="Max Orijinal" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxorjinal.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Max Orijinal
+https://anthology-live.duckdns.org/live/maxorjinal.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="maxpremier.tr" tvg-name="Max Premier" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxpremier.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Max Premier
+https://anthology-live.duckdns.org/live/maxpremier.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="maxstarwars.tr" tvg-name="Max Star Wars" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxstarwars.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Max Star Wars
+https://anthology-live.duckdns.org/live/maxstarwars.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="maxturk.tr" tvg-name="Max Türk" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxturk.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Max Türk
+https://anthology-live.duckdns.org/live/maxturk.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="maxvizyon.tr" tvg-name="Max Vizyon" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxvizyon.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Max Vizyon
+https://anthology-live.duckdns.org/live/maxvizyon.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="maxvizyon4.tr" tvg-name="Max Vizyon 4" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxvizyon4.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Max Vizyon 4
+https://anthology-live.duckdns.org/live/maxvizyon4.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="moviesmartaction.tr" tvg-name="Movie Smart Action" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/moviesmartaction.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Movie Smart Action
+https://anthology-live.duckdns.org/live/moviesmartaction.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="moviesmartclassic.tr" tvg-name="Movie Smart Classic" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/moviesmartclassic.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Movie Smart Classic
+https://anthology-live.duckdns.org/live/moviesmartclassic.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="moviesmartpremium.tr" tvg-name="Movie Smart Premium" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/moviesmartpremium.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Movie Smart Premium
+https://anthology-live.duckdns.org/live/moviesmartpremium.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="moviesmartpremium2.tr" tvg-name="Movie Smart Premium 2" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/moviesmartpremium2.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Movie Smart Premium 2
+https://anthology-live.duckdns.org/live/moviesmartpremium2.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="moviesmartturk.tr" tvg-name="Movie Smart Türk" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/moviesmartturk.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Movie Smart Türk
+https://anthology-live.duckdns.org/live/moviesmartturk.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="moviesmartfest.tr" tvg-name="MovieSmart Fest" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/moviesmartfest.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",MovieSmart Fest
+https://anthology-live.duckdns.org/live/moviesmartfest.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="xnostaljitrkeklasik.tr" tvg-name="Nostalji Türkçe Klasik" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/xnostaljitrkeklasik.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Nostalji Türkçe Klasik
+https://anthology-live.duckdns.org/live/xnostaljitrkeklasik.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="proturkaction.tr" tvg-name="Proturk Action" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkaction.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Proturk Action
+https://anthology-live.duckdns.org/live/proturkaction.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="proturkbilimkurgu.tr" tvg-name="Proturk Bilim Kurgu" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkbilimkurgu.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Proturk Bilim Kurgu
+https://anthology-live.duckdns.org/live/proturkbilimkurgu.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="proturkfantastic.tr" tvg-name="Proturk Fantastic" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkfantastic.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Proturk Fantastic
+https://anthology-live.duckdns.org/live/proturkfantastic.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="proturkgerilim.tr" tvg-name="Proturk Gerilim" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkgerilim.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Proturk Gerilim
+https://anthology-live.duckdns.org/live/proturkgerilim.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="proturkkemalsunal.tr" tvg-name="Proturk Kemal Sunal" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkkemalsunal.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Proturk Kemal Sunal
+https://anthology-live.duckdns.org/live/proturkkemalsunal.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="proturkkorku.tr" tvg-name="Proturk Korku" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkkorku.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Proturk Korku
+https://anthology-live.duckdns.org/live/proturkkorku.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="proturkloca1.tr" tvg-name="Proturk Loca 1" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkloca1.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Proturk Loca 1
+https://anthology-live.duckdns.org/live/proturkloca1.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="proturkloca2.tr" tvg-name="Proturk Loca 2" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkloca2.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Proturk Loca 2
+https://anthology-live.duckdns.org/live/proturkloca2.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="proturkmacera.tr" tvg-name="Proturk Macera" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkmacera.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Proturk Macera
+https://anthology-live.duckdns.org/live/proturkmacera.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="proturkorjinal.tr" tvg-name="Proturk Orijinal" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkorjinal.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Proturk Orijinal
+https://anthology-live.duckdns.org/live/proturkorjinal.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="proturkvizyon.tr" tvg-name="Proturk Vizyon" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkvizyon.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Proturk Vizyon
+https://anthology-live.duckdns.org/live/proturkvizyon.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="salon1.tr" tvg-name="Salon 1" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/salon1.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Salon 1
+https://anthology-live.duckdns.org/live/salon1.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="sinema1001.tr" tvg-name="Sinema 1001" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinema1001.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Sinema 1001
+https://anthology-live.duckdns.org/live/sinema1001.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="sinema1002.tr" tvg-name="Sinema 1002" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinema1002.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Sinema 1002
+https://anthology-live.duckdns.org/live/sinema1002.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="sinemaaile.tr" tvg-name="Sinema Aile" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaile.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Sinema Aile
+https://anthology-live.duckdns.org/live/sinemaaile.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="sinemaaile2.tr" tvg-name="Sinema Aile 2" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaile.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Sinema Aile 2
+https://anthology-live.duckdns.org/live/sinemaaile2.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="sinemaaksiyon1.tr" tvg-name="Sinema Aksiyon 1" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaksiyon.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Sinema Aksiyon 1
+https://anthology-live.duckdns.org/live/sinemaaksiyon1.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="sinemaaksiyon2.tr" tvg-name="Sinema Aksiyon 2" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaksiyon.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Sinema Aksiyon 2
+https://anthology-live.duckdns.org/live/sinemaaksiyon2.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="sinemakomedi.tr" tvg-name="Sinema Komedi" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemakomedi.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Sinema Komedi
+https://anthology-live.duckdns.org/live/sinemakomedi.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="sinematv.tr" tvg-name="Sinema TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinematv.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Sinema TV
+https://anthology-live.duckdns.org/live/sinematv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="sinematv2.tr" tvg-name="Sinema TV 2" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinematv.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Sinema TV 2
+https://anthology-live.duckdns.org/live/sinematv2.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="sinematvaksiyon.tr" tvg-name="Sinema TV Aksiyon" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinematvaksiyon.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Sinema TV Aksiyon
+https://anthology-live.duckdns.org/live/sinematvaksiyon.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="sinemayerli1.tr" tvg-name="Sinema Yerli 1" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemayerli1.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Sinema Yerli 1
+https://anthology-live.duckdns.org/live/sinemayerli1.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="sinemayerli2.tr" tvg-name="Sinema Yerli 2" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemayerli2.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Sinema Yerli 2
+https://anthology-live.duckdns.org/live/sinemayerli2.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="sinemaxcomedi.tr" tvg-name="Sinemax Komedi" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaxcomedi.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Sinemax Komedi
+https://anthology-live.duckdns.org/live/sinemaxcomedi.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="sinevizyon5.tr" tvg-name="Sinevizyon 5" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinevizyon5.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Sinevizyon 5
+https://anthology-live.duckdns.org/live/sinevizyon5.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="sinevizyonturk5.tr" tvg-name="Sinevizyon Türk 5" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinevizyonturk5.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Sinevizyon Türk 5
+https://anthology-live.duckdns.org/live/sinevizyonturk5.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="sinevizyonturk7.tr" tvg-name="Sinevizyon Türk 7" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinevizyonturk7.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Sinevizyon Türk 7
+https://anthology-live.duckdns.org/live/sinevizyonturk7.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="yesilcam.tr" tvg-name="Yeşilçam" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yesilcam.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Yeşilçam
+https://anthology-live.duckdns.org/live/yesilcam.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="yesilcam1.tr" tvg-name="Yeşilçam 1" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yesilcam1.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Yeşilçam 1
+https://anthology-live.duckdns.org/live/yesilcam1.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="yesilcam2.tr" tvg-name="Yeşilçam 2" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yesilcam2.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Yeşilçam 2
+https://anthology-live.duckdns.org/live/yesilcam2.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="yesilcam3.tr" tvg-name="Yeşilçam 3" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yesilcam3.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Yeşilçam 3
+https://anthology-live.duckdns.org/live/yesilcam3.m3u8?username=anthology&password=falsisdevwashere
+
+# ==============================================================================
+# BELGESEL & ÇOCUK (58)
 # ==============================================================================
 #EXTINF:-1 tvg-id="TLC.tr" tvg-name="TLC" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tlc.png" tvg-lang="tr" tvg-backup="https://dogus.daioncdn.net/tlc/tlc.m3u8?ce=3&app=1aca0aa1-06e3-41ff-a8e5-38d7df475469" group-title="🇹🇷 BELGESEL & ÇOCUK",TLC HD
 https://dogus-blackout.daioncdn.net/tlctv_geoblock.smil/playlist.m3u8
@@ -339,10 +765,10 @@ https://dogus-blackout.daioncdn.net/tlctv_geoblock.smil/playlist.m3u8
 #EXTINF:-1 tvg-id="DMAX.tr" tvg-name="DMAX" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dmax.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",DMAX HD
 https://dogus.daioncdn.net/dmax/dmax.m3u8?ce=3&app=5a02c599-d17e-4982-9b04-090934d51af7
 
-#EXTINF:-1 tvg-id="TRTBelgesel.tr" tvg-name="TRT Belgesel" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtbelgesel.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK" tvg-backup="https://tv-trtbelgesel-dai.medya.trt.com.tr/master.m3u8",TRT Belgesel HD
+#EXTINF:-1 tvg-id="TRTBelgesel.tr" tvg-name="TRT Belgesel" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtbelgesel.png" tvg-lang="tr" tvg-backup="https://tv-trtbelgesel-dai.medya.trt.com.tr/master.m3u8" group-title="🇹🇷 BELGESEL & ÇOCUK",TRT Belgesel HD
 https://tv-trtbelgesel-dai.medya.trt.com.tr/master.m3u8
 
-#EXTINF:-1 tvg-id="TRTCocuk.tr" tvg-name="TRT Çocuk" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtcocuk.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK" tvg-backup="https://tv-trtcocuk.medya.trt.com.tr/master.m3u8",TRT Çocuk HD
+#EXTINF:-1 tvg-id="TRTCocuk.tr" tvg-name="TRT Çocuk" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtcocuk.png" tvg-lang="tr" tvg-backup="https://tv-trtcocuk.medya.trt.com.tr/master.m3u8" group-title="🇹🇷 BELGESEL & ÇOCUK",TRT Çocuk HD
 https://tv-trtcocuk.medya.trt.com.tr/master.m3u8
 
 #EXTINF:-1 tvg-id="MinikaCocuk.tr" tvg-name="Minika Çocuk" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/minikacocuk.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Minika Çocuk HD
@@ -369,14 +795,151 @@ https://live.artidijitalmedya.com/artidijital_ciftcitv/ciftcitv/playlist.m3u8
 #EXTINF:-1 tvg-id="TravelXP.tr" tvg-name="Travelxp" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/travelxp.png" tvg-lang="en" group-title="🇹🇷 BELGESEL & ÇOCUK",Travelxp HD
 https://travelxp-travelxp-1-nz.samsung.wurl.tv/playlist.m3u8
 
+#EXTINF:-1 tvg-id="24kitchen.tr" tvg-name="24 Kitchen" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/24kitchen.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",24 Kitchen
+https://anthology-live.duckdns.org/live/24kitchen.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="animalplanet.tr" tvg-name="Animal Planet" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/animalplanet.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Animal Planet
+https://anthology-live.duckdns.org/live/animalplanet.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="animaux.tr" tvg-name="Animaux" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/animaux.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Animaux
+https://anthology-live.duckdns.org/live/animaux.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="babytv.tr" tvg-name="Baby TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/babytv.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Baby TV
+https://anthology-live.duckdns.org/live/babytv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="bbcearth.tr" tvg-name="BBC Earth" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bbcearth.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",BBC Earth
+https://anthology-live.duckdns.org/live/bbcearth.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="bbcearthpremiere.tr" tvg-name="BBC Earth Premiere" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bbcearthpremiere.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",BBC Earth Premiere
+https://anthology-live.duckdns.org/live/bbcearthpremiere.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="beingurme.tr" tvg-name="beIN Gurme" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beingurme.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",beIN Gurme
+https://anthology-live.duckdns.org/live/beingurme.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="beiniz.tr" tvg-name="beIN İz TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beiniz.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",beIN İz TV
+https://anthology-live.duckdns.org/live/beiniz.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="boomerang.tr" tvg-name="Boomerang" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/boomerang.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Boomerang
+https://anthology-live.duckdns.org/live/boomerang.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="cartoonnetwork.tr" tvg-name="Cartoon Network" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cartoonnetwork.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Cartoon Network
+https://anthology-live.duckdns.org/live/cartoonnetwork.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="cocuk1.tr" tvg-name="Çocuk 1" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cocuk1.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Çocuk 1
+https://anthology-live.duckdns.org/live/cocuk1.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="cocuk2.tr" tvg-name="Çocuk 2" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cocuk2.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Çocuk 2
+https://anthology-live.duckdns.org/live/cocuk2.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="cocuk3.tr" tvg-name="Çocuk 3" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cocuk3.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Çocuk 3
+https://anthology-live.duckdns.org/live/cocuk3.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="davinci.tr" tvg-name="Da Vinci" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/davinci.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Da Vinci
+https://anthology-live.duckdns.org/live/davinci.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="davincikids.tr" tvg-name="Da Vinci Kids" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/davincikids.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Da Vinci Kids
+https://anthology-live.duckdns.org/live/davincikids.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="discoverychannel.tr" tvg-name="Discovery Channel" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/discoverychannel.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Discovery Channel
+https://anthology-live.duckdns.org/live/discoverychannel.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="discoveryid.tr" tvg-name="Discovery ID" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/discoveryid.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Discovery ID
+https://anthology-live.duckdns.org/live/discoveryid.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="discoveryscience.tr" tvg-name="Discovery Science" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/discoveryscience.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Discovery Science
+https://anthology-live.duckdns.org/live/discoveryscience.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="discoveryworld.tr" tvg-name="Discovery World" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/discoveryworld.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Discovery World
+https://anthology-live.duckdns.org/live/discoveryworld.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="disneychannel.tr" tvg-name="Disney Channel" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/disneychannel.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Disney Channel
+https://anthology-live.duckdns.org/live/disneychannel.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="disneyjr.tr" tvg-name="Disney Jr." tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/disneyjr.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Disney Jr.
+https://anthology-live.duckdns.org/live/disneyjr.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="egeilegaga.tr" tvg-name="Ege İle Gaga" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/egeilegaga.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Ege İle Gaga
+https://anthology-live.duckdns.org/live/egeilegaga.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="historychannel.tr" tvg-name="History Channel" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/historychannel.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",History Channel
+https://anthology-live.duckdns.org/live/historychannel.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="iztv.tr" tvg-name="İZ TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/iztv.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",İZ TV
+https://anthology-live.duckdns.org/live/iztv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="lovenature.tr" tvg-name="Love Nature" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/lovenature.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Love Nature
+https://anthology-live.duckdns.org/live/lovenature.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="nationalgeographic.tr" tvg-name="Nat Geo" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nationalgeographic.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Nat Geo
+https://anthology-live.duckdns.org/live/nationalgeographic.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="natgeowild.tr" tvg-name="Nat Geo Wild" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/natgeowild.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Nat Geo Wild
+https://anthology-live.duckdns.org/live/natgeowild.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="nickjr.tr" tvg-name="Nick Junior" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nickjr.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Nick Junior
+https://anthology-live.duckdns.org/live/nickjr.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="nickelodeon.tr" tvg-name="Nickelodeon" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nickelodeon.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Nickelodeon
+https://anthology-live.duckdns.org/live/nickelodeon.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="niloyatv.tr" tvg-name="Niloya TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/niloyatv.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Niloya TV
+https://anthology-live.duckdns.org/live/niloyatv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="patronbebek.tr" tvg-name="Patron Bebek" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/patronbebek.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Patron Bebek
+https://anthology-live.duckdns.org/live/patronbebek.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="pepetv.tr" tvg-name="Pepee TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/pepetv.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Pepee TV
+https://anthology-live.duckdns.org/live/pepetv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="pijamamaskelilertv.tr" tvg-name="Pijama Maskeliler TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/pijamamaskelilertv.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Pijama Maskeliler TV
+https://anthology-live.duckdns.org/live/pijamamaskelilertv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="pisitv.tr" tvg-name="Pisi TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/pisitv.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Pisi TV
+https://anthology-live.duckdns.org/live/pisitv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="satrantv.tr" tvg-name="Satranç TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/satrantv.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Satranç TV
+https://anthology-live.duckdns.org/live/satrantv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="sevimlidostlar.tr" tvg-name="Sevimli Dostlar" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sevimlidostlar.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Sevimli Dostlar
+https://anthology-live.duckdns.org/live/sevimlidostlar.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="smartcocuk.tr" tvg-name="Smart Çocuk" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/smartcocuk.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Smart Çocuk
+https://anthology-live.duckdns.org/live/smartcocuk.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="sngerbob.tr" tvg-name="Sünger Bob" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sngerbob.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Sünger Bob
+https://anthology-live.duckdns.org/live/sngerbob.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="sirinlertv.tr" tvg-name="Şirinler TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sirinlertv.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Şirinler TV
+https://anthology-live.duckdns.org/live/sirinlertv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="tarihtv.tr" tvg-name="Tarih TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tarihtv.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Tarih TV
+https://anthology-live.duckdns.org/live/tarihtv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="tgrtbelgesel.tr" tvg-name="TGRT Belgesel" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tgrtbelgesel.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",TGRT Belgesel
+https://anthology-live.duckdns.org/live/tgrtbelgesel.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="tomjerry.tr" tvg-name="Tom & Jerry" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tomjerry.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Tom & Jerry
+https://anthology-live.duckdns.org/live/tomjerry.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="trteba.tr" tvg-name="TRT EBA" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trteba.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",TRT EBA
+https://anthology-live.duckdns.org/live/trteba.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="viasatexplore.tr" tvg-name="Viasat Explore" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/viasatexplore.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Viasat Explore
+https://anthology-live.duckdns.org/live/viasatexplore.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="viasathistory.tr" tvg-name="Viasat History" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/viasathistory.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Viasat History
+https://anthology-live.duckdns.org/live/viasathistory.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="yabantv.tr" tvg-name="Yaban TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yabantv.png" tvg-lang="tr" group-title="🇹🇷 BELGESEL & ÇOCUK",Yaban TV
+https://anthology-live.duckdns.org/live/yabantv.m3u8?username=anthology&password=falsisdevwashere
 
 # ==============================================================================
-# MÜZİK & EĞLENCE
+# MÜZİK & EĞLENCE (29)
 # ==============================================================================
 #EXTINF:-1 tvg-id="KralPopTV.tr" tvg-name="Kral Pop TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kralpop.png" tvg-lang="tr" group-title="🇹🇷 MÜZİK & EĞLENCE",Kral Pop TV HD
 https://dogus-live.daioncdn.net/kralpoptv/playlist.m3u8
 
-#EXTINF:-1 tvg-id="PowerTurkTV.tr" tvg-name="PowerTürk TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerturk.png" tvg-lang="tr" group-title="🇹🇷 MÜZİK & EĞLENCE" tvg-backup="https://livetv.powerapp.com.tr/powerturkTV/powerturkhd.smil/playlist.m3u8",PowerTürk TV HD
+#EXTINF:-1 tvg-id="PowerTurkTV.tr" tvg-name="PowerTürk TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerturk.png" tvg-lang="tr" tvg-backup="https://livetv.powerapp.com.tr/powerturkTV/powerturkhd.smil/playlist.m3u8" group-title="🇹🇷 MÜZİK & EĞLENCE",PowerTürk TV HD
 https://live.artidijitalmedya.com/artidijital_powerturktv/powerturktv/playlist.m3u8
 
 #EXTINF:-1 tvg-id="PowerTV.tr" tvg-name="Power TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powertv.png" tvg-lang="tr" group-title="🇹🇷 MÜZİK & EĞLENCE",Power TV HD
@@ -385,10 +948,10 @@ https://livetv.powerapp.com.tr/powerTV/powerhd.smil/playlist.m3u8
 #EXTINF:-1 tvg-id="Number1TV.tr" tvg-name="Number 1 TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png" tvg-lang="tr" group-title="🇹🇷 MÜZİK & EĞLENCE",Number 1 TV HD
 https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/broadcast_5c9e17cd59e8b.smil/playlist.m3u8
 
-#EXTINF:-1 tvg-id="TRTMuzik.tr" tvg-name="TRT Müzik" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtmuzik.png" tvg-lang="tr" group-title="🇹🇷 MÜZİK & EĞLENCE" tvg-backup="https://tv-trtmuzik.medya.trt.com.tr/master.m3u8",TRT Müzik HD
+#EXTINF:-1 tvg-id="TRTMuzik.tr" tvg-name="TRT Müzik" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtmuzik.png" tvg-lang="tr" tvg-backup="https://tv-trtmuzik.medya.trt.com.tr/master.m3u8" group-title="🇹🇷 MÜZİK & EĞLENCE",TRT Müzik HD
 https://tv-trtmuzik.medya.trt.com.tr/master.m3u8
 
-#EXTINF:-1 tvg-id="PowerDance.tr" tvg-name="Power Dance" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerdance.png" tvg-lang="tr" group-title="🇹🇷 MÜZİK & EĞLENCE" tvg-backup="https://listen.powerapp.com.tr/dance/dance.smil/playlist.m3u8",Power Dance HD
+#EXTINF:-1 tvg-id="PowerDance.tr" tvg-name="Power Dance" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerdance.png" tvg-lang="tr" tvg-backup="https://listen.powerapp.com.tr/dance/dance.smil/playlist.m3u8" group-title="🇹🇷 MÜZİK & EĞLENCE",Power Dance HD
 https://livetv.powerapp.com.tr/dance/dance.smil/playlist.m3u8
 
 #EXTINF:-1 tvg-id="PowerLove.tr" tvg-name="Power Love" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerlove.png" tvg-lang="tr" group-title="🇹🇷 MÜZİK & EĞLENCE",Power Love HD
@@ -421,15 +984,206 @@ https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/broadcast_5c9e18
 #EXTINF:-1 tvg-id="Number1Dance.tr" tvg-name="Number 1 Dance" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png" tvg-lang="tr" group-title="🇹🇷 MÜZİK & EĞLENCE",Number 1 Dance HD
 https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/u_stream_5c9e2aa8acf44_1/playlist.m3u8
 
+#EXTINF:-1 tvg-id="ferdiozbegen.tr" tvg-name="Ferdi Özbeğen" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ferdiozbegen.png" tvg-lang="tr" group-title="🇹🇷 MÜZİK & EĞLENCE",Ferdi Özbeğen
+https://anthology-live.duckdns.org/live/ferdiozbegen.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="ferditayfur.tr" tvg-name="Ferdi Tayfur" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ferditayfur.png" tvg-lang="tr" group-title="🇹🇷 MÜZİK & EĞLENCE",Ferdi Tayfur
+https://anthology-live.duckdns.org/live/ferditayfur.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="meltemtv.tr" tvg-name="Meltem TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/meltemtv.png" tvg-lang="tr" group-title="🇹🇷 MÜZİK & EĞLENCE",Meltem TV
+https://anthology-live.duckdns.org/live/meltemtv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="mtvlive.tr" tvg-name="MTV Live" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/mtvlive.png" tvg-lang="tr" group-title="🇹🇷 MÜZİK & EĞLENCE",MTV Live
+https://anthology-live.duckdns.org/live/mtvlive.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="number1damar.tr" tvg-name="Number 1 Damar" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1damar.png" tvg-lang="tr" group-title="🇹🇷 MÜZİK & EĞLENCE",Number 1 Damar
+https://anthology-live.duckdns.org/live/number1damar.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="palstationyabancimzik.tr" tvg-name="Pal Station Yabanci Müzik" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/palstationyabancimzik.png" tvg-lang="tr" group-title="🇹🇷 MÜZİK & EĞLENCE",Pal Station Yabanci Müzik
+https://anthology-live.duckdns.org/live/palstationyabancimzik.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="redboxturkcepop.tr" tvg-name="Redbox Türkçe Pop" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/redboxturkcepop.png" tvg-lang="tr" group-title="🇹🇷 MÜZİK & EĞLENCE",Redbox Türkçe Pop
+https://anthology-live.duckdns.org/live/redboxturkcepop.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="seldabagcan.tr" tvg-name="Selda Bağcan" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/seldabagcan.png" tvg-lang="tr" group-title="🇹🇷 MÜZİK & EĞLENCE",Selda Bağcan
+https://anthology-live.duckdns.org/live/seldabagcan.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="sezenaksu.tr" tvg-name="Sezen Aksu" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sezenaksu.png" tvg-lang="tr" group-title="🇹🇷 MÜZİK & EĞLENCE",Sezen Aksu
+https://anthology-live.duckdns.org/live/sezenaksu.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="tatlisestv.tr" tvg-name="Tatlıses TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tatlisestv.png" tvg-lang="tr" group-title="🇹🇷 MÜZİK & EĞLENCE",Tatlıses TV
+https://anthology-live.duckdns.org/live/tatlisestv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="turkrock.tr" tvg-name="Türk Rock" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/turkrock.png" tvg-lang="tr" group-title="🇹🇷 MÜZİK & EĞLENCE",Türk Rock
+https://anthology-live.duckdns.org/live/turkrock.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="yildiztilbe.tr" tvg-name="Yıldız Tilbe" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yildiztilbe.png" tvg-lang="tr" group-title="🇹🇷 MÜZİK & EĞLENCE",Yıldız Tilbe
+https://anthology-live.duckdns.org/live/yildiztilbe.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="zerrinozer.tr" tvg-name="Zerrin Özer" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/zerrinozer.png" tvg-lang="tr" group-title="🇹🇷 MÜZİK & EĞLENCE",Zerrin Özer
+https://anthology-live.duckdns.org/live/zerrinozer.m3u8?username=anthology&password=falsisdevwashere
 
 # ==============================================================================
-# SİNEMA KANALLARI
+# YEREL KANALLAR (43)
 # ==============================================================================
-#EXTINF:-1 tvg-id="Cine1.tr" tvg-name="Cine 1" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cine1.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",Cine 1 HD
-https://canliyayin.cine1.com.tr/memfs/cbaef080-a742-4644-9e9e-2b9f6a5103c3.m3u8
+#EXTINF:-1 tvg-id="adiyamanmercantv.tr" tvg-name="Adıyaman Mercan TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/adiyamanmercantv.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Adıyaman Mercan TV
+https://anthology-live.duckdns.org/live/adiyamanmercantv.m3u8?username=anthology&password=falsisdevwashere
 
-#EXTINF:-1 tvg-id="FX.tr" tvg-name="FX" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fx.png" tvg-lang="en" group-title="🇹🇷 SİNEMA KANALLARI",FX HD
-https://saran-live.ercdn.net/fx/index.m3u8
+#EXTINF:-1 tvg-id="afyonturk.tr" tvg-name="Afyon Türk" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/afyonturk.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Afyon Türk
+https://anthology-live.duckdns.org/live/afyonturk.m3u8?username=anthology&password=falsisdevwashere
 
-#EXTINF:-1 tvg-id="TRTNostalji.tr" tvg-name="TRT Nostalji" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtnostalji.png" tvg-lang="tr" group-title="🇹🇷 SİNEMA KANALLARI",TRT Nostalji HD
-https://playlist.fasttvcdn.com/pl/rfrk9821hdy9dayo8wfyha/dizi-tv/playlist/0.m3u8
+#EXTINF:-1 tvg-id="aksaraykanal68.tr" tvg-name="Aksaray Kanal 68" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/aksaraykanal68.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Aksaray Kanal 68
+https://anthology-live.duckdns.org/live/aksaraykanal68.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="anadoludernek.tr" tvg-name="Anadolu Dernek" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/anadoludernek.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Anadolu Dernek
+https://anthology-live.duckdns.org/live/anadoludernek.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="astvbursa.tr" tvg-name="As TV Bursa" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/astvbursa.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",As TV Bursa
+https://anthology-live.duckdns.org/live/astvbursa.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="elazigkanal23.tr" tvg-name="Elazığ Kanal 23" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/elazigkanal23.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Elazığ Kanal 23
+https://anthology-live.duckdns.org/live/elazigkanal23.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="elazigkanalfirat.tr" tvg-name="Elazığ Kanal Firat" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/elazigkanalfirat.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Elazığ Kanal Firat
+https://anthology-live.duckdns.org/live/elazigkanalfirat.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="erzurumwebtv.tr" tvg-name="Erzurum Web TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/erzurumwebtv.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Erzurum Web TV
+https://anthology-live.duckdns.org/live/erzurumwebtv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="estv.tr" tvg-name="Es TV Eskişehir" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/estv.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Es TV Eskişehir
+https://anthology-live.duckdns.org/live/estv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="etvkayseri.tr" tvg-name="ETV Kayseri" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/etvkayseri.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",ETV Kayseri
+https://anthology-live.duckdns.org/live/etvkayseri.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="gaziantepolaytv.tr" tvg-name="Gaziantep Olay TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/gaziantepolaytv.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Gaziantep Olay TV
+https://anthology-live.duckdns.org/live/gaziantepolaytv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="gurbet24tv.tr" tvg-name="Gurbet24 TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/gurbet24tv.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Gurbet24 TV
+https://anthology-live.duckdns.org/live/gurbet24tv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="hrt.tr" tvg-name="HRT" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/hrt.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",HRT
+https://anthology-live.duckdns.org/live/hrt.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="hunattv.tr" tvg-name="Hunat TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/hunattv.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Hunat TV
+https://anthology-live.duckdns.org/live/hunattv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="kadirga.tr" tvg-name="Kadırga" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kadirga.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Kadırga
+https://anthology-live.duckdns.org/live/kadirga.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="aksutvkmaras.tr" tvg-name="Kahramanmaraş Aksu TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/aksutvkmaras.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Kahramanmaraş Aksu TV
+https://anthology-live.duckdns.org/live/aksutvkmaras.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="kanal12.tr" tvg-name="Kanal 12" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal12.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Kanal 12
+https://anthology-live.duckdns.org/live/kanal12.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="kanal26.tr" tvg-name="Kanal 26" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal26.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Kanal 26
+https://anthology-live.duckdns.org/live/kanal26.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="kanal3.tr" tvg-name="Kanal 3" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal3.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Kanal 3
+https://anthology-live.duckdns.org/live/kanal3.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="kanal58.tr" tvg-name="Kanal 58" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal58.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Kanal 58
+https://anthology-live.duckdns.org/live/kanal58.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="kanalurfa.tr" tvg-name="Kanal Urfa" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanalurfa.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Kanal Urfa
+https://anthology-live.duckdns.org/live/kanalurfa.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="kayserikaytv.tr" tvg-name="Kayseri Kay TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kayserikaytv.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Kayseri Kay TV
+https://anthology-live.duckdns.org/live/kayserikaytv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="kibrisgenctv.tr" tvg-name="Kıbrıs Genç TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kibrisgenctv.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Kıbrıs Genç TV
+https://anthology-live.duckdns.org/live/kibrisgenctv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="kibriskanalt.tr" tvg-name="Kıbrıs Kanal T" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kibriskanalt.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Kıbrıs Kanal T
+https://anthology-live.duckdns.org/live/kibriskanalt.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="kibristv.tr" tvg-name="Kıbrıs TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kibristv.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Kıbrıs TV
+https://anthology-live.duckdns.org/live/kibristv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="koytv.tr" tvg-name="Köy TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/koytv.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Köy TV
+https://anthology-live.duckdns.org/live/koytv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="mavikaradeniz.tr" tvg-name="Mavi Karadeniz" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/mavikaradeniz.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Mavi Karadeniz
+https://anthology-live.duckdns.org/live/mavikaradeniz.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="mercantv.tr" tvg-name="Mercan TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/mercantv.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Mercan TV
+https://anthology-live.duckdns.org/live/mercantv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="mersineltv.tr" tvg-name="Mersin El TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/mersineltv.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Mersin El TV
+https://anthology-live.duckdns.org/live/mersineltv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="mgctv.tr" tvg-name="MGC TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/mgctv.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",MGC TV
+https://anthology-live.duckdns.org/live/mgctv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="olayturk.tr" tvg-name="Olay Türk" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/olayturk.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Olay Türk
+https://anthology-live.duckdns.org/live/olayturk.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="pamukkale.tr" tvg-name="Pamukkale" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/pamukkale.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Pamukkale
+https://anthology-live.duckdns.org/live/pamukkale.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="rumelitv.tr" tvg-name="Rumeli TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/rumelitv.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Rumeli TV
+https://anthology-live.duckdns.org/live/rumelitv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="sunrtv.tr" tvg-name="Sun TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sunrtv.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Sun TV
+https://anthology-live.duckdns.org/live/sunrtv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="tempotv.tr" tvg-name="Tempo TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tempotv.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Tempo TV
+https://anthology-live.duckdns.org/live/tempotv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="tontv.tr" tvg-name="Ton TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tontv.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Ton TV
+https://anthology-live.duckdns.org/live/tontv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="tuncelidersim62tv.tr" tvg-name="Tunceli Dersim 62 TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tuncelidersim62tv.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Tunceli Dersim 62 TV
+https://anthology-live.duckdns.org/live/tuncelidersim62tv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="tvden.tr" tvg-name="TV Den" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tvden.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",TV Den
+https://anthology-live.duckdns.org/live/tvden.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="vatantv.tr" tvg-name="Vatan TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/vatantv.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Vatan TV
+https://anthology-live.duckdns.org/live/vatantv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="vizyon58.tr" tvg-name="Vizyon 58 (Sivas)" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/vizyon58.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Vizyon 58 (Sivas)
+https://anthology-live.duckdns.org/live/vizyon58.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="vuslattv.tr" tvg-name="Vuslat TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/vuslattv.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Vuslat TV
+https://anthology-live.duckdns.org/live/vuslattv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="yenikocaelitv.tr" tvg-name="Yeni Kocaeli TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yenikocaelitv.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Yeni Kocaeli TV
+https://anthology-live.duckdns.org/live/yenikocaelitv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="zonguldakkanalz.tr" tvg-name="Zonguldak Kanal Z" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/zonguldakkanalz.png" tvg-lang="tr" group-title="🇹🇷 YEREL KANALLAR",Zonguldak Kanal Z
+https://anthology-live.duckdns.org/live/zonguldakkanalz.m3u8?username=anthology&password=falsisdevwashere
+
+# ==============================================================================
+# DİĞER KANALLAR (10)
+# ==============================================================================
+#EXTINF:-1 tvg-id="dosttv.tr" tvg-name="Dost TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dosttv.png" tvg-lang="tr" group-title="🇹🇷 DİĞER KANALLAR",Dost TV
+https://anthology-live.duckdns.org/live/dosttv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="ilketv.tr" tvg-name="İlke TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ilketv.png" tvg-lang="tr" group-title="🇹🇷 DİĞER KANALLAR",İlke TV
+https://anthology-live.duckdns.org/live/ilketv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="kudustv.tr" tvg-name="Kudüs TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kudustv.png" tvg-lang="tr" group-title="🇹🇷 DİĞER KANALLAR",Kudüs TV
+https://anthology-live.duckdns.org/live/kudustv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="lalegultv.tr" tvg-name="Lalegül TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/lalegultv.png" tvg-lang="tr" group-title="🇹🇷 DİĞER KANALLAR",Lalegül TV
+https://anthology-live.duckdns.org/live/lalegultv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="on4tv.tr" tvg-name="On 4 TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/on4tv.png" tvg-lang="tr" group-title="🇹🇷 DİĞER KANALLAR",On 4 TV
+https://anthology-live.duckdns.org/live/on4tv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="rehbertv.tr" tvg-name="Rehber TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/rehbertv.png" tvg-lang="tr" group-title="🇹🇷 DİĞER KANALLAR",Rehber TV
+https://anthology-live.duckdns.org/live/rehbertv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="sat7turk.tr" tvg-name="Sat7 Türk" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sat7turk.png" tvg-lang="tr" group-title="🇹🇷 DİĞER KANALLAR",Sat7 Türk
+https://anthology-live.duckdns.org/live/sat7turk.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="semerkandtv.tr" tvg-name="Semerkand TV" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/semerkandtv.png" tvg-lang="tr" group-title="🇹🇷 DİĞER KANALLAR",Semerkand TV
+https://anthology-live.duckdns.org/live/semerkandtv.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="tv1.tr" tvg-name="TV 1" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv1.png" tvg-lang="tr" group-title="🇹🇷 DİĞER KANALLAR",TV 1
+https://anthology-live.duckdns.org/live/tv1.m3u8?username=anthology&password=falsisdevwashere
+
+#EXTINF:-1 tvg-id="tv5.tr" tvg-name="TV 5" tvg-logo="https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv5.png" tvg-lang="tr" group-title="🇹🇷 DİĞER KANALLAR",TV 5
+https://anthology-live.duckdns.org/live/tv5.m3u8?username=anthology&password=falsisdevwashere

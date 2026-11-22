@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:on4tv.tr",
+    "type": "tv",
+    "name": "On 4 TV",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/on4tv.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/on4tv.png",
+    "description": "On 4 TV Canlı [Türkçe]",
+    "genres": [
+      "DİĞER KANALLAR"
+    ],
+    "videos": [
+      {
+        "id": "tv:on4tv.tr",
+        "title": "On 4 TV"
+      }
+    ]
+  }
+}

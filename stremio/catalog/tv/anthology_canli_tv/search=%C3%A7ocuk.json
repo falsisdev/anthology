@@ -8,7 +8,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtcocuk.png",
       "description": "TRT Çocuk HD Canlı [Türkçe]",
       "genres": [
-        "BELGESEL  ÇOCUK"
+        "Belgesel & Çocuk"
       ]
     },
     {
@@ -19,7 +19,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/minikacocuk.png",
       "description": "Minika Çocuk HD Canlı [Türkçe]",
       "genres": [
-        "BELGESEL  ÇOCUK"
+        "Belgesel & Çocuk"
       ]
     },
     {
@@ -30,7 +30,51 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtdiyanetcocuk.png",
       "description": "TRT Diyanet Çocuk HD Canlı [Türkçe]",
       "genres": [
-        "BELGESEL  ÇOCUK"
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:cocuk1.tr",
+      "type": "tv",
+      "name": "Çocuk 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cocuk1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cocuk1.png",
+      "description": "Çocuk 1 Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:cocuk2.tr",
+      "type": "tv",
+      "name": "Çocuk 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cocuk2.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cocuk2.png",
+      "description": "Çocuk 2 Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:cocuk3.tr",
+      "type": "tv",
+      "name": "Çocuk 3",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cocuk3.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cocuk3.png",
+      "description": "Çocuk 3 Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:smartcocuk.tr",
+      "type": "tv",
+      "name": "Smart Çocuk",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/smartcocuk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/smartcocuk.png",
+      "description": "Smart Çocuk Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
       ]
     }
   ]

@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:proturkloca2.tr",
+    "type": "tv",
+    "name": "Proturk Loca 2",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkloca2.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkloca2.png",
+    "description": "Proturk Loca 2 Canlı [Türkçe]",
+    "genres": [
+      "Sinema"
+    ],
+    "videos": [
+      {
+        "id": "tv:proturkloca2.tr",
+        "title": "Proturk Loca 2"
+      }
+    ]
+  }
+}

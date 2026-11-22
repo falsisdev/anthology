@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:rumelitv.tr",
+      "type": "tv",
+      "name": "Rumeli TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/rumelitv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/rumelitv.png",
+      "description": "Rumeli TV Canlı [Türkçe]",
+      "genres": [
+        "Yerel"
+      ]
+    }
+  ]
+}

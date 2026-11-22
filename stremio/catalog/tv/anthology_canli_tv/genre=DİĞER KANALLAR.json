@@ -1,0 +1,114 @@
+{
+  "metas": [
+    {
+      "id": "tv:dosttv.tr",
+      "type": "tv",
+      "name": "Dost TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dosttv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dosttv.png",
+      "description": "Dost TV Canlı [Türkçe]",
+      "genres": [
+        "DİĞER KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:ilketv.tr",
+      "type": "tv",
+      "name": "İlke TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ilketv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ilketv.png",
+      "description": "İlke TV Canlı [Türkçe]",
+      "genres": [
+        "DİĞER KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:kudustv.tr",
+      "type": "tv",
+      "name": "Kudüs TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kudustv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kudustv.png",
+      "description": "Kudüs TV Canlı [Türkçe]",
+      "genres": [
+        "DİĞER KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:lalegultv.tr",
+      "type": "tv",
+      "name": "Lalegül TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/lalegultv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/lalegultv.png",
+      "description": "Lalegül TV Canlı [Türkçe]",
+      "genres": [
+        "DİĞER KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:on4tv.tr",
+      "type": "tv",
+      "name": "On 4 TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/on4tv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/on4tv.png",
+      "description": "On 4 TV Canlı [Türkçe]",
+      "genres": [
+        "DİĞER KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:rehbertv.tr",
+      "type": "tv",
+      "name": "Rehber TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/rehbertv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/rehbertv.png",
+      "description": "Rehber TV Canlı [Türkçe]",
+      "genres": [
+        "DİĞER KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:sat7turk.tr",
+      "type": "tv",
+      "name": "Sat7 Türk",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sat7turk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sat7turk.png",
+      "description": "Sat7 Türk Canlı [Türkçe]",
+      "genres": [
+        "DİĞER KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:semerkandtv.tr",
+      "type": "tv",
+      "name": "Semerkand TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/semerkandtv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/semerkandtv.png",
+      "description": "Semerkand TV Canlı [Türkçe]",
+      "genres": [
+        "DİĞER KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:tv1.tr",
+      "type": "tv",
+      "name": "TV 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv1.png",
+      "description": "TV 1 Canlı [Türkçe]",
+      "genres": [
+        "DİĞER KANALLAR"
+      ]
+    },
+    {
+      "id": "tv:tv5.tr",
+      "type": "tv",
+      "name": "TV 5",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv5.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv5.png",
+      "description": "TV 5 Canlı [Türkçe]",
+      "genres": [
+        "DİĞER KANALLAR"
+      ]
+    }
+  ]
+}

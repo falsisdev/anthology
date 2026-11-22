@@ -8,7 +8,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtebailkokul.png",
       "description": "TRT EBA İlkokul HD Canlı [Türkçe]",
       "genres": [
-        "BELGESEL  ÇOCUK"
+        "Belgesel & Çocuk"
       ]
     },
     {
@@ -19,7 +19,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtebaortaokul.png",
       "description": "TRT EBA Ortaokul HD Canlı [Türkçe]",
       "genres": [
-        "BELGESEL  ÇOCUK"
+        "Belgesel & Çocuk"
       ]
     },
     {
@@ -30,7 +30,18 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtebalise.png",
       "description": "TRT EBA Lise HD Canlı [Türkçe]",
       "genres": [
-        "BELGESEL  ÇOCUK"
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:trteba.tr",
+      "type": "tv",
+      "name": "TRT EBA",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trteba.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trteba.png",
+      "description": "TRT EBA Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
       ]
     }
   ]

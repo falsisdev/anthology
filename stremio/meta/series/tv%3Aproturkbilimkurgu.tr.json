@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:proturkbilimkurgu.tr",
+    "type": "tv",
+    "name": "Proturk Bilim Kurgu",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkbilimkurgu.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkbilimkurgu.png",
+    "description": "Proturk Bilim Kurgu Canlı [Türkçe]",
+    "genres": [
+      "Sinema"
+    ],
+    "videos": [
+      {
+        "id": "tv:proturkbilimkurgu.tr",
+        "title": "Proturk Bilim Kurgu"
+      }
+    ]
+  }
+}

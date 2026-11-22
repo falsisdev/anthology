@@ -8,7 +8,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
       "description": "BeIN Sports 1 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     },
     {
@@ -19,7 +19,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
       "description": "BeIN Sports 2 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     },
     {
@@ -30,7 +30,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
       "description": "BeIN Sports 3 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     },
     {
@@ -41,7 +41,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
       "description": "BeIN Sports 4 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     },
     {
@@ -52,7 +52,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
       "description": "BeIN Sports 5 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     },
     {
@@ -63,7 +63,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
       "description": "BeIN Sports Max 1 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     },
     {
@@ -74,7 +74,18 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
       "description": "BeIN Sports Max 2 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:beinsportshaber.tr",
+      "type": "tv",
+      "name": "beIN Sports Haber",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsportshaber.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsportshaber.png",
+      "description": "beIN Sports Haber Canlı [Türkçe]",
+      "genres": [
+        "Spor"
       ]
     }
   ]

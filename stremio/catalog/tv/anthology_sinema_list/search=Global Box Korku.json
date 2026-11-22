@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:globalboxkorku.tr",
+      "type": "tv",
+      "name": "Global Box Korku",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxkorku.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxkorku.png",
+      "description": "Global Box Korku Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

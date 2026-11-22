@@ -8,7 +8,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanald.png",
       "description": "Kanal D HD Canlı [Türkçe]",
       "genres": [
-        "ULUSAL KANALLAR"
+        "Ulusal"
       ]
     },
     {
@@ -19,7 +19,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png",
       "description": "Kanal 7 HD Canlı [Türkçe]",
       "genres": [
-        "ULUSAL KANALLAR"
+        "Ulusal"
       ]
     },
     {
@@ -30,7 +30,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png",
       "description": "Kanal 7 Avrupa Canlı [Türkçe]",
       "genres": [
-        "ULUSAL KANALLAR"
+        "Ulusal"
       ]
     },
     {
@@ -41,7 +41,128 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanalavrupa.png",
       "description": "Kanal Avrupa Canlı [Türkçe]",
       "genres": [
-        "ULUSAL KANALLAR"
+        "Ulusal"
+      ]
+    },
+    {
+      "id": "tv:ulusalkanal.tr",
+      "type": "tv",
+      "name": "Ulusal Kanal",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ulusalkanal.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ulusalkanal.png",
+      "description": "Ulusal Kanal Canlı [Türkçe]",
+      "genres": [
+        "Haber"
+      ]
+    },
+    {
+      "id": "tv:aksaraykanal68.tr",
+      "type": "tv",
+      "name": "Aksaray Kanal 68",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/aksaraykanal68.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/aksaraykanal68.png",
+      "description": "Aksaray Kanal 68 Canlı [Türkçe]",
+      "genres": [
+        "Yerel"
+      ]
+    },
+    {
+      "id": "tv:elazigkanal23.tr",
+      "type": "tv",
+      "name": "Elazığ Kanal 23",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/elazigkanal23.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/elazigkanal23.png",
+      "description": "Elazığ Kanal 23 Canlı [Türkçe]",
+      "genres": [
+        "Yerel"
+      ]
+    },
+    {
+      "id": "tv:elazigkanalfirat.tr",
+      "type": "tv",
+      "name": "Elazığ Kanal Firat",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/elazigkanalfirat.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/elazigkanalfirat.png",
+      "description": "Elazığ Kanal Firat Canlı [Türkçe]",
+      "genres": [
+        "Yerel"
+      ]
+    },
+    {
+      "id": "tv:kanal12.tr",
+      "type": "tv",
+      "name": "Kanal 12",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal12.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal12.png",
+      "description": "Kanal 12 Canlı [Türkçe]",
+      "genres": [
+        "Yerel"
+      ]
+    },
+    {
+      "id": "tv:kanal26.tr",
+      "type": "tv",
+      "name": "Kanal 26",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal26.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal26.png",
+      "description": "Kanal 26 Canlı [Türkçe]",
+      "genres": [
+        "Yerel"
+      ]
+    },
+    {
+      "id": "tv:kanal3.tr",
+      "type": "tv",
+      "name": "Kanal 3",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal3.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal3.png",
+      "description": "Kanal 3 Canlı [Türkçe]",
+      "genres": [
+        "Yerel"
+      ]
+    },
+    {
+      "id": "tv:kanal58.tr",
+      "type": "tv",
+      "name": "Kanal 58",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal58.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal58.png",
+      "description": "Kanal 58 Canlı [Türkçe]",
+      "genres": [
+        "Yerel"
+      ]
+    },
+    {
+      "id": "tv:kanalurfa.tr",
+      "type": "tv",
+      "name": "Kanal Urfa",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanalurfa.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanalurfa.png",
+      "description": "Kanal Urfa Canlı [Türkçe]",
+      "genres": [
+        "Yerel"
+      ]
+    },
+    {
+      "id": "tv:kibriskanalt.tr",
+      "type": "tv",
+      "name": "Kıbrıs Kanal T",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kibriskanalt.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kibriskanalt.png",
+      "description": "Kıbrıs Kanal T Canlı [Türkçe]",
+      "genres": [
+        "Yerel"
+      ]
+    },
+    {
+      "id": "tv:zonguldakkanalz.tr",
+      "type": "tv",
+      "name": "Zonguldak Kanal Z",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/zonguldakkanalz.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/zonguldakkanalz.png",
+      "description": "Zonguldak Kanal Z Canlı [Türkçe]",
+      "genres": [
+        "Yerel"
       ]
     }
   ]

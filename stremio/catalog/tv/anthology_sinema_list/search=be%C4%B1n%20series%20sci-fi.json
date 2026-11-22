@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:beinseriesscifi.tr",
+      "type": "tv",
+      "name": "beIN Series Sci-fi",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseriesscifi.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseriesscifi.png",
+      "description": "beIN Series Sci-fi Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

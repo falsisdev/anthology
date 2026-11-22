@@ -1,0 +1,37 @@
+{
+  "metas": [
+    {
+      "id": "tv:beinboxoffice3.tr",
+      "type": "tv",
+      "name": "beIN Box Office 3",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinboxoffice3.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinboxoffice3.png",
+      "description": "beIN Box Office 3 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinseries3.tr",
+      "type": "tv",
+      "name": "beIN Series 3",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseries3.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseries3.png",
+      "description": "beIN Series 3 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:yesilcam3.tr",
+      "type": "tv",
+      "name": "Yeşilçam 3",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yesilcam3.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yesilcam3.png",
+      "description": "Yeşilçam 3 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

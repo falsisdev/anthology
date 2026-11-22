@@ -10,6 +10,17 @@
       "genres": [
         "Belgesel & Çocuk"
       ]
+    },
+    {
+      "id": "tv:tgrtbelgesel.tr",
+      "type": "tv",
+      "name": "TGRT Belgesel",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tgrtbelgesel.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tgrtbelgesel.png",
+      "description": "TGRT Belgesel Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
     }
   ]
 }

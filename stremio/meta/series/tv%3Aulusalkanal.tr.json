@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:ulusalkanal.tr",
+    "type": "tv",
+    "name": "Ulusal Kanal",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ulusalkanal.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ulusalkanal.png",
+    "description": "Ulusal Kanal Canlı [Türkçe]",
+    "genres": [
+      "Haber"
+    ],
+    "videos": [
+      {
+        "id": "tv:ulusalkanal.tr",
+        "title": "Ulusal Kanal"
+      }
+    ]
+  }
+}

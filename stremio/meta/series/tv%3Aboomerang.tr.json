@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:boomerang.tr",
+    "type": "tv",
+    "name": "Boomerang",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/boomerang.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/boomerang.png",
+    "description": "Boomerang Canlı [Türkçe]",
+    "genres": [
+      "Belgesel & Çocuk"
+    ],
+    "videos": [
+      {
+        "id": "tv:boomerang.tr",
+        "title": "Boomerang"
+      }
+    ]
+  }
+}

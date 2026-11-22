@@ -1,0 +1,26 @@
+{
+  "metas": [
+    {
+      "id": "tv:gaziantepolaytv.tr",
+      "type": "tv",
+      "name": "Gaziantep Olay TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/gaziantepolaytv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/gaziantepolaytv.png",
+      "description": "Gaziantep Olay TV Canlı [Türkçe]",
+      "genres": [
+        "Yerel"
+      ]
+    },
+    {
+      "id": "tv:olayturk.tr",
+      "type": "tv",
+      "name": "Olay Türk",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/olayturk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/olayturk.png",
+      "description": "Olay Türk Canlı [Türkçe]",
+      "genres": [
+        "Yerel"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:fixcinemadram.tr",
+      "type": "tv",
+      "name": "Fix Cinema Dram",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemadram.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemadram.png",
+      "description": "Fix Cinema Dram Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

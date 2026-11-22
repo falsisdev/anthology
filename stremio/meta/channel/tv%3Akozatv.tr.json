@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:kozatv.tr",
+    "type": "tv",
+    "name": "Koza TV",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kozatv.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kozatv.png",
+    "description": "Koza TV Canlı [Türkçe]",
+    "genres": [
+      "Ulusal"
+    ],
+    "videos": [
+      {
+        "id": "tv:kozatv.tr",
+        "title": "Koza TV"
+      }
+    ]
+  }
+}

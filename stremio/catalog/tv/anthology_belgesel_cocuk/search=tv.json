@@ -10,6 +10,127 @@
       "genres": [
         "Belgesel & Çocuk"
       ]
+    },
+    {
+      "id": "tv:babytv.tr",
+      "type": "tv",
+      "name": "Baby TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/babytv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/babytv.png",
+      "description": "Baby TV Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:beiniz.tr",
+      "type": "tv",
+      "name": "beIN İz TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beiniz.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beiniz.png",
+      "description": "beIN İz TV Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:iztv.tr",
+      "type": "tv",
+      "name": "İZ TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/iztv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/iztv.png",
+      "description": "İZ TV Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:niloyatv.tr",
+      "type": "tv",
+      "name": "Niloya TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/niloyatv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/niloyatv.png",
+      "description": "Niloya TV Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:pepetv.tr",
+      "type": "tv",
+      "name": "Pepee TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/pepetv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/pepetv.png",
+      "description": "Pepee TV Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:pijamamaskelilertv.tr",
+      "type": "tv",
+      "name": "Pijama Maskeliler TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/pijamamaskelilertv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/pijamamaskelilertv.png",
+      "description": "Pijama Maskeliler TV Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:pisitv.tr",
+      "type": "tv",
+      "name": "Pisi TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/pisitv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/pisitv.png",
+      "description": "Pisi TV Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:satrantv.tr",
+      "type": "tv",
+      "name": "Satranç TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/satrantv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/satrantv.png",
+      "description": "Satranç TV Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:sirinlertv.tr",
+      "type": "tv",
+      "name": "Şirinler TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sirinlertv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sirinlertv.png",
+      "description": "Şirinler TV Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:tarihtv.tr",
+      "type": "tv",
+      "name": "Tarih TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tarihtv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tarihtv.png",
+      "description": "Tarih TV Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:yabantv.tr",
+      "type": "tv",
+      "name": "Yaban TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yabantv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yabantv.png",
+      "description": "Yaban TV Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
     }
   ]
 }

@@ -1,0 +1,26 @@
+{
+  "metas": [
+    {
+      "id": "tv:disneychannel.tr",
+      "type": "tv",
+      "name": "Disney Channel",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/disneychannel.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/disneychannel.png",
+      "description": "Disney Channel Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:disneyjr.tr",
+      "type": "tv",
+      "name": "Disney Jr.",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/disneyjr.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/disneyjr.png",
+      "description": "Disney Jr. Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    }
+  ]
+}

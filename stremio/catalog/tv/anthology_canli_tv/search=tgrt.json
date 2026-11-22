@@ -1,6 +1,17 @@
 {
   "metas": [
     {
+      "id": "tv:tgrteu.tr",
+      "type": "tv",
+      "name": "TGRT EU",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tgrteu.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tgrteu.png",
+      "description": "TGRT EU Canlı [Türkçe]",
+      "genres": [
+        "Ulusal"
+      ]
+    },
+    {
       "id": "tv:TGRTHaber.tr",
       "type": "tv",
       "name": "TGRT Haber HD",
@@ -8,7 +19,18 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tgrthaber.png",
       "description": "TGRT Haber HD Canlı [Türkçe]",
       "genres": [
-        "HABER KANALLARI"
+        "Haber"
+      ]
+    },
+    {
+      "id": "tv:tgrtbelgesel.tr",
+      "type": "tv",
+      "name": "TGRT Belgesel",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tgrtbelgesel.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tgrtbelgesel.png",
+      "description": "TGRT Belgesel Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
       ]
     }
   ]

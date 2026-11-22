@@ -1,0 +1,26 @@
+{
+  "metas": [
+    {
+      "id": "tv:nationalgeographic.tr",
+      "type": "tv",
+      "name": "Nat Geo",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nationalgeographic.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nationalgeographic.png",
+      "description": "Nat Geo Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:natgeowild.tr",
+      "type": "tv",
+      "name": "Nat Geo Wild",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/natgeowild.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/natgeowild.png",
+      "description": "Nat Geo Wild Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    }
+  ]
+}

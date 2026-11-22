@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:beinseriesvice.tr",
+    "type": "tv",
+    "name": "beIN Series Vice",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseriesvice.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseriesvice.png",
+    "description": "beIN Series Vice Canlı [Türkçe]",
+    "genres": [
+      "Sinema"
+    ],
+    "videos": [
+      {
+        "id": "tv:beinseriesvice.tr",
+        "title": "beIN Series Vice"
+      }
+    ]
+  }
+}

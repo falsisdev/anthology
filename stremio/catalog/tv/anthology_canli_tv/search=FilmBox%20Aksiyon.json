@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:filmboxaksiyon.tr",
+      "type": "tv",
+      "name": "FilmBox Aksiyon",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/filmboxaksiyon.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/filmboxaksiyon.png",
+      "description": "FilmBox Aksiyon Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

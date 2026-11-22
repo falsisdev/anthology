@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:sinevizyon5.tr",
+      "type": "tv",
+      "name": "Sinevizyon 5",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinevizyon5.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinevizyon5.png",
+      "description": "Sinevizyon 5 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

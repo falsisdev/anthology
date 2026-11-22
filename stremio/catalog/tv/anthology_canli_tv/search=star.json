@@ -8,7 +8,29 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/startv.png",
       "description": "Star TV HD Canlı [Türkçe]",
       "genres": [
-        "ULUSAL KANALLAR"
+        "Ulusal"
+      ]
+    },
+    {
+      "id": "tv:eurostar.tr",
+      "type": "tv",
+      "name": "Euro Star",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurostar.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurostar.png",
+      "description": "Euro Star Canlı [Türkçe]",
+      "genres": [
+        "Ulusal"
+      ]
+    },
+    {
+      "id": "tv:maxstarwars.tr",
+      "type": "tv",
+      "name": "Max Star Wars",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxstarwars.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxstarwars.png",
+      "description": "Max Star Wars Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
       ]
     }
   ]

@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:fixcinemamacera.tr",
+    "type": "tv",
+    "name": "Fix Cinema Macera",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemamacera.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemamacera.png",
+    "description": "Fix Cinema Macera Canlı [Türkçe]",
+    "genres": [
+      "Sinema"
+    ],
+    "videos": [
+      {
+        "id": "tv:fixcinemamacera.tr",
+        "title": "Fix Cinema Macera"
+      }
+    ]
+  }
+}

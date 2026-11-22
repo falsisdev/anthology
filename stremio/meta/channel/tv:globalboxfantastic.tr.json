@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:globalboxfantastic.tr",
+    "type": "tv",
+    "name": "Global Box Fantastic",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxfantastic.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxfantastic.png",
+    "description": "Global Box Fantastic Canlı [Türkçe]",
+    "genres": [
+      "Sinema"
+    ],
+    "videos": [
+      {
+        "id": "tv:globalboxfantastic.tr",
+        "title": "Global Box Fantastic"
+      }
+    ]
+  }
+}

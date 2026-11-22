@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:mercantv.tr",
+    "type": "tv",
+    "name": "Mercan TV",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/mercantv.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/mercantv.png",
+    "description": "Mercan TV Canlı [Türkçe]",
+    "genres": [
+      "Yerel"
+    ],
+    "videos": [
+      {
+        "id": "tv:mercantv.tr",
+        "title": "Mercan TV"
+      }
+    ]
+  }
+}

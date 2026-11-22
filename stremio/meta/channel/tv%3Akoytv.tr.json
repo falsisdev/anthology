@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:koytv.tr",
+    "type": "tv",
+    "name": "Köy TV",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/koytv.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/koytv.png",
+    "description": "Köy TV Canlı [Türkçe]",
+    "genres": [
+      "Yerel"
+    ],
+    "videos": [
+      {
+        "id": "tv:koytv.tr",
+        "title": "Köy TV"
+      }
+    ]
+  }
+}

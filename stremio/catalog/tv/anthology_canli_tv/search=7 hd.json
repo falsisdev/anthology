@@ -8,7 +8,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png",
       "description": "Kanal 7 HD Canlı [Türkçe]",
       "genres": [
-        "ULUSAL KANALLAR"
+        "Ulusal"
       ]
     },
     {
@@ -19,7 +19,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
       "description": "Exxen Sports 7 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     },
     {
@@ -30,7 +30,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
       "description": "Tabii Spor 7 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     }
   ]

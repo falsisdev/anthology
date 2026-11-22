@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:fixcinemaaction.tr",
+      "type": "tv",
+      "name": "Fix Cinema Action",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemaaction.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemaaction.png",
+      "description": "Fix Cinema Action Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

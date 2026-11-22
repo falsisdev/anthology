@@ -8,7 +8,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
       "description": "BeIN Sports 1 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     },
     {
@@ -19,7 +19,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
       "description": "BeIN Sports 2 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     },
     {
@@ -30,7 +30,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
       "description": "BeIN Sports 3 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     },
     {
@@ -41,7 +41,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
       "description": "BeIN Sports 4 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     },
     {
@@ -52,7 +52,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
       "description": "BeIN Sports 5 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     },
     {
@@ -63,7 +63,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
       "description": "BeIN Sports Max 1 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     },
     {
@@ -74,7 +74,216 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
       "description": "BeIN Sports Max 2 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:beinsportshaber.tr",
+      "type": "tv",
+      "name": "beIN Sports Haber",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsportshaber.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsportshaber.png",
+      "description": "beIN Sports Haber Canlı [Türkçe]",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:beinboxoffice1.tr",
+      "type": "tv",
+      "name": "beIN Box Office 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinboxoffice1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinboxoffice1.png",
+      "description": "beIN Box Office 1 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinboxoffice3.tr",
+      "type": "tv",
+      "name": "beIN Box Office 3",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinboxoffice3.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinboxoffice3.png",
+      "description": "beIN Box Office 3 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinmoviesaction.tr",
+      "type": "tv",
+      "name": "beIN Movies Action",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesaction.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesaction.png",
+      "description": "beIN Movies Action Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinmoviesaction2.tr",
+      "type": "tv",
+      "name": "beIN Movies Action 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesaction2.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesaction2.png",
+      "description": "beIN Movies Action 2 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinmoviesfamily.tr",
+      "type": "tv",
+      "name": "beIN Movies Family",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesfamily.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesfamily.png",
+      "description": "beIN Movies Family Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinmoviespremiere.tr",
+      "type": "tv",
+      "name": "beIN Movies Premiere",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviespremiere.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviespremiere.png",
+      "description": "beIN Movies Premiere Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinmoviespremiere2.tr",
+      "type": "tv",
+      "name": "beIN Movies Premiere 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviespremiere2.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviespremiere2.png",
+      "description": "beIN Movies Premiere 2 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinmoviesstars.tr",
+      "type": "tv",
+      "name": "beIN Movies Stars",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesstars.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesstars.png",
+      "description": "beIN Movies Stars Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinmoviesturk.tr",
+      "type": "tv",
+      "name": "beIN Movies Türk",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesturk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesturk.png",
+      "description": "beIN Movies Türk Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinseries2.tr",
+      "type": "tv",
+      "name": "beIN Series 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseries2.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseries2.png",
+      "description": "beIN Series 2 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinseries3.tr",
+      "type": "tv",
+      "name": "beIN Series 3",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseries3.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseries3.png",
+      "description": "beIN Series 3 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinseries4.tr",
+      "type": "tv",
+      "name": "beIN Series 4",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseries4.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseries4.png",
+      "description": "beIN Series 4 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinseriescomedy.tr",
+      "type": "tv",
+      "name": "beIN Series Comedy",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseriescomedy.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseriescomedy.png",
+      "description": "beIN Series Comedy Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinseriesdrama.tr",
+      "type": "tv",
+      "name": "beIN Series Drama",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseriesdrama.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseriesdrama.png",
+      "description": "beIN Series Drama Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinseriesscifi.tr",
+      "type": "tv",
+      "name": "beIN Series Sci-fi",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseriesscifi.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseriesscifi.png",
+      "description": "beIN Series Sci-fi Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinseriesvice.tr",
+      "type": "tv",
+      "name": "beIN Series Vice",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseriesvice.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseriesvice.png",
+      "description": "beIN Series Vice Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beingurme.tr",
+      "type": "tv",
+      "name": "beIN Gurme",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beingurme.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beingurme.png",
+      "description": "beIN Gurme Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:beiniz.tr",
+      "type": "tv",
+      "name": "beIN İz TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beiniz.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beiniz.png",
+      "description": "beIN İz TV Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
       ]
     }
   ]

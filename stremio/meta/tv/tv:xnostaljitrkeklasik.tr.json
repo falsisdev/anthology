@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:xnostaljitrkeklasik.tr",
+    "type": "tv",
+    "name": "Nostalji Türkçe Klasik",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/xnostaljitrkeklasik.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/xnostaljitrkeklasik.png",
+    "description": "Nostalji Türkçe Klasik Canlı [Türkçe]",
+    "genres": [
+      "Sinema"
+    ],
+    "videos": [
+      {
+        "id": "tv:xnostaljitrkeklasik.tr",
+        "title": "Nostalji Türkçe Klasik"
+      }
+    ]
+  }
+}

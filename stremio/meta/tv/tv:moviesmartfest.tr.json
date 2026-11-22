@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:moviesmartfest.tr",
+    "type": "tv",
+    "name": "MovieSmart Fest",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/moviesmartfest.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/moviesmartfest.png",
+    "description": "MovieSmart Fest Canlı [Türkçe]",
+    "genres": [
+      "Sinema"
+    ],
+    "videos": [
+      {
+        "id": "tv:moviesmartfest.tr",
+        "title": "MovieSmart Fest"
+      }
+    ]
+  }
+}

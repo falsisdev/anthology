@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:vizyon58.tr",
+      "type": "tv",
+      "name": "Vizyon 58 (Sivas)",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/vizyon58.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/vizyon58.png",
+      "description": "Vizyon 58 (Sivas) Canlı [Türkçe]",
+      "genres": [
+        "Yerel"
+      ]
+    }
+  ]
+}

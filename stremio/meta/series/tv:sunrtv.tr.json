@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:sunrtv.tr",
+    "type": "tv",
+    "name": "Sun TV",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sunrtv.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sunrtv.png",
+    "description": "Sun TV Canlı [Türkçe]",
+    "genres": [
+      "Yerel"
+    ],
+    "videos": [
+      {
+        "id": "tv:sunrtv.tr",
+        "title": "Sun TV"
+      }
+    ]
+  }
+}

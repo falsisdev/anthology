@@ -274,6 +274,116 @@
       "genres": [
         "Ulusal"
       ]
+    },
+    {
+      "id": "tv:atvavrupa.tr",
+      "type": "tv",
+      "name": "ATV Avrupa",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/atvavrupa.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/atvavrupa.png",
+      "description": "ATV Avrupa Canlı [Türkçe]",
+      "genres": [
+        "Ulusal"
+      ]
+    },
+    {
+      "id": "tv:edessatv.tr",
+      "type": "tv",
+      "name": "Edessa TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/edessatv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/edessatv.png",
+      "description": "Edessa TV Canlı [Türkçe]",
+      "genres": [
+        "Ulusal"
+      ]
+    },
+    {
+      "id": "tv:eurostar.tr",
+      "type": "tv",
+      "name": "Euro Star",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurostar.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurostar.png",
+      "description": "Euro Star Canlı [Türkçe]",
+      "genres": [
+        "Ulusal"
+      ]
+    },
+    {
+      "id": "tv:flashtv.tr",
+      "type": "tv",
+      "name": "Flash TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/flashtv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/flashtv.png",
+      "description": "Flash TV Canlı [Türkçe]",
+      "genres": [
+        "Ulusal"
+      ]
+    },
+    {
+      "id": "tv:kozatv.tr",
+      "type": "tv",
+      "name": "Koza TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kozatv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kozatv.png",
+      "description": "Koza TV Canlı [Türkçe]",
+      "genres": [
+        "Ulusal"
+      ]
+    },
+    {
+      "id": "tv:showturk.tr",
+      "type": "tv",
+      "name": "Show Türk",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/showturk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/showturk.png",
+      "description": "Show Türk Canlı [Türkçe]",
+      "genres": [
+        "Ulusal"
+      ]
+    },
+    {
+      "id": "tv:tgrteu.tr",
+      "type": "tv",
+      "name": "TGRT EU",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tgrteu.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tgrteu.png",
+      "description": "TGRT EU Canlı [Türkçe]",
+      "genres": [
+        "Ulusal"
+      ]
+    },
+    {
+      "id": "tv:trt4k.tr",
+      "type": "tv",
+      "name": "TRT 4K",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt4k.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt4k.png",
+      "description": "TRT 4K Canlı [Türkçe]",
+      "genres": [
+        "Ulusal"
+      ]
+    },
+    {
+      "id": "tv:tv8int.tr",
+      "type": "tv",
+      "name": "TV 8 Int",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv8int.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv8int.png",
+      "description": "TV 8 Int Canlı [Türkçe]",
+      "genres": [
+        "Ulusal"
+      ]
+    },
+    {
+      "id": "tv:viyanatv.tr",
+      "type": "tv",
+      "name": "Viyana TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/viyanatv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/viyanatv.png",
+      "description": "Viyana TV Canlı [Türkçe]",
+      "genres": [
+        "Ulusal"
+      ]
     }
   ]
 }

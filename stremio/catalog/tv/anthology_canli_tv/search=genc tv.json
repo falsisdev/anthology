@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:kibrisgenctv.tr",
+      "type": "tv",
+      "name": "Kıbrıs Genç TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kibrisgenctv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kibrisgenctv.png",
+      "description": "Kıbrıs Genç TV Canlı [Türkçe]",
+      "genres": [
+        "Yerel"
+      ]
+    }
+  ]
+}

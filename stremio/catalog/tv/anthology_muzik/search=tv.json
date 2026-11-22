@@ -54,6 +54,28 @@
       "genres": [
         "Müzik & Eğlence"
       ]
+    },
+    {
+      "id": "tv:meltemtv.tr",
+      "type": "tv",
+      "name": "Meltem TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/meltemtv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/meltemtv.png",
+      "description": "Meltem TV Canlı [Türkçe]",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
+    },
+    {
+      "id": "tv:tatlisestv.tr",
+      "type": "tv",
+      "name": "Tatlıses TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tatlisestv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tatlisestv.png",
+      "description": "Tatlıses TV Canlı [Türkçe]",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
     }
   ]
 }

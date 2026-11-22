@@ -10,6 +10,127 @@
       "genres": [
         "Sinema"
       ]
+    },
+    {
+      "id": "tv:animation1.tr",
+      "type": "tv",
+      "name": "Animation 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/animation1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/animation1.png",
+      "description": "Animation 1 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinboxoffice1.tr",
+      "type": "tv",
+      "name": "beIN Box Office 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinboxoffice1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinboxoffice1.png",
+      "description": "beIN Box Office 1 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:cinemaximum1.tr",
+      "type": "tv",
+      "name": "Cinemaximum 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximum1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximum1.png",
+      "description": "Cinemaximum 1 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:enoaksiyon1.tr",
+      "type": "tv",
+      "name": "Eno Aksiyon 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enoaksiyon1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enoaksiyon1.png",
+      "description": "Eno Aksiyon 1 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:horror1.tr",
+      "type": "tv",
+      "name": "Horror 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/horror1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/horror1.png",
+      "description": "Horror 1 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:maxanimasyon1.tr",
+      "type": "tv",
+      "name": "Max Animasyon 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxanimasyon1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxanimasyon1.png",
+      "description": "Max Animasyon 1 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:proturkloca1.tr",
+      "type": "tv",
+      "name": "Proturk Loca 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkloca1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkloca1.png",
+      "description": "Proturk Loca 1 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:salon1.tr",
+      "type": "tv",
+      "name": "Salon 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/salon1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/salon1.png",
+      "description": "Salon 1 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:sinemaaksiyon1.tr",
+      "type": "tv",
+      "name": "Sinema Aksiyon 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaksiyon.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaksiyon.png",
+      "description": "Sinema Aksiyon 1 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:sinemayerli1.tr",
+      "type": "tv",
+      "name": "Sinema Yerli 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemayerli1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemayerli1.png",
+      "description": "Sinema Yerli 1 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:yesilcam1.tr",
+      "type": "tv",
+      "name": "Yeşilçam 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yesilcam1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yesilcam1.png",
+      "description": "Yeşilçam 1 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
     }
   ]
 }

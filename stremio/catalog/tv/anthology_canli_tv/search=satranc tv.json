@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:satrantv.tr",
+      "type": "tv",
+      "name": "Satranç TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/satrantv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/satrantv.png",
+      "description": "Satranç TV Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    }
+  ]
+}

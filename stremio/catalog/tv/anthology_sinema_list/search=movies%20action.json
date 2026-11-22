@@ -1,0 +1,26 @@
+{
+  "metas": [
+    {
+      "id": "tv:beinmoviesaction.tr",
+      "type": "tv",
+      "name": "beIN Movies Action",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesaction.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesaction.png",
+      "description": "beIN Movies Action Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinmoviesaction2.tr",
+      "type": "tv",
+      "name": "beIN Movies Action 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesaction2.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesaction2.png",
+      "description": "beIN Movies Action 2 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

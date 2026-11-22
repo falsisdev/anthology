@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:discoveryworld.tr",
+    "type": "tv",
+    "name": "Discovery World",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/discoveryworld.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/discoveryworld.png",
+    "description": "Discovery World Canlı [Türkçe]",
+    "genres": [
+      "Belgesel & Çocuk"
+    ],
+    "videos": [
+      {
+        "id": "tv:discoveryworld.tr",
+        "title": "Discovery World"
+      }
+    ]
+  }
+}

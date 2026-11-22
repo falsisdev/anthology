@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:kanalurfa.tr",
+    "type": "tv",
+    "name": "Kanal Urfa",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanalurfa.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanalurfa.png",
+    "description": "Kanal Urfa Canlı [Türkçe]",
+    "genres": [
+      "Yerel"
+    ],
+    "videos": [
+      {
+        "id": "tv:kanalurfa.tr",
+        "title": "Kanal Urfa"
+      }
+    ]
+  }
+}

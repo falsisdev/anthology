@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:sat7turk.tr",
+      "type": "tv",
+      "name": "Sat7 Türk",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sat7turk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sat7turk.png",
+      "description": "Sat7 Türk Canlı [Türkçe]",
+      "genres": [
+        "DİĞER KANALLAR"
+      ]
+    }
+  ]
+}

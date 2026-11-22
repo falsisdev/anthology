@@ -2,8 +2,44 @@
   "streams": [
     {
       "name": "⌜ Anthology Ulusal ⌟",
-      "title": "ATV HD [Canlı HD]",
+      "title": "ATV HD [Canlı HD · Resmi]",
       "url": "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/atv/atv.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Anthology Live · Otomatik ⌟",
+      "title": "ATV HD [1080p FHD · Ultra Hızlı]",
+      "url": "https://anthology-live.duckdns.org/live/atv.m3u8?username=anthology&password=falsisdevwashere",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Anthology Live · Mahsun Sports ⌟",
+      "title": "ATV HD [1080p HD]",
+      "url": "https://anthology-live.duckdns.org/live/atv.m3u8?username=anthology&password=falsisdevwashere&source=mahsunsports",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Anthology Live · Papaz Sports ⌟",
+      "title": "ATV HD [1080p HD]",
+      "url": "https://anthology-live.duckdns.org/live/atv.m3u8?username=anthology&password=falsisdevwashere&source=papazsports",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Accept": "*/*"

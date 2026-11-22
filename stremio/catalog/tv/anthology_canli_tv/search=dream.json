@@ -1,6 +1,17 @@
 {
   "metas": [
     {
+      "id": "tv:dreamboxaction.tr",
+      "type": "tv",
+      "name": "Dream Box Action",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dreamboxaction.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dreamboxaction.png",
+      "description": "Dream Box Action Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
       "id": "tv:DreamTurk.tr",
       "type": "tv",
       "name": "Dream Türk HD",
@@ -8,7 +19,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dreamturk.png",
       "description": "Dream Türk HD Canlı [Türkçe]",
       "genres": [
-        "MÜZİK  EĞLENCE"
+        "Müzik & Eğlence"
       ]
     }
   ]

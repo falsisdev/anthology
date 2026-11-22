@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:cinemaximum1.tr",
+    "type": "tv",
+    "name": "Cinemaximum 1",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximum1.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximum1.png",
+    "description": "Cinemaximum 1 Canlı [Türkçe]",
+    "genres": [
+      "Sinema"
+    ],
+    "videos": [
+      {
+        "id": "tv:cinemaximum1.tr",
+        "title": "Cinemaximum 1"
+      }
+    ]
+  }
+}

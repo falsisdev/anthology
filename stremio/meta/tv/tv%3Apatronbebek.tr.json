@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:patronbebek.tr",
+    "type": "tv",
+    "name": "Patron Bebek",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/patronbebek.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/patronbebek.png",
+    "description": "Patron Bebek Canlı [Türkçe]",
+    "genres": [
+      "Belgesel & Çocuk"
+    ],
+    "videos": [
+      {
+        "id": "tv:patronbebek.tr",
+        "title": "Patron Bebek"
+      }
+    ]
+  }
+}

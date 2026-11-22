@@ -1,0 +1,40 @@
+{
+  "streams": [
+    {
+      "name": "⌜ Anthology Live · Otomatik ⌟",
+      "title": "Sinema TV 2 [Kool.ws · Otomatik]",
+      "url": "https://anthology-live.duckdns.org/live/sinematv2.m3u8?username=anthology&password=falsisdevwashere",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Anthology Live · Mahsun Sports ⌟",
+      "title": "Sinema TV 2 [1080p HD]",
+      "url": "https://anthology-live.duckdns.org/live/sinematv2.m3u8?username=anthology&password=falsisdevwashere&source=mahsunsports",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Anthology Live · Papaz Sports ⌟",
+      "title": "Sinema TV 2 [1080p HD]",
+      "url": "https://anthology-live.duckdns.org/live/sinematv2.m3u8?username=anthology&password=falsisdevwashere&source=papazsports",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    }
+  ]
+}

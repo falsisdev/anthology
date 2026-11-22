@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:beinseries4.tr",
+      "type": "tv",
+      "name": "beIN Series 4",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseries4.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseries4.png",
+      "description": "beIN Series 4 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

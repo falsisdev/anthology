@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:lalegultv.tr",
+    "type": "tv",
+    "name": "Lalegül TV",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/lalegultv.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/lalegultv.png",
+    "description": "Lalegül TV Canlı [Türkçe]",
+    "genres": [
+      "DİĞER KANALLAR"
+    ],
+    "videos": [
+      {
+        "id": "tv:lalegultv.tr",
+        "title": "Lalegül TV"
+      }
+    ]
+  }
+}

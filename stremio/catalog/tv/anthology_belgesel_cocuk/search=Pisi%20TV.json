@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:pisitv.tr",
+      "type": "tv",
+      "name": "Pisi TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/pisitv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/pisitv.png",
+      "description": "Pisi TV Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    }
+  ]
+}

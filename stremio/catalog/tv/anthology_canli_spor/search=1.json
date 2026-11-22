@@ -76,6 +76,28 @@
       "genres": [
         "Spor"
       ]
+    },
+    {
+      "id": "tv:ssportplus1.tr",
+      "type": "tv",
+      "name": "S Sport Plus 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus1.png",
+      "description": "S Sport Plus 1 Canlı [Türkçe]",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:saransport1.tr",
+      "type": "tv",
+      "name": "Saran Sport 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/saransport1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/saransport1.png",
+      "description": "Saran Sport 1 Canlı [Türkçe]",
+      "genres": [
+        "Spor"
+      ]
     }
   ]
 }

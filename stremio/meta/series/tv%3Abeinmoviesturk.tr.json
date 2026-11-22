@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:beinmoviesturk.tr",
+    "type": "tv",
+    "name": "beIN Movies Türk",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesturk.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesturk.png",
+    "description": "beIN Movies Türk Canlı [Türkçe]",
+    "genres": [
+      "Sinema"
+    ],
+    "videos": [
+      {
+        "id": "tv:beinmoviesturk.tr",
+        "title": "beIN Movies Türk"
+      }
+    ]
+  }
+}

@@ -43,6 +43,17 @@
       "genres": [
         "Spor"
       ]
+    },
+    {
+      "id": "tv:ssportplus3.tr",
+      "type": "tv",
+      "name": "S Sport Plus 3",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus3.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus3.png",
+      "description": "S Sport Plus 3 Canlı [Türkçe]",
+      "genres": [
+        "Spor"
+      ]
     }
   ]
 }

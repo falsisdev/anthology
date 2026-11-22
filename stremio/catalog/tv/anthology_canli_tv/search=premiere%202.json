@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:beinmoviespremiere2.tr",
+      "type": "tv",
+      "name": "beIN Movies Premiere 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviespremiere2.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviespremiere2.png",
+      "description": "beIN Movies Premiere 2 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:fixcinemakorku.tr",
+    "type": "tv",
+    "name": "Fix Cinema Korku",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemakorku.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemakorku.png",
+    "description": "Fix Cinema Korku Canlı [Türkçe]",
+    "genres": [
+      "Sinema"
+    ],
+    "videos": [
+      {
+        "id": "tv:fixcinemakorku.tr",
+        "title": "Fix Cinema Korku"
+      }
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "metas": [
+    {
+      "id": "tv:enovizyon5.tr",
+      "type": "tv",
+      "name": "Eno Vizyon 5",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enovizyon5.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enovizyon5.png",
+      "description": "Eno Vizyon 5 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:sinevizyon5.tr",
+      "type": "tv",
+      "name": "Sinevizyon 5",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinevizyon5.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinevizyon5.png",
+      "description": "Sinevizyon 5 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:sinevizyonturk5.tr",
+      "type": "tv",
+      "name": "Sinevizyon Türk 5",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinevizyonturk5.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinevizyonturk5.png",
+      "description": "Sinevizyon Türk 5 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

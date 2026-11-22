@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:ekoltv.tr",
+      "type": "tv",
+      "name": "Ekol TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ekoltv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ekoltv.png",
+      "description": "Ekol TV Canlı [Türkçe]",
+      "genres": [
+        "Haber"
+      ]
+    }
+  ]
+}

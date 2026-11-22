@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:horror2.tr",
+      "type": "tv",
+      "name": "Horror 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/horror2.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/horror2.png",
+      "description": "Horror 2 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

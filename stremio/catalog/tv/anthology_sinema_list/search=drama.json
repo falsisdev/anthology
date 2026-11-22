@@ -1,0 +1,26 @@
+{
+  "metas": [
+    {
+      "id": "tv:beinseriesdrama.tr",
+      "type": "tv",
+      "name": "beIN Series Drama",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseriesdrama.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseriesdrama.png",
+      "description": "beIN Series Drama Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:epicdrama.tr",
+      "type": "tv",
+      "name": "Epic Drama",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/epicdrama.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/epicdrama.png",
+      "description": "Epic Drama Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

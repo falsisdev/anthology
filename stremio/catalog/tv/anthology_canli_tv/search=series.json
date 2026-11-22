@@ -1,0 +1,81 @@
+{
+  "metas": [
+    {
+      "id": "tv:beinseries2.tr",
+      "type": "tv",
+      "name": "beIN Series 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseries2.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseries2.png",
+      "description": "beIN Series 2 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinseries3.tr",
+      "type": "tv",
+      "name": "beIN Series 3",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseries3.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseries3.png",
+      "description": "beIN Series 3 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinseries4.tr",
+      "type": "tv",
+      "name": "beIN Series 4",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseries4.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseries4.png",
+      "description": "beIN Series 4 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinseriescomedy.tr",
+      "type": "tv",
+      "name": "beIN Series Comedy",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseriescomedy.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseriescomedy.png",
+      "description": "beIN Series Comedy Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinseriesdrama.tr",
+      "type": "tv",
+      "name": "beIN Series Drama",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseriesdrama.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseriesdrama.png",
+      "description": "beIN Series Drama Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinseriesscifi.tr",
+      "type": "tv",
+      "name": "beIN Series Sci-fi",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseriesscifi.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseriesscifi.png",
+      "description": "beIN Series Sci-fi Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinseriesvice.tr",
+      "type": "tv",
+      "name": "beIN Series Vice",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseriesvice.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseriesvice.png",
+      "description": "beIN Series Vice Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

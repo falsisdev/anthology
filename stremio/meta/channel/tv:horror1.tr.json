@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:horror1.tr",
+    "type": "tv",
+    "name": "Horror 1",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/horror1.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/horror1.png",
+    "description": "Horror 1 Canlı [Türkçe]",
+    "genres": [
+      "Sinema"
+    ],
+    "videos": [
+      {
+        "id": "tv:horror1.tr",
+        "title": "Horror 1"
+      }
+    ]
+  }
+}

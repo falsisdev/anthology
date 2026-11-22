@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:zonguldakkanalz.tr",
+    "type": "tv",
+    "name": "Zonguldak Kanal Z",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/zonguldakkanalz.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/zonguldakkanalz.png",
+    "description": "Zonguldak Kanal Z Canlı [Türkçe]",
+    "genres": [
+      "Yerel"
+    ],
+    "videos": [
+      {
+        "id": "tv:zonguldakkanalz.tr",
+        "title": "Zonguldak Kanal Z"
+      }
+    ]
+  }
+}

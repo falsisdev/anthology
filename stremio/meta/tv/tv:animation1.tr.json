@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:animation1.tr",
+    "type": "tv",
+    "name": "Animation 1",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/animation1.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/animation1.png",
+    "description": "Animation 1 Canlı [Türkçe]",
+    "genres": [
+      "Sinema"
+    ],
+    "videos": [
+      {
+        "id": "tv:animation1.tr",
+        "title": "Animation 1"
+      }
+    ]
+  }
+}

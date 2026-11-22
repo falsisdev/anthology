@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:sezenaksu.tr",
+      "type": "tv",
+      "name": "Sezen Aksu",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sezenaksu.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sezenaksu.png",
+      "description": "Sezen Aksu Canlı [Türkçe]",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
+    }
+  ]
+}

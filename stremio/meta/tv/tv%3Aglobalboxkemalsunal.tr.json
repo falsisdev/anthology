@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:globalboxkemalsunal.tr",
+    "type": "tv",
+    "name": "Global Box Kemal Sunal",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxkemalsunal.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxkemalsunal.png",
+    "description": "Global Box Kemal Sunal Canlı [Türkçe]",
+    "genres": [
+      "Sinema"
+    ],
+    "videos": [
+      {
+        "id": "tv:globalboxkemalsunal.tr",
+        "title": "Global Box Kemal Sunal"
+      }
+    ]
+  }
+}

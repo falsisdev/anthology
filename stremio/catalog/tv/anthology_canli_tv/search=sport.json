@@ -8,7 +8,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cbcsport.png",
       "description": "CBC Sport HD Canlı [Azerbaycan Türkçesi]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     },
     {
@@ -19,7 +19,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssport.png",
       "description": "S Sport HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     },
     {
@@ -30,7 +30,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssport.png",
       "description": "S Sport 2 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     },
     {
@@ -41,7 +41,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssport.png",
       "description": "S Sport Plus HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     },
     {
@@ -52,7 +52,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurosport.png",
       "description": "Euro Sport 1 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     },
     {
@@ -63,7 +63,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurosport.png",
       "description": "Euro Sport 2 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     },
     {
@@ -74,7 +74,84 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportfishingtv.png",
       "description": "Sport Fishing TV HD Canlı [İngilizce]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:ssportplus1.tr",
+      "type": "tv",
+      "name": "S Sport Plus 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus1.png",
+      "description": "S Sport Plus 1 Canlı [Türkçe]",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:ssportplus2.tr",
+      "type": "tv",
+      "name": "S Sport Plus 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus2.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus2.png",
+      "description": "S Sport Plus 2 Canlı [Türkçe]",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:ssportplus3.tr",
+      "type": "tv",
+      "name": "S Sport Plus 3",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus3.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus3.png",
+      "description": "S Sport Plus 3 Canlı [Türkçe]",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:ssportplus4.tr",
+      "type": "tv",
+      "name": "S Sport Plus 4",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus4.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus4.png",
+      "description": "S Sport Plus 4 Canlı [Türkçe]",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:ssportplus5.tr",
+      "type": "tv",
+      "name": "S Sport Plus 5",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus5.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus5.png",
+      "description": "S Sport Plus 5 Canlı [Türkçe]",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:ssportplus9.tr",
+      "type": "tv",
+      "name": "S Sport Plus 9",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus9.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus9.png",
+      "description": "S Sport Plus 9 Canlı [Türkçe]",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:saransport1.tr",
+      "type": "tv",
+      "name": "Saran Sport 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/saransport1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/saransport1.png",
+      "description": "Saran Sport 1 Canlı [Türkçe]",
+      "genres": [
+        "Spor"
       ]
     }
   ]

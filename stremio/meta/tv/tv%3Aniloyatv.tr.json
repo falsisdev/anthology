@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:niloyatv.tr",
+    "type": "tv",
+    "name": "Niloya TV",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/niloyatv.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/niloyatv.png",
+    "description": "Niloya TV Canlı [Türkçe]",
+    "genres": [
+      "Belgesel & Çocuk"
+    ],
+    "videos": [
+      {
+        "id": "tv:niloyatv.tr",
+        "title": "Niloya TV"
+      }
+    ]
+  }
+}

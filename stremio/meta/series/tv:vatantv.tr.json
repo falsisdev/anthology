@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:vatantv.tr",
+    "type": "tv",
+    "name": "Vatan TV",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/vatantv.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/vatantv.png",
+    "description": "Vatan TV Canlı [Türkçe]",
+    "genres": [
+      "Yerel"
+    ],
+    "videos": [
+      {
+        "id": "tv:vatantv.tr",
+        "title": "Vatan TV"
+      }
+    ]
+  }
+}

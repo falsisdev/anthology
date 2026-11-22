@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:sinemaxcomedi.tr",
+      "type": "tv",
+      "name": "Sinemax Komedi",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaxcomedi.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaxcomedi.png",
+      "description": "Sinemax Komedi Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

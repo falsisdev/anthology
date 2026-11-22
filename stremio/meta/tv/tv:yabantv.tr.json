@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:yabantv.tr",
+    "type": "tv",
+    "name": "Yaban TV",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yabantv.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yabantv.png",
+    "description": "Yaban TV Canlı [Türkçe]",
+    "genres": [
+      "Belgesel & Çocuk"
+    ],
+    "videos": [
+      {
+        "id": "tv:yabantv.tr",
+        "title": "Yaban TV"
+      }
+    ]
+  }
+}

@@ -8,7 +8,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trthaber.png",
       "description": "TRT Haber HD Canlı [Türkçe]",
       "genres": [
-        "HABER KANALLARI"
+        "Haber"
       ]
     },
     {
@@ -19,7 +19,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ntv.png",
       "description": "NTV Haber HD Canlı [Türkçe]",
       "genres": [
-        "HABER KANALLARI"
+        "Haber"
       ]
     },
     {
@@ -30,7 +30,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ahaber.png",
       "description": "A Haber HD Canlı [Türkçe]",
       "genres": [
-        "HABER KANALLARI"
+        "Haber"
       ]
     },
     {
@@ -41,7 +41,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tgrthaber.png",
       "description": "TGRT Haber HD Canlı [Türkçe]",
       "genres": [
-        "HABER KANALLARI"
+        "Haber"
       ]
     }
   ]

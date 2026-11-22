@@ -1,0 +1,26 @@
+{
+  "metas": [
+    {
+      "id": "tv:sinemakomedi.tr",
+      "type": "tv",
+      "name": "Sinema Komedi",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemakomedi.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemakomedi.png",
+      "description": "Sinema Komedi Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:sinemaxcomedi.tr",
+      "type": "tv",
+      "name": "Sinemax Komedi",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaxcomedi.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaxcomedi.png",
+      "description": "Sinemax Komedi Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

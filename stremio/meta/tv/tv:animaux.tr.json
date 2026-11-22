@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:animaux.tr",
+    "type": "tv",
+    "name": "Animaux",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/animaux.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/animaux.png",
+    "description": "Animaux Canlı [Türkçe]",
+    "genres": [
+      "Belgesel & Çocuk"
+    ],
+    "videos": [
+      {
+        "id": "tv:animaux.tr",
+        "title": "Animaux"
+      }
+    ]
+  }
+}

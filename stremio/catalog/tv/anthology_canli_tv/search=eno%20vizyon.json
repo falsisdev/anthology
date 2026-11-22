@@ -1,0 +1,48 @@
+{
+  "metas": [
+    {
+      "id": "tv:enovizyon11.tr",
+      "type": "tv",
+      "name": "Eno Vizyon 11",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enovizyon11.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enovizyon11.png",
+      "description": "Eno Vizyon 11 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:enovizyon14.tr",
+      "type": "tv",
+      "name": "Eno Vizyon 14",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enovizyon14.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enovizyon14.png",
+      "description": "Eno Vizyon 14 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:enovizyon15.tr",
+      "type": "tv",
+      "name": "Eno Vizyon 15",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enovizyon15.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enovizyon15.png",
+      "description": "Eno Vizyon 15 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:enovizyon5.tr",
+      "type": "tv",
+      "name": "Eno Vizyon 5",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enovizyon5.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enovizyon5.png",
+      "description": "Eno Vizyon 5 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

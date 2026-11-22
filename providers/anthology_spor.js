@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: anthology_spor
  * Built from src/anthology_spor/index.js
- * Build: v1.8.39 (anthology build system)
+ * Build: v1.8.40 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -535,7 +535,9 @@ var require_sport_engine = __commonJS({
       if (k.indexOf("idman") !== -1) return SPORT_MAP["idmantv"];
       if (k.indexOf("exxen") !== -1) return SPORT_MAP["exxentv"];
       for (var mk in SPORT_MAP) {
-        if (k.indexOf(mk) === 0 || mk.indexOf(k) === 0) return SPORT_MAP[mk];
+        if (mk.length >= 4 && k.indexOf(mk) === 0 && (k === mk || !/^\d/.test(k.slice(mk.length)))) {
+          return SPORT_MAP[mk];
+        }
       }
       return null;
     }
@@ -796,9 +798,10 @@ var require_sport_engine = __commonJS({
       if (/^beinsport?5/i.test(cleaned)) return "beinsports5";
       if (/^beinsport?max1/i.test(cleaned)) return "beinsportsmax1";
       if (/^beinsport?max2/i.test(cleaned)) return "beinsportsmax2";
-      if (/^ssport1?$/i.test(cleaned)) return "ssport1";
-      if (/^ssport2/i.test(cleaned)) return "ssport2";
-      if (/^ssportplus/i.test(cleaned)) return "ssportplus";
+      if (/^ssport1?$/i.test(cleaned)) return "ssport";
+      if (/^ssport2$/i.test(cleaned)) return "ssport2";
+      if (/^ssportplus$/i.test(cleaned)) return "ssportplus";
+      if (/^(?:24|24tv|kanal24)$/i.test(cleaned)) return "kanal24";
       if (/^tivibu(spor)?1?$/i.test(cleaned)) return "tivibuspor1";
       if (/^tivibu(spor)?2/i.test(cleaned)) return "tivibuspor2";
       if (/^tivibu(spor)?3/i.test(cleaned)) return "tivibuspor3";
@@ -827,9 +830,16 @@ var require_sport_engine = __commonJS({
       if (/^tabii(spor)?8$/i.test(cleaned)) return "tabiispor8";
       return cleaned;
     }
+    var _sourcesCache = {};
+    var _SOURCES_TTL = 3e5;
     function fetchAnthologyLiveSources(canonicalKey) {
       return __async(this, null, function* () {
         if (!canonicalKey) return null;
+        var now = Date.now();
+        var cached = _sourcesCache[canonicalKey];
+        if (cached && now - cached.at < _SOURCES_TTL) {
+          return cached.data;
+        }
         var sourcesUrl = ANTHOLOGY_LIVE_BASE + "/api/sources?channel=" + encodeURIComponent(canonicalKey);
         try {
           var fetchPromise = fetch(sourcesUrl, { headers: _HEADERS2 }).then(function(res) {
@@ -837,12 +847,70 @@ var require_sport_engine = __commonJS({
             return null;
           });
           var sources = yield withTimeout(fetchPromise, 2500);
-          if (Array.isArray(sources) && sources.length > 0) {
+          if (Array.isArray(sources)) {
+            _sourcesCache[canonicalKey] = { at: now, data: sources };
             return sources;
           }
         } catch (e) {
         }
         return null;
+      });
+    }
+    function buildAnthologyLiveStreamEntry(src, canonicalKey, chTitle, authQuery) {
+      var streamUrl = ANTHOLOGY_LIVE_BASE + "/live/" + canonicalKey + ".m3u8?" + authQuery;
+      if (src.id !== "auto") {
+        streamUrl += "&source=" + encodeURIComponent(src.id);
+      }
+      var cleanName = (src.name || src.id).replace(/[⚡️📡🛡🌐]/g, "").trim();
+      var displayProvider = "\u231C Anthology Live \xB7 " + cleanName + " \u231F";
+      var displayTitle = chTitle + " [1080p FHD]";
+      if (src.id === "auto") {
+        displayProvider = "\u231C Anthology Live \xB7 Otomatik \u231F";
+        displayTitle = chTitle + " [1080p FHD \xB7 Ultra H\u0131zl\u0131]";
+      } else if (src.id === "kool1") {
+        displayProvider = "\u231C Anthology Live \xB7 Kool S1 \u231F";
+        displayTitle = chTitle + " [Kool.ws \xB7 Sunucu 1]";
+      } else if (src.id === "kool6") {
+        displayProvider = "\u231C Anthology Live \xB7 Kool S6 \u231F";
+        displayTitle = chTitle + " [Kool.ws \xB7 Sunucu 6]";
+      } else if (src.id === "kool7") {
+        displayProvider = "\u231C Anthology Live \xB7 Kool S7 \u231F";
+        displayTitle = chTitle + " [Kool.ws \xB7 Sunucu 7]";
+      } else if (src.id === "mahsunsports" || src.id === "papazsports") {
+        displayTitle = chTitle + " [1080p HD]";
+      }
+      return makeStream2(
+        displayProvider,
+        displayTitle,
+        streamUrl,
+        {
+          "User-Agent": _HEADERS2["User-Agent"],
+          "Accept": "*/*"
+        }
+      );
+    }
+    function resolveAnthologyLiveStreams(channelIdOrName, fallbackTitle, opts) {
+      return __async(this, null, function* () {
+        yield initSportConfig2();
+        opts = opts || {};
+        if (opts.isSport) {
+          return resolveMultiSportStreams2(channelIdOrName, fallbackTitle);
+        }
+        var canonicalKey = extractCanonicalKey(channelIdOrName);
+        var chTitle = fallbackTitle || String(channelIdOrName).toUpperCase();
+        var authQuery = "username=" + encodeURIComponent(ANTHOLOGY_LIVE_USER) + "&password=" + encodeURIComponent(ANTHOLOGY_LIVE_PASS);
+        var liveSources = yield fetchAnthologyLiveSources(canonicalKey);
+        if (!Array.isArray(liveSources) || liveSources.length === 0) {
+          return [];
+        }
+        var streams = [];
+        for (var i = 0; i < liveSources.length; i++) {
+          var src = liveSources[i];
+          if (!src || !src.id || src.available === false) continue;
+          if (src.id === "direct" || src.id === "backup") continue;
+          streams.push(buildAnthologyLiveStreamEntry(src, canonicalKey, chTitle, authQuery));
+        }
+        return streams;
       });
     }
     function resolveMultiSportStreams2(channelIdOrName, fallbackTitle) {
@@ -871,21 +939,7 @@ var require_sport_engine = __commonJS({
           for (var i = 0; i < liveSources.length; i++) {
             var src = liveSources[i];
             if (!src || !src.id || src.available === false) continue;
-            var streamUrl = ANTHOLOGY_LIVE_BASE + "/live/" + canonicalKey + ".m3u8?" + authQuery;
-            if (src.id !== "auto") {
-              streamUrl += "&source=" + encodeURIComponent(src.id);
-            }
-            var cleanName = (src.name || src.id).replace(/[⚡️📡🛡]/g, "").trim();
-            var qualityBadge = src.id === "auto" ? "[1080p FHD \xB7 Ultra H\u0131zl\u0131]" : src.id === "mahsunsports" || src.id === "papazsports" ? "[1080p HD]" : "[1080p FHD]";
-            streams.push(makeStream2(
-              "\u231C Anthology Live \xB7 " + cleanName + " \u231F",
-              chTitle + " " + qualityBadge,
-              streamUrl,
-              {
-                "User-Agent": _HEADERS2["User-Agent"],
-                "Accept": "*/*"
-              }
-            ));
+            streams.push(buildAnthologyLiveStreamEntry(src, canonicalKey, chTitle, authQuery));
           }
         }
         if (streams.length === 0 && map) {
@@ -916,6 +970,7 @@ var require_sport_engine = __commonJS({
       fetchMahsunStream,
       fetchPapazStream,
       resolveMultiSportStreams: resolveMultiSportStreams2,
+      resolveAnthologyLiveStreams,
       makeStream: makeStream2
     };
   }
@@ -1110,15 +1165,20 @@ function getStreams(args) {
       var channels = parseSportChannels(content);
       var searchKey = cleanKey(targetId.replace(/^tv:/, ""));
       var matched = null;
+      var fallbackMatched = null;
       for (var i = 0; i < channels.length; i++) {
         var ch = channels[i];
         var cId = cleanKey(ch.id.replace(/^tv:/, ""));
         var cName = cleanKey(ch.name);
-        if (cId === searchKey || cName === searchKey || searchKey.length >= 4 && cName.length >= 4 && (cName.includes(searchKey) || searchKey.includes(cName))) {
+        if (cId === searchKey || cName === searchKey) {
           matched = ch;
           break;
         }
+        if (!fallbackMatched && searchKey.length >= 4 && cName.length >= 4 && (cName.includes(searchKey) || searchKey.includes(cName))) {
+          fallbackMatched = ch;
+        }
       }
+      if (!matched) matched = fallbackMatched;
       var chTitle = matched && matched.name || searchKey.toUpperCase();
       var streams = yield resolveMultiSportStreams(searchKey || chTitle, chTitle);
       if (matched && matched.url) {
@@ -1126,7 +1186,13 @@ function getStreams(args) {
           return s.url === matched.url;
         });
         if (!alreadyPresent) {
-          streams.push(makeStream("\u231C Anthology Spor \u231F", matched.name + " [Canl\u0131]", matched.url, _HEADERS));
+          var isLiveProxy = matched.url.indexOf("/live/") !== -1 && matched.url.indexOf("anthology-live") !== -1;
+          streams.push(makeStream(
+            isLiveProxy ? "\u231C Anthology Live \xB7 Otomatik \u231F" : "\u231C Anthology Spor \u231F",
+            matched.name + (isLiveProxy ? " [Kool.ws \xB7 Otomatik]" : " [Canl\u0131]"),
+            matched.url,
+            _HEADERS
+          ));
         }
       }
       if (matched && matched.srcs) {

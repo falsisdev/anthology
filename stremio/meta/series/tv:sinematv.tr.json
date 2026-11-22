@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:sinematv.tr",
+    "type": "tv",
+    "name": "Sinema TV",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinematv.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinematv.png",
+    "description": "Sinema TV Canlı [Türkçe]",
+    "genres": [
+      "Sinema"
+    ],
+    "videos": [
+      {
+        "id": "tv:sinematv.tr",
+        "title": "Sinema TV"
+      }
+    ]
+  }
+}

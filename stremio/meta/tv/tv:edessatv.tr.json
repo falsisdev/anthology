@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:edessatv.tr",
+    "type": "tv",
+    "name": "Edessa TV",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/edessatv.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/edessatv.png",
+    "description": "Edessa TV Canlı [Türkçe]",
+    "genres": [
+      "Ulusal"
+    ],
+    "videos": [
+      {
+        "id": "tv:edessatv.tr",
+        "title": "Edessa TV"
+      }
+    ]
+  }
+}

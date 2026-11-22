@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:max.tr",
+      "type": "tv",
+      "name": "Max",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/max.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/max.png",
+      "description": "Max Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

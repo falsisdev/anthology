@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:erzurumwebtv.tr",
+      "type": "tv",
+      "name": "Erzurum Web TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/erzurumwebtv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/erzurumwebtv.png",
+      "description": "Erzurum Web TV Canlı [Türkçe]",
+      "genres": [
+        "Yerel"
+      ]
+    }
+  ]
+}

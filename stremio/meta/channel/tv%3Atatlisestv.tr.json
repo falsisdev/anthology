@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:tatlisestv.tr",
+    "type": "tv",
+    "name": "Tatlıses TV",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tatlisestv.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tatlisestv.png",
+    "description": "Tatlıses TV Canlı [Türkçe]",
+    "genres": [
+      "Müzik & Eğlence"
+    ],
+    "videos": [
+      {
+        "id": "tv:tatlisestv.tr",
+        "title": "Tatlıses TV"
+      }
+    ]
+  }
+}

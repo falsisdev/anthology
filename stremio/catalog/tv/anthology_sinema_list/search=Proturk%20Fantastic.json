@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:proturkfantastic.tr",
+      "type": "tv",
+      "name": "Proturk Fantastic",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkfantastic.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkfantastic.png",
+      "description": "Proturk Fantastic Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

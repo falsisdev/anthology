@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:kanal3.tr",
+      "type": "tv",
+      "name": "Kanal 3",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal3.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal3.png",
+      "description": "Kanal 3 Canlı [Türkçe]",
+      "genres": [
+        "Yerel"
+      ]
+    }
+  ]
+}

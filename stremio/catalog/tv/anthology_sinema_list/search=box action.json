@@ -1,0 +1,37 @@
+{
+  "metas": [
+    {
+      "id": "tv:arenaboxaction.tr",
+      "type": "tv",
+      "name": "Arena Box Action",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/arenaboxaction.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/arenaboxaction.png",
+      "description": "Arena Box Action Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:dreamboxaction.tr",
+      "type": "tv",
+      "name": "Dream Box Action",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dreamboxaction.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dreamboxaction.png",
+      "description": "Dream Box Action Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:globalboxaction.tr",
+      "type": "tv",
+      "name": "Global Box Action",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxaction.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxaction.png",
+      "description": "Global Box Action Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:proturkgerilim.tr",
+    "type": "tv",
+    "name": "Proturk Gerilim",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkgerilim.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkgerilim.png",
+    "description": "Proturk Gerilim Canlı [Türkçe]",
+    "genres": [
+      "Sinema"
+    ],
+    "videos": [
+      {
+        "id": "tv:proturkgerilim.tr",
+        "title": "Proturk Gerilim"
+      }
+    ]
+  }
+}

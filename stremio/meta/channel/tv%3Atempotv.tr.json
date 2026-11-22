@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:tempotv.tr",
+    "type": "tv",
+    "name": "Tempo TV",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tempotv.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tempotv.png",
+    "description": "Tempo TV Canlı [Türkçe]",
+    "genres": [
+      "Yerel"
+    ],
+    "videos": [
+      {
+        "id": "tv:tempotv.tr",
+        "title": "Tempo TV"
+      }
+    ]
+  }
+}

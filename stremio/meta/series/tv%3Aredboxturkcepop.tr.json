@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:redboxturkcepop.tr",
+    "type": "tv",
+    "name": "Redbox Türkçe Pop",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/redboxturkcepop.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/redboxturkcepop.png",
+    "description": "Redbox Türkçe Pop Canlı [Türkçe]",
+    "genres": [
+      "Müzik & Eğlence"
+    ],
+    "videos": [
+      {
+        "id": "tv:redboxturkcepop.tr",
+        "title": "Redbox Türkçe Pop"
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:kibriskanalt.tr",
+    "type": "tv",
+    "name": "Kıbrıs Kanal T",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kibriskanalt.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kibriskanalt.png",
+    "description": "Kıbrıs Kanal T Canlı [Türkçe]",
+    "genres": [
+      "Yerel"
+    ],
+    "videos": [
+      {
+        "id": "tv:kibriskanalt.tr",
+        "title": "Kıbrıs Kanal T"
+      }
+    ]
+  }
+}

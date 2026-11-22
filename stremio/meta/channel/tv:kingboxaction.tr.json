@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:kingboxaction.tr",
+    "type": "tv",
+    "name": "Kingbox Action",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kingboxaction.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kingboxaction.png",
+    "description": "Kingbox Action Canlı [Türkçe]",
+    "genres": [
+      "Sinema"
+    ],
+    "videos": [
+      {
+        "id": "tv:kingboxaction.tr",
+        "title": "Kingbox Action"
+      }
+    ]
+  }
+}

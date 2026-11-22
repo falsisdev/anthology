@@ -1,6 +1,17 @@
 {
   "metas": [
     {
+      "id": "tv:beinsportshaber.tr",
+      "type": "tv",
+      "name": "beIN Sports Haber",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsportshaber.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsportshaber.png",
+      "description": "beIN Sports Haber Canlı [Türkçe]",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
       "id": "tv:TRTHaber.tr",
       "type": "tv",
       "name": "TRT Haber HD",
@@ -8,7 +19,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trthaber.png",
       "description": "TRT Haber HD Canlı [Türkçe]",
       "genres": [
-        "HABER KANALLARI"
+        "Haber"
       ]
     },
     {
@@ -19,7 +30,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ntv.png",
       "description": "NTV Haber HD Canlı [Türkçe]",
       "genres": [
-        "HABER KANALLARI"
+        "Haber"
       ]
     },
     {
@@ -30,7 +41,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ahaber.png",
       "description": "A Haber HD Canlı [Türkçe]",
       "genres": [
-        "HABER KANALLARI"
+        "Haber"
       ]
     },
     {
@@ -41,7 +52,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tgrthaber.png",
       "description": "TGRT Haber HD Canlı [Türkçe]",
       "genres": [
-        "HABER KANALLARI"
+        "Haber"
       ]
     },
     {
@@ -52,7 +63,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/haberglobal.png",
       "description": "Haber Global HD Canlı [Türkçe]",
       "genres": [
-        "HABER KANALLARI"
+        "Haber"
       ]
     },
     {
@@ -63,7 +74,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/flashhaber.png",
       "description": "Flash Haber TV HD Canlı [Türkçe]",
       "genres": [
-        "HABER KANALLARI"
+        "Haber"
       ]
     },
     {
@@ -74,7 +85,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/liderhaber.png",
       "description": "Lider Haber TV HD Canlı [Türkçe]",
       "genres": [
-        "HABER KANALLARI"
+        "Haber"
       ]
     },
     {
@@ -85,7 +96,18 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/turkhaber.png",
       "description": "Türk Haber TV HD Canlı [Türkçe]",
       "genres": [
-        "HABER KANALLARI"
+        "Haber"
+      ]
+    },
+    {
+      "id": "tv:medyahaber.tr",
+      "type": "tv",
+      "name": "Medya Haber",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/medyahaber.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/medyahaber.png",
+      "description": "Medya Haber Canlı [Türkçe]",
+      "genres": [
+        "Haber"
       ]
     }
   ]

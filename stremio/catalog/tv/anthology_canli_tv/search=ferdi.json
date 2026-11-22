@@ -1,0 +1,26 @@
+{
+  "metas": [
+    {
+      "id": "tv:ferdiozbegen.tr",
+      "type": "tv",
+      "name": "Ferdi Özbeğen",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ferdiozbegen.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ferdiozbegen.png",
+      "description": "Ferdi Özbeğen Canlı [Türkçe]",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
+    },
+    {
+      "id": "tv:ferditayfur.tr",
+      "type": "tv",
+      "name": "Ferdi Tayfur",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ferditayfur.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ferditayfur.png",
+      "description": "Ferdi Tayfur Canlı [Türkçe]",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
+    }
+  ]
+}

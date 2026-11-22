@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:moviesmartaction.tr",
+      "type": "tv",
+      "name": "Movie Smart Action",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/moviesmartaction.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/moviesmartaction.png",
+      "description": "Movie Smart Action Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

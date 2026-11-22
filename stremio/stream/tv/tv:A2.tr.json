@@ -2,7 +2,7 @@
   "streams": [
     {
       "name": "⌜ Anthology Ulusal ⌟",
-      "title": "A2 TV HD [Canlı HD]",
+      "title": "A2 TV HD [Canlı HD · Resmi]",
       "url": "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/a2tv/a2tv.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
@@ -16,6 +16,18 @@
       "name": "⌜ Anthology Ulusal ⌟",
       "title": "A2 TV HD [Yedek Akış]",
       "url": "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/a2tv/a2tv_720p.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Anthology Live · Otomatik ⌟",
+      "title": "A2 TV HD [1080p FHD · Ultra Hızlı]",
+      "url": "https://anthology-live.duckdns.org/live/a2.m3u8?username=anthology&password=falsisdevwashere",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Accept": "*/*"

@@ -1,0 +1,26 @@
+{
+  "metas": [
+    {
+      "id": "tv:globalboxkemalsunal.tr",
+      "type": "tv",
+      "name": "Global Box Kemal Sunal",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxkemalsunal.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxkemalsunal.png",
+      "description": "Global Box Kemal Sunal Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:proturkkemalsunal.tr",
+      "type": "tv",
+      "name": "Proturk Kemal Sunal",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkkemalsunal.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkkemalsunal.png",
+      "description": "Proturk Kemal Sunal Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

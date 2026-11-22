@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:globalboxyesilcam.tr",
+    "type": "tv",
+    "name": "Global Box Yeşilçam",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxyesilcam.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxyesilcam.png",
+    "description": "Global Box Yeşilçam Canlı [Türkçe]",
+    "genres": [
+      "Sinema"
+    ],
+    "videos": [
+      {
+        "id": "tv:globalboxyesilcam.tr",
+        "title": "Global Box Yeşilçam"
+      }
+    ]
+  }
+}

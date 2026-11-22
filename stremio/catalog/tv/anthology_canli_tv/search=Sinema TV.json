@@ -1,0 +1,37 @@
+{
+  "metas": [
+    {
+      "id": "tv:sinematv.tr",
+      "type": "tv",
+      "name": "Sinema TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinematv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinematv.png",
+      "description": "Sinema TV Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:sinematv2.tr",
+      "type": "tv",
+      "name": "Sinema TV 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinematv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinematv.png",
+      "description": "Sinema TV 2 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:sinematvaksiyon.tr",
+      "type": "tv",
+      "name": "Sinema TV Aksiyon",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinematvaksiyon.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinematvaksiyon.png",
+      "description": "Sinema TV Aksiyon Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

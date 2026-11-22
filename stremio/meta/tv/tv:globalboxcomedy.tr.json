@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:globalboxcomedy.tr",
+    "type": "tv",
+    "name": "Global Box Comedy",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxcomedy.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxcomedy.png",
+    "description": "Global Box Comedy Canlı [Türkçe]",
+    "genres": [
+      "Sinema"
+    ],
+    "videos": [
+      {
+        "id": "tv:globalboxcomedy.tr",
+        "title": "Global Box Comedy"
+      }
+    ]
+  }
+}

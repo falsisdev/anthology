@@ -2,7 +2,7 @@
   "streams": [
     {
       "name": "⌜ Anthology Haber ⌟",
-      "title": "TGRT Haber HD [Canlı HD]",
+      "title": "TGRT Haber HD [Canlı HD · Resmi]",
       "url": "https://canli.tgrthaber.com/tgrt.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
@@ -16,6 +16,18 @@
       "name": "⌜ Anthology Haber ⌟",
       "title": "TGRT Haber HD [Yedek Akış]",
       "url": "https://tgrthaber-live.daioncdn.net/tgrthaber/tgrthaber_720p.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Anthology Live · Otomatik ⌟",
+      "title": "TGRT Haber HD [1080p FHD · Ultra Hızlı]",
+      "url": "https://anthology-live.duckdns.org/live/tgrthaber.m3u8?username=anthology&password=falsisdevwashere",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Accept": "*/*"

@@ -2,8 +2,20 @@
   "streams": [
     {
       "name": "⌜ Anthology Haber ⌟",
-      "title": "Lider Haber TV HD [Canlı HD]",
+      "title": "Lider Haber TV HD [Canlı HD · Resmi]",
       "url": "http://nrttn172.kesintisizyayin.com:29010/lidertv/lidertv/sec-f5-v1-a1.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Anthology Live · Otomatik ⌟",
+      "title": "Lider Haber TV HD [1080p FHD · Ultra Hızlı]",
+      "url": "https://anthology-live.duckdns.org/live/liderhaber.m3u8?username=anthology&password=falsisdevwashere",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Accept": "*/*"

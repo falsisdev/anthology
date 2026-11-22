@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:anadoludernek.tr",
+    "type": "tv",
+    "name": "Anadolu Dernek",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/anadoludernek.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/anadoludernek.png",
+    "description": "Anadolu Dernek Canlı [Türkçe]",
+    "genres": [
+      "Yerel"
+    ],
+    "videos": [
+      {
+        "id": "tv:anadoludernek.tr",
+        "title": "Anadolu Dernek"
+      }
+    ]
+  }
+}

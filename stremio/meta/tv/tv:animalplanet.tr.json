@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:animalplanet.tr",
+    "type": "tv",
+    "name": "Animal Planet",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/animalplanet.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/animalplanet.png",
+    "description": "Animal Planet Canlı [Türkçe]",
+    "genres": [
+      "Belgesel & Çocuk"
+    ],
+    "videos": [
+      {
+        "id": "tv:animalplanet.tr",
+        "title": "Animal Planet"
+      }
+    ]
+  }
+}

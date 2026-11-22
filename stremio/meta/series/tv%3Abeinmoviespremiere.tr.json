@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:beinmoviespremiere.tr",
+    "type": "tv",
+    "name": "beIN Movies Premiere",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviespremiere.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviespremiere.png",
+    "description": "beIN Movies Premiere Canlı [Türkçe]",
+    "genres": [
+      "Sinema"
+    ],
+    "videos": [
+      {
+        "id": "tv:beinmoviespremiere.tr",
+        "title": "beIN Movies Premiere"
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:kayserikaytv.tr",
+      "type": "tv",
+      "name": "Kayseri Kay TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kayserikaytv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kayserikaytv.png",
+      "description": "Kayseri Kay TV Canlı [Türkçe]",
+      "genres": [
+        "Yerel"
+      ]
+    }
+  ]
+}

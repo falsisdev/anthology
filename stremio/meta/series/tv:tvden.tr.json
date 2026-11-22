@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:tvden.tr",
+    "type": "tv",
+    "name": "TV Den",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tvden.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tvden.png",
+    "description": "TV Den Canlı [Türkçe]",
+    "genres": [
+      "Yerel"
+    ],
+    "videos": [
+      {
+        "id": "tv:tvden.tr",
+        "title": "TV Den"
+      }
+    ]
+  }
+}

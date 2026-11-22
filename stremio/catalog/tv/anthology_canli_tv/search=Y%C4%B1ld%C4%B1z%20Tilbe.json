@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:yildiztilbe.tr",
+      "type": "tv",
+      "name": "Yıldız Tilbe",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yildiztilbe.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yildiztilbe.png",
+      "description": "Yıldız Tilbe Canlı [Türkçe]",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
+    }
+  ]
+}

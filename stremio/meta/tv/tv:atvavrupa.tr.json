@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:atvavrupa.tr",
+    "type": "tv",
+    "name": "ATV Avrupa",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/atvavrupa.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/atvavrupa.png",
+    "description": "ATV Avrupa Canlı [Türkçe]",
+    "genres": [
+      "Ulusal"
+    ],
+    "videos": [
+      {
+        "id": "tv:atvavrupa.tr",
+        "title": "ATV Avrupa"
+      }
+    ]
+  }
+}

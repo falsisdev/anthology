@@ -1,7 +1,7 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik (En Hızlı) ⌟",
+      "name": "⌜ Anthology Live · Otomatik ⌟",
       "title": "Sports TV HD [1080p FHD · Ultra Hızlı]",
       "url": "https://anthology-live.duckdns.org/live/sportstv.m3u8?username=anthology&password=falsisdevwashere",
       "headers": {

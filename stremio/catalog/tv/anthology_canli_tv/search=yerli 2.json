@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:sinemayerli2.tr",
+      "type": "tv",
+      "name": "Sinema Yerli 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemayerli2.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemayerli2.png",
+      "description": "Sinema Yerli 2 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

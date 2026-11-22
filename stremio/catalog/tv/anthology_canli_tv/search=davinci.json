@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:davinci.tr",
+      "type": "tv",
+      "name": "Da Vinci",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/davinci.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/davinci.png",
+      "description": "Da Vinci Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    }
+  ]
+}

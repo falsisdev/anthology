@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:trt4k.tr",
+      "type": "tv",
+      "name": "TRT 4K",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt4k.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt4k.png",
+      "description": "TRT 4K Canlı [Türkçe]",
+      "genres": [
+        "Ulusal"
+      ]
+    }
+  ]
+}

@@ -2,8 +2,20 @@
   "streams": [
     {
       "name": "⌜ Anthology Belgesel & Çocuk ⌟",
-      "title": "Minika Çocuk HD [Canlı HD]",
+      "title": "Minika Çocuk HD [Canlı HD · Resmi]",
       "url": "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/minikago_cocuk/minikago_cocuk.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Anthology Live · Otomatik ⌟",
+      "title": "Minika Çocuk HD [1080p FHD · Ultra Hızlı]",
+      "url": "https://anthology-live.duckdns.org/live/minikacocuk.m3u8?username=anthology&password=falsisdevwashere",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Accept": "*/*"

@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:pepetv.tr",
+      "type": "tv",
+      "name": "Pepee TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/pepetv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/pepetv.png",
+      "description": "Pepee TV Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    }
+  ]
+}

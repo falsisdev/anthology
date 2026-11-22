@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:yesilcam3.tr",
+      "type": "tv",
+      "name": "Yeşilçam 3",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yesilcam3.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yesilcam3.png",
+      "description": "Yeşilçam 3 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

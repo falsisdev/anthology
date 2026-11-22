@@ -1,0 +1,136 @@
+{
+  "metas": [
+    {
+      "id": "tv:sinema1001.tr",
+      "type": "tv",
+      "name": "Sinema 1001",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinema1001.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinema1001.png",
+      "description": "Sinema 1001 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:sinema1002.tr",
+      "type": "tv",
+      "name": "Sinema 1002",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinema1002.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinema1002.png",
+      "description": "Sinema 1002 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:sinemaaile.tr",
+      "type": "tv",
+      "name": "Sinema Aile",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaile.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaile.png",
+      "description": "Sinema Aile Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:sinemaaile2.tr",
+      "type": "tv",
+      "name": "Sinema Aile 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaile.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaile.png",
+      "description": "Sinema Aile 2 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:sinemaaksiyon1.tr",
+      "type": "tv",
+      "name": "Sinema Aksiyon 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaksiyon.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaksiyon.png",
+      "description": "Sinema Aksiyon 1 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:sinemaaksiyon2.tr",
+      "type": "tv",
+      "name": "Sinema Aksiyon 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaksiyon.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaksiyon.png",
+      "description": "Sinema Aksiyon 2 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:sinemakomedi.tr",
+      "type": "tv",
+      "name": "Sinema Komedi",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemakomedi.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemakomedi.png",
+      "description": "Sinema Komedi Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:sinematv.tr",
+      "type": "tv",
+      "name": "Sinema TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinematv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinematv.png",
+      "description": "Sinema TV Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:sinematv2.tr",
+      "type": "tv",
+      "name": "Sinema TV 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinematv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinematv.png",
+      "description": "Sinema TV 2 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:sinematvaksiyon.tr",
+      "type": "tv",
+      "name": "Sinema TV Aksiyon",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinematvaksiyon.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinematvaksiyon.png",
+      "description": "Sinema TV Aksiyon Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:sinemayerli1.tr",
+      "type": "tv",
+      "name": "Sinema Yerli 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemayerli1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemayerli1.png",
+      "description": "Sinema Yerli 1 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:sinemayerli2.tr",
+      "type": "tv",
+      "name": "Sinema Yerli 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemayerli2.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemayerli2.png",
+      "description": "Sinema Yerli 2 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

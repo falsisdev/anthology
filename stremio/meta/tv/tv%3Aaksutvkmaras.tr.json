@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:aksutvkmaras.tr",
+    "type": "tv",
+    "name": "Kahramanmaraş Aksu TV",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/aksutvkmaras.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/aksutvkmaras.png",
+    "description": "Kahramanmaraş Aksu TV Canlı [Türkçe]",
+    "genres": [
+      "Yerel"
+    ],
+    "videos": [
+      {
+        "id": "tv:aksutvkmaras.tr",
+        "title": "Kahramanmaraş Aksu TV"
+      }
+    ]
+  }
+}

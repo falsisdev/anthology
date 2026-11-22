@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:elazigkanal23.tr",
+      "type": "tv",
+      "name": "Elazığ Kanal 23",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/elazigkanal23.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/elazigkanal23.png",
+      "description": "Elazığ Kanal 23 Canlı [Türkçe]",
+      "genres": [
+        "Yerel"
+      ]
+    }
+  ]
+}

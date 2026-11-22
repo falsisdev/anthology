@@ -32,6 +32,17 @@
       "genres": [
         "Haber"
       ]
+    },
+    {
+      "id": "tv:cnnturk.tr",
+      "type": "tv",
+      "name": "CNN Türk",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cnnturk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cnnturk.png",
+      "description": "CNN Türk Canlı [Türkçe]",
+      "genres": [
+        "Haber"
+      ]
     }
   ]
 }

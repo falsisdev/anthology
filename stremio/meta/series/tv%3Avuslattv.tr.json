@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:vuslattv.tr",
+    "type": "tv",
+    "name": "Vuslat TV",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/vuslattv.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/vuslattv.png",
+    "description": "Vuslat TV Canlı [Türkçe]",
+    "genres": [
+      "Yerel"
+    ],
+    "videos": [
+      {
+        "id": "tv:vuslattv.tr",
+        "title": "Vuslat TV"
+      }
+    ]
+  }
+}

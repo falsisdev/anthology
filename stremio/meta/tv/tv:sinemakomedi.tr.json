@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:sinemakomedi.tr",
+    "type": "tv",
+    "name": "Sinema Komedi",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemakomedi.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemakomedi.png",
+    "description": "Sinema Komedi Canlı [Türkçe]",
+    "genres": [
+      "Sinema"
+    ],
+    "videos": [
+      {
+        "id": "tv:sinemakomedi.tr",
+        "title": "Sinema Komedi"
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:ilketv.tr",
+    "type": "tv",
+    "name": "İlke TV",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ilketv.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ilketv.png",
+    "description": "İlke TV Canlı [Türkçe]",
+    "genres": [
+      "DİĞER KANALLAR"
+    ],
+    "videos": [
+      {
+        "id": "tv:ilketv.tr",
+        "title": "İlke TV"
+      }
+    ]
+  }
+}

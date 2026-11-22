@@ -1,0 +1,48 @@
+{
+  "metas": [
+    {
+      "id": "tv:fixcinemayerli.tr",
+      "type": "tv",
+      "name": "Fix Cinema Yerli",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemayerli.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemayerli.png",
+      "description": "Fix Cinema Yerli Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:globalboxyerli.tr",
+      "type": "tv",
+      "name": "Global Box Yerli",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxyerli.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxyerli.png",
+      "description": "Global Box Yerli Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:sinemayerli1.tr",
+      "type": "tv",
+      "name": "Sinema Yerli 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemayerli1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemayerli1.png",
+      "description": "Sinema Yerli 1 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:sinemayerli2.tr",
+      "type": "tv",
+      "name": "Sinema Yerli 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemayerli2.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemayerli2.png",
+      "description": "Sinema Yerli 2 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

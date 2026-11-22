@@ -1,0 +1,125 @@
+{
+  "metas": [
+    {
+      "id": "tv:beinmoviesaction2.tr",
+      "type": "tv",
+      "name": "beIN Movies Action 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesaction2.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesaction2.png",
+      "description": "beIN Movies Action 2 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinmoviespremiere2.tr",
+      "type": "tv",
+      "name": "beIN Movies Premiere 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviespremiere2.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviespremiere2.png",
+      "description": "beIN Movies Premiere 2 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinseries2.tr",
+      "type": "tv",
+      "name": "beIN Series 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseries2.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseries2.png",
+      "description": "beIN Series 2 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:horror2.tr",
+      "type": "tv",
+      "name": "Horror 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/horror2.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/horror2.png",
+      "description": "Horror 2 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:moviesmartpremium2.tr",
+      "type": "tv",
+      "name": "Movie Smart Premium 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/moviesmartpremium2.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/moviesmartpremium2.png",
+      "description": "Movie Smart Premium 2 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:proturkloca2.tr",
+      "type": "tv",
+      "name": "Proturk Loca 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkloca2.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkloca2.png",
+      "description": "Proturk Loca 2 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:sinemaaile2.tr",
+      "type": "tv",
+      "name": "Sinema Aile 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaile.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaile.png",
+      "description": "Sinema Aile 2 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:sinemaaksiyon2.tr",
+      "type": "tv",
+      "name": "Sinema Aksiyon 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaksiyon.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaksiyon.png",
+      "description": "Sinema Aksiyon 2 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:sinematv2.tr",
+      "type": "tv",
+      "name": "Sinema TV 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinematv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinematv.png",
+      "description": "Sinema TV 2 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:sinemayerli2.tr",
+      "type": "tv",
+      "name": "Sinema Yerli 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemayerli2.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemayerli2.png",
+      "description": "Sinema Yerli 2 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:yesilcam2.tr",
+      "type": "tv",
+      "name": "Yeşilçam 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yesilcam2.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yesilcam2.png",
+      "description": "Yeşilçam 2 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

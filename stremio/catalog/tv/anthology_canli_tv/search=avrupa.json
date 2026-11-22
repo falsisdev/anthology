@@ -8,7 +8,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png",
       "description": "Kanal 7 Avrupa Canlı [Türkçe]",
       "genres": [
-        "ULUSAL KANALLAR"
+        "Ulusal"
       ]
     },
     {
@@ -19,7 +19,18 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanalavrupa.png",
       "description": "Kanal Avrupa Canlı [Türkçe]",
       "genres": [
-        "ULUSAL KANALLAR"
+        "Ulusal"
+      ]
+    },
+    {
+      "id": "tv:atvavrupa.tr",
+      "type": "tv",
+      "name": "ATV Avrupa",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/atvavrupa.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/atvavrupa.png",
+      "description": "ATV Avrupa Canlı [Türkçe]",
+      "genres": [
+        "Ulusal"
       ]
     }
   ]

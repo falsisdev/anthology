@@ -8,7 +8,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bbcnews.png",
       "description": "BBC News HD Canlı [İngilizce]",
       "genres": [
-        "HABER KANALLARI"
+        "Haber"
       ]
     },
     {
@@ -19,7 +19,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cbsnews.png",
       "description": "CBS News HD Canlı [İngilizce]",
       "genres": [
-        "HABER KANALLARI"
+        "Haber"
       ]
     },
     {
@@ -30,7 +30,18 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/foxnews.png",
       "description": "Fox News HD Canlı [İngilizce]",
       "genres": [
-        "HABER KANALLARI"
+        "Haber"
+      ]
+    },
+    {
+      "id": "tv:anews.tr",
+      "type": "tv",
+      "name": "A News",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/anews.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/anews.png",
+      "description": "A News Canlı [Türkçe]",
+      "genres": [
+        "Haber"
       ]
     }
   ]

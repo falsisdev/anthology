@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:proturkvizyon.tr",
+    "type": "tv",
+    "name": "Proturk Vizyon",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkvizyon.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkvizyon.png",
+    "description": "Proturk Vizyon Canlı [Türkçe]",
+    "genres": [
+      "Sinema"
+    ],
+    "videos": [
+      {
+        "id": "tv:proturkvizyon.tr",
+        "title": "Proturk Vizyon"
+      }
+    ]
+  }
+}

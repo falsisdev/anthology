@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:beinmoviesfamily.tr",
+    "type": "tv",
+    "name": "beIN Movies Family",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesfamily.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesfamily.png",
+    "description": "beIN Movies Family Canlı [Türkçe]",
+    "genres": [
+      "Sinema"
+    ],
+    "videos": [
+      {
+        "id": "tv:beinmoviesfamily.tr",
+        "title": "beIN Movies Family"
+      }
+    ]
+  }
+}

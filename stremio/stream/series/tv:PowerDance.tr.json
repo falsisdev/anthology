@@ -2,7 +2,7 @@
   "streams": [
     {
       "name": "⌜ Anthology Müzik ⌟",
-      "title": "Power Dance HD [Canlı HD]",
+      "title": "Power Dance HD [Canlı HD · Resmi]",
       "url": "https://livetv.powerapp.com.tr/dance/dance.smil/playlist.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
@@ -16,6 +16,18 @@
       "name": "⌜ Anthology Müzik ⌟",
       "title": "Power Dance HD [Yedek Akış]",
       "url": "https://listen.powerapp.com.tr/dance/dance.smil/playlist.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Anthology Live · Otomatik ⌟",
+      "title": "Power Dance HD [1080p FHD · Ultra Hızlı]",
+      "url": "https://anthology-live.duckdns.org/live/powerdance.m3u8?username=anthology&password=falsisdevwashere",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Accept": "*/*"

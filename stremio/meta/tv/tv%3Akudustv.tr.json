@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:kudustv.tr",
+    "type": "tv",
+    "name": "Kudüs TV",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kudustv.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kudustv.png",
+    "description": "Kudüs TV Canlı [Türkçe]",
+    "genres": [
+      "DİĞER KANALLAR"
+    ],
+    "videos": [
+      {
+        "id": "tv:kudustv.tr",
+        "title": "Kudüs TV"
+      }
+    ]
+  }
+}

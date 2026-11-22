@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:hrt.tr",
+    "type": "tv",
+    "name": "HRT",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/hrt.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/hrt.png",
+    "description": "HRT Canlı [Türkçe]",
+    "genres": [
+      "Yerel"
+    ],
+    "videos": [
+      {
+        "id": "tv:hrt.tr",
+        "title": "HRT"
+      }
+    ]
+  }
+}

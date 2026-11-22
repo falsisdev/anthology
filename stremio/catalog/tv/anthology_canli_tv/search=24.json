@@ -8,7 +8,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/24tv.png",
       "description": "24 TV HD Canlı [Türkçe]",
       "genres": [
-        "HABER KANALLARI"
+        "Haber"
       ]
     },
     {
@@ -19,7 +19,18 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/france24en.png",
       "description": "France 24 English HD Canlı [İngilizce]",
       "genres": [
-        "HABER KANALLARI"
+        "Haber"
+      ]
+    },
+    {
+      "id": "tv:24kitchen.tr",
+      "type": "tv",
+      "name": "24 Kitchen",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/24kitchen.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/24kitchen.png",
+      "description": "24 Kitchen Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
       ]
     }
   ]

@@ -1,36 +1,14 @@
 {
   "metas": [
     {
-      "id": "tv:beINSportsMax1.tr",
+      "id": "tv:max.tr",
       "type": "tv",
-      "name": "BeIN Sports Max 1 HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
-      "description": "BeIN Sports Max 1 HD Canlı [Türkçe]",
+      "name": "Max",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/max.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/max.png",
+      "description": "Max Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
-      ]
-    },
-    {
-      "id": "tv:beINSportsMax2.tr",
-      "type": "tv",
-      "name": "BeIN Sports Max 2 HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
-      "description": "BeIN Sports Max 2 HD Canlı [Türkçe]",
-      "genres": [
-        "SPOR KANALLARI"
-      ]
-    },
-    {
-      "id": "tv:ShowMax.tr",
-      "type": "tv",
-      "name": "Show Max",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/showmax.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/showmax.png",
-      "description": "Show Max Canlı [Türkçe]",
-      "genres": [
-        "MÜZİK  EĞLENCE"
+        "Sinema"
       ]
     }
   ]

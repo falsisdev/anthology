@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:automoto.tr",
+    "type": "tv",
+    "name": "Automoto (fr)",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/automoto.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/automoto.png",
+    "description": "Automoto (fr) Canlı [Türkçe]",
+    "genres": [
+      "Spor"
+    ],
+    "videos": [
+      {
+        "id": "tv:automoto.tr",
+        "title": "Automoto (fr)"
+      }
+    ]
+  }
+}

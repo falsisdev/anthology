@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:proturkkemalsunal.tr",
+    "type": "tv",
+    "name": "Proturk Kemal Sunal",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkkemalsunal.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkkemalsunal.png",
+    "description": "Proturk Kemal Sunal Canlı [Türkçe]",
+    "genres": [
+      "Sinema"
+    ],
+    "videos": [
+      {
+        "id": "tv:proturkkemalsunal.tr",
+        "title": "Proturk Kemal Sunal"
+      }
+    ]
+  }
+}

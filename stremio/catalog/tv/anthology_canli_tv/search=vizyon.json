@@ -1,0 +1,103 @@
+{
+  "metas": [
+    {
+      "id": "tv:enovizyon11.tr",
+      "type": "tv",
+      "name": "Eno Vizyon 11",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enovizyon11.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enovizyon11.png",
+      "description": "Eno Vizyon 11 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:enovizyon14.tr",
+      "type": "tv",
+      "name": "Eno Vizyon 14",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enovizyon14.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enovizyon14.png",
+      "description": "Eno Vizyon 14 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:enovizyon15.tr",
+      "type": "tv",
+      "name": "Eno Vizyon 15",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enovizyon15.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enovizyon15.png",
+      "description": "Eno Vizyon 15 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:enovizyon5.tr",
+      "type": "tv",
+      "name": "Eno Vizyon 5",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enovizyon5.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enovizyon5.png",
+      "description": "Eno Vizyon 5 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:globalboxvizyon.tr",
+      "type": "tv",
+      "name": "Global Box Vizyon",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxvizyon.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxvizyon.png",
+      "description": "Global Box Vizyon Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:maxvizyon.tr",
+      "type": "tv",
+      "name": "Max Vizyon",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxvizyon.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxvizyon.png",
+      "description": "Max Vizyon Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:maxvizyon4.tr",
+      "type": "tv",
+      "name": "Max Vizyon 4",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxvizyon4.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxvizyon4.png",
+      "description": "Max Vizyon 4 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:proturkvizyon.tr",
+      "type": "tv",
+      "name": "Proturk Vizyon",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkvizyon.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkvizyon.png",
+      "description": "Proturk Vizyon Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:vizyon58.tr",
+      "type": "tv",
+      "name": "Vizyon 58 (Sivas)",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/vizyon58.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/vizyon58.png",
+      "description": "Vizyon 58 (Sivas) Canlı [Türkçe]",
+      "genres": [
+        "Yerel"
+      ]
+    }
+  ]
+}

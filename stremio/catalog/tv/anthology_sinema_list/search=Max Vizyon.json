@@ -1,0 +1,26 @@
+{
+  "metas": [
+    {
+      "id": "tv:maxvizyon.tr",
+      "type": "tv",
+      "name": "Max Vizyon",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxvizyon.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxvizyon.png",
+      "description": "Max Vizyon Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:maxvizyon4.tr",
+      "type": "tv",
+      "name": "Max Vizyon 4",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxvizyon4.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxvizyon4.png",
+      "description": "Max Vizyon 4 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

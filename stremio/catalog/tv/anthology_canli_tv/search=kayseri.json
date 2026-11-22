@@ -1,0 +1,26 @@
+{
+  "metas": [
+    {
+      "id": "tv:etvkayseri.tr",
+      "type": "tv",
+      "name": "ETV Kayseri",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/etvkayseri.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/etvkayseri.png",
+      "description": "ETV Kayseri Canlı [Türkçe]",
+      "genres": [
+        "Yerel"
+      ]
+    },
+    {
+      "id": "tv:kayserikaytv.tr",
+      "type": "tv",
+      "name": "Kayseri Kay TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kayserikaytv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kayserikaytv.png",
+      "description": "Kayseri Kay TV Canlı [Türkçe]",
+      "genres": [
+        "Yerel"
+      ]
+    }
+  ]
+}

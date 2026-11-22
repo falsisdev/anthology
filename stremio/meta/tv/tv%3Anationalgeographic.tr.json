@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:nationalgeographic.tr",
+    "type": "tv",
+    "name": "Nat Geo",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nationalgeographic.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nationalgeographic.png",
+    "description": "Nat Geo Canlı [Türkçe]",
+    "genres": [
+      "Belgesel & Çocuk"
+    ],
+    "videos": [
+      {
+        "id": "tv:nationalgeographic.tr",
+        "title": "Nat Geo"
+      }
+    ]
+  }
+}

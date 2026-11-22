@@ -8,7 +8,106 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/haberglobal.png",
       "description": "Haber Global HD Canlı [Türkçe]",
       "genres": [
-        "HABER KANALLARI"
+        "Haber"
+      ]
+    },
+    {
+      "id": "tv:globalboxaction.tr",
+      "type": "tv",
+      "name": "Global Box Action",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxaction.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxaction.png",
+      "description": "Global Box Action Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:globalboxcomedy.tr",
+      "type": "tv",
+      "name": "Global Box Comedy",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxcomedy.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxcomedy.png",
+      "description": "Global Box Comedy Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:globalboxdram.tr",
+      "type": "tv",
+      "name": "Global Box Dram",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxdram.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxdram.png",
+      "description": "Global Box Dram Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:globalboxfantastic.tr",
+      "type": "tv",
+      "name": "Global Box Fantastic",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxfantastic.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxfantastic.png",
+      "description": "Global Box Fantastic Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:globalboxkemalsunal.tr",
+      "type": "tv",
+      "name": "Global Box Kemal Sunal",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxkemalsunal.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxkemalsunal.png",
+      "description": "Global Box Kemal Sunal Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:globalboxkorku.tr",
+      "type": "tv",
+      "name": "Global Box Korku",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxkorku.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxkorku.png",
+      "description": "Global Box Korku Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:globalboxvizyon.tr",
+      "type": "tv",
+      "name": "Global Box Vizyon",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxvizyon.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxvizyon.png",
+      "description": "Global Box Vizyon Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:globalboxyerli.tr",
+      "type": "tv",
+      "name": "Global Box Yerli",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxyerli.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxyerli.png",
+      "description": "Global Box Yerli Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:globalboxyesilcam.tr",
+      "type": "tv",
+      "name": "Global Box Yeşilçam",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxyesilcam.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxyesilcam.png",
+      "description": "Global Box Yeşilçam Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
       ]
     }
   ]

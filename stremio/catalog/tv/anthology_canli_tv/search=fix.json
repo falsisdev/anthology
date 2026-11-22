@@ -1,0 +1,114 @@
+{
+  "metas": [
+    {
+      "id": "tv:fixcinemaaction.tr",
+      "type": "tv",
+      "name": "Fix Cinema Action",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemaaction.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemaaction.png",
+      "description": "Fix Cinema Action Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:fixcinemabilmkurgu.tr",
+      "type": "tv",
+      "name": "Fix Cinema Bilimkurgu",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemabilmkurgu.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemabilmkurgu.png",
+      "description": "Fix Cinema Bilimkurgu Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:fixcinemacomedy.tr",
+      "type": "tv",
+      "name": "Fix Cinema Comedy",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemacomedy.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemacomedy.png",
+      "description": "Fix Cinema Comedy Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:fixcinemadram.tr",
+      "type": "tv",
+      "name": "Fix Cinema Dram",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemadram.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemadram.png",
+      "description": "Fix Cinema Dram Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:fixcinemafantastic.tr",
+      "type": "tv",
+      "name": "Fix Cinema Fantastic",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemafantastic.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemafantastic.png",
+      "description": "Fix Cinema Fantastic Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:fixcinemakorku.tr",
+      "type": "tv",
+      "name": "Fix Cinema Korku",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemakorku.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemakorku.png",
+      "description": "Fix Cinema Korku Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:fixcinemamacera.tr",
+      "type": "tv",
+      "name": "Fix Cinema Macera",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemamacera.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemamacera.png",
+      "description": "Fix Cinema Macera Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:fixcinemanetflix.tr",
+      "type": "tv",
+      "name": "Fix Cinema Netflix",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemanetflix.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemanetflix.png",
+      "description": "Fix Cinema Netflix Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:fixcinemayerli.tr",
+      "type": "tv",
+      "name": "Fix Cinema Yerli",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemayerli.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemayerli.png",
+      "description": "Fix Cinema Yerli Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:fixcinemayesilcam.tr",
+      "type": "tv",
+      "name": "Fix Cinema Yeşilçam",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemayesilcam.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemayesilcam.png",
+      "description": "Fix Cinema Yeşilçam Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

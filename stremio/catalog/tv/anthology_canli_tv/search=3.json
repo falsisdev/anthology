@@ -8,7 +8,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
       "description": "BeIN Sports 3 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     },
     {
@@ -19,7 +19,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.png",
       "description": "Tivibu Spor 3 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     },
     {
@@ -30,7 +30,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
       "description": "Exxen Sports 3 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     },
     {
@@ -41,7 +41,73 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
       "description": "Tabii Spor 3 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:ssportplus3.tr",
+      "type": "tv",
+      "name": "S Sport Plus 3",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus3.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus3.png",
+      "description": "S Sport Plus 3 Canlı [Türkçe]",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:beinboxoffice3.tr",
+      "type": "tv",
+      "name": "beIN Box Office 3",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinboxoffice3.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinboxoffice3.png",
+      "description": "beIN Box Office 3 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinseries3.tr",
+      "type": "tv",
+      "name": "beIN Series 3",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseries3.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseries3.png",
+      "description": "beIN Series 3 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:yesilcam3.tr",
+      "type": "tv",
+      "name": "Yeşilçam 3",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yesilcam3.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yesilcam3.png",
+      "description": "Yeşilçam 3 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:cocuk3.tr",
+      "type": "tv",
+      "name": "Çocuk 3",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cocuk3.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cocuk3.png",
+      "description": "Çocuk 3 Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:kanal3.tr",
+      "type": "tv",
+      "name": "Kanal 3",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal3.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal3.png",
+      "description": "Kanal 3 Canlı [Türkçe]",
+      "genres": [
+        "Yerel"
       ]
     }
   ]

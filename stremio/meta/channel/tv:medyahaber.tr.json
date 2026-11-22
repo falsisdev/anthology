@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:medyahaber.tr",
+    "type": "tv",
+    "name": "Medya Haber",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/medyahaber.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/medyahaber.png",
+    "description": "Medya Haber Canlı [Türkçe]",
+    "genres": [
+      "Haber"
+    ],
+    "videos": [
+      {
+        "id": "tv:medyahaber.tr",
+        "title": "Medya Haber"
+      }
+    ]
+  }
+}

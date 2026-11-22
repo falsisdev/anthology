@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:24kitchen.tr",
+      "type": "tv",
+      "name": "24 Kitchen",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/24kitchen.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/24kitchen.png",
+      "description": "24 Kitchen Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    }
+  ]
+}

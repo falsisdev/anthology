@@ -1,0 +1,26 @@
+{
+  "metas": [
+    {
+      "id": "tv:cinemaximumbilimkurgu.tr",
+      "type": "tv",
+      "name": "Cinemaximum Bilimkurgu",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximumbilimkurgu.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximumbilimkurgu.png",
+      "description": "Cinemaximum Bilimkurgu Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:fixcinemabilmkurgu.tr",
+      "type": "tv",
+      "name": "Fix Cinema Bilimkurgu",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemabilmkurgu.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemabilmkurgu.png",
+      "description": "Fix Cinema Bilimkurgu Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

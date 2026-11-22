@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:bbcearth.tr",
+      "type": "tv",
+      "name": "BBC Earth",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bbcearth.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bbcearth.png",
+      "description": "BBC Earth Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    }
+  ]
+}

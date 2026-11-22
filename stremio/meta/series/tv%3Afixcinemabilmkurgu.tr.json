@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:fixcinemabilmkurgu.tr",
+    "type": "tv",
+    "name": "Fix Cinema Bilimkurgu",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemabilmkurgu.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemabilmkurgu.png",
+    "description": "Fix Cinema Bilimkurgu Canlı [Türkçe]",
+    "genres": [
+      "Sinema"
+    ],
+    "videos": [
+      {
+        "id": "tv:fixcinemabilmkurgu.tr",
+        "title": "Fix Cinema Bilimkurgu"
+      }
+    ]
+  }
+}

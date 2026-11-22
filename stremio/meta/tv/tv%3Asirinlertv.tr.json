@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:sirinlertv.tr",
+    "type": "tv",
+    "name": "Şirinler TV",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sirinlertv.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sirinlertv.png",
+    "description": "Şirinler TV Canlı [Türkçe]",
+    "genres": [
+      "Belgesel & Çocuk"
+    ],
+    "videos": [
+      {
+        "id": "tv:sirinlertv.tr",
+        "title": "Şirinler TV"
+      }
+    ]
+  }
+}

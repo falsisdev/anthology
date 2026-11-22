@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:beinboxoffice1.tr",
+      "type": "tv",
+      "name": "beIN Box Office 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinboxoffice1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinboxoffice1.png",
+      "description": "beIN Box Office 1 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: m3u_list
  * Built from src/m3u_list/index.js
- * Build: v1.8.39 (anthology build system)
+ * Build: v1.8.40 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -655,7 +655,9 @@ var require_sport_engine = __commonJS({
       if (k.indexOf("idman") !== -1) return SPORT_MAP["idmantv"];
       if (k.indexOf("exxen") !== -1) return SPORT_MAP["exxentv"];
       for (var mk in SPORT_MAP) {
-        if (k.indexOf(mk) === 0 || mk.indexOf(k) === 0) return SPORT_MAP[mk];
+        if (mk.length >= 4 && k.indexOf(mk) === 0 && (k === mk || !/^\d/.test(k.slice(mk.length)))) {
+          return SPORT_MAP[mk];
+        }
       }
       return null;
     }
@@ -916,9 +918,10 @@ var require_sport_engine = __commonJS({
       if (/^beinsport?5/i.test(cleaned)) return "beinsports5";
       if (/^beinsport?max1/i.test(cleaned)) return "beinsportsmax1";
       if (/^beinsport?max2/i.test(cleaned)) return "beinsportsmax2";
-      if (/^ssport1?$/i.test(cleaned)) return "ssport1";
-      if (/^ssport2/i.test(cleaned)) return "ssport2";
-      if (/^ssportplus/i.test(cleaned)) return "ssportplus";
+      if (/^ssport1?$/i.test(cleaned)) return "ssport";
+      if (/^ssport2$/i.test(cleaned)) return "ssport2";
+      if (/^ssportplus$/i.test(cleaned)) return "ssportplus";
+      if (/^(?:24|24tv|kanal24)$/i.test(cleaned)) return "kanal24";
       if (/^tivibu(spor)?1?$/i.test(cleaned)) return "tivibuspor1";
       if (/^tivibu(spor)?2/i.test(cleaned)) return "tivibuspor2";
       if (/^tivibu(spor)?3/i.test(cleaned)) return "tivibuspor3";
@@ -947,9 +950,16 @@ var require_sport_engine = __commonJS({
       if (/^tabii(spor)?8$/i.test(cleaned)) return "tabiispor8";
       return cleaned;
     }
+    var _sourcesCache = {};
+    var _SOURCES_TTL = 3e5;
     function fetchAnthologyLiveSources(canonicalKey) {
       return __async(this, null, function* () {
         if (!canonicalKey) return null;
+        var now = Date.now();
+        var cached = _sourcesCache[canonicalKey];
+        if (cached && now - cached.at < _SOURCES_TTL) {
+          return cached.data;
+        }
         var sourcesUrl = ANTHOLOGY_LIVE_BASE + "/api/sources?channel=" + encodeURIComponent(canonicalKey);
         try {
           var fetchPromise = fetch(sourcesUrl, { headers: _HEADERS2 }).then(function(res) {
@@ -957,12 +967,70 @@ var require_sport_engine = __commonJS({
             return null;
           });
           var sources = yield withTimeout(fetchPromise, 2500);
-          if (Array.isArray(sources) && sources.length > 0) {
+          if (Array.isArray(sources)) {
+            _sourcesCache[canonicalKey] = { at: now, data: sources };
             return sources;
           }
         } catch (e) {
         }
         return null;
+      });
+    }
+    function buildAnthologyLiveStreamEntry(src, canonicalKey, chTitle, authQuery) {
+      var streamUrl = ANTHOLOGY_LIVE_BASE + "/live/" + canonicalKey + ".m3u8?" + authQuery;
+      if (src.id !== "auto") {
+        streamUrl += "&source=" + encodeURIComponent(src.id);
+      }
+      var cleanName = (src.name || src.id).replace(/[⚡️📡🛡🌐]/g, "").trim();
+      var displayProvider = "\u231C Anthology Live \xB7 " + cleanName + " \u231F";
+      var displayTitle = chTitle + " [1080p FHD]";
+      if (src.id === "auto") {
+        displayProvider = "\u231C Anthology Live \xB7 Otomatik \u231F";
+        displayTitle = chTitle + " [1080p FHD \xB7 Ultra H\u0131zl\u0131]";
+      } else if (src.id === "kool1") {
+        displayProvider = "\u231C Anthology Live \xB7 Kool S1 \u231F";
+        displayTitle = chTitle + " [Kool.ws \xB7 Sunucu 1]";
+      } else if (src.id === "kool6") {
+        displayProvider = "\u231C Anthology Live \xB7 Kool S6 \u231F";
+        displayTitle = chTitle + " [Kool.ws \xB7 Sunucu 6]";
+      } else if (src.id === "kool7") {
+        displayProvider = "\u231C Anthology Live \xB7 Kool S7 \u231F";
+        displayTitle = chTitle + " [Kool.ws \xB7 Sunucu 7]";
+      } else if (src.id === "mahsunsports" || src.id === "papazsports") {
+        displayTitle = chTitle + " [1080p HD]";
+      }
+      return makeStream(
+        displayProvider,
+        displayTitle,
+        streamUrl,
+        {
+          "User-Agent": _HEADERS2["User-Agent"],
+          "Accept": "*/*"
+        }
+      );
+    }
+    function resolveAnthologyLiveStreams2(channelIdOrName, fallbackTitle, opts) {
+      return __async(this, null, function* () {
+        yield initSportConfig2();
+        opts = opts || {};
+        if (opts.isSport) {
+          return resolveMultiSportStreams2(channelIdOrName, fallbackTitle);
+        }
+        var canonicalKey = extractCanonicalKey(channelIdOrName);
+        var chTitle = fallbackTitle || String(channelIdOrName).toUpperCase();
+        var authQuery = "username=" + encodeURIComponent(ANTHOLOGY_LIVE_USER) + "&password=" + encodeURIComponent(ANTHOLOGY_LIVE_PASS);
+        var liveSources = yield fetchAnthologyLiveSources(canonicalKey);
+        if (!Array.isArray(liveSources) || liveSources.length === 0) {
+          return [];
+        }
+        var streams = [];
+        for (var i = 0; i < liveSources.length; i++) {
+          var src = liveSources[i];
+          if (!src || !src.id || src.available === false) continue;
+          if (src.id === "direct" || src.id === "backup") continue;
+          streams.push(buildAnthologyLiveStreamEntry(src, canonicalKey, chTitle, authQuery));
+        }
+        return streams;
       });
     }
     function resolveMultiSportStreams2(channelIdOrName, fallbackTitle) {
@@ -991,21 +1059,7 @@ var require_sport_engine = __commonJS({
           for (var i = 0; i < liveSources.length; i++) {
             var src = liveSources[i];
             if (!src || !src.id || src.available === false) continue;
-            var streamUrl = ANTHOLOGY_LIVE_BASE + "/live/" + canonicalKey + ".m3u8?" + authQuery;
-            if (src.id !== "auto") {
-              streamUrl += "&source=" + encodeURIComponent(src.id);
-            }
-            var cleanName = (src.name || src.id).replace(/[⚡️📡🛡]/g, "").trim();
-            var qualityBadge = src.id === "auto" ? "[1080p FHD \xB7 Ultra H\u0131zl\u0131]" : src.id === "mahsunsports" || src.id === "papazsports" ? "[1080p HD]" : "[1080p FHD]";
-            streams.push(makeStream(
-              "\u231C Anthology Live \xB7 " + cleanName + " \u231F",
-              chTitle + " " + qualityBadge,
-              streamUrl,
-              {
-                "User-Agent": _HEADERS2["User-Agent"],
-                "Accept": "*/*"
-              }
-            ));
+            streams.push(buildAnthologyLiveStreamEntry(src, canonicalKey, chTitle, authQuery));
           }
         }
         if (streams.length === 0 && map) {
@@ -1036,6 +1090,7 @@ var require_sport_engine = __commonJS({
       fetchMahsunStream,
       fetchPapazStream,
       resolveMultiSportStreams: resolveMultiSportStreams2,
+      resolveAnthologyLiveStreams: resolveAnthologyLiveStreams2,
       makeStream
     };
   }
@@ -1046,7 +1101,7 @@ var { sortStreamsByQuality } = require_quality();
 var { loadConfig, val, wrapAll } = require_config();
 var { getNowPlayingInfo } = require_epg();
 var { parseTvgLang, channelDescription } = require_channel_lang();
-var { initSportConfig, resolveMultiSportStreams, findSportChannelMapping } = require_sport_engine();
+var { initSportConfig, resolveMultiSportStreams, resolveAnthologyLiveStreams, findSportChannelMapping } = require_sport_engine();
 var _cfgReady = null;
 function cfgReady() {
   if (!_cfgReady) {
@@ -1098,6 +1153,19 @@ function fetchChannels() {
     return txt;
   });
 }
+function normalizeM3UGenre(groupRaw) {
+  var g2 = (groupRaw || "").toString().replace(/İ/g, "I").toUpperCase();
+  if (g2.indexOf("SPOR") !== -1) return "Spor";
+  if (g2.indexOf("ULUSAL") !== -1) return "Ulusal";
+  if (g2.indexOf("HABER") !== -1) return "Haber";
+  if (g2.indexOf("SINEMA") !== -1) return "Sinema";
+  if (g2.indexOf("BELGESEL") !== -1 || g2.indexOf("\xC7OCUK") !== -1 || g2.indexOf("COCUK") !== -1) return "Belgesel & \xC7ocuk";
+  if (g2.indexOf("M\xDCZ\u0130K") !== -1 || g2.indexOf("MUZIK") !== -1 || g2.indexOf("E\u011ELENCE") !== -1) return "M\xFCzik & E\u011Flence";
+  if (g2.indexOf("YEREL") !== -1) return "Yerel";
+  if (g2.indexOf("D\u0130\u011EER") !== -1 || g2.indexOf("DIGER") !== -1) return "Di\u011Fer";
+  var cleaned = (groupRaw || "").replace(/[^\w\sğüşıöçĞÜŞİÖÇ&]/gi, "").trim();
+  return cleaned || "Ulusal";
+}
 function getCatalog(args) {
   return fetchChannels().then(function(content) {
     var lines = content.split("\n");
@@ -1114,7 +1182,7 @@ function getCatalog(args) {
         var rawId = tvgIdMatch && tvgIdMatch[1] ? tvgIdMatch[1].trim() : tvgNameMatch ? tvgNameMatch[1].trim() : channelName;
         var channelId = rawId.startsWith("tv:") ? rawId : "tv:" + rawId;
         var logo = logoMatch ? logoMatch[1] : "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png";
-        var genre = groupMatch ? groupMatch[1].replace(/[^\w\sğüşıöçĞÜŞİÖÇ]/gi, "").trim() : "Ulusal";
+        var genre = normalizeM3UGenre(groupMatch ? groupMatch[1] : "");
         metas.push({
           id: channelId,
           type: "tv",
@@ -1237,6 +1305,9 @@ function getStreams(args) {
     var matchedBackup = "";
     var matchedName = "";
     var matchedCId = "";
+    var matchedEncrypted = false;
+    var matchedEntry = null;
+    var fallbackEntry = null;
     for (var i = 0; i < lines.length; i++) {
       var line = lines[i].trim();
       if (line.indexOf("#EXTINF") !== -1) {
@@ -1246,81 +1317,112 @@ function getStreams(args) {
         var backupMatch = line.match(/tvg-backup="([^"]+)"/i);
         var srcAttrMatch = line.match(/tvg-src="([^"]+)"/i);
         var aliasName = nameMatch ? nameMatch[1].trim() : line.split(",").pop().trim();
-        var namedSrcs = [];
-        if (srcAttrMatch && srcAttrMatch[1]) {
-          var srcParts = srcAttrMatch[1].split("|");
-          for (var psi = 0; psi + 1 < srcParts.length; psi += 2) {
-            var srcName = (srcParts[psi] || "").trim();
-            var srcUrl = (srcParts[psi + 1] || "").trim();
-            if (srcName && srcUrl) namedSrcs.push({ name: srcName, url: srcUrl });
-          }
-        }
         var cId = cleanKey(tvgIdMatch ? tvgIdMatch[1] : "");
         var cName = cleanKey(tvgNameMatch ? tvgNameMatch[1] : "");
         var aName = cleanKey(aliasName);
-        if (cId === searchKey || cName === searchKey || aName === searchKey || searchKey.length >= 4 && aName.length >= 4 && (aName.includes(searchKey) || searchKey.includes(aName))) {
-          if (!matchedName) matchedName = aliasName;
-          if (!matchedCId) matchedCId = cId;
-          var encrypted = isEncryptedChannel(aliasName, cId);
-          var backupAttr = backupMatch ? backupMatch[1] : "";
-          if (backupAttr) matchedBackup = backupAttr;
-          var sportMap = findSportChannelMapping(cId || aName);
-          if (encrypted || sportMap) {
-            try {
-              var sportStreams = yield resolveMultiSportStreams(cId || aName, aliasName);
-              for (var si = 0; si < sportStreams.length; si++) {
-                var sp = sportStreams[si];
-                if (sp && sp.url && !seenUrls[sp.url]) {
-                  seenUrls[sp.url] = true;
-                  streams.push(sp);
-                }
-              }
-            } catch (e2) {
-            }
-          }
+        var exactMatch = cId === searchKey || cName === searchKey || aName === searchKey;
+        var fuzzyMatch = !exactMatch && searchKey.length >= 4 && aName.length >= 4 && (aName.includes(searchKey) || searchKey.includes(aName));
+        if (exactMatch || fuzzyMatch && !fallbackEntry) {
+          var urlLine = "";
           for (var j = i + 1; j < lines.length; j++) {
-            var urlLine = lines[j].trim();
-            if (urlLine && urlLine.indexOf("http") === 0) {
-              if (!seenUrls[urlLine]) {
-                seenUrls[urlLine] = true;
-                var ytMatch = urlLine.match(/(?:watch\?v=|embed\/|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
-                var sObj = {
-                  name: encrypted ? "\u231C Anthology Spor \u231F" : "\u231C Anthology \u231F",
-                  title: aliasName + (ytMatch ? " [Canl\u0131 HD \xB7 YouTube]" : " [Canl\u0131 HD]"),
-                  url: urlLine,
-                  behaviorHints: { isLive: true }
-                };
-                if (ytMatch) {
-                  sObj.ytId = ytMatch[1];
-                } else {
-                  sObj.headers = _HEADERS;
-                }
-                streams.push(sObj);
-              }
+            var ul = lines[j].trim();
+            if (ul && ul.indexOf("http") === 0) {
+              urlLine = ul;
               break;
             }
-            if (urlLine.indexOf("#EXTINF") === 0) break;
+            if (ul.indexOf("#EXTINF") === 0) break;
           }
-          for (var si2 = 0; si2 < namedSrcs.length; si2++) {
-            var ns = namedSrcs[si2];
-            if (ns.url && !seenUrls[ns.url]) {
-              seenUrls[ns.url] = true;
-              var ytMatch2 = ns.url.match(/(?:watch\?v=|embed\/|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
-              var sObj2 = {
-                name: encrypted ? "\u231C Anthology Spor \xB7 " + ns.name + " \u231F" : "\u231C Anthology \xB7 " + ns.name + " \u231F",
-                title: aliasName + " [" + ns.name + (ytMatch2 ? " \xB7 YouTube" : "") + "]",
-                url: ns.url,
-                behaviorHints: { isLive: true }
-              };
-              if (ytMatch2) {
-                sObj2.ytId = ytMatch2[1];
-              } else {
-                sObj2.headers = _HEADERS;
+          var entryObj = {
+            aliasName,
+            cId,
+            backupAttr: backupMatch ? backupMatch[1] : "",
+            srcAttr: srcAttrMatch ? srcAttrMatch[1] : "",
+            urlLine
+          };
+          if (exactMatch) {
+            matchedEntry = entryObj;
+            break;
+          } else {
+            fallbackEntry = entryObj;
+          }
+        }
+      }
+    }
+    var chosen = matchedEntry || fallbackEntry;
+    if (chosen) {
+      matchedName = chosen.aliasName;
+      matchedCId = chosen.cId;
+      var encrypted = isEncryptedChannel(chosen.aliasName, chosen.cId);
+      matchedEncrypted = encrypted;
+      if (chosen.backupAttr) matchedBackup = chosen.backupAttr;
+      var namedSrcs = [];
+      if (chosen.srcAttr) {
+        var srcParts = chosen.srcAttr.split("|");
+        for (var psi = 0; psi + 1 < srcParts.length; psi += 2) {
+          var srcName = (srcParts[psi] || "").trim();
+          var srcUrl = (srcParts[psi + 1] || "").trim();
+          if (srcName && srcUrl) namedSrcs.push({ name: srcName, url: srcUrl });
+        }
+      }
+      var sportMap = findSportChannelMapping(chosen.cId || cleanKey(chosen.aliasName));
+      var isSport = Boolean(encrypted || sportMap);
+      var isLiveProxyUrl = chosen.urlLine && chosen.urlLine.indexOf("/live/") !== -1 && chosen.urlLine.indexOf("anthology-live") !== -1;
+      var addPrimaryFromM3u = function() {
+        if (!chosen.urlLine || seenUrls[chosen.urlLine]) return;
+        seenUrls[chosen.urlLine] = true;
+        var ytMatch = chosen.urlLine.match(/(?:watch\?v=|embed\/|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+        var sObj = {
+          name: isLiveProxyUrl ? "\u231C Anthology Live \xB7 Otomatik \u231F" : encrypted ? "\u231C Anthology Spor \u231F" : "\u231C Anthology \u231F",
+          title: chosen.aliasName + (ytMatch ? " [Canl\u0131 HD \xB7 YouTube]" : isLiveProxyUrl ? " [Kool.ws \xB7 Otomatik]" : " [Canl\u0131 HD \xB7 Resmi]"),
+          url: chosen.urlLine,
+          behaviorHints: { isLive: true }
+        };
+        if (ytMatch) {
+          sObj.ytId = ytMatch[1];
+        } else {
+          sObj.headers = _HEADERS;
+        }
+        streams.push(sObj);
+      };
+      var addLiveProxySources = function() {
+        return __async(this, null, function* () {
+          try {
+            var liveStreams = yield resolveAnthologyLiveStreams(chosen.cId || chosen.aliasName, chosen.aliasName, { isSport });
+            for (var si = 0; si < liveStreams.length; si++) {
+              var sp = liveStreams[si];
+              if (sp && sp.url && !seenUrls[sp.url]) {
+                seenUrls[sp.url] = true;
+                streams.push(sp);
               }
-              streams.push(sObj2);
             }
+          } catch (e2) {
           }
-          break;
+        });
+      };
+      if (isSport || isLiveProxyUrl) {
+        yield addLiveProxySources();
+        addPrimaryFromM3u();
+      } else {
+        addPrimaryFromM3u();
+        yield addLiveProxySources();
+      }
+      for (var si2 = 0; si2 < namedSrcs.length; si2++) {
+        var ns = namedSrcs[si2];
+        if (ns.url && !seenUrls[ns.url]) {
+          seenUrls[ns.url] = true;
+          var ytMatch2 = ns.url.match(/(?:watch\?v=|embed\/|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+          var sObj2 = {
+            name: encrypted ? "\u231C Anthology Spor \xB7 " + ns.name + " \u231F" : "\u231C Anthology \xB7 " + ns.name + " \u231F",
+            title: chosen.aliasName + " [" + ns.name + (ytMatch2 ? " \xB7 YouTube" : "") + "]",
+            url: ns.url,
+            behaviorHints: { isLive: true }
+          };
+          if (ytMatch2) {
+            sObj2.ytId = ytMatch2[1];
+          } else {
+            sObj2.headers = _HEADERS;
+          }
+          streams.push(sObj2);
         }
       }
     }
@@ -1348,6 +1450,9 @@ function getStreams(args) {
         }
       }
     }
+    if (matchedEncrypted) {
+      streams = sortStreamsByQuality(streams);
+    }
     streams.streams = streams;
     return streams;
   });
@@ -1356,8 +1461,7 @@ if (typeof getStreams === "function") {
   _origGetStreams = getStreams;
   getStreams = function() {
     return __async(this, arguments, function* () {
-      var res = yield _origGetStreams.apply(this, arguments);
-      return sortStreamsByQuality(res);
+      return _origGetStreams.apply(this, arguments);
     });
   };
 }

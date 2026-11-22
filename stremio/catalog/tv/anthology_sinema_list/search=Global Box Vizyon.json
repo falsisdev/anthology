@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:globalboxvizyon.tr",
+      "type": "tv",
+      "name": "Global Box Vizyon",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxvizyon.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxvizyon.png",
+      "description": "Global Box Vizyon Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

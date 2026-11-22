@@ -1,0 +1,81 @@
+{
+  "metas": [
+    {
+      "id": "tv:beinmoviesaction.tr",
+      "type": "tv",
+      "name": "beIN Movies Action",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesaction.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesaction.png",
+      "description": "beIN Movies Action Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinmoviesaction2.tr",
+      "type": "tv",
+      "name": "beIN Movies Action 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesaction2.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesaction2.png",
+      "description": "beIN Movies Action 2 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinmoviesfamily.tr",
+      "type": "tv",
+      "name": "beIN Movies Family",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesfamily.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesfamily.png",
+      "description": "beIN Movies Family Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinmoviespremiere.tr",
+      "type": "tv",
+      "name": "beIN Movies Premiere",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviespremiere.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviespremiere.png",
+      "description": "beIN Movies Premiere Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinmoviespremiere2.tr",
+      "type": "tv",
+      "name": "beIN Movies Premiere 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviespremiere2.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviespremiere2.png",
+      "description": "beIN Movies Premiere 2 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinmoviesstars.tr",
+      "type": "tv",
+      "name": "beIN Movies Stars",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesstars.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesstars.png",
+      "description": "beIN Movies Stars Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinmoviesturk.tr",
+      "type": "tv",
+      "name": "beIN Movies Türk",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesturk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesturk.png",
+      "description": "beIN Movies Türk Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

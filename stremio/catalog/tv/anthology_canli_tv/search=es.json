@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:estv.tr",
+      "type": "tv",
+      "name": "Es TV Eskişehir",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/estv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/estv.png",
+      "description": "Es TV Eskişehir Canlı [Türkçe]",
+      "genres": [
+        "Yerel"
+      ]
+    }
+  ]
+}

@@ -10,6 +10,17 @@
       "genres": [
         "Ulusal"
       ]
+    },
+    {
+      "id": "tv:eurostar.tr",
+      "type": "tv",
+      "name": "Euro Star",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurostar.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurostar.png",
+      "description": "Euro Star Canlı [Türkçe]",
+      "genres": [
+        "Ulusal"
+      ]
     }
   ]
 }

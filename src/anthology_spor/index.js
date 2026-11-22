@@ -215,27 +215,38 @@ async function getStreams(args) {
         var channels = parseSportChannels(content);
         var searchKey = cleanKey(targetId.replace(/^tv:/, ''));
         var matched = null;
+        var fallbackMatched = null;
 
         for (var i = 0; i < channels.length; i++) {
             var ch = channels[i];
             var cId = cleanKey(ch.id.replace(/^tv:/, ''));
             var cName = cleanKey(ch.name);
-            if (cId === searchKey || cName === searchKey || (searchKey.length >= 4 && cName.length >= 4 && (cName.includes(searchKey) || searchKey.includes(cName)))) {
+            if (cId === searchKey || cName === searchKey) {
                 matched = ch;
                 break;
             }
+            if (!fallbackMatched && searchKey.length >= 4 && cName.length >= 4 && (cName.includes(searchKey) || searchKey.includes(cName))) {
+                fallbackMatched = ch;
+            }
         }
+        if (!matched) matched = fallbackMatched;
 
         var chTitle = (matched && matched.name) || searchKey.toUpperCase();
 
-        // 5 Büyük Platform Eşzamanlı Çözümleme
+        // 5 Büyük Platform + Kool.ws Eşzamanlı Çözümleme
         var streams = await resolveMultiSportStreams(searchKey || chTitle, chTitle);
 
         // canli.m3u birincil akışı
         if (matched && matched.url) {
             var alreadyPresent = streams.some(function(s) { return s.url === matched.url; });
             if (!alreadyPresent) {
-                streams.push(makeStream('⌜ Anthology Spor ⌟', matched.name + ' [Canlı]', matched.url, _HEADERS));
+                var isLiveProxy = matched.url.indexOf('/live/') !== -1 && matched.url.indexOf('anthology-live') !== -1;
+                streams.push(makeStream(
+                    isLiveProxy ? '⌜ Anthology Live · Otomatik ⌟' : '⌜ Anthology Spor ⌟',
+                    matched.name + (isLiveProxy ? ' [Kool.ws · Otomatik]' : ' [Canlı]'),
+                    matched.url,
+                    _HEADERS
+                ));
             }
         }
 

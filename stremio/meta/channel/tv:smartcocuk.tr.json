@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:smartcocuk.tr",
+    "type": "tv",
+    "name": "Smart Çocuk",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/smartcocuk.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/smartcocuk.png",
+    "description": "Smart Çocuk Canlı [Türkçe]",
+    "genres": [
+      "Belgesel & Çocuk"
+    ],
+    "videos": [
+      {
+        "id": "tv:smartcocuk.tr",
+        "title": "Smart Çocuk"
+      }
+    ]
+  }
+}

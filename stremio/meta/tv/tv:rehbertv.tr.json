@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:rehbertv.tr",
+    "type": "tv",
+    "name": "Rehber TV",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/rehbertv.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/rehbertv.png",
+    "description": "Rehber TV Canlı [Türkçe]",
+    "genres": [
+      "DİĞER KANALLAR"
+    ],
+    "videos": [
+      {
+        "id": "tv:rehbertv.tr",
+        "title": "Rehber TV"
+      }
+    ]
+  }
+}

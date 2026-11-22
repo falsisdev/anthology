@@ -296,6 +296,116 @@
       "genres": [
         "Haber"
       ]
+    },
+    {
+      "id": "tv:anews.tr",
+      "type": "tv",
+      "name": "A News",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/anews.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/anews.png",
+      "description": "A News Canlı [Türkçe]",
+      "genres": [
+        "Haber"
+      ]
+    },
+    {
+      "id": "tv:apara.tr",
+      "type": "tv",
+      "name": "A Para",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/apara.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/apara.png",
+      "description": "A Para Canlı [Türkçe]",
+      "genres": [
+        "Haber"
+      ]
+    },
+    {
+      "id": "tv:artitv.tr",
+      "type": "tv",
+      "name": "Artı TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/artitv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/artitv.png",
+      "description": "Artı TV Canlı [Türkçe]",
+      "genres": [
+        "Haber"
+      ]
+    },
+    {
+      "id": "tv:cnnturk.tr",
+      "type": "tv",
+      "name": "CNN Türk",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cnnturk.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cnnturk.png",
+      "description": "CNN Türk Canlı [Türkçe]",
+      "genres": [
+        "Haber"
+      ]
+    },
+    {
+      "id": "tv:dha.tr",
+      "type": "tv",
+      "name": "DHA",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dha.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dha.png",
+      "description": "DHA Canlı [Türkçe]",
+      "genres": [
+        "Haber"
+      ]
+    },
+    {
+      "id": "tv:ekoltv.tr",
+      "type": "tv",
+      "name": "Ekol TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ekoltv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ekoltv.png",
+      "description": "Ekol TV Canlı [Türkçe]",
+      "genres": [
+        "Haber"
+      ]
+    },
+    {
+      "id": "tv:krt.tr",
+      "type": "tv",
+      "name": "KRT TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/krt.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/krt.png",
+      "description": "KRT TV Canlı [Türkçe]",
+      "genres": [
+        "Haber"
+      ]
+    },
+    {
+      "id": "tv:medyahaber.tr",
+      "type": "tv",
+      "name": "Medya Haber",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/medyahaber.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/medyahaber.png",
+      "description": "Medya Haber Canlı [Türkçe]",
+      "genres": [
+        "Haber"
+      ]
+    },
+    {
+      "id": "tv:sozcutv.tr",
+      "type": "tv",
+      "name": "Sözcü TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sozcutv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sozcutv.png",
+      "description": "Sözcü TV Canlı [Türkçe]",
+      "genres": [
+        "Haber"
+      ]
+    },
+    {
+      "id": "tv:ulusalkanal.tr",
+      "type": "tv",
+      "name": "Ulusal Kanal",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ulusalkanal.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ulusalkanal.png",
+      "description": "Ulusal Kanal Canlı [Türkçe]",
+      "genres": [
+        "Haber"
+      ]
     }
   ]
 }

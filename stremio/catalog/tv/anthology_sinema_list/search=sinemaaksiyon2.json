@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:sinemaaksiyon2.tr",
+      "type": "tv",
+      "name": "Sinema Aksiyon 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaksiyon.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaksiyon.png",
+      "description": "Sinema Aksiyon 2 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:sngerbob.tr",
+    "type": "tv",
+    "name": "Sünger Bob",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sngerbob.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sngerbob.png",
+    "description": "Sünger Bob Canlı [Türkçe]",
+    "genres": [
+      "Belgesel & Çocuk"
+    ],
+    "videos": [
+      {
+        "id": "tv:sngerbob.tr",
+        "title": "Sünger Bob"
+      }
+    ]
+  }
+}

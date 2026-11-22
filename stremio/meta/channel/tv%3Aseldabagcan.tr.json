@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:seldabagcan.tr",
+    "type": "tv",
+    "name": "Selda Bağcan",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/seldabagcan.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/seldabagcan.png",
+    "description": "Selda Bağcan Canlı [Türkçe]",
+    "genres": [
+      "Müzik & Eğlence"
+    ],
+    "videos": [
+      {
+        "id": "tv:seldabagcan.tr",
+        "title": "Selda Bağcan"
+      }
+    ]
+  }
+}

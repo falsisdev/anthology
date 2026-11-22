@@ -8,7 +8,18 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurod.png",
       "description": "Euro D HD Canlı [Türkçe]",
       "genres": [
-        "ULUSAL KANALLAR"
+        "Ulusal"
+      ]
+    },
+    {
+      "id": "tv:eurostar.tr",
+      "type": "tv",
+      "name": "Euro Star",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurostar.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurostar.png",
+      "description": "Euro Star Canlı [Türkçe]",
+      "genres": [
+        "Ulusal"
       ]
     },
     {
@@ -19,7 +30,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurosport.png",
       "description": "Euro Sport 1 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     },
     {
@@ -30,7 +41,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurosport.png",
       "description": "Euro Sport 2 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     }
   ]

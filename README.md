@@ -310,7 +310,6 @@ Anthology projesinin gelişiminde faydalanılan harici açık kaynak katalog, ka
 
 - **Wiojelt** ([@Wiojelt](https://github.com/Wiojelt)) — [TurkSpor](https://github.com/Wiojelt/TurkSpor) ve [WioSpor](https://github.com/Wiojelt/WioSpor) projelerindeki spor kataloğu yapısı, NetVGold akış referansları ve alternatif canlı yayın akışı kaynakları.
 - **iptv-org** ([iptv-org](https://github.com/iptv-org)) — Kamuya açık kanal dizinleri ve topluluk logo veritabanı.
-- **mooncrown04** ([mooncrown04](https://github.com/mooncrown04)) — M3U film ve dizi parçaları veritabanı altyapısı.
 
 ---
 

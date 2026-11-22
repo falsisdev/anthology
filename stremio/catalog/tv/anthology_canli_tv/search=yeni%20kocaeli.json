@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:yenikocaelitv.tr",
+      "type": "tv",
+      "name": "Yeni Kocaeli TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yenikocaelitv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yenikocaelitv.png",
+      "description": "Yeni Kocaeli TV Canlı [Türkçe]",
+      "genres": [
+        "Yerel"
+      ]
+    }
+  ]
+}

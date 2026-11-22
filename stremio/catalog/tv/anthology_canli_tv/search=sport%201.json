@@ -8,7 +8,18 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurosport.png",
       "description": "Euro Sport 1 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:saransport1.tr",
+      "type": "tv",
+      "name": "Saran Sport 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/saransport1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/saransport1.png",
+      "description": "Saran Sport 1 Canlı [Türkçe]",
+      "genres": [
+        "Spor"
       ]
     }
   ]

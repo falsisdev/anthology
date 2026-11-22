@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:yesilcam2.tr",
+    "type": "tv",
+    "name": "Yeşilçam 2",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yesilcam2.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yesilcam2.png",
+    "description": "Yeşilçam 2 Canlı [Türkçe]",
+    "genres": [
+      "Sinema"
+    ],
+    "videos": [
+      {
+        "id": "tv:yesilcam2.tr",
+        "title": "Yeşilçam 2"
+      }
+    ]
+  }
+}

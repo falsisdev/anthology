@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:maxpremier.tr",
+      "type": "tv",
+      "name": "Max Premier",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxpremier.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxpremier.png",
+      "description": "Max Premier Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

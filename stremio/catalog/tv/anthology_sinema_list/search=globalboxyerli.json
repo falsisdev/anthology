@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:globalboxyerli.tr",
+      "type": "tv",
+      "name": "Global Box Yerli",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxyerli.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxyerli.png",
+      "description": "Global Box Yerli Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    }
+  ]
+}

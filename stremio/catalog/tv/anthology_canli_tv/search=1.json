@@ -8,7 +8,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt1.png",
       "description": "TRT 1 HD Canlı [Türkçe]",
       "genres": [
-        "ULUSAL KANALLAR"
+        "Ulusal"
       ]
     },
     {
@@ -19,7 +19,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
       "description": "BeIN Sports 1 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     },
     {
@@ -30,7 +30,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
       "description": "BeIN Sports Max 1 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     },
     {
@@ -41,7 +41,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.png",
       "description": "Tivibu Spor 1 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     },
     {
@@ -52,7 +52,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/smartspor.png",
       "description": "Smart Spor 1 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     },
     {
@@ -63,7 +63,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurosport.png",
       "description": "Euro Sport 1 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     },
     {
@@ -74,7 +74,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
       "description": "Exxen Sports 1 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     },
     {
@@ -85,7 +85,29 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
       "description": "Tabii Spor 1 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:ssportplus1.tr",
+      "type": "tv",
+      "name": "S Sport Plus 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus1.png",
+      "description": "S Sport Plus 1 Canlı [Türkçe]",
+      "genres": [
+        "Spor"
+      ]
+    },
+    {
+      "id": "tv:saransport1.tr",
+      "type": "tv",
+      "name": "Saran Sport 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/saransport1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/saransport1.png",
+      "description": "Saran Sport 1 Canlı [Türkçe]",
+      "genres": [
+        "Spor"
       ]
     },
     {
@@ -96,51 +118,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tele1.png",
       "description": "Tele 1 HD Canlı [Türkçe]",
       "genres": [
-        "HABER KANALLARI"
-      ]
-    },
-    {
-      "id": "tv:Number1TV.tr",
-      "type": "tv",
-      "name": "Number 1 TV HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png",
-      "description": "Number 1 TV HD Canlı [Türkçe]",
-      "genres": [
-        "MÜZİK  EĞLENCE"
-      ]
-    },
-    {
-      "id": "tv:Number1Ask.tr",
-      "type": "tv",
-      "name": "Number 1 Aşk HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png",
-      "description": "Number 1 Aşk HD Canlı [Türkçe]",
-      "genres": [
-        "MÜZİK  EĞLENCE"
-      ]
-    },
-    {
-      "id": "tv:Number1Turk.tr",
-      "type": "tv",
-      "name": "Number 1 Türk HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png",
-      "description": "Number 1 Türk HD Canlı [Türkçe]",
-      "genres": [
-        "MÜZİK  EĞLENCE"
-      ]
-    },
-    {
-      "id": "tv:Number1Dance.tr",
-      "type": "tv",
-      "name": "Number 1 Dance HD",
-      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png",
-      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png",
-      "description": "Number 1 Dance HD Canlı [Türkçe]",
-      "genres": [
-        "MÜZİK  EĞLENCE"
+        "Haber"
       ]
     },
     {
@@ -151,7 +129,205 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cine1.png",
       "description": "Cine 1 HD Canlı [Türkçe]",
       "genres": [
-        "SİNEMA KANALLARI"
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:animation1.tr",
+      "type": "tv",
+      "name": "Animation 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/animation1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/animation1.png",
+      "description": "Animation 1 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinboxoffice1.tr",
+      "type": "tv",
+      "name": "beIN Box Office 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinboxoffice1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinboxoffice1.png",
+      "description": "beIN Box Office 1 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:cinemaximum1.tr",
+      "type": "tv",
+      "name": "Cinemaximum 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximum1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximum1.png",
+      "description": "Cinemaximum 1 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:enoaksiyon1.tr",
+      "type": "tv",
+      "name": "Eno Aksiyon 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enoaksiyon1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enoaksiyon1.png",
+      "description": "Eno Aksiyon 1 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:horror1.tr",
+      "type": "tv",
+      "name": "Horror 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/horror1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/horror1.png",
+      "description": "Horror 1 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:maxanimasyon1.tr",
+      "type": "tv",
+      "name": "Max Animasyon 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxanimasyon1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxanimasyon1.png",
+      "description": "Max Animasyon 1 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:proturkloca1.tr",
+      "type": "tv",
+      "name": "Proturk Loca 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkloca1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkloca1.png",
+      "description": "Proturk Loca 1 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:salon1.tr",
+      "type": "tv",
+      "name": "Salon 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/salon1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/salon1.png",
+      "description": "Salon 1 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:sinemaaksiyon1.tr",
+      "type": "tv",
+      "name": "Sinema Aksiyon 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaksiyon.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaksiyon.png",
+      "description": "Sinema Aksiyon 1 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:sinemayerli1.tr",
+      "type": "tv",
+      "name": "Sinema Yerli 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemayerli1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemayerli1.png",
+      "description": "Sinema Yerli 1 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:yesilcam1.tr",
+      "type": "tv",
+      "name": "Yeşilçam 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yesilcam1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yesilcam1.png",
+      "description": "Yeşilçam 1 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:cocuk1.tr",
+      "type": "tv",
+      "name": "Çocuk 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cocuk1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cocuk1.png",
+      "description": "Çocuk 1 Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    },
+    {
+      "id": "tv:Number1TV.tr",
+      "type": "tv",
+      "name": "Number 1 TV HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png",
+      "description": "Number 1 TV HD Canlı [Türkçe]",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
+    },
+    {
+      "id": "tv:Number1Ask.tr",
+      "type": "tv",
+      "name": "Number 1 Aşk HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png",
+      "description": "Number 1 Aşk HD Canlı [Türkçe]",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
+    },
+    {
+      "id": "tv:Number1Turk.tr",
+      "type": "tv",
+      "name": "Number 1 Türk HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png",
+      "description": "Number 1 Türk HD Canlı [Türkçe]",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
+    },
+    {
+      "id": "tv:Number1Dance.tr",
+      "type": "tv",
+      "name": "Number 1 Dance HD",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png",
+      "description": "Number 1 Dance HD Canlı [Türkçe]",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
+    },
+    {
+      "id": "tv:number1damar.tr",
+      "type": "tv",
+      "name": "Number 1 Damar",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1damar.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1damar.png",
+      "description": "Number 1 Damar Canlı [Türkçe]",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
+    },
+    {
+      "id": "tv:tv1.tr",
+      "type": "tv",
+      "name": "TV 1",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv1.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv1.png",
+      "description": "TV 1 Canlı [Türkçe]",
+      "genres": [
+        "DİĞER KANALLAR"
       ]
     }
   ]

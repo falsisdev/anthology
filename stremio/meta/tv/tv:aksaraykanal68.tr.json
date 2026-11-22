@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:aksaraykanal68.tr",
+    "type": "tv",
+    "name": "Aksaray Kanal 68",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/aksaraykanal68.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/aksaraykanal68.png",
+    "description": "Aksaray Kanal 68 Canlı [Türkçe]",
+    "genres": [
+      "Yerel"
+    ],
+    "videos": [
+      {
+        "id": "tv:aksaraykanal68.tr",
+        "title": "Aksaray Kanal 68"
+      }
+    ]
+  }
+}

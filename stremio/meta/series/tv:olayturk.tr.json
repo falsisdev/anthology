@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:olayturk.tr",
+    "type": "tv",
+    "name": "Olay Türk",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/olayturk.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/olayturk.png",
+    "description": "Olay Türk Canlı [Türkçe]",
+    "genres": [
+      "Yerel"
+    ],
+    "videos": [
+      {
+        "id": "tv:olayturk.tr",
+        "title": "Olay Türk"
+      }
+    ]
+  }
+}

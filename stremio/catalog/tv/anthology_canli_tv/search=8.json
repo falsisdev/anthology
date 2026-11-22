@@ -1,6 +1,17 @@
 {
   "metas": [
     {
+      "id": "tv:tv8int.tr",
+      "type": "tv",
+      "name": "TV 8 Int",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv8int.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv8int.png",
+      "description": "TV 8 Int Canlı [Türkçe]",
+      "genres": [
+        "Ulusal"
+      ]
+    },
+    {
       "id": "tv:ExxenSports8.tr",
       "type": "tv",
       "name": "Exxen Sports 8 HD",
@@ -8,7 +19,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
       "description": "Exxen Sports 8 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     },
     {
@@ -19,7 +30,7 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
       "description": "Tabii Spor 8 HD Canlı [Türkçe]",
       "genres": [
-        "SPOR KANALLARI"
+        "Spor"
       ]
     }
   ]

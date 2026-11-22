@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:natgeowild.tr",
+    "type": "tv",
+    "name": "Nat Geo Wild",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/natgeowild.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/natgeowild.png",
+    "description": "Nat Geo Wild Canlı [Türkçe]",
+    "genres": [
+      "Belgesel & Çocuk"
+    ],
+    "videos": [
+      {
+        "id": "tv:natgeowild.tr",
+        "title": "Nat Geo Wild"
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:proturkmacera.tr",
+    "type": "tv",
+    "name": "Proturk Macera",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkmacera.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkmacera.png",
+    "description": "Proturk Macera Canlı [Türkçe]",
+    "genres": [
+      "Sinema"
+    ],
+    "videos": [
+      {
+        "id": "tv:proturkmacera.tr",
+        "title": "Proturk Macera"
+      }
+    ]
+  }
+}

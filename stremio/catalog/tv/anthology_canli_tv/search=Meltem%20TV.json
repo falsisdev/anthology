@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:meltemtv.tr",
+      "type": "tv",
+      "name": "Meltem TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/meltemtv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/meltemtv.png",
+      "description": "Meltem TV Canlı [Türkçe]",
+      "genres": [
+        "Müzik & Eğlence"
+      ]
+    }
+  ]
+}

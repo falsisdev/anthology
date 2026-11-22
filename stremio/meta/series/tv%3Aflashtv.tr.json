@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:flashtv.tr",
+    "type": "tv",
+    "name": "Flash TV",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/flashtv.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/flashtv.png",
+    "description": "Flash TV Canlı [Türkçe]",
+    "genres": [
+      "Ulusal"
+    ],
+    "videos": [
+      {
+        "id": "tv:flashtv.tr",
+        "title": "Flash TV"
+      }
+    ]
+  }
+}

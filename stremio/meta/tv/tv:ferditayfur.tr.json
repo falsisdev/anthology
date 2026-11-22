@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:ferditayfur.tr",
+    "type": "tv",
+    "name": "Ferdi Tayfur",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ferditayfur.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ferditayfur.png",
+    "description": "Ferdi Tayfur Canlı [Türkçe]",
+    "genres": [
+      "Müzik & Eğlence"
+    ],
+    "videos": [
+      {
+        "id": "tv:ferditayfur.tr",
+        "title": "Ferdi Tayfur"
+      }
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "metas": [
+    {
+      "id": "tv:beinmoviespremiere.tr",
+      "type": "tv",
+      "name": "beIN Movies Premiere",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviespremiere.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviespremiere.png",
+      "description": "beIN Movies Premiere Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:beinmoviespremiere2.tr",
+      "type": "tv",
+      "name": "beIN Movies Premiere 2",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviespremiere2.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviespremiere2.png",
+      "description": "beIN Movies Premiere 2 Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:bbcearthpremiere.tr",
+      "type": "tv",
+      "name": "BBC Earth Premiere",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bbcearthpremiere.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bbcearthpremiere.png",
+      "description": "BBC Earth Premiere Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    }
+  ]
+}

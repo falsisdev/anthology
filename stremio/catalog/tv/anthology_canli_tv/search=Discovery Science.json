@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:discoveryscience.tr",
+      "type": "tv",
+      "name": "Discovery Science",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/discoveryscience.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/discoveryscience.png",
+      "description": "Discovery Science Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    }
+  ]
+}

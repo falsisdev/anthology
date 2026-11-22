@@ -8,7 +8,18 @@
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtnostalji.png",
       "description": "TRT Nostalji HD Canlı [Türkçe]",
       "genres": [
-        "SİNEMA KANALLARI"
+        "Sinema"
+      ]
+    },
+    {
+      "id": "tv:xnostaljitrkeklasik.tr",
+      "type": "tv",
+      "name": "Nostalji Türkçe Klasik",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/xnostaljitrkeklasik.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/xnostaljitrkeklasik.png",
+      "description": "Nostalji Türkçe Klasik Canlı [Türkçe]",
+      "genres": [
+        "Sinema"
       ]
     }
   ]

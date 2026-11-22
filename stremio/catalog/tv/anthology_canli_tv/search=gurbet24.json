@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:gurbet24tv.tr",
+      "type": "tv",
+      "name": "Gurbet24 TV",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/gurbet24tv.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/gurbet24tv.png",
+      "description": "Gurbet24 TV Canlı [Türkçe]",
+      "genres": [
+        "Yerel"
+      ]
+    }
+  ]
+}

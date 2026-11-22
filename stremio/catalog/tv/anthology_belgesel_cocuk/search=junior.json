@@ -1,0 +1,15 @@
+{
+  "metas": [
+    {
+      "id": "tv:nickjr.tr",
+      "type": "tv",
+      "name": "Nick Junior",
+      "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nickjr.png",
+      "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nickjr.png",
+      "description": "Nick Junior Canlı [Türkçe]",
+      "genres": [
+        "Belgesel & Çocuk"
+      ]
+    }
+  ]
+}

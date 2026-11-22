@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:palstationyabancimzik.tr",
+    "type": "tv",
+    "name": "Pal Station Yabanci Müzik",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/palstationyabancimzik.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/palstationyabancimzik.png",
+    "description": "Pal Station Yabanci Müzik Canlı [Türkçe]",
+    "genres": [
+      "Müzik & Eğlence"
+    ],
+    "videos": [
+      {
+        "id": "tv:palstationyabancimzik.tr",
+        "title": "Pal Station Yabanci Müzik"
+      }
+    ]
+  }
+}

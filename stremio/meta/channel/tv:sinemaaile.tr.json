@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:sinemaaile.tr",
+    "type": "tv",
+    "name": "Sinema Aile",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaile.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaile.png",
+    "description": "Sinema Aile Canlı [Türkçe]",
+    "genres": [
+      "Sinema"
+    ],
+    "videos": [
+      {
+        "id": "tv:sinemaaile.tr",
+        "title": "Sinema Aile"
+      }
+    ]
+  }
+}

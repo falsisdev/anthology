@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "id": "tv:arenaboxaction.tr",
+    "type": "tv",
+    "name": "Arena Box Action",
+    "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/arenaboxaction.png",
+    "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/arenaboxaction.png",
+    "description": "Arena Box Action Canlı [Türkçe]",
+    "genres": [
+      "Sinema"
+    ],
+    "videos": [
+      {
+        "id": "tv:arenaboxaction.tr",
+        "title": "Arena Box Action"
+      }
+    ]
+  }
+}
