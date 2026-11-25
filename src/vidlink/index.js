@@ -33,8 +33,9 @@ const VIDLINK_HEADERS = {
     "Origin": VIDLINK_ORIGIN
 };
 
-// Clean headers for video playback (CDN blocks browser User-Agent with 428 and Referer: vidlink.pro with 429)
+// Clean headers for video playback (CDN blocks browser Mozilla/5.0 User-Agent with 428 and Referer: vidlink.pro with 429)
 const STREAM_HEADERS = {
+    "User-Agent": "ExoPlayerLib/2.19.1",
     "Accept": "*/*"
 };
 

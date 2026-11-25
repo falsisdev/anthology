@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: vidlink
  * Built from src/vidlink/index.js
- * Build: v1.8.41 (anthology build system)
+ * Build: v1.8.42 (anthology build system)
  */
 var __defProp = Object.defineProperty;
 var __defProps = Object.defineProperties;
@@ -238,6 +238,7 @@ var VIDLINK_HEADERS = {
   "Origin": VIDLINK_ORIGIN
 };
 var STREAM_HEADERS = {
+  "User-Agent": "ExoPlayerLib/2.19.1",
   "Accept": "*/*"
 };
 function makeRequest(url, options = {}) {
