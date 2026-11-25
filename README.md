@@ -32,6 +32,7 @@
 > ### ⚠️ Platformlar Arasındaki Kapsam ve Kullanım Farkı:
 > - 🌟 **Nuvio Kullanıcıları:** Anthology'nin sunduğu **tüm özellikleri sorunsuz, sınırsız ve eksiksiz** kullanabilir. **41 aktif eklentinin tamamı** (Türkçe/yabancı film, dizi, anime, Go VOD arşivi) ve **388 Canlı TV kanalı (7 vitrin kataloğu)** Nuvio oynatıcısında tek çatı altında eksiksiz çalışır.
 > - 🟣 **Stremio Kullanıcıları:** Stremio eklentisi olarak kullanım **yalnızca Canlı TV katalogları (7 vitrin ve 388 canlı yayın kanalı) ile sınırlıdır**. Stremio'nun eklenti protokolü gereği film ve dizi video scraper'ları Stremio üzerinde çalışmaz; bu nedenle Stremio'da yalnızca canlı televizyon ve spor akışları sunulmaktadır.
+> - 🚢 **Vessel Kullanıcıları (Native TypeScript):** Vessel kendi native TypeScript eklenti sistemine özel ayrı ve hafif [**anthology-vessel**](https://github.com/falsisdev/anthology-vessel) deposuna sahiptir (`gh:falsisdev/anthology-vessel`). Birleşik Canlı TV (`anthology-tv`, 7 kategori / 388 kanal), toggle ayarlı TMDB birleşik motoru (`Anthology+`) ve 31 site eklentisiyle toplam **33 native TypeScript eklentisi** sunar; aynı zamanda Vessel eklenti geliştiricileri için ilk resmi **referans mimari** örneğidir.
 > - 🌐 **Stremio Topluluk Sayfası:** Eklentiyi resmi Stremio topluluk dizininde incelemek için [stremio-addons.net/addons/anthology](https://stremio-addons.net/addons/anthology) adresini ziyaret edebilirsiniz.
 
 ---
@@ -40,6 +41,7 @@
 
 | Platform | Kapsam Durumu | Kurulum Yöntemi | Ne İşe Yarar? |
 |---|:---:|---|---|
+| 🚢 **Vessel** *(Native TypeScript)* | **33 Native TS Eklentisi** | [**Vessel'da Doğrudan Aç (`vessel://`)**](vessel://install?src=gh:falsisdev/anthology-vessel) veya `Extensions` → `Add Repository` alanına şunu yapıştırın:<br>`gh:falsisdev/anthology-vessel` *(Depo: [anthology-vessel](https://github.com/falsisdev/anthology-vessel))* | **Sıfır şişkinlikli TypeScript SDK:** Birleşik `anthology-tv` (388 kanal) + toggle ayarlı `Anthology+` TMDB motoru + 31 site kaynağını doğrudan `repo.json` üzerinden kurar. |
 | 🌟 **Nuvio** *(Önerilen)* | **Tüm Eklenti Sorunsuz & Eksiksiz** | `Ayarlar` → `Pluginler` → `Depo Ekle` yoluna aşağıdaki URL'yi yapıştırın:<br> `https://raw.githubusercontent.com/falsisdev/anthology/main/manifest.json` | **Tüm 41 aktif eklentiyi** (film, dizi, anime ve canlı TV kanalları) yükler. |
 | 🟣 **Stremio** *(Tek Tık)* | **Yalnızca Canlı TV ile Sınırlı** | [**Stremio'ya Doğrudan Ekle (Tıklayın)**](stremio://falsisdev.github.io/anthology/stremio/manifest.json) veya [**Web Stremio'da Aç**](https://web.stremio.com/#/addons?addon=https%3A%2F%2Ffalsisdev.github.io%2Fanthology%2Fstremio%2Fmanifest.json)<br>*(Dizin: [stremio-addons.net](https://stremio-addons.net/addons/anthology))* |**388 Canlı TV kanalını** 7 vitrin kataloğu olarak Stremio ana sayfasına ekler. |
 

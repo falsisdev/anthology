@@ -73,6 +73,9 @@
         --accent-webdav: #a8c7fa;
         --accent-webdav-bg: rgba(168, 199, 250, 0.12);
         --accent-webdav-border: rgba(168, 199, 250, 0.3);
+        --accent-vessel: #67d4f6;
+        --accent-vessel-bg: rgba(103, 212, 246, 0.12);
+        --accent-vessel-border: rgba(103, 212, 246, 0.32);
 
         /* Shape Tokens */
         --md-sys-shape-corner-none: 0px;
@@ -484,6 +487,18 @@
         box-shadow: var(--md-sys-elevation-1);
       }
 
+      .m3-pill-btn.vessel-btn {
+        background-color: var(--accent-vessel-bg);
+        color: var(--accent-vessel);
+        border-color: var(--accent-vessel-border);
+        font-weight: 600;
+      }
+
+      .m3-pill-btn.vessel-btn:hover {
+        background-color: rgba(103, 212, 246, 0.22);
+        box-shadow: var(--md-sys-elevation-1);
+      }
+
       .m3-icon-btn {
         width: 44px;
         height: 44px;
@@ -700,7 +715,7 @@
       /* PLATFORM COMPARISON CARDS (INSTALL SECTION) */
       .m3-platform-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 20px;
         margin-bottom: 28px;
       }
@@ -735,6 +750,10 @@
 
       .m3-platform-card.webdav-card {
         border-color: var(--accent-webdav-border);
+      }
+
+      .m3-platform-card.vessel-card {
+        border-color: var(--accent-vessel-border);
       }
 
       .m3-platform-header {
@@ -1730,6 +1749,13 @@
               </svg>
               <span>Stremio</span>
             </a>
+            <a
+              href="vessel://install?src=gh:falsisdev/anthology-vessel"
+              class="m3-pill-btn vessel-btn m3-ripple-container"
+              title="Vessel Native TypeScript Deposu"
+            >
+              <span>🚢 Vessel</span>
+            </a>
           </div>
         </header>
 
@@ -1784,6 +1810,13 @@
                 href="dav.html"
               >
                 <span>🚀 WebDAV Rehberi &rarr;</span>
+              </a>
+              <a
+                class="m3-pill-btn vessel-btn m3-ripple-container"
+                style="height: 46px; padding: 0 20px; font-size: 14px"
+                href="vessel://install?src=gh:falsisdev/anthology-vessel"
+              >
+                <span>🚢 Vessel (Native TS)</span>
               </a>
             </div>
 
@@ -1992,6 +2025,66 @@
                     href="dav.html"
                   >
                     Detaylı Rehberi Oku &rarr;
+                  </a>
+                </div>
+              </div>
+
+              <!-- VESSEL NATIVE TS CARD -->
+              <div class="m3-platform-card vessel-card">
+                <div>
+                  <div class="m3-platform-header">
+                    <span
+                      class="m3-status-dot"
+                      style="background: #67d4f6"
+                    ></span>
+                    <span>🚢 Vessel (Native TypeScript)</span>
+                  </div>
+                  <p class="m3-platform-desc" style="margin-top: 10px">
+                    Vessel uygulamasının kendi native TypeScript + QuickJS +
+                    <code>oxc</code> altyapısı için sıfırdan tasarlanmış ilk
+                    resmi referans deposu: <strong>33 aktif eklenti</strong>
+                    (birleşik <code>anthology-tv</code> + toggle ayarlı
+                    <code>Anthology+</code> + 31 site kaynağı).
+                  </p>
+                  <div class="m3-platform-steps">
+                    <div class="m3-step-chip">
+                      <strong>Depo Kısayolu (Extensions &rarr; Add Repo):</strong><br />
+                      <code>gh:falsisdev/anthology-vessel</code>
+                    </div>
+                    <div class="m3-step-chip">
+                      <strong>Saf TypeScript Referansı:</strong><br />
+                      Stremio şişkinliği olmadan doğrudan
+                      <code>repo.json</code> ve <code>plugins/&lt;id&gt;</code>
+                      paketleri
+                    </div>
+                  </div>
+                </div>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap">
+                  <a
+                    class="m3-pill-btn vessel-btn m3-ripple-container"
+                    style="flex: 1"
+                    href="vessel://install?src=gh:falsisdev/anthology-vessel"
+                  >
+                    🚢 Vessel'da Aç
+                  </a>
+                  <button
+                    class="m3-pill-btn m3-ripple-container"
+                    onclick="
+                      copyText(
+                        'gh:falsisdev/anthology-vessel',
+                        '🚢 Vessel depo adresi kopyalandı!',
+                      )
+                    "
+                  >
+                    gh: Kopyala
+                  </button>
+                  <a
+                    class="m3-pill-btn m3-ripple-container"
+                    href="https://github.com/falsisdev/anthology-vessel"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Repo &nearr;
                   </a>
                 </div>
               </div>
@@ -2418,6 +2511,18 @@
                   target="_blank"
                   rel="noopener"
                   >stremio/manifest.json</a
+                >
+                <a
+                  href="https://github.com/falsisdev/anthology-vessel"
+                  target="_blank"
+                  rel="noopener"
+                  >Vessel (Native TS)</a
+                >
+                <a
+                  href="https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/repo.json"
+                  target="_blank"
+                  rel="noopener"
+                  >vessel/repo.json</a
                 >
               </div>
 
