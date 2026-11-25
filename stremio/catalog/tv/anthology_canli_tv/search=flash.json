@@ -6,7 +6,7 @@
       "name": "Flash TV",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/flashtv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/flashtv.png",
-      "description": "Flash TV Canlı [Türkçe]",
+      "description": "Ulusal • Flash TV Canlı [Türkçe]",
       "genres": [
         "Ulusal"
       ]
@@ -17,7 +17,7 @@
       "name": "Flash Haber TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/flashhaber.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/flashhaber.png",
-      "description": "Flash Haber TV HD Canlı [Türkçe]",
+      "description": "Haber • Flash Haber TV HD Canlı [Türkçe]",
       "genres": [
         "Haber"
       ]

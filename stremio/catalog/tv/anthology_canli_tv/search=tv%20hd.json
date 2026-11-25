@@ -6,7 +6,7 @@
       "name": "Show TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/showtv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/showtv.png",
-      "description": "Show TV HD Canlı [Türkçe]",
+      "description": "Ulusal • Show TV HD Canlı [Türkçe]",
       "genres": [
         "Ulusal"
       ]
@@ -17,7 +17,7 @@
       "name": "Star TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/startv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/startv.png",
-      "description": "Star TV HD Canlı [Türkçe]",
+      "description": "Ulusal • Star TV HD Canlı [Türkçe]",
       "genres": [
         "Ulusal"
       ]
@@ -28,7 +28,7 @@
       "name": "NOW TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/now.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/now.png",
-      "description": "NOW TV HD Canlı [Türkçe]",
+      "description": "Ulusal • NOW TV HD Canlı [Türkçe]",
       "genres": [
         "Ulusal"
       ]
@@ -39,7 +39,7 @@
       "name": "Beyaz TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beyaztv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beyaztv.png",
-      "description": "Beyaz TV HD Canlı [Türkçe]",
+      "description": "Ulusal • Beyaz TV HD Canlı [Türkçe]",
       "genres": [
         "Ulusal"
       ]
@@ -50,7 +50,7 @@
       "name": "A2 TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/a2.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/a2.png",
-      "description": "A2 TV HD Canlı [Türkçe]",
+      "description": "Ulusal • A2 TV HD Canlı [Türkçe]",
       "genres": [
         "Ulusal"
       ]
@@ -61,7 +61,7 @@
       "name": "360 TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv360.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv360.png",
-      "description": "360 TV HD Canlı [Türkçe]",
+      "description": "Ulusal • 360 TV HD Canlı [Türkçe]",
       "genres": [
         "Ulusal"
       ]
@@ -72,7 +72,7 @@
       "name": "Diyanet TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/diyanettv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/diyanettv.png",
-      "description": "Diyanet TV HD Canlı [Türkçe]",
+      "description": "Ulusal • Diyanet TV HD Canlı [Türkçe]",
       "genres": [
         "Ulusal"
       ]
@@ -83,7 +83,7 @@
       "name": "FB TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fbtv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fbtv.png",
-      "description": "FB TV HD Canlı [Türkçe]",
+      "description": "Spor • FB TV HD Canlı [Türkçe]",
       "genres": [
         "Spor"
       ]
@@ -94,7 +94,7 @@
       "name": "Sports TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportstv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportstv.png",
-      "description": "Sports TV HD Canlı [Türkçe]",
+      "description": "Spor • Sports TV HD Canlı [Türkçe]",
       "genres": [
         "Spor"
       ]
@@ -105,7 +105,7 @@
       "name": "iDMAN Tv HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/idmantv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/idmantv.png",
-      "description": "iDMAN Tv HD Canlı [Azerbaycan Türkçesi]",
+      "description": "Spor • iDMAN Tv HD Canlı [Azerbaycan Türkçesi]",
       "genres": [
         "Spor"
       ]
@@ -116,7 +116,7 @@
       "name": "TJK TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tjktv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tjktv.png",
-      "description": "TJK TV HD Canlı [Türkçe]",
+      "description": "Spor • TJK TV HD Canlı [Türkçe]",
       "genres": [
         "Spor"
       ]
@@ -127,7 +127,7 @@
       "name": "NBA TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nbatv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nbatv.png",
-      "description": "NBA TV HD Canlı [İngilizce]",
+      "description": "Spor • NBA TV HD Canlı [İngilizce]",
       "genres": [
         "Spor"
       ]
@@ -138,7 +138,7 @@
       "name": "Exxen TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
-      "description": "Exxen TV HD Canlı [Türkçe]",
+      "description": "Spor • Exxen TV HD Canlı [Türkçe]",
       "genres": [
         "Spor"
       ]
@@ -149,7 +149,7 @@
       "name": "Tay TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/taytv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/taytv.png",
-      "description": "Tay TV HD Canlı [Türkçe]",
+      "description": "Spor • Tay TV HD Canlı [Türkçe]",
       "genres": [
         "Spor"
       ]
@@ -160,7 +160,7 @@
       "name": "Real Madrid TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/realmadridtv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/realmadridtv.png",
-      "description": "Real Madrid TV HD Canlı [İngilizce]",
+      "description": "Spor • Real Madrid TV HD Canlı [İngilizce]",
       "genres": [
         "Spor"
       ]
@@ -171,7 +171,7 @@
       "name": "Red Bull TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/redbulltv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/redbulltv.png",
-      "description": "Red Bull TV HD Canlı [İngilizce]",
+      "description": "Spor • Red Bull TV HD Canlı [İngilizce]",
       "genres": [
         "Spor"
       ]
@@ -182,7 +182,7 @@
       "name": "Sport Fishing TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportfishingtv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportfishingtv.png",
-      "description": "Sport Fishing TV HD Canlı [İngilizce]",
+      "description": "Spor • Sport Fishing TV HD Canlı [İngilizce]",
       "genres": [
         "Spor"
       ]
@@ -193,7 +193,7 @@
       "name": "Habertürk TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/haberturk.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/haberturk.png",
-      "description": "Habertürk TV HD Canlı [Türkçe]",
+      "description": "Haber • Habertürk TV HD Canlı [Türkçe]",
       "genres": [
         "Haber"
       ]
@@ -204,7 +204,7 @@
       "name": "Halk TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/halktv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/halktv.png",
-      "description": "Halk TV HD Canlı [Türkçe]",
+      "description": "Haber • Halk TV HD Canlı [Türkçe]",
       "genres": [
         "Haber"
       ]
@@ -215,7 +215,7 @@
       "name": "24 TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/24tv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/24tv.png",
-      "description": "24 TV HD Canlı [Türkçe]",
+      "description": "Haber • 24 TV HD Canlı [Türkçe]",
       "genres": [
         "Haber"
       ]
@@ -226,7 +226,7 @@
       "name": "Ülke TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ulketv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ulketv.png",
-      "description": "Ülke TV HD Canlı [Türkçe]",
+      "description": "Haber • Ülke TV HD Canlı [Türkçe]",
       "genres": [
         "Haber"
       ]
@@ -237,7 +237,7 @@
       "name": "Bengü Türk TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/benguturk.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/benguturk.png",
-      "description": "Bengü Türk TV HD Canlı [Türkçe]",
+      "description": "Haber • Bengü Türk TV HD Canlı [Türkçe]",
       "genres": [
         "Haber"
       ]
@@ -248,7 +248,7 @@
       "name": "Flash Haber TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/flashhaber.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/flashhaber.png",
-      "description": "Flash Haber TV HD Canlı [Türkçe]",
+      "description": "Haber • Flash Haber TV HD Canlı [Türkçe]",
       "genres": [
         "Haber"
       ]
@@ -259,7 +259,7 @@
       "name": "Lider Haber TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/liderhaber.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/liderhaber.png",
-      "description": "Lider Haber TV HD Canlı [Türkçe]",
+      "description": "Haber • Lider Haber TV HD Canlı [Türkçe]",
       "genres": [
         "Haber"
       ]
@@ -270,7 +270,7 @@
       "name": "Türk Haber TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/turkhaber.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/turkhaber.png",
-      "description": "Türk Haber TV HD Canlı [Türkçe]",
+      "description": "Haber • Türk Haber TV HD Canlı [Türkçe]",
       "genres": [
         "Haber"
       ]
@@ -281,7 +281,7 @@
       "name": "Akit TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/akittv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/akittv.png",
-      "description": "Akit TV HD Canlı [Türkçe]",
+      "description": "Haber • Akit TV HD Canlı [Türkçe]",
       "genres": [
         "Haber"
       ]
@@ -292,7 +292,7 @@
       "name": "Reuters TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/reuterstv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/reuterstv.png",
-      "description": "Reuters TV HD Canlı [İngilizce]",
+      "description": "Haber • Reuters TV HD Canlı [İngilizce]",
       "genres": [
         "Haber"
       ]
@@ -303,7 +303,7 @@
       "name": "Kral Pop TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kralpop.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kralpop.png",
-      "description": "Kral Pop TV HD Canlı [Türkçe]",
+      "description": "Müzik & Eğlence • Kral Pop TV HD Canlı [Türkçe]",
       "genres": [
         "Müzik & Eğlence"
       ]
@@ -314,7 +314,7 @@
       "name": "PowerTürk TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerturk.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerturk.png",
-      "description": "PowerTürk TV HD Canlı [Türkçe]",
+      "description": "Müzik & Eğlence • PowerTürk TV HD Canlı [Türkçe]",
       "genres": [
         "Müzik & Eğlence"
       ]
@@ -325,7 +325,7 @@
       "name": "Power TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powertv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powertv.png",
-      "description": "Power TV HD Canlı [Türkçe]",
+      "description": "Müzik & Eğlence • Power TV HD Canlı [Türkçe]",
       "genres": [
         "Müzik & Eğlence"
       ]
@@ -336,7 +336,7 @@
       "name": "Number 1 TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png",
-      "description": "Number 1 TV HD Canlı [Türkçe]",
+      "description": "Müzik & Eğlence • Number 1 TV HD Canlı [Türkçe]",
       "genres": [
         "Müzik & Eğlence"
       ]
@@ -347,7 +347,7 @@
       "name": "TMB TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tmbtv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tmbtv.png",
-      "description": "TMB TV HD Canlı [Türkçe]",
+      "description": "Müzik & Eğlence • TMB TV HD Canlı [Türkçe]",
       "genres": [
         "Müzik & Eğlence"
       ]

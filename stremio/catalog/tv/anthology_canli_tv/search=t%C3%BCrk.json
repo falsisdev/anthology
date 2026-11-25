@@ -6,7 +6,7 @@
       "name": "TRT Türk HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtturk.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtturk.png",
-      "description": "TRT Türk HD Canlı [Türkçe]",
+      "description": "Ulusal • TRT Türk HD Canlı [Türkçe]",
       "genres": [
         "Ulusal"
       ]
@@ -17,7 +17,7 @@
       "name": "TYT Türk HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tytturk.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tytturk.png",
-      "description": "TYT Türk HD Canlı [Türkçe]",
+      "description": "Ulusal • TYT Türk HD Canlı [Türkçe]",
       "genres": [
         "Ulusal"
       ]
@@ -28,7 +28,7 @@
       "name": "Show Türk",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/showturk.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/showturk.png",
-      "description": "Show Türk Canlı [Türkçe]",
+      "description": "Ulusal • Show Türk Canlı [Türkçe]",
       "genres": [
         "Ulusal"
       ]
@@ -39,7 +39,7 @@
       "name": "Bengü Türk TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/benguturk.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/benguturk.png",
-      "description": "Bengü Türk TV HD Canlı [Türkçe]",
+      "description": "Haber • Bengü Türk TV HD Canlı [Türkçe]",
       "genres": [
         "Haber"
       ]
@@ -50,7 +50,7 @@
       "name": "Türk Haber TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/turkhaber.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/turkhaber.png",
-      "description": "Türk Haber TV HD Canlı [Türkçe]",
+      "description": "Haber • Türk Haber TV HD Canlı [Türkçe]",
       "genres": [
         "Haber"
       ]
@@ -61,7 +61,7 @@
       "name": "Finans Türk",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/finansturk.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/finansturk.png",
-      "description": "Finans Türk Canlı [Türkçe]",
+      "description": "Haber • Finans Türk Canlı [Türkçe]",
       "genres": [
         "Haber"
       ]
@@ -72,7 +72,7 @@
       "name": "CNN Türk",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cnnturk.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cnnturk.png",
-      "description": "CNN Türk Canlı [Türkçe]",
+      "description": "Haber • CNN Türk Canlı [Türkçe]",
       "genres": [
         "Haber"
       ]
@@ -83,7 +83,7 @@
       "name": "beIN Movies Türk",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesturk.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesturk.png",
-      "description": "beIN Movies Türk Canlı [Türkçe]",
+      "description": "Sinema • beIN Movies Türk Canlı [Türkçe]",
       "genres": [
         "Sinema"
       ]
@@ -94,7 +94,7 @@
       "name": "Max Türk",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxturk.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxturk.png",
-      "description": "Max Türk Canlı [Türkçe]",
+      "description": "Sinema • Max Türk Canlı [Türkçe]",
       "genres": [
         "Sinema"
       ]
@@ -105,7 +105,7 @@
       "name": "Movie Smart Türk",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/moviesmartturk.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/moviesmartturk.png",
-      "description": "Movie Smart Türk Canlı [Türkçe]",
+      "description": "Sinema • Movie Smart Türk Canlı [Türkçe]",
       "genres": [
         "Sinema"
       ]
@@ -116,7 +116,7 @@
       "name": "Sinevizyon Türk 5",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinevizyonturk5.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinevizyonturk5.png",
-      "description": "Sinevizyon Türk 5 Canlı [Türkçe]",
+      "description": "Sinema • Sinevizyon Türk 5 Canlı [Türkçe]",
       "genres": [
         "Sinema"
       ]
@@ -127,7 +127,7 @@
       "name": "Sinevizyon Türk 7",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinevizyonturk7.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinevizyonturk7.png",
-      "description": "Sinevizyon Türk 7 Canlı [Türkçe]",
+      "description": "Sinema • Sinevizyon Türk 7 Canlı [Türkçe]",
       "genres": [
         "Sinema"
       ]
@@ -138,7 +138,7 @@
       "name": "Dream Türk HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dreamturk.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dreamturk.png",
-      "description": "Dream Türk HD Canlı [Türkçe]",
+      "description": "Müzik & Eğlence • Dream Türk HD Canlı [Türkçe]",
       "genres": [
         "Müzik & Eğlence"
       ]
@@ -149,7 +149,7 @@
       "name": "Number 1 Türk HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png",
-      "description": "Number 1 Türk HD Canlı [Türkçe]",
+      "description": "Müzik & Eğlence • Number 1 Türk HD Canlı [Türkçe]",
       "genres": [
         "Müzik & Eğlence"
       ]
@@ -160,7 +160,7 @@
       "name": "Türk Rock",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/turkrock.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/turkrock.png",
-      "description": "Türk Rock Canlı [Türkçe]",
+      "description": "Müzik & Eğlence • Türk Rock Canlı [Türkçe]",
       "genres": [
         "Müzik & Eğlence"
       ]
@@ -171,7 +171,7 @@
       "name": "Afyon Türk",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/afyonturk.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/afyonturk.png",
-      "description": "Afyon Türk Canlı [Türkçe]",
+      "description": "Yerel • Afyon Türk Canlı [Türkçe]",
       "genres": [
         "Yerel"
       ]
@@ -182,7 +182,7 @@
       "name": "Olay Türk",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/olayturk.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/olayturk.png",
-      "description": "Olay Türk Canlı [Türkçe]",
+      "description": "Yerel • Olay Türk Canlı [Türkçe]",
       "genres": [
         "Yerel"
       ]
@@ -193,7 +193,7 @@
       "name": "Sat7 Türk",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sat7turk.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sat7turk.png",
-      "description": "Sat7 Türk Canlı [Türkçe]",
+      "description": "DİĞER KANALLAR • Sat7 Türk Canlı [Türkçe]",
       "genres": [
         "DİĞER KANALLAR"
       ]

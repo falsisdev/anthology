@@ -6,7 +6,7 @@
       "name": "Kanal 7 HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png",
-      "description": "Kanal 7 HD Canlı [Türkçe]",
+      "description": "Ulusal • Kanal 7 HD Canlı [Türkçe]",
       "genres": [
         "Ulusal"
       ]
@@ -17,7 +17,7 @@
       "name": "Kanal 7 Avrupa",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png",
-      "description": "Kanal 7 Avrupa Canlı [Türkçe]",
+      "description": "Ulusal • Kanal 7 Avrupa Canlı [Türkçe]",
       "genres": [
         "Ulusal"
       ]
@@ -28,7 +28,7 @@
       "name": "Exxen Sports 7 HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
-      "description": "Exxen Sports 7 HD Canlı [Türkçe]",
+      "description": "Spor • Exxen Sports 7 HD Canlı [Türkçe]",
       "genres": [
         "Spor"
       ]
@@ -39,7 +39,7 @@
       "name": "Tabii Spor 7 HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
-      "description": "Tabii Spor 7 HD Canlı [Türkçe]",
+      "description": "Spor • Tabii Spor 7 HD Canlı [Türkçe]",
       "genres": [
         "Spor"
       ]
@@ -50,7 +50,7 @@
       "name": "Cinemaximum 7",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximum7.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximum7.png",
-      "description": "Cinemaximum 7 Canlı [Türkçe]",
+      "description": "Sinema • Cinemaximum 7 Canlı [Türkçe]",
       "genres": [
         "Sinema"
       ]
@@ -61,7 +61,7 @@
       "name": "Sinevizyon Türk 7",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinevizyonturk7.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinevizyonturk7.png",
-      "description": "Sinevizyon Türk 7 Canlı [Türkçe]",
+      "description": "Sinema • Sinevizyon Türk 7 Canlı [Türkçe]",
       "genres": [
         "Sinema"
       ]

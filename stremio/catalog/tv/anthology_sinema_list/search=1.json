@@ -6,7 +6,7 @@
       "name": "Cine 1 HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cine1.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cine1.png",
-      "description": "Cine 1 HD Canlı [Türkçe]",
+      "description": "Sinema • Cine 1 HD Canlı [Türkçe]",
       "genres": [
         "Sinema"
       ]
@@ -17,7 +17,7 @@
       "name": "Animation 1",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/animation1.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/animation1.png",
-      "description": "Animation 1 Canlı [Türkçe]",
+      "description": "Sinema • Animation 1 Canlı [Türkçe]",
       "genres": [
         "Sinema"
       ]
@@ -28,7 +28,7 @@
       "name": "beIN Box Office 1",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinboxoffice1.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinboxoffice1.png",
-      "description": "beIN Box Office 1 Canlı [Türkçe]",
+      "description": "Sinema • beIN Box Office 1 Canlı [Türkçe]",
       "genres": [
         "Sinema"
       ]
@@ -39,7 +39,7 @@
       "name": "Cinemaximum 1",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximum1.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximum1.png",
-      "description": "Cinemaximum 1 Canlı [Türkçe]",
+      "description": "Sinema • Cinemaximum 1 Canlı [Türkçe]",
       "genres": [
         "Sinema"
       ]
@@ -50,7 +50,7 @@
       "name": "Eno Aksiyon 1",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enoaksiyon1.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enoaksiyon1.png",
-      "description": "Eno Aksiyon 1 Canlı [Türkçe]",
+      "description": "Sinema • Eno Aksiyon 1 Canlı [Türkçe]",
       "genres": [
         "Sinema"
       ]
@@ -61,7 +61,7 @@
       "name": "Horror 1",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/horror1.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/horror1.png",
-      "description": "Horror 1 Canlı [Türkçe]",
+      "description": "Sinema • Horror 1 Canlı [Türkçe]",
       "genres": [
         "Sinema"
       ]
@@ -72,7 +72,7 @@
       "name": "Max Animasyon 1",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxanimasyon1.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxanimasyon1.png",
-      "description": "Max Animasyon 1 Canlı [Türkçe]",
+      "description": "Sinema • Max Animasyon 1 Canlı [Türkçe]",
       "genres": [
         "Sinema"
       ]
@@ -83,7 +83,7 @@
       "name": "Proturk Loca 1",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkloca1.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkloca1.png",
-      "description": "Proturk Loca 1 Canlı [Türkçe]",
+      "description": "Sinema • Proturk Loca 1 Canlı [Türkçe]",
       "genres": [
         "Sinema"
       ]
@@ -94,7 +94,7 @@
       "name": "Salon 1",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/salon1.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/salon1.png",
-      "description": "Salon 1 Canlı [Türkçe]",
+      "description": "Sinema • Salon 1 Canlı [Türkçe]",
       "genres": [
         "Sinema"
       ]
@@ -105,7 +105,7 @@
       "name": "Sinema Aksiyon 1",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaksiyon.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaksiyon.png",
-      "description": "Sinema Aksiyon 1 Canlı [Türkçe]",
+      "description": "Sinema • Sinema Aksiyon 1 Canlı [Türkçe]",
       "genres": [
         "Sinema"
       ]
@@ -116,7 +116,7 @@
       "name": "Sinema Yerli 1",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemayerli1.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemayerli1.png",
-      "description": "Sinema Yerli 1 Canlı [Türkçe]",
+      "description": "Sinema • Sinema Yerli 1 Canlı [Türkçe]",
       "genres": [
         "Sinema"
       ]
@@ -127,7 +127,7 @@
       "name": "Yeşilçam 1",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yesilcam1.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yesilcam1.png",
-      "description": "Yeşilçam 1 Canlı [Türkçe]",
+      "description": "Sinema • Yeşilçam 1 Canlı [Türkçe]",
       "genres": [
         "Sinema"
       ]

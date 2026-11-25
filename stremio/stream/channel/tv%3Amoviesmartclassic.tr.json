@@ -11,6 +11,18 @@
       "behaviorHints": {
         "isLive": true
       }
+    },
+    {
+      "name": "⌜ Anthology Live · Kool S7 ⌟",
+      "title": "Movie Smart Classic [Kool.ws · Sunucu 7]",
+      "url": "https://anthology-live.duckdns.org/live/moviesmartclassic.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
     }
   ]
 }

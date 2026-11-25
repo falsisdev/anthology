@@ -2,14 +2,26 @@
   "streams": [
     {
       "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Afyon Türk [Kool.ws · Otomatik]",
+      "title": "Afyon Türk [1080p FHD · Ultra Hızlı]",
       "url": "https://anthology-live.duckdns.org/live/afyonturk.m3u8?username=anthology&password=falsisdevwashere",
-      "behaviorHints": {
-        "isLive": true
-      },
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Anthology Live · Kool S7 ⌟",
+      "title": "Afyon Türk [Kool.ws · Sunucu 7]",
+      "url": "https://anthology-live.duckdns.org/live/afyonturk.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
       }
     }
   ]

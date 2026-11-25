@@ -6,7 +6,7 @@
       "name": "Star TV HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/startv.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/startv.png",
-      "description": "Star TV HD Canlı [Türkçe]",
+      "description": "Ulusal • Star TV HD Canlı [Türkçe]",
       "genres": [
         "Ulusal"
       ]
@@ -17,7 +17,7 @@
       "name": "Euro Star",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurostar.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurostar.png",
-      "description": "Euro Star Canlı [Türkçe]",
+      "description": "Ulusal • Euro Star Canlı [Türkçe]",
       "genres": [
         "Ulusal"
       ]
@@ -28,7 +28,7 @@
       "name": "Max Star Wars",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxstarwars.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxstarwars.png",
-      "description": "Max Star Wars Canlı [Türkçe]",
+      "description": "Sinema • Max Star Wars Canlı [Türkçe]",
       "genres": [
         "Sinema"
       ]

@@ -13,18 +13,6 @@
       }
     },
     {
-      "name": "⌜ Anthology Live · Resmi / Doğrudan Akış ⌟",
-      "title": "S Sport Plus 4 [1080p FHD]",
-      "url": "https://anthology-live.duckdns.org/live/ssportplus4.m3u8?username=anthology&password=falsisdevwashere&source=direct",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
       "name": "⌜ Anthology Live · Mahsun Sports ⌟",
       "title": "S Sport Plus 4 [1080p HD]",
       "url": "https://anthology-live.duckdns.org/live/ssportplus4.m3u8?username=anthology&password=falsisdevwashere&source=mahsunsports",
@@ -64,6 +52,18 @@
       "name": "⌜ Anthology Live · Taraftarium24 ⌟",
       "title": "S Sport Plus 4 [1080p FHD]",
       "url": "https://anthology-live.duckdns.org/live/ssportplus4.m3u8?username=anthology&password=falsisdevwashere&source=taraftarium",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Anthology Live · Kool S1 ⌟",
+      "title": "S Sport Plus 4 [Kool.ws · Sunucu 1]",
+      "url": "https://anthology-live.duckdns.org/live/ssportplus4.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Accept": "*/*"

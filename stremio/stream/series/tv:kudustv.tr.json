@@ -2,14 +2,26 @@
   "streams": [
     {
       "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Kudüs TV [Kool.ws · Otomatik]",
+      "title": "Kudüs TV [1080p FHD · Ultra Hızlı]",
       "url": "https://anthology-live.duckdns.org/live/kudustv.m3u8?username=anthology&password=falsisdevwashere",
-      "behaviorHints": {
-        "isLive": true
-      },
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Anthology Live · Kool S1 ⌟",
+      "title": "Kudüs TV [Kool.ws · Sunucu 1]",
+      "url": "https://anthology-live.duckdns.org/live/kudustv.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
       }
     }
   ]

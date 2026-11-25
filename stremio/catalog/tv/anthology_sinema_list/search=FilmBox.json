@@ -6,7 +6,7 @@
       "name": "FilmBox",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/filmbox.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/filmbox.png",
-      "description": "FilmBox Canlı [Türkçe]",
+      "description": "Sinema • FilmBox Canlı [Türkçe]",
       "genres": [
         "Sinema"
       ]
@@ -17,7 +17,7 @@
       "name": "FilmBox Aksiyon",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/filmboxaksiyon.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/filmboxaksiyon.png",
-      "description": "FilmBox Aksiyon Canlı [Türkçe]",
+      "description": "Sinema • FilmBox Aksiyon Canlı [Türkçe]",
       "genres": [
         "Sinema"
       ]
@@ -28,7 +28,7 @@
       "name": "FilmBox Kadir İnanır",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/filmboxkadirinanir.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/filmboxkadirinanir.png",
-      "description": "FilmBox Kadir İnanır Canlı [Türkçe]",
+      "description": "Sinema • FilmBox Kadir İnanır Canlı [Türkçe]",
       "genres": [
         "Sinema"
       ]

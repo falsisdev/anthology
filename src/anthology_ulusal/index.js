@@ -7,7 +7,6 @@ const { createLiveTvProvider } = require('../shared/live_tv_engine.js');
 var provider = createLiveTvProvider({
     streamName: '⌜ Anthology Ulusal ⌟',
     genre: 'Ulusal',
-    useEpg: true,
     matchGroup: function (group) {
         return (group || '').indexOf('ULUSAL') !== -1;
     }

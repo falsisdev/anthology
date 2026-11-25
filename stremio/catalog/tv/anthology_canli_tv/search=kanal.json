@@ -6,7 +6,7 @@
       "name": "Kanal D HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanald.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanald.png",
-      "description": "Kanal D HD Canlı [Türkçe]",
+      "description": "Ulusal • Kanal D HD Canlı [Türkçe]",
       "genres": [
         "Ulusal"
       ]
@@ -17,7 +17,7 @@
       "name": "Kanal 7 HD",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png",
-      "description": "Kanal 7 HD Canlı [Türkçe]",
+      "description": "Ulusal • Kanal 7 HD Canlı [Türkçe]",
       "genres": [
         "Ulusal"
       ]
@@ -28,7 +28,7 @@
       "name": "Kanal 7 Avrupa",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png",
-      "description": "Kanal 7 Avrupa Canlı [Türkçe]",
+      "description": "Ulusal • Kanal 7 Avrupa Canlı [Türkçe]",
       "genres": [
         "Ulusal"
       ]
@@ -39,7 +39,7 @@
       "name": "Kanal Avrupa",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanalavrupa.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanalavrupa.png",
-      "description": "Kanal Avrupa Canlı [Türkçe]",
+      "description": "Ulusal • Kanal Avrupa Canlı [Türkçe]",
       "genres": [
         "Ulusal"
       ]
@@ -50,7 +50,7 @@
       "name": "Ulusal Kanal",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ulusalkanal.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ulusalkanal.png",
-      "description": "Ulusal Kanal Canlı [Türkçe]",
+      "description": "Haber • Ulusal Kanal Canlı [Türkçe]",
       "genres": [
         "Haber"
       ]
@@ -61,7 +61,7 @@
       "name": "Aksaray Kanal 68",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/aksaraykanal68.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/aksaraykanal68.png",
-      "description": "Aksaray Kanal 68 Canlı [Türkçe]",
+      "description": "Yerel • Aksaray Kanal 68 Canlı [Türkçe]",
       "genres": [
         "Yerel"
       ]
@@ -72,7 +72,7 @@
       "name": "Elazığ Kanal 23",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/elazigkanal23.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/elazigkanal23.png",
-      "description": "Elazığ Kanal 23 Canlı [Türkçe]",
+      "description": "Yerel • Elazığ Kanal 23 Canlı [Türkçe]",
       "genres": [
         "Yerel"
       ]
@@ -83,7 +83,7 @@
       "name": "Elazığ Kanal Firat",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/elazigkanalfirat.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/elazigkanalfirat.png",
-      "description": "Elazığ Kanal Firat Canlı [Türkçe]",
+      "description": "Yerel • Elazığ Kanal Firat Canlı [Türkçe]",
       "genres": [
         "Yerel"
       ]
@@ -94,7 +94,7 @@
       "name": "Kanal 12",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal12.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal12.png",
-      "description": "Kanal 12 Canlı [Türkçe]",
+      "description": "Yerel • Kanal 12 Canlı [Türkçe]",
       "genres": [
         "Yerel"
       ]
@@ -105,7 +105,7 @@
       "name": "Kanal 26",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal26.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal26.png",
-      "description": "Kanal 26 Canlı [Türkçe]",
+      "description": "Yerel • Kanal 26 Canlı [Türkçe]",
       "genres": [
         "Yerel"
       ]
@@ -116,7 +116,7 @@
       "name": "Kanal 3",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal3.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal3.png",
-      "description": "Kanal 3 Canlı [Türkçe]",
+      "description": "Yerel • Kanal 3 Canlı [Türkçe]",
       "genres": [
         "Yerel"
       ]
@@ -127,7 +127,7 @@
       "name": "Kanal 58",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal58.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal58.png",
-      "description": "Kanal 58 Canlı [Türkçe]",
+      "description": "Yerel • Kanal 58 Canlı [Türkçe]",
       "genres": [
         "Yerel"
       ]
@@ -138,7 +138,7 @@
       "name": "Kanal Urfa",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanalurfa.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanalurfa.png",
-      "description": "Kanal Urfa Canlı [Türkçe]",
+      "description": "Yerel • Kanal Urfa Canlı [Türkçe]",
       "genres": [
         "Yerel"
       ]
@@ -149,7 +149,7 @@
       "name": "Kıbrıs Kanal T",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kibriskanalt.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kibriskanalt.png",
-      "description": "Kıbrıs Kanal T Canlı [Türkçe]",
+      "description": "Yerel • Kıbrıs Kanal T Canlı [Türkçe]",
       "genres": [
         "Yerel"
       ]
@@ -160,7 +160,7 @@
       "name": "Zonguldak Kanal Z",
       "poster": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/zonguldakkanalz.png",
       "background": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/zonguldakkanalz.png",
-      "description": "Zonguldak Kanal Z Canlı [Türkçe]",
+      "description": "Yerel • Zonguldak Kanal Z Canlı [Türkçe]",
       "genres": [
         "Yerel"
       ]

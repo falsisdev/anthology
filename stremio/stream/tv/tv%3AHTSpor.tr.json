@@ -25,6 +25,30 @@
       }
     },
     {
+      "name": "⌜ Anthology Live · Kool S1 ⌟",
+      "title": "HT Spor HD [Kool.ws · Sunucu 1]",
+      "url": "https://anthology-live.duckdns.org/live/htspor.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Anthology Live · Kool S7 ⌟",
+      "title": "HT Spor HD [Kool.ws · Sunucu 7]",
+      "url": "https://anthology-live.duckdns.org/live/htspor.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
       "name": "⌜ Anthology Spor ⌟",
       "title": "HT Spor HD [Canlı]",
       "url": "https://ciner.daioncdn.net/ht-spor/ht-spor.m3u8?app=web",

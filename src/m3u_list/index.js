@@ -1,6 +1,5 @@
 const { sortStreamsByQuality } = require("../shared/quality.js");
 const { loadConfig, val, wrapAll } = require("../shared/config.js");
-const { getNowPlayingInfo } = require("../shared/epg.js");
 const { parseTvgLang, channelDescription } = require("../shared/channel_lang.js");
 const { initSportConfig, resolveMultiSportStreams, resolveAnthologyLiveStreams, findSportChannelMapping } = require("../shared/sport_engine.js");
 
@@ -105,7 +104,7 @@ function getCatalog(args) {
                         poster: logo,
                         background: logo,
                         genres: [genre],
-                        description: channelDescription(channelName, parseTvgLang(line))
+                        description: genre + ' • ' + channelDescription(channelName, parseTvgLang(line))
                     });
                 }
             }
@@ -131,12 +130,14 @@ function getMeta(args) {
             var logo = "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/default_tv.png";
             var searchKey = cleanKey(targetId.replace(/^tv:/, ''));
             var lang = '';
+            var genre = 'Ulusal';
 
             for (var i = 0; i < lines.length; i++) {
                 var line = lines[i].trim();
                 if (line.indexOf("#EXTINF") !== -1) {
                     var tvgIdMatch = line.match(/tvg-id="([^"]+)"/i);
                     var tvgNameMatch = line.match(/tvg-name="([^"]+)"/i);
+                    var groupMatch = line.match(/group-title="([^"]+)"/i);
                     var nameMatch = line.match(/"\s*,\s*(.+)$/);
                     var aliasName = nameMatch ? nameMatch[1].trim() : line.split(',').pop().trim();
 
@@ -147,6 +148,7 @@ function getMeta(args) {
                     if (cId === searchKey || cName === searchKey || aName === searchKey || aName.includes(searchKey) || searchKey.includes(aName)) {
                         name = aliasName;
                         lang = parseTvgLang(line);
+                        genre = normalizeM3UGenre(groupMatch ? groupMatch[1] : '');
                         var logoMatch = line.match(/tvg-logo="([^"]+)"/i);
                         if (logoMatch) logo = logoMatch[1];
                         break;
@@ -154,7 +156,6 @@ function getMeta(args) {
                 }
             }
 
-            var epg = getNowPlayingInfo(searchKey, name);
             return {
                 meta: {
                     id: targetId,
@@ -162,10 +163,11 @@ function getMeta(args) {
                     name: name,
                     poster: logo,
                     background: logo,
-                    description: (epg && epg.formattedText) ? (channelDescription(name, lang) + '\n' + epg.formattedText) : channelDescription(name, lang),
+                    genres: [genre],
+                    description: genre + ' • ' + channelDescription(name, lang),
                     videos: [{
                         id: targetId,
-                        title: (epg && epg.current) ? epg.current : name,
+                        title: name,
                         released: new Date().toISOString()
                     }]
                 }

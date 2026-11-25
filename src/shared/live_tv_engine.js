@@ -6,7 +6,6 @@
 const { parseTvgLang, channelDescription } = require('./channel_lang.js');
 const { sortStreamsByQuality } = require('./quality.js');
 const { loadConfig, val, wrapAll } = require('./config.js');
-const { getNowPlayingInfo } = require('./epg.js');
 const { timeoutSignal } = require('./http.js');
 const { initSportConfig, resolveAnthologyLiveStreams } = require('./sport_engine.js');
 
@@ -212,7 +211,6 @@ function createLiveTvProvider(opts) {
     var streamName = opts.streamName;
     var genre = opts.genre;
     var matchGroup = opts.matchGroup;
-    var useEpg = Boolean(opts.useEpg);
 
     function getCatalog() {
         return fetchChannels()
@@ -226,7 +224,7 @@ function createLiveTvProvider(opts) {
                         poster: ch.logo,
                         background: ch.logo,
                         genres: [genre],
-                        description: channelDescription(ch.name, ch.lang)
+                        description: genre + ' • ' + channelDescription(ch.name, ch.lang)
                     };
                 });
                 return { metas: metas };
@@ -307,11 +305,7 @@ function createLiveTvProvider(opts) {
                 var ch = findMatchingChannel(channels, targetId);
                 if (!ch) return { meta: null };
 
-                var cleanTarget = cleanKey(String(targetId).replace(/^tv:/i, ''));
-                var baseDesc = channelDescription(ch.name, ch.lang);
-                var epg = useEpg ? getNowPlayingInfo(cleanTarget, ch.name) : null;
-                var description = (epg && epg.formattedText) ? (baseDesc + '\n' + epg.formattedText) : baseDesc;
-                var videoTitle = (epg && epg.current) ? epg.current : ch.name;
+                var description = genre + ' • ' + channelDescription(ch.name, ch.lang);
 
                 return {
                     meta: {
@@ -322,7 +316,7 @@ function createLiveTvProvider(opts) {
                         background: ch.logo,
                         description: description,
                         genres: [genre],
-                        videos: [{ id: targetId, title: videoTitle, released: new Date().toISOString() }]
+                        videos: [{ id: targetId, title: ch.name, released: new Date().toISOString() }]
                     }
                 };
             })
