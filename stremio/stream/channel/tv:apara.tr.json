@@ -1,48 +1,22 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "A Para [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/apara.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "A Para [Kool.ws · Sunucu 1 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/ILOljNFZ9qD-EQigX2Y9vv_3dc-1g4_a6EWSy2ofNLWbfNxLzyCNcLTttkd_I8ee8BPOg1ojfPhWQlYWd-WBdtikUh0Jvb9hF54-rroWplXJ_CJXf8Xo3OC7qdY3oVEngZ34ddbkyZWWhdalR8iH5TdzO76-Ezgbs4Fn-y6dc3CCBpdwbCo6k5UenEX492uaM0dR2I_ph8iXjCF_2bzC1drspmSG6Vdj3wO6XxbyRm3Evl48d3xR0E1tX6zvJ4vL/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "A Para [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/apara.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
+      "name": "⌜ Kool S6 ⌟",
+      "title": "A Para [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://193.47.62.157:8008/sunshine/2138z4KtW5rgTsSZ9hKTpTgnLiIhZPR0UfUMxBctjOu9_fZprB-mwuDmC6OFg94iil0Xmy1w3LB1Pr3OesYaBq0-O_IsFM8cvZBzO2SGkXHk2cZPQF6d_y89-vlnGJRIMaREAxFj8erMKJ0EtikpWgFlGXZ7o1TJBnuN1zQGUK6DbXu3EQD8LXzFPpMn2fjywDnyTZNQDREZ7bOjgagp8M-U4vRDK7sWU6hKPXz782ysWZUY5TeF9baVBMTHeTDX/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "A Para [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/apara.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "A Para [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/apara.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

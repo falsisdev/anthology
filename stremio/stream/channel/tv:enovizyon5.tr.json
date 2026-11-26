@@ -1,24 +1,11 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Eno Vizyon 5 [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/enovizyon5.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S7 ⌟",
+      "title": "Eno Vizyon 5 [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://193.47.62.157:8008/sunshine/APeIgNY2P0VF0jA1ZX7Mk_68I3mKJCJjHZPLWbNCUn2idz0DYDZhadwiOKGpdKpjWnc2h3Ub6YLL5IcNLRUvjZQg_c0xqlpY9DKeUUsBBSoMKlsa1sUyaPEuG_cxsGqDZ4p2XghRUlhYHh76f4oSInWLZolELtjEeyB_7Ur184EeW8VQqX1To7S1HnYGB_PnX4LPpACa1pBC13-tkM4ARm-_0Aq6Ep9wD_cUYU3LS-D7MyVOcCm8PvjkVK0XJI3L/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "Eno Vizyon 5 [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/enovizyon5.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

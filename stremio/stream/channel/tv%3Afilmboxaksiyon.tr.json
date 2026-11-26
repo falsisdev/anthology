@@ -1,24 +1,11 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "FilmBox Aksiyon [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/filmboxaksiyon.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S7 ⌟",
+      "title": "FilmBox Aksiyon [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://193.47.62.157:8008/sunshine/h5UivqXud5Q8fs3yYdfPQPzM1AKc8cLWLUWz1UZnpQWqECJdq1nkOLAS2hDzERngMylduespJ7uKAJjU-nixjVMlVYS04DCZ57jwiVsFlzmWJrdKd_QlXSQeEJRnThAma7x07uAbDsjp5D4teKKuH1JWASwKMFtt7KaF6gUZH-Bm44E7Qe5uiaaIb7ZBKTmJMgXcJZGurzSHounmciPc3f1Wzas3y2Mt08UFO-pCSTJST-JCoLp0TWjfRi_LxvWL/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "FilmBox Aksiyon [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/filmboxaksiyon.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

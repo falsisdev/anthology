@@ -13,36 +13,11 @@
       }
     },
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "TV4 HD [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/tv4.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "TV4 HD [Kool.ws · Sunucu 1 · 4K UHD]",
+      "url": "http://109.205.187.150:8008/sunshine/b-CQcHlyQldCL9DBz3fwmNcrFHmkLlrzIrS6jbQ7-9bBE3AjujdfsDqo-F6DTXiCnh63LesC1mIkLcaOpEpbrDjm0wPliTGmKxSF7TH45wxYPfGN18O0WjkbfiphInQQAL9Wu6HVrSOpFcotwCd5Oo4FlDRxY7zPiJ3dL-g_MBDLSsLG1KXWrKfvFXCkmovtTVLb8akqyEw2w3JOdhLXy-EDBXgZCxNDVFRgQnBsQgDCbjaBfAxR-OQC3ZJLjYta/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "TV4 HD [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/tv4.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "TV4 HD [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/tv4.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

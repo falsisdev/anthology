@@ -1,132 +1,70 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "BeIN Sports 1 HD [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/beinsports1.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "BeIN Sports 1 HD [Kool.ws · Sunucu 1 · 4K UHD]",
+      "url": "http://109.205.187.150:8008/sunshine/LWdV_lWBdQ7XEhwc94b1Wl2hid3utevBAWFbuBdIC6cD5wJocGE7Aqtw1mewmAohxN_p5p8gLNN9LMKGosBsTx5lE6IfN3AO1KHMSuwZZbsGh4USvFL36FQBS64401EuR276wlomk72UtQhHkBkjvqcM4CcuCOWn_M5nQsTthijW2O7LIjgBj-b1mEnSgEPKPmdVLvnCL-4rFmtMAU9OVwoDgdwPCsl8ccy0uGej3xtErfT8snudhmhx6BbyBVau/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Resmi / Doğrudan Akış ⌟",
-      "title": "BeIN Sports 1 HD [1080p FHD]",
-      "url": "https://anthology-live.duckdns.org/live/beinsports1.m3u8?username=anthology&password=falsisdevwashere&source=direct",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Mahsun Sports ⌟",
+      "name": "⌜ MahsunSports ⌟",
       "title": "BeIN Sports 1 HD [1080p HD]",
-      "url": "https://anthology-live.duckdns.org/live/beinsports1.m3u8?username=anthology&password=falsisdevwashere&source=mahsunsports",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Alemdar Sport ⌟",
-      "title": "BeIN Sports 1 HD [1080p FHD]",
-      "url": "https://anthology-live.duckdns.org/live/beinsports1.m3u8?username=anthology&password=falsisdevwashere&source=alemdarsport",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Selçuk / Arda ⌟",
-      "title": "BeIN Sports 1 HD [1080p FHD]",
-      "url": "https://anthology-live.duckdns.org/live/beinsports1.m3u8?username=anthology&password=falsisdevwashere&source=ardasports",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Taraftarium24 ⌟",
-      "title": "BeIN Sports 1 HD [1080p FHD]",
-      "url": "https://anthology-live.duckdns.org/live/beinsports1.m3u8?username=anthology&password=falsisdevwashere&source=taraftarium",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Papaz Sports ⌟",
-      "title": "BeIN Sports 1 HD [1080p HD]",
-      "url": "https://anthology-live.duckdns.org/live/beinsports1.m3u8?username=anthology&password=falsisdevwashere&source=papazsports",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "BeIN Sports 1 HD [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/beinsports1.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "BeIN Sports 1 HD [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/beinsports1.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "BeIN Sports 1 HD [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/beinsports1.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Spor ⌟",
-      "title": "BeIN Sports 1 HD [Canlı]",
       "url": "https://andro.evrenesoglu235.click/checklist/androstreamlivebs1.m3u8",
       "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ AlemdarSport ⌟",
+      "title": "BeIN Sports 1 HD [1080p FHD]",
+      "url": "https://alemdar.e56334ad5bbbc0ca4c80f717246c2500.cfd/mdalemdar/bein1/index.m3u8",
+      "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "Referer": "https://alemdarsport.cfd",
+        "Origin": "https://alemdarsport.cfd"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Taraftarium24 ⌟",
+      "title": "BeIN Sports 1 HD [1080p FHD]",
+      "url": "https://css.d6e3ess6e065r5.help//beyin1/tracks-v1a1/mono.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Referer": "https://taraftarium24-246.top/",
+        "Origin": "https://taraftarium24-246.top/"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Kool S6 ⌟",
+      "title": "BeIN Sports 1 HD [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://193.47.62.157:8008/sunshine/AF9eVflPQhq0bF4D3HaLkxoPHkJMmoy6BjC5dnZEZVOuA5-JXxHuw9rcYcLWuXvY9lF5PT2lC9tttHIl4ojjrh9lFtkh-IlD2vbpZ7BcEdulaz-99VT097xIBVdgUrT_DuMlm0JkF-4OagrQUt6t6Y-XVxcmC6Y7MP4ekw_Vry5IJjXpjJtE8cuflvIXIwVPskaI1KusvdbvC0BWOaHZ3stsi5Rw9bvhdZ2hFgA9LxUnhUpNTLsRDlreYSS4spuy/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Kool S7 ⌟",
+      "title": "BeIN Sports 1 HD [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://193.47.62.157:8008/sunshine/osOGKHUTRQ_c6t7h72vtdDUz1sACtQCkvTFxvZ8kO3QGCboeRxr_gbcLB6bgpBkcpwR9vX5v8SwdUMhZQeMpsbkgEtBaP8TDzSutXeTWZEsDsbjB4YGLT0VVVAv1f5ZvVIPI-IfwnZozPS0OmCoXXITsREDwj2EI0eMLRS9SCph43nrSbgLBW4eIi4rY-pNW1iptrhwscSKY858E871RLQOvMOC8M_5tVpPNMsFHpTd-_d0aN4T7IlIvDZ80YX-u/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

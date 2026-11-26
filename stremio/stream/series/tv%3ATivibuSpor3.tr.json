@@ -1,108 +1,57 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Tivibu Spor 3 HD [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/tivibuspor3.m3u8?username=anthology&password=falsisdevwashere",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Resmi / Doğrudan Akış ⌟",
-      "title": "Tivibu Spor 3 HD [1080p FHD]",
-      "url": "https://anthology-live.duckdns.org/live/tivibuspor3.m3u8?username=anthology&password=falsisdevwashere&source=direct",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Mahsun Sports ⌟",
+      "name": "⌜ MahsunSports ⌟",
       "title": "Tivibu Spor 3 HD [1080p HD]",
-      "url": "https://anthology-live.duckdns.org/live/tivibuspor3.m3u8?username=anthology&password=falsisdevwashere&source=mahsunsports",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Alemdar Sport ⌟",
-      "title": "Tivibu Spor 3 HD [1080p FHD]",
-      "url": "https://anthology-live.duckdns.org/live/tivibuspor3.m3u8?username=anthology&password=falsisdevwashere&source=alemdarsport",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Papaz Sports ⌟",
-      "title": "Tivibu Spor 3 HD [1080p HD]",
-      "url": "https://anthology-live.duckdns.org/live/tivibuspor3.m3u8?username=anthology&password=falsisdevwashere&source=papazsports",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "Tivibu Spor 3 HD [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/tivibuspor3.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "Tivibu Spor 3 HD [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/tivibuspor3.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "Tivibu Spor 3 HD [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/tivibuspor3.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Spor ⌟",
-      "title": "Tivibu Spor 3 HD [Canlı]",
       "url": "https://andro.evrenesoglu235.click/checklist/androstreamlivets3.m3u8",
       "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ AlemdarSport ⌟",
+      "title": "Tivibu Spor 3 HD [1080p FHD]",
+      "url": "https://alemdar.e56334ad5bbbc0ca4c80f717246c2500.cfd/mdalemdar/tivibu3/index.m3u8",
+      "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "Referer": "https://alemdarsport.cfd",
+        "Origin": "https://alemdarsport.cfd"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Kool S1 ⌟",
+      "title": "Tivibu Spor 3 HD [Kool.ws · Sunucu 1 · 1080p FHD]",
+      "url": "http://138.226.249.38:8008/sunshine/5tqjqtC4ek5JZoLGv84ySxEgJq4h9bqqW5qON1d9BbdDXIRx3unHWA0djd0gZGqE1B1XJ0txPm7NuEUmrTWbUxnjp_ex8EB10_DIV9Z-821DLY4v1bTCzCGJZb1Sn5NTaA8dLBfzQhR7D8Wao15UmN4kEgZTvTZ_D9R1KfeaPG-BoQPMhxyi9NyNCXxi27aUmgYuwM8mchV3M2ZYagEB1bYf5swjiHmgPf3h3ijI3hp656ANFqvJXrc8bE6X-jjp/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Kool S6 ⌟",
+      "title": "Tivibu Spor 3 HD [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://193.47.62.157:8008/sunshine/HuUTrfdEoPZ7NU9LOO8OdAJ122Jb6APnJ_dqGL8Ivyv1peDVL5TawiI2xzI8b9tVKleYtJ4K-skk-5twyGkqbDZbh0ICoXcw6jp61EHwelRYtiingMrAc-fnDUabp3iugiD6ouceW0Ex7QgnJc2kZ73j2B-DG6giWp-vEw3e8Gd1WpQfkxtDud_d8Lm-383AvTUhLZUUBbBdhoKn94DoEbeNqS7f7xjQlYbj0ZgEaF4AIsKrc1QpK-90lnnHzsjD/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Kool S7 ⌟",
+      "title": "Tivibu Spor 3 HD [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/XL5qptaeE_z6AvVp5wA00YEZx2mVNt3E-PoisLbyNeqiQRrW8PC8v3soBhcvzeuY14NDDGWTqLI8E7NtGj6Ymkqu3WT4FgKcOb2aSm6WuhQidJ74U0GHdGqnD98QoPfKJcpddFx2ycNV8Bsvk2-y5cGZqPNF00_xUV3Ea5stQ-_DSL166KsxmIiYVR3lAKwuTNbCbjgQtBv2wodrfW8IuJmi6R7_ozgHE2eEU_kGVeOEEDlvuXTiU0E7Vxcids7G/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

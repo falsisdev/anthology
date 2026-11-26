@@ -1,24 +1,11 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Mersin El TV [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/mersineltv.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "Mersin El TV [Kool.ws · Sunucu 1 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/ePepgHYsvh3iQHoBxT6xgfJhGVZr6FzNvcQ4Z1tfrRIfgshbQYTFHcSNkt5sj_Wpze9fUhzXnc1onz0w-MDSIiuNXKZhBBnbJyFF04Lbo9Ll7nzWGSArUAG9ywT7G7pOhIwK48fPoBOC5nsi-WBxC4-Zvz4sEJjNvt6QlMSOSWhX7D9tvfLsxesQPySeD8atmYMDcCk0WjO7DwCddzItmrS3UkHH_9Jtsa5vDIbEDRTsJPYDx3QnTjiXUK-s1_Ri/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "Mersin El TV [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/mersineltv.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

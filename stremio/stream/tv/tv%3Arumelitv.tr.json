@@ -1,24 +1,11 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Rumeli TV [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/rumelitv.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S6 ⌟",
+      "title": "Rumeli TV [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/fMsbv48TVpUeKHTJtHA3ygi9_1TsQCfxLGSj_zuRcphAZC3rNnMRlVUJpqr8bk6Z3I0fIR40g5-o-y-TNrnJtOl2U8z7Ky6uWvlHpGM8J0QIeRtMUvR_NCyajkUb1-P5G63gCj07ggli1gK494v2UjdlEsE96BRlMAuyJuS34xC_Sn7st301-Aluo-aL-iyYffD37w8aHgW7mD7R2LG5IUloUptZu3l6iCW2OC3PE0tKVImQMoi1ircvxIDFwKC4/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "Rumeli TV [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/rumelitv.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

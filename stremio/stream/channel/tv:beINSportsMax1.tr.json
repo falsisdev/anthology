@@ -1,120 +1,59 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "BeIN Sports Max 1 HD [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/beinsportsmax1.m3u8?username=anthology&password=falsisdevwashere",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Resmi / Doğrudan Akış ⌟",
-      "title": "BeIN Sports Max 1 HD [1080p FHD]",
-      "url": "https://anthology-live.duckdns.org/live/beinsportsmax1.m3u8?username=anthology&password=falsisdevwashere&source=direct",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Mahsun Sports ⌟",
+      "name": "⌜ MahsunSports ⌟",
       "title": "BeIN Sports Max 1 HD [1080p HD]",
-      "url": "https://anthology-live.duckdns.org/live/beinsportsmax1.m3u8?username=anthology&password=falsisdevwashere&source=mahsunsports",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Alemdar Sport ⌟",
-      "title": "BeIN Sports Max 1 HD [1080p FHD]",
-      "url": "https://anthology-live.duckdns.org/live/beinsportsmax1.m3u8?username=anthology&password=falsisdevwashere&source=alemdarsport",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Selçuk / Arda ⌟",
-      "title": "BeIN Sports Max 1 HD [1080p FHD]",
-      "url": "https://anthology-live.duckdns.org/live/beinsportsmax1.m3u8?username=anthology&password=falsisdevwashere&source=ardasports",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Taraftarium24 ⌟",
-      "title": "BeIN Sports Max 1 HD [1080p FHD]",
-      "url": "https://anthology-live.duckdns.org/live/beinsportsmax1.m3u8?username=anthology&password=falsisdevwashere&source=taraftarium",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Papaz Sports ⌟",
-      "title": "BeIN Sports Max 1 HD [1080p HD]",
-      "url": "https://anthology-live.duckdns.org/live/beinsportsmax1.m3u8?username=anthology&password=falsisdevwashere&source=papazsports",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "BeIN Sports Max 1 HD [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/beinsportsmax1.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "BeIN Sports Max 1 HD [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/beinsportsmax1.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Spor ⌟",
-      "title": "BeIN Sports Max 1 HD [Canlı]",
       "url": "https://andro.evrenesoglu235.click/checklist/androstreamlivebsm1.m3u8",
       "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ AlemdarSport ⌟",
+      "title": "BeIN Sports Max 1 HD [1080p FHD]",
+      "url": "https://alemdar.e56334ad5bbbc0ca4c80f717246c2500.cfd/mdalemdar/beinmax1/index.m3u8",
+      "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "Referer": "https://alemdarsport.cfd",
+        "Origin": "https://alemdarsport.cfd"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Taraftarium24 ⌟",
+      "title": "BeIN Sports Max 1 HD [1080p FHD]",
+      "url": "https://css.d6e3ess6e065r5.help//bm1/tracks-v1a1/mono.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Referer": "https://taraftarium24-246.top/",
+        "Origin": "https://taraftarium24-246.top/"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Kool S1 ⌟",
+      "title": "BeIN Sports Max 1 HD [Kool.ws · Sunucu 1 · 1080p FHD]",
+      "url": "http://109.205.187.150:8008/sunshine/yislVUiEjmrqBoHOoaMCmuxm2VFTB0_g6k7O9p2QzA-meqM9tYUYsDUptKzLYyoOh48UDoYfIbhoTWwU3GYhq7SRVAvQKw9kwpzNWXaV7Y0lLtAwFcjBEpg9D96aKUigqWDOAEu7g8Od8azK6k2OM1MFW7JSFGYL8RJXfuSWbR6PGamCYdzQBPDeT3n4GEnKzcYjl_MDvQXCjIpdoveduY_SHWfOmn78lnHWiZDDbk74AksHkC-JIAloKb8-MMPW/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Kool S7 ⌟",
+      "title": "BeIN Sports Max 1 HD [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/qV2eCnMxGLNbR8f62xiiv5AexeiZIfq1J38T3EhYqB1bS8dYZyguC5_0cgdMBBIBoR8Zk2bizPsewCWMOeHrdrSONWxxN5attfKeIgfuTa4TkhWYUzKh2caqsSTeXaGEj8khUoraPhabJCei05gnIcVOqZYyNqMYXnh5TAz3FAOpF7ZasfuynyJn-8U9vSnznzfAI9qrJbZAIeqsPYiySLx47Plb592JEv3OHayPOkjjXCi6XcZ0wnBq3Od6wsqW/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

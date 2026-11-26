@@ -1,24 +1,11 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Nostalji Türkçe Klasik [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/xnostaljitrkeklasik.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "Nostalji Türkçe Klasik [Kool.ws · Sunucu 1 · HD]",
+      "url": "http://193.47.62.157:8008/sunshine/-pMzr4Bt6yihCNRv8FH8XoSy-e6Vh4IqvhKEp4YNF0OrqhBBGXQKrJZcuYfVcyvTScnr6M4HhPWXWtxO0eZSZ2lXxC04Z95_B7srg00fnE4q3qPJOmke5j_Yu3smDN203_ZurSm1D6q4VWSPQi3c2pTDldIhTKKjM6beBAXVjYSzN0EpPrHEeRj8o1CFUnFEmN2d8_divyGK-tNo8sYt5ANFcxYlUPbfsQMhD8nS7D8VUsS3_30spYsm33xdJXUg/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "Nostalji Türkçe Klasik [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/xnostaljitrkeklasik.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

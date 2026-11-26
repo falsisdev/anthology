@@ -1,72 +1,33 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Exxen Sports 3 HD [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/exxensports3.m3u8?username=anthology&password=falsisdevwashere",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Resmi / Doğrudan Akış ⌟",
-      "title": "Exxen Sports 3 HD [1080p FHD]",
-      "url": "https://anthology-live.duckdns.org/live/exxensports3.m3u8?username=anthology&password=falsisdevwashere&source=direct",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Mahsun Sports ⌟",
+      "name": "⌜ MahsunSports ⌟",
       "title": "Exxen Sports 3 HD [1080p HD]",
-      "url": "https://anthology-live.duckdns.org/live/exxensports3.m3u8?username=anthology&password=falsisdevwashere&source=mahsunsports",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "Exxen Sports 3 HD [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/exxensports3.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "Exxen Sports 3 HD [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/exxensports3.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Spor ⌟",
-      "title": "Exxen Sports 3 HD [Canlı]",
       "url": "https://andro.evrenesoglu235.click/checklist/androstreamliveexn3.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Kool S1 ⌟",
+      "title": "Exxen Sports 3 HD [Kool.ws · Sunucu 1 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/712U28o8ziztwqeF_D8HIi1wl7-f6Qlyex3uWgdI-cwr2wheEs0DXN_qkDnsILlMQlYoz8pIhia5xRI-U15wzMDArVIPl_aHV4rbV_0dqQFvEqWvIGXcflrAIgq-FJYJRiqgCx7H08livMcaAXW6z7uqeOZTTYBWsHkf4vZqNlIp-ltp09oST54fVv1F3Zz8TeBXgQoqNo0HwtYGIuG3pHVFOnQiy9xoTp_HtiwEJgzHKZDLu1NUpq0UgfN2_GfJ/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Kool S7 ⌟",
+      "title": "Exxen Sports 3 HD [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/V-iblv8kkB7Oc1K4BKMFHcDfE5QkKrW9nTcts0aWYoYierICeZprr7GYwDV3-CwGoATFq8duJZbQXMGxQph1bkZjHkvEMTQHnsrYa5wZefLnBz54C0wshrUub4Z19d5PnoTcmpC14x-qYTmUpKgOJWxRKiead2m3IXAFTXpOoyIgNIxSu7bsa4umtVv4LeGWEuZP62PnwG7gnFJCedY32g-bpyUzji5GPQCLFZkoSH6I0e0aYve60TTDH0alikKe/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

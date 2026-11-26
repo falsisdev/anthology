@@ -1,24 +1,11 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Yeşilçam 3 [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/yesilcam3.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S7 ⌟",
+      "title": "Yeşilçam 3 [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/IE48Dk7LIYbYCedMt3rd0s5AZC3kJlfP8Aytdh0k6hFSixIHr0Bi0N_N9HiK_z9dTmu9oUaufZWmbE65Ai0lxEXNghFJe8Q8uBlTG63VqMxqEAq_w4pWM5btLQkXJ3dP_DYoX3ue-qsQFxX9PIAyPavV4NBFDLClEZK9UMkqCqTOk-IonmWs8PwmInZgTpX1R3b-p3WqbP7qRKdfB0abSYGLEs9hUko4MkcDyGuT9szomjQ3KWVOh8N0yAKhoGsf/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "Yeşilçam 3 [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/yesilcam3.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

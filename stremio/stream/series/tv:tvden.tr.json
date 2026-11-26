@@ -1,15 +1,14 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "TV Den [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/tvden.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S6 ⌟",
+      "title": "TV Den [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/t_gjlvxM825UkdWr39TijMwAMkDtv0scrdMzazCGzkOJ6mUGN6iynR003C9G4Jg44V__5GTPEMR2gyNeFQ-LfXVlSf6SaF9G19jJ3EZ5w26oZZaD0xq8MzfQAZfhjH7vlXEOqZ7NtBIs3vgPOg2SOXIcVWbUEzpyZoAY5n-gcaL_3FPFLXasB0-tOwUNwuxP-PKHz3S6yZTbaurUzdgykj5Y37E-NIffDBQ1kKeNbaCRf-6mBt-Mtr-1mAFqspc6/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
       "behaviorHints": {
         "isLive": true
-      },
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
       }
     }
   ]

@@ -1,24 +1,11 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Aksaray Kanal 68 [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/aksaraykanal68.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "Aksaray Kanal 68 [Kool.ws · Sunucu 1 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/O8RWgcza3cJwfTmT4HER23enF633xmtyuc9_ZmZQzGDHxUc30VnlJou85aceOWxMxzlKnSozR_psj4wRyO2mSP5CuM6Xt-NE1173XiVy6e4HIg_jaBMZL_FZa77HC71TMJA2ibj1MH5xhEEWrcDcG-DQuJ1rwXCA3MTFIUWNn5nLBbSmyH3XksTUXPj82s6naobAlgsDtfVCzRGLFvc7o612jkA40ARqDQHpvxi5c_20zz6RzcuHjnl1fDEFn4bl/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "Aksaray Kanal 68 [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/aksaraykanal68.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

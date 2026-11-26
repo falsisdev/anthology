@@ -1,24 +1,11 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Tarih TV [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/tarihtv.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S6 ⌟",
+      "title": "Tarih TV [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://193.47.62.157:8008/sunshine/BXExS7qNNz7TbiiF03mZLLjKPnX13lpAqZfVKC7PZuRI4_j0pW7XdvrMN1Jp2Ujw2eucuLsdJvX9946Da3eE0mshk0orhiVH97C-C9xqLf6d2lU5XPlysKwYJer6wPgK7uhytU8phHlIF4V0hRfvGVZohoXIVNYS0doJFE9TBUxuY4ZmCDpNetJXPRD07tFl3ou3qF3nMtb0-BnGHqZsoY-m-xbDQtGxFL4fdlGMYi4hatFDa9Y7_NFGkBgqQNDz/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "Tarih TV [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/tarihtv.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

@@ -253,17 +253,13 @@ function createLiveTvProvider(opts) {
             var officialStreams = [];
             var proxyStreams = [];
             var seenUrls = {};
-            var isLiveProxyUrl = function (u) {
-                return u && u.indexOf('/live/') !== -1 && u.indexOf('anthology-live') !== -1;
+            var isKoolPlaceholder = function (u) {
+                return u && (u.indexOf('kool.ws/live/play/') !== -1 || (u.indexOf('/live/') !== -1 && u.indexOf('anthology-live') !== -1));
             };
 
-            if (ch.url) {
+            if (ch.url && !isKoolPlaceholder(ch.url)) {
                 seenUrls[ch.url] = true;
-                if (isLiveProxyUrl(ch.url)) {
-                    proxyStreams.push(buildStreamEntry('⌜ Anthology Live · Otomatik ⌟', ch.name, ch.name + ' [Kool.ws · Otomatik]', ch.url));
-                } else {
-                    officialStreams.push(buildStreamEntry(streamName, ch.name, ch.name + ' [Canlı HD · Resmi]', ch.url));
-                }
+                officialStreams.push(buildStreamEntry(streamName, ch.name, ch.name + ' [Canlı HD · Resmi]', ch.url));
             }
             if (ch.backups && ch.backups.length > 0) {
                 for (var bkIdx = 0; bkIdx < ch.backups.length; bkIdx++) {
@@ -277,7 +273,8 @@ function createLiveTvProvider(opts) {
             }
 
             try {
-                var liveSources = await resolveAnthologyLiveStreams(ch.id, ch.name, { isSport: false });
+                var liveTarget = isKoolPlaceholder(ch.url) ? ch.url : ch.id;
+                var liveSources = await resolveAnthologyLiveStreams(liveTarget, ch.name, { isSport: false });
                 for (var li = 0; li < liveSources.length; li++) {
                     var ls = liveSources[li];
                     if (ls && ls.url && !seenUrls[ls.url]) {

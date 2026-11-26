@@ -13,36 +13,11 @@
       }
     },
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Dream Türk HD [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/dreamturk.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S7 ⌟",
+      "title": "Dream Türk HD [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/N4Acfw1b1R9ip7-ielq5ADi79X3Kcxlx0B4LccaU7Z-f7bbGkMZuurpRwj0zrhrAC4QMZvwVsK-junmQhp2EmFe6FK-6HzjTcNnoRMTl5ksA_3wWegH2U01QTZXQLZ7JPhS_e1xecKt_dhEiHZMz-QSUZO24dZB40GKCgQduQyNAZ1eMkgZ08_0S_h5YnKoEbBTk7293C8_Mg2ezDyDIqdFJH5YM-LO0k7YjovQ9VvA2v_QhsVKogZIzTopeYxqJ/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "Dream Türk HD [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/dreamturk.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "Dream Türk HD [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/dreamturk.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

@@ -1,24 +1,11 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Movie Smart Action [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/moviesmartaction.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S7 ⌟",
+      "title": "Movie Smart Action [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/1KSoXbkWZMb6zu3Rb28sj0uCOzlhXxT2gdXYKLpOAXjePtSpdiiHdXQTwKQ5XDjzXY8fQOnUGxQIG5RcPBmpLE4sz0_xJ0UdC3gv1dWe9BkdzMLMdto98z-5rLWqce7W2CGLCUX_w8x1ZvcjXNkC7j6L1lFLYVFuSoho-kHLFVstXhC4VGylAGQetvoU2Oo1nZun7Z2c9uriUXniozRwrlcvQmY4QFGy9WcSB367XYWA8F2YG2jOZDjpT8XfSWem/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "Movie Smart Action [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/moviesmartaction.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

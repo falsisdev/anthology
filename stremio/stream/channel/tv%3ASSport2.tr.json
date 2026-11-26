@@ -1,132 +1,70 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "S Sport 2 HD [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/ssport2.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "S Sport 2 HD [Kool.ws · Sunucu 1 · 4K UHD]",
+      "url": "http://138.226.249.38:8008/sunshine/yFaepcpwMsU48H_zeGLxDXdohzCTBBwft9cRRrRvXe-p7EAdr9fhVIOwtbX8pJNpr1cjch1HIDrHPriqGpkYF9GjvcV4E1mefp3QqkYtqIHjbI9sJrXFwS3HCmzPNlG_nre7EXssQSsTMYUjwo0Pa_OUDbOWaYTxYONjUoX1EtAW6ohVsyQbsXDfF4VTFpYRDX6rq5uQ123prjl07CiXY02wjf-4A9tiEqPT1ZRavN3MlZ_zpCXnV6qamJJo-5ae/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Resmi / Doğrudan Akış ⌟",
-      "title": "S Sport 2 HD [1080p FHD]",
-      "url": "https://anthology-live.duckdns.org/live/ssport2.m3u8?username=anthology&password=falsisdevwashere&source=direct",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Mahsun Sports ⌟",
+      "name": "⌜ MahsunSports ⌟",
       "title": "S Sport 2 HD [1080p HD]",
-      "url": "https://anthology-live.duckdns.org/live/ssport2.m3u8?username=anthology&password=falsisdevwashere&source=mahsunsports",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Alemdar Sport ⌟",
-      "title": "S Sport 2 HD [1080p FHD]",
-      "url": "https://anthology-live.duckdns.org/live/ssport2.m3u8?username=anthology&password=falsisdevwashere&source=alemdarsport",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Selçuk / Arda ⌟",
-      "title": "S Sport 2 HD [1080p FHD]",
-      "url": "https://anthology-live.duckdns.org/live/ssport2.m3u8?username=anthology&password=falsisdevwashere&source=ardasports",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Taraftarium24 ⌟",
-      "title": "S Sport 2 HD [1080p FHD]",
-      "url": "https://anthology-live.duckdns.org/live/ssport2.m3u8?username=anthology&password=falsisdevwashere&source=taraftarium",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Papaz Sports ⌟",
-      "title": "S Sport 2 HD [1080p HD]",
-      "url": "https://anthology-live.duckdns.org/live/ssport2.m3u8?username=anthology&password=falsisdevwashere&source=papazsports",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "S Sport 2 HD [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/ssport2.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "S Sport 2 HD [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/ssport2.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "S Sport 2 HD [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/ssport2.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Spor ⌟",
-      "title": "S Sport 2 HD [Canlı]",
       "url": "https://andro.evrenesoglu235.click/checklist/androstreamlivess2.m3u8",
       "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ AlemdarSport ⌟",
+      "title": "S Sport 2 HD [1080p FHD]",
+      "url": "https://alemdar.e56334ad5bbbc0ca4c80f717246c2500.cfd/mdalemdar/ssport2/index.m3u8",
+      "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "Referer": "https://alemdarsport.cfd",
+        "Origin": "https://alemdarsport.cfd"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Taraftarium24 ⌟",
+      "title": "S Sport 2 HD [1080p FHD]",
+      "url": "https://css.d6e3ess6e065r5.help//ss2/tracks-v1a1/mono.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Referer": "https://taraftarium24-246.top/",
+        "Origin": "https://taraftarium24-246.top/"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Kool S6 ⌟",
+      "title": "S Sport 2 HD [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/8nx4MPBatt-XSvVqeifAeMFYcUJmt4sgsaVKTxfGettqeKcRq8gEenSy2C875wNQ2wG7gEUf_teG9Ni4y6B6PAeLNEt4kjUgEdxIA6XvPnLKG3GGuqh-Zyn8FLSg1C2Hd10G4jyI7Ckhf76FrUZiqZGsn8eSlDR51l5JejLHXWX8H3JevCL-vsEPbpQYMXw_GsoGmrosBAEUOrXN_9jszf4mrTRMKcuDI2WW2AAi9ArDYb1jaapQsmyx7aBxdbKB/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Kool S7 ⌟",
+      "title": "S Sport 2 HD [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/ms2OiJ1pIRSFyhhS-QkWU5r9gEiYRmDxlS3MjmGTLTjZiyKTEX1OVxwk06G3F71ffvz417ddqXKwbegvk7o9I6PvM2hFtxlfDmOLJ6Zzj-msQu4y_nwFI4oAZkz57CpFCl4rIunkzC8HCJ8lVxAIZmN60dAAXurAcTEZnZFeaeOsv8UF7lpPmplT_0e1VWmkgsHDhprAJNGEtDWsqhPYKKluzvwTz8We3kmJVWJcTgngXu4bWyYmaVTRh2jSruXf/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

@@ -13,48 +13,22 @@
       }
     },
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Star TV HD [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/startv.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "Star TV HD [Kool.ws · Sunucu 1 · 4K UHD]",
+      "url": "http://193.47.62.157:8008/sunshine/nK2ZN2w3GgaaieTpSj2i6ITbYaBklUnt9dHWWNof6NKkVQdtdI07RS0GDSPk54pMRSH-datYy4nypn6A1KCULZN02y83-HgcnKnh_xyCrD8By8B8KiXZSJB7yMuGEIlbIxNNcerODkYIHJZXS3M1rluEgoSU3SoKMa-bjrLEkFwgpbeYXTuKALgxlmxZVXCS9z9rlwWFXpneksLGAzExL57Dl_Z_74Hrnin3DtxO8ohnotkxKHkSnLHmh7rtSNf3/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "Star TV HD [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/startv.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
+      "name": "⌜ Kool S6 ⌟",
+      "title": "Star TV HD [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/vUmeq1az8R8rbQ7HnkQoZzqjj8W0mmIn8Og7enWtSO0aR6NVdr5_6KUYLTdf7zCRbS-UcgpWUy2783f7PZVCBF14tKM9sHPhJnvplCFstpAmcb6g74iRCsQcU6NrZD1vdkfz_YG7hi_05TfOVp13UwQxeCxBSLGWBgSo5Ak35PDRSzjD0KrZcPramLbXb7fFtAajiX2x0-cUlOlCAFaWcLGUKzMtR87ckijTase3JGG-wuCNWJWOpMPMctBBTxVx/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "Star TV HD [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/startv.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "Star TV HD [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/startv.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

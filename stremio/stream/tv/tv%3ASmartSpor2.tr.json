@@ -1,108 +1,46 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Smart Spor 2 HD [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/smartspor2.m3u8?username=anthology&password=falsisdevwashere",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Resmi / Doğrudan Akış ⌟",
-      "title": "Smart Spor 2 HD [1080p FHD]",
-      "url": "https://anthology-live.duckdns.org/live/smartspor2.m3u8?username=anthology&password=falsisdevwashere&source=direct",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Mahsun Sports ⌟",
+      "name": "⌜ MahsunSports ⌟",
       "title": "Smart Spor 2 HD [1080p HD]",
-      "url": "https://anthology-live.duckdns.org/live/smartspor2.m3u8?username=anthology&password=falsisdevwashere&source=mahsunsports",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Alemdar Sport ⌟",
-      "title": "Smart Spor 2 HD [1080p FHD]",
-      "url": "https://anthology-live.duckdns.org/live/smartspor2.m3u8?username=anthology&password=falsisdevwashere&source=alemdarsport",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Papaz Sports ⌟",
-      "title": "Smart Spor 2 HD [1080p HD]",
-      "url": "https://anthology-live.duckdns.org/live/smartspor2.m3u8?username=anthology&password=falsisdevwashere&source=papazsports",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "Smart Spor 2 HD [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/smartspor2.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "Smart Spor 2 HD [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/smartspor2.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "Smart Spor 2 HD [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/smartspor2.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Spor ⌟",
-      "title": "Smart Spor 2 HD [Canlı]",
       "url": "https://andro.evrenesoglu235.click/checklist/androstreamlivesm2.m3u8",
       "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ AlemdarSport ⌟",
+      "title": "Smart Spor 2 HD [1080p FHD]",
+      "url": "https://alemdar.e56334ad5bbbc0ca4c80f717246c2500.cfd/mdalemdar/sporsmart2/index.m3u8",
+      "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "Referer": "https://alemdarsport.cfd",
+        "Origin": "https://alemdarsport.cfd"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Kool S1 ⌟",
+      "title": "Smart Spor 2 HD [Kool.ws · Sunucu 1 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/53BlBBkUGtxxvJtC1jPf99jJwCyFgF90e_8LrBAOXc-OSQiPdZZIYGphm7h1TB9ZRqxwdwfbd7_W8vK_UqxepQd8QVXDdGoEQFpr0zuapDUY_r3vWfMhgduz35NMvy64XBeLt4f6mRQA9sloMo32LR7mzq-CZq9OCYUM_S5gHJEE6N8FJh5opd2OPYeRBhZDsd9PYXNz7_WnYyOaDQfLDfWx91URXY0Z5A6g996I-hlcVXW3HiIwnECIebKKkGdX/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Kool S6 ⌟",
+      "title": "Smart Spor 2 HD [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/g3IT_T4hQ3y-fDEEBVpaBawtUa-8q6SqY1QPF4uhQxPa4suHaXoODAzGFGBGfNAkLmR-4vJykEzn8q7cL3KJgEXZxGE2bBITEL9EhRKKqG4GypSc7Jvc7x3BWFhv6KedqNaeZjf2hfJLZfcAZ5ODSED3UeE4HteLpdfNqrJAx5QY0m3c_6JpKDyP_p9pXKdufIj8Vp3vsDq3-kgTGOz9n2PdNZu-5486ZZ5YjIe3faFC3pWsyzo8VCBwOxQ8_W9N/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

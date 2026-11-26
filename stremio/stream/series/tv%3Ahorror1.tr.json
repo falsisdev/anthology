@@ -1,24 +1,11 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Horror 1 [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/horror1.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "Horror 1 [Kool.ws · Sunucu 1 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/91oifxmcJlCQdYllJ6DRwINPNACr8kzizjypeWtjOmpe-TLu39xIQaOkivNjylG5qVhS48zgd_1Kd2erWxf-jEyNXHj1WnWSXGNh_G-NUAEjNFQSWMS_8BYgCZlpf-lnojG_7ORxLH4i7U7hoAHaSBWNxQ9eInECLUH2KlvcKM5yId8xvLDb3OoGDZnrJVnee5U-cxzcFylpqTAPDNufCsWcu4c2KXHpMHD2-3FZgSiibTo9S0k6ntxotqJdul6R/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "Horror 1 [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/horror1.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

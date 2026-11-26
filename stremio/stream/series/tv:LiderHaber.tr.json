@@ -13,24 +13,11 @@
       }
     },
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Lider Haber TV HD [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/liderhaber.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S6 ⌟",
+      "title": "Lider Haber TV HD [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/LC6h37U8Dr4zO2UaOYVflSRtvpdu6eg2Q8Gy58CKIfvVLEHOL_t3z1K66En26UwfdDEyIgbX-V_iyQW4SRDTKrmVsAKtuHA9BZmWbmTEWpNxGj_fjsv89UWm-SoEpIJ3iHyL6GmqNRXDe5ABgkPPoa-GKfiZ2KjsKrc96z8l7MSJbhqBnWWuEwCgkAuGRAtKoJcWLpwNFelm1iW9z0E1k-fcM6Cf5jr_C_erbjr9VwlwBvEHWC43S1UDGmgZVp8R/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "Lider Haber TV HD [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/liderhaber.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

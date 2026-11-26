@@ -1,24 +1,11 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "beIN Series Sci-fi [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/beinseriesscifi.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S7 ⌟",
+      "title": "beIN Series Sci-fi [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/qsIhgUaZoYn5R4wQnCCDB-6EkV-zyf7pkES84q1E6IklTfuD_6_gy4v7T4Enm88ezN-zkBzVNx4qgHejM9STT-75H2pemlwqNHpq9CKpRW3UjPGys0Ro7YxJBuLqCm8NudrFVXsqedByiL-gqAcfKVSkuyWdhclYeWkIstL3QORcrsMny6wB4QgLqSx6oSKEF7-v0Kwft_5K_PLcDbYZsNjokeiJGHcytVJReky2lg84lKbWivul7AbBWYyCxPS-/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "beIN Series Sci-fi [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/beinseriesscifi.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

@@ -1,24 +1,11 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Salon 1 [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/salon1.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S7 ⌟",
+      "title": "Salon 1 [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/y7beMU0PzThGJe-g4_EiwauJh1Kn6LcUh58xqAo3DSdLiGx07-b23wZ96BiEOAALIBi1Xjih19coGja7Vhs4gg_HyCshp84yDEB5zsDRaTEyviI-v79oQqQA8yOAk0_Gd9fmkdAtkFypFbo8pFf-csbHC90XkkeC0Som9IWaV8IzXHU1YizikwWa-YCNG4hzaXoqYVt1pLfjyWtthV5W02pcJFdITCr9XziXXNAgJxgiubG-45KnFnsLHpJYXEwe/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "Salon 1 [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/salon1.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

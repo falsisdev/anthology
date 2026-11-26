@@ -1,36 +1,22 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "BBC Earth [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/bbcearth.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "BBC Earth [Kool.ws · Sunucu 1 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/K-mBmiqyBK0v_YAUaOd6Dt-ml60KyAb3939Gb2mmmfNT1RCWzjkkPtOOM6zhIlR1Sx1QS4iIg6YM9Xh0f6l5synAE-g1Lip7UNU9N42IcLlnv0v3Ihs-DYWdkPjcYJvrtGxW6WSRfR3KzAYvlNS9b0-tLrK9mJXfFrMab3vxKSEgrr09zNSVSoPaEEjvbdVskM2FiQCeKF7AQi5RcB8Hoe-idEjz33Ss0cCWxd9VIuoNSO-lRF-uywAIa4wqJyUZ/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "BBC Earth [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/bbcearth.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
+      "name": "⌜ Kool S6 ⌟",
+      "title": "BBC Earth [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/wfaiDu62qAxDHTdGgvBjat3IsRC0ZkdpNtkQxD88bTMNt7rBOpkKDHboQu52h9WAYcW4Yh9E9cUlcglwcAz9EtlERwfIszmKml4Uc0t4o2kZMxzlRY1JoP7_AgS9PUtRM3zEguq4kZw_r8I2IorJMVK5-CbM9J9ltnIrjAOpYOfDsqltmARHo4xH0YC0Mik6_icIqKEzRUb5PFCODFYckT-Jg6_X_03kw-eV-GTyvBlBr0jzCPImipCf9ZVDicCq/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "BBC Earth [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/bbcearth.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

@@ -1,6 +1,6 @@
 /**
  * Anthology M3U / VOD
- * Binlerce yerli ve yabancı film ve dizi arşivi — Anthology-Live Go VOD Motoru + Doğrudan HLS Yedeği.
+ * Binlerce yerli ve yabancı film ve dizi arşivi — Doğrudan Vixolity HLS Motoru.
  */
 
 const { sortStreamsByQuality } = require('../shared/quality');
@@ -8,22 +8,12 @@ const { loadConfig, val, wrapAll } = require('../shared/config');
 const { timeoutSignal } = require('../shared/http');
 
 var TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
-var ANTHOLOGY_VOD_API = 'https://anthology-live.duckdns.org/api/vod/streams';
 var VIXOLITY_BASE = 'https://ha.vixolity.com';
 
 var _cfgReady = null;
 function cfgReady() {
     if (!_cfgReady) {
         _cfgReady = loadConfig().then(function () {
-            var v = val('urls.vod.anthology_live_api');
-            if (v) {
-                ANTHOLOGY_VOD_API = v;
-            } else {
-                var liveBase = val('urls.live.anthology_live.base');
-                if (liveBase) {
-                    ANTHOLOGY_VOD_API = liveBase.replace(/\/+$/, '') + '/api/vod/streams';
-                }
-            }
             var vix = val('urls.vod.vixolity_base');
             if (vix) VIXOLITY_BASE = vix.replace(/\/+$/, '');
         });
@@ -31,22 +21,12 @@ function cfgReady() {
     return _cfgReady;
 }
 
-const cache = {};
-const cacheTime = {};
-
 const VIXOLITY_HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
     'Referer': 'https://pl.vixolity.com/',
     'Origin': 'https://pl.vixolity.com',
     'Accept': '*/*'
 };
-
-function getVodApiUrl() {
-    if (typeof process !== 'undefined' && process.env && process.env.ANTHOLOGY_LIVE_URL) {
-        return process.env.ANTHOLOGY_LIVE_URL.replace(/\/+$/, '') + '/api/vod/streams';
-    }
-    return ANTHOLOGY_VOD_API;
-}
 
 function buildStreamObject(streamName, sourceTag, streamUrl, score) {
     const isVixolity = /vixolity\.com/i.test(streamUrl);
@@ -110,61 +90,6 @@ async function resolveTmdbShow(rawId) {
     }
 }
 
-function normalizeGoVodStream(item) {
-    if (!item || !item.url) return null;
-    const isVixolity = /vixolity\.com/i.test(item.url);
-    const isHls = typeof item.isHls === 'boolean' ? item.isHls : (item.url.includes('.m3u8') || isVixolity);
-    const out = {
-        name: item.name || 'Anthology VOD',
-        title: item.title || `⌜ Anthology VOD ⌟ | ${item.quality || 'HD'}`,
-        url: item.url,
-        quality: item.quality || 'HD',
-        format: item.format || (isHls ? 'hls' : 'mp4'),
-        isHls: isHls
-    };
-    if (typeof item.score === 'number') out.score = item.score;
-    if (item.headers) out.headers = item.headers;
-    if (item.behaviorHints) out.behaviorHints = item.behaviorHints;
-    if (isVixolity && !out.headers) {
-        out.headers = VIXOLITY_HEADERS;
-        out.behaviorHints = { proxyHeaders: { request: VIXOLITY_HEADERS } };
-    }
-    return out;
-}
-
-async function queryGoVodApi(params) {
-    const apiBase = getVodApiUrl();
-    const qsParts = [];
-    Object.keys(params).forEach(function (k) {
-        if (params[k] !== undefined && params[k] !== null && params[k] !== '') {
-            qsParts.push(encodeURIComponent(k) + '=' + encodeURIComponent(String(params[k])));
-        }
-    });
-    const url = apiBase + '?' + qsParts.join('&');
-    const now = Date.now();
-    if (cache[url] && (now - (cacheTime[url] || 0) < 300000)) {
-        return cache[url];
-    }
-
-    try {
-        const res = await fetch(url, {
-            headers: { 'User-Agent': 'Mozilla/5.0' },
-            signal: timeoutSignal(8000)
-        });
-        if (!res.ok) return [];
-        const data = await res.json();
-        const rawStreams = data && Array.isArray(data.streams) ? data.streams : [];
-        const normalized = rawStreams.map(normalizeGoVodStream).filter(Boolean);
-        if (normalized.length > 0) {
-            cache[url] = normalized;
-            cacheTime[url] = now;
-        }
-        return normalized;
-    } catch (e) {
-        return [];
-    }
-}
-
 async function probeDirectVixolity(urls, streamName) {
     for (let i = 0; i < urls.length; i++) {
         const targetUrl = urls[i];
@@ -190,16 +115,6 @@ async function searchFilmStreams(tmdbId) {
 
         const targetImdb = d.imdb_id || (d.external_ids ? d.external_ids.imdb_id : '') || '';
         const targetYear = (d.release_date || '').slice(0, 4);
-
-        const goStreams = await queryGoVodApi({
-            type: 'movie',
-            imdb: targetImdb,
-            title: d.title || '',
-            original_title: d.original_title || '',
-            year: targetYear,
-            lang: d.original_language || ''
-        });
-        if (goStreams.length > 0) return goStreams;
 
         if (targetImdb && targetImdb.startsWith('tt')) {
             const dispName = `${d.title || d.original_title}${targetYear ? ' (' + targetYear + ')' : ''}`;
@@ -231,17 +146,6 @@ async function searchDiziStreams(rawId, seasonInput, episodeInput) {
         const targetImdb = (rawStr.startsWith('tt') ? rawStr : '') || (d.external_ids ? d.external_ids.imdb_id : '') || '';
         const sPad = String(finalSeason).padStart(2, '0');
         const ePad = String(finalEpisode).padStart(2, '0');
-
-        const goStreams = await queryGoVodApi({
-            type: 'series',
-            imdb: targetImdb,
-            title: d.name || '',
-            original_title: d.original_name || '',
-            lang: d.original_language || '',
-            season: finalSeason,
-            episode: finalEpisode
-        });
-        if (goStreams.length > 0) return goStreams;
 
         if (targetImdb && targetImdb.startsWith('tt')) {
             const dispName = `${d.name || d.original_name} S${sPad}E${ePad}`;

@@ -1,24 +1,11 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Vatan TV [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/vatantv.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S7 ⌟",
+      "title": "Vatan TV [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://193.47.62.157:8008/sunshine/sP_qMRhlac3nBa95V2bZsEtcLVqdcPNx9rupJ-tZHDZlh0jncB1eKqeZL5bF6nkN7IDWfCAPlhMRC6DiLrPI17uT1CBwDt-Phf3Kd7BiqhlPoTctPPF5YyBAS6296_5VOsErh32dL1Im7fqfPLAKte35f2MngAXAZvKfSB9HzotSIDj36k439N2D-MXFo_2gZ0awVOVy22D1r7wnreRa9YWmvNm87FRpB1o_P5Wia8rwdcjkUslM-UuQQmj9sFpf/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "Vatan TV [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/vatantv.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

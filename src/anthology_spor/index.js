@@ -237,13 +237,12 @@ async function getStreams(args) {
         var streams = await resolveMultiSportStreams(searchKey || chTitle, chTitle);
 
         // canli.m3u birincil akışı
-        if (matched && matched.url) {
+        if (matched && matched.url && matched.url.indexOf('kool.ws/live/play/') === -1 && !(matched.url.indexOf('/live/') !== -1 && matched.url.indexOf('anthology-live') !== -1)) {
             var alreadyPresent = streams.some(function(s) { return s.url === matched.url; });
             if (!alreadyPresent) {
-                var isLiveProxy = matched.url.indexOf('/live/') !== -1 && matched.url.indexOf('anthology-live') !== -1;
                 streams.push(makeStream(
-                    isLiveProxy ? '⌜ Anthology Live · Otomatik ⌟' : '⌜ Anthology Spor ⌟',
-                    matched.name + (isLiveProxy ? ' [Kool.ws · Otomatik]' : ' [Canlı]'),
+                    '⌜ Anthology Spor ⌟',
+                    matched.name + ' [Canlı]',
                     matched.url,
                     _HEADERS
                 ));

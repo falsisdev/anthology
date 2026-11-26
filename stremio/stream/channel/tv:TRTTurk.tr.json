@@ -25,36 +25,22 @@
       }
     },
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "TRT Türk HD [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/trtturk.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "TRT Türk HD [Kool.ws · Sunucu 1 · 4K UHD]",
+      "url": "http://138.226.249.38:8008/sunshine/vtu5MtQRoYhiFzAP-i9hPkCYtUUmP47PqYPfa8TXoxRTwHiEbuzXC3931hVTmrqUIQWzAwrSDL3aQ_vlWiQ7cxGu8WS-AuaqJdaEqbJH3RIN3zeXdh7SLujVVbygQwrD3EUu8m_-fKFsDj-yyaYEYwRU1Wb8LdQWJnL7JFdOk-Nki3smJY5bN6FmVa6wrOXFISsPeVmCtjLmC45exCef0IzMHUl6Pi4LJvuiMLHeFGLzFc4cq7HTdOZWYEy2hsv0/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "TRT Türk HD [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/trtturk.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
+      "name": "⌜ Kool S7 ⌟",
+      "title": "TRT Türk HD [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/1-bLIC9ym_ujhd4nIGVDvZhP17ZigGXZpubaYxugxVEZnTfTsHiiPiQ9M_WcqSvOd65Hr5EKftqyz9XP7I3CLtG1aMxegfb9NdRamDo8sT_cks--jkIVq_6Et0R4Qm8wJ3jPj-EOJSn-FJbsKuwCuKyYfNyEinaihkO8VgZp552ba1-g8dX9f8gzOA_Hs9Xxg1PU3_YHh_NSa-ByGO8NNhlNnqOmDyixMdj0rQ3sfeGvwZZP8PcHyNBZHsF4UGeg/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "TRT Türk HD [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/trtturk.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

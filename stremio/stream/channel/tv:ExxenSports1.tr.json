@@ -1,84 +1,44 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Exxen Sports 1 HD [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/exxensports1.m3u8?username=anthology&password=falsisdevwashere",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Resmi / Doğrudan Akış ⌟",
-      "title": "Exxen Sports 1 HD [1080p FHD]",
-      "url": "https://anthology-live.duckdns.org/live/exxensports1.m3u8?username=anthology&password=falsisdevwashere&source=direct",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Mahsun Sports ⌟",
+      "name": "⌜ MahsunSports ⌟",
       "title": "Exxen Sports 1 HD [1080p HD]",
-      "url": "https://anthology-live.duckdns.org/live/exxensports1.m3u8?username=anthology&password=falsisdevwashere&source=mahsunsports",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "Exxen Sports 1 HD [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/exxensports1.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "Exxen Sports 1 HD [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/exxensports1.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "Exxen Sports 1 HD [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/exxensports1.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Spor ⌟",
-      "title": "Exxen Sports 1 HD [Canlı]",
       "url": "https://andro.evrenesoglu235.click/checklist/androstreamliveexn1.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Kool S1 ⌟",
+      "title": "Exxen Sports 1 HD [Kool.ws · Sunucu 1 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/i3jfoFxPLmWwlnO3hvD6syeKCiZtxXAQdToMEaXey4wLWs8SqdSsQz_cKILmbPwrmoXL2EDNVoTYUXDn81HnPiRYFrQRsb4BAuRlFUVUV7MZxVbxmrQf56eC8iEIZjZ9ZZZwTpYsJYo8WraO2_uAUNImZD5tVMATEu4fBx4MjbLLf7PzDM8sJgs4p00X_MnKmD6o6Hi3MUBUUPCseYVXiJBbfKBGCj2DfkOMO17lvu9JQRzdbcWo4aGuDFMq0lr8/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Kool S6 ⌟",
+      "title": "Exxen Sports 1 HD [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://193.47.62.157:8008/sunshine/k2M8KltjZSmcqd4HH-EGHAAYfQpeVU5P30ICGfmzOf4HP9TGNEhXNrnmjmvPqCEwaJ2XeeR5S0mFe1r1Y-1riWgLs_mlkF_K-bVwgINlKvf6F_9MUG2zicf4aXtwSTLR7ELcy-KxBsQtNYybxuwnlcstzhlIe8Gp8cY7OD7gUmN4_ryOWFAvrs1g9yk90-4iagAsvq-_m7pdPVUG206GqGomG0IqYSAbSVPK022pqmIErPVKF7HDF8OsFNGbRXaS/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Kool S7 ⌟",
+      "title": "Exxen Sports 1 HD [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/9lC3rR2Y3uo7HKdipD-v0efR0OD7nt5s-8SoCGrcrefr0_4-HbIF6oUXENIJg_dbLIE-p5dsdmvO-SkMZ0LJ2J1m1m-k1C09P7f_GXO9wBngv4eHfZUkQOnZXWni52hxnRFLfVF471kBKUwmQ_u2WdazAFiK1eBiaCfIeaj_WuBNy98Pv3mK2hM6J57qSE_gunctqL5yOsV1936nB9bphR8_E3RZW6eow5ms2nJmc8LvTzyLwZbER62gzNtelVsl/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

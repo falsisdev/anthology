@@ -1,24 +1,11 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "MTV Live [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/mtvlive.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "MTV Live [Kool.ws · Sunucu 1 · HD]",
+      "url": "http://193.47.62.157:8008/sunshine/F_sSXpdUlfYYwd7OXzs4SHMyzTCR4icw1HDviMDFhtIF3DEGkrU7efm-PYHE6UHP5Y5ScFnlqHSF_eodx-n-c5BKSBs6oQ2bWopYqU3USflap4D6PWMisXuteP0OMfc40HYKd3jU756DP6sAQkZPY0cUkcAH8OOTjUiLC_nfit7Jx53Gj61rTW5hdIcwvRuzx0HkHp2loUjVzLmwE2ZAaDom7cBfNHdK1b2_4ozWgmRcp-lDQO5n2Zvlbnp4WmNK/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "MTV Live [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/mtvlive.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

@@ -1,36 +1,11 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "beIN Box Office 3 [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/beinboxoffice3.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S6 ⌟",
+      "title": "beIN Box Office 3 [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://193.47.62.157:8008/sunshine/W2iKOWEa42a1wHjd1cSBrTU95i_iSNho-MKaKXBi8VJJ8qUPq4RbH58UVa7X4FLUZqfXa5N8T4GFN474IT2T7J4q28V8ZQkEJZkhNk_m9jMEabhdGLQGMCO1s1MQdMp1OLXe4K1STyrKVNx7-2zbHQdlPgVVsYhuEK3w8UJwjxb3bauT8p89SGTJn4D-NaMOXkdXrk6hSYviyJD6q3d8D1BF_aeVBrJg-zCmCUrQtSJA81nBfzEzfJgSVZvTVvc0/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "beIN Box Office 3 [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/beinboxoffice3.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "beIN Box Office 3 [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/beinboxoffice3.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

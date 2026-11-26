@@ -306,15 +306,15 @@ async function getStreams(args) {
 
         var sportMap = findSportChannelMapping(chosen.cId || cleanKey(chosen.aliasName));
         var isSport = Boolean(encrypted || sportMap);
-        var isLiveProxyUrl = chosen.urlLine && chosen.urlLine.indexOf('/live/') !== -1 && chosen.urlLine.indexOf('anthology-live') !== -1;
+        var isKoolPlaceholder = chosen.urlLine && (chosen.urlLine.indexOf('kool.ws/live/play/') !== -1 || (chosen.urlLine.indexOf('/live/') !== -1 && chosen.urlLine.indexOf('anthology-live') !== -1));
 
         var addPrimaryFromM3u = function () {
-            if (!chosen.urlLine || seenUrls[chosen.urlLine]) return;
+            if (!chosen.urlLine || isKoolPlaceholder || seenUrls[chosen.urlLine]) return;
             seenUrls[chosen.urlLine] = true;
             var ytMatch = chosen.urlLine.match(/(?:watch\?v=|embed\/|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
             var sObj = {
-                name: isLiveProxyUrl ? '⌜ Anthology Live · Otomatik ⌟' : (encrypted ? '⌜ Anthology Spor ⌟' : '⌜ Anthology ⌟'),
-                title: chosen.aliasName + (ytMatch ? ' [Canlı HD · YouTube]' : (isLiveProxyUrl ? ' [Kool.ws · Otomatik]' : ' [Canlı HD · Resmi]')),
+                name: encrypted ? '⌜ Anthology Spor ⌟' : '⌜ Anthology ⌟',
+                title: chosen.aliasName + (ytMatch ? ' [Canlı HD · YouTube]' : ' [Canlı HD · Resmi]'),
                 url: chosen.urlLine,
                 behaviorHints: { isLive: true }
             };
@@ -328,7 +328,8 @@ async function getStreams(args) {
 
         var addLiveProxySources = async function () {
             try {
-                var liveStreams = await resolveAnthologyLiveStreams(chosen.cId || chosen.aliasName, chosen.aliasName, { isSport: isSport });
+                var liveTarget = isKoolPlaceholder ? chosen.urlLine : (chosen.cId || chosen.aliasName);
+                var liveStreams = await resolveAnthologyLiveStreams(liveTarget, chosen.aliasName, { isSport: isSport });
                 for (var si = 0; si < liveStreams.length; si++) {
                     var sp = liveStreams[si];
                     if (sp && sp.url && !seenUrls[sp.url]) {
@@ -339,11 +340,11 @@ async function getStreams(args) {
             } catch (e) {}
         };
 
-        if (isSport || isLiveProxyUrl) {
+        if (isSport || isKoolPlaceholder) {
             await addLiveProxySources();
             addPrimaryFromM3u();
         } else {
-            // Non-sport official streams stay #1, followed by Kool.ws / Anthology Live pools
+            // Non-sport official streams stay #1, followed by Kool.ws pools
             addPrimaryFromM3u();
             await addLiveProxySources();
         }

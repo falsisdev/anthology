@@ -13,24 +13,11 @@
       }
     },
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Kanal 7 Avrupa [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/kanal7avrupa.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S7 ⌟",
+      "title": "Kanal 7 Avrupa [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://193.47.62.157:8008/sunshine/6vWiwWvYo8TXRDyZQwkWgKzw8wNN1qT4ESa-FwKczs2aZQyyHDFvRzqUtOpknPGclStG0TuEx-7sOQwzRuJs-bmYlVUAMmAe2gqbzjnTTbBne1eMzFP6DRI4lRV-6KcEKmGltlbsaRqjjNO7UCEtFkXXTtEg8UWPLCUeqC_CjPCKENwBAgCuMpr7ixDZF8g8p92a6U7JC4JOHx-ND91A3p-V9daQSpBzMXAfbZio8m0PaUzAXmBjE6Qqp25kDTFB/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "Kanal 7 Avrupa [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/kanal7avrupa.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

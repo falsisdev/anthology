@@ -1,36 +1,22 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Nat Geo Wild [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/natgeowild.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "Nat Geo Wild [Kool.ws · Sunucu 1 · 4K UHD]",
+      "url": "http://109.205.187.150:8008/sunshine/oatahrz1Xmv_reDSEut5VpZPXGJzsK1s715Vcfbpv5ClcyM3sARzf0zYEyo0F1cB_UrZtiypjQq-7l7Hc6w3ThpkhLp-zo_gsVis4CAkOHg80rFAca-6W0fRj0_kXq5Qe2YPdYqDUQe19zoBdxh3AeAGJHkXKObODrubo_tGNYRpVWwDD1Nld3BW6IeIuOeRVm3DKW3ichmyfDusAo36DNVuUDKr9wtz6VeSHvMC2__PHAjmKSuDEfzMoxmc2Gav/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "Nat Geo Wild [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/natgeowild.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
+      "name": "⌜ Kool S6 ⌟",
+      "title": "Nat Geo Wild [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/d3dSQLxftOYlskXvk9qrlr-5KQCiJropEXbaRL9b3qeeEzsV9np6BHXNZpBOM0On8c74IxSKcvh4JvxiW59M5En1KAADVGW7hTzx5FtfXLq1wVI3vRGjf9AnAkCOjMLskBu1y4LC63dAYNen0pPHMc02WqnkTrq2Rb7y4dWlZdfpoHcecTQd5bRVDYeK2hkbl6nR9O_uZimhLUlHKzibdb7S0pdLmYQ7RzAvgHzLTZv3trT0nRTv3QAXZslrf8tO/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "Nat Geo Wild [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/natgeowild.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

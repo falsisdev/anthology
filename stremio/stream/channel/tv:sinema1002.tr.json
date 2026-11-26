@@ -1,36 +1,22 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Sinema 1002 [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/sinema1002.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "Sinema 1002 [Kool.ws · Sunucu 1 · 4K UHD]",
+      "url": "http://109.205.187.150:8008/sunshine/XuwDQibHSKd-2g0GWqfHEVOInwhBBJteco6ObZ0xjii0Q_H5zP44BoTG_QdZ1gYq6QCVGYCs5WOOsh-ofUjpXw-ZZDJqmjN-QzcZ7xUNqv0a6-ELFGosSiIZdjPqJRi4_p4qnhymxqqtxKYK_RIx1RbRhsACF_ru0wfFtiPh91fK9hXU2fg7URszkn1rC4iOYxUTTqrKN3aFJ_R1J2pBZYBp76CM6hkiWnjbKjXRBnvCPY7ZcHgtd6vtzm1gjWK6/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "Sinema 1002 [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/sinema1002.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
+      "name": "⌜ Kool S7 ⌟",
+      "title": "Sinema 1002 [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/FrjqY28SHlyv7DPzv-r1D8IXYc2ooJGvmT0QXmoLlb66iB58qvSMIWQ3-86CNPZwKMZjGZtHT6YuHYUUbk2CVHp4QIkDGhaCc9KzLBqa5xWBpZ0fcAu7We7V8ZZWGIl-B5P9XVTQg2iDtxvjhiLKheXJk9haUzcl86IVeNo26Hn7tvH9DXeunharym8dEUAXyUN-R9OLNXr3hrw7qlbv7iUaA7R3jYIHVG9UGQHXHDEL1S-vqrHNEJLC5Q1so3-Q/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "Sinema 1002 [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/sinema1002.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

@@ -13,36 +13,11 @@
       }
     },
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "TRT Müzik HD [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/trtmuzik.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "TRT Müzik HD [Kool.ws · Sunucu 1 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/JeVm-2RZsIP6CLIntVvi0aW5nx7ANnN5wHj9RfljaN_k8MUSPTff0OMcP-_beeT7XKpwhxnLHCqnwEb9Uhu7qII1etR5z1Y42xvXbv1r6boS-uoCDsMTD3QI20Gx861fC7DN1hAcjLEQnLeCfod5CgKkvo1Ax2Fih0GsKR_s2hptrbueAW1SWEON9qHPNBOZy9Gy5Rigo_j3DnAL0heMF4BGl1l-khIdpNIiAifC_38qZ6lMEv-35e8PDKheHk0r/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "TRT Müzik HD [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/trtmuzik.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "TRT Müzik HD [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/trtmuzik.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

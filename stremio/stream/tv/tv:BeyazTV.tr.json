@@ -25,48 +25,22 @@
       }
     },
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Beyaz TV HD [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/beyaztv.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "Beyaz TV HD [Kool.ws · Sunucu 1 · 4K UHD]",
+      "url": "http://109.205.187.150:8008/sunshine/UKGrYMyUXWeP3oLUnIxBga-tmqZGxkj0x9487AChzyyEajRf0avfSDcfEv3XefFWCcHxfNXMxcUGKpQgVmQB5QEQRjS4qQlTum4gI-kKonX0uSaWCV5awCq-tr5CDfSSH1io33XWVuXuLdzI-zCL4p5cvNjvLqlgTVlztXMboNyBu81Wmx2I05gHdGuv9ngMwr4qh860AatEtFTUwaVQbbFavf1pZMv8lyQMtFjnpkWVcUkE9qXIaSp_rmioMLVb/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "Beyaz TV HD [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/beyaztv.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
+      "name": "⌜ Kool S6 ⌟",
+      "title": "Beyaz TV HD [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/1hPruhiNwlBYU2tsBi-UG_ftH7PkFq5nfoNw731L7EeekqCDpfQ4PYDLvk4qMz49IFAQaXapxZew0jGKk_7lBe6DrRFHohmUnRwNzQkNNTC6V95FHYAN-v9IOQBwaMQ-gYCIoWgx-bGzPFIhPR8p_mTh8ChqCGEiNCP3Xi5Cn-z267X2hAlkX0t50U8HlY1A8bqUReKnE3ivi6p8-CQzWZWUiBE1zS1BPIo5-xsH7V_XkZZmxpjI5OdL-hAY7m-a/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "Beyaz TV HD [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/beyaztv.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "Beyaz TV HD [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/beyaztv.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

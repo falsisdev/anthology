@@ -13,36 +13,22 @@
       }
     },
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "TRT 2 Kültür & Sanat HD [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/trt2.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "TRT 2 Kültür & Sanat HD [Kool.ws · Sunucu 1 · 4K UHD]",
+      "url": "http://138.226.249.38:8008/sunshine/dop9r74_Gmr9rptBgHFS12Rgl8aKBohnP6w1at9Gtuio_t0LbnTwM3tGu89nZqlxDFFQEtqYNApR1L34PC16Ps1DrziEBBbie8_3zCy5iHK3OHhvYisInNNZ9hZhILcUBkBiJikYknbFTLEHaO9XEe5WkA-i2Xxvp9NVXNeRHdqnJ1itfCwCFSwkph552LsMH7xDjFg1KbfRGHhq-frZiPzvDJvpWCsC6KWdGDY-qayNAjrzsSqkZ70cBBefsgcB/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "TRT 2 Kültür & Sanat HD [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/trt2.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
+      "name": "⌜ Kool S6 ⌟",
+      "title": "TRT 2 Kültür & Sanat HD [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/v9qDUKL733q011d9rVO53-tbtaRONDC-IRooyhRdVX78ccYsq8XBNLO8VYn_GEyixY4UYCGAS6kR6k2dAIb0ucGElhEdoT6FGNcqNQMhQ5ktcHsLm7CoCFkk8xhUejBiKVFmIJNVy4EMshbmAdtIHG9HDF9Apx2lbUybomwGF8IVE2fqafXaQA3SLmuw7YN-WbZF0ClZDngBmT-yMX8A8rpKKpUZOdvFcs3zmzw2gq63VB-y4XMkbq77pYGXKGIZ/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "TRT 2 Kültür & Sanat HD [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/trt2.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

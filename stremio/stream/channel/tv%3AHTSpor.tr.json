@@ -1,48 +1,22 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "HT Spor HD [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/htspor.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "HT Spor HD [Kool.ws · Sunucu 1 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/qATpOgx_kCm5w_bEz3MpJN9mOOSqTEp9NfXfeRZfI09bCb_ehGp8dcwqMJ8jPReMSVYN1vFqx0_I25nL5S3QfvOqcxTzfOD2nV5UbckD0csVmPXoVDbrcvV2_M0hR9mfHTvmyQw9cpem-nYuHgqriLJxIY53V55VpAyhE0o1WclkgEdG6XRWse0yKoIKd4p6IDtVMAZ6hW6VjcUHIlDFWKZRdsXRksu-AmGCce2rO2pdXCccMRmYJUTYH6w5A4dt/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Resmi / Doğrudan Akış ⌟",
-      "title": "HT Spor HD [1080p FHD]",
-      "url": "https://anthology-live.duckdns.org/live/htspor.m3u8?username=anthology&password=falsisdevwashere&source=direct",
+      "name": "⌜ Kool S7 ⌟",
+      "title": "HT Spor HD [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/EUaEkYXAK-_s74PCf2iotmJdq_Z5dZpo-PRl82SdZD6OOZUhQoKVmXdv9r69VCZOiRlQC1sVQftbMXob3Ke7YOEm-3wELiZ_RxcG1l-3H0x-TcCUfttVpM2QUBweQzMihJRC4mp13e5ZFF_IEcmqCzj14-3nnvlR38a6JuNEm73cp0cc8MIXf3XSgsbWTC52kTMpkrrVWHdBvBMUw6Oxyo7FoC7XF-yN6x2JImtJFTD-b2HGs34eupToQGIcatFZ/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "HT Spor HD [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/htspor.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "HT Spor HD [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/htspor.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

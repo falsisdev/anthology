@@ -1,36 +1,22 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Vizyon 58 (Sivas) [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/vizyon58.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "Vizyon 58 (Sivas) [Kool.ws · Sunucu 1 · HD]",
+      "url": "http://193.47.62.157:8008/sunshine/gwx-GSUerXCjm0pS7qVSlzNZqFJPqN4lTBEXFpTxFEgO6Uam6pLUtoRCRzBTSy79mq3F8OirVyuKNdYIZfobmlNw3P6lNcwO6TlV9ZqqTwOeFrZXQ_lS5vYcZsxXSq-7jOIug5DVy0kVq7i4y3T3aTylyJAbQho2YTP10EqIiIDCWaPmNpUwxx1bkJmMEET8D6rOZZqfp5z_MdQkJX2f69v54VFIDjhHtaGrw9jva_VL7MBwD99phZjVbo-zPBCb/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "Vizyon 58 (Sivas) [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/vizyon58.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
+      "name": "⌜ Kool S7 ⌟",
+      "title": "Vizyon 58 (Sivas) [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/_M-aSCzTWnyc6PaFhOPeM-WKqmp2GNgo6SdpiqpLukiPEFWYL84t-U9D3sB2_q5AhvR5xCjFyJK-xXKgiKR_Ny_KuM7ecfK4rF3oug-evPrnYyz8o1rt26Mkwj2c05kTJfOKciROa-ptELeJdHjOUBArZIz2ZKe9LEvcJg2A_mD6jPwmfAFkuGlbByDNfGJqX1M5VzXleQHQcDiLYbnzLlz7o3E7r899nTxSpW1RDNTY2qeOjGCuwq69eRaCC7p8/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "Vizyon 58 (Sivas) [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/vizyon58.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

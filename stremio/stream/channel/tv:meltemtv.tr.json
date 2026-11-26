@@ -1,48 +1,33 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Meltem TV [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/meltemtv.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "Meltem TV [Kool.ws · Sunucu 1 · 4K UHD]",
+      "url": "http://193.47.62.157:8008/sunshine/FhxGK5TUHkbr7qdc7tGhvFMTwA1bG3kG0wtMMSwS3IvZfOKqGpF4v7ZWyc796dCleu2HOFVWuO-ODDttdvd40mWU-Kp4k1l66B8VO2tG3JMrvOEb6QkphNJ3BJIHaAaSLmjYyL3EW-TmeZb5840zDR-DFV6q8UmjES7WSr_QpBj1LiRoNoOk6pahatEdGRo7Wlq3cDzAlOrWDs5g9xPY9sEC3ziHtIRFHED6x5Nwl01QGxHRZ3GcrvlH_UwGbq7l/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "Meltem TV [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/meltemtv.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
+      "name": "⌜ Kool S6 ⌟",
+      "title": "Meltem TV [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://193.47.62.157:8008/sunshine/ENENEUi6WKbVjRvjSPPzGRbs7rZtC-nE4ubMiwhCVpiHHcyS5Rhzdw7-F4ZvI2sahoTcbjWy34-GMPvd9DvxUyMAc-OaBlin-Tr8H1qYUz4KkqQ-Jt7HoPg3n4qud5-VSITeNQ_wvdE0QSmVrB-Awwla461HBpX7isR-ZkFVwGCa1-5uE-jolERt2Sm2YNO9El_xrfN4Vt905fprSnzdVBx_J4mWFLG7aO02BoviTQUyf7DrQ6En1VLFVTlFf8yq/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "Meltem TV [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/meltemtv.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
+      "name": "⌜ Kool S7 ⌟",
+      "title": "Meltem TV [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/yCRdDFZHKKDzdir_0A49T0ZeyYhIg9A4zp-0IXeZQc8MLzxwWiqswyXmpoZv6qW8yOemD6uOQj1-92AWahHNDq9gy0fghVXISHMoaoVcubm0Skeu5QtoaxTFR40bG8ScW5DBtQvIzmwAo_ibMqkIyLqnl3Wg-LzGeSxP4DoGBriuUCnANud1tziDesLu-iPoeh5gC668yvqg9zQii9O8a1guoC5HBxTg7oSdAIaxsKYIBNfSEAneEW6GdeSN53r8/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "Meltem TV [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/meltemtv.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

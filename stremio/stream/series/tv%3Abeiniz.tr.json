@@ -1,36 +1,11 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "beIN İz TV [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/beiniz.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S7 ⌟",
+      "title": "beIN İz TV [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/Faezm-hkxNbx84bTqXk3Xl30Zy6tPMQYtBxnra9QadIuCj2BNxhC8spX8z9X6EFS3N2crJhXiUFqQJm5wp3kZrvIiQI1BIs7RP1JKagCd8SZrQMXQ2kMnxASwMOM-PcI1aR4APwoP5EzRnzrpvwkExi0MjHk-keFwara6FCag9IsMeenKeVteaxrnaslmgj0yFTPSJzOyRLQSL0yR5GIu5mZyyihv015dfZkl4Ro8a1E_uD2nC6R6ThkIAi9OWX0/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "beIN İz TV [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/beiniz.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "beIN İz TV [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/beiniz.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

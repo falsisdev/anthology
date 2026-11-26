@@ -13,36 +13,22 @@
       }
     },
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Bengü Türk TV HD [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/benguturk.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "Bengü Türk TV HD [Kool.ws · Sunucu 1 · 4K UHD]",
+      "url": "http://193.47.62.157:8008/sunshine/Ir9rn7ClgJqUltvCOjUD9KsqwpECFYzujJwGhIzEEMkAWmx7y4TiJWWhYEBYoSGihDqRhZrqucONgsji-m5PFxqqv1spIDFEvDJhrBe-vlS3roFTThEfVwbty-vOHJKDuQz1WSHN20orTwslgrdhrCOqbWOubTI3XJsER5kuXLAU3zM7Wbh8kk5lwJX6HvVm0fYI-2j5gcisl4T1pq9gHvnQK9grsUlHuc0h64Qcjj812_tAxvNwWbCgz1p2Agza/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "Bengü Türk TV HD [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/benguturk.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
+      "name": "⌜ Kool S6 ⌟",
+      "title": "Bengü Türk TV HD [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://193.47.62.157:8008/sunshine/17xovXznGN_ynltmy1tzyANBt5YHTm_1iH6zBvToTENGD4VNB3FoxUnNSoU7MKKTxBlSFqyS0dsTiLFxOJMyhGAS3TXl7i7iRYuZ7SMwl6oSm2cNS99AIIvbyXou8w9bx_il2I3sOHKEM_FhTh9bjeHP6KgCsl2uzbtAiJsdGUKty-JfNMSUvF4nm-7VLcFKma614aLiJ9-NDwRMCVJOLykAOMWnAPRRkDYEtlTCGvSEuOkvSG-Xhze1-1V4kzRb/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "Bengü Türk TV HD [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/benguturk.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

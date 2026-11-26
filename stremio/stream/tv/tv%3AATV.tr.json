@@ -13,48 +13,22 @@
       }
     },
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "ATV HD [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/atv.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "ATV HD [Kool.ws · Sunucu 1 · 4K UHD]",
+      "url": "http://193.47.62.157:8008/sunshine/RF3wX4VSCzgM3W3GGtEU606249gwc-cbQx0EEpBofNUXGQcEBVkqVrWxVuGKI7gwUNhm10Q_uYbOxQxbq-9NzgwcGNehjjrvkl7v8I_OZAQyX8CabZFVb4oPtqU35-J_40Yhyn1FE7aRf3mGY_UjQGw6ZHrFfRzsQoLdBqhtmCewgMhGfpZW7V5grq__c05mHdqL8B6ymcdfMSa4RBPtBNBlmxo4TIcOD7kGfZtgukFtDpkq9ONEBAmsdVDeg75D/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "ATV HD [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/atv.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
+      "name": "⌜ Kool S6 ⌟",
+      "title": "ATV HD [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://193.47.62.157:8008/sunshine/tWhBlM638pMp9zaCiupXhO08hcfhBWaQvd8bOCLnVMJOLvzSomcmgn7m59SvfH-uVFibIsOmjGnhQB3HZiCmfEAjxuYVgvLb0lUPGbPJauw4LjzTnn0dZxqhWSsCteUgecDh5NNbbMy7mslkVyYF0OjXd-nxx9UR3652ESUc7ZPOat75GxHSfPNnskw1sGGRdM2ytaZUWRmlW1PZgwdyiJTjHseQKMBZEw_Vdxkppv8WiQhpgFDowOQM60ILZ-dx/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "ATV HD [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/atv.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "ATV HD [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/atv.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

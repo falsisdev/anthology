@@ -25,36 +25,11 @@
       }
     },
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "TLC HD [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/tlc.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S7 ⌟",
+      "title": "TLC HD [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/qys4FKWbXkNpU-RIJUngSx_o8uYKk5hGC0BEbxko3nP5VI8p8WdRoTpqK2hZSULEp4sbLiyN9MNNTtjs3ix5R6bONlN4csLplFsqjsr3sRhFHh9s2Hz4_VzdiBV5RmGaKBv9oCwILUs1RNHewcg53i3y9olLqyoNASenUF04nbiaM2p5vTtFmLjCeGRZCzfC7ysp6LM9ymN7ttQ25k97mMYwMDaO2D1dXwD0aultTXm70-X9EXSCN0qJqKSh3vAC/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "TLC HD [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/tlc.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "TLC HD [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/tlc.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

@@ -13,48 +13,22 @@
       }
     },
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Haber Global HD [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/haberglobal.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "Haber Global HD [Kool.ws · Sunucu 1 · 4K UHD]",
+      "url": "http://109.205.187.150:8008/sunshine/cJy-oL4qfePZ1bCTngxH7vv5og93aGZMOwC5VEY_pRbtxh17DFQUFoxl4ZOCzGnJkrmRVLv1WffWTovd9sLV9eiucSH-AvUtytGdGxdFOggqv-Af-JJaNejFREtQ7E3uSMX1I68FRKJyq09QGR-MOH6lju8opTExF8eX3s-AFJPmrsxlUfNBayEnd0bb3WSRI9KoT0qamHxNnp6dRQeLf8QPMebCDwVO4GjW4UbJXFVTzjFVDvUOt3UAfoFh0z3Q/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "Haber Global HD [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/haberglobal.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
+      "name": "⌜ Kool S6 ⌟",
+      "title": "Haber Global HD [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/FV8H2BTS4zAUGzUeCn4qDAVyVIx5bQjvs2OdxizXJeTjpOC5NePebPsvb6Ubsa_YwymRjbnUyO-tnafjYIzcj9-hnUO1cX64Ym1s-RFg1nfeOEUadNRZoLCrtec0OU5iJExhKIZBeO6PTYdwqB4DqQiSETstIFVvDebGc--AgOSQZR9opw16P0ca6RxjpLsM01fC45TDeTtGp2uJDXagZk63K2UFbqsoClROQB1ShWEraCeHExFWLa24N06d7_TY/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "Haber Global HD [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/haberglobal.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "Haber Global HD [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/haberglobal.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

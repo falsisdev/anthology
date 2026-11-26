@@ -1,24 +1,11 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Discovery Science [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/discoveryscience.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S7 ⌟",
+      "title": "Discovery Science [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/i7cFWnJS26lq_3A-4GIu_rvE33QoXkxQ0tyGojWvgcBGCm9Tg6GDFIeZXChMkedHF38a6lYdDld850dYiV5iWcl6OgxTo3MdFMRwN_OKkFyUk3bjd0uvifZGqO2D3sUv-FrhQndVTXAywKM20pHhC7B-x3NjXx1Zps40TnSGNlCcw7iWBNIbjN-Qu8qbyuq76SQFR6QVMSe2N0Q5_Asygy-02HLUdg317IlvKO76xtM-LLZnIXIC4frUGYon3O0G/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "Discovery Science [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/discoveryscience.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

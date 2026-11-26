@@ -1,48 +1,22 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Nickelodeon [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/nickelodeon.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S6 ⌟",
+      "title": "Nickelodeon [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/mjOooL6eX7HzIbjhFTWUS1Q_4nOOOV1e8rfW4DwjTQdSfQeM7xhH2QWO3sqnTS9px066tyJ9_ZXigURvKJJAxSZVbQGSK0Mndn_iJzI0WH1_7YJswiT0kJalTfsXoFaPvJGTZLhdTziymwrXhsHx0mlgXeoWeVStTK0EzFoGPu_BjE3GmvT1-pG_FI0dN4gTGZhC49JqU6nJj7VGEiaoC-Znr-m4xL27lvu2AwpFx9Z---hh9pcrjIazR1zqiGjC/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "Nickelodeon [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/nickelodeon.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
+      "name": "⌜ Kool S7 ⌟",
+      "title": "Nickelodeon [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/gqXVqgCDQZvLrzWyobPMS_KoKshsgEtIQUy4O9tIusKRwXud6PQ5YdGoaUD85EpuT3z8CjypmEEt4saSsA4Q7qryfmWtqrcC8bXLryjpUDNP8K5Xm2i0NfQznKnrb0GKgGkXkj5CoAHjr83VVyoH33g8VfnX9WSEnbocUDi0Brf29A-H_IgJr-Z4gLVVA0y7L8IjYpd8WrxxDUJE-UNTUr1hYwgxJ0DLqj8qN7lEnTzY2hYhsk0IIcWFw4ZBfesW/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "Nickelodeon [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/nickelodeon.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "Nickelodeon [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/nickelodeon.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

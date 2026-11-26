@@ -1,24 +1,11 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Movie Smart Premium 2 [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/moviesmartpremium2.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S7 ⌟",
+      "title": "Movie Smart Premium 2 [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/2tpfKn8k8HOXZXoafSa4Z9iGlOrbiEtHOT5ToY6LLKh1d0A8UIDeg4380a4kW6O4jC-XYdmptT0a9EDgrHTD43CI6EY_p35RzYH82c4kMK5VlTg8R1duErd37tOgYI19dCEErIzuLhfeXXAvfE0XqrQAtygJODUraItHiFTFc0WLT8vLTObToFwxciTdIRR4yRHIeA1wDszBitNMgjGTCBT0K283lZzSFcoYs073asVbZn3HOMTkLCoD6LsVxSiH/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "Movie Smart Premium 2 [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/moviesmartpremium2.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

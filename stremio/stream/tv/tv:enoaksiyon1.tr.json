@@ -1,24 +1,11 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Eno Aksiyon 1 [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/enoaksiyon1.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S7 ⌟",
+      "title": "Eno Aksiyon 1 [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://193.47.62.157:8008/sunshine/cXVK84T4yaieDze-lu4yImGe3RUBO7bYGZBhbpPeVBgpgzBz6_dwK67HD9MWxrQ92hhq0wZDKhsNMO0sO3IgGXp_5B24Y20Z0pONSlSG_gNSiozNzv_rof3KjenPCbszGVSQG6-FM0Y-mOZDSy-z0JrkO1ajCQ6MevKuc7fArQvHiQ2PNP_R2-qrSFusimshzWq5PWVrInEGlMNiNrYwAQ8zFhJ6_pCVr38xh6F3_XkQ0YdR1gQi1bZKEPgwgIAQ/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "Eno Aksiyon 1 [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/enoaksiyon1.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

@@ -13,48 +13,22 @@
       }
     },
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Habertürk TV HD [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/haberturk.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "Habertürk TV HD [Kool.ws · Sunucu 1 · 4K UHD]",
+      "url": "http://193.47.62.157:8008/sunshine/tPjhmVDSwWwLw1OLD7KhGr2xES9ESVJ2D1DdCzkYv3KwBdPFCOTnaIhM7pvFzzgVsq-x57U76Z5xlnjMGc994kH-KJmjtibb-LBjGUi7mNVqm2KSdeIcktMqYWUTLy2cbJBbBRXos2Wt9WAv_djIst88jZdEVsm82ZvVa3zhKTTD8zJuIBnyrnlQx9gX8od0OPols_VMfqc_sRVRS01Hb6d3EhE3mNynLjcTHul5dCUNHkYO2DCehDEZoQF-sE_7/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "Habertürk TV HD [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/haberturk.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
+      "name": "⌜ Kool S6 ⌟",
+      "title": "Habertürk TV HD [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/qTvz7vGiV7ZKud5IjYTNJQayZ8U2b__5e1fNa38-L3bFBcM_p8UqYSDHSEMmtkAQpFjw7wbeX2-6ErhTp0AJVHhG8Zdc-ebNW458ExiQVhcjqZ4AWvpkP9WIXAdOGekNeZL2wG857nmh1jtmUiJHUYCYnALNkYg3cMwt7aAvYuZ4WJL7v4kXT4kvD8P5HOknWayWU98Tp0IefEwqVjBYjqFgPA0qG0EkDFhxyCUVpdYDuCvf2cXqv_rwxvPnjDSo/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "Habertürk TV HD [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/haberturk.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "Habertürk TV HD [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/haberturk.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

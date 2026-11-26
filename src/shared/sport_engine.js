@@ -9,10 +9,7 @@
  */
 
 const { loadConfig, val } = require("./config.js");
-
-var ANTHOLOGY_LIVE_BASE = "https://anthology-live.duckdns.org";
-var ANTHOLOGY_LIVE_USER = "anthology";
-var ANTHOLOGY_LIVE_PASS = "falsisdevwashere";
+const { resolveAllKoolStreams, getKoolKeyByUrlOrId } = require("./kool_engine.js");
 
 var TARAFTARIUM_SITE = "https://taraftarium24-246.top/";
 var TARAFTARIUM_API = "https://teletv15.top";
@@ -33,9 +30,6 @@ function initSportConfig() {
     if (!_cfgReady) {
         _cfgReady = loadConfig().then(function () {
             var v;
-            v = val('urls.live.anthology_live.base'); if (v) ANTHOLOGY_LIVE_BASE = String(v).replace(/\/+$/, '');
-            v = val('urls.live.anthology_live.username'); if (v) ANTHOLOGY_LIVE_USER = String(v);
-            v = val('urls.live.anthology_live.password'); if (v) ANTHOLOGY_LIVE_PASS = String(v);
             v = val('urls.live.taraftarium.base'); if (v) TARAFTARIUM_SITE = String(v);
             v = val('urls.live.taraftarium.api_base'); if (v) TARAFTARIUM_API = String(v).replace(/\/+$/, '');
             v = val('urls.live.taraftarium.base_number'); if (v && !isNaN(Number(v))) TARAFTARIUM_BASE_NUM = Number(v);
@@ -273,7 +267,24 @@ var SPORT_MAP = {
     "exxentv": {
         name: "EXXEN TV",
         mahsunsports: "androstreamliveexn"
-    }
+    },
+    "exxensports1": { name: "EXXEN SPORTS 1", mahsunsports: "androstreamliveexn1" },
+    "exxensports2": { name: "EXXEN SPORTS 2", mahsunsports: "androstreamliveexn2" },
+    "exxensports3": { name: "EXXEN SPORTS 3", mahsunsports: "androstreamliveexn3" },
+    "exxensports4": { name: "EXXEN SPORTS 4", mahsunsports: "androstreamliveexn4" },
+    "exxensports5": { name: "EXXEN SPORTS 5", mahsunsports: "androstreamliveexn5" },
+    "exxensports6": { name: "EXXEN SPORTS 6", mahsunsports: "androstreamliveexn6" },
+    "exxensports7": { name: "EXXEN SPORTS 7", mahsunsports: "androstreamliveexn7" },
+    "exxensports8": { name: "EXXEN SPORTS 8", mahsunsports: "androstreamliveexn8" },
+    "tabiispor": { name: "TABII SPOR", mahsunsports: "androstreamlivetb" },
+    "tabiispor1": { name: "TABII SPOR 1", mahsunsports: "androstreamlivetb1" },
+    "tabiispor2": { name: "TABII SPOR 2", mahsunsports: "androstreamlivetb2" },
+    "tabiispor3": { name: "TABII SPOR 3", mahsunsports: "androstreamlivetb3" },
+    "tabiispor4": { name: "TABII SPOR 4", mahsunsports: "androstreamlivetb4" },
+    "tabiispor5": { name: "TABII SPOR 5", mahsunsports: "androstreamlivetb5" },
+    "tabiispor6": { name: "TABII SPOR 6", mahsunsports: "androstreamlivetb6" },
+    "tabiispor7": { name: "TABII SPOR 7", mahsunsports: "androstreamlivetb7" },
+    "tabiispor8": { name: "TABII SPOR 8", mahsunsports: "androstreamlivetb8" }
 };
 
 function findSportChannelMapping(rawStr) {
@@ -546,7 +557,7 @@ function fetchPapazStream(channelId) {
         method: 'POST',
         headers: {
             'User-Agent': _HEADERS['User-Agent'],
-            'Referer': PAPAZ_SITE + '/',
+            'Referer': PAPAZ_SITE + '/tv/' + encodeURIComponent(channelId),
             'Origin': PAPAZ_SITE,
             'X-Requested-With': 'XMLHttpRequest',
             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
@@ -631,74 +642,9 @@ function extractCanonicalKey(s) {
     return cleaned;
 }
 
-var _sourcesCache = {};
-var _SOURCES_TTL = 300000;
-
-async function fetchAnthologyLiveSources(canonicalKey) {
-    if (!canonicalKey) return null;
-    var now = Date.now();
-    var cached = _sourcesCache[canonicalKey];
-    if (cached && (now - cached.at < _SOURCES_TTL)) {
-        return cached.data;
-    }
-    var sourcesUrl = ANTHOLOGY_LIVE_BASE + "/api/sources?channel=" + encodeURIComponent(canonicalKey);
-    try {
-        var fetchPromise = fetch(sourcesUrl, { headers: _HEADERS })
-            .then(function(res) {
-                if (res && res.status === 200) return res.json();
-                return null;
-            });
-        var sources = await withTimeout(fetchPromise, 2500);
-        if (Array.isArray(sources)) {
-            _sourcesCache[canonicalKey] = { at: now, data: sources };
-            return sources;
-        }
-    } catch (e) {}
-    return null;
-}
-
-function buildAnthologyLiveStreamEntry(src, canonicalKey, chTitle, authQuery) {
-    var streamUrl = ANTHOLOGY_LIVE_BASE + "/live/" + canonicalKey + ".m3u8?" + authQuery;
-    if (src.id !== "auto") {
-        streamUrl += "&source=" + encodeURIComponent(src.id);
-    }
-
-    var cleanName = (src.name || src.id)
-        .replace(/[⚡️📡🛡🌐]/g, '')
-        .trim();
-
-    var displayProvider = '⌜ Anthology Live · ' + cleanName + ' ⌟';
-    var displayTitle = chTitle + ' [1080p FHD]';
-
-    if (src.id === 'auto') {
-        displayProvider = '⌜ Anthology Live · Otomatik ⌟';
-        displayTitle = chTitle + ' [1080p FHD · Ultra Hızlı]';
-    } else if (src.id === 'kool1') {
-        displayProvider = '⌜ Anthology Live · Kool S1 ⌟';
-        displayTitle = chTitle + ' [Kool.ws · Sunucu 1]';
-    } else if (src.id === 'kool6') {
-        displayProvider = '⌜ Anthology Live · Kool S6 ⌟';
-        displayTitle = chTitle + ' [Kool.ws · Sunucu 6]';
-    } else if (src.id === 'kool7') {
-        displayProvider = '⌜ Anthology Live · Kool S7 ⌟';
-        displayTitle = chTitle + ' [Kool.ws · Sunucu 7]';
-    } else if (src.id === 'mahsunsports' || src.id === 'papazsports') {
-        displayTitle = chTitle + ' [1080p HD]';
-    }
-
-    return makeStream(
-        displayProvider,
-        displayTitle,
-        streamUrl,
-        {
-            'User-Agent': _HEADERS['User-Agent'],
-            'Accept': '*/*'
-        }
-    );
-}
-
 /**
- * Genel Anthology Live Kaynak Çözümleyici (Spor + Ulusal + Haber + Sinema + Belgesel + Müzik + Yerel)
+ * Genel Yerel Canlı Kaynak Çözümleyici (Spor + Ulusal + Haber + Sinema + Belgesel + Müzik + Yerel)
+ * Go motoru ile birebir: Kool.ws (kool1/kool6/kool7) + 5 Spor Platformu doğrudan yerelde çözülür.
  */
 async function resolveAnthologyLiveStreams(channelIdOrName, fallbackTitle, opts) {
     await initSportConfig();
@@ -707,82 +653,54 @@ async function resolveAnthologyLiveStreams(channelIdOrName, fallbackTitle, opts)
         return resolveMultiSportStreams(channelIdOrName, fallbackTitle);
     }
 
-    var canonicalKey = extractCanonicalKey(channelIdOrName);
+    var koolKeyFromUrl = getKoolKeyByUrlOrId(channelIdOrName);
+    var canonicalKey = koolKeyFromUrl || extractCanonicalKey(channelIdOrName);
     var chTitle = fallbackTitle || String(channelIdOrName).toUpperCase();
-    var authQuery = "username=" + encodeURIComponent(ANTHOLOGY_LIVE_USER) + "&password=" + encodeURIComponent(ANTHOLOGY_LIVE_PASS);
-
-    var liveSources = await fetchAnthologyLiveSources(canonicalKey);
-    if (!Array.isArray(liveSources) || liveSources.length === 0) {
-        return [];
-    }
-
-    var streams = [];
-    for (var i = 0; i < liveSources.length; i++) {
-        var src = liveSources[i];
-        if (!src || !src.id || src.available === false) continue;
-        // Official direct/backup URLs are already included directly from canli.m3u
-        if (src.id === 'direct' || src.id === 'backup') continue;
-        streams.push(buildAnthologyLiveStreamEntry(src, canonicalKey, chTitle, authQuery));
-    }
-    return streams;
+    return await resolveAllKoolStreams(canonicalKey, chTitle);
 }
 
 /**
- * Anthology Live Çoklu Kaynak (Multi-Source) Çözümleyici
- * 
- * Tüm canlı spor ve TV yayınlarını Anthology Live Go Restreamer tünelinden geçirir;
- * TS segmentlerini 'video/mp2t' ve temiz CORS ile Nuvio ExoPlayer'a sunar.
+ * Yerel Çoklu Kaynak (Multi-Source) Spor Çözümleyici
+ *
+ * 5 Büyük Spor Platformu (MahsunSports, AlemdarSport, Taraftarium24, ArdaSports, PapazSports)
+ * ve Kool.ws sunucu havuzlarını (kool1, kool6, kool7) paralel olarak doğrudan yerelde çözer.
  */
 async function resolveMultiSportStreams(channelIdOrName, fallbackTitle) {
     await initSportConfig();
     var map = findSportChannelMapping(channelIdOrName);
     var chTitle = fallbackTitle || (map && map.name) || String(channelIdOrName).toUpperCase();
-    var canonicalKey = extractCanonicalKey(channelIdOrName);
+    var koolKeyFromUrl = getKoolKeyByUrlOrId(channelIdOrName);
+    var canonicalKey = koolKeyFromUrl || extractCanonicalKey(channelIdOrName);
     if (!canonicalKey && map && map.key) canonicalKey = map.key;
 
+    var pTimeout = 3500;
+    var tPromise = (map && map.taraftarium) ? withTimeout(fetchTaraftariumStream(map.taraftarium), pTimeout) : Promise.resolve(null);
+    var aPromise = (map && map.ardasports) ? withTimeout(fetchArdaSportsStream(map.ardasports), pTimeout) : Promise.resolve(null);
+    var alPromise = (map && map.alemdarsport) ? withTimeout(fetchAlemdarStream(map.alemdarsport), pTimeout) : Promise.resolve(null);
+    var mPromise = (map && map.mahsunsports) ? withTimeout(fetchMahsunStream(map.mahsunsports), pTimeout) : Promise.resolve(null);
+    var pPromise = (map && map.papazsports) ? withTimeout(fetchPapazStream(map.papazsports), pTimeout) : Promise.resolve(null);
+    var kPromise = canonicalKey ? withTimeout(resolveAllKoolStreams(canonicalKey, chTitle), 5500) : Promise.resolve([]);
+
+    var results = await Promise.all([mPromise, alPromise, tPromise, aPromise, pPromise, kPromise]);
+
     var streams = [];
-    var authQuery = "username=" + encodeURIComponent(ANTHOLOGY_LIVE_USER) + "&password=" + encodeURIComponent(ANTHOLOGY_LIVE_PASS);
-
-    // 1. Canlı Kaynakları Anthology Live API'sinden çek
-    var liveSources = await fetchAnthologyLiveSources(canonicalKey);
-
-    // Canlı API zaman aşımına uğrarsa veya kanal haritada varsa statik yedek kaynaklar oluştur
-    if (!liveSources || liveSources.length === 0) {
-        if (map || canonicalKey) {
-            liveSources = [
-                { id: "auto", name: "⚡️ Otomatik (En Hızlı)", available: true },
-                { id: "mahsunsports", name: "Mahsun Sports", available: true },
-                { id: "alemdarsport", name: "Alemdar Sport", available: true },
-                { id: "taraftarium", name: "Taraftarium24", available: true },
-                { id: "ardasports", name: "Selçuk / Arda", available: true },
-                { id: "papazsports", name: "Papaz Sports", available: true }
-            ];
+    var seen = {};
+    var addStream = function(s) {
+        if (s && s.url && !seen[s.url]) {
+            seen[s.url] = true;
+            streams.push(s);
         }
-    }
+    };
 
-    if (Array.isArray(liveSources)) {
-        for (var i = 0; i < liveSources.length; i++) {
-            var src = liveSources[i];
-            if (!src || !src.id || src.available === false) continue;
-            streams.push(buildAnthologyLiveStreamEntry(src, canonicalKey, chTitle, authQuery));
-        }
-    }
+    if (results[0] && results[0].url) addStream(makeStream('⌜ MahsunSports ⌟', chTitle + ' [1080p HD]', results[0].url, results[0].headers));
+    if (results[1] && results[1].url) addStream(makeStream('⌜ AlemdarSport ⌟', chTitle + ' [1080p FHD]', results[1].url, results[1].headers));
+    if (results[2] && results[2].url) addStream(makeStream('⌜ Taraftarium24 ⌟', chTitle + ' [1080p FHD]', results[2].url, results[2].headers));
+    if (results[3] && results[3].url) addStream(makeStream('⌜ ArdaSports ⌟', chTitle + ' [1080p FHD]', results[3].url, results[3].headers));
+    if (results[4] && results[4].url) addStream(makeStream('⌜ PapazSports ⌟', chTitle + ' [1080p HD]', results[4].url, results[4].headers));
 
-    // 2. Eğer Anthology Live'dan hiçbir akış üretilemediyse doğrudan platform fallback'i çalıştır
-    if (streams.length === 0 && map) {
-        var pTimeout = 3500;
-        var tPromise = map.taraftarium ? withTimeout(fetchTaraftariumStream(map.taraftarium), pTimeout) : Promise.resolve(null);
-        var aPromise = map.ardasports ? withTimeout(fetchArdaSportsStream(map.ardasports), pTimeout) : Promise.resolve(null);
-        var alPromise = map.alemdarsport ? withTimeout(fetchAlemdarStream(map.alemdarsport), pTimeout) : Promise.resolve(null);
-        var mPromise = map.mahsunsports ? withTimeout(fetchMahsunStream(map.mahsunsports), pTimeout) : Promise.resolve(null);
-        var pPromise = map.papazsports ? withTimeout(fetchPapazStream(map.papazsports), pTimeout) : Promise.resolve(null);
-
-        var results = await Promise.all([tPromise, aPromise, alPromise, mPromise, pPromise]);
-        if (results[0] && results[0].url) streams.push(makeStream('⌜ Taraftarium24 ⌟', chTitle + ' [1080p FHD]', results[0].url, results[0].headers));
-        if (results[1] && results[1].url) streams.push(makeStream('⌜ ArdaSports ⌟', chTitle + ' [1080p FHD]', results[1].url, results[1].headers));
-        if (results[2] && results[2].url) streams.push(makeStream('⌜ AlemdarSport ⌟', chTitle + ' [1080p FHD]', results[2].url, results[2].headers));
-        if (results[3] && results[3].url) streams.push(makeStream('⌜ MahsunSports ⌟', chTitle + ' [1080p HD]', results[3].url, results[3].headers));
-        if (results[4] && results[4].url) streams.push(makeStream('⌜ PapazSports ⌟', chTitle + ' [1080p HD]', results[4].url, results[4].headers));
+    var koolStreams = Array.isArray(results[5]) ? results[5] : [];
+    for (var ki = 0; ki < koolStreams.length; ki++) {
+        addStream(koolStreams[ki]);
     }
 
     return streams;
@@ -792,7 +710,6 @@ module.exports = {
     initSportConfig: initSportConfig,
     findSportChannelMapping: findSportChannelMapping,
     extractCanonicalKey: extractCanonicalKey,
-    fetchAnthologyLiveSources: fetchAnthologyLiveSources,
     fetchTaraftariumStream: fetchTaraftariumStream,
     fetchArdaSportsStream: fetchArdaSportsStream,
     fetchAlemdarStream: fetchAlemdarStream,

@@ -25,48 +25,22 @@
       }
     },
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "TGRT Haber HD [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/tgrthaber.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "TGRT Haber HD [Kool.ws · Sunucu 1 · 4K UHD]",
+      "url": "http://193.47.62.157:8008/sunshine/7e3CJX2XtWzeyOOz2Yqr7qZtODbtSsfFGRwNeC1bMu8v6kJ3uS0fKW3qNhFyHZ6NJYQWQ38A5_GQN9lPAa1fhBY8QB4zpFaTuVVP7WH2mwQI841fd4x3YTeu8z3p36pRm3148aoATa0Ll3huCfa0NTfAtt2nDWhtAYJRFK02loMcbNFcC_rh0nodhR_nr4ZoHk0JxGXf-St7dcdy4h_wsm9GELqaqWEiZpf2ot0A4bG4rGfFz2ZGaCRGVV50f7G8/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "TGRT Haber HD [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/tgrthaber.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
+      "name": "⌜ Kool S6 ⌟",
+      "title": "TGRT Haber HD [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/bIb18WnF6GPPT8qozAhdEY1mLjtRD_g0UFGZMDlVqDtYfNt4p03IBQggbzQ9e6rMPYZxYoSj3y6wSW2hWi6W83KfMTreBU-_DuAwozfAwfbcLPkS56YTPMBHR3CpemRDMa_dED480Uz2b6Yp2mEmENXyPSVtBhOE8fY7KBzAUrqtvCkbhJNyX3zQBWxLaw9W_u_altJOg3oCp4JgqtKn20mPcrhrh1Rd7beqCA42cd1zK35q0NiSAziUAMvIjIgs/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "TGRT Haber HD [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/tgrthaber.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "TGRT Haber HD [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/tgrthaber.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

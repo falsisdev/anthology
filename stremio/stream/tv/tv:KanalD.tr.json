@@ -13,48 +13,33 @@
       }
     },
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Kanal D HD [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/kanald.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "Kanal D HD [Kool.ws · Sunucu 1 · 4K UHD]",
+      "url": "http://109.205.187.150:8008/sunshine/CHevjCu5yvCPqwnC6-mGTg15XhlZaPlG58zwrH1yl0L8Kq1WebooeOPqIde3F0COnNJXQ4ZQtjOTxtImevBAWffz9ZX-Vpq3uYTUG4GPkR-92CIBedJvtKhTkot1dC6GgM10aXp3djMfJqAByrBbHH86zMWDhkJ-3C20no9vFmxKJnNG6wcYwV249t3DExZ3wOj9m0ipj9kymWk2riGie-EVw0jTaJ09P2AO7LCMqrqdJ9fdW5DTbJ97AvrYjfct/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "Kanal D HD [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/kanald.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
+      "name": "⌜ Kool S6 ⌟",
+      "title": "Kanal D HD [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/7POnESKlz7O5xGzICtZiTqZUBV5Lt8PSJgSpaRvcLEJ9jEbrVtRLhZAfxURpTi5NQV8Mysd831HKYJwVOkrNNm0aB0LcbxtaOW-wKeDaSwUhI2Rk9rLfB-g4GkzpeghFNUrDYh7bB-sGVegXfpXa6XnCQbz5E7BW33munv9rbcfG09W_FhgsC02GPXZiBpLhRw5HCF0GcV8_gY-1Girgp7uaynNzr-hhthCwpWM4ZJqdZw6FXHS3bJ6mNiw8h4qu/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "Kanal D HD [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/kanald.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
+      "name": "⌜ Kool S7 ⌟",
+      "title": "Kanal D HD [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://193.47.62.157:8008/sunshine/DZCxhKeL09paHoRVjHgpHdoIX3UFpp1klNvnfWRST_JHG2rAtrwYQYpLmr9JdRaqbxU2rkI_BUPG7iTsBT3S30dQ0n3Fqv07HkeM5y_AVoXHBi4zrToPhsrW72W3Roq2u6kCrf5zzL9e1yh_FKxHDMzxCduljE7yNVoulWW5-6oB-X-6Aoa04t1iDXlq8PUzq7mDlOrZU6rhs43I8TAlBhh0HwKwRBYzTPiBvxaFiRJKWtJ9HVoyHM3rgUfuvbuJ/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "Kanal D HD [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/kanald.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

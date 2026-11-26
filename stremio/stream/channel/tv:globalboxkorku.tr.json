@@ -1,24 +1,11 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Global Box Korku [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/globalboxkorku.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "Global Box Korku [Kool.ws · Sunucu 1 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/Q23Gt2f0FLp3RfWmoPkUrotWs2WUJe5uexAD8bNWzCqdRgLrYgIySxe5GShwec544TBO9xAKMOwPXXQ9L6zkQaapPsHdP8o6IFwN3qMefTyq71z-DKzirdfBBEi3EpB1bA7qovvk92ELVdfYT-zi-D-WhyIymbernFP9yPPouW4zhUhtoa6Hw4FKEHRq5jUq5fj-S-Kk8BE2OWXHAs-2Z0Mx8lD_qqQ_7CcOesKzcrumjxLX_gDWFjUKvwWbXJ7b/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "Global Box Korku [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/globalboxkorku.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

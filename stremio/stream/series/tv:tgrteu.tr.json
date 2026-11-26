@@ -1,24 +1,11 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "TGRT EU [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/tgrteu.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S7 ⌟",
+      "title": "TGRT EU [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/y96j4cQYtK4cCW6NgQ1nQ6oDoNXzKZwxoGWDOBIAvVDKY7mXRSYeGmkVufxL0ojQapPUYYB_cNooQvaKKEXn65k43eOFCuWn4ao3p4gvaPZMepFPuMph-dyT-ILIgnR-56HO5upBm_vJbp2zHvkQEl9KeHrRGt3-wZu0VZ5gAMTKft15zUn8aJYH7SsuvrzOzK6nvsxoHgTNTVmd_jc0A7UVfhHzyito0CnveifuU8LeBRwBdXeExZn0I9CC7fkj/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "TGRT EU [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/tgrteu.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

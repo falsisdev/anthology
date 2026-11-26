@@ -1,24 +1,11 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "History Channel [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/historychannel.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S7 ⌟",
+      "title": "History Channel [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/oEGiKqd_HsHfyIIPKR-hzkFQwvfImWhK618aVr0_yXOBzEs2OjaaVZwblcG97IvjnoWJuTuetfHqaJ0mePmTkzyUVOroj8LvspQXkkRVVPFGWHzPw8bHNmAOkDpNS7qCBHmjA5yHvr7VMQRdzISw477rOA64_g4vAXP0bgCeaOObzhsQiL2z_BRJxwG6YrtkmohtQNFRPHc-Wn22IMKiNCCmhfkmd19HmCYxr3dbZFpocmjDpIVmH4t_89X82vvG/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "History Channel [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/historychannel.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

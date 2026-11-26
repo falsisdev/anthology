@@ -1,96 +1,59 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "TRT Spor HD [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/trtspor.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "TRT Spor HD [Kool.ws · Sunucu 1 · 4K UHD]",
+      "url": "http://193.47.62.157:8008/sunshine/Jda7vS7bqZkIX_Hvq53FH7fhHKBPSx91Izz7xEBy2TdyVEVlEz5-IKuxJpS7S5S7ca-WS7NHTpQmTYu2uGrEQiyn7S-IQt2cEiCWU-BZbih-vIL3moS8U3gapiEAr2MJAHIvODkneXSkye3ykl8D29hRjqk8d9S2h-eX9CMn5j66bky_uWxttoEyK0F7C5kY6Hxqblh1HUgMBzZa-8ijBfcj_MBcqaMH8BJvZ7v5OHu8yPH2Rqor_k5eyI_wKFXf/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Resmi / Doğrudan Akış ⌟",
+      "name": "⌜ AlemdarSport ⌟",
       "title": "TRT Spor HD [1080p FHD]",
-      "url": "https://anthology-live.duckdns.org/live/trtspor.m3u8?username=anthology&password=falsisdevwashere&source=direct",
+      "url": "https://alemdar.e56334ad5bbbc0ca4c80f717246c2500.cfd/mdalemdar/trtspor/index.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "Referer": "https://alemdarsport.cfd",
+        "Origin": "https://alemdarsport.cfd"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Alemdar Sport ⌟",
+      "name": "⌜ Taraftarium24 ⌟",
       "title": "TRT Spor HD [1080p FHD]",
-      "url": "https://anthology-live.duckdns.org/live/trtspor.m3u8?username=anthology&password=falsisdevwashere&source=alemdarsport",
+      "url": "https://css.d6e3ess6e065r5.help//trtspor/tracks-v1a1/mono.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "Referer": "https://taraftarium24-246.top/",
+        "Origin": "https://taraftarium24-246.top/"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Selçuk / Arda ⌟",
-      "title": "TRT Spor HD [1080p FHD]",
-      "url": "https://anthology-live.duckdns.org/live/trtspor.m3u8?username=anthology&password=falsisdevwashere&source=ardasports",
+      "name": "⌜ Kool S6 ⌟",
+      "title": "TRT Spor HD [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://193.47.62.157:8008/sunshine/dAM0G1tqw5a5Y0aZIRc2za1e0DQYtWOWfFS0LGqxu3PmzjaxxLXj2W5U3x15-IJ7udFA8luDxbXflwqrIXVAT-UvPeMF9gIkZVXnjj_rhEwp1Q6V2gye5IfXV7Un50lndqY4CwXy2SW1S81cWqXfM5XPUHLz-vQuX-hbEsz3yCc4kqnzG99yFfelIf4ZqAYI3H5T6TMoJEgpkVO-1VYiZsIKzOw-1LObgE7FJ3LnIt5beXgt213loiAWV9qwJjxn/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Taraftarium24 ⌟",
-      "title": "TRT Spor HD [1080p FHD]",
-      "url": "https://anthology-live.duckdns.org/live/trtspor.m3u8?username=anthology&password=falsisdevwashere&source=taraftarium",
+      "name": "⌜ Kool S7 ⌟",
+      "title": "TRT Spor HD [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/g6N15xBnWJQ9yoj7TEQHwy_KLyveP9l6Q4Imr8YbpkNdrQCsqgQCnyOV9rrLb8Hrts6wQrMCTkgFdsJsz6hn9MOu30XlmqhJKMlqF8xXEpa_lLIOw-HBYToQF7iVQ1x4n6vDv20dG47F_RCzvsxxpqx6nLPkWBKR0V2St973QYHrdyENwxQm6J6uaFAI7tzxebthkvca7tLXzbW-xRM1G-2uUGxB0oSHsYpChMKvo7vWHhImIz5qd7pncnuQElkm/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "TRT Spor HD [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/trtspor.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "TRT Spor HD [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/trtspor.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "TRT Spor HD [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/trtspor.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

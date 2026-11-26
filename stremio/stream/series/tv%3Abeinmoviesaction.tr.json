@@ -1,36 +1,22 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "beIN Movies Action [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/beinmoviesaction.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S6 ⌟",
+      "title": "beIN Movies Action [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/kVKHZ-H1TBBM6uY_hzIfFeyveVZCfU9-EOgOX4SX-VzeIvANp_qp7gai2zRvcBK_k_Yc-gnAX471nnwLBDavgs_ZGmJkHFp77nA7Hq62pBfDCVHs-gRz36ms5qJ2_f4NbxMApBIAorOh5jT3gRBIH3U7V3WoC_qCBnQacOyv9KdorL9lAeUn5tRXcm5LjE_4yO30DPRPjHXyhAMCb4r0pLLRxYXwAcXPB4Ddh-dlojrB4vWjTCf5oXFWOgA_n3z5/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "beIN Movies Action [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/beinmoviesaction.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
+      "name": "⌜ Kool S7 ⌟",
+      "title": "beIN Movies Action [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/n3BgRaJTI8xo5s3tWJLHW6xDrYTr6teoIUahSuGPQufzSaqTITxfFmzJ82ZdLTC9Q3paIsxhyeUNbwHYnvdS53kR3nvp5IK87--3bleviOk3ozULpDLlTpuEZ8KW8Cy_ABOR73B-pvZktw8X77IU98lSCpNzWdH-JUXlTTMYeYqMV1PiBBZGX64M45p9j7b28SoZ0p6Kff6p8W6DoLEH8jtMCkoY0meZbqWnPcrZ997tlY8QXI1FO__SLSaNlQjH/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "beIN Movies Action [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/beinmoviesaction.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

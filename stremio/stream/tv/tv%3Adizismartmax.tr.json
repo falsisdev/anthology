@@ -1,36 +1,22 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Dizismart Max [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/dizismartmax.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S6 ⌟",
+      "title": "Dizismart Max [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/5c9gqhvThItnYMHcKIELJgW0KN4cjyWvAQrVkPMNVzj_42nhJy2LYszXaUSJju9O3MNBpVIM-EEGYHAdqhq20EWUTfNOo9dF-VZZvJZSUqdPtkQWG8_1kSAIJU8gcNCkpQcyozLch4_Iq35ofzirptpMIfJ61xKzdC2JOJJ0a6yVJFOl4mEW4iloKBE6jC_QDYFn0-_IhnU2h3sD6Q9VJhsZr_snmxRVZiQ8QMJZRx9DfN8d2Jn3fo3mkELnSCMZ/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "Dizismart Max [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/dizismartmax.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
+      "name": "⌜ Kool S7 ⌟",
+      "title": "Dizismart Max [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://193.47.62.157:8008/sunshine/ZsEaY4ZvxN4vbuHadJqiDfjOo7BKa2QQBhWDqGSVDfL3X0K_7DsOue5C15wy7wulnC6isBcx8Te0ZO0Y6bvH0Q1_5CP-_dHXs4ebtoDp1ZHhggEty5IQN37Ha6wBGQNZykZNEz1qE8zkpQ0u6mvG7r6ZHcNDqIxdqMWnvCO2y8K9ee8Ymo5MkQ5MlPvpaz35VAY0IWZM7LezyzklFW_MxEYBRCwMUVwfmndLlnFLGZgQO5b44btW-FQwa-chG58e/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "Dizismart Max [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/dizismartmax.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

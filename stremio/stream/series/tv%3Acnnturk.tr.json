@@ -1,48 +1,22 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "CNN Türk [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/cnnturk.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "CNN Türk [Kool.ws · Sunucu 1 · 4K UHD]",
+      "url": "http://193.47.62.157:8008/sunshine/lA535_QD8gneF6rwPkUEvAwaSs6-y2ka0KNVfT7P4QVe4RMW3w_gzI5Zh3Y63fVZjo9vQLmFrUSN4LthEboAh2hBrqWzoa5h49a3pQGFhc47mobkNupuRpQ0WCBWeGBBjSnTH-As8UzjdB-_KGwWmY_I1f9iCO_4e9n-0YyWY9cankyAMifC2swGMnmGFSaTp4ZEmKB1PURJmMqJYaj4lcaNaAFGdxGxDNIOjGRfODMjp1iK2S91sRmyEIjfb1X7/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "CNN Türk [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/cnnturk.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
+      "name": "⌜ Kool S6 ⌟",
+      "title": "CNN Türk [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/rtkuiQaYM0pX1xSNDbCz751YlzBNvhEaiYuopLYAYlkPBwk6RicgJIWFIREi2uw5_oQZcqR3KM4pzKQ8EWAY_qkSAX66NgN3TUaet9gBT2xOJS1KZNRowrIOkv3xybHrQZ8bBFqM2r3n3b3XlYwLVyuyDz5oG_beCh_iJS724l_cnxWlTJMAWnoi4BNzbQigJ7ZDdgXnhyH0p5Ew3vEDZWpZVjVP5e1BvIHbtzL4TxiqhLui3fcfU3JyDQh8mRVj/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "CNN Türk [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/cnnturk.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "CNN Türk [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/cnnturk.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

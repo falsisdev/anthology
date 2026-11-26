@@ -1,48 +1,22 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "TV 8 Int [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/tv8int.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S6 ⌟",
+      "title": "TV 8 Int [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/FCmNnUphzjcYPCDIt4jwyVCLXGAEA9JUF1rPl4OaehOI7A-RRdFU28FxIrzj3ncoyPx5fO0nseCacnFxuFzRODtG5plIAEgGBmWWM-_1GIaaYNMax8v5TXY0e7RhMvsURJuSgoNgWk8SZaJFOrtTLPB289aR_zMB_62yQti8GRsKA2Dqa9vlmLvwM3vPe0i2ZYye7nTUvhYBARUKwuR6Da758llcYgTjuDGb9RsLxT2p3afD3Obd_op_sgKKKk7L/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "TV 8 Int [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/8int.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S7 ⌟",
+      "title": "TV 8 Int [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/-03bzNuwbSLQNFt4uOCj4eKbAoWCSMkAv2nNModPHMRQovLl-JvxcY4yOt_VpWmvEphKaP58vD2b4cVpLXzAionC5FX_lOdFNC7vzBxWWcgoAJtIP0r2IDekVw1Yle7RVIV51Fw0ig_ppjn2V4kennYPH7pGPCrqjP9dwnBQhiJh4sQkTsxZFLtprFOlcf4KiLIzAY-EbBZjkhlzgHBNQ0D8u6An7RE9dyNY-x2aesTBahNzpCe1waZNJFqnAT6_/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "TV 8 Int [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/8int.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "TV 8 Int [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/8int.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

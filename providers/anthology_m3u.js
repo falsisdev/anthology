@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: anthology_m3u
  * Built from src/anthology_m3u/index.js
- * Build: v1.8.42 (anthology build system)
+ * Build: v1.8.43 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -227,41 +227,23 @@ var { sortStreamsByQuality } = require_quality();
 var { loadConfig, val, wrapAll } = require_config();
 var { timeoutSignal } = require_http();
 var TMDB_API_KEY = "500330721680edb6d5f7f12ba7cd9023";
-var ANTHOLOGY_VOD_API = "https://anthology-live.duckdns.org/api/vod/streams";
 var VIXOLITY_BASE = "https://ha.vixolity.com";
 var _cfgReady = null;
 function cfgReady() {
   if (!_cfgReady) {
     _cfgReady = loadConfig().then(function() {
-      var v = val("urls.vod.anthology_live_api");
-      if (v) {
-        ANTHOLOGY_VOD_API = v;
-      } else {
-        var liveBase = val("urls.live.anthology_live.base");
-        if (liveBase) {
-          ANTHOLOGY_VOD_API = liveBase.replace(/\/+$/, "") + "/api/vod/streams";
-        }
-      }
       var vix = val("urls.vod.vixolity_base");
       if (vix) VIXOLITY_BASE = vix.replace(/\/+$/, "");
     });
   }
   return _cfgReady;
 }
-var cache = {};
-var cacheTime = {};
 var VIXOLITY_HEADERS = {
   "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
   "Referer": "https://pl.vixolity.com/",
   "Origin": "https://pl.vixolity.com",
   "Accept": "*/*"
 };
-function getVodApiUrl() {
-  if (typeof process !== "undefined" && process.env && process.env.ANTHOLOGY_LIVE_URL) {
-    return process.env.ANTHOLOGY_LIVE_URL.replace(/\/+$/, "") + "/api/vod/streams";
-  }
-  return ANTHOLOGY_VOD_API;
-}
 function buildStreamObject(streamName, sourceTag, streamUrl, score) {
   const isVixolity = /vixolity\.com/i.test(streamUrl);
   const isHlsStream = streamUrl.includes(".m3u8") || isVixolity;
@@ -325,60 +307,6 @@ function resolveTmdbShow(rawId) {
     }
   });
 }
-function normalizeGoVodStream(item) {
-  if (!item || !item.url) return null;
-  const isVixolity = /vixolity\.com/i.test(item.url);
-  const isHls = typeof item.isHls === "boolean" ? item.isHls : item.url.includes(".m3u8") || isVixolity;
-  const out = {
-    name: item.name || "Anthology VOD",
-    title: item.title || `\u231C Anthology VOD \u231F | ${item.quality || "HD"}`,
-    url: item.url,
-    quality: item.quality || "HD",
-    format: item.format || (isHls ? "hls" : "mp4"),
-    isHls
-  };
-  if (typeof item.score === "number") out.score = item.score;
-  if (item.headers) out.headers = item.headers;
-  if (item.behaviorHints) out.behaviorHints = item.behaviorHints;
-  if (isVixolity && !out.headers) {
-    out.headers = VIXOLITY_HEADERS;
-    out.behaviorHints = { proxyHeaders: { request: VIXOLITY_HEADERS } };
-  }
-  return out;
-}
-function queryGoVodApi(params) {
-  return __async(this, null, function* () {
-    const apiBase = getVodApiUrl();
-    const qsParts = [];
-    Object.keys(params).forEach(function(k) {
-      if (params[k] !== void 0 && params[k] !== null && params[k] !== "") {
-        qsParts.push(encodeURIComponent(k) + "=" + encodeURIComponent(String(params[k])));
-      }
-    });
-    const url = apiBase + "?" + qsParts.join("&");
-    const now = Date.now();
-    if (cache[url] && now - (cacheTime[url] || 0) < 3e5) {
-      return cache[url];
-    }
-    try {
-      const res = yield fetch(url, {
-        headers: { "User-Agent": "Mozilla/5.0" },
-        signal: timeoutSignal(8e3)
-      });
-      if (!res.ok) return [];
-      const data = yield res.json();
-      const rawStreams = data && Array.isArray(data.streams) ? data.streams : [];
-      const normalized = rawStreams.map(normalizeGoVodStream).filter(Boolean);
-      if (normalized.length > 0) {
-        cache[url] = normalized;
-        cacheTime[url] = now;
-      }
-      return normalized;
-    } catch (e) {
-      return [];
-    }
-  });
-}
 function probeDirectVixolity(urls, streamName) {
   return __async(this, null, function* () {
     for (let i = 0; i < urls.length; i++) {
@@ -406,15 +334,6 @@ function searchFilmStreams(tmdbId) {
       if (!d || !d.title && !d.original_title) return [];
       const targetImdb = d.imdb_id || (d.external_ids ? d.external_ids.imdb_id : "") || "";
       const targetYear = (d.release_date || "").slice(0, 4);
-      const goStreams = yield queryGoVodApi({
-        type: "movie",
-        imdb: targetImdb,
-        title: d.title || "",
-        original_title: d.original_title || "",
-        year: targetYear,
-        lang: d.original_language || ""
-      });
-      if (goStreams.length > 0) return goStreams;
       if (targetImdb && targetImdb.startsWith("tt")) {
         const dispName = `${d.title || d.original_title}${targetYear ? " (" + targetYear + ")" : ""}`;
         return yield probeDirectVixolity([`${VIXOLITY_BASE}/vs/${targetImdb}/`], dispName);
@@ -443,16 +362,6 @@ function searchDiziStreams(rawId, seasonInput, episodeInput) {
       const targetImdb = (rawStr.startsWith("tt") ? rawStr : "") || (d.external_ids ? d.external_ids.imdb_id : "") || "";
       const sPad = String(finalSeason).padStart(2, "0");
       const ePad = String(finalEpisode).padStart(2, "0");
-      const goStreams = yield queryGoVodApi({
-        type: "series",
-        imdb: targetImdb,
-        title: d.name || "",
-        original_title: d.original_name || "",
-        lang: d.original_language || "",
-        season: finalSeason,
-        episode: finalEpisode
-      });
-      if (goStreams.length > 0) return goStreams;
       if (targetImdb && targetImdb.startsWith("tt")) {
         const dispName = `${d.name || d.original_name} S${sPad}E${ePad}`;
         const candidates = [

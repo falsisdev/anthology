@@ -1,108 +1,57 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Smart Spor 1 HD [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/smartspor1.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "Smart Spor 1 HD [Kool.ws · Sunucu 1 · 4K UHD]",
+      "url": "http://193.47.62.157:8008/sunshine/b84u0jeQrmFilKE01rwwpJpPphP3o2TrmsRMYwTfMLT3KB0-kst7sLGOrSe1XtiAIW2feeEs9ELt17anj5oZJANuuxhfO8JfPVGvK_p-hfAH6YFfec0D5vod7IPSv6-IB_-znYS2u1xijubonzHjOjP7t60RBc9B-psuIGL__KI-Dyy35P_t0HrmXAMQGAUvkPY0t8XU0w6EiZ2oRQ3A_IoWDa-sQ9-efdvKbRNHTx254c3iQSYczSqMTzAkq2mA/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Resmi / Doğrudan Akış ⌟",
-      "title": "Smart Spor 1 HD [1080p FHD]",
-      "url": "https://anthology-live.duckdns.org/live/smartspor1.m3u8?username=anthology&password=falsisdevwashere&source=direct",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Mahsun Sports ⌟",
+      "name": "⌜ MahsunSports ⌟",
       "title": "Smart Spor 1 HD [1080p HD]",
-      "url": "https://anthology-live.duckdns.org/live/smartspor1.m3u8?username=anthology&password=falsisdevwashere&source=mahsunsports",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Alemdar Sport ⌟",
-      "title": "Smart Spor 1 HD [1080p FHD]",
-      "url": "https://anthology-live.duckdns.org/live/smartspor1.m3u8?username=anthology&password=falsisdevwashere&source=alemdarsport",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Papaz Sports ⌟",
-      "title": "Smart Spor 1 HD [1080p HD]",
-      "url": "https://anthology-live.duckdns.org/live/smartspor1.m3u8?username=anthology&password=falsisdevwashere&source=papazsports",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "Smart Spor 1 HD [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/smartspor1.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "Smart Spor 1 HD [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/smartspor1.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "Smart Spor 1 HD [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/smartspor1.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Spor ⌟",
-      "title": "Smart Spor 1 HD [Canlı]",
       "url": "https://andro.evrenesoglu235.click/checklist/androstreamlivesm1.m3u8",
       "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ AlemdarSport ⌟",
+      "title": "Smart Spor 1 HD [1080p FHD]",
+      "url": "https://alemdar.e56334ad5bbbc0ca4c80f717246c2500.cfd/mdalemdar/sporsmart/index.m3u8",
+      "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "Referer": "https://alemdarsport.cfd",
+        "Origin": "https://alemdarsport.cfd"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Kool S6 ⌟",
+      "title": "Smart Spor 1 HD [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/TleZCwn2BRifVEO6qqo8dQZ53cXhnwt-HV-065sR7bHdUME98OrGPmg5jTx8a6YhEPgMcGDIrZ2IvLfSW3vlt197ZI7hY_0_elWJi1ebw3Ckth0ofOeOqyGwP0dXyZ0tYt0gNnvi5eppSzLmtnDKZurLF8SV-CkYP4lOhXQ6ZSECuCxOkNiR5nmmY8ZNc8H-Y2pM4pXnvYYwTW8senQueXkPzJBS9-nNUKJjk6dEIchEc9nHe_HnzJiJY0H61Msp/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Kool S7 ⌟",
+      "title": "Smart Spor 1 HD [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/0hRfHpJkJpvWCtLliKoUBSjuBswdF8lWOAI4IoSaNIkVHkhyVBiiFbTIt1bHmCsM4G8cwa3PBynPq6WMKlezrgCCQABwZSZwVdFkPB5AYrMAFOHBeg4ccpmbHq770Z_VB36E-woJ9Wu_ObmRS-HS1tOVKZHSZwck7fnEWyKTVr2QZlZ1BJePlLxXJ4He8k4qUuv_P97bvBxfD6fYkmUA6KNB1hNgzNGEfyO1lWqCdxhQFbjA3SE5hLSwBOiJluwZ/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

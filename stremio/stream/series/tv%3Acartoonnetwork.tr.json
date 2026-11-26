@@ -1,48 +1,22 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Cartoon Network [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/cartoonnetwork.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "Cartoon Network [Kool.ws · Sunucu 1 · 4K UHD]",
+      "url": "http://138.226.249.38:8008/sunshine/JL4rLvyU-DWWVSizb-rpwJrC8W7Ki4nahY7N9z6GOp4zd9K1eziz5ro14KyXLtaEIVEdZaxNwYeVvwsnkgE_0W6ZqKGh9SuyNC2TrKF6z-V5wsOKzY4Kn0cN6lNMX4Q94WHmty_wH5Z8tUbropIbpK1edm34ivQhWI7e4E3KJitxApLO15yqQOdii0B1obSKR1OqRNKqOg0ZgL_m1PLnGTCF2pxwVQK2CZv23KstxiN5UKBdXG0dfy_esr5rLADM/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "Cartoon Network [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/cartoonnetwork.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
+      "name": "⌜ Kool S6 ⌟",
+      "title": "Cartoon Network [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://193.47.62.157:8008/sunshine/hKP64gVD_ajuo5XoXnM0c4eyfDLroLL7_c5oFXMuTJEZ1E0dsurzeJHAc0Iy5OyIrjV_m2o3xgEKopEoVigeW0YXQHN-OC0pHB8_3dOle9NHeRba6EXa1b9oaKHp9oTgXXdR7h2OwTwT8n0bI062GL9RM7Cm28cp2NKl2FhROAwBhWi13sKlU7WR7xq3Z22FH0LHl-UiQCqabBorKpg3BSDkMfKLKCk8EviVo2cSoEyNw01Xtly5QzsRBRpXRhgs/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "Cartoon Network [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/cartoonnetwork.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "Cartoon Network [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/cartoonnetwork.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

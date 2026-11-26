@@ -1,24 +1,11 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "beIN Box Office 1 [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/beinboxoffice1.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S6 ⌟",
+      "title": "beIN Box Office 1 [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://193.47.62.157:8008/sunshine/PFFGBrocIyFoaQyvkI6P4sZ5fRRfNjnsZl-y6Zv71-uvwl0I_POHADwotmNdeejP_oCg14AN2yRLtw22rl90NiNLwmSGQkG35BleH2g1Ee7aHiMvcbhxs98Q5SZt_qQo-W3q-I5eeUK8I9je1g8I6FqtguemVrx17kEzDkW33hSNdKDY36I8t9VP5DFpOYWUbhAbvNq8WmCdAV5z8SN6DQTH2jIPspD_86tG1_6vLjLy7Rk_04JWOy6VpkwAjPva/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "beIN Box Office 1 [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/beinboxoffice1.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

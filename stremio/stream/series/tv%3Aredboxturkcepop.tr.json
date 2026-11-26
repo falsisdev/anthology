@@ -1,24 +1,11 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Redbox Türkçe Pop [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/redboxturkcepop.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "Redbox Türkçe Pop [Kool.ws · Sunucu 1 · HD]",
+      "url": "http://193.47.62.157:8008/sunshine/H69i944vWClj_t3xu9tZbiyY4FTszeJaYkQK8c9HJWll0ZHutWeAUqyRYPX_XAbSlwYssn70aWft6oRcsYkdGfRTR9e_c4-EOpSvrlXo1l9fVqSgzJPRY6-RTKzym0CE3L_y8Qe_hQALTPBTsKkWM7uixi98P2CH2VqJW9qfNxEWcovXpOCSBBYkSscpui3J9f3MAR1RN-YFePxPWWHx4me_TFSLA0Dl28TG-2LupGcK5tdIIo9ZEjLQi2OXHC0m/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "Redbox Türkçe Pop [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/redboxturkcepop.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

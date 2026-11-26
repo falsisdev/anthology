@@ -1,24 +1,11 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Saran Sport 1 [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/saransport1.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S7 ⌟",
+      "title": "Saran Sport 1 [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/VGWKKRuWFQAVNkdmAYM-GNY9U2DxFI6new8r-RdsTbGsRQmNexiesCR_TdopTt8aQ-C5gD1qoCtwtxtcDpxUnmkkjTxXClNpfnOi_7H_cJWGV055kKMwkXtTcO7ezblA7QKcsAs1K3CJEEAJpmdlcITl_VsyziLVWyKLiinSWdxLnqIjfHYjnndhS5phj_SoBBpDuUZpg8FZp_HopEofmELD3--B9qaGJ-pdYzsRy2bi_tRG2B5YHoMjEf-eO2iG/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "Saran Sport 1 [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/saransport1.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

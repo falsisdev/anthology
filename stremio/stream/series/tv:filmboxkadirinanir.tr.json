@@ -1,24 +1,11 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "FilmBox Kadir İnanır [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/filmboxkadirinanir.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S7 ⌟",
+      "title": "FilmBox Kadir İnanır [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/lEjnUmdGGl-nDA4xX-TYpYq22qR9Y9e_3iuw6zECwJDzqOMPgffLEDKrh3ajexPwB6nMjHK2x9O3tDQtzk_wP8x5rR7gH9miHqcie0skCt8n429RU7d-U7VLElEd0g_92iA9hfmRTRls0YvEl3w_7nssthrsNuWO9a478BiOS0-RqAPu4qBR_L1phEOv19-aDLhlcBqLVXVDuZWUgaXI0isaehnFKekRz3Lbhzk0240sx5oqD0qBOI-CxhyFdIYG/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "FilmBox Kadir İnanır [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/filmboxkadirinanir.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

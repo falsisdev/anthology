@@ -13,36 +13,22 @@
       }
     },
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Kanal 7 HD [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/kanal7.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "Kanal 7 HD [Kool.ws · Sunucu 1 · 4K UHD]",
+      "url": "http://193.47.62.157:8008/sunshine/MRvNpqIiTt5lhexai9fa-RIPqMub8CKusnbJ_2eTxrppcBRYTk9eISuXYXSnJiCEPU2WtirUroJMuLi6Z9c1FyPu06AVX_TfTcwCkohqV8GFU_mPmVpc_Q68sVWVKF5WQorBAVXkDtStly7-A7Vz7Uzeja_CG4Omd08aWHG9PMbQw15pnTkFB32m3GDcZz--4cBfNx24Oo2obW3CbpwxOhQJxiBjttqW1y6OPWUw1aYDvttz55fMe8IWUGSUg3bj/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "Kanal 7 HD [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/kanal7.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
+      "name": "⌜ Kool S6 ⌟",
+      "title": "Kanal 7 HD [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/-I24sRgoI2qcVVQg7I_azUPHDtGD0XOxAxc33LS4WADc7JawbCdbmMmqVm1xYusqJY8UU-vRp3Fj7AIpDngA9RDCbhVUVwsgx72Tb73vHc_6ERbTInzGVpu-9aKe_NakRE8hSUt75iOOeBqfyj_RHOUh4zSTLR6-siMg23LIV2eR86RMafVH_cizPoFxjopLRG55o_Jbi7hwRXV-41Jlt22p9dubcj-AZh4qrn2IWNOYfe4dcXgOkueaOGErXlSJ/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "Kanal 7 HD [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/kanal7.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

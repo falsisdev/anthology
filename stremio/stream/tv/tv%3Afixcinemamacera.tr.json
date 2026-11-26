@@ -1,24 +1,11 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Fix Cinema Macera [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/fixcinemamacera.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "Fix Cinema Macera [Kool.ws · Sunucu 1 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/OdhGoWaDtYPf35iaFcpOLaAHjRqhVyWh1jS67W6g3wTj8ajAxgtRe0IxU79w7s48Cok8YHU3Xplg9k5lVo0HAG6qEjWbkrTWmV9aOc0LJsKPtPFpiSmNYowNqWSij-z7HUKrhuEF5HHDrHe8IM8ctxq-8RRA9c3rwGvDnSRY5ULBPEkWunVzvqIUsaShto2sVJ8eMXZ2C6fKuH7LwpGPjPecYm_ZFdG4iTPRy5wpdmWszoqQOrpr2V_PEvNEMvOD/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "Fix Cinema Macera [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/fixcinemamacera.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

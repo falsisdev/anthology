@@ -1,24 +1,11 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "BBC Earth Premiere [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/bbcearthpremiere.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S7 ⌟",
+      "title": "BBC Earth Premiere [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/zGpiDuKpvYCOUEJEHXA9X_p5beoIZTQuk7N1vfpVtIy3Sczdut9yyQj_qFEBGA3rjcV6KOXF6_yOqidjggDi21VejR8VR9yCN3MCldyJLTYKyieBmxXGhS53ESqhEJqlfWjEjSfH2ihJh-zdRrwpe8y4zrDgcn-5dhoxST5PtkOd8s48GsROm5TTrXsqoyCqpmS6i9XYdTeeist5K9EuJZSMKVmAi00OqpOyd7XXZdt2NADqP3m-A02ND_wOhTGE/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "BBC Earth Premiere [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/bbcearthpremiere.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

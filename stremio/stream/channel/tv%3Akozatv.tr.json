@@ -1,24 +1,11 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Koza TV [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/kozatv.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "Koza TV [Kool.ws · Sunucu 1 · 4K UHD]",
+      "url": "http://109.205.187.150:8008/sunshine/O8wu8XRModtu8t3i0Pq4Ydb827hY2MGLPqLBhaNjLHJd8svaBTa3Vax0Nh7DcFoy7BWim7COhAS5-Gf8PkbMl-Dzlv4NQZ5jnsS9KnzZnEiAkzp4L-7T2z4dGGquyANwggH35ymW6P8lD7LgnS-lxSld1nJbr86p6GTH4FoBy6prQZPc_FmI4iNyWM-KXh-fpiiaizP-qtGB2o6qHWLZHPZA_VOsaRwwYNxDEwch0xlA7XUv2zeRkD6EKk4NetRC/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "Koza TV [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/kozatv.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

@@ -13,36 +13,22 @@
       }
     },
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "TRT Belgesel HD [1080p FHD · Ultra Hızlı]",
-      "url": "https://anthology-live.duckdns.org/live/trtbelgesel.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S1 ⌟",
+      "title": "TRT Belgesel HD [Kool.ws · Sunucu 1 · 4K UHD]",
+      "url": "http://138.226.249.38:8008/sunshine/GbFNkPMFbQK8jzzJyV054X5Tz_-zzbL701Cjb0nCvaIBgYHkhsxNG8runmQCn-Q8CzHjmxKGgexeuoZv0mCmsDAo2wSiOfTY6ZvLm_0PmQvnS07BU7w5HGTxOOsq4xx162YiDwBYaQqgAygmmreLjq91bZQZVUPv_fBwrtdlnSM7a9kvT81VqiaQe4rx4zp7sS3m-9vS9XYRK95ey5nqfuykxx7s10F3b4ecopg7cU77Jc0AauZMB9-wFAvor5EB/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
       }
     },
     {
-      "name": "⌜ Anthology Live · Kool S1 ⌟",
-      "title": "TRT Belgesel HD [Kool.ws · Sunucu 1]",
-      "url": "https://anthology-live.duckdns.org/live/trtbelgesel.m3u8?username=anthology&password=falsisdevwashere&source=kool1",
+      "name": "⌜ Kool S6 ⌟",
+      "title": "TRT Belgesel HD [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://138.226.249.38:8008/sunshine/V6y3NmOATC6wic-bAONDiCkSf5K0ni0Gjlnjax2_BnHPZ5MUn0xRzUf2C-1oQTODYDQ_gKG2t0B1G5M6XxzjdU42YqUrH-z4_jrJS18hyZHw6MCUx1xYzjbmG04SnXVmYn-BzNhZO-GoUGkV2zy99nZwbOnlrPraZOrMHAuROCsgQIdTbzmcKiuOXrDJMKbqQF4pYUGJgaMaZhb637hJzdHGa3nluAQam70slH7RVXX_1fgdz4QWD0PsvdqE8-oE/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "TRT Belgesel HD [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/trtbelgesel.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

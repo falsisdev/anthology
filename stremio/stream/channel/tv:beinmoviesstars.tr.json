@@ -1,24 +1,11 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "beIN Movies Stars [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/beinmoviesstars.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S7 ⌟",
+      "title": "beIN Movies Stars [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/5Ub5GHAfcfU2ZMG_U3Cb_vyoe169Q1cHDWTOv7G51WRpwbcGJKTqPjIZB29LhtokOzaDRa4Usc6RN2ZMPtZuWHSvi7Ud6SoKKJ-u_AOGrvqUrZbF1qnwRcgzlx498XURegp-j9-VImdD1Ln_V8fya9kaNuzQ0Sfl36P4PfNg45bWJjamyW3MgmOlXQEpzW9Adkdtp3lFHVAjjhJ_OmevDh0sqpFAL5AtAMFjXfqCXsViW5e3TDBUYqs1J77V-cBm/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S7 ⌟",
-      "title": "beIN Movies Stars [Kool.ws · Sunucu 7]",
-      "url": "https://anthology-live.duckdns.org/live/beinmoviesstars.m3u8?username=anthology&password=falsisdevwashere&source=kool7",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true

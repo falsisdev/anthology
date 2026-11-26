@@ -1,24 +1,11 @@
 {
   "streams": [
     {
-      "name": "⌜ Anthology Live · Otomatik ⌟",
-      "title": "Max Orijinal [Kool.ws · Otomatik]",
-      "url": "https://anthology-live.duckdns.org/live/maxorjinal.m3u8?username=anthology&password=falsisdevwashere",
+      "name": "⌜ Kool S6 ⌟",
+      "title": "Max Orijinal [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/E9uvfuqSz5jccf9A1h2rLxwWqFYtRVxor8JSRiEcCqOSvQIyOGRzGXwOdyZxvbbOkaUGvE_w-nOcp--RE5zlgpiZMqxmacyuorEwbF1r0Y9EnH616BYmD6qrASfyPkuSEyAc2WPLrzCn6dF0KCQNZr1AKOuXFVeegDqDESol2ogRbIBopfx4nnxxS6QZKm2whvocEMFpX-sTKE7wSvJxC0tRxgSnIF5jhEcS57fB_4LeAghMXTxFo5-cKsha4yv8/hls/index.m3u8",
       "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
-      "name": "⌜ Anthology Live · Kool S6 ⌟",
-      "title": "Max Orijinal [Kool.ws · Sunucu 6]",
-      "url": "https://anthology-live.duckdns.org/live/maxorjinal.m3u8?username=anthology&password=falsisdevwashere&source=kool6",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "*/*"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
       "behaviorHints": {
         "isLive": true
