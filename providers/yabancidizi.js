@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: yabancidizi
  * Built from src/yabancidizi/index.js
- * Build: v1.8.43 (anthology build system)
+ * Build: v1.8.44 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -328,9 +328,10 @@ function getCatalog(args) {
       if (query) {
         var results = yield searchYabanciDizi(query);
         var metas = results.map(function(r) {
+          var cleanLink = String(r.s_link || "").replace(/^\/?(?:dizi|film)\//, "").replace(/\/+$/, "");
           var poster = r.s_image ? r.s_image.startsWith("http") ? r.s_image : BASE_URL + "/uploads/series/" + r.s_image : "";
           return {
-            id: "yabancidizi:show:" + r.s_link,
+            id: "yabancidizi:show:" + cleanLink,
             type: r.s_type === "1" ? "movie" : "tv",
             name: r.s_name,
             poster,
@@ -593,7 +594,8 @@ function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
           matchedShow = results[0];
         }
         if (!matchedShow || !matchedShow.s_link) continue;
-        var targetEpUrl = BASE_URL + "/dizi/" + matchedShow.s_link + "/sezon-" + season + "/bolum-" + episode;
+        var cleanLink = String(matchedShow.s_link).replace(/^\/?(?:dizi|film)\//, "").replace(/\/+$/, "");
+        var targetEpUrl = BASE_URL + "/dizi/" + cleanLink + "/sezon-" + season + "/bolum-" + episode;
         var streams = yield extractStreamsFromEpisodePage(targetEpUrl);
         if (streams.length > 0) return streams;
       }

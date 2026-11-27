@@ -15,7 +15,18 @@
     {
       "name": "⌜ Kool S1 ⌟",
       "title": "Number 1 Türk HD [Kool.ws · Sunucu 1 · 4K UHD]",
-      "url": "http://109.205.187.150:8008/sunshine/rTUS0ck8w6aN1rPc9le4ep8ihHtvaQgBsQFv8-RXbqotEmfSt_lWN_pKczW6DrCstwCPr7OqIswO6i8ZloQgpeuJ-IBKp56amZxNmRC4MUYrH7w1qj-ZdXDYZuv_lgpnO39qs_fsqKxVVCFk51S8RtE0N-4iAtFWQsesqTpekX3a_UCKRSqzCfVVzTvXlGRXC6sgxoyyIBUoZH-EALF_laa4TU0E9io7dViwCyDvHjaI1Nv9heLw4CiphODa94Ex/hls/index.m3u8",
+      "url": "http://109.205.187.150:8008/sunshine/Jn7DbzVx2C5Yi5EJtWdkis0lXtKvajEKjI1tRkmuDGYMJ4np02K9fsIIRl_boAf7yDQ1L6KdzqKOvcdMi48_tV851Qaaov8QaYbAXPvxJWo1xuxaYckW5armZTB141F1YJdQ9d72q7Vi_of_AGr0O-qrGrzjmNX262OkUuVOP_DJNUcBKb1-b79TFxxdbtfntiBwmoQDwC-qVqy80FcALit8tQLd80jXGxrtUvQh1Gob96XKsLM8aBvbrwhLLVzX/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Kool S6 ⌟",
+      "title": "Number 1 Türk HD [Kool.ws · Sunucu 6 · HD]",
+      "url": "https://ysahwcw3awufuoc.fu8oefd4v2dvlmaarur6crfp.com/sunshine/320SB62UA_Pbs-XEKnrxd4KY-Dg0dvEzb-sGmeq_KmDHnIDKW7a5rxSnkelJPS54OzG6_H1m8nMhZjLEiAxAWB0G_bkkMkC8OPu6YKEfUbt3jJPJhsJQMtahWqTXdzOqsl5ylvjQXbLLF7QL1Sd19KgvgZTcJhTJ2Kno9YcHIAaO1gZBHB2iq0yJBwxz0KDDjJ6GuGi6P3ZKkP5A4x1LHg5q3mATJg4kpI6MI_09FndE47LEFMRDgaPek9Kr8hOe/hls/index.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },

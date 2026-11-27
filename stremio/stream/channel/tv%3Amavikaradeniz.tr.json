@@ -1,0 +1,26 @@
+{
+  "streams": [
+    {
+      "name": "⌜ Kool S1 ⌟",
+      "title": "Mavi Karadeniz [Kool.ws · Sunucu 1 · HD]",
+      "url": "https://ysahwcw3awufuoc.fu8oefd4v2dvlmaarur6crfp.com/sunshine/yFX9suQj2IXnEP45zyrfr9z0gjKCt1-LIZ26X0ESt8bJZ7vLE61md9YofakO6Q3mdFwlLaxA168twbnqqUA70YROHmvJHLirBJ9R_acMoBVXgJTwMrt6bxDuIYdj8aBLFTBP-0pOXjLi_vbcv4teaIeIHPCPoSeQBE99nu9bEHVTR-Z6akwRK2hmJU45RCeaALV5Ct4Js9rOY7mprX7zetolLtFG3lvTa1Eh6At0bkBBfUVVvPcAKjQ6yPesEVxI/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Kool S7 ⌟",
+      "title": "Mavi Karadeniz [Kool.ws · Sunucu 7 · HD]",
+      "url": "https://ysahwcw3awufuoc.fu8oefd4v2dvlmaarur6crfp.com/sunshine/7iEcq2Cd2ogL3Q6ZhvuXFFj_Ip5PW_dduuQNGjVp2G6OqmfL29J5h_qSkeQmDfqGitvgK55PMhPCqwHw4hqXqlrRCT9V-1i_NGBnvZB7mi2YR3f18j7ddYhgDkme4ETsyjv1RZRABU7EYdDwz10Vh2oByxuwfq-ciVBz9mZlM7de85g5AZrQ2Pt3iw8tp-CfasW3Scdilxo0g5n0faK8v-UvLPRPEo-CiHdZHg-kb884Iu1xEVud2S17_8gFHjYl/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    }
+  ]
+}

@@ -23,17 +23,6 @@
       "behaviorHints": {
         "isLive": true
       }
-    },
-    {
-      "name": "⌜ Kool S1 ⌟",
-      "title": "S Sport Plus 4 [Kool.ws · Sunucu 1 · HD]",
-      "url": "http://193.47.62.157:8008/sunshine/-6mdVeL1kHfBmsZtLdUTG2DB6ki2Z0u3gTDKeJ4JjzSesL45F97jWXIwvNBlvnirZZ5fEFNSSWQOtMvWiY0sQWGp3ChGvqVxtZ2T90DoTXgdIsZomk4w48o68W-wPDtWMMmMWyF6d7ez9BUd9C89v0VUzVxAs3rznf9yd8hvTwc_inehf54UOFsWAvu7_bonI9oLoZlBQTdiPOwxsojzE8f0xolREFuOgC0f3pZ2JSfeIEglr6cLz0Rhyi32g9ru/hls/index.m3u8",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
     }
   ]
 }

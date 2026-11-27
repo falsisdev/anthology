@@ -1,0 +1,26 @@
+{
+  "streams": [
+    {
+      "name": "⌜ Kool S1 ⌟",
+      "title": "Ulusal Kanal [Kool.ws · Sunucu 1 · HD]",
+      "url": "https://ysahwcw3awufuoc.fu8oefd4v2dvlmaarur6crfp.com/sunshine/XZBOHIiTv39gR2BPY0aExKNLz3VSibKntwHGFB6avRCrsUw8J51Iz-Qlnebwqsi6MFg33GEUU2R0nDVbIVNS1AcdNHmS1IpxzeX5y2FIphtpd4hhyfdmwbBK_5tcuuh6UniVZ08pd1_X-5T1ckbaKtg56gvXurOj_xXShAB2azBlqPO5iva9xKorvcx1lHPfV7gUAXLgJkvgYOKkAPLlmQ37Y133GlD2EVDNRf1-Q5jaQrcdHxv-HiuHqxoTxgMg/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Kool S7 ⌟",
+      "title": "Ulusal Kanal [Kool.ws · Sunucu 7 · HD]",
+      "url": "https://dh1d0x4vhplnwwy.fu8oefd4v2dvlmaarur6crfp.com/sunshine/6_QOi11StvWRGsZ1UbvByGuHPZFr_uSRuzD9VxUeMMoDk1a8AhEEt6PIcMEB_zLVGBR8f0PQv1ycITaToIou5WOu7XmBjIpuuL2P2IJ11aIXFyn7GWYdzq2gGORyLGN2xdoVDvqVcJIvk9lK521LyI1n0CioApFcQcCLRlJSFYQH_br8Uts-55pe5LHUzvbusM5ssKNybgdeIiEM9JIBI61qerpxT3kdXJ7fjFUlm4TBmyro-n9IigjetUhwupEk/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    }
+  ]
+}

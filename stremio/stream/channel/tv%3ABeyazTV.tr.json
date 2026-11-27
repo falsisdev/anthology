@@ -27,7 +27,7 @@
     {
       "name": "⌜ Kool S1 ⌟",
       "title": "Beyaz TV HD [Kool.ws · Sunucu 1 · 4K UHD]",
-      "url": "http://109.205.187.150:8008/sunshine/UKGrYMyUXWeP3oLUnIxBga-tmqZGxkj0x9487AChzyyEajRf0avfSDcfEv3XefFWCcHxfNXMxcUGKpQgVmQB5QEQRjS4qQlTum4gI-kKonX0uSaWCV5awCq-tr5CDfSSH1io33XWVuXuLdzI-zCL4p5cvNjvLqlgTVlztXMboNyBu81Wmx2I05gHdGuv9ngMwr4qh860AatEtFTUwaVQbbFavf1pZMv8lyQMtFjnpkWVcUkE9qXIaSp_rmioMLVb/hls/index.m3u8",
+      "url": "http://109.205.187.150:8008/sunshine/unS-7jTD6GkcQmkLoS8gzDOyKV6duU3-eqHNhqvADLuQ5b3Td2E50C4cWNAix0OKU1d59PXoqDWBsJMV8hqt_Vayy0zePjpMxkh_DNQuhzrSCKp03kUEW_Z_rqEDBFhL9waq7I6jdOpyYH6cziG2GEhNcHz4hyIpHOpG8FFOH_kVhZz0LG_t-_yQXAo9xIAqFxkOzFv6zbmBNPKOnvVEbN2hj9OhPF3qGJPJ9rxs2vKwS8jlZzZ0doGEk5Zty31U/hls/index.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
@@ -38,7 +38,18 @@
     {
       "name": "⌜ Kool S6 ⌟",
       "title": "Beyaz TV HD [Kool.ws · Sunucu 6 · HD]",
-      "url": "http://138.226.249.38:8008/sunshine/1hPruhiNwlBYU2tsBi-UG_ftH7PkFq5nfoNw731L7EeekqCDpfQ4PYDLvk4qMz49IFAQaXapxZew0jGKk_7lBe6DrRFHohmUnRwNzQkNNTC6V95FHYAN-v9IOQBwaMQ-gYCIoWgx-bGzPFIhPR8p_mTh8ChqCGEiNCP3Xi5Cn-z267X2hAlkX0t50U8HlY1A8bqUReKnE3ivi6p8-CQzWZWUiBE1zS1BPIo5-xsH7V_XkZZmxpjI5OdL-hAY7m-a/hls/index.m3u8",
+      "url": "https://dh1d0x4vhplnwwy.fu8oefd4v2dvlmaarur6crfp.com/sunshine/M-3KuI9uXkrkA4V9LheRJ6LI89QOZgqTxrSkWtxvZ5wsDePp1vgEFNaNFpNWANHHPS6GfXraIRybHX7O_-gMAOGyWYm34puDRbtML0KAb34b4_IsULUPHTWr6n8bi8Zxhm5zclnnnpVZYu7IDIRDJDGymjdgSfLgjUQZmj3AnvlagDv49SLcIjh_6CMBrY7cqVuzuGX1g0lcsKxijR8TPSjfdG98n5o29NrpIWeEQ2f3HMKmajIVOlMMY8qV7puf/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Kool S7 ⌟",
+      "title": "Beyaz TV HD [Kool.ws · Sunucu 7 · HD]",
+      "url": "https://ysahwcw3awufuoc.fu8oefd4v2dvlmaarur6crfp.com/sunshine/OhEvUzyOAiYeoK88dlII0fadfUfkcQ9mveYKicdBO2K4dVmXuObINcWz6_Q1LZzok48nSOhRLVxNqWPuGyq-lBkmLaIGE-NbiFPCmsVQo7U4LQntsIEtL_u82buTL_Clo_n1NHC8OfrB5kvV1GGx7OQ7bDbAn-0U21I4aLbKaJvn7WofySqqlV763ffD2nXjwUoloSKNHIYBcbhS_8vxhobXbd8t4ezn-b9A5QmtwSSpZFzahrXTw7KpefNwd_95/hls/index.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },

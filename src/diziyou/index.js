@@ -6,7 +6,7 @@ function cfgReady() {
     if (!_cfgReady) {
         _cfgReady = loadConfig().then(function () {
             var v;
-            v = val('urls.series.diziyou.base'); if (v) BASE_URL = String(v).replace(/\/+$/, '');
+            v = val('urls.series.diziyou.base'); if (v && String(v).indexOf('diziyou.one') === -1) BASE_URL = String(v).replace(/\/+$/, '');
             v = val('urls.series.diziyou.storage'); if (v) STORAGE_URL = String(v).replace(/\/+$/, '');
             if (WORKING_HEADERS) WORKING_HEADERS.Referer = BASE_URL + '/';
         });
@@ -23,7 +23,7 @@ function cfgReady() {
 var cheerio = require('cheerio-without-node-native');
 
 const PROVIDER_NAME = 'DiziYou';
-var BASE_URL = 'https://www.diziyou.one'; 
+var BASE_URL = 'https://diziyou.net';
 var STORAGE_URL = 'https://storage.diziyou.one';
 const TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
 
@@ -96,12 +96,13 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
       const searchTitleLower = q.toLowerCase().trim();
       const orgTitleLower = (orgTitle || '').toLowerCase().trim();
 
-      const results = $('#list-series a, .list-series a, .cat-img a, .post-title a, #categorytitle a, .entry-title a');
+      const results = $('#list-series a, .list-series a, .cat-img a, .post-title a, #categorytitle a, .entry-title a, article a[href*="/dizi/"]');
 
       results.each(function() {
-        const textTitle = $(this).text().toLowerCase().replace('izle', '').trim();
+        const rawText = $(this).text().trim() || $(this).attr('title') || '';
+        const textTitle = rawText.toLowerCase().replace(/\s*izle\s*$/i, '').replace('izle', '').trim();
         const currentHref = $(this).attr('href');
-        if (!currentHref || currentHref.includes('/kategori/')) return;
+        if (!currentHref || currentHref.includes('/kategori/') || currentHref.includes('post_type=') || /[?&]p=\d+/i.test(currentHref)) return;
 
         const hrefTitle = currentHref.split('/').filter(Boolean).pop().replace(/\d+$/, '').replace(/-/g, ' ').trim().toLowerCase();
         const currentTitle = textTitle || hrefTitle;
@@ -152,7 +153,7 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
           const showHtml = await showRes.text();
           const epMatch = showHtml.match(new RegExp('href="([^"]*?' + seasonNum + '-sezon-' + episodeNum + '-bolum[^"]*)"', 'i'));
           if (epMatch) {
-            epUrl = epMatch[1];
+            epUrl = epMatch[1].startsWith('http') ? epMatch[1] : (BASE_URL + epMatch[1]);
             epRes = await fetch(epUrl, { headers: WORKING_HEADERS });
           }
         }
@@ -163,6 +164,56 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
     const epHtml = await epRes.text();
 
     const $ = cheerio.load(epHtml);
+    const ksdSrc = $('iframe[src*="ksdpictures.site"]').attr('src') || (epHtml.match(/https?:\/\/ksdpictures\.site\/dzembed\.php\?[^"'\s<>]+/i) || [])[0];
+    if (ksdSrc) {
+      try {
+        const ksdUrl = ksdSrc.startsWith('http') ? ksdSrc : (BASE_URL + ksdSrc);
+        const ksdRes = await fetch(ksdUrl, { headers: WORKING_HEADERS });
+        if (ksdRes.ok) {
+          const ksdHtml = await ksdRes.text();
+          const m3Match = ksdHtml.match(/https?:\/\/[^\s"'<>\\]+\.m3u8[^\s"'<>\\]*/i);
+          if (m3Match) {
+            const ksdHdrs = { 'User-Agent': WORKING_HEADERS['User-Agent'], 'Referer': 'https://ksdpictures.site/' };
+            const subs = [];
+            const seenSub = new Set();
+            const subRe = /https?:\/\/[^\s"'<>\\]+\.(?:vtt|srt)(?:\?[^\s"'<>\\]*)?/gi;
+            let sm;
+            while ((sm = subRe.exec(ksdHtml)) !== null) {
+              const su = sm[0];
+              if (!su || seenSub.has(su) || /thumb/i.test(su)) continue;
+              seenSub.add(su);
+              const isTr = /_tr[_.]|turk/i.test(su);
+              subs.push({
+                id: isTr ? 'tur' : 'eng',
+                lang: isTr ? 'tur' : 'eng',
+                language: isTr ? 'tr' : 'en',
+                label: isTr ? 'Türkçe' : 'English',
+                url: su,
+                format: su.includes('.srt') ? 'srt' : 'vtt',
+                headers: ksdHdrs
+              });
+            }
+            return [{
+              name: displayTitle,
+              title: '⌜ DiziYou ⌟ | 1080p HLS',
+              url: m3Match[0].replace(/\\\//g, '/'),
+              quality: '1080p',
+              type: 'hls',
+              format: 'hls',
+              isHls: true,
+              provider: 'diziyou',
+              headers: ksdHdrs,
+              behaviorHints: {
+                notWebReady: true,
+                proxyHeaders: { request: ksdHdrs }
+              },
+              subtitles: subs
+            }];
+          }
+        }
+      } catch (e) {}
+    }
+
     const playerSrc = $('#diziyouPlayer').attr('src');
     if (!playerSrc) return [];
 

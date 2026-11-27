@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: trdiziizle
  * Built from src/trdiziizle/index.js
- * Build: v1.8.43 (anthology build system)
+ * Build: v1.8.44 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -375,6 +375,8 @@ var require_turkish_series = __commonJS({
         if (dres) {
           name = dres.name || dres.title || name;
           original = dres.original_name || dres.original_title || original;
+          out.originalLanguage = dres.original_language || "";
+          out.originCountry = Array.isArray(dres.origin_country) ? dres.origin_country : [];
           if (foundType === "tv" && dres.seasons) out.seasons = dres.seasons;
         }
         out.title = name || norm.id;
@@ -574,15 +576,41 @@ function siteReachable() {
     }
   });
 }
-function resolveOfficialYouTubeFallback(title, season, episode) {
+function verifyYouTubeTitleMatch(videoTitle, showTitle, season, episode) {
+  var cleanVideo = cleanTitle(videoTitle);
+  var primaryTitle = String(showTitle || "").split(/[:\-|]/)[0].trim();
+  var cleanShow = cleanTitle(primaryTitle || showTitle);
+  if (!cleanVideo || !cleanShow) return false;
+  if (/(?:fragman|teaser|on izleme|tanitim|ozeti|kesit|klip)/i.test(cleanVideo)) return false;
+  var showWords = cleanShow.split(" ").filter(function(w) {
+    return w.length >= 2;
+  });
+  if (showWords.length === 0) return false;
+  var hits = 0;
+  for (var i = 0; i < showWords.length; i++) {
+    if (cleanVideo.indexOf(showWords[i]) !== -1) hits++;
+  }
+  if (hits < Math.ceil(showWords.length * 0.7)) return false;
+  var epStr = String(parseInt(episode, 10) || 1);
+  var epBoundary = new RegExp("(?:^|\\D)0*" + epStr + "(?:\\s*\\.\\s*bolum|\\s*bolum|\\s*b\\b)|\\be0*" + epStr + "(?:\\D|$)", "i");
+  if (!epBoundary.test(cleanVideo)) return false;
+  if (season > 1) {
+    var sMatch = cleanVideo.match(/(\d+)\s*\.?\s*sezon/i);
+    if (sMatch && parseInt(sMatch[1], 10) !== parseInt(season, 10)) return false;
+  }
+  return true;
+}
+function resolveOfficialYouTubeFallback(info, season, episode) {
   return __async(this, null, function* () {
     try {
+      if (!info || info.originalLanguage !== "tr") return [];
+      var title = info.title || info.origTitle || "";
+      if (!title) return [];
       var queries = [];
       if (season > 1) {
         queries.push(title + " " + season + ". Sezon " + episode + ". B\xF6l\xFCm");
       }
       queries.push(title + " " + episode + ". B\xF6l\xFCm");
-      queries.push(title + " 1. B\xF6l\xFCm");
       var key = "AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8";
       for (var qIdx = 0; qIdx < queries.length; qIdx++) {
         var query = queries[qIdx];
@@ -597,7 +625,7 @@ function resolveOfficialYouTubeFallback(title, season, episode) {
           var vm;
           while ((vm = reVid.exec(html)) !== null) {
             if (vidMatches.indexOf(vm[1]) === -1) vidMatches.push(vm[1]);
-            if (vidMatches.length >= 4) break;
+            if (vidMatches.length >= 6) break;
           }
           for (var vIdx = 0; vIdx < vidMatches.length; vIdx++) {
             var ytId = vidMatches[vIdx];
@@ -617,8 +645,11 @@ function resolveOfficialYouTubeFallback(title, season, episode) {
               var data = yield pRes.json();
               var duration = parseInt(data.videoDetails && data.videoDetails.lengthSeconds || "0", 10);
               var vTitle = data.videoDetails && data.videoDetails.title || "";
-              if (duration >= 900) {
+              if (duration >= 900 && verifyYouTubeTitleMatch(vTitle, title, season, episode)) {
                 var streams = [];
+                var ytHeaders = {
+                  "User-Agent": "com.google.android.youtube/20.10.38 (Linux; U; Android 11) gzip"
+                };
                 if (data.streamingData && data.streamingData.hlsManifestUrl) {
                   streams.push({
                     name: "TrDizi\u0130zle",
@@ -628,9 +659,8 @@ function resolveOfficialYouTubeFallback(title, season, episode) {
                     provider: "trdiziizle",
                     format: "hls",
                     isHls: true,
-                    headers: {
-                      "User-Agent": "com.google.android.youtube/20.10.38 (Linux; U; Android 11) gzip"
-                    }
+                    headers: ytHeaders,
+                    behaviorHints: { notWebReady: true, proxyHeaders: { request: ytHeaders } }
                   });
                 }
                 if (data.streamingData && data.streamingData.formats) {
@@ -646,9 +676,8 @@ function resolveOfficialYouTubeFallback(title, season, episode) {
                       provider: "trdiziizle",
                       format: "mp4",
                       isHls: false,
-                      headers: {
-                        "User-Agent": "com.google.android.youtube/20.10.38 (Linux; U; Android 11) gzip"
-                      }
+                      headers: ytHeaders,
+                      behaviorHints: { notWebReady: true, proxyHeaders: { request: ytHeaders } }
                     });
                   }
                 }
@@ -970,7 +999,7 @@ function getStreams(_0) {
           }
         }
       }
-      var ytStreams = yield resolveOfficialYouTubeFallback(info.title || info.origTitle, seasonNum || 1, episodeNum || 1);
+      var ytStreams = yield resolveOfficialYouTubeFallback(info, seasonNum || 1, episodeNum || 1);
       if (ytStreams && ytStreams.length > 0) return ytStreams;
       return [];
     } catch (e2) {

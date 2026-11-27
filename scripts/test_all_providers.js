@@ -130,7 +130,15 @@ async function checkPlayability(streams) {
       let testTarget = "";
       let playability = { playable: false, reason: "none" };
 
-      if (scraper.id === "m3u.anthology.addon" || scraper.id === "anthology_canli_tv" || scraper.id.startsWith("anthology_spor") || scraper.id.startsWith("anthology_haber") || scraper.id.startsWith("anthology_ulusal") || scraper.id.startsWith("anthology_belgesel_cocuk") || scraper.id.startsWith("anthology_muzik") || scraper.id.startsWith("anthology_sinema")) {
+      if (scraper.id === "anthology_tv") {
+        testTarget = "Live TV (beINSports1 + TRT1)";
+        const sportStreams = await mod.getStreams({ id: "tv:beINSports1.tr", type: "tv" });
+        const ulusalStreams = await mod.getStreams({ id: "tv:TRT1.tr", type: "tv" });
+        streams = [...(sportStreams || []), ...(ulusalStreams || [])];
+      } else if (scraper.id === "anthology_plus") {
+        testTarget = "Inception (27205)";
+        streams = await mod.getStreams("27205", "movie");
+      } else if (scraper.id === "m3u.anthology.addon" || scraper.id === "anthology_canli_tv" || scraper.id.startsWith("anthology_spor") || scraper.id.startsWith("anthology_haber") || scraper.id.startsWith("anthology_ulusal") || scraper.id.startsWith("anthology_belgesel_cocuk") || scraper.id.startsWith("anthology_muzik") || scraper.id.startsWith("anthology_sinema")) {
         testTarget = "Catalog / Live Channels";
         if (typeof mod.getCatalog === "function") {
           const cat = await mod.getCatalog({});

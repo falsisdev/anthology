@@ -1,0 +1,15 @@
+{
+  "streams": [
+    {
+      "name": "⌜ Kool S1 ⌟",
+      "title": "Şirinler TV [Kool.ws · Sunucu 1 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/PZDVoUHrMKij2IKWs4KUf2Y52fC33SUo7mUS-BBQ1DlTXvGKoliGp7T3EUeqpDl7OHgExS9LK6z0h-rk4Ie0UeubT79RJS4i9TsuIJth7Gqk6HL4fRrn5if-Mr6z6FRJV9UOwOh2SwZ4zaRVAr3t72Jbf2MfKO3DmCaKj4i_I3x3f5Vz3hCv6I9WX2PucBqDraFfgadqiiUVUETJMDAOHaJK63z6FDzn3zcER6HQor3eqYOWnwKL9GNPjsHh9F2O/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    }
+  ]
+}

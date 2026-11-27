@@ -1,0 +1,15 @@
+{
+  "streams": [
+    {
+      "name": "⌜ Kool S7 ⌟",
+      "title": "beIN Movies Family [Kool.ws · Sunucu 7 · HD]",
+      "url": "https://dh1d0x4vhplnwwy.fu8oefd4v2dvlmaarur6crfp.com/sunshine/R42XUt1vRo45oTRU43-k4BqMw5ugPTCZweSNlH9ieluqKSYGaDkIvBtBnl0rBa7s1APdU13hxJXE1eUAfJ9Hkj3C-83i7MOTPkyBzr01Bs3xlXP4WMoHtwDvidinECWLGSLnkamAD6GXSL0cv31NqzEl0wRq9QTpzeBSaSUXbWZSSVyb2zUxOtuium4BDhqq75wkSjYd7SOb-ZbdiT95ajDIoPX2lG3cQDa26ziHaB6jHn3INNQ4eoOF3ZE9-HdU/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: kultfilmler
  * Built from src/kultfilmler/index.js
- * Build: v1.8.43 (anthology build system)
+ * Build: v1.8.44 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -186,9 +186,1062 @@ var require_config = __commonJS({
   }
 });
 
+// src/shared/http.js
+var require_http = __commonJS({
+  "src/shared/http.js"(exports2, module2) {
+    var DEFAULT_UA2 = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36";
+    function timeoutSignal(ms) {
+      if (typeof AbortSignal !== "undefined" && typeof AbortSignal.timeout === "function") {
+        return AbortSignal.timeout(ms);
+      }
+      var controller = new AbortController();
+      setTimeout(function() {
+        controller.abort();
+      }, ms);
+      return controller.signal;
+    }
+    function fetchWithTimeout2(url, options, ms) {
+      ms = ms || 1e4;
+      options = options || {};
+      if (!options.signal) {
+        options.signal = timeoutSignal(ms);
+      }
+      if (!options.headers) {
+        options.headers = {};
+      }
+      if (!options.headers["User-Agent"] && !options.headers["user-agent"]) {
+        options.headers["User-Agent"] = DEFAULT_UA2;
+      }
+      return fetch(url, options);
+    }
+    module2.exports = {
+      DEFAULT_UA: DEFAULT_UA2,
+      timeoutSignal,
+      fetchWithTimeout: fetchWithTimeout2
+    };
+  }
+});
+
+// src/shared/extractors.js
+var require_extractors = __commonJS({
+  "src/shared/extractors.js"(exports2, module2) {
+    var { timeoutSignal } = require_http();
+    var DEFAULT_UA2 = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36";
+    var EXOPLAYER_UA = "ExoPlayerLib/2.19.1";
+    function decodeHtmlEntities(str) {
+      if (!str) return "";
+      return String(str).replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#0*39;|&apos;/g, "'").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&nbsp;/g, " ").replace(/&#(\d+);/g, function(_, num) {
+        var c = parseInt(num, 10);
+        return isNaN(c) ? "" : String.fromCharCode(c);
+      });
+    }
+    function normalizeUrl(rawUrl) {
+      var t = String(rawUrl || "").trim();
+      if (t.indexOf("//") === 0) return "https:" + t;
+      return t;
+    }
+    function base64DecodeBytes(b64) {
+      var std = String(b64 || "").trim().replace(/-/g, "+").replace(/_/g, "/");
+      while (std.length % 4 !== 0) std += "=";
+      var bin = "";
+      if (typeof atob === "function") {
+        try {
+          bin = atob(std);
+        } catch (e) {
+          bin = "";
+        }
+      } else if (typeof Buffer !== "undefined") {
+        try {
+          bin = Buffer.from(std, "base64").toString("binary");
+        } catch (e) {
+          bin = "";
+        }
+      }
+      var out = new Uint8Array(bin.length);
+      for (var i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i) & 255;
+      return out;
+    }
+    function base64DecodeString(b64) {
+      var norm = String(b64 || "").replace(/\\\//g, "/").trim();
+      if (typeof atob === "function") {
+        try {
+          return atob(norm);
+        } catch (e) {
+        }
+      }
+      if (typeof Buffer !== "undefined") {
+        try {
+          return Buffer.from(norm, "base64").toString("binary");
+        } catch (e) {
+        }
+      }
+      return "";
+    }
+    function buildNuvioStream2(opts) {
+      var url = opts.url;
+      var isHls = opts.isHls !== void 0 ? Boolean(opts.isHls) : opts.format === "hls" || url.indexOf(".m3u8") !== -1;
+      var format = opts.format || (isHls ? "hls" : "mp4");
+      var hdrs = Object.assign({ "User-Agent": DEFAULT_UA2 }, opts.headers || {});
+      var stream = {
+        name: opts.name || opts.sourceLabel || "Anthology",
+        title: opts.title,
+        url,
+        quality: opts.quality || "1080p",
+        type: format,
+        format,
+        isHls,
+        provider: opts.provider || void 0,
+        headers: hdrs,
+        behaviorHints: {
+          notWebReady: true,
+          proxyHeaders: {
+            request: hdrs
+          }
+        }
+      };
+      if (opts.subtitles && opts.subtitles.length > 0) {
+        stream.subtitles = opts.subtitles;
+      }
+      return stream;
+    }
+    function extractInlineVttSubtitles(htmlText, headers) {
+      var subs = [];
+      var seen = {};
+      var re = /https?:\/\/[^\s"'\\]+\.vtt(?:\?[^\s"'\\]*)?/gi;
+      var m;
+      while ((m = re.exec(htmlText || "")) !== null) {
+        var uri = m[0];
+        if (!uri || seen[uri] || /thumb|sprite/i.test(uri)) continue;
+        seen[uri] = true;
+        var isEn = /eng|_en[_.]|english/i.test(uri);
+        subs.push({
+          id: isEn ? "eng" : "tur",
+          lang: isEn ? "eng" : "tur",
+          language: isEn ? "en" : "tr",
+          label: isEn ? "English" : "T\xFCrk\xE7e",
+          url: uri,
+          format: "vtt",
+          headers: headers || void 0
+        });
+      }
+      return subs;
+    }
+    var AES_SBOX = new Uint8Array([
+      99,
+      124,
+      119,
+      123,
+      242,
+      107,
+      111,
+      197,
+      48,
+      1,
+      103,
+      43,
+      254,
+      215,
+      171,
+      118,
+      202,
+      130,
+      201,
+      125,
+      250,
+      89,
+      71,
+      240,
+      173,
+      212,
+      162,
+      175,
+      156,
+      164,
+      114,
+      192,
+      183,
+      253,
+      147,
+      38,
+      54,
+      63,
+      247,
+      204,
+      52,
+      165,
+      229,
+      241,
+      113,
+      216,
+      49,
+      21,
+      4,
+      199,
+      35,
+      195,
+      24,
+      150,
+      5,
+      154,
+      7,
+      18,
+      128,
+      226,
+      235,
+      39,
+      178,
+      117,
+      9,
+      131,
+      44,
+      26,
+      27,
+      110,
+      90,
+      160,
+      82,
+      59,
+      214,
+      179,
+      41,
+      227,
+      47,
+      132,
+      83,
+      209,
+      0,
+      237,
+      32,
+      252,
+      177,
+      91,
+      106,
+      203,
+      190,
+      57,
+      74,
+      76,
+      88,
+      207,
+      208,
+      239,
+      170,
+      251,
+      67,
+      77,
+      51,
+      133,
+      69,
+      249,
+      2,
+      127,
+      80,
+      60,
+      159,
+      168,
+      81,
+      163,
+      64,
+      143,
+      146,
+      157,
+      56,
+      245,
+      188,
+      182,
+      218,
+      33,
+      16,
+      255,
+      243,
+      210,
+      205,
+      12,
+      19,
+      236,
+      95,
+      151,
+      68,
+      23,
+      196,
+      167,
+      126,
+      61,
+      100,
+      93,
+      25,
+      115,
+      96,
+      129,
+      79,
+      220,
+      34,
+      42,
+      144,
+      136,
+      70,
+      238,
+      184,
+      20,
+      222,
+      94,
+      11,
+      219,
+      224,
+      50,
+      58,
+      10,
+      73,
+      6,
+      36,
+      92,
+      194,
+      211,
+      172,
+      98,
+      145,
+      149,
+      228,
+      121,
+      231,
+      200,
+      55,
+      109,
+      141,
+      213,
+      78,
+      169,
+      108,
+      86,
+      244,
+      234,
+      101,
+      122,
+      174,
+      8,
+      186,
+      120,
+      37,
+      46,
+      28,
+      166,
+      180,
+      198,
+      232,
+      221,
+      116,
+      31,
+      75,
+      189,
+      139,
+      138,
+      112,
+      62,
+      181,
+      102,
+      72,
+      3,
+      246,
+      14,
+      97,
+      53,
+      87,
+      185,
+      134,
+      193,
+      29,
+      158,
+      225,
+      248,
+      152,
+      17,
+      105,
+      217,
+      142,
+      148,
+      155,
+      30,
+      135,
+      233,
+      206,
+      85,
+      40,
+      223,
+      140,
+      161,
+      137,
+      13,
+      191,
+      230,
+      66,
+      104,
+      65,
+      153,
+      45,
+      15,
+      176,
+      84,
+      187,
+      22
+    ]);
+    var AES_RCON = [1, 2, 4, 8, 16, 32, 64, 128];
+    function xtime(x) {
+      return (x << 1 ^ (x & 128 ? 27 : 0)) & 255;
+    }
+    function expandAes256Key(key) {
+      var rk = new Uint8Array(240);
+      rk.set(key.subarray(0, 32));
+      var bg = 32, rci = 0;
+      while (bg < 240) {
+        var t0 = rk[bg - 4], t1 = rk[bg - 3], t2 = rk[bg - 2], t3 = rk[bg - 1];
+        if (bg % 32 === 0) {
+          var nt0 = AES_SBOX[t1] ^ AES_RCON[rci++];
+          t1 = AES_SBOX[t2];
+          t2 = AES_SBOX[t3];
+          t3 = AES_SBOX[t0];
+          t0 = nt0;
+        } else if (bg % 32 === 16) {
+          t0 = AES_SBOX[t0];
+          t1 = AES_SBOX[t1];
+          t2 = AES_SBOX[t2];
+          t3 = AES_SBOX[t3];
+        }
+        rk[bg] = rk[bg - 32] ^ t0;
+        rk[bg + 1] = rk[bg - 31] ^ t1;
+        rk[bg + 2] = rk[bg - 30] ^ t2;
+        rk[bg + 3] = rk[bg - 29] ^ t3;
+        bg += 4;
+      }
+      return rk;
+    }
+    function aes256EncryptBlock(block, rk) {
+      var s = new Uint8Array(16);
+      var i, round, col, tmp;
+      for (i = 0; i < 16; i++) s[i] = block[i] ^ rk[i];
+      for (round = 1; round <= 14; round++) {
+        for (i = 0; i < 16; i++) s[i] = AES_SBOX[s[i]];
+        tmp = s[1];
+        s[1] = s[5];
+        s[5] = s[9];
+        s[9] = s[13];
+        s[13] = tmp;
+        tmp = s[2];
+        s[2] = s[10];
+        s[10] = tmp;
+        tmp = s[6];
+        s[6] = s[14];
+        s[14] = tmp;
+        tmp = s[15];
+        s[15] = s[11];
+        s[11] = s[7];
+        s[7] = s[3];
+        s[3] = tmp;
+        if (round < 14) {
+          for (col = 0; col < 16; col += 4) {
+            var a0 = s[col], a1 = s[col + 1], a2 = s[col + 2], a3 = s[col + 3];
+            var t = a0 ^ a1 ^ a2 ^ a3;
+            s[col] = a0 ^ t ^ xtime(a0 ^ a1);
+            s[col + 1] = a1 ^ t ^ xtime(a1 ^ a2);
+            s[col + 2] = a2 ^ t ^ xtime(a2 ^ a3);
+            s[col + 3] = a3 ^ t ^ xtime(a3 ^ a0);
+          }
+        }
+        var rOff = round * 16;
+        for (i = 0; i < 16; i++) s[i] = s[i] ^ rk[rOff + i];
+      }
+      return s;
+    }
+    function gfMul128(x, y) {
+      var z = new Uint8Array(16), v = new Uint8Array(y);
+      for (var i = 0; i < 128; i++) {
+        if (x[i >>> 3] >>> 7 - (i & 7) & 1) {
+          for (var j = 0; j < 16; j++) z[j] ^= v[j];
+        }
+        var lsb = v[15] & 1;
+        for (var j2 = 15; j2 > 0; j2--) v[j2] = v[j2] >>> 1 | (v[j2 - 1] & 1) << 7;
+        v[0] = v[0] >>> 1;
+        if (lsb) v[0] ^= 225;
+      }
+      return z;
+    }
+    function ghash(h, ct) {
+      var y = new Uint8Array(16);
+      for (var off = 0; off < ct.length; off += 16) {
+        var end = Math.min(off + 16, ct.length);
+        for (var i = off; i < end; i++) y[i - off] ^= ct[i];
+        y = gfMul128(y, h);
+      }
+      var bitLen = ct.length * 8;
+      var lenBlock = new Uint8Array(16);
+      lenBlock[12] = bitLen >>> 24 & 255;
+      lenBlock[13] = bitLen >>> 16 & 255;
+      lenBlock[14] = bitLen >>> 8 & 255;
+      lenBlock[15] = bitLen & 255;
+      for (var k = 0; k < 16; k++) y[k] ^= lenBlock[k];
+      return gfMul128(y, h);
+    }
+    function decodeUtf8(bytes) {
+      if (typeof TextDecoder === "function") return new TextDecoder("utf-8").decode(bytes);
+      var out = "";
+      for (var i = 0; i < bytes.length; ) {
+        var b0 = bytes[i++];
+        if (b0 < 128) out += String.fromCharCode(b0);
+        else if ((b0 & 224) === 192 && i < bytes.length) out += String.fromCharCode((b0 & 31) << 6 | bytes[i++] & 63);
+        else if ((b0 & 240) === 224 && i + 1 < bytes.length) out += String.fromCharCode((b0 & 15) << 12 | (bytes[i++] & 63) << 6 | bytes[i++] & 63);
+        else if ((b0 & 248) === 240 && i + 2 < bytes.length) {
+          var cp = (b0 & 7) << 18 | (bytes[i++] & 63) << 12 | (bytes[i++] & 63) << 6 | bytes[i++] & 63;
+          out += String.fromCodePoint(cp);
+        }
+      }
+      return out;
+    }
+    function decryptAes256Gcm(key, iv, payloadWithTag) {
+      if (key.length !== 32 || iv.length !== 12 || payloadWithTag.length < 16) return null;
+      var rk = expandAes256Key(key);
+      var cipherLen = payloadWithTag.length - 16;
+      var ct = payloadWithTag.subarray(0, cipherLen);
+      var tag = payloadWithTag.subarray(cipherLen);
+      var j0 = new Uint8Array(16);
+      j0.set(iv, 0);
+      j0[15] = 1;
+      var h = aes256EncryptBlock(new Uint8Array(16), rk);
+      var tagMask = aes256EncryptBlock(j0, rk);
+      var s = ghash(h, ct);
+      var diff = 0;
+      for (var i = 0; i < 16; i++) diff |= tagMask[i] ^ s[i] ^ tag[i];
+      if (diff !== 0) return null;
+      var ctr = new Uint8Array(j0);
+      var plain = new Uint8Array(cipherLen);
+      for (var off = 0; off < cipherLen; off += 16) {
+        for (var c = 15; c >= 12; c--) {
+          ctr[c] = ctr[c] + 1 & 255;
+          if (ctr[c] !== 0) break;
+        }
+        var ks = aes256EncryptBlock(ctr, rk);
+        var end = Math.min(off + 16, cipherLen);
+        for (var j = off; j < end; j++) plain[j] = ct[j] ^ ks[j - off];
+      }
+      return decodeUtf8(plain);
+    }
+    function extractBysezo(rawUrl, opts) {
+      return __async(this, null, function* () {
+        opts = opts || {};
+        var normalized = normalizeUrl(rawUrl);
+        var origin = "https://bysezoxexe.com";
+        var code = "";
+        try {
+          var parsed = new URL(normalized);
+          origin = parsed.origin;
+          var segs = parsed.pathname.split("/").filter(Boolean);
+          code = segs[segs.length - 1] || "";
+        } catch (e) {
+          var m = /\/([a-zA-Z0-9_-]{8,24})(?:[?#]|$)/.exec(normalized);
+          code = m ? m[1] : "";
+        }
+        if (!code) return [];
+        if (origin.indexOf("filemoon.") !== -1) origin = "https://bysezoxexe.com";
+        var videoData = null;
+        try {
+          var r1 = yield fetch(origin + "/api/videos/" + encodeURIComponent(code), {
+            headers: { "User-Agent": DEFAULT_UA2, "Referer": normalized, "Accept": "application/json, text/plain, */*" },
+            signal: timeoutSignal(9e3)
+          });
+          if (r1.ok) videoData = yield r1.json();
+        } catch (e) {
+        }
+        if ((!videoData || (!videoData.sources || !videoData.sources.length) && !videoData.playback) && origin !== "https://bysezoxexe.com") {
+          try {
+            var dRes = yield fetch(origin + "/api/videos/" + encodeURIComponent(code) + "/details", {
+              headers: { "User-Agent": DEFAULT_UA2, "Referer": normalized },
+              signal: timeoutSignal(8e3)
+            });
+            if (dRes.ok) {
+              var det = yield dRes.json();
+              if (det && det.embed_frame_url) {
+                var tOrig = new URL(det.embed_frame_url).origin;
+                var r2 = yield fetch(tOrig + "/api/videos/" + encodeURIComponent(code), {
+                  headers: { "User-Agent": DEFAULT_UA2, "Referer": det.embed_frame_url },
+                  signal: timeoutSignal(9e3)
+                });
+                if (r2.ok) {
+                  videoData = yield r2.json();
+                  origin = tOrig;
+                }
+              }
+            }
+          } catch (e) {
+          }
+        }
+        if (!videoData) return [];
+        var sources = videoData.sources || [];
+        var tracks = videoData.tracks || [];
+        if (sources.length === 0 && videoData.playback) {
+          try {
+            var pb = videoData.playback;
+            var parts = pb.key_parts || [];
+            var vNum = Number(pb.version);
+            var chosen = parts;
+            if (!isNaN(vNum) && vNum >= 1 && vNum <= 20 && parts[vNum - 1] && parts[30 - vNum]) {
+              chosen = [parts[vNum - 1], parts[30 - vNum]];
+            }
+            var decodedParts = chosen.map(base64DecodeBytes);
+            var totalLen = decodedParts.reduce(function(a, b) {
+              return a + b.length;
+            }, 0);
+            var key = new Uint8Array(totalLen);
+            var off = 0;
+            for (var pi = 0; pi < decodedParts.length; pi++) {
+              key.set(decodedParts[pi], off);
+              off += decodedParts[pi].length;
+            }
+            var plain = decryptAes256Gcm(key, base64DecodeBytes(pb.iv), base64DecodeBytes(pb.payload));
+            if (plain) {
+              var dec = JSON.parse(plain);
+              if (dec && dec.sources) sources = dec.sources;
+              if (dec && dec.tracks && tracks.length === 0) tracks = dec.tracks;
+            }
+          } catch (e) {
+          }
+        }
+        if (!sources || sources.length === 0) return [];
+        var sHdr = { "User-Agent": DEFAULT_UA2, "Referer": origin + "/" };
+        var subs = [];
+        for (var ti = 0; ti < tracks.length; ti++) {
+          var t = tracks[ti];
+          var subU = t.file || t.url;
+          if (!subU) continue;
+          var lc = String(t.lang || "tr").toLowerCase().slice(0, 2) || "tr";
+          subs.push({ id: lc + "_" + subs.length, lang: lc === "en" ? "eng" : "tur", language: lc, label: t.label || (lc === "en" ? "English" : "T\xFCrk\xE7e"), url: subU, format: subU.indexOf(".srt") !== -1 ? "srt" : "vtt", headers: sHdr });
+        }
+        var prefix = opts.sourceLabel ? opts.sourceLabel + " \u2022 " : "";
+        var audioTag = opts.audioType === "dub" ? "TR Dublaj" : opts.audioType === "sub" ? "TR Altyaz\u0131" : "FileMoon";
+        var out = [];
+        for (var si = 0; si < sources.length; si++) {
+          var src = sources[si];
+          if (!src.url || src.url.indexOf("http") !== 0) continue;
+          var q = src.label || (src.height ? src.height + "p" : "1080p");
+          var isHls = src.mime_type && src.mime_type.indexOf("mpegurl") !== -1 || src.url.indexOf(".m3u8") !== -1;
+          out.push(buildNuvioStream2({
+            name: opts.streamName || opts.sourceLabel || "Anthology",
+            title: "\u231C " + (opts.sourceLabel || "Anthology") + " \u231F | " + audioTag + " \u2022 " + q + (isHls ? " HLS" : " MP4"),
+            url: src.url,
+            quality: q,
+            format: isHls ? "hls" : "mp4",
+            isHls,
+            provider: opts.provider,
+            headers: sHdr,
+            subtitles: subs
+          }));
+        }
+        return out;
+      });
+    }
+    function extractVidmoly(rawUrl, opts) {
+      return __async(this, null, function* () {
+        opts = opts || {};
+        var url = normalizeUrl(rawUrl);
+        var idM = /(?:embed-|\/dl\/|\/)([a-zA-Z0-9]{8,20})(?:\.html)?/i.exec(url);
+        var vidId = idM ? idM[1] : null;
+        var candidates = [];
+        if (url.indexOf("vidmoly") !== -1 && vidId && url.indexOf("embed-") === -1) {
+          candidates.push("https://vidmoly.biz/embed-" + vidId + ".html");
+        } else {
+          candidates.push(url);
+        }
+        if (vidId) {
+          ["vidmoly.biz", "vidmoly.net", "vidmoly.to"].forEach(function(h) {
+            var u = "https://" + h + "/embed-" + vidId + ".html";
+            if (candidates.indexOf(u) === -1) candidates.push(u);
+          });
+        }
+        for (var i = 0; i < candidates.length; i++) {
+          var cand = candidates[i];
+          var origin = "https://vidmoly.biz";
+          try {
+            origin = new URL(cand).origin;
+          } catch (e) {
+          }
+          try {
+            var r = yield fetch(cand, {
+              headers: { "User-Agent": DEFAULT_UA2, "Referer": opts.referer || origin + "/" },
+              signal: timeoutSignal(1e4)
+            });
+            if (!r.ok) continue;
+            var html = yield r.text();
+            var fm = /file\s*:\s*["'](https?:\/\/[^"']+\.m3u8[^"']*)["']/i.exec(html) || /sources\s*:\s*\[\s*\{\s*file\s*:\s*["'](https?:\/\/[^"']+)["']/i.exec(html);
+            if (!fm || !fm[1]) continue;
+            var tag = opts.audioType === "dub" ? "\u{1F1F9}\u{1F1F7} TR Dublaj" : opts.audioType === "sub" ? "\u{1F310} TR Altyaz\u0131" : "VidMoly";
+            return [buildNuvioStream2({
+              name: opts.streamName || opts.sourceLabel || "Anthology",
+              title: "\u231C " + (opts.sourceLabel || "Anthology") + " \u231F | VidMoly | " + tag,
+              url: fm[1],
+              quality: "1080p",
+              format: "hls",
+              isHls: true,
+              provider: opts.provider,
+              headers: { "User-Agent": DEFAULT_UA2, "Referer": origin + "/" },
+              subtitles: extractInlineVttSubtitles(html, { "User-Agent": DEFAULT_UA2, "Referer": origin + "/" })
+            })];
+          } catch (e) {
+          }
+        }
+        return [];
+      });
+    }
+    function extractOkRu(rawUrl, opts) {
+      return __async(this, null, function* () {
+        opts = opts || {};
+        var url = normalizeUrl(rawUrl).replace("odnoklassniki.ru/", "ok.ru/");
+        try {
+          var r = yield fetch(url, {
+            headers: { "User-Agent": DEFAULT_UA2, "Referer": opts.referer || "https://ok.ru/" },
+            signal: timeoutSignal(1e4)
+          });
+          if (!r.ok) return [];
+          var html = yield r.text();
+          var m = /data-options=["']([^"']+)["']/i.exec(html);
+          if (!m) return [];
+          var outer = JSON.parse(decodeHtmlEntities(m[1]));
+          var rawMeta = outer && outer.flashvars && outer.flashvars.metadata;
+          var meta = typeof rawMeta === "string" ? JSON.parse(rawMeta) : rawMeta;
+          if (!meta) return [];
+          var qMap = { ultra: "2160p", quad: "1440p", full: "1080p", hd: "720p", sd: "480p", low: "360p", lowest: "240p" };
+          var hdrs = { "User-Agent": DEFAULT_UA2, "Referer": "https://ok.ru/" };
+          var out = [];
+          var tag = opts.audioType === "dub" ? "\u{1F1F9}\u{1F1F7} TR Dublaj" : opts.audioType === "sub" ? "\u{1F310} TR Altyaz\u0131" : "OK.ru";
+          (meta.videos || []).forEach(function(v) {
+            if (!v.url) return;
+            var q = qMap[String(v.name || "").toLowerCase()] || "720p";
+            out.push(buildNuvioStream2({
+              name: opts.streamName || opts.sourceLabel || "Anthology",
+              title: "\u231C " + (opts.sourceLabel || "Anthology") + " \u231F | OK.ru " + q + " | " + tag,
+              url: v.url,
+              quality: q,
+              format: "mp4",
+              isHls: false,
+              provider: opts.provider,
+              headers: hdrs
+            }));
+          });
+          var hlsUrl = meta.hlsMasterPlaylistUrl || meta.hlsManifestUrl;
+          if (hlsUrl) {
+            out.push(buildNuvioStream2({
+              name: opts.streamName || opts.sourceLabel || "Anthology",
+              title: "\u231C " + (opts.sourceLabel || "Anthology") + " \u231F | OK.ru HLS | " + tag,
+              url: hlsUrl,
+              quality: "1080p",
+              format: "hls",
+              isHls: true,
+              provider: opts.provider,
+              headers: hdrs
+            }));
+          }
+          return out;
+        } catch (e) {
+          return [];
+        }
+      });
+    }
+    function extractSibnet(rawUrl, opts) {
+      return __async(this, null, function* () {
+        opts = opts || {};
+        var url = normalizeUrl(rawUrl);
+        var vm = /videoid=(\d+)/i.exec(url);
+        if (vm) url = "https://video.sibnet.ru/shell.php?videoid=" + vm[1];
+        try {
+          var r = yield fetch(url, {
+            headers: { "User-Agent": DEFAULT_UA2, "Referer": opts.referer || "https://video.sibnet.ru/" },
+            signal: timeoutSignal(1e4)
+          });
+          if (!r.ok) return [];
+          var html = yield r.text();
+          var m = /player\.src\(\[\s*\{\s*src\s*:\s*["']([^"']+)["']/i.exec(html);
+          if (!m || !m[1]) return [];
+          var src = m[1].indexOf("http") === 0 ? m[1] : "https://video.sibnet.ru" + (m[1].charAt(0) === "/" ? "" : "/") + m[1];
+          var tag = opts.audioType === "dub" ? "\u{1F1F9}\u{1F1F7} TR Dublaj" : opts.audioType === "sub" ? "\u{1F310} TR Altyaz\u0131" : "Sibnet";
+          return [buildNuvioStream2({
+            name: opts.streamName || opts.sourceLabel || "Anthology",
+            title: "\u231C " + (opts.sourceLabel || "Anthology") + " \u231F | Sibnet MP4 | " + tag,
+            url: src,
+            quality: "720p",
+            format: "mp4",
+            isHls: false,
+            provider: opts.provider,
+            headers: { "User-Agent": DEFAULT_UA2, "Referer": "https://video.sibnet.ru/" }
+          })];
+        } catch (e) {
+          return [];
+        }
+      });
+    }
+    function extractVixolity2(opts) {
+      return __async(this, null, function* () {
+        opts = opts || {};
+        var imdbId = opts.imdbId;
+        if (!imdbId || imdbId.indexOf("tt") !== 0) return [];
+        var base = (opts.baseUrl || "https://ha.vixolity.com").replace(/\/+$/, "");
+        var targetUrl = opts.season !== void 0 && opts.episode !== void 0 ? base + "/vs/" + imdbId + "/s" + opts.season + "/e" + (opts.episode < 10 ? "0" + opts.episode : opts.episode) : base + "/vs/" + imdbId;
+        var vixHeaders = {
+          "User-Agent": DEFAULT_UA2,
+          "Referer": "https://pl.vixolity.com/",
+          "Origin": "https://pl.vixolity.com",
+          "Accept": "*/*"
+        };
+        try {
+          var r = yield fetch(targetUrl, { headers: vixHeaders, signal: timeoutSignal(7e3) });
+          if (!r.ok) return [];
+          var text = yield r.text();
+          if (!text || text.indexOf("#EXTM3U") === -1) return [];
+          var subs = [];
+          var subRe = /#EXT-X-MEDIA:TYPE=SUBTITLES.*?NAME="([^"]+)".*?LANGUAGE="([^"]+)".*?URI="([^"]+)"/gi;
+          var sm, seenSub = {};
+          while ((sm = subRe.exec(text)) !== null) {
+            if (seenSub[sm[3]]) continue;
+            seenSub[sm[3]] = true;
+            var lc = String(sm[2] || "tr").toLowerCase();
+            subs.push({ id: lc, lang: lc === "tr" ? "tur" : lc === "en" ? "eng" : lc, language: lc, label: sm[1], url: sm[3], format: "vtt", headers: vixHeaders });
+          }
+          var hasTr = /LANGUAGE="tr"|NAME="[^"]*Türk/i.test(text);
+          var tag = hasTr ? "\xC7ift Ses (TR & Orijinal)" : "1080p HLS";
+          return [buildNuvioStream2({
+            name: opts.streamName || opts.sourceLabel || "Anthology",
+            title: "\u231C " + (opts.sourceLabel || "Anthology") + " \u231F | Vixolity \u2022 " + tag + " (1080p HLS)",
+            url: targetUrl,
+            quality: "1080p",
+            format: "hls",
+            isHls: true,
+            provider: opts.provider,
+            headers: vixHeaders,
+            subtitles: subs
+          })];
+        } catch (e) {
+          return [];
+        }
+      });
+    }
+    function extractPilavyer(opts) {
+      return __async(this, null, function* () {
+        opts = opts || {};
+        var host = (opts.playerHost || "https://play2.pilavyerplay.top").replace(/\/+$/, "");
+        var scriptUrl = "";
+        if (opts.pvId) {
+          scriptUrl = host + "/assets/js/s.php?s=" + encodeURIComponent(opts.pvId);
+        } else if (opts.playerUrl) {
+          var pu = normalizeUrl(opts.playerUrl);
+          try {
+            var er = yield fetch(pu, { headers: { "User-Agent": DEFAULT_UA2, "Referer": opts.referer || pu }, signal: timeoutSignal(1e4) });
+            if (er.ok) {
+              var eh = yield er.text();
+              var sm = /src=["']([^"']*assets\/js\/s\.php\?[^"']+)["']/i.exec(eh) || /\?s=([a-zA-Z0-9_-]+)/.exec(pu);
+              if (sm && sm[1]) {
+                var orig = new URL(pu).origin;
+                scriptUrl = sm[1].indexOf("http") === 0 ? sm[1] : sm[1].indexOf("s.php") !== -1 ? orig + (sm[1].charAt(0) === "/" ? "" : "/") + sm[1] : orig + "/assets/js/s.php?s=" + encodeURIComponent(sm[1]);
+              }
+            }
+          } catch (e) {
+          }
+        }
+        if (!scriptUrl) return [];
+        try {
+          var scriptOrig = new URL(scriptUrl).origin;
+          var jsRes = yield fetch(scriptUrl, { headers: { "User-Agent": DEFAULT_UA2, "Referer": opts.referer || scriptOrig + "/" }, signal: timeoutSignal(1e4) });
+          if (!jsRes.ok) return [];
+          var jsText = yield jsRes.text();
+          var jm = /window\.__PLAYER__\s*=\s*(\{[\s\S]*?\});/.exec(jsText);
+          if (!jm) return [];
+          var payload = JSON.parse(jm[1]);
+          if (!payload || !payload.stream) return [];
+          var sHdr = { "User-Agent": DEFAULT_UA2, "Referer": scriptOrig + "/", "Origin": scriptOrig };
+          var cleanUrl = String(payload.stream).replace(/[?&]cdn=\d+/i, "").replace(/#.*$/, "");
+          var finalUrl = cleanUrl + (cleanUrl.indexOf("?") !== -1 ? "&" : "?") + "ext=.m3u8";
+          var subs = [];
+          (payload.subs || []).forEach(function(sub) {
+            if (!sub || !sub.src) return;
+            var su = sub.src.indexOf("http") === 0 ? sub.src : scriptOrig + (sub.src.charAt(0) === "/" ? "" : "/") + sub.src;
+            var isTr = String(sub.lang || "").toLowerCase() === "tr" || /türkçe|tur/i.test(sub.label || "");
+            subs.push({ id: sub.sid || (isTr ? "tur" : "eng"), lang: isTr ? "tur" : "eng", language: isTr ? "tr" : "en", label: sub.label || (isTr ? "T\xFCrk\xE7e" : "English"), url: su, format: "vtt", headers: sHdr });
+          });
+          var audios = Array.isArray(payload.audios) && payload.audios.length > 0 ? payload.audios : [{ label: "Orijinal" }];
+          var audioTag = "Orijinal (TR Altyaz\u0131l\u0131)";
+          if (audios.length > 1) {
+            var hasTr = audios.some(function(a) {
+              return /t[üu]rk[çc]e|\btr\b/i.test(a.label || a.name || "");
+            });
+            audioTag = hasTr ? "\xC7ift Ses (TR Dublaj & Orijinal)" : "\xC7oklu Ses";
+          } else if (/t[üu]rk[çc]e|\btr\b/i.test(audios[0].label || audios[0].name || "")) {
+            audioTag = "T\xFCrk\xE7e Dublaj";
+          }
+          return [buildNuvioStream2({
+            name: opts.streamName || opts.sourceLabel || "Anthology",
+            title: "\u231C " + (opts.sourceLabel || "Anthology") + " \u231F | " + audioTag + " \u2022 1080p FHD",
+            url: finalUrl,
+            quality: "1080p",
+            format: "hls",
+            isHls: true,
+            provider: opts.provider,
+            headers: sHdr,
+            subtitles: subs
+          })];
+        } catch (e) {
+          return [];
+        }
+      });
+    }
+    function extractMailRu(rawUrl, opts) {
+      return __async(this, null, function* () {
+        opts = opts || {};
+        var url = normalizeUrl(rawUrl);
+        var vm = /\/embed\/(\d+)/.exec(url) || /meta\/(\d+)/.exec(url);
+        var metaUrl = vm ? "https://my.mail.ru/+/video/meta/" + vm[1] : "";
+        var ref = url.indexOf("http") === 0 ? url : "https://my.mail.ru/";
+        try {
+          if (!metaUrl) {
+            var r = yield fetch(url, { headers: { "User-Agent": DEFAULT_UA2, "Referer": opts.referer || "https://my.mail.ru/" }, signal: timeoutSignal(8e3) });
+            if (r.ok) {
+              var h = yield r.text();
+              var mm = /metadataUrl["']?\s*:\s*["']([^"']+)["']/.exec(h) || /(\/+\/my\.mail\.ru\/\+\/video\/meta\/[^"'\s]+)/.exec(h);
+              if (mm) metaUrl = normalizeUrl(mm[1]);
+            }
+          }
+          if (!metaUrl) return [];
+          var mr = yield fetch(metaUrl, { headers: { "User-Agent": DEFAULT_UA2, "Referer": ref }, signal: timeoutSignal(8e3) });
+          if (!mr.ok) return [];
+          var data = yield mr.json();
+          var out = [];
+          (data.videos || []).forEach(function(v) {
+            if (!v.url) return;
+            var q = v.key || "720p";
+            out.push(buildNuvioStream2({
+              name: opts.streamName || opts.sourceLabel || "Anthology",
+              title: "\u231C " + (opts.sourceLabel || "Anthology") + " \u231F | Mail.ru " + q.toUpperCase(),
+              url: normalizeUrl(v.url),
+              quality: q,
+              format: "mp4",
+              isHls: false,
+              provider: opts.provider,
+              headers: { "User-Agent": DEFAULT_UA2, "Referer": ref }
+            }));
+          });
+          return out;
+        } catch (e) {
+          return [];
+        }
+      });
+    }
+    function spgDecode(encodedB64, keyB64) {
+      try {
+        var a = base64DecodeString(encodedB64);
+        var b = base64DecodeString(keyB64);
+        if (!a || !b) return null;
+        var s = "";
+        for (var i = 0; i < a.length; i++) {
+          s += String.fromCharCode(a.charCodeAt(i) ^ b.charCodeAt(i % b.length));
+        }
+        return s.split("|")[0];
+      } catch (e) {
+        return null;
+      }
+    }
+    function extractFastplay(rawUrl, opts) {
+      return __async(this, null, function* () {
+        opts = opts || {};
+        var url = normalizeUrl(rawUrl);
+        try {
+          var fpOrig = new URL(url).origin;
+          var res = yield fetch(url, {
+            headers: { "User-Agent": DEFAULT_UA2, "Referer": opts.referer || fpOrig + "/" },
+            signal: timeoutSignal(12e3)
+          });
+          if (!res.ok) return [];
+          var fpHtml = yield res.text();
+          var manMatch = /(?:src|stream)\s*:\s*["'](\/manifests\/[^"']+)["']/.exec(fpHtml);
+          if (!manMatch) return [];
+          var manPath = manMatch[1].replace(/&amp;/g, "&");
+          var manifestUrl = manPath.indexOf("http") === 0 ? manPath : fpOrig + manPath;
+          var subs = extractInlineVttSubtitles(fpHtml, { "User-Agent": DEFAULT_UA2, "Referer": fpOrig + "/" });
+          var fpHdrs = { "User-Agent": EXOPLAYER_UA, "Referer": fpOrig + "/", "Origin": fpOrig };
+          return [buildNuvioStream2({
+            name: opts.streamName || opts.sourceLabel || "Anthology",
+            title: "\u231C " + (opts.sourceLabel || "Anthology") + " \u231F | FastPlay (1080p HLS)",
+            url: manifestUrl,
+            quality: "1080p",
+            format: "hls",
+            isHls: true,
+            provider: opts.provider,
+            headers: fpHdrs,
+            subtitles: subs
+          })];
+        } catch (e) {
+          return [];
+        }
+      });
+    }
+    function extractSetplay(rawUrl, opts) {
+      return __async(this, null, function* () {
+        opts = opts || {};
+        var url = normalizeUrl(rawUrl);
+        try {
+          var spOrig = new URL(url).origin;
+          var res = yield fetch(url, {
+            headers: { "User-Agent": DEFAULT_UA2, "Referer": opts.referer || spOrig + "/" },
+            signal: timeoutSignal(12e3)
+          });
+          if (!res.ok) return [];
+          var spHtml = yield res.text();
+          var cerMatch = /SPG\.cerceve\(\s*["'][^"']*["']\s*,\s*["']([^"']+)["']\s*,\s*["']([^"']+)["']\s*\)/.exec(spHtml) || /SPG\.cerceve\(\s*["']([^"']+)["']\s*,\s*["']([^"']+)["']\s*\)/.exec(spHtml);
+          var fastplayUrl = cerMatch ? spgDecode(cerMatch[1], cerMatch[2]) : null;
+          if (!fastplayUrl) {
+            var fMatch = /https?:\/\/fastplay\.[a-z]+\/stfplay\.php\?[^"'<>\s\\]+/i.exec(spHtml);
+            if (fMatch) fastplayUrl = fMatch[0].replace(/\\+/g, "");
+          }
+          if (!fastplayUrl || fastplayUrl.indexOf("http") !== 0) return [];
+          return yield extractFastplay(fastplayUrl, Object.assign({}, opts, { referer: res.url || url }));
+        } catch (e) {
+          return [];
+        }
+      });
+    }
+    function extractByEmbedUrl2(rawUrl, opts) {
+      return __async(this, null, function* () {
+        opts = opts || {};
+        var url = normalizeUrl(rawUrl);
+        var lower = url.toLowerCase();
+        if (lower.indexOf("setplay.") !== -1) return extractSetplay(url, opts);
+        if (lower.indexOf("fastplay.") !== -1) return extractFastplay(url, opts);
+        if (lower.indexOf("vidmoly.") !== -1) return extractVidmoly(url, opts);
+        if (lower.indexOf("ok.ru") !== -1 || lower.indexOf("odnoklassniki.ru") !== -1) return extractOkRu(url, opts);
+        if (lower.indexOf("sibnet.ru") !== -1) return extractSibnet(url, opts);
+        if (lower.indexOf("bysezo") !== -1 || lower.indexOf("filemoon.") !== -1 || lower.indexOf("n1mwq.org") !== -1) return extractBysezo(url, opts);
+        if (lower.indexOf("pilavyer") !== -1) return extractPilavyer(Object.assign({}, opts, { playerUrl: url }));
+        if (lower.indexOf("mail.ru") !== -1) return extractMailRu(url, opts);
+        return [];
+      });
+    }
+    module2.exports = {
+      DEFAULT_UA: DEFAULT_UA2,
+      EXOPLAYER_UA,
+      decodeHtmlEntities,
+      base64DecodeString,
+      buildNuvioStream: buildNuvioStream2,
+      extractInlineVttSubtitles,
+      extractBysezo,
+      extractVidmoly,
+      extractOkRu,
+      extractSibnet,
+      extractVixolity: extractVixolity2,
+      extractPilavyer,
+      extractMailRu,
+      extractFastplay,
+      extractSetplay,
+      extractByEmbedUrl: extractByEmbedUrl2
+    };
+  }
+});
+
 // src/kultfilmler/index.js
 var { sortStreamsByQuality } = require_quality();
 var { loadConfig, val, wrapAll } = require_config();
+var { extractByEmbedUrl, extractVixolity, buildNuvioStream, DEFAULT_UA } = require_extractors();
 var _cfgReady = null;
 function cfgReady() {
   if (!_cfgReady) {
@@ -223,7 +1276,7 @@ function fetchWithTimeout(url, options, ms) {
   }
   return fetch(url, opts);
 }
-function resolveTmdbInfo(id, mediaType) {
+function resolveTmdbInfo(id, mediaType2) {
   return __async(this, null, function* () {
     try {
       var cleanId = String(id || "").trim();
@@ -231,11 +1284,13 @@ function resolveTmdbInfo(id, mediaType) {
       var numericId = null;
       var title = "";
       var origTitle = "";
+      var imdbId = "";
       if (cleanId.startsWith("tt")) {
+        imdbId = cleanId;
         var findRes = yield fetchWithTimeout("https://api.themoviedb.org/3/find/" + cleanId + "?api_key=" + TMDB_API_KEY + "&external_source=imdb_id", {}, 1e4);
         if (findRes.ok) {
           var fd = yield findRes.json();
-          var match = mediaType === "tv" || mediaType === "series" ? fd.tv_results && fd.tv_results[0] : fd.movie_results && fd.movie_results[0];
+          var match = mediaType2 === "tv" || mediaType2 === "series" ? fd.tv_results && fd.tv_results[0] : fd.movie_results && fd.movie_results[0];
           if (!match) match = fd.movie_results && fd.movie_results[0] || fd.tv_results && fd.tv_results[0];
           if (match) {
             title = match.name || match.title || "";
@@ -245,15 +1300,16 @@ function resolveTmdbInfo(id, mediaType) {
         }
       } else {
         numericId = cleanId;
-        var type = mediaType === "tv" || mediaType === "series" ? "tv" : "movie";
-        var tRes = yield fetchWithTimeout("https://api.themoviedb.org/3/" + type + "/" + numericId + "?api_key=" + TMDB_API_KEY + "&language=tr-TR", {}, 1e4);
+        var type = mediaType2 === "tv" || mediaType2 === "series" ? "tv" : "movie";
+        var tRes = yield fetchWithTimeout("https://api.themoviedb.org/3/" + type + "/" + numericId + "?api_key=" + TMDB_API_KEY + "&language=tr-TR&append_to_response=external_ids", {}, 1e4);
         if (tRes.ok) {
           var td = yield tRes.json();
           title = td.name || td.title || "";
           origTitle = td.original_name || td.original_title || "";
+          imdbId = td.imdb_id || td.external_ids && td.external_ids.imdb_id || "";
         }
       }
-      return { title, origTitle, numericId };
+      return { title, origTitle, numericId, imdbId };
     } catch (e) {
       return { title: "", origTitle: "", numericId: id };
     }
@@ -297,6 +1353,10 @@ function searchSite(query) {
       if (!res.ok) return [];
       return parseCards(yield res.text());
     } catch (e) {
+      if (info.imdbId && (mediaType !== "tv" && mediaType !== "series")) {
+        var vixFallback = yield extractVixolity({ imdbId: info.imdbId, sourceLabel: "KultFilmler", provider: "kultfilmler" });
+        if (vixFallback.length > 0) return vixFallback;
+      }
       return [];
     }
   });
@@ -316,19 +1376,18 @@ function pickBest(cards, title) {
 function pushHls(streams, seenUrls, url, label, referer, subs) {
   if (!url || seenUrls.has(url)) return;
   seenUrls.add(url);
-  var sHeaders = { "User-Agent": HEADERS["User-Agent"], "Referer": referer || BASE_URL + "/" };
-  streams.push({
+  var sHeaders = { "User-Agent": DEFAULT_UA, "Referer": referer || "https://vidpapi.xyz/", "Origin": (referer || "https://vidpapi.xyz/").replace(/\/+$/, "") };
+  streams.push(buildNuvioStream({
     name: "KultFilmler",
     title: "\u231C KultFilmler \u231F | " + label,
     url,
     quality: "1080p",
-    provider: "kultfilmler",
-    headers: sHeaders,
     format: "hls",
     isHls: true,
-    behaviorHints: { notWebReady: true, proxyHeaders: { request: sHeaders } },
+    provider: "kultfilmler",
+    headers: sHeaders,
     subtitles: subs || []
-  });
+  }));
 }
 function extractVttSubs(html, base) {
   var subs = [];
@@ -343,22 +1402,6 @@ function extractVttSubs(html, base) {
     subs.push({ id: lang, lang, url: u });
   }
   return subs;
-}
-function resolveVidmoly(iframeUrl, pageUrl, streams, seenUrls) {
-  return __async(this, null, function* () {
-    try {
-      var r = yield fetchWithTimeout(iframeUrl, {
-        headers: { "User-Agent": HEADERS["User-Agent"], "Referer": pageUrl, "Sec-Fetch-Dest": "iframe" }
-      }, 15e3);
-      if (!r.ok) return;
-      var t = yield r.text();
-      var m = t.match(/file\s*:\s*"([^"]+)"/);
-      if (m && m[1].includes(".m3u8")) {
-        pushHls(streams, seenUrls, m[1], "VidMoly (HLS)", BASE_URL + "/", extractVttSubs(t));
-      }
-    } catch (e) {
-    }
-  });
 }
 function resolveVidpapi(iframeUrl, pageUrl, streams, seenUrls) {
   return __async(this, null, function* () {
@@ -407,7 +1450,8 @@ function resolveVidpapi(iframeUrl, pageUrl, streams, seenUrls) {
       var secMatch = apiText.match(/securedLink"\s*:\s*"([^"]+)"/);
       if (secMatch) {
         var secured = secMatch[1].replace(/\\\//g, "/");
-        pushHls(streams, seenUrls, secured, "Vidpapi (HLS)", BASE_URL + "/", extractVttSubs(iHtml));
+        var originRef = iframeUrl.match(/^https?:\/\/[^/]+/)[0] + "/";
+        pushHls(streams, seenUrls, secured, "Vidpapi (HLS)", originRef, extractVttSubs(iHtml));
       }
     } catch (e) {
     }
@@ -465,16 +1509,22 @@ function extractStreamsFromContentPage(pageUrl) {
         var iframeUrl = iframes[i];
         if (iframeUrl.startsWith("//")) iframeUrl = "https:" + iframeUrl;
         else if (iframeUrl.startsWith("/")) iframeUrl = BASE_URL + iframeUrl;
-        if (iframeUrl.includes("vidmoly")) {
-          yield resolveVidmoly(iframeUrl, pageUrl, streams, seenUrls);
+        if (iframeUrl.includes("youtube.com") || iframeUrl.includes("youtu.be")) {
+          continue;
+        }
+        var extStreams = yield extractByEmbedUrl(iframeUrl, { sourceLabel: "KultFilmler", provider: "kultfilmler", referer: pageUrl });
+        if (extStreams.length > 0) {
+          extStreams.forEach(function(s) {
+            if (s && s.url && !seenUrls.has(s.url)) {
+              seenUrls.add(s.url);
+              streams.push(s);
+            }
+          });
         } else if (iframeUrl.includes("vidpapi.xyz") || iframeUrl.includes("vidpapi.com")) {
           yield resolveVidpapi(iframeUrl, pageUrl, streams, seenUrls);
-        } else if (iframeUrl.includes("youtube.com") || iframeUrl.includes("youtu.be")) {
-          continue;
         } else {
           yield resolveGeneric(iframeUrl, pageUrl, streams, seenUrls);
         }
-        if (streams.length > 0) break;
       }
     } catch (e) {
     }
@@ -575,11 +1625,11 @@ function getMeta(args) {
     }
   });
 }
-function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
+function getStreams(tmdbIdOrArgs, mediaType2, seasonNum, episodeNum) {
   return __async(this, null, function* () {
     try {
       if (typeof tmdbIdOrArgs === "object" && tmdbIdOrArgs && tmdbIdOrArgs.id) {
-        return getStreams(tmdbIdOrArgs.id, mediaType, seasonNum, episodeNum);
+        return getStreams(tmdbIdOrArgs.id, mediaType2, seasonNum, episodeNum);
       }
       if (typeof tmdbIdOrArgs === "string" && tmdbIdOrArgs.startsWith("kultfilmler:ep:")) {
         return yield extractStreamsFromContentPage(decodeURIComponent(tmdbIdOrArgs.replace("kultfilmler:ep:", "")));
@@ -598,13 +1648,13 @@ function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
       }
       var season = parseInt(seasonNum) || 1;
       var episode = parseInt(episodeNum) || 1;
-      var info = yield resolveTmdbInfo(tmdbIdOrArgs, mediaType);
-      var searchTitles = [info.title, info.origTitle].filter(Boolean);
+      var info2 = yield resolveTmdbInfo(tmdbIdOrArgs, mediaType2);
+      var searchTitles = [info2.title, info2.origTitle].filter(Boolean);
       if (searchTitles.length === 0) return [];
       for (var t = 0; t < searchTitles.length; t++) {
         var cards = yield searchSite(searchTitles[t]);
         if (!cards || cards.length === 0) continue;
-        var wantTv = mediaType === "tv" || mediaType === "series";
+        var wantTv = mediaType2 === "tv" || mediaType2 === "series";
         var filtered = cards.filter(function(c) {
           return wantTv ? c.isTv : !c.isTv;
         });
@@ -622,11 +1672,29 @@ function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
           }
         } else {
           var mStreams = yield extractStreamsFromContentPage(best.href);
-          if (mStreams.length > 0) return mStreams;
+          if (mStreams.length > 0) {
+            if (info2.imdbId) {
+              var vixAlso = yield extractVixolity({ imdbId: info2.imdbId, sourceLabel: "KultFilmler", provider: "kultfilmler" }).catch(function() {
+                return [];
+              });
+              vixAlso.forEach(function(vs) {
+                mStreams.push(vs);
+              });
+            }
+            return mStreams;
+          }
         }
+      }
+      if (info2.imdbId && (mediaType2 !== "tv" && mediaType2 !== "series")) {
+        var vixFallback = yield extractVixolity({ imdbId: info2.imdbId, sourceLabel: "KultFilmler", provider: "kultfilmler" });
+        if (vixFallback.length > 0) return vixFallback;
       }
       return [];
     } catch (e) {
+      if (info2.imdbId && (mediaType2 !== "tv" && mediaType2 !== "series")) {
+        var vixFallback = yield extractVixolity({ imdbId: info2.imdbId, sourceLabel: "KultFilmler", provider: "kultfilmler" });
+        if (vixFallback.length > 0) return vixFallback;
+      }
       return [];
     }
   });

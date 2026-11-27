@@ -7,6 +7,17 @@
       "behaviorHints": {
         "isLive": true
       }
+    },
+    {
+      "name": "⌜ Kool S7 ⌟",
+      "title": "Tele 1 HD [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/0KacFyw5G9hC-x7UuJzYaZxJNe3xJEF-ripl-z53BcU-VcXao0HsCdoN4fVyIDDfUdk_NJcbCgD-mPHaFJZm-lFBc0myoNggL-79pPeSKs4FZn2fcg0lM6hTtzit5AEVmA9wY5FihQX37TX-AclTcrrBpM3hlQRLXqZjelyviTfBK18oW3uV8iJxa2rEldtUEo256WkL9T_8Ty8syVl1OlVYyShdlaF-rrS7SbeJovxhlejkxXvYt8aLhp8w_tDD/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
     }
   ]
 }

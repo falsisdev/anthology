@@ -1,0 +1,15 @@
+{
+  "streams": [
+    {
+      "name": "⌜ Kool S6 ⌟",
+      "title": "beIN Series 2 [Kool.ws · Sunucu 6 · HD]",
+      "url": "https://dh1d0x4vhplnwwy.fu8oefd4v2dvlmaarur6crfp.com/sunshine/Jr7BFLG9Dm8W--X4a-80ofIk1bTCxmM4uzy34rQuuu-4HdSmelRO2jOlNIkxFNb9HJiQrLmEv_vj1rjLz-N6Z4hBbbuBJKsGX839W7ixmZE0m98iBG_ls-TQr97bSpzdIqVUGTt8ReCdLZsP3rdI-2vE9Emwa9SLxO5iFLIAcgqECY7_nJN-OuIA0kKBRK0SdtSuVY8u6ROnA9faBv7OSffH3atLYslO2L6KKDp4tpIfu9Zvi35MKBU51u9xxoEB/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    }
+  ]
+}

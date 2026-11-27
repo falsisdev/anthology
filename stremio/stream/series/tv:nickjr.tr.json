@@ -1,0 +1,15 @@
+{
+  "streams": [
+    {
+      "name": "⌜ Kool S6 ⌟",
+      "title": "Nick Junior [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/2ki3Vpktv6Gp3THrAoabjcp41FttfGDumnCi48Fl-8MmtzZ_GEbl9_E3x_0sgBgD4qHvTAw_ehJGl4J-Z_0h68bnqpGDUp59EBN01qyBX4kVkvdt4MeFrFOXVij50TyhWIyxEOG8p50BebmkydJfuhienu1D2NPHdVCZY603IkY0ya8skS0XJkdgcXZ1Zn_38nPL6iIvwD4jTPrTufiTL_U_CnIaPXgtgJS4DMMqYYlQWHa4_WwODobOdS85urfF/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    }
+  ]
+}

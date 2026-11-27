@@ -27,7 +27,7 @@ var cheerio = (function() {
 })();
 
 var PROVIDER_NAME = 'DDiziBox';
-var BASE_URL = 'https://ddizibox.com';
+var BASE_URL = 'https://ddizibox.click';
 var DEFAULT_PLAYER_HOST = 'https://play2.pilavyerplay.top';
 var TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
 
@@ -379,6 +379,7 @@ async function extractStreamsFromPlayer(pageUrl) {
 
     var streamHeaders = {
       'Referer': playerHost + '/',
+      'Origin': playerHost,
       'User-Agent': HEADERS['User-Agent']
     };
 

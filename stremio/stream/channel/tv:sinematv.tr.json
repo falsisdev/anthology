@@ -3,7 +3,18 @@
     {
       "name": "⌜ Kool S1 ⌟",
       "title": "Sinema TV [Kool.ws · Sunucu 1 · 4K UHD]",
-      "url": "http://109.205.187.150:8008/sunshine/aNcMYw2nEFvPt2MAZRPvm9vL68ur5kMS9px6VyeDuUOJtXPMNHCEND6eMsCeEWdigkBjqCFmn3MqnSrZPh9uJA1KbDxMfI_Qaxyhsi6rsNn6lNwmAoYivB3mBfl8ZRd9vRIAg-s60ndqU4Qhi8npSQRI1o2j-FZImu4GCN2HKuIghHOYPpRrIT1X8w7JS1wqyt0b1ymUFIf1Wx7F9C4RXwZALuK0kV4AHgd_5KBmqDjUHyGQ8dM9HUZ-WAWPa5OT/hls/index.m3u8",
+      "url": "http://109.205.187.150:8008/sunshine/WPV7PboiWHslud-JxLKdhwhHK3-1dI4IHQAoRXQ5pPxjY0x36S3qXoVHU_ZvW4r682fuFDs2UFoFW0Dl6Mr6ZQxuk9cNXyXCbxYePPfJm1GDnov6mA3mmsWikxjVzPVOmMKpk_989BxiJJ0PBtpPDAARkzyrb8U2u_Yf83LsyNABhNE_qxU1V9kB36obY7L4YuKlG0hRosgzKrWMYUWRzCW9Qxp6CYeWBV-fK8dEdiSUjGdVcppaZa3EEGD2dmez/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Kool S7 ⌟",
+      "title": "Sinema TV [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/slAZ7Qx7e47dKEKOuCR2u-1xYHNapwYRIHRvosxFQHyfRXsjvGQkpm4266_LWPMB6ixbGdZzNroTsX2W-4-_-KtMevIOKYqdqZkOgVQXRgzhXWfjIPxBsw5gey3pkgGgmabiXcEQwSDXeeUeFJbUZ-m0T2oTNPK6H6zwMc9l9KvOBdHtr3Fu3XXrMIwtoC-sw8Umj8wmkbARiQgVuPBBPEdxULiQ6mUZqpHNS6-wlpVgIxcbvfwT09y3U6SxSwP6/hls/index.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },

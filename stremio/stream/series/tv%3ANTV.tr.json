@@ -15,7 +15,18 @@
     {
       "name": "⌜ Kool S1 ⌟",
       "title": "NTV Haber HD [Kool.ws · Sunucu 1 · 4K UHD]",
-      "url": "http://109.205.187.150:8008/sunshine/67HAOL-ltJNLuFsL940Gzsl-AgFLnmrfEalilv02Df1RB16DvW3GDnhTXgsPoUtGoPxJ4q80-xWMmBXbLJ-boODRh6GPnjhCqtRwe-lDyWw3GQcGj625C7LcEJiOCfW_gHeId4rMnYUiYOdzkUOHrXTgfzMbYJz8VTJcKmirfr_048CnCOs0RlulKi-FNqjL89HX0kMg_19-bqSE5qeSX9_rFxl8TFOp-MI1qnWlJ4t5OwglADO5dzh73BRiTdQK/hls/index.m3u8",
+      "url": "http://109.205.187.150:8008/sunshine/pWq6L1HE_sU3fhOiKnp6nE5cpnqGf0ma_CywqSYXpNf79K2tf0vYHsFnU23rb4nPMN1GnqBgegtpzXiDI5n4LsluaXGVAyCpsTBXQ5G8xoA9JReOkxprL9FMFGqIPcu2pq34VJLEDvM13xyoBfyrwwRn9KE51ymWeC1K_mOe2xP0ad_Tx-8K9AAhhob0a1dPubws-SUniSbIXXH-I0APxONzUxbpCZxsKqm3yT5dIGKNPcP7NbzzL5Hkxfs0V5Ya/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Kool S7 ⌟",
+      "title": "NTV Haber HD [Kool.ws · Sunucu 7 · HD]",
+      "url": "https://ysahwcw3awufuoc.fu8oefd4v2dvlmaarur6crfp.com/sunshine/gnjBDPpBTrb_EiUhbw4KzOhva9dCb5qjtV5bD8n7PWL1s31OoWDawkIZmwF0v715DoOSLZKOuv0x3dy7v6cZlUD8oFRqT2WpBjFsu8aleEaE9RxC2Vmu7ajarNZEiDyupumUzeh_bYrXJCLKLGzhFk9Vm_zdvdYKpbctCJ7ZZ2dSGJdOrIDrfNjZcqG1_O-n3bq3Aa72UbvL9sU9FUh3MRVV6L4lYRM8xvZpJdXSz_jzoI0xOtNx2E_PmGrQKtLQ/hls/index.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },

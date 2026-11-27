@@ -1,6 +1,17 @@
 {
   "streams": [
     {
+      "name": "⌜ Kool S1 ⌟",
+      "title": "Sports TV HD [Kool.ws · Sunucu 1 · HD]",
+      "url": "https://ysahwcw3awufuoc.fu8oefd4v2dvlmaarur6crfp.com/sunshine/05OQIsbTMfS2SPuxvpm3NJEJb37LKeZqlCZnVcZZIyvqQwAcm7EonulWiDANPmclcgNB9DuIisr-p0_uzcWmL09mcN5EegbRUaTEd62haAAWOutrctsiTF7IdJt4IaZkcf_FVHubCPD2TOA5urK_pu-y5UvcNS8wUMkRcrQkQ8M6JsJWPRcno-e3XKNJk6OoOShTQZJi3T_MCb6q4IZonXhQLO3cwfCnKmS-Fp2fWCmXxHt2KCW0svnjk7w5wGu0/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
       "name": "⌜ Anthology Spor ⌟",
       "title": "Sports TV HD [Canlı]",
       "url": "https://andro.evrenesoglu235.click/checklist/androstreamlivesptstv.m3u8",

@@ -1,5 +1,6 @@
 const { sortStreamsByQuality } = require("../shared/quality.js");
 const { loadConfig, val, wrapAll } = require("../shared/config.js");
+const { extractByEmbedUrl, extractVixolity, buildNuvioStream, DEFAULT_UA } = require("../shared/extractors.js");
 
 var _cfgReady = null;
 function cfgReady() {
@@ -57,7 +58,9 @@ async function resolveTmdbInfo(id, mediaType) {
         var numericId = null;
         var title = '';
         var origTitle = '';
+        var imdbId = '';
         if (cleanId.startsWith('tt')) {
+            imdbId = cleanId;
             var findRes = await fetchWithTimeout('https://api.themoviedb.org/3/find/' + cleanId + '?api_key=' + TMDB_API_KEY + '&external_source=imdb_id', {}, 10000);
             if (findRes.ok) {
                 var fd = await findRes.json();
@@ -74,14 +77,15 @@ async function resolveTmdbInfo(id, mediaType) {
         } else {
             numericId = cleanId;
             var type = (mediaType === 'tv' || mediaType === 'series') ? 'tv' : 'movie';
-            var tRes = await fetchWithTimeout('https://api.themoviedb.org/3/' + type + '/' + numericId + '?api_key=' + TMDB_API_KEY + '&language=tr-TR', {}, 10000);
+            var tRes = await fetchWithTimeout('https://api.themoviedb.org/3/' + type + '/' + numericId + '?api_key=' + TMDB_API_KEY + '&language=tr-TR&append_to_response=external_ids', {}, 10000);
             if (tRes.ok) {
                 var td = await tRes.json();
                 title = td.name || td.title || '';
                 origTitle = td.original_name || td.original_title || '';
+                imdbId = td.imdb_id || (td.external_ids && td.external_ids.imdb_id) || '';
             }
         }
-        return { title: title, origTitle: origTitle, numericId: numericId };
+        return { title: title, origTitle: origTitle, numericId: numericId, imdbId: imdbId };
     } catch (e) {
         return { title: '', origTitle: '', numericId: id };
     }
@@ -127,6 +131,10 @@ async function searchSite(query) {
         var html = await res.text();
         return parseCards(html);
     } catch (e) {
+        if (info.imdbId && !(mediaType === 'tv' || mediaType === 'series')) {
+            var vixFallback = await extractVixolity({ imdbId: info.imdbId, sourceLabel: 'SetFilmİzle', provider: 'setfilmizle' });
+            if (vixFallback.length > 0) return vixFallback;
+        }
         return [];
     }
 }
@@ -367,30 +375,37 @@ async function extractStreamsFromContentPage(pageUrl) {
                     var fMatch = spHtml.match(/https?:\/\/fastplay\.[a-z]+\/stfplay\.php\?[^"'<>\s\\]+/i);
                     if (fMatch) fastplayUrl = fMatch[0].replace(/\\+/g, '');
                 }
-                if (!fastplayUrl || !fastplayUrl.startsWith('http')) continue;
+                if (!fastplayUrl || !fastplayUrl.startsWith('http')) {
+                    var extStreams = await extractByEmbedUrl(setplayUrl, { sourceLabel: 'SetFilmİzle', provider: 'setfilmizle', referer: pageUrl });
+                    if (extStreams.length > 0) {
+                        extStreams.forEach(function (es) { streams.push(es); });
+                        gotStreamForPlayer = true;
+                        break;
+                    }
+                    continue;
+                }
 
                 var fp = await resolveFastplay(fastplayUrl, spRes.url || setplayUrl);
                 if (!fp || !fp.manifestUrl) continue;
 
+                var fpOrigMatch = String(fp.referer || fastplayUrl).match(/^https?:\/\/[^/]+/);
+                var fpOrig = fpOrigMatch ? fpOrigMatch[0] : 'https://fastplay.mom';
                 var sHeaders = {
                     'User-Agent': 'ExoPlayerLib/2.19.1',
-                    'Referer': fp.referer
+                    'Referer': fpOrig + '/',
+                    'Origin': fpOrig
                 };
-                streams.push({
-                    name: 'SetFilmIzle',
-                    title: '⌜ SetFilmIzle ⌟ | FastPlay (1080p HLS)',
-                    url: fp.manifestUrl + '#.m3u8',
+                streams.push(buildNuvioStream({
+                    name: 'SetFilmİzle',
+                    title: '⌜ SetFilmİzle ⌟ | FastPlay (1080p HLS)',
+                    url: fp.manifestUrl,
                     quality: '1080p',
-                    provider: 'setfilmizle',
-                    headers: sHeaders,
                     format: 'hls',
                     isHls: true,
-                    behaviorHints: {
-                        notWebReady: true,
-                        proxyHeaders: { request: sHeaders }
-                    },
+                    provider: 'setfilmizle',
+                    headers: sHeaders,
                     subtitles: fp.subtitles || []
-                });
+                }));
                 gotStreamForPlayer = true;
                 if (streams.length > 0) break;
             } catch (e) {}
@@ -591,11 +606,25 @@ async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
                 if (streams.length > 0) return streams;
             } else {
                 var mStreams = await extractStreamsFromContentPage(best.href);
-                if (mStreams.length > 0) return mStreams;
+                if (mStreams.length > 0) {
+                    if (info.imdbId) {
+                        var vixAlso = await extractVixolity({ imdbId: info.imdbId, sourceLabel: 'SetFilmİzle', provider: 'setfilmizle' }).catch(function () { return []; });
+                        vixAlso.forEach(function (vs) { mStreams.push(vs); });
+                    }
+                    return mStreams;
+                }
             }
+        }
+        if (info.imdbId && !(mediaType === 'tv' || mediaType === 'series')) {
+            var vixFallback = await extractVixolity({ imdbId: info.imdbId, sourceLabel: 'SetFilmİzle', provider: 'setfilmizle' });
+            if (vixFallback.length > 0) return vixFallback;
         }
         return [];
     } catch (e) {
+        if (info.imdbId && !(mediaType === 'tv' || mediaType === 'series')) {
+            var vixFallback = await extractVixolity({ imdbId: info.imdbId, sourceLabel: 'SetFilmİzle', provider: 'setfilmizle' });
+            if (vixFallback.length > 0) return vixFallback;
+        }
         return [];
     }
 }

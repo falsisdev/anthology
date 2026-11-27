@@ -1,20 +1,9 @@
 {
   "streams": [
     {
-      "name": "⌜ Kool S1 ⌟",
-      "title": "Kahramanmaraş Aksu TV [Kool.ws · Sunucu 1 · HD]",
-      "url": "http://138.226.249.38:8008/sunshine/_xMMzSdV7catj-yEImIz2hblSp940OYEbZvPVle5gSD510T-I03C3kpsH2tUxChLQrv3T_DbZlkJTQxRpFKKoV5FUyz6d5eDiWgCar1ZRJoQld3eOOZ5heGMiA0MuM8LIwushtgdbkmiyBo8IQLT4YNs3szDnfNruZoAA9r9GLo8eoysMVbAHke7jw3saMwVsPtqI4kSDYtyWy5b7JOa0eBPEHkB5aEHJVG_7elgpsr6H53kzdTEr9BK3JbRJ8Cw/hls/index.m3u8",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
-    },
-    {
       "name": "⌜ Kool S7 ⌟",
       "title": "Kahramanmaraş Aksu TV [Kool.ws · Sunucu 7 · HD]",
-      "url": "http://193.47.62.157:8008/sunshine/Z9p6WI82kZZ1JXerkmAU3PikWBriPYEW0rpKmqDbkGygEwL5PDVhfQPl5kK_7oHaC4g5dbJv2SPrVWsg6m23iUdCscykPIjdw5i34H0-wVqzB-g7UIAxoChwooUF4NnDJWpwmOpc1vqSmWuv2x4yoXgGKDS2cnqvsFu54SLZ-4-4t_JiSSIOF4ihZ36i5DPjDyMq5qh7iupKcWrl_7pMw5e8ct8LTVhDebkORV6DuelgJMSTQeTpnT66UsKS8TXO/hls/index.m3u8",
+      "url": "https://ysahwcw3awufuoc.fu8oefd4v2dvlmaarur6crfp.com/sunshine/CNt0XnryTkWa4xYmpTLmUpiCamKpB9kxlyUmzWaWQvGyNWd-v2gkks9v2WbcHXWuiUbEI3Ujtj4lPhFNu44r512Zw5djyEIfQtefwl08_XM3w-yJoyHV8d9sj5jKRMmuuh-t07Tp-LxewD13hiLTmfhrw2qG6j5tmSmlgYyVSlsjPGg6XmHaNBEEJLJfxsEx1WW793EBf5UaVARZaBukarVWGw_FTqeaiBIRpKslDy0L2YnTtkspkZMrSNyodcSY/hls/index.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },

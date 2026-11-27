@@ -183,6 +183,8 @@ async function resolveSeriesInfo(rawId, mediaType, apiKey) {
   if (dres) {
     name = dres.name || dres.title || name;
     original = dres.original_name || dres.original_title || original;
+    out.originalLanguage = dres.original_language || '';
+    out.originCountry = Array.isArray(dres.origin_country) ? dres.origin_country : [];
     if (foundType === 'tv' && dres.seasons) out.seasons = dres.seasons;
   }
   out.title = name || norm.id;

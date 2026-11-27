@@ -1,5 +1,6 @@
 const { sortStreamsByQuality } = require("../shared/quality.js");
 const { loadConfig, val, wrapAll } = require("../shared/config.js");
+const { extractByEmbedUrl, extractVixolity, buildNuvioStream, DEFAULT_UA } = require("../shared/extractors.js");
 
 var _cfgReady = null;
 function cfgReady() {
@@ -56,7 +57,9 @@ async function resolveTmdbInfo(id, mediaType) {
         var numericId = null;
         var title = '';
         var origTitle = '';
+        var imdbId = '';
         if (cleanId.startsWith('tt')) {
+            imdbId = cleanId;
             var findRes = await fetchWithTimeout('https://api.themoviedb.org/3/find/' + cleanId + '?api_key=' + TMDB_API_KEY + '&external_source=imdb_id', {}, 10000);
             if (findRes.ok) {
                 var fd = await findRes.json();
@@ -73,14 +76,15 @@ async function resolveTmdbInfo(id, mediaType) {
         } else {
             numericId = cleanId;
             var type = (mediaType === 'tv' || mediaType === 'series') ? 'tv' : 'movie';
-            var tRes = await fetchWithTimeout('https://api.themoviedb.org/3/' + type + '/' + numericId + '?api_key=' + TMDB_API_KEY + '&language=tr-TR', {}, 10000);
+            var tRes = await fetchWithTimeout('https://api.themoviedb.org/3/' + type + '/' + numericId + '?api_key=' + TMDB_API_KEY + '&language=tr-TR&append_to_response=external_ids', {}, 10000);
             if (tRes.ok) {
                 var td = await tRes.json();
                 title = td.name || td.title || '';
                 origTitle = td.original_name || td.original_title || '';
+                imdbId = td.imdb_id || (td.external_ids && td.external_ids.imdb_id) || '';
             }
         }
-        return { title: title, origTitle: origTitle, numericId: numericId };
+        return { title: title, origTitle: origTitle, numericId: numericId, imdbId: imdbId };
     } catch (e) {
         return { title: '', origTitle: '', numericId: id };
     }
@@ -125,6 +129,10 @@ async function searchSite(query) {
         if (!res.ok) return [];
         return parseCards(await res.text());
     } catch (e) {
+        if (info.imdbId && (mediaType !== 'tv' && mediaType !== 'series')) {
+            var vixFallback = await extractVixolity({ imdbId: info.imdbId, sourceLabel: 'KultFilmler', provider: 'kultfilmler' });
+            if (vixFallback.length > 0) return vixFallback;
+        }
         return [];
     }
 }
@@ -145,19 +153,18 @@ function pickBest(cards, title) {
 function pushHls(streams, seenUrls, url, label, referer, subs) {
     if (!url || seenUrls.has(url)) return;
     seenUrls.add(url);
-    var sHeaders = { 'User-Agent': HEADERS['User-Agent'], 'Referer': referer || (BASE_URL + '/') };
-    streams.push({
+    var sHeaders = { 'User-Agent': DEFAULT_UA, 'Referer': referer || 'https://vidpapi.xyz/', 'Origin': (referer || 'https://vidpapi.xyz/').replace(/\/+$/, '') };
+    streams.push(buildNuvioStream({
         name: 'KultFilmler',
         title: '⌜ KultFilmler ⌟ | ' + label,
         url: url,
         quality: '1080p',
-        provider: 'kultfilmler',
-        headers: sHeaders,
         format: 'hls',
         isHls: true,
-        behaviorHints: { notWebReady: true, proxyHeaders: { request: sHeaders } },
+        provider: 'kultfilmler',
+        headers: sHeaders,
         subtitles: subs || []
-    });
+    }));
 }
 
 function extractVttSubs(html, base) {
@@ -234,7 +241,8 @@ async function resolveVidpapi(iframeUrl, pageUrl, streams, seenUrls) {
         var secMatch = apiText.match(/securedLink"\s*:\s*"([^"]+)"/);
         if (secMatch) {
             var secured = secMatch[1].replace(/\\\//g, '/');
-            pushHls(streams, seenUrls, secured, 'Vidpapi (HLS)', BASE_URL + '/', extractVttSubs(iHtml));
+            var originRef = iframeUrl.match(/^https?:\/\/[^/]+/)[0] + '/';
+            pushHls(streams, seenUrls, secured, 'Vidpapi (HLS)', originRef, extractVttSubs(iHtml));
         }
     } catch (e) {}
 }
@@ -290,16 +298,19 @@ async function extractStreamsFromContentPage(pageUrl) {
             var iframeUrl = iframes[i];
             if (iframeUrl.startsWith('//')) iframeUrl = 'https:' + iframeUrl;
             else if (iframeUrl.startsWith('/')) iframeUrl = BASE_URL + iframeUrl;
-            if (iframeUrl.includes('vidmoly')) {
-                await resolveVidmoly(iframeUrl, pageUrl, streams, seenUrls);
+            if (iframeUrl.includes('youtube.com') || iframeUrl.includes('youtu.be')) {
+                continue;
+            }
+            var extStreams = await extractByEmbedUrl(iframeUrl, { sourceLabel: 'KultFilmler', provider: 'kultfilmler', referer: pageUrl });
+            if (extStreams.length > 0) {
+                extStreams.forEach(function (s) {
+                    if (s && s.url && !seenUrls.has(s.url)) { seenUrls.add(s.url); streams.push(s); }
+                });
             } else if (iframeUrl.includes('vidpapi.xyz') || iframeUrl.includes('vidpapi.com')) {
                 await resolveVidpapi(iframeUrl, pageUrl, streams, seenUrls);
-            } else if (iframeUrl.includes('youtube.com') || iframeUrl.includes('youtu.be')) {
-                continue;
             } else {
                 await resolveGeneric(iframeUrl, pageUrl, streams, seenUrls);
             }
-            if (streams.length > 0) break;
         }
     } catch (e) {}
     return streams;
@@ -433,11 +444,25 @@ async function getStreams(tmdbIdOrArgs, mediaType, seasonNum, episodeNum) {
                 }
             } else {
                 var mStreams = await extractStreamsFromContentPage(best.href);
-                if (mStreams.length > 0) return mStreams;
+                if (mStreams.length > 0) {
+                    if (info.imdbId) {
+                        var vixAlso = await extractVixolity({ imdbId: info.imdbId, sourceLabel: 'KultFilmler', provider: 'kultfilmler' }).catch(function () { return []; });
+                        vixAlso.forEach(function (vs) { mStreams.push(vs); });
+                    }
+                    return mStreams;
+                }
             }
+        }
+        if (info.imdbId && (mediaType !== 'tv' && mediaType !== 'series')) {
+            var vixFallback = await extractVixolity({ imdbId: info.imdbId, sourceLabel: 'KultFilmler', provider: 'kultfilmler' });
+            if (vixFallback.length > 0) return vixFallback;
         }
         return [];
     } catch (e) {
+        if (info.imdbId && (mediaType !== 'tv' && mediaType !== 'series')) {
+            var vixFallback = await extractVixolity({ imdbId: info.imdbId, sourceLabel: 'KultFilmler', provider: 'kultfilmler' });
+            if (vixFallback.length > 0) return vixFallback;
+        }
         return [];
     }
 }

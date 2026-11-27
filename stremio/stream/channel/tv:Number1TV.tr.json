@@ -14,8 +14,19 @@
     },
     {
       "name": "⌜ Kool S1 ⌟",
-      "title": "Number 1 TV HD [Kool.ws · Sunucu 1 · HD]",
-      "url": "http://109.205.187.150:8008/sunshine/HV_u1IbJ8-M-sGcL9VmAxld1SZWVrG01DatqdVQpnsApNYe1kGKfT-R9_iaYTRYjMvPNpUDZL4FKrmBJtiWPSy4t3sJRLGQnrsLAoryhxXeL_5AKgx0tyqot7bvdHmBuVIZe2iLZ3PQHPwCJx_0WnzYnNm4Fnr7kYZyPrX0pQRo8aMlMxd4U3jamQNJGyCUaij5vVXkwFhxJACWC_xkLWNI2rkdlCos_8Yvu_lEAjB_anvfhXp4elP4LJNIw9-jt/hls/index.m3u8",
+      "title": "Number 1 TV HD [Kool.ws · Sunucu 1 · 4K UHD]",
+      "url": "https://ysahwcw3awufuoc.fu8oefd4v2dvlmaarur6crfp.com/sunshine/sqbAL2oosfBnQnvUsvUi8m3Sg788YwZInoUDf4XvDlCzuc5tHMwyKbo4-7gO_Q-zY1At4v52GqAZdLvocYcEwvgYoaaIOgHNBuzEs21aWo6_7wsebljT9mKaak_6yjOxL0fSW4-LIFJtgnGq9idMBFkkLoZVwBMab2HqR5hLIo3ScuIrhZqmCiJBCVhA6F-Gx8B_d3Lov9tRmn5PwxKqzeNqoxfZpCmcmesjLGlyLQPCfUKjk_SYBkJ9lChoxo1Y/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Kool S6 ⌟",
+      "title": "Number 1 TV HD [Kool.ws · Sunucu 6 · HD]",
+      "url": "https://dh1d0x4vhplnwwy.fu8oefd4v2dvlmaarur6crfp.com/sunshine/kZkw_xvkXtIvZ1NmfScpYaBY_D0hfDimAO6TvbMsDLQVaWneT4tSZ6aUK_Dd8JqGhoDOA4VQmqYAl_gwTZg1gFzn_9tZqCZQtZSTPdvKwb8u7cMeb_KOdgCECGfBjJU31mOLzqpzmQtiO3sOqFuwHMAESPFy4rgkluw5mxa_ljrpNoFuxzAnntDKnUcdW28vlnzLEZ10tkoN4TbtP5FvqnkC6_vmYQkQTAIkr-PC_vsiYWcR2X6Q_-2cqDb1xxmJ/hls/index.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },

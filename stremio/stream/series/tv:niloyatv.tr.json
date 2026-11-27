@@ -1,0 +1,15 @@
+{
+  "streams": [
+    {
+      "name": "⌜ Kool S6 ⌟",
+      "title": "Niloya TV [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/v9oDHbQ_GyPI9GwykOzuGdoQKZ0zGidXPc8ZjGU9-8Pm64CJWm7PxwVZPvHDhNtJci8Ck-Wk4GQv8Xndkrh7bXPFBYyRkY8xkDzgdVg5Y4oAQOlg-H_Z7A6Tw-IjSdxfH_dHS6UPIisp9yht8pIU1_wdTVX5vEszc0SdYnPEFQZjx9OJ6dDJ5SdpzwnYJ2nxMGoGnomFukWEN2uQm4yEtvQCXjKZt0Lzs5mTjbQxaannXWd3kTZitT5SvtuScYWM/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "streams": [
+    {
+      "name": "⌜ Kool S6 ⌟",
+      "title": "beIN Series 4 [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/x3QNvwL0dZp_eDOs1L7HeEQSn_bziUmJsDR5de8lvdld3T6mI5ARU7GXev-rmqjd4IQnVJe5UW5FB7m4kzGHxJ0y-upaGxCMp87CySwHy-XE8Ia2VyI1ZWuwYzXjC6-dyWDlZLFvyRrYhcBM6m2yvq-2UYsxeO1PsjbnDpcyBzTmHACl-MB6va53wvD07j9IupywL9780xhHh5rSnSdTaWggv0sjE8fNEhnSASjYkF9bWzJ8JjSij6r9U4kcRc-y/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    }
+  ]
+}

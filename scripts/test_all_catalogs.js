@@ -32,9 +32,11 @@ const path = require("path");
         let testArgs = { id: catDef.id, type: catDef.type };
         const hasRequiredSearch = Array.isArray(catDef.extra) && catDef.extra.some(e => e.name === "search" && e.isRequired);
         if (hasRequiredSearch) {
-          const sTerm = (catDef.id.includes("anime") || catDef.name.toLowerCase().includes("anime"))
-            ? "death"
-            : (catDef.id.includes("film") || catDef.type === "movie" ? "matrix" : "breaking");
+          const sTerm = catDef.id.includes("ddizibox_animeler")
+            ? "olum"
+            : (catDef.id.includes("anime") || catDef.name.toLowerCase().includes("anime"))
+              ? "death"
+              : (catDef.id.includes("film") || catDef.type === "movie" ? "matrix" : "breaking");
           testArgs.extra = { search: sTerm };
         }
         const catRes = await mod.getCatalog(testArgs);

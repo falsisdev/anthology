@@ -3,7 +3,18 @@
     {
       "name": "⌜ Kool S1 ⌟",
       "title": "Sinema Komedi [Kool.ws · Sunucu 1 · 4K UHD]",
-      "url": "http://109.205.187.150:8008/sunshine/8eRpCwWm3nCKVkq2LMNdof_dfXfzo__ay-TVwIjvjyE-O6DlvtLSsmVC3-Ws04RlxrGxc_6m1QtT5Iu5P5ASI08n6vNB10dHVo03605TmjwBRDiuneKPmUYov6myhDr6ToqczmxeZXDhtmDydWrjguhLglq4AoL4xyivgsatecAgxIEhDP5IRN2ZcyenV3wzu7KHiWtvcbthFQDDQWKal78qUsETDxFGIAZh0c_2LwwufSr2r5Wdm_EFfkU1QwuA/hls/index.m3u8",
+      "url": "http://109.205.187.150:8008/sunshine/vNX-2TPrxgY0PrHJLFSm2h3Cv7uI5066l83zX6KibSbY7tOKCotR_hQ0nRRHWUizEcNX69BNjWYIy29wLETEePntypxnY-jNnflfGsnNmalflcFIGlQ8pE7Vmd_VbAF0a9qlfMw2yc1Ph2VmSjKNGJsyWlZbsGHTzQpLbU33us41hDAMGuTpAyR52GKtE_QYNXNQX5p40HU8InnwygiaMqPj_i-ccMifdUWkZkZV9mAS5PslC9AyFKGyLX_Xilda/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Kool S7 ⌟",
+      "title": "Sinema Komedi [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/7WK-_IVElYxJ_U7GjPuO112weSaDZgbsrh-k7thZxJAFXDJWgMGnC0qnU4wV0RbZvKuHCnZPSaNdoNR07z-w_NVY3h5RIXQOPK2DzXyv2p7ZiRs19XfEkF54G2N9QrVGsOuznGtJADG7kSYu69aYlHGzTwUHd2N6OkhsFzgw48m7crrIGZ4f8cmmzj8Mj3C7IspeMjss_ZHoTXnI6YOZcF7SWLtter9OpjoPB8VPqAgoOboHR9xwfghTZEIXQCaF/hls/index.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },

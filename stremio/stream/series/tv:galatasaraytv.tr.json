@@ -1,0 +1,15 @@
+{
+  "streams": [
+    {
+      "name": "⌜ Kool S7 ⌟",
+      "title": "Galatasaray TV [Kool.ws · Sunucu 7 · HD]",
+      "url": "https://dh1d0x4vhplnwwy.fu8oefd4v2dvlmaarur6crfp.com/sunshine/VVxN2n0QvG6tJVZsVmUoCuELgIjgGWcGca_zqb5buJdc8GqGuYHbVrihHdBWRbAyJRs-l-93v35ulEKS37odIUj4IlMtvzXthBXtgYAG1tMCj0tzNmnSXKRVBo2cYTqLlRSFzniE92re94DmSYXHrl-DRrnivQAdYKky3gf9SYPnJjwFl8y_YEBJ--mEq5cWqU5lLdErIqi7dUYAQR4rowp-yBNhTcFO_dKCDZMQES3qU_CFkCthaFN7LnE0D9Bl/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    }
+  ]
+}

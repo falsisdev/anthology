@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: youtube_dizifilm
  * Built from src/youtube_dizifilm/index.js
- * Build: v1.8.43 (anthology build system)
+ * Build: v1.8.44 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -375,6 +375,8 @@ var require_turkish_series = __commonJS({
         if (dres) {
           name = dres.name || dres.title || name;
           original = dres.original_name || dres.original_title || original;
+          out.originalLanguage = dres.original_language || "";
+          out.originCountry = Array.isArray(dres.origin_country) ? dres.origin_country : [];
           if (foundType === "tv" && dres.seasons) out.seasons = dres.seasons;
         }
         out.title = name || norm.id;
@@ -474,6 +476,7 @@ var require_ytmp4 = __commonJS({
           var channelId = details.channelId || null;
           var videoTitle = details.title || null;
           var viewCount = details.viewCount || null;
+          var durationSec = parseInt(details.lengthSeconds || "0", 10) || 0;
           if (data.streamingData.hlsManifestUrl) {
             return {
               url: data.streamingData.hlsManifestUrl,
@@ -484,6 +487,7 @@ var require_ytmp4 = __commonJS({
               channelId,
               videoTitle,
               viewCount,
+              durationSec,
               headers: { "User-Agent": "com.google.android.youtube/20.10.38 (Linux; U; Android 11) gzip" }
             };
           }
@@ -501,6 +505,7 @@ var require_ytmp4 = __commonJS({
                 channelId,
                 videoTitle,
                 viewCount,
+                durationSec,
                 headers: { "User-Agent": "com.google.android.youtube/20.10.38 (Linux; U; Android 11) gzip" }
               };
             }

@@ -312,42 +312,69 @@ async function searchSeries(query) {
       }
     }
 
-    // 2. WP REST API Categories arama
-    try {
-      var wpCatUrl = BASE_URL + '/wp-json/wp/v2/categories?search=' + encodeURIComponent(query);
-      var wpRes = await fetch(wpCatUrl, { headers: HEADERS, signal: timeoutSignal(6000) });
-      if (wpRes.ok) {
-        var wpCats = await wpRes.json();
-        if (Array.isArray(wpCats)) {
-          for (var i = 0; i < wpCats.length; i++) {
-            var c = wpCats[i];
-            if (c.slug && !seenSlugs[c.slug]) {
-              seenSlugs[c.slug] = true;
-              results.push({ slug: c.slug, title: decodeHtmlEntities(c.name || c.slug), url: BASE_URL + '/' + c.slug + '/' });
+    var cleanQueryAlt = String(query || '').replace(/['’`]/g, '').trim();
+    var qTerms = [query];
+    if (cleanQueryAlt && cleanQueryAlt !== query) qTerms.push(cleanQueryAlt);
+
+    for (var qi = 0; qi < qTerms.length; qi++) {
+      var term = qTerms[qi];
+      // 2. WP REST API Categories arama (sadece bölümü olanlar)
+      try {
+        var wpCatUrl = BASE_URL + '/wp-json/wp/v2/categories?search=' + encodeURIComponent(term) + '&hide_empty=true&per_page=20';
+        var wpRes = await fetch(wpCatUrl, { headers: HEADERS, signal: timeoutSignal(6000) });
+        if (wpRes.ok) {
+          var wpCats = await wpRes.json();
+          if (Array.isArray(wpCats)) {
+            for (var i = 0; i < wpCats.length; i++) {
+              var c = wpCats[i];
+              if (c.slug && Number(c.count || 0) > 0 && !seenSlugs[c.slug]) {
+                seenSlugs[c.slug] = true;
+                results.push({ slug: c.slug, title: decodeHtmlEntities(c.name || c.slug), url: BASE_URL + '/' + c.slug + '/' });
+              }
             }
           }
         }
-      }
-    } catch (e) {}
+      } catch (e) {}
 
-    // 3. HTML Arama Sayfası
-    try {
-      var searchUrl = BASE_URL + '/?s=' + encodeURIComponent(query);
-      var sRes = await fetch(searchUrl, { headers: HEADERS, signal: timeoutSignal(6000) });
-      if (sRes.ok) {
-        var sHtml = await sRes.text();
-        var linkRegex = /<div class="categorytitle"[^>]*>\s*<a href="https:\/\/diziboxizle\.com\/([a-z0-9-]+)\/"[^>]*>([^<]+)<\/a>/gi;
-        var lm;
-        while ((lm = linkRegex.exec(sHtml)) !== null) {
-          var hSlug = lm[1];
-          var hTitle = decodeHtmlEntities(lm[2]);
-          if (!seenSlugs[hSlug]) {
-            seenSlugs[hSlug] = true;
-            results.push({ slug: hSlug, title: hTitle, url: BASE_URL + '/' + hSlug + '/' });
+      // 2b. WP REST API Posts arama yedeği
+      try {
+        var wpPostUrl = BASE_URL + '/wp-json/wp/v2/posts?search=' + encodeURIComponent(term) + '&per_page=15';
+        var wpPRes = await fetch(wpPostUrl, { headers: HEADERS, signal: timeoutSignal(6000) });
+        if (wpPRes.ok) {
+          var wpPosts = await wpPRes.json();
+          if (Array.isArray(wpPosts)) {
+            for (var p = 0; p < wpPosts.length; p++) {
+              var post = wpPosts[p];
+              var pLink = String(post.link || '');
+              var pm = pLink.match(/diziboxizle\.com\/([a-z0-9-]+?)(?:-\d+-sezon|\d*)-?\d*-bolum/i);
+              if (pm && pm[1] && !seenSlugs[pm[1]]) {
+                seenSlugs[pm[1]] = true;
+                results.push({ slug: pm[1], title: decodeHtmlEntities((post.title && post.title.rendered) || pm[1]), url: BASE_URL + '/' + pm[1] + '/' });
+              }
+            }
           }
         }
-      }
-    } catch (e) {}
+      } catch (e) {}
+
+      // 3. HTML Arama Sayfası
+      try {
+        var searchUrl = BASE_URL + '/?s=' + encodeURIComponent(term);
+        var sRes = await fetch(searchUrl, { headers: HEADERS, signal: timeoutSignal(6000) });
+        if (sRes.ok) {
+          var sHtml = await sRes.text();
+          var linkRegex = /<div class="categorytitle"[^>]*>\s*<a href="https:\/\/diziboxizle\.com\/([a-z0-9-]+)\/"[^>]*>([^<]+)<\/a>/gi;
+          var lm;
+          while ((lm = linkRegex.exec(sHtml)) !== null) {
+            var hSlug = lm[1];
+            var hTitle = decodeHtmlEntities(lm[2]);
+            if (!seenSlugs[hSlug]) {
+              seenSlugs[hSlug] = true;
+              results.push({ slug: hSlug, title: hTitle, url: BASE_URL + '/' + hSlug + '/' });
+            }
+          }
+        }
+      } catch (e) {}
+    }
 
     return results;
   } catch (e) {
@@ -477,7 +504,7 @@ async function resolveVidMoly(iframeUrl) {
       isHls: true,
       headers: sHeaders,
       behaviorHints: {
-        notWebReady: false,
+        notWebReady: true,
         proxyHeaders: { request: sHeaders }
       }
     }];

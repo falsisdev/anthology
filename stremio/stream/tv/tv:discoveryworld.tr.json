@@ -1,0 +1,15 @@
+{
+  "streams": [
+    {
+      "name": "⌜ Kool S6 ⌟",
+      "title": "Discovery World [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/O9U3lB3UBQiVzdTsolGm1VgtfO6lOT0Mn9iOWU3LS_b0sE-kqNoDOb8_bdH8HTqm5a462kkkYg2Lkj-DvqqjLJ2yXDp007QZ3uhEmbVoNaml1NktooqshdZHkJk996Hg943JvvZWetF07eRVPg9CUoGw5miOjWPjFlmViQA9o2UmWOqQp3uWO4BK5Z_OGRyMeMCpXa4g6DZRs8aFs2J9dPa2MqCZMSNl0FCtkTFyBByrGemWTl8VqL351G7QX4j2/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    }
+  ]
+}

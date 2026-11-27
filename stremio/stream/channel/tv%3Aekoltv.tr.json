@@ -1,0 +1,15 @@
+{
+  "streams": [
+    {
+      "name": "⌜ Kool S6 ⌟",
+      "title": "Ekol TV [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/dqIUurEddbD-CWMoKIK0mCo5Nq5zKMEO-RUsT_M6ONS2uSLxfhGb6iQ3t4pgPGWd6BaZxWVsNygY50HZeNqrQi758Pj_HxwvJNZiUWVq9RvO_64KCn127KvcNTJYGQzDTeMI0fNL5vgJBLcjpPeR32Y1aU-IyTKd9MMLKFgM-DOPTsAzWAAu3lsJip5uM4stq788WqzSeYsefotnhumNwmJhBqv0cS7PcTE0XfjA0LZ12yM2YFYbkaRcdUuelDcw/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    }
+  ]
+}

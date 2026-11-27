@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: anthology_diziler
  * Built from src/anthology_diziler/index.js
- * Build: v1.8.43 (anthology build system)
+ * Build: v1.8.44 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -375,6 +375,8 @@ var require_turkish_series = __commonJS({
         if (dres) {
           name = dres.name || dres.title || name;
           original = dres.original_name || dres.original_title || original;
+          out.originalLanguage = dres.original_language || "";
+          out.originCountry = Array.isArray(dres.origin_country) ? dres.origin_country : [];
           if (foundType === "tv" && dres.seasons) out.seasons = dres.seasons;
         }
         out.title = name || norm.id;
@@ -474,6 +476,7 @@ var require_ytmp4 = __commonJS({
           var channelId = details.channelId || null;
           var videoTitle = details.title || null;
           var viewCount = details.viewCount || null;
+          var durationSec = parseInt(details.lengthSeconds || "0", 10) || 0;
           if (data.streamingData.hlsManifestUrl) {
             return {
               url: data.streamingData.hlsManifestUrl,
@@ -484,6 +487,7 @@ var require_ytmp4 = __commonJS({
               channelId,
               videoTitle,
               viewCount,
+              durationSec,
               headers: { "User-Agent": "com.google.android.youtube/20.10.38 (Linux; U; Android 11) gzip" }
             };
           }
@@ -501,6 +505,7 @@ var require_ytmp4 = __commonJS({
                 channelId,
                 videoTitle,
                 viewCount,
+                durationSec,
                 headers: { "User-Agent": "com.google.android.youtube/20.10.38 (Linux; U; Android 11) gzip" }
               };
             }
@@ -542,7 +547,7 @@ function cfgReady() {
 }
 var NOW_BASE = "https://www.nowtv.com.tr";
 var SHOW_BASE = "https://www.showtv.com.tr";
-var KANALD_BASE = "https://kanald.com.tr";
+var KANALD_BASE = "https://www.kanald.com.tr";
 var ATV_BASE = "https://www.atv.com.tr";
 var STAR_BASE = "https://www.startv.com.tr";
 var TRT1_BASE = "https://www.trt1.com.tr";
@@ -704,56 +709,32 @@ function parseShowHorMedia(html) {
 function showEpisodePage(showSlug, seasonNum, episodeNum) {
   return __async(this, null, function* () {
     try {
-      var listing = yield fetchText(SHOW_BASE + "/kanal/dizi/tum_bolumler/" + showSlug);
-      if (listing) {
-        var slugEsc = String(showSlug).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-        var re = new RegExp("(\\/dizi\\/tum_bolumler\\/" + slugEsc + "-sezon-(\\d+)-bolum-(\\d+)-izle\\/\\d+)", "gi");
-        var m, targetUrl = "";
+      var slugEsc = String(showSlug).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      var listUrls = [
+        SHOW_BASE + "/dizi/tanitim/" + showSlug,
+        SHOW_BASE + "/kanal/dizi/tum_bolumler/" + showSlug
+      ];
+      var targetUrl = "";
+      for (var li = 0; li < listUrls.length; li++) {
+        var listing = yield fetchText(listUrls[li]);
+        if (!listing) continue;
+        var re = new RegExp("(\\/dizi\\/tum_bolumler\\/" + slugEsc + "(?:-sezon-(\\d+))?-bolum-(\\d+)-izle\\/\\d+)", "gi");
+        var m;
         while ((m = re.exec(listing)) !== null) {
-          var sN = parseInt(m[2], 10);
+          var sN = m[2] ? parseInt(m[2], 10) : 1;
           var eN = parseInt(m[3], 10);
-          if (sN === parseInt(seasonNum, 10) && eN === parseInt(episodeNum, 10)) {
+          if (eN === parseInt(episodeNum, 10) && (!m[2] || sN === parseInt(seasonNum, 10))) {
             targetUrl = m[1];
             break;
           }
         }
-        if (targetUrl) {
-          var html = yield fetchText(SHOW_BASE + targetUrl);
-          if (html) {
-            var src = parseShowHorMedia(html);
-            if (src) return mkStream(src, "Show TV | " + showSlug + " S" + seasonNum + "E" + episodeNum, "hls", true, "1080p", { "User-Agent": HEADERS["User-Agent"], "Referer": SHOW_BASE + "/" });
-          }
-        }
+        if (targetUrl) break;
       }
-      var listingAll = yield fetchText(SHOW_BASE + "/kanal/dizi/tum_bolumler/" + showSlug);
-      if (listingAll) {
-        var reAll = new RegExp("(\\/dizi\\/tum_bolumler\\/" + slugEsc + "-sezon-(\\d+)-bolum-(\\d+)-izle\\/\\d+)", "gi");
-        var allM, sBest = null, eBest = null, uBest = "";
-        while ((allM = reAll.exec(listingAll)) !== null) {
-          var sA = parseInt(allM[2], 10);
-          var eA = parseInt(allM[3], 10);
-          var wantS = parseInt(seasonNum, 10);
-          var wantE = parseInt(episodeNum, 10);
-          if (sA === wantS && eA === wantE) {
-            sBest = sA;
-            eBest = eA;
-            uBest = allM[1];
-            break;
-          }
-          if (sA === wantS) {
-            if (sBest === null || Math.abs(eA - wantE) < Math.abs(eBest - wantE)) {
-              sBest = sA;
-              eBest = eA;
-              uBest = allM[1];
-            }
-          }
-        }
-        if (uBest) {
-          var htmlB = yield fetchText(SHOW_BASE + uBest);
-          if (htmlB) {
-            var srcB = parseShowHorMedia(htmlB);
-            if (srcB) return mkStream(srcB, "Show TV | " + showSlug + " S" + seasonNum + "E" + episodeNum, "hls", true, "1080p", { "User-Agent": HEADERS["User-Agent"], "Referer": SHOW_BASE + "/" });
-          }
+      if (targetUrl) {
+        var html = yield fetchText(SHOW_BASE + targetUrl);
+        if (html) {
+          var src = parseShowHorMedia(html);
+          if (src) return mkStream(src, "Show TV | " + showSlug + " S" + seasonNum + "E" + episodeNum, "hls", true, "1080p", { "User-Agent": HEADERS["User-Agent"], "Referer": SHOW_BASE + "/" });
         }
       }
     } catch (e) {
@@ -764,15 +745,16 @@ function showEpisodePage(showSlug, seasonNum, episodeNum) {
 function kanaldEpisode(showSlug, episodeNum) {
   return __async(this, null, function* () {
     try {
+      var kBase = KANALD_BASE.replace("://kanald.com.tr", "://www.kanald.com.tr");
       var urls = [
-        KANALD_BASE + "/" + showSlug + "/bolumler/" + showSlug + "-" + episodeNum + "-bolum",
-        KANALD_BASE + "/" + showSlug + "/bolumler/" + showSlug + "-son-bolum"
+        kBase + "/" + showSlug + "/bolumler/" + showSlug + "-" + episodeNum + "-bolum",
+        kBase + "/" + showSlug + "/bolumler/" + episodeNum + "-bolum"
       ];
       for (var i = 0; i < urls.length; i++) {
         var html = yield fetchText(urls[i]);
         if (!html) continue;
         var m3 = html.match(/https?:\/\/kanaldvod\.duhnet\.tv\/[^"'\s\\]+\.smil\/playlist\.m3u8[^"'\s\\]*/i);
-        if (m3) return mkStream(m3[0], "KanalD | " + showSlug + " EP" + episodeNum, "hls", true, "1080p", { "User-Agent": HEADERS["User-Agent"], "Referer": KANALD_BASE + "/" });
+        if (m3) return mkStream(m3[0], "KanalD | " + showSlug + " EP" + episodeNum, "hls", true, "1080p", { "User-Agent": HEADERS["User-Agent"], "Referer": kBase + "/" });
       }
     } catch (e) {
     }
@@ -804,18 +786,20 @@ function starResolve(rid) {
 function starEpisode(showSlug, episodeNum) {
   return __async(this, null, function* () {
     try {
-      var html = yield fetchText(STAR_BASE + "/" + showSlug + "/" + episodeNum + "-bolum-izle");
-      if (!html) return null;
-      var rid = (html.match(/"referenceId":"([a-f0-9]{24})"/) || [])[1];
-      if (!rid) {
-        var m = html.match(/referenceId[:"]?\s*["']?([a-f0-9]{24})/);
-        if (m) rid = m[1];
+      var urls = [
+        STAR_BASE + "/dizi/" + showSlug + "/bolumler/" + episodeNum + "-bolum",
+        STAR_BASE + "/dizi/" + showSlug + "/bolumler/" + episodeNum + "-bolum-final",
+        STAR_BASE + "/" + showSlug + "/" + episodeNum + "-bolum-izle"
+      ];
+      for (var i = 0; i < urls.length; i++) {
+        var html = yield fetchText(urls[i]);
+        if (!html) continue;
+        var rid = (html.match(/referenceId[:"]?\s*["']?([a-f0-9]{24})/i) || html.match(/\b([a-f0-9]{24})\b/) || [])[1];
+        if (rid) return yield starResolve(rid);
       }
-      if (!rid) return null;
-      return yield starResolve(rid);
     } catch (e) {
-      return null;
     }
+    return null;
   });
 }
 function atvEpisode(showSlug, episodeNum) {
@@ -842,20 +826,21 @@ function tv2Episode(showSlug, episodeNum, seasonNum) {
   return __async(this, null, function* () {
     try {
       var paths = [
+        "/diziler/arsiv/" + showSlug + "/bolumler",
         "/diziler/guncel/" + showSlug + "/bolumler",
+        "/programlar/arsiv/" + showSlug + "/bolumler",
         "/programlar/guncel/" + showSlug + "/bolumler"
       ];
-      var url, foundPage = "", hadListing = false;
+      var slugEsc = String(showSlug).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      var url, foundPage = "";
       for (var p = 0; p < paths.length; p++) {
         url = TV2_BASE + paths[p];
         var listing = yield fetchText(url);
         if (!listing) continue;
-        hadListing = true;
-        var re = new RegExp("(\\/diziler\\/guncel\\/" + String(showSlug).replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\/bolumler\\/" + String(showSlug).replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "-[" + String(episodeNum) + "]+-bolum)", "gi");
+        var re = new RegExp("(\\/(?:diziler|programlar)\\/(?:arsiv|guncel)\\/" + slugEsc + "\\/bolumler\\/" + slugEsc + "-(\\d+)-bolum)", "gi");
         var m;
         while ((m = re.exec(listing)) !== null) {
-          var num = m[1].match(/-(\d+)-bolum$/);
-          if (num && parseInt(num[1], 10) === parseInt(episodeNum, 10)) {
+          if (parseInt(m[2], 10) === parseInt(episodeNum, 10)) {
             foundPage = m[1];
             break;
           }
@@ -890,13 +875,21 @@ function trt1Episode(title, episodeNum) {
       var ids = [];
       var re = /"videoId":"([a-zA-Z0-9_-]{11})"/g;
       var m;
-      while ((m = re.exec(html)) !== null) ids.push(m[1]);
+      while ((m = re.exec(html)) !== null && ids.length < 6) ids.push(m[1]);
+      var titleFold = cleanTitle(title);
+      var epBoundary = new RegExp("(?:^|[^0-9])" + parseInt(episodeNum, 10) + "(?:[^0-9]|$)");
       var seen = {};
       for (var i = 0; i < ids.length; i++) {
         if (seen[ids[i]]) continue;
         seen[ids[i]] = true;
         var st = yield resolveYouTubeMp4(ids[i]);
-        if (st) return [mkStream(st.url, "TRT1 | " + title + " EP" + episodeNum + " (YouTube)", st.format, st.isHls, st.quality || "1080p", st.headers)];
+        if (!st) continue;
+        if (st.durationSec > 0 && st.durationSec < 900) continue;
+        var vtFold = cleanTitle(st.videoTitle || "");
+        if (/fragman|teaser|on izleme|tanitim/.test(vtFold)) continue;
+        if (vtFold.indexOf(titleFold) !== -1 && epBoundary.test(vtFold)) {
+          return [mkStream(st.url, "TRT1 | " + title + " EP" + episodeNum + " (YouTube)", st.format, st.isHls, st.quality || "1080p", st.headers)];
+        }
       }
     } catch (e) {
     }
@@ -1094,6 +1087,9 @@ function getStreams(_0) {
           if (!info || !info.title && !info.origTitle) {
             if (idNorm.kind === "title") info = { title: idNorm.id, origTitle: idNorm.id, aliases: [], kind: "title", type: "tv" };
             else return [];
+          }
+          if (info.originalLanguage && info.originalLanguage !== "tr") {
+            return [];
           }
         }
       }

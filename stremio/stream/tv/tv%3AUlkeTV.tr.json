@@ -15,7 +15,7 @@
     {
       "name": "⌜ Kool S1 ⌟",
       "title": "Ülke TV HD [Kool.ws · Sunucu 1 · 4K UHD]",
-      "url": "http://138.226.249.38:8008/sunshine/Uoqn8JmoTF7mrBAK8CFYvU9G9JGhjQHMkZQuAY7Dqg7nZAnOrvLEuyPkncsS4_I_DUiFQqXi0-ifuvTfHCLjx4MlSzflrONbmRMSeXieMlSjV5NuwNKHQt7h5Nrh9xtmo84vR5gTwGqsGJUSk1otNlxnyjC2st-Pzkqxui5OT26Y3HKqMV8l-hc8RWsNUtp1Z_id9aCRmU_3K0eaL2rsc1z1UexNKC2zG1gwmpgUMGlCPVCPsOYZyYoFa-wElfwH/hls/index.m3u8",
+      "url": "https://dh1d0x4vhplnwwy.fu8oefd4v2dvlmaarur6crfp.com/sunshine/TP1vBfpJRf14N9G4pTnn7auaO6LK9hNekBMEYhAigJvR-qllvoWXq5-KF8tchX_REXmOImSbhPSQ80BpuOAd6qsriZStXOxyeI8srenW6dB0ixtcaV4u10WyXY2GRpweGNU7QJr80RTrxUyZbgb2YbClx3OaGK804w6LcGa_WqASkI-QW-pe7R_qB5G2s2F0doGB-v02rx65_lAURCPiRPULYSxY9CLzRyVTTetOBfS37v44WZD7VxSuI6ACM3HQ/hls/index.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },
@@ -26,7 +26,18 @@
     {
       "name": "⌜ Kool S6 ⌟",
       "title": "Ülke TV HD [Kool.ws · Sunucu 6 · HD]",
-      "url": "http://193.47.62.157:8008/sunshine/BVrNZl0OqdtCYu_qe_v8IS-t3keTItASXjTy2h3roEPoCXPZopQXV3Zg_ab-O-L1MwgCXx9uGGAs8raCWGBpURbhs3V4YVhPzk6glEEN-BOomBbaz-r2_c9E5ZIyp0WWUUIczn4Q_QPP5gtzG9J8dRQmE0cDwI9AoQ35ySwOvXQoSU6rUgESiqxbpsMLO7Of8RL_PkPHMswUREYr01tZzMZfy3qq4-U0kjl_RiDH3UyHMGkt7jCA9rkqTZbAWYBY/hls/index.m3u8",
+      "url": "https://ysahwcw3awufuoc.fu8oefd4v2dvlmaarur6crfp.com/sunshine/0jWwYX8rpOd_vRkgwb5mS39JC1GwMpjwKONJPYmLjmLPICOiBOSPcIbYn9DDV4m0Fc6pIUFuykkMAmr-THKvCcdVNaRWAKtxpDXGCUyquMVzJEaqzBvkmgLHcg2wjGgD_KDqg9_kZVBJlg9bpX84DeppSYD6z8X6iF7ER5XUrTl5chLyAMHEqG99pL500uZMb0XmZZbFviyd9xMB5IYmNZ5LkYHAfn64_VtqKfWLUXGcAITRIWp1acpzKvqJesi6/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Kool S7 ⌟",
+      "title": "Ülke TV HD [Kool.ws · Sunucu 7 · HD]",
+      "url": "https://dh1d0x4vhplnwwy.fu8oefd4v2dvlmaarur6crfp.com/sunshine/mgpRdgMCMbgP_i9ytkvP7tszua3nT5z5IHZheYD0fGlfEUoVhhXWpNLf7Iq92RXBgxLusTekzfS4-4lGBgoYS3VGFmhfNmqnGuFZlJRz2txuw0jaaX7UOPnvrIPI1T_toqjaxmowJ8IxOUAvleEvFDfZ6G49NyKmv-OUV_9kebLprUM1bMUSv0Q_qWy-R2SdSeCYT0vO2eCLZsweZmd0AiVgGgt49Hck6VFCXby-YXdy4RKF2KxhCBhuOFCEzb6T/hls/index.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },

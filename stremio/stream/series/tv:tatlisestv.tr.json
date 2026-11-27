@@ -1,0 +1,15 @@
+{
+  "streams": [
+    {
+      "name": "⌜ Kool S6 ⌟",
+      "title": "Tatlıses TV [Kool.ws · Sunucu 6 · HD]",
+      "url": "https://dh1d0x4vhplnwwy.fu8oefd4v2dvlmaarur6crfp.com/sunshine/l34RxvnaY_qebK9izYWsq30K-IUdE338C8uHeJhSQEStzBk49l2npr_yKxVPr6dGlCrxL_mXfhx7tEIISzHcMT8DehgsUlR4Ojodc1slS944-2u_NlV4aJKvNCIa7x3oXBIl3m1HEZkNc3--Ra0ITG6tKfTsVqOJ2h5z6dTpJ999sm8c-VUzqSUcC7e0e8MSLzIH7eysKTEiGmdwpLreza87HcYamramOaHhFxUdHayXE5m4jHL7bCo4-6KWimFV/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    }
+  ]
+}

@@ -1,9 +1,20 @@
 {
   "streams": [
     {
+      "name": "⌜ Kool S6 ⌟",
+      "title": "beIN Gurme [Kool.ws · Sunucu 6 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/RNrzDqkPYlrWKGkaotFw4YhBhWsDJXhztDHeWZRp2_pkAxtLl3Is5jYg5sbuMiW0e65DM9qmp65sV8KK_0HjLkHJTEXw3JO604168A8IEobWYqZEM_nldszbWE00SpRUtW7yqZoM2hQAA-kZAyXNNsJdpsuB5tJxUbjsZRd4gIz_KZ7CwzDTVHkqzIwvQSVRw4iGdwLxuKYY0zi7ebUYkgGgevV-gQ_T6vOlzBJTJl2LSVKts5qAW5RKwtUFVEe_/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
       "name": "⌜ Kool S7 ⌟",
       "title": "beIN Gurme [Kool.ws · Sunucu 7 · HD]",
-      "url": "http://138.226.249.38:8008/sunshine/egQMtOrNo0LNBoC0huTuOdcesF4he1v_-Sv7bSQPmsGR4-6d_9kcKz_xycMqV7YmUB_ZZipc_xI0jJ9QoylzM3vbvas9AxQBx112Qh_SL30IHUCCVRL-Lsnmfnr7Ki_PPWkNXLw43-KCvcF3ZQgSq5M5XIOxGnttpdkSI-RIBvnbPmY5Bzf8Q0QbCnrXv5S178wCMO0iAi-pR3Z9kgP04MH7hz2bgtfctuNW0ZDxA9iYYf7GvmvCZmZydcFkdymt/hls/index.m3u8",
+      "url": "https://dh1d0x4vhplnwwy.fu8oefd4v2dvlmaarur6crfp.com/sunshine/youRTyE54fGklr6ilPT-nf-4l7vXNLfaz8z0mb8CakaWKtjfU7TfbCsVOsfP-Gx2-sxcdxlLXXJLoKYVWQUuLSWOQ-ABNXQHoYGWxh9RbUMtJyV-_CBc1j7PupBv-9vyRbJEtk9uWpLwFMsRlb0a_zN2w2aNJ9aYOwUfsN3QxZT2LlQxz5dCXc2peokqLURyjGovlpfcdEIVEEgnCEHyEmBH5PcHG9omUNwkhUzV5-ERoud9d6WzCoTuiXUk0w7j/hls/index.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },

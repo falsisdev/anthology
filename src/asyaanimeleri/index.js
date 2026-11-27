@@ -452,6 +452,7 @@ async function resolveVidmoly(iframeUrl, referer) {
     while ((sm = subRe.exec(html)) !== null) {
       subs.push({ id: 'tr', lang: 'tur', language: 'tr', label: 'Türkçe', url: sm[0], format: 'vtt' });
     }
+    var vmHdr = { 'Referer': 'https://vidmoly.biz/', 'User-Agent': HEADERS['User-Agent'] };
     return [{
       name: 'AsyaAnimeleri',
       title: '⌜ AsyaAnimeleri ⌟ | VidMoly (1080p HLS)',
@@ -459,7 +460,11 @@ async function resolveVidmoly(iframeUrl, referer) {
       quality: '1080p',
       format: 'hls',
       isHls: true,
-      headers: { 'Referer': 'https://vidmoly.biz/', 'User-Agent': HEADERS['User-Agent'] },
+      headers: vmHdr,
+      behaviorHints: {
+        notWebReady: true,
+        proxyHeaders: { request: vmHdr }
+      },
       subtitles: subs
     }];
   } catch (e) {

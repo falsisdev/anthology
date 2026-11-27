@@ -1,0 +1,15 @@
+{
+  "streams": [
+    {
+      "name": "⌜ Kool S1 ⌟",
+      "title": "Cinemaximum 1 [Kool.ws · Sunucu 1 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/Z61wQplX7wnzc5w0ItARY7Gpm_w4QTSV_oWXwScgiCc1nLhCLjVp2PqKCtlkv5wAZh1Rww9cj-zJN7JBpxtJiD2Y3aEKyjmB5-qFHm9gAGxZt6eiZGQi_QTKTxbm_BPRrlw0kPQ8pkLN1l55ml0L-KbBI4P6IrhphOMpgmFtmgbRiIQI7pC66jKC80Uf_kwgcdGULNEm2xeZiV4GQMuUDZcfY1JFEuueKs1Ud5ladtOPttUNtwJQw24Eh42oafAs/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    }
+  ]
+}

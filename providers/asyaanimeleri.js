@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: asyaanimeleri
  * Built from src/asyaanimeleri/index.js
- * Build: v1.8.43 (anthology build system)
+ * Build: v1.8.44 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -506,6 +506,7 @@ function resolveVidmoly(iframeUrl, referer) {
       while ((sm = subRe.exec(html)) !== null) {
         subs.push({ id: "tr", lang: "tur", language: "tr", label: "T\xFCrk\xE7e", url: sm[0], format: "vtt" });
       }
+      var vmHdr = { "Referer": "https://vidmoly.biz/", "User-Agent": HEADERS["User-Agent"] };
       return [{
         name: "AsyaAnimeleri",
         title: "\u231C AsyaAnimeleri \u231F | VidMoly (1080p HLS)",
@@ -513,7 +514,11 @@ function resolveVidmoly(iframeUrl, referer) {
         quality: "1080p",
         format: "hls",
         isHls: true,
-        headers: { "Referer": "https://vidmoly.biz/", "User-Agent": HEADERS["User-Agent"] },
+        headers: vmHdr,
+        behaviorHints: {
+          notWebReady: true,
+          proxyHeaders: { request: vmHdr }
+        },
         subtitles: subs
       }];
     } catch (e) {

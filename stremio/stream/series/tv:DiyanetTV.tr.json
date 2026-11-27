@@ -11,17 +11,6 @@
       "behaviorHints": {
         "isLive": true
       }
-    },
-    {
-      "name": "⌜ Kool S7 ⌟",
-      "title": "Diyanet TV HD [Kool.ws · Sunucu 7 · HD]",
-      "url": "http://193.47.62.157:8008/sunshine/vX1PMvzXxdxId-LG-fETqfJA1G0Ii2EIUfNFxl6QXJMgHWuXYhRFglgoSLClf9_QSj2bcfqo9B5gznzm2bTlsETd1xGY0TWaMIcr4ntT0gLRjV6a-DekY7O_VjUXqPPxwwXYU_lYYNOfUwkKXDgbt_iEC8sGYOad0dJ5bf84LoUmR2VjIQ_47pYPw1KoG9qIxowdbPaGt8Ox9fUjJ31lHsqXp74MKyKkFs0rWZU0s2vpVDPpb19RKJjuxPiMCx79/hls/index.m3u8",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
-      },
-      "behaviorHints": {
-        "isLive": true
-      }
     }
   ]
 }

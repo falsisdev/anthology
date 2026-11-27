@@ -1,6 +1,17 @@
 {
   "streams": [
     {
+      "name": "⌜ Kool S6 ⌟",
+      "title": "Tay TV HD [Kool.ws · Sunucu 6 · HD]",
+      "url": "https://dh1d0x4vhplnwwy.fu8oefd4v2dvlmaarur6crfp.com/sunshine/6qcn-u4oE7glh1FAemQ0ich1rpU0XHisI43NQF5bqbaQDX1Tvg9e3WYn6EmW1yex-Sbs8abviEyQBXKSYDmwChtiXiG-IKlNGLW_EMhqsBHmsI6DZc7y-gxozVLrUDN7j-OLKClCKmtYSA0oUhPG2VRRPWWTYUAh_Lkvy_icIfjs8vRxLNfmMfPyVkRTqUBzp84x_MIVYAlM4bIrHLD7n9P4Ma0VWQAs3juDNnrVuLEIweYoa-te0_GGBVaYCOGq/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
       "name": "⌜ Anthology Spor ⌟",
       "title": "Tay TV HD [Canlı]",
       "url": "https://duhnet.hipodrom.com/S2/HLS_LIVE/mislitaynp/playlist.m3u8",

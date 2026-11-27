@@ -1,0 +1,15 @@
+{
+  "streams": [
+    {
+      "name": "⌜ Kool S1 ⌟",
+      "title": "On 4 TV [Kool.ws · Sunucu 1 · HD]",
+      "url": "https://dh1d0x4vhplnwwy.fu8oefd4v2dvlmaarur6crfp.com/sunshine/vQU46WxzKPEAHKcmVHzXnXPEffpwjLFrC06WJk93SPNi2CSrT2hIJstVnYbZdaRlwxa2zK3nRUwMje2NAPuZGSj6UQX7zPvXNHIe7kcaA7mNVE-DfmsDJ1iD2h3BzPi4re8riq7G5y3CP2WsifFHiFzFKzivrLsHI9s5uNemiO_WkTv1bZvWB0-F364RyH9vPMyJw0YRZuBqL4xK2Xq5aEwE57Jq2DAaRQO4yY4XU_YWIgQ-FTeN5baADNMjP6mh/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    }
+  ]
+}

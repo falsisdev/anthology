@@ -1,0 +1,15 @@
+{
+  "streams": [
+    {
+      "name": "⌜ Kool S7 ⌟",
+      "title": "Rehber TV [Kool.ws · Sunucu 7 · HD]",
+      "url": "https://ysahwcw3awufuoc.fu8oefd4v2dvlmaarur6crfp.com/sunshine/2Dx9EcGImOdw7Ytk06nyMOmMq4JvtS2AqcYcm-iVUnxmrYEWlLXN3tpsXoUtlbeSxOf5lKq5rEvQCxeGs2Yxs_Gd8CCqatwLpubUC_4Qtk5k6pacMKze18ANr8OUfEbBKXWwIenpJqa57oWui6CxEn1IHjMhizxrshq2q73KcjFLE0cb3lFz8PP1r0NOkuciZVcplHkrJYZKBqUaxYtN8sUrwEIXR8HkQST8E6CdyJfCnDbqYkBTDmpt8w4lMZX5/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    }
+  ]
+}

@@ -21,12 +21,12 @@ function cfgReady() {
 
 var cheerio = require('cheerio-without-node-native');
 
-var BASE_URL = 'https://ddizimom.net';
+var BASE_URL = 'https://ddizimom.icu';
 var TMDB_API_KEY = '500330721680edb6d5f7f12ba7cd9023';
 
 var HEADERS = {
   'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
-  'Referer': 'https://ddizimom.net/'
+  'Referer': 'https://ddizimom.icu/'
 };
 
 async function resolveTmdbInfo(id, mediaType) {
@@ -157,11 +157,9 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
     }
     if (typeof tmdbId === 'string' && tmdbId.indexOf(':') !== -1 && !tmdbId.startsWith('dizimom:')) {
       var parts = tmdbId.split(':');
-      if (parts.length >= 3) {
-        var s = parseInt(parts[parts.length - 2]);
-        var e = parseInt(parts[parts.length - 1]);
-        if (!isNaN(s)) seasonNum = s;
-        if (!isNaN(e)) episodeNum = e;
+      if (parts.length >= 3 && /^\d+$/.test(parts[parts.length - 2]) && /^\d+$/.test(parts[parts.length - 1])) {
+        seasonNum = parseInt(parts[parts.length - 2], 10);
+        episodeNum = parseInt(parts[parts.length - 1], 10);
         tmdbId = parts[0];
       }
     }

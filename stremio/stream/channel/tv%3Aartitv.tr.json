@@ -1,0 +1,15 @@
+{
+  "streams": [
+    {
+      "name": "⌜ Kool S7 ⌟",
+      "title": "Artı TV [Kool.ws · Sunucu 7 · HD]",
+      "url": "https://dh1d0x4vhplnwwy.fu8oefd4v2dvlmaarur6crfp.com/sunshine/3QPo9e5QIU1bo0p-ceNIVclzB_8kHTSYlhxcYTDguWgbpJ6PRx8f9vJZWF7Z9setcJs5lWh4U5NQqQRz_kYScG8tC6mlneKSQwwoq5aIbr1KXmGPjOSjFe9ZvPN84ApzKsNuNoT80NDe0QAfgyn95drgke7a2BvHVyk0gILCop9-6Cs_xdI4XA0fwsbgJ6rAGbisUyDe0HacJhb0wclmOFrRUQp6HZ5db6cjP4L2ZzfagwOskCC7_Dtl__mT6mOX/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    }
+  ]
+}

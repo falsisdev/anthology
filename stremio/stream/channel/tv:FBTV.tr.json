@@ -3,7 +3,18 @@
     {
       "name": "⌜ Kool S1 ⌟",
       "title": "FB TV HD [Kool.ws · Sunucu 1 · 4K UHD]",
-      "url": "http://193.47.62.157:8008/sunshine/guxKBT1___bHEgIDRdHJLamsWAOHUI9MbWIHbygmeago04gSaiFzR_EPJQZDmsK5t21o-y5nBSRRjAES2DenxvrtFtEWWSgXNfO7PlSQyCZW9JB6spfmlqdJs6_w_LmRHcqnZqBhGY5cuNzlKPWZkbbAvsAPu6mKzj-V_p99Jes58wYkFDBk8O6Vwv1VZ5mfXm_cA6ih4r3JO3e9AVOhDDsojF75oN5ZPD0lj47isrjsLJL9V9K4ARDfjPjWcqrA/hls/index.m3u8",
+      "url": "https://ysahwcw3awufuoc.fu8oefd4v2dvlmaarur6crfp.com/sunshine/UvLnKmKtdHuJklVL-jTaYQRa9Rg0YT5Ez1papJ0ODnTL09xnmidqthhtp170CtyGrZpaD_YqeF1tC5jiWb1JKC97Gy-BMOSiMwPY8AyCWgctedn445smL0POuo1xoeInKUAFiFxF6slNrLYVw4mQoFY4Cw_rjESSzDDeaYZ1u3eDn1CxkQvDdrGynMjdTX0DkPBR0iDGEoQW8Bh4kSLT1zMs3Nl_F52MnAKRy2anblHo4i2vNV1ytykx7LlxBDAA/hls/index.m3u8",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+      },
+      "behaviorHints": {
+        "isLive": true
+      }
+    },
+    {
+      "name": "⌜ Kool S7 ⌟",
+      "title": "FB TV HD [Kool.ws · Sunucu 7 · HD]",
+      "url": "http://109.205.187.150:8008/sunshine/OI8uy38fCns3RewCRnDeouV9rLZ-QvcUwXsEtywHMYfHOej9drciQkNFsLZidNEYJcUboiHp_CHFLMRHFgXY6vzYNdx6DymezELLLOHi-Cy7T4FOlg09SnSemB5VNVPaid1aCFZHQy69FGXEUA6ckQnnpIJcJ7JgFTg5zeYiuucddMyybFuL58TasZFJiWymyfvc2QdZo-bWXQ4OI-hxR99lVFlhH42dt6YV1mocxmzfCGGxaw5qiyTaA81vKi0R/hls/index.m3u8",
       "headers": {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
       },

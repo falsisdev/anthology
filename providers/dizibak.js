@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: dizibak
  * Built from src/dizibak/index.js
- * Build: v1.8.43 (anthology build system)
+ * Build: v1.8.44 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -371,8 +371,12 @@ function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
       }
       if (!mediaType) mediaType = "tv";
       if (typeof tmdbId === "string" && tmdbId.indexOf("dizibak:show:") === 0) {
-        var slug = tmdbId.replace("dizibak:show:", "");
-        var showPage = yield getHtml(BASE_URL + "/diziler/" + slug + "/");
+        var slug = tmdbId.replace("dizibak:show:", "").replace(/^\/+/, "");
+        var showUrl = slug.indexOf("http") === 0 ? slug : BASE_URL + "/diziler/" + slug + "/";
+        var showPage = yield getHtml(showUrl);
+        if (!showPage && slug.indexOf("http") !== 0) {
+          showPage = yield getHtml(BASE_URL + "/" + slug + "/");
+        }
         return yield resolveShowForStreams(showPage, seasonNum, episodeNum, tmdbId);
       }
       var season = parseInt(seasonNum) || 1;
@@ -527,8 +531,9 @@ function getCatalog(args) {
             var title = (item.title || "").trim();
             if (!title || seenTitles[title]) continue;
             seenTitles[title] = true;
+            var rawLink = (item.link || "").replace(BASE_URL, "").replace(/^\/diziler\//, "").replace(/\/$/, "");
             metas.push({
-              id: "dizibak:show:" + item.slugOrId || title.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+              id: "dizibak:show:" + (item.slugOrId || rawLink || title.toLowerCase().replace(/[^a-z0-9]+/g, "-")),
               type: "tv",
               name: title,
               poster: item.thumb || "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/logo_1_transparent.png",
@@ -601,9 +606,10 @@ function getMeta(args) {
       }
       var showMatch = rawId.match(/^dizibak:show:(.+)$/);
       if (showMatch) {
-        var showSlug = showMatch[1];
-        var showUrl = BASE_URL + "/diziler/" + showSlug + "/";
+        var showSlug = showMatch[1].replace(/^\/+/, "");
+        var showUrl = showSlug.indexOf("http") === 0 ? showSlug : BASE_URL + "/diziler/" + showSlug + "/";
         var shtml = yield getHtml(showUrl);
+        if (!shtml && showSlug.indexOf("http") !== 0) shtml = yield getHtml(BASE_URL + "/" + showSlug + "/");
         if (!shtml) return { meta: null };
         var stM = shtml.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i) || shtml.match(/<title>([^<]+)<\/title>/i);
         var sname = stM ? stM[1].replace(/<[^>]+>/g, "").replace(/\s*izle\s*$/i, "").trim() : showSlug.split("-").join(" ");

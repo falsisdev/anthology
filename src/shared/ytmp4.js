@@ -27,6 +27,7 @@ async function resolveYouTubeMp4(ytId) {
         var channelId = details.channelId || null;
         var videoTitle = details.title || null;
         var viewCount = details.viewCount || null;
+        var durationSec = parseInt(details.lengthSeconds || '0', 10) || 0;
 
         if (data.streamingData.hlsManifestUrl) {
             return {
@@ -38,6 +39,7 @@ async function resolveYouTubeMp4(ytId) {
                 channelId: channelId,
                 videoTitle: videoTitle,
                 viewCount: viewCount,
+                durationSec: durationSec,
                 headers: { 'User-Agent': 'com.google.android.youtube/20.10.38 (Linux; U; Android 11) gzip' }
             };
         }
@@ -53,6 +55,7 @@ async function resolveYouTubeMp4(ytId) {
                     channelId: channelId,
                     videoTitle: videoTitle,
                     viewCount: viewCount,
+                    durationSec: durationSec,
                     headers: { 'User-Agent': 'com.google.android.youtube/20.10.38 (Linux; U; Android 11) gzip' }
                 };
             }

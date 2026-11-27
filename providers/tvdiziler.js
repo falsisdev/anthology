@@ -1,7 +1,7 @@
 /**
  * Anthology Provider: tvdiziler
  * Built from src/tvdiziler/index.js
- * Build: v1.8.43 (anthology build system)
+ * Build: v1.8.44 (anthology build system)
  */
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __commonJS = (cb, mod) => function __require() {
@@ -375,6 +375,8 @@ var require_turkish_series = __commonJS({
         if (dres) {
           name = dres.name || dres.title || name;
           original = dres.original_name || dres.original_title || original;
+          out.originalLanguage = dres.original_language || "";
+          out.originCountry = Array.isArray(dres.origin_country) ? dres.origin_country : [];
           if (foundType === "tv" && dres.seasons) out.seasons = dres.seasons;
         }
         out.title = name || norm.id;

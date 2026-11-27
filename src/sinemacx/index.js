@@ -22,6 +22,7 @@ function cfgReady() {
 
 var cheerio = require('cheerio-without-node-native');
 const { timeoutSignal } = require("../shared/http.js");
+const { extractVixolity, buildNuvioStream, DEFAULT_UA } = require("../shared/extractors.js");
 
 const PROVIDER_NAME = 'SinemaCX';
 var BASE_URL = 'https://sinemacc.com';
@@ -231,20 +232,37 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
             if (r.ok) {
               const json = await r.json();
               if (json && json.securedLink) {
-                return [{
-                  name: displayTitle,
-                  title: `⌜ SinemaCX ⌟ | ${langInfo}`,
-                  url: json.securedLink,
-                  quality: '1080p',
-                  type: 'hls',
-                  format: 'hls',
-                  isHls: true,
-                  provider: 'sinemacx',
-                  headers: {
-                    'Referer': 'https://player.filmizle.in/',
-                    'User-Agent': WORKING_HEADERS['User-Agent']
+                const fpHeaders = {
+                  'Referer': 'https://player.filmizle.in/',
+                  'Origin': 'https://player.filmizle.in',
+                  'User-Agent': DEFAULT_UA
+                };
+                // Verify master + first variant playlist are actually alive (not 404).
+                let fpPlayable = false;
+                try {
+                  const mRes = await fetch(json.securedLink, { headers: fpHeaders, signal: timeoutSignal(4000) });
+                  if (mRes.ok) {
+                    const mTxt = await mRes.text();
+                    const sub = mTxt.split(/\r?\n/).map(l => l.trim()).find(l => l && !l.startsWith('#'));
+                    if (sub) {
+                      const subUrl = new URL(sub, mRes.url || json.securedLink).toString();
+                      const vRes = await fetch(subUrl, { headers: fpHeaders, signal: timeoutSignal(4000) });
+                      fpPlayable = vRes.ok;
+                    }
                   }
-                }];
+                } catch (e) {}
+                if (fpPlayable) {
+                  return [buildNuvioStream({
+                    name: displayTitle,
+                    title: `⌜ SinemaCX ⌟ | ${langInfo}`,
+                    url: json.securedLink,
+                    quality: '1080p',
+                    format: 'hls',
+                    isHls: true,
+                    provider: 'sinemacx',
+                    headers: fpHeaders
+                  })];
+                }
               }
             }
           }
@@ -252,47 +270,15 @@ async function getStreams(tmdbId, mediaType, seasonNum, episodeNum) {
       } catch (e) {}
     }
 
-    // Fallback: Vixolity 1080p HLS mirror when player.filmizle.in is unreachable
+    // Fallback: Vixolity 1080p HLS mirror when player.filmizle.in is unreachable or 404
     if (info.imdbId) {
-      const vixUrl = `https://ha.vixolity.com/vs/${info.imdbId}`;
-      const vRes = await fetch(vixUrl, {
-        headers: {
-          'User-Agent': WORKING_HEADERS['User-Agent'],
-          'Referer': 'https://ha.vixolity.com/',
-          'Origin': 'https://ha.vixolity.com'
-        },
-        signal: timeoutSignal(6000)
+      const vixStreams = await extractVixolity({
+        imdbId: info.imdbId,
+        sourceLabel: 'SinemaCX',
+        streamName: displayTitle,
+        provider: 'sinemacx'
       });
-      if (vRes.ok) {
-        const vTxt = await vRes.text();
-        if (vTxt && vTxt.includes('#EXTM3U')) {
-          return [{
-            name: displayTitle,
-            title: `⌜ SinemaCX ⌟ | ${langInfo} • 1080p [FHD]`,
-            url: vixUrl,
-            quality: '1080p',
-            type: 'hls',
-            format: 'hls',
-            isHls: true,
-            provider: 'sinemacx',
-            headers: {
-              'User-Agent': WORKING_HEADERS['User-Agent'],
-              'Referer': 'https://ha.vixolity.com/',
-              'Origin': 'https://ha.vixolity.com'
-            },
-            behaviorHints: {
-              notWebReady: true,
-              proxyHeaders: {
-                request: {
-                  'User-Agent': WORKING_HEADERS['User-Agent'],
-                  'Referer': 'https://ha.vixolity.com/',
-                  'Origin': 'https://ha.vixolity.com'
-                }
-              }
-            }
-          }];
-        }
-      }
+      if (vixStreams.length > 0) return vixStreams;
     }
 
     return [];

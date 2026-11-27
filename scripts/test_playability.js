@@ -84,6 +84,8 @@ async function checkHttp(url, headers = {}) {
         streams = await mod.getStreams("5920", "tv", 1, 1);
       } else if (scraper.id === "dizibak" || scraper.id === "dizipod" || scraper.id === "ddizibox" || scraper.id === "diziyou" || scraper.id === "dizimom") {
         streams = await mod.getStreams("1396", "tv", 1, 1);
+      } else if (scraper.id === "anthology_plus") {
+        streams = await mod.getStreams("27205", "movie");
       } else if (scraper.id === "anthology_m3u") {
         streams = await mod.getStreams("165", "movie");
       } else if (scraper.id === "hdfilmcehennemi") {
@@ -96,6 +98,10 @@ async function checkHttp(url, headers = {}) {
         streams = await mod.getStreams({ id: "39176", type: "series", season: 1, episode: 1 });
       } else if (scraper.id === "ddizi" || scraper.id === "tvdiziler") {
         streams = await mod.getStreams("213194", "tv", 1, 1);
+      } else if (scraper.id === "anthology_tv") {
+        const sportStreams = await mod.getStreams({ id: "tv:beINSports1.tr", type: "tv" });
+        const ulusalStreams = await mod.getStreams({ id: "tv:TRT1.tr", type: "tv" });
+        streams = [...(sportStreams || []), ...(ulusalStreams || [])];
       } else if (scraper.id === "anthology_spor") {
         streams = await mod.getStreams({ id: "tv:beINSports1.tr", type: "tv" });
       } else if (scraper.id === "anthology_ulusal") {
